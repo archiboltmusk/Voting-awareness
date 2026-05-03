@@ -340,6 +340,61 @@ body::before {
   padding:2px 8px; border:1px solid var(--green); color:var(--green);
 }
 
+/* CANDIDATE GUIDE */
+.steps-grid {
+  display:grid; grid-template-columns:repeat(5,1fr);
+  gap:0; border:2px solid var(--rule); margin-top:48px;
+}
+.step-card {
+  padding:28px 22px; border-right:1px solid var(--rule);
+  transition:background .2s;
+}
+.step-card:last-child { border-right:none; }
+.step-card:hover { background:var(--paper-mid); }
+.step-num {
+  font-family:'JetBrains Mono',monospace; font-size:36px;
+  font-weight:600; color:var(--ink-faint); line-height:1; margin-bottom:14px;
+}
+.step-title { font-family:'Fraunces',serif; font-size:18px; font-weight:600; line-height:1.3; margin-bottom:8px; }
+.step-desc { font-size:14px; color:var(--ink-soft); line-height:1.6; }
+
+.flags-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  border:2px solid var(--rule); margin-top:32px;
+}
+.flags-col.red-col .flags-header { background:var(--red); color:#fff; }
+.flags-col.green-col .flags-header { background:var(--green); color:#fff; }
+.flags-header {
+  padding:14px 24px; font-family:'JetBrains Mono',monospace;
+  font-size:11px; letter-spacing:.15em; text-transform:uppercase; font-weight:600;
+}
+.flag-item {
+  padding:13px 24px; border-top:1px solid var(--rule);
+  font-size:15px; line-height:1.5; display:flex; gap:10px; align-items:flex-start;
+  color:var(--ink-soft);
+}
+.flags-col.red-col .flag-item { border-right:1px solid var(--rule); }
+.flag-arrow { flex-shrink:0; font-family:'JetBrains Mono',monospace; font-size:12px; margin-top:3px; color:var(--ink-faint); }
+
+.resources-row {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border:2px solid var(--rule); margin-top:32px;
+}
+.resource-card {
+  padding:24px 20px; border-right:1px solid var(--rule); transition:background .2s;
+}
+.resource-card:last-child { border-right:none; }
+.resource-card:hover { background:var(--paper-mid); }
+.resource-icon { font-size:22px; margin-bottom:10px; }
+.resource-name { font-family:'Fraunces',serif; font-size:17px; font-weight:600; margin-bottom:5px; }
+.resource-desc { font-size:13px; color:var(--ink-soft); line-height:1.55; }
+.resource-tag {
+  display:inline-block; margin-top:8px;
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  letter-spacing:.1em; text-transform:uppercase;
+  padding:2px 8px; border:1px solid var(--ink-faint); color:var(--ink-faint);
+}
+
 /* VOTER CHECKLIST */
 .checklist-wrap { margin-top:48px; }
 .checklist-item { border-top:1px solid var(--rule); }
@@ -487,6 +542,14 @@ body::before {
   .summary-item { border-right:none; border-bottom:1px solid rgba(244,241,234,.1); padding:16px 0; }
   .summary-item:last-child { border-bottom:none; }
   .rights-grid { grid-template-columns:1fr; }
+  .steps-grid { grid-template-columns:1fr 1fr; }
+  .step-card:nth-child(2n) { border-right:none; }
+  .step-card { border-bottom:1px solid var(--rule); }
+  .flags-grid { grid-template-columns:1fr; }
+  .flags-col.red-col .flag-item { border-right:none; }
+  .resources-row { grid-template-columns:1fr 1fr; }
+  .resource-card:nth-child(2n) { border-right:none; }
+  .resource-card { border-bottom:1px solid var(--rule); }
   .evidence-toggle { grid-template-columns:60px 1fr 24px; gap:14px; }
   .evidence-content { padding-left:74px; }
   .hero-stats { flex-direction:column; max-width:260px; }
@@ -506,6 +569,10 @@ body::before {
   .evidence-toggle { grid-template-columns:1fr 24px; gap:10px; }
   .evidence-content { padding-left:0; }
   .checklist-label { gap:14px; }
+  .steps-grid { grid-template-columns:1fr; }
+  .step-card:nth-child(2n) { border-right:none; }
+  .resources-row { grid-template-columns:1fr; }
+  .resource-card { border-right:none; }
   .section-header { margin-bottom:40px; }
 }
 @media print {
@@ -821,6 +888,93 @@ body::before {
           <p class="right-desc">The Election Commission of India helpline is available during election periods. Report violations, check polling booth locations, and get help with voter ID issues.</p>
           <span class="right-tag">Helpline: 1950</span>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO CHOOSE -->
+<section class="section-wrap bg-dark">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-kicker">A practical guide</div>
+      <h2 class="section-title">How to choose the <em>right candidate</em></h2>
+      <p class="section-sub">Five steps every voter can follow — before you mark the EVM.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num">01</div>
+        <div class="step-title">Find out who's running</div>
+        <p class="step-desc">Visit myneta.info or the ECI website and search your constituency. You may have more choices than the visible frontrunners.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">02</div>
+        <div class="step-title">Read their affidavit</div>
+        <p class="step-desc">Every candidate must file a public declaration covering criminal cases, assets and liabilities, and education. It's free, public, and takes 5 minutes to read.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">03</div>
+        <div class="step-title">Check their track record</div>
+        <p class="step-desc">Have they held office before? Search their name and your constituency. Ask: what road, school, or health centre did they actually deliver — not promise?</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">04</div>
+        <div class="step-title">Ask the local question</div>
+        <p class="step-desc">Do they live here? Do they understand your block's specific problems — water, work, health, roads? Vague slogans are not answers.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">05</div>
+        <div class="step-title">Compare, then decide</div>
+        <p class="step-desc">Don't just vote against someone. Look at all available options and choose the one whose record and specific commitments you trust the most.</p>
+      </div>
+    </div>
+
+    <div class="flags-grid">
+      <div class="flags-col red-col">
+        <div class="flags-header">🚩 Red flags — think twice</div>
+        <div class="flag-item"><span class="flag-arrow">→</span><span>Switched parties multiple times — always ask why</span></div>
+        <div class="flag-item"><span class="flag-arrow">→</span><span>Serious undisclosed criminal cases on their affidavit</span></div>
+        <div class="flag-item"><span class="flag-arrow">→</span><span>Only visible in the constituency during election season</span></div>
+        <div class="flag-item"><span class="flag-arrow">→</span><span>Vague slogans, no concrete or verifiable commitments</span></div>
+        <div class="flag-item"><span class="flag-arrow">→</span><span>Known to control local contracts, syndicates, or tenders</span></div>
+        <div class="flag-item"><span class="flag-arrow">→</span><span>Uncontested panchayat seats in their area in recent years</span></div>
+      </div>
+      <div class="flags-col green-col">
+        <div class="flags-header">✓ Green flags — promising signs</div>
+        <div class="flag-item"><span class="flag-arrow">→</span><span>Present year-round, known to attend local grievances</span></div>
+        <div class="flag-item"><span class="flag-arrow">→</span><span>Clean or fully explained criminal record on their affidavit</span></div>
+        <div class="flag-item"><span class="flag-arrow">→</span><span>Can name specific improvements they delivered in a previous term</span></div>
+        <div class="flag-item"><span class="flag-arrow">→</span><span>Makes specific, time-bound commitments about local issues</span></div>
+        <div class="flag-item"><span class="flag-arrow">→</span><span>Publicly supports the opposition's right to contest in their area</span></div>
+        <div class="flag-item"><span class="flag-arrow">→</span><span>Not the same person simply running under a new party colour</span></div>
+      </div>
+    </div>
+
+    <div class="resources-row">
+      <div class="resource-card reveal">
+        <div class="resource-icon">📊</div>
+        <div class="resource-name">myneta.info</div>
+        <p class="resource-desc">Every candidate's criminal cases, declared assets, liabilities, and education. Updated every election cycle. Free to use.</p>
+        <span class="resource-tag">Free · No login</span>
+      </div>
+      <div class="resource-card reveal">
+        <div class="resource-icon">🗳</div>
+        <div class="resource-name">voters.eci.gov.in</div>
+        <p class="resource-desc">Check if your name is on the electoral roll, find your polling booth, and verify your voter ID card details before polling day.</p>
+        <span class="resource-tag">ECI official</span>
+      </div>
+      <div class="resource-card reveal">
+        <div class="resource-icon">📰</div>
+        <div class="resource-name">Local news archive</div>
+        <p class="resource-desc">Search your candidate's name in The Telegraph, Anandabazar Patrika, or any local paper. Their past statements and actions are on the record.</p>
+        <span class="resource-tag">Search their name</span>
+      </div>
+      <div class="resource-card reveal">
+        <div class="resource-icon">📞</div>
+        <div class="resource-name">ECI Helpline 1950</div>
+        <p class="resource-desc">Active during election periods. Report booth violations, get polling location info, and seek guidance on voter ID issues.</p>
+        <span class="resource-tag">Call 1950</span>
       </div>
     </div>
   </div>
