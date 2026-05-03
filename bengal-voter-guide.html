@@ -134,10 +134,11 @@ body::before {
 .hero-stats {
   display:flex; justify-content:center;
   border:1px solid var(--rule); max-width:580px; margin:0 auto 40px;
+  width:100%;
 }
 .hero-stat {
   padding:20px 32px; border-right:1px solid var(--rule);
-  flex:1; min-width:120px;
+  flex:1; min-width:0;
 }
 .hero-stat:last-child { border-right:none; }
 .hero-stat-num {
@@ -540,20 +541,24 @@ body::before {
   .era-card:last-child { border-bottom:none; }
   .summary-grid { grid-template-columns:1fr; }
   .summary-item { border-right:none; border-bottom:1px solid rgba(244,241,234,.1); padding:16px 0; }
+  .summary-item:first-child { padding-left:0; }
   .summary-item:last-child { border-bottom:none; }
   .rights-grid { grid-template-columns:1fr; }
   .steps-grid { grid-template-columns:1fr 1fr; }
   .step-card:nth-child(2n) { border-right:none; }
   .step-card { border-bottom:1px solid var(--rule); }
+  .step-card:last-child { border-bottom:none; }
   .flags-grid { grid-template-columns:1fr; }
   .flags-col.red-col .flag-item { border-right:none; }
+  .flags-col.red-col { border-bottom:2px solid var(--rule); }
   .resources-row { grid-template-columns:1fr 1fr; }
   .resource-card:nth-child(2n) { border-right:none; }
   .resource-card { border-bottom:1px solid var(--rule); }
+  .resource-card:nth-last-child(-n+2) { border-bottom:none; }
   .evidence-toggle { grid-template-columns:60px 1fr 24px; gap:14px; }
   .evidence-content { padding-left:74px; }
-  .hero-stats { flex-direction:column; max-width:260px; }
-  .hero-stat { border-right:none; border-bottom:1px solid var(--rule); }
+  .hero-stats { flex-direction:column; max-width:100%; }
+  .hero-stat { border-right:none; border-bottom:1px solid var(--rule); padding:16px 24px; text-align:left; }
   .hero-stat:last-child { border-bottom:none; }
   .timeline::before { left:20px; }
   .tl-event { grid-template-columns:40px 1fr; }
@@ -561,19 +566,52 @@ body::before {
   .tl-center { justify-content:flex-start; }
   .tl-right { padding-left:16px; }
   .audience-tab { padding:8px 14px; font-size:13px; }
+  .checklist-q { font-size:18px; }
+  .right-item { padding:22px 24px; }
+  .footer-title { font-size:24px; }
 }
 @media(max-width:600px) {
   body { font-size:16px; }
+  .masthead-top { justify-content:center; text-align:center; }
   .hero { padding:48px 0 36px; }
+  .hero-sub { font-size:17px; }
+  .hero-stats { max-width:100%; }
+  .hero-stat { padding:14px 20px; }
   .section-wrap { padding:48px 0; }
+  .section-header { margin-bottom:40px; }
+  /* evidence toggle: hide the EX/RQ label so 2-col grid stays intact (title + icon) */
+  .evidence-num { display:none; }
   .evidence-toggle { grid-template-columns:1fr 24px; gap:10px; }
   .evidence-content { padding-left:0; }
   .checklist-label { gap:14px; }
+  .checklist-q { font-size:17px; }
   .steps-grid { grid-template-columns:1fr; }
   .step-card:nth-child(2n) { border-right:none; }
+  .step-card:last-child { border-bottom:none; }
   .resources-row { grid-template-columns:1fr; }
   .resource-card { border-right:none; }
-  .section-header { margin-bottom:40px; }
+  .resource-card:nth-last-child(-n+2) { border-bottom:1px solid var(--rule); }
+  .resource-card:last-child { border-bottom:none; }
+  .pull-quote { margin:32px 0; padding:28px 0; }
+  .pull-quote-text { font-size:clamp(18px,5vw,28px); }
+  .thesis-text { font-size:18px; }
+  .share-row { gap:8px; }
+  .share-btn { padding:10px 16px; }
+  .footer { padding:48px 0 36px; }
+  .cl-bar-text { font-size:11px; }
+}
+@media(max-width:400px) {
+  .container { padding:0 16px; }
+  .audience-tab { padding:8px 10px; font-size:12px; }
+  .hero h1 { font-size:36px; }
+  .lang-btn { padding:6px 14px; }
+  .masthead-controls { flex-direction:column; gap:6px; align-items:center; }
+  .right-item { padding:18px 16px; gap:12px; }
+  .flag-item { padding:11px 16px; font-size:14px; }
+  .checklist-label { padding:20px 0; }
+  .era-card { padding:28px 20px; }
+  .step-card { padding:22px 16px; }
+  .resource-card { padding:20px 16px; }
 }
 @media print {
   #progress-bar,#back-top,.audience-nav,.theme-toggle,.share-row { display:none !important; }
