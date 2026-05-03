@@ -1,738 +1,536 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Scarf Changes, The Hand Doesn't — A Voter's Guide to Bengal's Power Structures</title>
+<meta name="description" content="A non-partisan civic education guide to Bengal's political power structures. Simple, honest, and useful for every voter in 2026.">
+<title>The Bengal Reader — A Voter's Guide to Bengal's Power Structures</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --paper: #f4f1ea;
-    --paper-dark: #ebe6db;
-    --ink: #1a1714;
-    --ink-soft: #4a443c;
-    --ink-faint: #8a8275;
-    --rule: #2a2520;
-    --red: #b8231c;       /* CPI(M) era */
-    --green: #1f6b3a;     /* TMC era */
-    --saffron: #d97706;   /* BJP era */
-    --highlight: #f5e6a8;
-    --shadow: rgba(26, 23, 20, 0.08);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 18px;
-    line-height: 1.6;
-    overflow-x: hidden;
-    background-image:
-      radial-gradient(circle at 10% 20%, rgba(184, 35, 28, 0.02) 0%, transparent 40%),
-      radial-gradient(circle at 90% 80%, rgba(31, 107, 58, 0.02) 0%, transparent 40%);
-  }
-
-  /* Subtle paper grain */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.4;
-    z-index: 1;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.09 0 0 0 0 0.08 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
-  .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 32px;
-    position: relative;
-    z-index: 2;
-  }
-
-  /* === MASTHEAD === */
-  .masthead {
-    border-bottom: 3px double var(--rule);
-    padding: 24px 0 16px;
-    margin-bottom: 0;
-  }
-
-  .masthead-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin-bottom: 12px;
-  }
-
-  .masthead-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 900;
-    font-size: clamp(36px, 6vw, 64px);
-    line-height: 0.95;
-    letter-spacing: -0.02em;
-    text-align: center;
-    font-style: italic;
-  }
-
-  .masthead-bengali {
-    font-family: 'Noto Serif Bengali', serif;
-    font-weight: 800;
-    font-size: clamp(20px, 3vw, 28px);
-    text-align: center;
-    margin-top: 8px;
-    color: var(--ink-soft);
-  }
-
-  /* === LANGUAGE TOGGLE === */
-  .lang-bar {
-    display: flex;
-    justify-content: center;
-    gap: 4px;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--rule);
-    background: var(--paper-dark);
-  }
-
-  .lang-btn {
-    background: transparent;
-    border: 1px solid var(--ink);
-    padding: 6px 16px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    color: var(--ink);
-    transition: all 0.2s;
-  }
-
-  .lang-btn.active {
-    background: var(--ink);
-    color: var(--paper);
-  }
-
-  .lang-btn:hover:not(.active) {
-    background: var(--paper);
-  }
-
-  /* === HERO === */
-  .hero {
-    padding: 80px 0 60px;
-    text-align: center;
-    border-bottom: 1px solid var(--rule);
-    position: relative;
-  }
-
-  .hero-kicker {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin-bottom: 24px;
-  }
-
-  .hero h1 {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: clamp(40px, 7vw, 88px);
-    line-height: 1.02;
-    letter-spacing: -0.025em;
-    max-width: 18ch;
-    margin: 0 auto 32px;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    font-weight: 600;
-  }
-
-  .hero h1 .red { color: var(--red); }
-  .hero h1 .green { color: var(--green); }
-  .hero h1 .saffron { color: var(--saffron); }
-
-  .hero-sub {
-    font-size: 20px;
-    line-height: 1.5;
-    max-width: 56ch;
-    margin: 0 auto;
-    color: var(--ink-soft);
-    font-style: italic;
-  }
-
-  .hero-scroll {
-    margin-top: 60px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    animation: bounce 2.5s ease-in-out infinite;
-  }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); opacity: 0.6; }
-    50% { transform: translateY(8px); opacity: 1; }
-  }
-
-  /* === THESIS BAR === */
-  .thesis {
-    padding: 48px 0;
-    border-bottom: 1px solid var(--rule);
-    background: var(--paper-dark);
-  }
-
-  .thesis-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 48px;
-    align-items: start;
-  }
-
-  .thesis-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-  }
-
-  .thesis-text {
-    font-size: 26px;
-    line-height: 1.45;
-    font-weight: 400;
-  }
-
-  .thesis-text strong {
-    background: var(--highlight);
-    padding: 0 4px;
-    font-weight: 600;
-  }
-
-  /* === TABS === */
-  .audience-nav {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: var(--paper);
-    border-bottom: 2px solid var(--rule);
-    padding: 12px 0;
-  }
-
-  .audience-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    flex-wrap: wrap;
-  }
-
-  .audience-tab {
-    background: transparent;
-    border: none;
-    padding: 12px 24px;
-    font-family: 'Fraunces', serif;
-    font-size: 15px;
-    cursor: pointer;
-    color: var(--ink-soft);
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s;
-    font-style: italic;
-  }
-
-  .audience-tab.active {
-    color: var(--ink);
-    border-bottom-color: var(--ink);
-    font-weight: 600;
-  }
-
-  .audience-tab:hover:not(.active) {
-    color: var(--ink);
-  }
-
-  /* === ERAS SECTION === */
-  .eras {
-    padding: 80px 0;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 64px;
-  }
-
-  .section-kicker {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin-bottom: 12px;
-  }
-
-  .section-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: clamp(32px, 5vw, 56px);
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-  }
-
-  .section-title em { font-style: italic; }
-
-  .section-sub {
-    margin-top: 16px;
-    color: var(--ink-soft);
-    font-size: 18px;
-    max-width: 60ch;
-    margin-left: auto;
-    margin-right: auto;
-    font-style: italic;
-  }
-
-  .era-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border-top: 2px solid var(--rule);
-    border-bottom: 2px solid var(--rule);
-  }
-
-  .era-card {
-    padding: 40px 32px;
-    border-right: 1px solid var(--rule);
-    position: relative;
-    transition: background 0.3s;
-    cursor: pointer;
-  }
-
-  .era-card:last-child { border-right: none; }
-  .era-card:hover { background: var(--paper-dark); }
-
-  .era-marker {
-    width: 48px;
-    height: 4px;
-    margin-bottom: 24px;
-  }
-
-  .era-card.cpim .era-marker { background: var(--red); }
-  .era-card.tmc .era-marker { background: var(--green); }
-  .era-card.bjp .era-marker { background: var(--saffron); }
-
-  .era-period {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    color: var(--ink-faint);
-    margin-bottom: 8px;
-  }
-
-  .era-name {
-    font-family: 'Fraunces', serif;
-    font-size: 36px;
-    font-weight: 600;
-    line-height: 1.1;
-    margin-bottom: 4px;
-    letter-spacing: -0.02em;
-  }
-
-  .era-card.cpim .era-name { color: var(--red); }
-  .era-card.tmc .era-name { color: var(--green); }
-  .era-card.bjp .era-name { color: var(--saffron); }
-
-  .era-tagline {
-    font-style: italic;
-    font-size: 17px;
-    color: var(--ink-soft);
-    margin-bottom: 24px;
-    line-height: 1.4;
-    min-height: 3em;
-  }
-
-  .era-rule {
-    border: none;
-    border-top: 1px solid var(--rule);
-    margin: 20px 0;
-  }
-
-  .era-mechanism {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--ink);
-    margin-bottom: 20px;
-  }
-
-  .era-stats {
-    list-style: none;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.04em;
-  }
-
-  .era-stats li {
-    padding: 6px 0;
-    border-bottom: 1px dotted var(--ink-faint);
-    display: flex;
-    justify-content: space-between;
-    color: var(--ink-soft);
-  }
-
-  .era-stats li:last-child { border-bottom: none; }
-
-  .era-stats li strong {
-    color: var(--ink);
-    font-weight: 600;
-  }
-
-  /* === CONTINUITY DIAGRAM === */
-  .continuity {
-    padding: 80px 0;
-    background: var(--ink);
-    color: var(--paper);
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .continuity .section-kicker { color: rgba(244, 241, 234, 0.5); }
-  .continuity .section-title { color: var(--paper); }
-  .continuity .section-sub { color: rgba(244, 241, 234, 0.7); }
-
-  .flow-diagram {
-    margin-top: 48px;
-    display: grid;
-    grid-template-columns: 1fr 60px 1fr 60px 1fr;
-    align-items: center;
-    gap: 0;
-  }
-
-  .flow-node {
-    padding: 32px 24px;
-    border: 1px solid rgba(244, 241, 234, 0.2);
-    text-align: center;
-    background: rgba(244, 241, 234, 0.03);
-    transition: all 0.3s;
-  }
-
-  .flow-node:hover {
-    background: rgba(244, 241, 234, 0.08);
-    transform: translateY(-2px);
-  }
-
-  .flow-node-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    opacity: 0.6;
-  }
-
-  .flow-node-name {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-
-  .flow-node.cpim .flow-node-name { color: #ff6b6b; }
-  .flow-node.tmc .flow-node-name { color: #6bcf7f; }
-  .flow-node.bjp .flow-node-name { color: #ffb347; }
-
-  .flow-node-desc {
-    font-size: 13px;
-    opacity: 0.75;
-    line-height: 1.4;
-  }
-
-  .flow-arrow {
-    text-align: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 24px;
-    opacity: 0.5;
-  }
-
-  .constant-row {
-    margin-top: 32px;
-    padding: 24px;
-    border: 2px dashed rgba(245, 230, 168, 0.4);
-    text-align: center;
-  }
-
-  .constant-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--highlight);
-    margin-bottom: 8px;
-  }
-
-  .constant-text {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 24px;
-    color: var(--paper);
-  }
-
-  /* === EVIDENCE DRAWER === */
-  .evidence {
-    padding: 80px 0;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .evidence-list {
-    margin-top: 48px;
-  }
-
-  .evidence-item {
-    border-top: 1px solid var(--rule);
-    padding: 0;
-    transition: background 0.2s;
-  }
-
-  .evidence-item:last-child { border-bottom: 1px solid var(--rule); }
-
-  .evidence-toggle {
-    width: 100%;
-    background: transparent;
-    border: none;
-    padding: 28px 0;
-    text-align: left;
-    cursor: pointer;
-    display: grid;
-    grid-template-columns: 100px 1fr auto;
-    gap: 32px;
-    align-items: center;
-    font-family: inherit;
-    color: inherit;
-  }
-
-  .evidence-toggle:hover { background: var(--paper-dark); padding-left: 16px; padding-right: 16px; }
-
-  .evidence-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
-    color: var(--ink-faint);
-    letter-spacing: 0.1em;
-  }
-
-  .evidence-title {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 1.3;
-  }
-
-  .evidence-title em { font-style: italic; color: var(--ink-soft); font-size: 16px; }
-
-  .evidence-icon {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 20px;
-    color: var(--ink-faint);
-    transition: transform 0.3s;
-  }
-
-  .evidence-item.open .evidence-icon { transform: rotate(45deg); }
-
-  .evidence-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-  }
-
-  .evidence-item.open .evidence-body { max-height: 2000px; }
-
-  .evidence-content {
-    padding: 0 0 40px 132px;
-    max-width: 70ch;
-    font-size: 17px;
-    line-height: 1.7;
-    color: var(--ink-soft);
-  }
-
-  .evidence-content p { margin-bottom: 16px; }
-
-  .evidence-content blockquote {
-    border-left: 3px solid var(--ink);
-    padding-left: 20px;
-    margin: 20px 0;
-    font-style: italic;
-    color: var(--ink);
-  }
-
-  .evidence-source {
-    margin-top: 20px;
-    padding-top: 16px;
-    border-top: 1px dotted var(--ink-faint);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--ink-faint);
-    letter-spacing: 0.04em;
-  }
-
-  /* === VOTER QUESTIONS === */
-  .voter-section {
-    padding: 80px 0;
-    background: var(--paper-dark);
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .question-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-top: 48px;
-  }
-
-  .question-card {
-    background: var(--paper);
-    padding: 32px;
-    border: 1px solid var(--rule);
-    position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  .question-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px var(--shadow);
-  }
-
-  .question-num {
-    position: absolute;
-    top: -16px;
-    left: 24px;
-    background: var(--ink);
-    color: var(--paper);
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 600;
-    font-size: 14px;
-  }
-
-  .question-text {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 1.3;
-    margin-bottom: 16px;
-    margin-top: 12px;
-  }
-
-  .question-why {
-    font-size: 15px;
-    color: var(--ink-soft);
-    line-height: 1.6;
-    font-style: italic;
-  }
-
-  /* === FOOTER === */
-  .footer {
-    padding: 64px 0 48px;
-    background: var(--ink);
-    color: var(--paper);
-    text-align: center;
-  }
-
-  .footer-title {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 28px;
-    margin-bottom: 16px;
-  }
-
-  .footer-text {
-    max-width: 60ch;
-    margin: 0 auto 24px;
-    color: rgba(244, 241, 234, 0.7);
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-  .footer-meta {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(244, 241, 234, 0.4);
-    margin-top: 32px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(244, 241, 234, 0.15);
-  }
-
-  /* === LANGUAGE-SPECIFIC === */
-  [lang="bn"] .en-only { display: none; }
-  [lang="en"] .bn-only { display: none; }
-
-  .bn-text {
-    font-family: 'Noto Serif Bengali', serif;
-  }
-
-  /* === AUDIENCE LAYERS === */
-  .audience-content { display: none; }
-  .audience-content.active { display: block; }
-
-  /* === RESPONSIVE === */
-  @media (max-width: 900px) {
-    .container { padding: 0 20px; }
-    .thesis-grid { grid-template-columns: 1fr; gap: 16px; }
-    .thesis-text { font-size: 20px; }
-    .era-grid { grid-template-columns: 1fr; }
-    .era-card { border-right: none; border-bottom: 1px solid var(--rule); }
-    .era-card:last-child { border-bottom: none; }
-    .flow-diagram { grid-template-columns: 1fr; gap: 12px; }
-    .flow-arrow { transform: rotate(90deg); padding: 8px 0; }
-    .question-grid { grid-template-columns: 1fr; }
-    .evidence-toggle { grid-template-columns: 60px 1fr auto; gap: 16px; }
-    .evidence-content { padding-left: 76px; }
-    .audience-tab { padding: 8px 14px; font-size: 13px; }
-  }
-
-  @media (max-width: 600px) {
-    body { font-size: 16px; }
-    .hero { padding: 48px 0 40px; }
-    .eras, .continuity, .evidence, .voter-section { padding: 48px 0; }
-    .evidence-toggle { grid-template-columns: 1fr; gap: 8px; }
-    .evidence-content { padding-left: 0; }
-    .evidence-num { font-size: 12px; }
-  }
-
-  /* === ENTRY ANIMATIONS === */
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* === THEME === */
+:root {
+  --paper: #f4f1ea;
+  --paper-dark: #ebe6db;
+  --paper-mid: #e0dbd0;
+  --ink: #1a1714;
+  --ink-soft: #4a443c;
+  --ink-faint: #8a8275;
+  --rule: #2a2520;
+  --red: #b8231c;
+  --green: #1f6b3a;
+  --saffron: #d97706;
+  --highlight: #f5e6a8;
+  --highlight-green: #d4f0dd;
+  --shadow: rgba(26,23,20,0.1);
+}
+[data-theme="dark"] {
+  --paper: #141210;
+  --paper-dark: #1e1b18;
+  --paper-mid: #252220;
+  --ink: #f0ece3;
+  --ink-soft: #b8b2a8;
+  --ink-faint: #706a62;
+  --rule: #3a3530;
+  --red: #e05555;
+  --green: #4ca86a;
+  --saffron: #e8983a;
+  --highlight: rgba(245,230,168,0.12);
+  --highlight-green: rgba(76,168,106,0.12);
+  --shadow: rgba(0,0,0,0.35);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background .3s, color .3s;
+}
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.25;
+  z-index:1;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.09 0 0 0 0 0.08 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.container { max-width:1280px; margin:0 auto; padding:0 32px; position:relative; z-index:2; }
+
+/* PROGRESS BAR */
+#progress-bar {
+  position:fixed; top:0; left:0; width:0; height:3px;
+  background:linear-gradient(90deg, var(--red), var(--green), var(--saffron));
+  z-index:1000; transition:width .1s linear;
+}
+
+/* MASTHEAD */
+.masthead { border-bottom:3px double var(--rule); padding:24px 0 16px; }
+.masthead-top {
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft);
+  margin-bottom:12px; flex-wrap:wrap; gap:8px;
+}
+.masthead-controls { display:flex; align-items:center; gap:12px; }
+.masthead-title {
+  font-family:'Fraunces',serif; font-weight:900;
+  font-size:clamp(36px,6vw,64px); line-height:.95;
+  letter-spacing:-.02em; text-align:center; font-style:italic;
+}
+.masthead-bengali {
+  font-family:'Noto Serif Bengali',serif; font-weight:800;
+  font-size:clamp(18px,3vw,26px); text-align:center;
+  margin-top:8px; color:var(--ink-soft);
+}
+.theme-toggle {
+  background:transparent; border:1px solid var(--ink-faint);
+  padding:4px 12px; font-family:'JetBrains Mono',monospace;
+  font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  cursor:pointer; color:var(--ink-soft); transition:all .2s;
+}
+.theme-toggle:hover { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+
+/* LANG BAR */
+.lang-bar {
+  display:flex; justify-content:center; gap:4px;
+  padding:14px 0; border-bottom:1px solid var(--rule);
+  background:var(--paper-dark);
+}
+.lang-btn {
+  background:transparent; border:1px solid var(--ink);
+  padding:6px 18px; font-family:'JetBrains Mono',monospace;
+  font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  cursor:pointer; color:var(--ink); transition:all .2s;
+}
+.lang-btn.active { background:var(--ink); color:var(--paper); }
+.lang-btn:hover:not(.active) { background:var(--paper-mid); }
+
+/* HERO */
+.hero { padding:80px 0 60px; text-align:center; border-bottom:1px solid var(--rule); }
+.hero-kicker {
+  font-family:'JetBrains Mono',monospace; font-size:12px;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-faint); margin-bottom:24px;
+}
+.hero h1 {
+  font-family:'Fraunces',serif; font-weight:400;
+  font-size:clamp(40px,7vw,88px); line-height:1.02;
+  letter-spacing:-.025em; max-width:18ch; margin:0 auto 32px;
+}
+.hero h1 em { font-style:italic; font-weight:600; }
+.hero h1 .red { color:var(--red); }
+.hero h1 .green { color:var(--green); }
+.hero h1 .saffron { color:var(--saffron); }
+.hero-sub {
+  font-size:20px; line-height:1.5; max-width:56ch;
+  margin:0 auto 40px; color:var(--ink-soft); font-style:italic;
+}
+.hero-stats {
+  display:flex; justify-content:center;
+  border:1px solid var(--rule); max-width:580px; margin:0 auto 40px;
+}
+.hero-stat {
+  padding:20px 32px; border-right:1px solid var(--rule);
+  flex:1; min-width:120px;
+}
+.hero-stat:last-child { border-right:none; }
+.hero-stat-num {
+  font-family:'JetBrains Mono',monospace; font-size:28px;
+  font-weight:600; display:block;
+}
+.hero-stat-label {
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-faint); margin-top:4px; display:block;
+}
+.hero-scroll {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-faint); animation:bounce 2.5s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%,100% { transform:translateY(0); opacity:.6; }
+  50% { transform:translateY(8px); opacity:1; }
+}
+
+/* SUMMARY STRIP */
+.summary-strip { background:var(--ink); color:var(--paper); padding:32px 0; }
+.summary-grid { display:grid; grid-template-columns:repeat(3,1fr); }
+.summary-item {
+  padding:0 32px; border-right:1px solid rgba(244,241,234,.15);
+}
+.summary-item:last-child { border-right:none; }
+.summary-item:first-child { padding-left:0; }
+.summary-num {
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:rgba(244,241,234,.4); margin-bottom:8px;
+}
+.summary-text { font-size:15px; line-height:1.55; color:rgba(244,241,234,.85); }
+.summary-text strong { color:var(--paper); }
+
+/* THESIS */
+.thesis { padding:48px 0; border-bottom:1px solid var(--rule); background:var(--paper-dark); }
+.thesis-grid { display:grid; grid-template-columns:1fr 2fr; gap:48px; align-items:start; }
+.thesis-label {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint);
+}
+.thesis-text { font-size:24px; line-height:1.5; font-weight:400; }
+.thesis-text strong { background:var(--highlight); padding:0 4px; font-weight:600; }
+
+/* AUDIENCE NAV */
+.audience-nav {
+  position:sticky; top:0; z-index:50; background:var(--paper);
+  border-bottom:2px solid var(--rule); padding:12px 0;
+}
+.audience-tabs { display:flex; justify-content:center; flex-wrap:wrap; }
+.audience-tab {
+  background:transparent; border:none; padding:12px 24px;
+  font-family:'Fraunces',serif; font-size:15px; cursor:pointer;
+  color:var(--ink-soft); border-bottom:2px solid transparent;
+  transition:all .2s; font-style:italic;
+}
+.audience-tab.active { color:var(--ink); border-bottom-color:var(--ink); font-weight:600; }
+.audience-tab:hover:not(.active) { color:var(--ink); }
+
+/* SECTION COMMON */
+.section-wrap { padding:80px 0; border-bottom:1px solid var(--rule); }
+.section-wrap.bg-dark { background:var(--paper-dark); }
+.section-wrap.bg-ink { background:var(--ink); color:var(--paper); }
+.section-header { text-align:center; margin-bottom:56px; }
+.section-kicker {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-faint); margin-bottom:12px;
+}
+.section-wrap.bg-ink .section-kicker { color:rgba(244,241,234,.45); }
+.section-title {
+  font-family:'Fraunces',serif; font-weight:400;
+  font-size:clamp(28px,4.5vw,52px); letter-spacing:-.02em; line-height:1.1;
+}
+.section-title em { font-style:italic; }
+.section-wrap.bg-ink .section-title { color:var(--paper); }
+.section-sub {
+  margin-top:14px; color:var(--ink-soft); font-size:17px;
+  max-width:60ch; margin-left:auto; margin-right:auto; font-style:italic;
+}
+.section-wrap.bg-ink .section-sub { color:rgba(244,241,234,.65); }
+
+/* ERA CARDS */
+.era-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  border-top:2px solid var(--rule); border-bottom:2px solid var(--rule);
+}
+.era-card {
+  padding:40px 32px; border-right:1px solid var(--rule);
+  position:relative; transition:background .3s;
+}
+.era-card:last-child { border-right:none; }
+.era-card:hover { background:var(--paper-dark); }
+.era-stripe { position:absolute; top:0; left:0; right:0; height:4px; }
+.era-card.cpim .era-stripe { background:var(--red); }
+.era-card.tmc .era-stripe { background:var(--green); }
+.era-card.bjp .era-stripe { background:var(--saffron); }
+.era-period {
+  font-family:'JetBrains Mono',monospace; font-size:12px;
+  letter-spacing:.1em; color:var(--ink-faint); margin-bottom:8px; margin-top:16px;
+}
+.era-name {
+  font-family:'Fraunces',serif; font-size:34px; font-weight:600;
+  line-height:1.1; margin-bottom:4px; letter-spacing:-.02em;
+}
+.era-card.cpim .era-name { color:var(--red); }
+.era-card.tmc .era-name { color:var(--green); }
+.era-card.bjp .era-name { color:var(--saffron); }
+.era-tagline { font-style:italic; font-size:15px; color:var(--ink-soft); margin-bottom:18px; line-height:1.4; }
+.era-rule { border:none; border-top:1px solid var(--rule); margin:14px 0; }
+.era-mechanism { font-size:15px; line-height:1.7; color:var(--ink-soft); margin-bottom:18px; }
+.era-stats { list-style:none; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.04em; }
+.era-stats li {
+  padding:6px 0; border-bottom:1px dotted var(--ink-faint);
+  display:flex; justify-content:space-between; color:var(--ink-soft);
+}
+.era-stats li:last-child { border-bottom:none; }
+.era-stats li strong { color:var(--ink); font-weight:600; }
+
+/* GLOSSARY TOOLTIP */
+.gloss {
+  border-bottom:1px dotted var(--ink-soft);
+  cursor:help; position:relative;
+}
+.gloss::after {
+  content:attr(data-tip);
+  position:absolute; bottom:calc(100% + 8px); left:50%;
+  transform:translateX(-50%);
+  background:var(--ink); color:var(--paper);
+  font-family:'JetBrains Mono',monospace; font-size:11px; line-height:1.5;
+  padding:8px 12px; width:220px; text-align:center;
+  pointer-events:none; opacity:0; transition:opacity .2s; z-index:200;
+}
+.gloss:hover::after { opacity:1; }
+
+/* TIMELINE */
+.timeline { position:relative; max-width:760px; margin:0 auto; }
+.timeline::before {
+  content:''; position:absolute; left:50%; top:0; bottom:0;
+  width:2px; background:var(--rule); transform:translateX(-50%);
+}
+.tl-event {
+  display:grid; grid-template-columns:1fr 56px 1fr;
+  align-items:center; margin-bottom:44px;
+}
+.tl-event:last-child { margin-bottom:0; }
+.tl-left { text-align:right; padding-right:28px; }
+.tl-right { padding-left:28px; }
+.tl-center { display:flex; justify-content:center; z-index:2; }
+.tl-dot {
+  width:16px; height:16px; border-radius:50%;
+  border:3px solid var(--rule); background:var(--paper); flex-shrink:0;
+}
+.tl-dot.cpim { background:var(--red); border-color:var(--red); }
+.tl-dot.tmc { background:var(--green); border-color:var(--green); }
+.tl-dot.bjp { background:var(--saffron); border-color:var(--saffron); }
+.tl-dot.future { background:var(--highlight); border-color:var(--ink); }
+.tl-year {
+  font-family:'JetBrains Mono',monospace; font-size:13px;
+  letter-spacing:.08em; font-weight:600; color:var(--ink);
+}
+.tl-title { font-family:'Fraunces',serif; font-size:18px; font-weight:500; line-height:1.3; margin-bottom:4px; }
+.tl-desc { font-size:13px; color:var(--ink-soft); line-height:1.55; }
+
+/* PULL QUOTE */
+.pull-quote {
+  padding:40px 0; border-top:2px solid var(--rule);
+  border-bottom:2px solid var(--rule); margin:48px 0; text-align:center;
+}
+.pull-quote-text {
+  font-family:'Fraunces',serif; font-style:italic;
+  font-size:clamp(20px,3vw,34px); line-height:1.3;
+  max-width:26ch; margin:0 auto 12px;
+}
+.pull-quote-source {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.15em; text-transform:uppercase; color:var(--ink-faint);
+}
+
+/* RIGHTS GRID */
+.rights-grid {
+  display:grid; grid-template-columns:repeat(2,1fr);
+  gap:2px; background:var(--rule); border:2px solid var(--rule); margin-top:48px;
+}
+.right-item {
+  background:var(--paper-dark); padding:28px 32px;
+  display:flex; gap:18px; align-items:flex-start; transition:background .2s;
+}
+.right-item:hover { background:var(--paper); }
+.right-icon { font-size:22px; flex-shrink:0; line-height:1; margin-top:2px; }
+.right-title { font-family:'Fraunces',serif; font-size:18px; font-weight:600; margin-bottom:6px; line-height:1.3; }
+.right-desc { font-size:14px; color:var(--ink-soft); line-height:1.6; }
+.right-tag {
+  display:inline-block; margin-top:8px;
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  letter-spacing:.1em; text-transform:uppercase;
+  padding:2px 8px; border:1px solid var(--green); color:var(--green);
+}
+
+/* VOTER CHECKLIST */
+.checklist-wrap { margin-top:48px; }
+.checklist-item { border-top:1px solid var(--rule); }
+.checklist-item:last-of-type { border-bottom:1px solid var(--rule); }
+.checklist-label {
+  display:flex; align-items:flex-start; gap:20px;
+  padding:26px 0; cursor:pointer;
+  transition:background .2s, padding .2s;
+}
+.checklist-label:hover { background:var(--paper-dark); padding-left:8px; padding-right:8px; }
+.checklist-box {
+  width:22px; height:22px; border:2px solid var(--ink);
+  flex-shrink:0; margin-top:3px; cursor:pointer;
+  appearance:none; -webkit-appearance:none;
+  background:transparent; transition:all .2s; position:relative;
+}
+.checklist-box:checked {
+  background:var(--ink);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23f4f1ea' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:center; background-size:12px;
+}
+.checklist-content { flex:1; }
+.checklist-num {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.15em; text-transform:uppercase;
+  color:var(--ink-faint); margin-bottom:4px;
+}
+.checklist-q { font-family:'Fraunces',serif; font-size:20px; font-weight:500; line-height:1.35; margin-bottom:6px; }
+.checklist-why { font-size:14px; color:var(--ink-soft); line-height:1.6; font-style:italic; }
+.checklist-item.is-done .checklist-q { opacity:.45; text-decoration:line-through; text-decoration-color:var(--ink-faint); }
+.checklist-footer {
+  padding:28px 0; display:flex; align-items:center;
+  gap:20px; flex-wrap:wrap;
+}
+.cl-bar-wrap { flex:1; height:3px; background:var(--paper-mid); min-width:100px; }
+.cl-bar-fill { height:100%; background:var(--green); transition:width .4s ease; width:0; }
+.cl-bar-text {
+  font-family:'JetBrains Mono',monospace; font-size:12px;
+  letter-spacing:.08em; color:var(--ink-faint); white-space:nowrap;
+}
+.cl-done-msg {
+  display:none; padding:18px 24px;
+  background:var(--highlight-green); border:1px solid var(--green);
+  font-family:'Fraunces',serif; font-style:italic;
+  font-size:18px; color:var(--green); text-align:center; margin-bottom:32px;
+}
+.cl-done-msg.show { display:block; }
+
+/* EVIDENCE */
+.evidence-list { margin-top:48px; }
+.evidence-item { border-top:1px solid var(--rule); }
+.evidence-item:last-child { border-bottom:1px solid var(--rule); }
+.evidence-toggle {
+  width:100%; background:transparent; border:none;
+  padding:26px 0; text-align:left; cursor:pointer;
+  display:grid; grid-template-columns:88px 1fr 28px;
+  gap:24px; align-items:center;
+  font-family:inherit; color:inherit; transition:padding .2s;
+}
+.evidence-toggle:hover { background:var(--paper-dark); padding-left:12px; padding-right:12px; }
+.evidence-num {
+  font-family:'JetBrains Mono',monospace; font-size:12px;
+  color:var(--ink-faint); letter-spacing:.08em;
+}
+.evidence-title { font-family:'Fraunces',serif; font-size:21px; font-weight:500; line-height:1.3; }
+.evidence-title em { font-style:italic; color:var(--ink-soft); font-size:15px; }
+.evidence-icon {
+  font-family:'JetBrains Mono',monospace; font-size:18px;
+  color:var(--ink-faint); transition:transform .3s; text-align:center;
+}
+.evidence-item.open .evidence-icon { transform:rotate(45deg); }
+.evidence-body { max-height:0; overflow:hidden; transition:max-height .5s ease; }
+.evidence-item.open .evidence-body { max-height:2400px; }
+.evidence-content {
+  padding:4px 0 40px 112px; max-width:68ch;
+  font-size:16px; line-height:1.75; color:var(--ink-soft);
+}
+.evidence-content p { margin-bottom:14px; }
+.evidence-content blockquote {
+  border-left:3px solid var(--ink); padding-left:20px;
+  margin:20px 0; font-style:italic; color:var(--ink);
+}
+.evidence-source {
+  margin-top:18px; padding-top:14px;
+  border-top:1px dotted var(--ink-faint);
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  color:var(--ink-faint); letter-spacing:.04em;
+}
+
+/* FOOTER */
+.footer { padding:64px 0 48px; background:var(--ink); color:var(--paper); text-align:center; }
+.footer-title { font-family:'Fraunces',serif; font-style:italic; font-size:30px; margin-bottom:16px; }
+.footer-text {
+  max-width:60ch; margin:0 auto 24px;
+  color:rgba(244,241,234,.7); font-size:17px; line-height:1.6;
+}
+.share-row { display:flex; justify-content:center; gap:12px; margin:28px 0; flex-wrap:wrap; }
+.share-btn {
+  background:transparent; border:1px solid rgba(244,241,234,.3);
+  padding:10px 22px; font-family:'JetBrains Mono',monospace;
+  font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  cursor:pointer; color:rgba(244,241,234,.65); transition:all .2s;
+}
+.share-btn:hover { background:rgba(244,241,234,.1); border-color:rgba(244,241,234,.55); color:var(--paper); }
+.footer-rule { border:none; border-top:1px solid rgba(244,241,234,.12); margin:24px 0; }
+.footer-meta {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.15em; text-transform:uppercase; color:rgba(244,241,234,.35);
+}
+
+/* BACK TO TOP */
+#back-top {
+  position:fixed; bottom:28px; right:28px;
+  width:44px; height:44px; background:var(--ink); color:var(--paper);
+  border:none; cursor:pointer; font-size:18px;
+  display:flex; align-items:center; justify-content:center;
+  z-index:200; opacity:0; transform:translateY(12px);
+  transition:opacity .3s, transform .3s; pointer-events:none;
+}
+#back-top.show { opacity:1; transform:translateY(0); pointer-events:auto; }
+#back-top:hover { background:var(--ink-soft); }
+
+/* LANGUAGE */
+[lang="bn"] .en-only { display:none; }
+[lang="en"] .bn-only { display:none; }
+.bn-text { font-family:'Noto Serif Bengali',serif; }
+
+/* AUDIENCE LAYERS */
+.audience-content { display:none; }
+.audience-content.active { display:block; }
+
+/* REVEAL */
+.reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media(max-width:960px) {
+  .container { padding:0 20px; }
+  .thesis-grid { grid-template-columns:1fr; gap:14px; }
+  .thesis-text { font-size:20px; }
+  .era-grid { grid-template-columns:1fr; }
+  .era-card { border-right:none; border-bottom:1px solid var(--rule); }
+  .era-card:last-child { border-bottom:none; }
+  .summary-grid { grid-template-columns:1fr; }
+  .summary-item { border-right:none; border-bottom:1px solid rgba(244,241,234,.1); padding:16px 0; }
+  .summary-item:last-child { border-bottom:none; }
+  .rights-grid { grid-template-columns:1fr; }
+  .evidence-toggle { grid-template-columns:60px 1fr 24px; gap:14px; }
+  .evidence-content { padding-left:74px; }
+  .hero-stats { flex-direction:column; max-width:260px; }
+  .hero-stat { border-right:none; border-bottom:1px solid var(--rule); }
+  .hero-stat:last-child { border-bottom:none; }
+  .timeline::before { left:20px; }
+  .tl-event { grid-template-columns:40px 1fr; }
+  .tl-left { display:none; }
+  .tl-center { justify-content:flex-start; }
+  .tl-right { padding-left:16px; }
+  .audience-tab { padding:8px 14px; font-size:13px; }
+}
+@media(max-width:600px) {
+  body { font-size:16px; }
+  .hero { padding:48px 0 36px; }
+  .section-wrap { padding:48px 0; }
+  .evidence-toggle { grid-template-columns:1fr 24px; gap:10px; }
+  .evidence-content { padding-left:0; }
+  .checklist-label { gap:14px; }
+  .section-header { margin-bottom:40px; }
+}
+@media print {
+  #progress-bar,#back-top,.audience-nav,.theme-toggle,.share-row { display:none !important; }
+  .audience-content { display:block !important; }
+  .evidence-body { max-height:none !important; }
+  body { background:white; color:black; font-size:12pt; }
+}
 </style>
 </head>
-<body lang="en">
+<body lang="en" data-theme="light">
+
+<div id="progress-bar"></div>
 
 <!-- MASTHEAD -->
 <header class="masthead">
   <div class="container">
     <div class="masthead-top">
       <span>A Voter's Guide · West Bengal · 2026</span>
-      <span>No. 01 — Power & Continuity</span>
+      <div class="masthead-controls">
+        <span>No. 01 — Power & Continuity</span>
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">◐ Dark</button>
+      </div>
     </div>
-    <h1 class="masthead-title">The Bengal Reader</h1>
+    <div class="masthead-title">The Bengal Reader</div>
     <div class="masthead-bengali">বাংলার ভোটার পাঠক</div>
   </div>
 </header>
@@ -746,24 +544,58 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div class="hero-kicker en-only">An essay in three acts</div>
-    <div class="hero-kicker bn-only bn-text">তিন অঙ্কের প্রবন্ধ</div>
+    <div class="hero-kicker en-only">An essay in three acts · For every voter in Bengal</div>
+    <div class="hero-kicker bn-only bn-text">তিন অঙ্কের প্রবন্ধ · বাংলার প্রতিটি ভোটারের জন্য</div>
 
     <div class="en-only">
       <h1>The <span class="red">scarf</span> changes.<br>The <em>hand</em> doesn't.</h1>
       <p class="hero-sub">How the same village strongman has worn three different colours in forty years — and what that means for the vote you cast in 2026.</p>
     </div>
-
     <div class="bn-only">
       <h1 class="bn-text">গামছা <em>বদলায়</em>।<br>হাত <em>বদলায় না</em>।</h1>
       <p class="hero-sub bn-text">চল্লিশ বছরে একই গ্রামীণ মাতব্বর তিনটি আলাদা রং পরেছেন — এবং ২০২৬-এর ভোটের জন্য এর অর্থ কী।</p>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num" data-count="34">34</span>
+        <span class="hero-stat-label">Years of Left rule</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num" data-count="3">3</span>
+        <span class="hero-stat-label">Ruling parties</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num" data-count="1">1</span>
+        <span class="hero-stat-label">Local power structure</span>
+      </div>
     </div>
 
     <div class="hero-scroll">↓ Scroll to read</div>
   </div>
 </section>
 
-<!-- THESIS BAR -->
+<!-- QUICK SUMMARY -->
+<div class="summary-strip">
+  <div class="container">
+    <div class="summary-grid">
+      <div class="summary-item">
+        <div class="summary-num">Key idea 01</div>
+        <p class="summary-text"><strong>Three flags, one machine.</strong> CPI(M), TMC, and BJP each ruled Bengal — but the local enforcer at the panchayat level often stayed the same person.</p>
+      </div>
+      <div class="summary-item">
+        <div class="summary-num">Key idea 02</div>
+        <p class="summary-text"><strong>Watch the local candidate.</strong> Your actual life — jobs, housing lists, roads — is run by the block boss, not Kolkata.</p>
+      </div>
+      <div class="summary-item">
+        <div class="summary-num">Key idea 03</div>
+        <p class="summary-text"><strong>Change is possible.</strong> Local power structures are not destiny. Voters who ask harder questions force real accountability.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THESIS -->
 <section class="thesis">
   <div class="container">
     <div class="thesis-grid">
@@ -779,35 +611,35 @@
 </section>
 
 <!-- AUDIENCE NAV -->
-<nav class="audience-nav">
+<nav class="audience-nav" aria-label="Content layers">
   <div class="audience-tabs">
-    <button class="audience-tab active" onclick="setAudience('voter', this)">For the Voter</button>
-    <button class="audience-tab" onclick="setAudience('reader', this)">For the Reader</button>
-    <button class="audience-tab" onclick="setAudience('researcher', this)">For the Researcher</button>
+    <button class="audience-tab active" onclick="setAudience('voter',this)">For the Voter</button>
+    <button class="audience-tab" onclick="setAudience('reader',this)">For the Reader</button>
+    <button class="audience-tab" onclick="setAudience('researcher',this)">For the Researcher</button>
   </div>
 </nav>
 
-<!-- ===== VOTER LAYER ===== -->
+<!-- ======= VOTER LAYER ======= -->
 <div class="audience-content active" data-audience="voter">
 
 <!-- ERAS -->
-<section class="eras">
+<section class="section-wrap">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <div class="section-kicker">Three eras · One pattern</div>
       <h2 class="section-title">Each era told a <em>different story</em>.<br>The local muscle was the <em>same</em>.</h2>
-      <p class="section-sub">Hover or tap each card to read how power actually worked in your panchayat.</p>
+      <p class="section-sub">Each ruling party inherited — and used — the same village-level power machine.</p>
     </div>
 
     <div class="era-grid">
-      <div class="era-card cpim">
-        <div class="era-marker"></div>
+      <div class="era-card cpim reveal">
+        <div class="era-stripe"></div>
         <div class="era-period">1977 — 2011</div>
         <h3 class="era-name">The Red Era</h3>
-        <p class="era-tagline">"Disciplined" violence, organised from above.</p>
+        <p class="era-tagline">"Disciplined" control, organised from above.</p>
         <hr class="era-rule">
         <p class="era-mechanism">
-          The CPI(M) ran Bengal as an integrated machine. The party cadre, the panchayat, the cooperative bank, the schoolteachers' union — all fed into one pyramid. Violence existed, but it was rationed and authorised.
+          The CPI(M) ran Bengal as an integrated machine. The party cadre, the panchayat, the cooperative bank, and the teachers' union all fed into one pyramid. The <span class="gloss" data-tip="Armed party militia used to control territory and intimidate opponents at the village level">Harmad</span> enforced discipline locally. Violence existed, but it was authorised from the top.
         </p>
         <ul class="era-stats">
           <li><span>Years in power</span><strong>34</strong></li>
@@ -816,14 +648,14 @@
         </ul>
       </div>
 
-      <div class="era-card tmc">
-        <div class="era-marker"></div>
+      <div class="era-card tmc reveal">
+        <div class="era-stripe"></div>
         <div class="era-period">2011 — present</div>
         <h3 class="era-name">The Green Turn</h3>
         <p class="era-tagline">The same muscle, with new ambitions.</p>
         <hr class="era-rule">
         <p class="era-mechanism">
-          When TMC came to power, it didn't dismantle the local machine — it absorbed it. But without ideology, control became extraction: sand, stone, real estate, contracts. The "syndicate" replaced the cadre as the organising idea.
+          When TMC came to power, it didn't dismantle the local machine — it absorbed it. Without ideology, control became extraction: sand, stone, real estate, contracts. The <span class="gloss" data-tip="Local networks controlling construction materials, land deals, and contracts under political protection">syndicate</span> replaced the cadre. Welfare transfers kept voters loyal from above; the block boss kept them in line from below.
         </p>
         <ul class="era-stats">
           <li><span>Years in power</span><strong>15+</strong></li>
@@ -832,14 +664,14 @@
         </ul>
       </div>
 
-      <div class="era-card bjp">
-        <div class="era-marker"></div>
+      <div class="era-card bjp reveal">
+        <div class="era-stripe"></div>
         <div class="era-period">2019 — present</div>
         <h3 class="era-name">The Saffron Lateral</h3>
         <p class="era-tagline">Imported the very culture it claimed to fight.</p>
         <hr class="era-rule">
         <p class="era-mechanism">
-          Unable to build cadre fast enough, the BJP recruited the existing one. Turncoats from TMC and CPI(M) became candidates and district presidents. The voter who switched for "change" often re-elected the same panchayat strongman — in a new colour.
+          Unable to build <span class="gloss" data-tip="A trained, full-time party worker who organises at the grassroots level">cadre</span> fast enough, the BJP recruited the existing one. Turncoats from TMC and CPI(M) became candidates and district presidents. The voter who switched for "change" often re-elected the same panchayat strongman — in a new colour.
         </p>
         <ul class="era-stats">
           <li><span>Lok Sabha seats (2019)</span><strong>18</strong></li>
@@ -851,113 +683,253 @@
   </div>
 </section>
 
-<!-- CONTINUITY DIAGRAM -->
-<section class="continuity">
+<!-- TIMELINE -->
+<section class="section-wrap bg-dark">
   <div class="container">
-    <div class="section-header">
-      <div class="section-kicker">The continuity machine</div>
-      <h2 class="section-title">What stays the same<br>when <em>everything</em> changes</h2>
-      <p class="section-sub">Three different banners. One unbroken structure of local power.</p>
+    <div class="section-header reveal">
+      <div class="section-kicker">Bengal's political history at a glance</div>
+      <h2 class="section-title">Forty years of <em>power in motion</em></h2>
+      <p class="section-sub">The flag changes at the top. The structure at the bottom barely moves.</p>
     </div>
 
-    <div class="flow-diagram">
-      <div class="flow-node cpim">
-        <div class="flow-node-label">1977 – 2011</div>
-        <div class="flow-node-name">CPI(M)</div>
-        <div class="flow-node-desc">Cadre system. Party-controlled panchayats. Centralised muscle.</div>
+    <div class="timeline">
+      <div class="tl-event reveal">
+        <div class="tl-left"><span class="tl-year">1977</span></div>
+        <div class="tl-center"><div class="tl-dot cpim"></div></div>
+        <div class="tl-right">
+          <div class="tl-title" style="color:var(--red)">Left Front wins power</div>
+          <div class="tl-desc">CPI(M) wins a historic majority, ending Congress rule. Begins 34 years of Left governance. Early land reforms genuinely improve rural conditions.</div>
+        </div>
       </div>
 
-      <div class="flow-arrow">→</div>
-
-      <div class="flow-node tmc">
-        <div class="flow-node-label">2011 – now</div>
-        <div class="flow-node-name">TMC</div>
-        <div class="flow-node-desc">Decentralised syndicates. Rent extraction. Personality-led.</div>
+      <div class="tl-event reveal">
+        <div class="tl-left"><span class="tl-year">2007</span></div>
+        <div class="tl-center"><div class="tl-dot"></div></div>
+        <div class="tl-right">
+          <div class="tl-title">Nandigram &amp; Singur</div>
+          <div class="tl-desc">Farmer protests over forcible land acquisition expose the Left's eroding legitimacy. The cadre system reveals its violent underside to national audiences.</div>
+        </div>
       </div>
 
-      <div class="flow-arrow">→</div>
+      <div class="tl-event reveal">
+        <div class="tl-left"><span class="tl-year">2011</span></div>
+        <div class="tl-center"><div class="tl-dot tmc"></div></div>
+        <div class="tl-right">
+          <div class="tl-title" style="color:var(--green)">TMC's "Poriborton" (Change)</div>
+          <div class="tl-desc">Mamata Banerjee wins a landslide on the promise of change. The local machine is absorbed, not dismantled. Many CPI(M) panchayat heads simply become TMC panchayat heads.</div>
+        </div>
+      </div>
 
-      <div class="flow-node bjp">
-        <div class="flow-node-label">2019 – now</div>
-        <div class="flow-node-name">BJP</div>
-        <div class="flow-node-desc">Mass turncoats. Imported organisation. Saffron over green.</div>
+      <div class="tl-event reveal">
+        <div class="tl-left"><span class="tl-year">2019</span></div>
+        <div class="tl-center"><div class="tl-dot bjp"></div></div>
+        <div class="tl-right">
+          <div class="tl-title" style="color:var(--saffron)">BJP surges to 18 Lok Sabha seats</div>
+          <div class="tl-desc">Built largely through mass defections from TMC — bringing the old machine with them in saffron.</div>
+        </div>
+      </div>
+
+      <div class="tl-event reveal">
+        <div class="tl-left"><span class="tl-year">2021</span></div>
+        <div class="tl-center"><div class="tl-dot tmc"></div></div>
+        <div class="tl-right">
+          <div class="tl-title" style="color:var(--green)">TMC wins a third term</div>
+          <div class="tl-desc">Direct cash transfers to women voters (Lakshmir Bhandar) prove more durable than the syndicate model alone. TMC holds power despite high anti-incumbency.</div>
+        </div>
+      </div>
+
+      <div class="tl-event reveal">
+        <div class="tl-left"><span class="tl-year">2023</span></div>
+        <div class="tl-center"><div class="tl-dot"></div></div>
+        <div class="tl-right">
+          <div class="tl-title">Panchayat violence</div>
+          <div class="tl-desc">Among Bengal's most violent rural elections. The target: control over who allocates MGNREGA jobs, housing lists, and local contracts — not state-level politics.</div>
+        </div>
+      </div>
+
+      <div class="tl-event reveal">
+        <div class="tl-left"><span class="tl-year">2026</span></div>
+        <div class="tl-center"><div class="tl-dot future"></div></div>
+        <div class="tl-right">
+          <div class="tl-title">You vote</div>
+          <div class="tl-desc">The next Assembly election. The pattern above is not destiny — it's context. What you do with it is up to you.</div>
+        </div>
       </div>
     </div>
 
-    <div class="constant-row">
-      <div class="constant-label">— Constant across all three —</div>
-      <div class="constant-text">The same local strongman. The same panchayat fixer. The same hand collecting rent at the brick kiln, the sand mine, the construction site.</div>
+    <div class="pull-quote reveal">
+      <div class="pull-quote-text">"The flag at the top of the pole tells you what your government is called. The hand at the bottom of the village tells you what it actually is."</div>
+      <div class="pull-quote-source">— Central thesis of this guide</div>
     </div>
   </div>
 </section>
 
-<!-- VOTER QUESTIONS -->
-<section class="voter-section">
+<!-- YOUR RIGHTS -->
+<section class="section-wrap">
   <div class="container">
-    <div class="section-header">
-      <div class="section-kicker">Before you vote</div>
-      <h2 class="section-title">Six <em>uncomfortable questions</em></h2>
-      <p class="section-sub">Don't ask which party. Ask these.</p>
+    <div class="section-header reveal">
+      <div class="section-kicker">Know before you go</div>
+      <h2 class="section-title">Your rights as a <em>voter</em></h2>
+      <p class="section-sub">These are guaranteed by law. No party official, booth agent, or local strongman can take them away.</p>
     </div>
 
-    <div class="question-grid">
-      <div class="question-card">
-        <div class="question-num">01</div>
-        <div class="question-text">Who is your local candidate — and what colour did they wear five years ago?</div>
-        <p class="question-why">If they switched parties, ask why. Did the policies change, or just the patron?</p>
+    <div class="rights-grid">
+      <div class="right-item reveal">
+        <div class="right-icon">🗳</div>
+        <div>
+          <div class="right-title">Secret ballot</div>
+          <p class="right-desc">Your vote is completely secret. Nobody — not your employer, landlord, or party worker — can know who you voted for. You are legally protected from coercion.</p>
+          <span class="right-tag">Representation of People Act, 1951</span>
+        </div>
+      </div>
+      <div class="right-item reveal">
+        <div class="right-icon">✋</div>
+        <div>
+          <div class="right-title">Right to refuse</div>
+          <p class="right-desc">If no candidate deserves your vote, press NOTA (None of the Above) on the EVM. You are never forced to vote for anyone you don't trust.</p>
+          <span class="right-tag">ECI Circular, 2013</span>
+        </div>
+      </div>
+      <div class="right-item reveal">
+        <div class="right-icon">🛡</div>
+        <div>
+          <div class="right-title">No intimidation</div>
+          <p class="right-desc">Voter intimidation is a criminal offence. If you are threatened before or during polling, report it to the Returning Officer or the Election Commission helpline immediately.</p>
+          <span class="right-tag">IPC Section 171-C</span>
+        </div>
+      </div>
+      <div class="right-item reveal">
+        <div class="right-icon">📋</div>
+        <div>
+          <div class="right-title">Check your voter roll</div>
+          <p class="right-desc">Verify your name is on the electoral roll before election day. Check online at voters.eci.gov.in or at your nearest BLO (Booth Level Officer) office.</p>
+          <span class="right-tag">Free to verify anytime</span>
+        </div>
+      </div>
+      <div class="right-item reveal">
+        <div class="right-icon">📄</div>
+        <div>
+          <div class="right-title">Know your candidate</div>
+          <p class="right-desc">Candidate affidavits — including criminal records, assets, and education — are public documents. Check your candidate's background before you vote at myneta.info.</p>
+          <span class="right-tag">ECI Mandate</span>
+        </div>
+      </div>
+      <div class="right-item reveal">
+        <div class="right-icon">📞</div>
+        <div>
+          <div class="right-title">ECI helpline</div>
+          <p class="right-desc">The Election Commission of India helpline is available during election periods. Report violations, check polling booth locations, and get help with voter ID issues.</p>
+          <span class="right-tag">Helpline: 1950</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOTER CHECKLIST -->
+<section class="section-wrap bg-dark">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-kicker">Before you vote</div>
+      <h2 class="section-title">Six <em>honest questions</em><br>to ask your candidate</h2>
+      <p class="section-sub">Don't just ask which party. Ask these. Check each one off as you've thought it through.</p>
+    </div>
+
+    <div class="checklist-wrap" id="checklist">
+
+      <div class="checklist-item" id="ci1">
+        <label class="checklist-label" for="cb1">
+          <input type="checkbox" class="checklist-box" id="cb1" onchange="updateCL()">
+          <div class="checklist-content">
+            <div class="checklist-num">Question 01</div>
+            <div class="checklist-q">Who is your local candidate — and what colour did they wear five years ago?</div>
+            <p class="checklist-why">If they switched parties, ask why. Did the policies change, or just the patron?</p>
+          </div>
+        </label>
       </div>
 
-      <div class="question-card">
-        <div class="question-num">02</div>
-        <div class="question-text">Who runs the local sand, stone, or construction trade in your block?</div>
-        <p class="question-why">Follow the rent. The flag may change; the contractor often doesn't.</p>
+      <div class="checklist-item" id="ci2">
+        <label class="checklist-label" for="cb2">
+          <input type="checkbox" class="checklist-box" id="cb2" onchange="updateCL()">
+          <div class="checklist-content">
+            <div class="checklist-num">Question 02</div>
+            <div class="checklist-q">Who runs the local sand, stone, or construction trade in your block?</div>
+            <p class="checklist-why">Follow the rent. The flag may change; the contractor often doesn't.</p>
+          </div>
+        </label>
       </div>
 
-      <div class="question-card">
-        <div class="question-num">03</div>
-        <div class="question-text">Was your last panchayat election uncontested in any seats?</div>
-        <p class="question-why">Uncontested seats aren't consensus. They're a sign that opposition was prevented from filing.</p>
+      <div class="checklist-item" id="ci3">
+        <label class="checklist-label" for="cb3">
+          <input type="checkbox" class="checklist-box" id="cb3" onchange="updateCL()">
+          <div class="checklist-content">
+            <div class="checklist-num">Question 03</div>
+            <div class="checklist-q">Was your last <span class="gloss" data-tip="The three-tier rural local government: Gram Panchayat (village), Panchayat Samiti (block), Zilla Parishad (district)">panchayat</span> election uncontested in any seats?</div>
+            <p class="checklist-why">Uncontested seats aren't consensus. They're often a sign that opposition was prevented from filing.</p>
+          </div>
+        </label>
       </div>
 
-      <div class="question-card">
-        <div class="question-num">04</div>
-        <div class="question-text">What concrete service has improved in your village in the last five years?</div>
-        <p class="question-why">Cash transfers count. So does a working PHC, a road that lasts, a school that has teachers.</p>
+      <div class="checklist-item" id="ci4">
+        <label class="checklist-label" for="cb4">
+          <input type="checkbox" class="checklist-box" id="cb4" onchange="updateCL()">
+          <div class="checklist-content">
+            <div class="checklist-num">Question 04</div>
+            <div class="checklist-q">What concrete service has improved in your village in the last five years?</div>
+            <p class="checklist-why">Cash transfers count. So does a working PHC (health centre), a road that lasts, a school that actually has teachers.</p>
+          </div>
+        </label>
       </div>
 
-      <div class="question-card">
-        <div class="question-num">05</div>
-        <div class="question-text">Can you say the opposite of the ruling party's view in your para — out loud?</div>
-        <p class="question-why">If the answer is no, ask which party that has been true under, across the decades. The honest answer is uncomfortable.</p>
+      <div class="checklist-item" id="ci5">
+        <label class="checklist-label" for="cb5">
+          <input type="checkbox" class="checklist-box" id="cb5" onchange="updateCL()">
+          <div class="checklist-content">
+            <div class="checklist-num">Question 05</div>
+            <div class="checklist-q">Can you say the opposite of the ruling party's view in your neighbourhood — out loud?</div>
+            <p class="checklist-why">If the answer is no, that's a warning sign about local power — regardless of which party holds it.</p>
+          </div>
+        </label>
       </div>
 
-      <div class="question-card">
-        <div class="question-num">06</div>
-        <div class="question-text">Who decides who gets the BPL card, the housing list, the MGNREGA muster roll?</div>
-        <p class="question-why">If one local figure decides all three, that's the machine — regardless of which symbol is on the wall.</p>
+      <div class="checklist-item" id="ci6">
+        <label class="checklist-label" for="cb6">
+          <input type="checkbox" class="checklist-box" id="cb6" onchange="updateCL()">
+          <div class="checklist-content">
+            <div class="checklist-num">Question 06</div>
+            <div class="checklist-q">Who decides who gets the <span class="gloss" data-tip="Below Poverty Line — determines who receives subsidised food, housing, and welfare benefits">BPL card</span>, the housing list, the <span class="gloss" data-tip="Mahatma Gandhi National Rural Employment Guarantee Act — guarantees 100 days of paid work to rural households">MGNREGA</span> muster roll?</div>
+            <p class="checklist-why">If one local figure controls all three, that's the machine — regardless of which symbol is on the wall.</p>
+          </div>
+        </label>
+      </div>
+
+      <div class="checklist-footer">
+        <div class="cl-bar-wrap"><div class="cl-bar-fill" id="clFill"></div></div>
+        <div class="cl-bar-text" id="clText">0 of 6 considered</div>
+      </div>
+      <div class="cl-done-msg" id="clDone">
+        You've thought through all six questions. That's more civic homework than most. Vote informed.
       </div>
     </div>
   </div>
 </section>
 
 </div>
-<!-- ===== END VOTER LAYER ===== -->
+<!-- ======= END VOTER LAYER ======= -->
 
-<!-- ===== READER LAYER ===== -->
+<!-- ======= READER LAYER ======= -->
 <div class="audience-content" data-audience="reader">
-
-<section class="evidence">
+<section class="section-wrap">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <div class="section-kicker">The evidence layer</div>
       <h2 class="section-title">The <em>argument</em>, with receipts</h2>
       <p class="section-sub">For readers who want to follow the trail. Tap each item to expand.</p>
     </div>
-
     <div class="evidence-list">
 
       <div class="evidence-item">
-        <button class="evidence-toggle" onclick="toggleEvidence(this)">
+        <button class="evidence-toggle" onclick="toggleEvidence(this)" aria-expanded="false">
           <span class="evidence-num">EX. 01</span>
           <span class="evidence-title">Singur and Nandigram <em>— the cracks before the fall</em></span>
           <span class="evidence-icon">+</span>
@@ -972,14 +944,14 @@
       </div>
 
       <div class="evidence-item">
-        <button class="evidence-toggle" onclick="toggleEvidence(this)">
+        <button class="evidence-toggle" onclick="toggleEvidence(this)" aria-expanded="false">
           <span class="evidence-num">EX. 02</span>
-          <span class="evidence-title">The defection wave, 2019 – 2021 <em>— BJP's Bengal shortcut</em></span>
+          <span class="evidence-title">The defection wave, 2019–2021 <em>— BJP's Bengal shortcut</em></span>
           <span class="evidence-icon">+</span>
         </button>
         <div class="evidence-body">
           <div class="evidence-content">
-            <p>The BJP's rise in Bengal between the 2019 Lok Sabha and the 2021 Assembly elections was unprecedented in scale — and impossible to explain through cadre alone. Senior figures including Suvendu Adhikari (a former TMC heavyweight), Mukul Roy (a TMC founding figure who later returned), Rajib Banerjee and dozens of sitting MLAs crossed over.</p>
+            <p>The BJP's rise in Bengal between the 2019 Lok Sabha and the 2021 Assembly elections was unprecedented in scale — and impossible to explain through cadre alone. Senior figures including Suvendu Adhikari, Mukul Roy, Rajib Banerjee and dozens of sitting MLAs crossed over from TMC.</p>
             <p>This is the structural admission at the heart of the BJP's Bengal project: the party could not build organisation fast enough, so it bought the existing one wholesale. The voter who switched for <em>poriborton 2.0</em> often ended up with the same local strongman — in saffron.</p>
             <p>It's also why the BJP's anti-syndicate critique has never quite landed: at the booth level, its own organisation often <em>is</em> the syndicate it claims to oppose.</p>
             <div class="evidence-source">Background reading · Defections to BJP, West Bengal, 2019–2021 · Election Commission filings and contemporary reporting</div>
@@ -988,7 +960,7 @@
       </div>
 
       <div class="evidence-item">
-        <button class="evidence-toggle" onclick="toggleEvidence(this)">
+        <button class="evidence-toggle" onclick="toggleEvidence(this)" aria-expanded="false">
           <span class="evidence-num">EX. 03</span>
           <span class="evidence-title">Panchayat elections, 2023 <em>— violence as a local feature</em></span>
           <span class="evidence-icon">+</span>
@@ -996,37 +968,37 @@
         <div class="evidence-body">
           <div class="evidence-content">
             <p>The 2023 West Bengal panchayat polls were among the most violent rural elections in recent memory. The pattern was telling: violence concentrated around control of local bodies that distribute MGNREGA work, housing benefits, and contracts — not around state-level political prizes.</p>
-            <p>This is consistent with the thesis of this essay. State-level outcomes are now partially decoupled from local muscle (welfare schemes have created their own electoral logic). But local rents — who controls the panchayat, who allocates the work, who taxes the brick kiln — are worth fighting brutally for, regardless of which party is in power in Kolkata.</p>
+            <p>This is consistent with the thesis of this essay. State-level outcomes are now partially decoupled from local muscle. But local rents — who controls the panchayat, who allocates the work, who taxes the brick kiln — are worth fighting brutally for, regardless of which party is in power in Kolkata.</p>
             <div class="evidence-source">Background reading · West Bengal panchayat elections, July 2023 · State Election Commission and contemporary press</div>
           </div>
         </div>
       </div>
 
       <div class="evidence-item">
-        <button class="evidence-toggle" onclick="toggleEvidence(this)">
+        <button class="evidence-toggle" onclick="toggleEvidence(this)" aria-expanded="false">
           <span class="evidence-num">EX. 04</span>
           <span class="evidence-title">The Lakshmir Bhandar effect <em>— why violence and votes are uncoupling</em></span>
           <span class="evidence-icon">+</span>
         </button>
         <div class="evidence-body">
           <div class="evidence-content">
-            <p>Direct cash transfer schemes — most prominently Lakshmir Bhandar for women — have arguably transformed the TMC's electoral arithmetic. They have created a welfare-based constituency that does not need to be mobilised by muscle. A woman receiving a monthly transfer has a tangible reason to vote that does not depend on the local strongman's instructions.</p>
-            <p>This explains an otherwise puzzling fact: TMC has remained electorally dominant at the state level even as panchayat-level violence has, by most accounts, intensified. The two phenomena are no longer tightly coupled.</p>
-            <p>A useful question for the voter: <em>are the welfare transfers a substitute for accountability, or a complement to it?</em></p>
+            <p>Direct cash transfer schemes — most prominently Lakshmir Bhandar for women — have arguably transformed the TMC's electoral arithmetic. They created a welfare-based constituency that does not need to be mobilised by muscle. A woman receiving a monthly transfer has a tangible reason to vote that does not depend on the local strongman's instructions.</p>
+            <p>This explains an otherwise puzzling fact: TMC has remained electorally dominant at the state level even as panchayat-level violence has intensified. The two phenomena are no longer tightly coupled.</p>
+            <p>A useful question for the voter: <em>are welfare transfers a substitute for accountability, or a complement to it?</em></p>
             <div class="evidence-source">Background reading · Lakshmir Bhandar · West Bengal state government welfare schemes</div>
           </div>
         </div>
       </div>
 
       <div class="evidence-item">
-        <button class="evidence-toggle" onclick="toggleEvidence(this)">
+        <button class="evidence-toggle" onclick="toggleEvidence(this)" aria-expanded="false">
           <span class="evidence-num">EX. 05</span>
-          <span class="evidence-title">The comparison test <em>— is this a Bengal pathology, or a long-dominance pathology?</em></span>
+          <span class="evidence-title">The comparison test <em>— Bengal pathology, or long-dominance pathology?</em></span>
           <span class="evidence-icon">+</span>
         </button>
         <div class="evidence-body">
           <div class="evidence-content">
-            <p>Bengal is not the only Indian state to have lived under a single party for decades. Kerala has had long stretches of CPI(M) rule but has not produced quite the same syndicate-and-turncoat pattern. UP has had multiple long-dominance phases (Congress, BSP, SP, BJP) with different post-transition dynamics again.</p>
+            <p>Bengal is not the only Indian state to have lived under a single party for decades. Kerala has had long stretches of CPI(M) rule but has not produced quite the same syndicate-and-turncoat pattern. UP has had multiple long-dominance phases with different post-transition dynamics again.</p>
             <p>What seems specific to Bengal is the <em>combination</em>: a long, ideologically organised dominance (CPI(M)) followed by a personality-led successor (TMC) that absorbed the local apparatus without rebuilding ideology, followed by a third entrant (BJP) that grew through defection rather than cadre.</p>
             <p>This is not destiny. It is the consequence of specific choices, by specific actors, over specific decades. Which means it can change — but only if voters force the change at the level where it actually lives: the local body.</p>
             <div class="evidence-source">Comparative reading · Kerala, Uttar Pradesh, Tamil Nadu state political histories</div>
@@ -1037,25 +1009,22 @@
     </div>
   </div>
 </section>
-
 </div>
-<!-- ===== END READER LAYER ===== -->
+<!-- ======= END READER LAYER ======= -->
 
-<!-- ===== RESEARCHER LAYER ===== -->
+<!-- ======= RESEARCHER LAYER ======= -->
 <div class="audience-content" data-audience="researcher">
-
-<section class="evidence">
+<section class="section-wrap">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <div class="section-kicker">For students and researchers</div>
-      <h2 class="section-title">A <em>reading list</em> and<br>research questions</h2>
+      <h2 class="section-title">A <em>reading list</em> and<br>open research questions</h2>
       <p class="section-sub">Open threads, useful sources, and where the evidence is thin.</p>
     </div>
-
     <div class="evidence-list">
 
       <div class="evidence-item">
-        <button class="evidence-toggle" onclick="toggleEvidence(this)">
+        <button class="evidence-toggle" onclick="toggleEvidence(this)" aria-expanded="false">
           <span class="evidence-num">RQ. 01</span>
           <span class="evidence-title">How do we measure "continuity of local power" empirically?</span>
           <span class="evidence-icon">+</span>
@@ -1065,14 +1034,14 @@
             <p>The thesis of this site is qualitative. Quantifying it is a real research problem. Possible approaches:</p>
             <p>· <strong>Panchayat panel data</strong> — track panchayat presidents and ward members across multiple cycles. What share of post-2011 TMC panchayat heads were CPI(M)-affiliated before 2011? What share of post-2019 BJP candidates held positions under TMC?</p>
             <p>· <strong>Defection registers</strong> — Election Commission filings, anti-defection law cases, and party membership records can be combined to produce a longitudinal map of party-switching at the local level.</p>
-            <p>· <strong>Contract and tender records</strong> — RTI-based studies of who wins panchayat-level contracts across regime changes can test whether <em>economic</em> control of local rents is genuinely continuous.</p>
-            <div class="evidence-source">Methods note · This is an under-studied area in Indian political science</div>
+            <p>· <strong>Contract and tender records</strong> — RTI-based studies of who wins panchayat-level contracts across regime changes can test whether economic control of local rents is genuinely continuous.</p>
+            <div class="evidence-source">Methods note · Under-studied area in Indian political science</div>
           </div>
         </div>
       </div>
 
       <div class="evidence-item">
-        <button class="evidence-toggle" onclick="toggleEvidence(this)">
+        <button class="evidence-toggle" onclick="toggleEvidence(this)" aria-expanded="false">
           <span class="evidence-num">RQ. 02</span>
           <span class="evidence-title">Why did Kerala diverge?</span>
           <span class="evidence-icon">+</span>
@@ -1080,15 +1049,14 @@
         <div class="evidence-body">
           <div class="evidence-content">
             <p>Kerala's CPI(M) experience is the natural counterfactual. Both states had long Left dominance; both have strong cadre traditions. Yet Kerala's transitions have been less violent, its local bodies less captured, its civil society arguably more autonomous.</p>
-            <p>Hypotheses worth testing: (i) Kerala's two-coalition rotation (LDF and UDF) prevented monopolistic local capture; (ii) higher literacy and earlier land reforms produced a more demanding electorate; (iii) Kerala's cooperative and panchayati raj institutions developed independent legitimacy that Bengal's never quite did.</p>
-            <p>Any serious answer requires comparative historical research — and would likely complicate the "Bengal pathology" framing.</p>
+            <p>Hypotheses worth testing: (i) Kerala's two-coalition rotation prevented monopolistic local capture; (ii) higher literacy and earlier land reforms produced a more demanding electorate; (iii) Kerala's panchayati raj institutions developed independent legitimacy that Bengal's never quite did.</p>
             <div class="evidence-source">Comparative politics · See works by Patrick Heller, Atul Kohli on regional state capacity</div>
           </div>
         </div>
       </div>
 
       <div class="evidence-item">
-        <button class="evidence-toggle" onclick="toggleEvidence(this)">
+        <button class="evidence-toggle" onclick="toggleEvidence(this)" aria-expanded="false">
           <span class="evidence-num">RQ. 03</span>
           <span class="evidence-title">The decoupling of state-level votes from local coercion</span>
           <span class="evidence-icon">+</span>
@@ -1097,14 +1065,13 @@
           <div class="evidence-content">
             <p>If welfare transfers (Lakshmir Bhandar, Kanyashree, Sabuj Sathi) have created a constituency that does not require muscle to be mobilised, this has significant implications for how Bengal politics is theorised.</p>
             <p>Open questions: Does this represent a genuine shift in voter agency? Or merely a substitution of one form of patronage (cash) for another (jobs and protection)? Survey data and panel studies post-2021 should be able to begin answering this.</p>
-            <p>The concept of the "welfare voter" in Indian politics — pioneered in studies of Tamil Nadu and Andhra Pradesh — is increasingly relevant to Bengal.</p>
             <div class="evidence-source">Reading · Studies on direct benefit transfers and electoral behaviour, post-2014 India</div>
           </div>
         </div>
       </div>
 
       <div class="evidence-item">
-        <button class="evidence-toggle" onclick="toggleEvidence(this)">
+        <button class="evidence-toggle" onclick="toggleEvidence(this)" aria-expanded="false">
           <span class="evidence-num">RQ. 04</span>
           <span class="evidence-title">Suggested reading list</span>
           <span class="evidence-icon">+</span>
@@ -1112,7 +1079,7 @@
         <div class="evidence-body">
           <div class="evidence-content">
             <p><strong>On the Left Front era:</strong></p>
-            <p>· Atul Kohli, <em>The State and Poverty in India</em> — the foundational analysis of how the CPI(M)'s organisational model worked.</p>
+            <p>· Atul Kohli, <em>The State and Poverty in India</em> — foundational analysis of the CPI(M)'s organisational model.</p>
             <p>· Dwaipayan Bhattacharyya, <em>Government as Practice</em> — on party-society relations under the Left Front.</p>
             <p><strong>On the TMC transition:</strong></p>
             <p>· Reporting in <em>The Telegraph</em>, <em>Anandabazar Patrika</em>, <em>The Hindu</em>, and <em>Frontline</em> on Singur, Nandigram, and the 2011 transition.</p>
@@ -1123,13 +1090,13 @@
             <p><strong>On comparative state politics:</strong></p>
             <p>· Patrick Heller, <em>The Labor of Development</em> — on Kerala.</p>
             <p>· Pradeep Chhibber and Rahul Verma, <em>Ideology and Identity</em> — on Indian party systems more broadly.</p>
-            <div class="evidence-source">Note · This is a starting list, not exhaustive. Please verify availability and editions</div>
+            <div class="evidence-source">Note · Starting list, not exhaustive. Verify availability and editions.</div>
           </div>
         </div>
       </div>
 
       <div class="evidence-item">
-        <button class="evidence-toggle" onclick="toggleEvidence(this)">
+        <button class="evidence-toggle" onclick="toggleEvidence(this)" aria-expanded="false">
           <span class="evidence-num">RQ. 05</span>
           <span class="evidence-title">Where this site is honest about its limits</span>
           <span class="evidence-icon">+</span>
@@ -1137,10 +1104,9 @@
         <div class="evidence-body">
           <div class="evidence-content">
             <p>This site advances an argument. It tries not to pretend to be a neutral tribunal.</p>
-            <p>Three things readers should weigh against the framing here:</p>
             <p>· <strong>The thesis under-credits institutional change.</strong> Welfare delivery, female literacy, and rural electrification have all moved meaningfully under successive governments. A pure "nothing changes" reading is too tidy.</p>
-            <p>· <strong>The "muscle" framing risks flattening agency.</strong> Voters in Bengal are not passive. The 1977, 2011, and 2019 swings were real political acts. The argument here is that the *infrastructure of coercion* persists — not that voters are powerless.</p>
-            <p>· <strong>This site does not name individuals.</strong> A site that names specific local strongmen would be a different kind of project, with different legal and ethical responsibilities. This one operates at the level of pattern, not personal accusation.</p>
+            <p>· <strong>The "muscle" framing risks flattening agency.</strong> Voters in Bengal are not passive. The 1977, 2011, and 2019 swings were real political acts. The argument here is that the <em>infrastructure of coercion</em> persists — not that voters are powerless.</p>
+            <p>· <strong>This site does not name individuals.</strong> It operates at the level of pattern, not personal accusation.</p>
             <div class="evidence-source">Editorial note · An honest argument tells you what it isn't doing</div>
           </div>
         </div>
@@ -1149,9 +1115,8 @@
     </div>
   </div>
 </section>
-
 </div>
-<!-- ===== END RESEARCHER LAYER ===== -->
+<!-- ======= END RESEARCHER LAYER ======= -->
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -1164,55 +1129,111 @@
     <p class="footer-text bn-only bn-text">
       পতাকার রং বলে দেয় সরকারের নাম। গ্রামের নিচের হাত বলে দেয় সরকার আসলে কী। এই সাইটটি দুটোই দেখার একটি ছোট প্রচেষ্টা।
     </p>
-    <div class="footer-meta">
-      A non-partisan civic education project · 2026 · Independent of any party or campaign
+    <div class="share-row">
+      <button class="share-btn" onclick="copyLink()">⎘ Copy link</button>
+      <button class="share-btn" onclick="window.print()">⎙ Print / Save PDF</button>
     </div>
+    <hr class="footer-rule">
+    <div class="footer-meta">A non-partisan civic education project · 2026 · Independent of any party or campaign</div>
   </div>
 </footer>
 
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
 <script>
-  function setLang(lang) {
-    document.documentElement.lang = lang;
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-  }
+// Progress bar + back to top
+window.addEventListener('scroll', () => {
+  const d = document.documentElement;
+  const pct = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
+  document.getElementById('progress-bar').style.width = Math.min(pct, 100) + '%';
+  document.getElementById('back-top').classList.toggle('show', d.scrollTop > 400);
+});
 
-  function setAudience(audience, btn) {
-    document.querySelectorAll('.audience-tab').forEach(t => t.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.audience-content').forEach(c => {
-      c.classList.toggle('active', c.dataset.audience === audience);
-    });
-    // Scroll to top of new content
-    setTimeout(() => {
-      const el = document.querySelector(`.audience-content.active`);
-      if (el) {
-        const top = el.getBoundingClientRect().top + window.pageYOffset - 80;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    }, 50);
-  }
+// Dark mode
+function toggleTheme() {
+  const html = document.documentElement;
+  const dark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', dark ? 'light' : 'dark');
+  document.getElementById('themeToggle').textContent = dark ? '◐ Dark' : '◑ Light';
+}
 
-  function toggleEvidence(btn) {
-    const item = btn.parentElement;
-    item.classList.toggle('open');
-  }
+// Language
+function setLang(lang) {
+  document.body.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+}
 
-  // Reveal on scroll
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
+// Audience tabs
+function setAudience(id, btn) {
+  document.querySelectorAll('.audience-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.audience-content').forEach(c => c.classList.toggle('active', c.dataset.audience === id));
+  setTimeout(() => {
+    const el = document.querySelector('.audience-content.active');
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + pageYOffset - 72, behavior: 'smooth' });
+  }, 50);
+}
 
-  document.querySelectorAll('.era-card, .question-card, .flow-node, .evidence-item').forEach(el => {
-    el.classList.add('reveal');
-    observer.observe(el);
+// Evidence accordion
+function toggleEvidence(btn) {
+  const item = btn.parentElement;
+  const open = item.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+}
+
+// Voter checklist
+function updateCL() {
+  const boxes = document.querySelectorAll('.checklist-box');
+  let n = 0;
+  boxes.forEach((b, i) => {
+    const item = document.getElementById('ci' + (i + 1));
+    if (b.checked) { n++; item.classList.add('is-done'); }
+    else { item.classList.remove('is-done'); }
   });
-</script>
+  document.getElementById('clFill').style.width = (n / boxes.length * 100) + '%';
+  document.getElementById('clText').textContent = n + ' of ' + boxes.length + ' considered';
+  document.getElementById('clDone').classList.toggle('show', n === boxes.length);
+}
 
+// Animated counters
+function countUp(el) {
+  const target = +el.dataset.count;
+  const dur = 1400;
+  const start = performance.now();
+  (function tick(now) {
+    const t = Math.min((now - start) / dur, 1);
+    el.textContent = Math.round((1 - Math.pow(1 - t, 3)) * target);
+    if (t < 1) requestAnimationFrame(tick);
+  })(start);
+}
+
+// Intersection observer
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('visible');
+    e.target.querySelectorAll('[data-count]').forEach(countUp);
+    io.unobserve(e.target);
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+document.querySelectorAll('.era-card,.tl-event,.right-item,.evidence-item').forEach(el => {
+  el.classList.add('reveal'); io.observe(el);
+});
+// Animate counters when hero stats enter view
+const heroStats = document.querySelector('.hero-stats');
+if (heroStats) { heroStats.classList.add('reveal'); io.observe(heroStats); }
+
+// Copy link
+function copyLink() {
+  const btn = event.currentTarget;
+  navigator.clipboard.writeText(location.href).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => btn.textContent = orig, 2000);
+  }).catch(() => prompt('Copy this link:', location.href));
+}
+</script>
 </body>
 </html>
