@@ -369,8 +369,8 @@ body::before {
   display:grid; grid-template-columns:1fr 1fr;
   border:2px solid var(--rule); margin-top:32px;
 }
-.flags-col.red-col .flags-header { background:var(--red); color:#fff; }
-.flags-col.green-col .flags-header { background:var(--green); color:#fff; }
+.flags-col.red-col .flags-header { background:var(--red); color:var(--paper); }
+.flags-col.green-col .flags-header { background:var(--green); color:var(--paper); }
 .flags-header {
   padding:14px 24px; font-family:'JetBrains Mono',monospace;
   font-size:11px; letter-spacing:.15em; text-transform:uppercase; font-weight:600;
@@ -761,7 +761,8 @@ body::before {
 }
 @media print {
   #progress-bar,#back-top,.audience-nav,.theme-toggle,.share-row { display:none !important; }
-  .audience-content { display:block !important; }
+  .audience-content { display:none !important; }
+  .audience-content.active { display:block !important; }
   .evidence-body { max-height:none !important; }
   body { background:white; color:black; font-size:12pt; }
 }
@@ -779,7 +780,7 @@ body::before {
       <span>A Voter's Guide · West Bengal · 2026</span>
       <div class="masthead-controls">
         <span>No. 01 — Power & Continuity</span>
-        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">◐ Dark</button>
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle dark mode">◐ Dark</button>
       </div>
     </div>
     <div class="masthead-title">The Bengal Reader</div>
@@ -797,7 +798,7 @@ body::before {
 <section class="hero" id="main-content">
   <div class="container">
     <div class="hero-kicker en-only">An essay in three acts · For every voter in Bengal · <span id="reading-time"></span></div>
-    <div class="hero-kicker bn-only bn-text">তিন অঙ্কের প্রবন্ধ · বাংলার প্রতিটি ভোটারের জন্য</div>
+    <div class="hero-kicker bn-only bn-text">তিন অঙ্কের প্রবন্ধ · বাংলার প্রতিটি ভোটারের জন্য · <span id="reading-time-bn"></span></div>
 
     <div class="en-only">
       <h1>The <span class="red">scarf</span> changes.<br>The <em>hand</em> doesn't.</h1>
@@ -871,61 +872,61 @@ body::before {
       <h2 class="section-title en-only">Your panchayat decides <em>more of your life</em><br>than the state capital does.</h2>
       <h2 class="section-title bn-only bn-text">পঞ্চায়েত আপনার জীবনে <em>রাজ্য সরকারের চেয়ে বেশি</em> সিদ্ধান্ত নেয়।</h2>
       <p class="section-sub en-only">State elections set the direction. Local bodies set the reality. These are the decisions made at the gram panchayat level — not in Kolkata.</p>
-      <p class="section-sub bn-only bn-text">রাজ্য নির্বাচন দিক ঠিক করে। স্থানীয় সংস্থা বাস্তবতা ঠিক করে।</p>
+      <p class="section-sub bn-only bn-text">রাজ্য নির্বাচন দিক ঠিক করে। স্থানীয় সংস্থা বাস্তবতা ঠিক করে। গ্রাম পঞ্চায়েত স্তরেই এই সিদ্ধান্তগুলো নেওয়া হয় — কলকাতায় নয়।</p>
     </div>
 
     <div class="stakes-grid reveal">
       <div class="stake-item">
-        <div class="stake-icon">🏠</div>
+        <div class="stake-icon" aria-hidden="true">🏠</div>
         <div class="stake-label en-only">Housing scheme list</div>
         <div class="stake-label bn-only bn-text">আবাসন প্রকল্পের তালিকা</div>
         <p class="stake-sub en-only">Who gets a Banglar Awas Yojana home — and who gets told to come back next year.</p>
         <p class="stake-sub bn-only bn-text">বাংলার আবাস যোজনায় কে ঘর পাবেন আর কে পাবেন না।</p>
       </div>
       <div class="stake-item">
-        <div class="stake-icon">💳</div>
+        <div class="stake-icon" aria-hidden="true">💳</div>
         <div class="stake-label en-only">BPL card eligibility</div>
         <div class="stake-label bn-only bn-text">বিপিএল কার্ডের যোগ্যতা</div>
         <p class="stake-sub en-only">Who qualifies for subsidised food, kerosene, and state welfare — and who gets cut from the list.</p>
-        <p class="stake-sub bn-only bn-text">কে ভর্তুকি মূল্যে খাদ্য ও রাজ্য কল্যাণ পাবেন।</p>
+        <p class="stake-sub bn-only bn-text">কে ভর্তুকি মূল্যে খাদ্য, কেরোসিন ও রাজ্য কল্যাণ পাবেন — এবং কার নাম তালিকা থেকে কাটা যাবে।</p>
       </div>
       <div class="stake-item">
-        <div class="stake-icon">👷</div>
+        <div class="stake-icon" aria-hidden="true">👷</div>
         <div class="stake-label en-only">MGNREGA muster roll</div>
         <div class="stake-label bn-only bn-text">মনরেগা মাস্টার রোল</div>
         <p class="stake-sub en-only">Who gets onto the 100-day work programme — and whose name disappears before payday.</p>
         <p class="stake-sub bn-only bn-text">কে ১০০ দিনের কাজের প্রকল্পে নাম পাবেন।</p>
       </div>
       <div class="stake-item">
-        <div class="stake-icon">🛣️</div>
+        <div class="stake-icon" aria-hidden="true">🛣️</div>
         <div class="stake-label en-only">Road &amp; drainage contracts</div>
         <div class="stake-label bn-only bn-text">রাস্তা ও নর্দমা ঠিকাদারি</div>
         <p class="stake-sub en-only">Who builds local infrastructure — and who collects a cut at every stage of the contract.</p>
         <p class="stake-sub bn-only bn-text">স্থানীয় পরিকাঠামো কে নির্মাণ করে এবং কে কমিশন নেয়।</p>
       </div>
       <div class="stake-item">
-        <div class="stake-icon">💧</div>
+        <div class="stake-icon" aria-hidden="true">💧</div>
         <div class="stake-label en-only">Drinking water projects</div>
         <div class="stake-label bn-only bn-text">পানীয় জল প্রকল্প</div>
         <p class="stake-sub en-only">Who gets the Jal Jeevan Mission tap connection — and who gets a promise and a waiting list.</p>
         <p class="stake-sub bn-only bn-text">জল জীবন মিশনের সংযোগ কে পাবেন, কে প্রতিশ্রুতি পাবেন।</p>
       </div>
       <div class="stake-item">
-        <div class="stake-icon">🏫</div>
+        <div class="stake-icon" aria-hidden="true">🏫</div>
         <div class="stake-label en-only">School maintenance</div>
         <div class="stake-label bn-only bn-text">বিদ্যালয় রক্ষণাবেক্ষণ</div>
         <p class="stake-sub en-only">Whether the repair budget reaches the building — or disappears before it gets there.</p>
         <p class="stake-sub bn-only bn-text">মেরামতির বাজেট ভবনে পৌঁছায় কিনা।</p>
       </div>
       <div class="stake-item">
-        <div class="stake-icon">💊</div>
+        <div class="stake-icon" aria-hidden="true">💊</div>
         <div class="stake-label en-only">PHC staffing &amp; supplies</div>
         <div class="stake-label bn-only bn-text">স্বাস্থ্যকেন্দ্রের কর্মী ও সরবরাহ</div>
         <p class="stake-sub en-only">Whether your local health centre actually has a doctor, medicine, and working equipment.</p>
         <p class="stake-sub bn-only bn-text">স্থানীয় স্বাস্থ্যকেন্দ্রে আসলেই ডাক্তার ও ওষুধ আছে কিনা।</p>
       </div>
       <div class="stake-item">
-        <div class="stake-icon">🌾</div>
+        <div class="stake-icon" aria-hidden="true">🌾</div>
         <div class="stake-label en-only">Agricultural support</div>
         <div class="stake-label bn-only bn-text">কৃষি সহায়তা</div>
         <p class="stake-sub en-only">Distribution of seeds, fertilisers, and crop insurance claims — and who gets priority access.</p>
@@ -942,15 +943,15 @@ body::before {
 
 <!-- AUDIENCE NAV -->
 <nav class="audience-nav" aria-label="Content layers">
-  <div class="audience-tabs">
-    <button class="audience-tab active" onclick="setAudience('voter',this)">For the Voter</button>
-    <button class="audience-tab" onclick="setAudience('reader',this)">For the Reader</button>
-    <button class="audience-tab" onclick="setAudience('researcher',this)">For the Researcher</button>
+  <div class="audience-tabs" role="tablist">
+    <button class="audience-tab active" role="tab" aria-selected="true" aria-controls="audience-voter" onclick="setAudience('voter',this)">For the Voter</button>
+    <button class="audience-tab" role="tab" aria-selected="false" aria-controls="audience-reader" onclick="setAudience('reader',this)">For the Reader</button>
+    <button class="audience-tab" role="tab" aria-selected="false" aria-controls="audience-researcher" onclick="setAudience('researcher',this)">For the Researcher</button>
   </div>
 </nav>
 
 <!-- ======= VOTER LAYER ======= -->
-<div class="audience-content active" data-audience="voter">
+<div class="audience-content active" data-audience="voter" id="audience-voter" role="tabpanel">
 
 <!-- ERAS -->
 <section class="section-wrap">
@@ -1105,7 +1106,7 @@ body::before {
 
     <div class="rights-grid">
       <div class="right-item reveal">
-        <div class="right-icon">🗳</div>
+        <div class="right-icon" aria-hidden="true">🗳</div>
         <div>
           <div class="right-title">Secret ballot</div>
           <p class="right-desc">Once you step into that booth, nobody can follow you in. Not your employer, not your landlord, not the party worker who thinks they own your vote. The law protects that moment of privacy absolutely.</p>
@@ -1113,7 +1114,7 @@ body::before {
         </div>
       </div>
       <div class="right-item reveal">
-        <div class="right-icon">✋</div>
+        <div class="right-icon" aria-hidden="true">✋</div>
         <div>
           <div class="right-title">Right to refuse</div>
           <p class="right-desc">If you don't trust any of them, you don't have to pick the least bad option. Press NOTA — None of the Above — on the EVM. It's a valid, legal choice, and it's yours to make.</p>
@@ -1121,7 +1122,7 @@ body::before {
         </div>
       </div>
       <div class="right-item reveal">
-        <div class="right-icon">🛡</div>
+        <div class="right-icon" aria-hidden="true">🛡</div>
         <div>
           <div class="right-title">No intimidation</div>
           <p class="right-desc">If someone tries to tell you how to vote, threatens you, or blocks you from the booth — that's a crime, not just bad behaviour. You can report it to the Returning Officer or call the ECI helpline. You don't have to accept it.</p>
@@ -1129,7 +1130,7 @@ body::before {
         </div>
       </div>
       <div class="right-item reveal">
-        <div class="right-icon">📋</div>
+        <div class="right-icon" aria-hidden="true">📋</div>
         <div>
           <div class="right-title">Check your voter roll</div>
           <p class="right-desc">Don't find out on polling day that your name isn't there. Check now at voters.eci.gov.in, or walk over to your nearest BLO (Booth Level Officer) office. It takes minutes.</p>
@@ -1137,7 +1138,7 @@ body::before {
         </div>
       </div>
       <div class="right-item reveal">
-        <div class="right-icon">📄</div>
+        <div class="right-icon" aria-hidden="true">📄</div>
         <div>
           <div class="right-title">Know your candidate</div>
           <p class="right-desc">Every candidate who files to stand in an election must declare their criminal cases, their assets, their debts, their education — all of it. It's public. Go to myneta.info and read theirs before you vote.</p>
@@ -1145,7 +1146,7 @@ body::before {
         </div>
       </div>
       <div class="right-item reveal">
-        <div class="right-icon">📞</div>
+        <div class="right-icon" aria-hidden="true">📞</div>
         <div>
           <div class="right-title">ECI helpline</div>
           <p class="right-desc">A real number, staffed by real people, active during elections. Call to report a violation at your booth, find out where you're supposed to vote, or sort out a voter ID problem before it's too late.</p>
@@ -1173,7 +1174,7 @@ body::before {
         <div class="day-heading en-only">The evening before</div>
         <div class="day-heading bn-only bn-text">আগের রাতে</div>
         <div class="day-item">
-          <span class="day-marker">01</span>
+          <span class="day-marker" aria-hidden="true">01</span>
           <div>
             <strong class="en-only">Find your polling booth</strong>
             <strong class="bn-only bn-text">আপনার বুথ খুঁজুন</strong>
@@ -1182,7 +1183,7 @@ body::before {
           </div>
         </div>
         <div class="day-item">
-          <span class="day-marker">02</span>
+          <span class="day-marker" aria-hidden="true">02</span>
           <div>
             <strong class="en-only">Confirm your name on the roll</strong>
             <strong class="bn-only bn-text">ভোটার তালিকায় নাম নিশ্চিত করুন</strong>
@@ -1191,7 +1192,7 @@ body::before {
           </div>
         </div>
         <div class="day-item">
-          <span class="day-marker">03</span>
+          <span class="day-marker" aria-hidden="true">03</span>
           <div>
             <strong class="en-only">Prepare your ID</strong>
             <strong class="bn-only bn-text">পরিচয়পত্র প্রস্তুত রাখুন</strong>
@@ -1200,7 +1201,7 @@ body::before {
           </div>
         </div>
         <div class="day-item">
-          <span class="day-marker">04</span>
+          <span class="day-marker" aria-hidden="true">04</span>
           <div>
             <strong class="en-only">Save the helpline</strong>
             <strong class="bn-only bn-text">হেল্পলাইন সেভ করুন</strong>
@@ -1214,7 +1215,7 @@ body::before {
         <div class="day-heading en-only">At the polling booth</div>
         <div class="day-heading bn-only bn-text">বুথে গিয়ে</div>
         <div class="day-item">
-          <span class="day-marker">01</span>
+          <span class="day-marker" aria-hidden="true">01</span>
           <div>
             <strong class="en-only">Your vote is completely secret</strong>
             <strong class="bn-only bn-text">আপনার ভোট সম্পূর্ণ গোপন</strong>
@@ -1223,7 +1224,7 @@ body::before {
           </div>
         </div>
         <div class="day-item">
-          <span class="day-marker">02</span>
+          <span class="day-marker" aria-hidden="true">02</span>
           <div>
             <strong class="en-only">You can ask for assistance</strong>
             <strong class="bn-only bn-text">সহায়তা চাইতে পারেন</strong>
@@ -1232,7 +1233,7 @@ body::before {
           </div>
         </div>
         <div class="day-item">
-          <span class="day-marker">03</span>
+          <span class="day-marker" aria-hidden="true">03</span>
           <div>
             <strong class="en-only">NOTA is a valid, recorded vote</strong>
             <strong class="bn-only bn-text">NOTA একটি বৈধ ও নথিভুক্ত ভোট</strong>
@@ -1241,7 +1242,7 @@ body::before {
           </div>
         </div>
         <div class="day-item">
-          <span class="day-marker">04</span>
+          <span class="day-marker" aria-hidden="true">04</span>
           <div>
             <strong class="en-only">The ink mark is your proof</strong>
             <strong class="bn-only bn-text">কালির দাগ আপনার প্রমাণ</strong>
@@ -1255,7 +1256,7 @@ body::before {
         <div class="day-heading en-only">If something goes wrong</div>
         <div class="day-heading bn-only bn-text">কিছু ভুল হলে</div>
         <div class="day-item">
-          <span class="day-marker">→</span>
+          <span class="day-marker" aria-hidden="true">→</span>
           <div>
             <strong class="en-only">Your name is missing from the roll</strong>
             <strong class="bn-only bn-text">ভোটার তালিকায় নাম নেই</strong>
@@ -1264,7 +1265,7 @@ body::before {
           </div>
         </div>
         <div class="day-item">
-          <span class="day-marker">→</span>
+          <span class="day-marker" aria-hidden="true">→</span>
           <div>
             <strong class="en-only">You're being intimidated or threatened</strong>
             <strong class="bn-only bn-text">ভয় দেখানো বা হুমকি দেওয়া হচ্ছে</strong>
@@ -1273,7 +1274,7 @@ body::before {
           </div>
         </div>
         <div class="day-item">
-          <span class="day-marker">→</span>
+          <span class="day-marker" aria-hidden="true">→</span>
           <div>
             <strong class="en-only">Someone offers money or gifts</strong>
             <strong class="bn-only bn-text">টাকা বা উপহার অফার করা হচ্ছে</strong>
@@ -1282,7 +1283,7 @@ body::before {
           </div>
         </div>
         <div class="day-item">
-          <span class="day-marker">→</span>
+          <span class="day-marker" aria-hidden="true">→</span>
           <div>
             <strong class="en-only">The EVM is malfunctioning</strong>
             <strong class="bn-only bn-text">EVM ঠিকমতো কাজ করছে না</strong>
@@ -1335,45 +1336,45 @@ body::before {
     <div class="flags-grid">
       <div class="flags-col red-col">
         <div class="flags-header">🚩 Red flags — think twice</div>
-        <div class="flag-item"><span class="flag-arrow">→</span><span>Switched parties multiple times — and never quite explains why</span></div>
-        <div class="flag-item"><span class="flag-arrow">→</span><span>Criminal cases on the affidavit that they haven't addressed publicly</span></div>
-        <div class="flag-item"><span class="flag-arrow">→</span><span>Only ever shows up here during election season — you haven't seen them since last time</span></div>
-        <div class="flag-item"><span class="flag-arrow">→</span><span>Big slogans, nothing specific — can't name a single concrete commitment with a timeline</span></div>
-        <div class="flag-item"><span class="flag-arrow">→</span><span>Has a hand in local contracts, tenders, or the construction trade</span></div>
-        <div class="flag-item"><span class="flag-arrow">→</span><span>Panchayat seats in their area keep going uncontested — that's not harmony, that's pressure</span></div>
+        <div class="flag-item"><span class="flag-arrow" aria-hidden="true">→</span><span>Switched parties multiple times — and never quite explains why</span></div>
+        <div class="flag-item"><span class="flag-arrow" aria-hidden="true">→</span><span>Criminal cases on the affidavit that they haven't addressed publicly</span></div>
+        <div class="flag-item"><span class="flag-arrow" aria-hidden="true">→</span><span>Only ever shows up here during election season — you haven't seen them since last time</span></div>
+        <div class="flag-item"><span class="flag-arrow" aria-hidden="true">→</span><span>Big slogans, nothing specific — can't name a single concrete commitment with a timeline</span></div>
+        <div class="flag-item"><span class="flag-arrow" aria-hidden="true">→</span><span>Has a hand in local contracts, tenders, or the construction trade</span></div>
+        <div class="flag-item"><span class="flag-arrow" aria-hidden="true">→</span><span>Panchayat seats in their area keep going uncontested — that's not harmony, that's pressure</span></div>
       </div>
       <div class="flags-col green-col">
         <div class="flags-header">✓ Green flags — promising signs</div>
-        <div class="flag-item"><span class="flag-arrow">→</span><span>Around year-round, actually turns up at local meetings and grievance hearings</span></div>
-        <div class="flag-item"><span class="flag-arrow">→</span><span>No criminal cases — or ones they've explained openly and in full</span></div>
-        <div class="flag-item"><span class="flag-arrow">→</span><span>Can point to something real they delivered in a previous term — not a ribbon-cutting, actual functioning infrastructure</span></div>
-        <div class="flag-item"><span class="flag-arrow">→</span><span>Makes commitments that are specific and time-bound, not just aspirational</span></div>
-        <div class="flag-item"><span class="flag-arrow">→</span><span>Says out loud that the opposition has the right to contest in their area — and means it</span></div>
-        <div class="flag-item"><span class="flag-arrow">→</span><span>A genuinely different candidate — not the same person who spent the last five years in another colour</span></div>
+        <div class="flag-item"><span class="flag-arrow" aria-hidden="true">→</span><span>Around year-round, actually turns up at local meetings and grievance hearings</span></div>
+        <div class="flag-item"><span class="flag-arrow" aria-hidden="true">→</span><span>No criminal cases — or ones they've explained openly and in full</span></div>
+        <div class="flag-item"><span class="flag-arrow" aria-hidden="true">→</span><span>Can point to something real they delivered in a previous term — not a ribbon-cutting, actual functioning infrastructure</span></div>
+        <div class="flag-item"><span class="flag-arrow" aria-hidden="true">→</span><span>Makes commitments that are specific and time-bound, not just aspirational</span></div>
+        <div class="flag-item"><span class="flag-arrow" aria-hidden="true">→</span><span>Says out loud that the opposition has the right to contest in their area — and means it</span></div>
+        <div class="flag-item"><span class="flag-arrow" aria-hidden="true">→</span><span>A genuinely different candidate — not the same person who spent the last five years in another colour</span></div>
       </div>
     </div>
 
     <div class="resources-row">
       <div class="resource-card reveal">
-        <div class="resource-icon">📊</div>
+        <div class="resource-icon" aria-hidden="true">📊</div>
         <div class="resource-name">myneta.info</div>
         <p class="resource-desc">Look up anyone running in your constituency — their criminal cases, what they've declared owning, what they owe, their education. Updated each election cycle. Completely free.</p>
         <span class="resource-tag">Free · No login</span>
       </div>
       <div class="resource-card reveal">
-        <div class="resource-icon">🗳</div>
+        <div class="resource-icon" aria-hidden="true">🗳</div>
         <div class="resource-name">voters.eci.gov.in</div>
         <p class="resource-desc">Check your name is on the roll, find out exactly where you're supposed to vote, and sort out any voter ID issues — before election day, not on it.</p>
         <span class="resource-tag">ECI official</span>
       </div>
       <div class="resource-card reveal">
-        <div class="resource-icon">📰</div>
+        <div class="resource-icon" aria-hidden="true">📰</div>
         <div class="resource-name">Local news archive</div>
         <p class="resource-desc">Search your candidate's name in The Telegraph, Anandabazar Patrika, or any local outlet. What they said five years ago, what they did, what controversies followed them — it's all still there.</p>
         <span class="resource-tag">Search their name</span>
       </div>
       <div class="resource-card reveal">
-        <div class="resource-icon">📞</div>
+        <div class="resource-icon" aria-hidden="true">📞</div>
         <div class="resource-name">ECI Helpline 1950</div>
         <p class="resource-desc">Staffed and active during elections. If something goes wrong at the booth, call. If you can't find where to vote, call. If your voter ID has an error, call. That's what the line is there for.</p>
         <span class="resource-tag">Call 1950</span>
@@ -1507,7 +1508,7 @@ body::before {
         <p class="share-cta-body bn-only bn-text">নাগরিক শিক্ষা তখনই কাজ করে যখন তা ছড়িয়ে পড়ে। পাঁচজনকে পাঠান।</p>
         <div class="share-cta-btns">
           <button class="wa-btn" onclick="shareWhatsApp()">Share on WhatsApp</button>
-          <button class="copy-cta-btn" onclick="copyLink()">⎘ Copy link</button>
+          <button class="copy-cta-btn" onclick="copyLink(event)">⎘ Copy link</button>
         </div>
       </div>
     </div>
@@ -1518,7 +1519,7 @@ body::before {
 <!-- ======= END VOTER LAYER ======= -->
 
 <!-- ======= READER LAYER ======= -->
-<div class="audience-content" data-audience="reader">
+<div class="audience-content" data-audience="reader" id="audience-reader" role="tabpanel">
 <section class="section-wrap">
   <div class="container">
     <div class="section-header reveal">
@@ -1613,7 +1614,7 @@ body::before {
 <!-- ======= END READER LAYER ======= -->
 
 <!-- ======= RESEARCHER LAYER ======= -->
-<div class="audience-content" data-audience="researcher">
+<div class="audience-content" data-audience="researcher" id="audience-researcher" role="tabpanel">
 <section class="section-wrap">
   <div class="container">
     <div class="section-header reveal">
@@ -1731,7 +1732,7 @@ body::before {
     </p>
     <div class="share-row">
       <button class="share-btn" onclick="shareWhatsApp()">📱 WhatsApp</button>
-      <button class="share-btn" onclick="copyLink()">⎘ Copy link</button>
+      <button class="share-btn" onclick="copyLink(event)">⎘ Copy link</button>
       <button class="share-btn" onclick="window.print()">⎙ Print / Save PDF</button>
     </div>
     <hr class="footer-rule">
@@ -1766,8 +1767,12 @@ function setLang(lang) {
 
 // Audience tabs
 function setAudience(id, btn) {
-  document.querySelectorAll('.audience-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.audience-tab').forEach(t => {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+  });
   btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
   document.querySelectorAll('.audience-content').forEach(c => c.classList.toggle('active', c.dataset.audience === id));
   setTimeout(() => {
     const el = document.querySelector('.audience-content.active');
@@ -1798,12 +1803,13 @@ function updateCL() {
 
 // Animated counters
 function countUp(el) {
-  const target = +el.dataset.count;
+  const target = parseInt(el.dataset.count.replace(/,/g, ''), 10);
   const dur = 1400;
   const start = performance.now();
   (function tick(now) {
     const t = Math.min((now - start) / dur, 1);
-    el.textContent = Math.round((1 - Math.pow(1 - t, 3)) * target);
+    const val = Math.round((1 - Math.pow(1 - t, 3)) * target);
+    el.textContent = val >= 1000 ? val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : val;
     if (t < 1) requestAnimationFrame(tick);
   })(start);
 }
@@ -1827,8 +1833,8 @@ const heroStats = document.querySelector('.hero-stats');
 if (heroStats) { heroStats.classList.add('reveal'); io.observe(heroStats); }
 
 // Copy link
-function copyLink() {
-  const btn = event.currentTarget;
+function copyLink(e) {
+  const btn = (e || window.event).currentTarget || (e || window.event).target;
   navigator.clipboard.writeText(location.href).then(() => {
     const orig = btn.textContent;
     btn.textContent = '✓ Copied!';
@@ -1848,7 +1854,19 @@ function shareWhatsApp() {
   const mins = Math.ceil(words / 220);
   const el = document.getElementById('reading-time');
   if (el) el.textContent = 'About ' + mins + ' min read';
+  const elBn = document.getElementById('reading-time-bn');
+  if (elBn) elBn.textContent = 'প্রায় ' + mins + ' মিনিট';
 })();
+
+// ARIA controls for evidence accordion — wire up buttons to their panels
+document.querySelectorAll('.evidence-item').forEach(function(item, i) {
+  const toggle = item.querySelector('.evidence-toggle');
+  const body = item.querySelector('.evidence-body');
+  if (!toggle || !body) return;
+  const id = 'ev-panel-' + i;
+  body.id = id;
+  toggle.setAttribute('aria-controls', id);
+});
 
 // Mobile-friendly tooltips — tap a .gloss term to show/hide its tip
 document.querySelectorAll('.gloss').forEach(function(el) {
