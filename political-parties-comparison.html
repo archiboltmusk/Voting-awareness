@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="An honest, data-driven comparison of Bengal's political parties — their ideologies, track records, and how they match what Bengal actually needs.">
+<meta property="og:title" content="The Bengal Reader — Party Comparison">
+<meta property="og:description" content="BJP, TMC, CPIM, Congress, ISF — what they stand for, what they've done, and how they stack up against Bengal's real needs.">
+<title>The Bengal Reader — Political Parties Compared</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+/* ── THEME ── */
+:root {
+  --paper: #f4f1ea;
+  --paper-dark: #ebe6db;
+  --paper-mid: #e0dbd0;
+  --ink: #1a1714;
+  --ink-soft: #4a443c;
+  --ink-faint: #8a8275;
+  --rule: #2a2520;
+  --red: #b8231c;
+  --green: #1f6b3a;
+  --saffron: #d97706;
+  --highlight: #f5e6a8;
+  --shadow: rgba(26,23,20,0.1);
+
+  /* Party colours */
+  --tmc: #1a7a3c;
+  --bjp: #e8640a;
+  --cpim: #c0171b;
+  --inc: #1565c0;
+  --isf: #6b3fa0;
+  --bengal: #b8860b;
+}
+[data-theme="dark"] {
+  --paper: #141210;
+  --paper-dark: #1e1b18;
+  --paper-mid: #252220;
+  --ink: #f0ece3;
+  --ink-soft: #b8b2a8;
+  --ink-faint: #706a62;
+  --rule: #3a3530;
+  --red: #e05555;
+  --green: #4ca86a;
+  --saffron: #e8983a;
+  --highlight: rgba(245,230,168,0.12);
+  --shadow: rgba(0,0,0,0.35);
+  --tmc: #2da85a;
+  --bjp: #f07830;
+  --cpim: #e03535;
+  --inc: #4a90d9;
+  --isf: #9b6fd4;
+  --bengal: #d4a520;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Fraunces', Georgia, serif;
+  font-size:18px;
+  line-height:1.65;
+  overflow-x:hidden;
+  transition:background .3s, color .3s;
+}
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  pointer-events:none; opacity:.25; z-index:1;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.09 0 0 0 0 0.08 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.container { max-width:1200px; margin:0 auto; padding:0 32px; position:relative; z-index:2; }
+
+/* PROGRESS BAR */
+#progress-bar {
+  position:fixed; top:0; left:0; width:0; height:3px;
+  background:linear-gradient(90deg, var(--tmc), var(--bjp), var(--cpim), var(--inc), var(--isf));
+  z-index:1000; transition:width .1s linear;
+}
+
+/* ── MASTHEAD ── */
+.masthead { border-bottom:3px double var(--rule); padding:24px 0 16px; }
+.masthead-top {
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft);
+  margin-bottom:12px; flex-wrap:wrap; gap:8px;
+}
+.masthead-controls { display:flex; align-items:center; gap:12px; }
+.masthead-back {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft);
+  text-decoration:none; border:1px solid var(--ink-faint);
+  padding:4px 12px; transition:all .2s;
+}
+.masthead-back:hover { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.masthead-title {
+  font-family:'Fraunces',serif; font-weight:900;
+  font-size:clamp(36px,6vw,64px); line-height:.95;
+  letter-spacing:-.02em; text-align:center; font-style:italic;
+}
+.masthead-bengali {
+  font-family:'Noto Serif Bengali',serif; font-weight:800;
+  font-size:clamp(16px,2.5vw,22px); text-align:center;
+  margin-top:8px; color:var(--ink-soft);
+}
+.masthead-sub {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-faint); text-align:center; margin-top:10px;
+}
+.theme-toggle {
+  background:transparent; border:1px solid var(--ink-faint);
+  padding:4px 12px; font-family:'JetBrains Mono',monospace;
+  font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  cursor:pointer; color:var(--ink-soft); transition:all .2s;
+}
+.theme-toggle:hover { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+
+/* ── STICKY NAV ── */
+.sticky-nav {
+  position:sticky; top:0; z-index:100;
+  background:var(--ink); border-bottom:2px solid var(--rule);
+}
+.nav-inner {
+  display:flex; gap:0; overflow-x:auto; scrollbar-width:none;
+  max-width:1200px; margin:0 auto; padding:0 32px;
+}
+.nav-inner::-webkit-scrollbar { display:none; }
+.nav-inner a {
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  letter-spacing:.15em; text-transform:uppercase;
+  color:rgba(244,241,234,.5); text-decoration:none;
+  padding:.7rem 1.2rem; white-space:nowrap;
+  border-right:1px solid rgba(255,255,255,.06);
+  transition:color .2s, background .2s;
+}
+.nav-inner a:hover { color:var(--paper); background:rgba(255,255,255,.04); }
+
+/* ── HERO ── */
+.hero { padding:72px 0 56px; text-align:center; border-bottom:1px solid var(--rule); }
+.hero-kicker {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-faint); margin-bottom:24px;
+}
+.hero h1 {
+  font-family:'Fraunces',serif; font-weight:400;
+  font-size:clamp(36px,6vw,78px); line-height:1.04;
+  letter-spacing:-.025em; max-width:20ch; margin:0 auto 24px;
+}
+.hero h1 em { font-style:italic; font-weight:600; }
+.hero-sub {
+  font-size:19px; line-height:1.55; max-width:52ch;
+  margin:0 auto 40px; color:var(--ink-soft); font-style:italic;
+}
+.party-ribbon {
+  display:flex; justify-content:center; gap:0; flex-wrap:wrap;
+  border:1px solid var(--rule); max-width:620px; margin:0 auto 32px;
+}
+.party-ribbon-item {
+  padding:12px 20px; flex:1; min-width:100px;
+  border-right:1px solid var(--rule);
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+}
+.party-ribbon-item:last-child { border-right:none; }
+.party-ribbon-dot {
+  width:14px; height:14px; border-radius:50%;
+  border:2px solid transparent;
+}
+.party-ribbon-name {
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint);
+}
+
+/* ── SECTION COMMON ── */
+.section-wrap { padding:80px 0; border-bottom:1px solid var(--rule); }
+.section-wrap.bg-dark { background:var(--paper-dark); }
+.section-wrap.bg-ink { background:var(--ink); color:var(--paper); }
+.section-header { text-align:center; margin-bottom:56px; }
+.section-kicker {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-faint); margin-bottom:12px;
+}
+.bg-ink .section-kicker { color:rgba(244,241,234,.4); }
+.section-title {
+  font-family:'Fraunces',serif; font-weight:400;
+  font-size:clamp(26px,4vw,48px); letter-spacing:-.02em; line-height:1.1;
+}
+.section-title em { font-style:italic; }
+.bg-ink .section-title { color:var(--paper); }
+.section-sub {
+  margin-top:14px; color:var(--ink-soft); font-size:17px;
+  max-width:60ch; margin-left:auto; margin-right:auto; font-style:italic;
+}
+.bg-ink .section-sub { color:rgba(244,241,234,.55); }
+
+/* ── PARTY CARDS ── */
+.party-grid {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:1px; background:var(--rule); border:1px solid var(--rule);
+}
+.party-card {
+  background:var(--paper); padding:28px 24px;
+  cursor:pointer; transition:background .2s;
+  position:relative; overflow:hidden;
+}
+.bg-dark .party-card { background:var(--paper-dark); }
+.party-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:4px;
+}
+.party-card.tmc::before  { background:var(--tmc); }
+.party-card.bjp::before  { background:var(--bjp); }
+.party-card.cpim::before { background:var(--cpim); }
+.party-card.inc::before  { background:var(--inc); }
+.party-card.isf::before  { background:var(--isf); }
+.party-card:hover { background:var(--paper-mid); }
+.party-card-abbr {
+  font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:600;
+  letter-spacing:-.02em; margin-bottom:4px;
+}
+.party-card.tmc  .party-card-abbr { color:var(--tmc); }
+.party-card.bjp  .party-card-abbr { color:var(--bjp); }
+.party-card.cpim .party-card-abbr { color:var(--cpim); }
+.party-card.inc  .party-card-abbr { color:var(--inc); }
+.party-card.isf  .party-card-abbr { color:var(--isf); }
+.party-card-name {
+  font-size:13px; color:var(--ink-soft); font-style:italic;
+  line-height:1.3; margin-bottom:12px;
+}
+.party-card-leader {
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-faint); margin-bottom:16px;
+}
+.party-card-tag {
+  display:inline-block; font-family:'JetBrains Mono',monospace;
+  font-size:9px; letter-spacing:.1em; text-transform:uppercase;
+  padding:3px 8px; border:1px solid; margin-bottom:6px;
+}
+.party-card.tmc  .party-card-tag { border-color:var(--tmc);  color:var(--tmc); }
+.party-card.bjp  .party-card-tag { border-color:var(--bjp);  color:var(--bjp); }
+.party-card.cpim .party-card-tag { border-color:var(--cpim); color:var(--cpim); }
+.party-card.inc  .party-card-tag { border-color:var(--inc);  color:var(--inc); }
+.party-card.isf  .party-card-tag { border-color:var(--isf);  color:var(--isf); }
+.party-card-seats {
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  color:var(--ink-faint); margin-top:8px;
+}
+
+/* ── IDEOLOGY ACCORDION ── */
+.ideology-list { display:flex; flex-direction:column; gap:2px; }
+.ideo-item {
+  background:var(--paper-dark); border-left:4px solid transparent;
+  overflow:hidden; transition:border-color .2s;
+}
+.ideo-item.tmc  { border-left-color:var(--tmc); }
+.ideo-item.bjp  { border-left-color:var(--bjp); }
+.ideo-item.cpim { border-left-color:var(--cpim); }
+.ideo-item.inc  { border-left-color:var(--inc); }
+.ideo-item.isf  { border-left-color:var(--isf); }
+.ideo-trigger {
+  width:100%; background:none; border:none; text-align:left;
+  padding:20px 24px; cursor:pointer; display:flex;
+  justify-content:space-between; align-items:center; gap:16px;
+  font-family:'Fraunces',serif; color:var(--ink);
+}
+.ideo-trigger-left { display:flex; align-items:center; gap:16px; }
+.ideo-abbr {
+  font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600;
+  width:52px; flex-shrink:0;
+}
+.ideo-item.tmc  .ideo-abbr { color:var(--tmc); }
+.ideo-item.bjp  .ideo-abbr { color:var(--bjp); }
+.ideo-item.cpim .ideo-abbr { color:var(--cpim); }
+.ideo-item.inc  .ideo-abbr { color:var(--inc); }
+.ideo-item.isf  .ideo-abbr { color:var(--isf); }
+.ideo-headline { font-size:17px; font-weight:600; }
+.ideo-arrow {
+  font-size:18px; transition:transform .3s; flex-shrink:0;
+  color:var(--ink-faint);
+}
+.ideo-item.open .ideo-arrow { transform:rotate(180deg); }
+.ideo-body {
+  max-height:0; overflow:hidden; transition:max-height .4s ease;
+  padding:0 24px 0 24px;
+}
+.ideo-item.open .ideo-body { max-height:600px; }
+.ideo-body-inner {
+  padding:4px 0 24px 68px; border-top:1px solid var(--rule);
+  display:grid; grid-template-columns:1fr 1fr; gap:24px;
+}
+@media(max-width:600px) { .ideo-body-inner { grid-template-columns:1fr; padding-left:0; } }
+.ideo-col-label {
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  letter-spacing:.15em; text-transform:uppercase; color:var(--ink-faint);
+  margin-bottom:10px; margin-top:16px;
+}
+.ideo-points { list-style:none; }
+.ideo-points li {
+  font-size:15px; padding:5px 0; border-bottom:1px solid var(--paper-mid);
+  color:var(--ink-soft); display:flex; gap:8px;
+}
+.ideo-points li::before { content:'—'; color:var(--ink-faint); flex-shrink:0; }
+.ideo-points li:last-child { border-bottom:none; }
+.ideo-score-grid { display:flex; flex-direction:column; gap:8px; margin-top:16px; }
+.ideo-score-row { display:flex; align-items:center; gap:10px; }
+.ideo-score-lbl {
+  font-family:'JetBrains Mono',monospace; font-size:9px;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint);
+  width:100px; flex-shrink:0;
+}
+.ideo-score-bar { flex:1; height:6px; background:var(--paper-mid); }
+.ideo-score-fill { height:100%; transition:width 1s ease; }
+.ideo-item.tmc  .ideo-score-fill { background:var(--tmc); }
+.ideo-item.bjp  .ideo-score-fill { background:var(--bjp); }
+.ideo-item.cpim .ideo-score-fill { background:var(--cpim); }
+.ideo-item.inc  .ideo-score-fill { background:var(--inc); }
+.ideo-item.isf  .ideo-score-fill { background:var(--isf); }
+.ideo-score-num {
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  color:var(--ink-faint); width:24px; text-align:right;
+}
+
+/* ── RADAR CHART ── */
+.radar-section { }
+.radar-controls {
+  display:flex; flex-wrap:wrap; gap:12px; justify-content:center;
+  margin-bottom:36px;
+}
+.radar-toggle {
+  background:transparent; padding:8px 20px;
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.1em; text-transform:uppercase; cursor:pointer;
+  transition:all .2s; border:1px solid var(--ink-faint);
+  color:var(--ink-soft);
+}
+.radar-toggle.active.tmc  { background:var(--tmc);  color:#fff; border-color:var(--tmc); }
+.radar-toggle.active.bjp  { background:var(--bjp);  color:#fff; border-color:var(--bjp); }
+.radar-toggle.active.cpim { background:var(--cpim); color:#fff; border-color:var(--cpim); }
+.radar-toggle.active.inc  { background:var(--inc);  color:#fff; border-color:var(--inc); }
+.radar-toggle.active.isf  { background:var(--isf);  color:#fff; border-color:var(--isf); }
+.radar-toggle.active.bengal { background:var(--bengal); color:#fff; border-color:var(--bengal); }
+.radar-toggle:hover:not(.active) { border-color:var(--ink); color:var(--ink); }
+.radar-canvas-wrap {
+  max-width:620px; margin:0 auto; position:relative;
+}
+.radar-note {
+  text-align:center; font-family:'JetBrains Mono',monospace;
+  font-size:10px; letter-spacing:.1em; color:var(--ink-faint);
+  margin-top:20px; text-transform:uppercase;
+}
+
+/* ── COMPARISON SLIDER ── */
+.compare-shell {
+  border:1px solid var(--rule); max-width:900px; margin:0 auto;
+}
+.compare-selectors {
+  display:grid; grid-template-columns:1fr 40px 1fr;
+  align-items:center; border-bottom:2px solid var(--rule);
+}
+.compare-sel {
+  padding:20px 24px; display:flex; flex-direction:column; gap:8px;
+}
+.compare-sel:first-child { border-right:1px solid var(--rule); }
+.compare-sel-label {
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  letter-spacing:.15em; text-transform:uppercase; color:var(--ink-faint);
+}
+.compare-sel select {
+  font-family:'Fraunces',serif; font-size:17px; font-style:italic;
+  background:transparent; border:none; border-bottom:2px solid var(--rule);
+  color:var(--ink); padding:4px 0; cursor:pointer; width:100%;
+  outline:none;
+}
+.compare-vs {
+  text-align:center; font-family:'JetBrains Mono',monospace;
+  font-size:12px; color:var(--ink-faint); letter-spacing:.1em;
+}
+.compare-bars {
+  padding:32px 0;
+}
+.compare-row {
+  display:grid; grid-template-columns:1fr 160px 1fr;
+  align-items:center; border-bottom:1px solid var(--paper-mid);
+  padding:10px 0;
+}
+.compare-row:last-child { border-bottom:none; }
+.compare-bar-left {
+  display:flex; align-items:center; justify-content:flex-end; gap:10px;
+  padding:0 16px;
+}
+.compare-bar-right {
+  display:flex; align-items:center; gap:10px;
+  padding:0 16px;
+}
+.compare-metric {
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint);
+  text-align:center; padding:0 8px; line-height:1.4;
+}
+.cbar { height:10px; flex:none; transition:width .8s cubic-bezier(.16,1,.3,1); min-width:2px; }
+.cbar-left  { border-radius:2px 0 0 2px; }
+.cbar-right { border-radius:0 2px 2px 0; }
+.cbar-val {
+  font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600;
+  flex-shrink:0; min-width:20px;
+}
+.cbar-val.left  { text-align:right; }
+.cbar-val.right { text-align:left; }
+.compare-legend {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:16px 24px; border-top:2px solid var(--rule);
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint);
+  flex-wrap:wrap; gap:8px;
+}
+.compare-legend-item { display:flex; align-items:center; gap:8px; }
+.compare-legend-dot { width:12px; height:12px; border-radius:50%; }
+
+/* ── BENGAL NEEDS ── */
+.needs-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1px; background:rgba(244,241,234,.12);
+  border:1px solid rgba(244,241,234,.15);
+}
+.need-card {
+  padding:28px 24px;
+  background:rgba(255,255,255,.03);
+  transition:background .2s;
+}
+.need-card:hover { background:rgba(255,255,255,.06); }
+.need-icon {
+  font-size:26px; margin-bottom:10px; display:block;
+  filter:grayscale(.3);
+}
+.need-title {
+  font-family:'Fraunces',serif; font-size:18px; font-weight:600;
+  margin-bottom:6px; color:var(--paper);
+}
+.need-urgency {
+  display:flex; align-items:center; gap:8px; margin-bottom:14px;
+}
+.need-urgency-bar { flex:1; height:4px; background:rgba(244,241,234,.15); }
+.need-urgency-fill { height:100%; background:var(--bengal); }
+.need-urgency-label {
+  font-family:'JetBrains Mono',monospace; font-size:9px;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--bengal);
+}
+.need-stat {
+  font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:600;
+  color:var(--bengal); margin-bottom:4px;
+}
+.need-desc { font-size:13px; color:rgba(244,241,234,.5); line-height:1.5; }
+
+/* ── GAP ANALYSIS TABLE ── */
+.gap-table-wrap {
+  overflow-x:auto; border:1px solid var(--rule);
+}
+.gap-table {
+  width:100%; border-collapse:collapse;
+  font-family:'JetBrains Mono',monospace; font-size:12px;
+}
+.gap-table th {
+  padding:12px 16px; border-bottom:2px solid var(--rule);
+  text-align:left; font-size:10px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--ink-faint);
+  background:var(--paper-dark); white-space:nowrap;
+}
+.gap-table td {
+  padding:12px 16px; border-bottom:1px solid var(--paper-mid);
+  vertical-align:middle;
+}
+.gap-table tr:last-child td { border-bottom:none; }
+.gap-table tr:hover td { background:var(--paper-mid); }
+.gt-metric { color:var(--ink); font-size:11px; }
+.gt-need {
+  font-weight:600; color:var(--bengal);
+}
+.heat-cell {
+  min-width:56px; text-align:center; font-weight:600;
+  border-radius:2px; font-size:13px; padding:6px 10px;
+}
+.heat-5 { background:rgba(31,107,58,.2);   color:var(--green); }
+.heat-4 { background:rgba(31,107,58,.1);   color:var(--green); }
+.heat-3 { background:rgba(138,130,117,.12); color:var(--ink-soft); }
+.heat-2 { background:rgba(184,35,28,.1);   color:var(--red); }
+.heat-1 { background:rgba(184,35,28,.2);   color:var(--red); }
+[data-theme="dark"] .gt-metric { color:var(--ink); }
+
+/* ── VERDICT ── */
+.verdict-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:24px; margin-top:24px;
+}
+.verdict-card {
+  border:1px solid rgba(244,241,234,.15); padding:24px;
+}
+.verdict-party {
+  font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:600;
+  letter-spacing:.08em; text-transform:uppercase; margin-bottom:10px;
+}
+.verdict-card.tmc  .verdict-party { color:var(--tmc); }
+.verdict-card.bjp  .verdict-party { color:var(--bjp); }
+.verdict-card.cpim .verdict-party { color:var(--cpim); }
+.verdict-card.inc  .verdict-party { color:var(--inc); }
+.verdict-card.isf  .verdict-party { color:var(--isf); }
+.verdict-score {
+  font-family:'JetBrains Mono',monospace; font-size:36px; font-weight:600;
+  margin-bottom:4px; color:var(--paper);
+}
+.verdict-label { font-size:13px; color:rgba(244,241,234,.5); margin-bottom:16px; }
+.verdict-bar { height:4px; background:rgba(244,241,234,.1); margin-bottom:16px; }
+.verdict-fill { height:100%; transition:width 1.5s ease; }
+.verdict-card.tmc  .verdict-fill { background:var(--tmc); }
+.verdict-card.bjp  .verdict-fill { background:var(--bjp); }
+.verdict-card.cpim .verdict-fill { background:var(--cpim); }
+.verdict-card.inc  .verdict-fill { background:var(--inc); }
+.verdict-card.isf  .verdict-fill { background:var(--isf); }
+.verdict-points { list-style:none; }
+.verdict-points li {
+  font-size:13px; color:rgba(244,241,234,.65); padding:4px 0;
+  border-bottom:1px solid rgba(244,241,234,.07); display:flex; gap:8px;
+}
+.verdict-points li::before { content:'·'; flex-shrink:0; color:rgba(244,241,234,.3); }
+.verdict-points li:last-child { border-bottom:none; }
+
+/* ── DISCLAIMER ── */
+.disclaimer-bar {
+  background:var(--paper-dark); border-top:1px solid var(--rule);
+  padding:16px 0;
+}
+.disclaimer-inner {
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  letter-spacing:.06em; color:var(--ink-faint); text-align:center;
+  max-width:900px; margin:0 auto; padding:0 32px;
+  line-height:1.8;
+}
+
+/* ── FOOTER ── */
+footer {
+  background:var(--ink); color:rgba(244,241,234,.35);
+  padding:32px; text-align:center;
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  letter-spacing:.12em;
+}
+footer a { color:rgba(244,241,234,.6); text-decoration:none; }
+footer a:hover { color:var(--paper); }
+
+/* ── UTILITY ── */
+.fade-in { opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
+.fade-in.visible { opacity:1; transform:none; }
+.pull-quote {
+  border-top:2px solid var(--rule); border-bottom:2px solid var(--rule);
+  padding:28px 0; margin:40px 0; text-align:center;
+}
+.pull-quote p {
+  font-family:'Fraunces',serif; font-style:italic; font-weight:400;
+  font-size:clamp(18px,2.5vw,26px); line-height:1.45;
+  max-width:52ch; margin:0 auto; color:var(--ink);
+}
+.bg-ink .pull-quote { border-color:rgba(244,241,234,.15); }
+.bg-ink .pull-quote p { color:var(--paper); }
+.pull-quote cite {
+  display:block; margin-top:14px;
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint);
+  font-style:normal;
+}
+.bg-ink .pull-quote cite { color:rgba(244,241,234,.35); }
+
+@media(max-width:700px) {
+  .container { padding:0 16px; }
+  .compare-row { grid-template-columns:1fr 120px 1fr; }
+  .compare-metric { font-size:8px; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="container">
+    <div class="masthead-top">
+      <span>The Bengal Reader · Special Edition</span>
+      <div class="masthead-controls">
+        <a href="bengal-voter-guide.html" class="masthead-back">← Voter Guide</a>
+        <button class="theme-toggle" id="themeBtn">Dark</button>
+      </div>
+    </div>
+    <div class="masthead-title">Party Compass</div>
+    <div class="masthead-bengali">দলের নীতি · তথ্যের আলোয়</div>
+    <div class="masthead-sub">Ideology · Track Record · What Bengal Actually Needs — 2026</div>
+  </div>
+</header>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <a href="#parties">Parties</a>
+    <a href="#ideology">Ideologies</a>
+    <a href="#radar">Radar Chart</a>
+    <a href="#compare">Compare Tool</a>
+    <a href="#needs">Bengal's Needs</a>
+    <a href="#gap">Policy Gap</a>
+    <a href="#verdict">Verdict</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-kicker">West Bengal 2026 · Five Parties · One Honest Assessment</div>
+    <h1>Who are they, <em>really?</em><br>What does Bengal <em>need?</em></h1>
+    <p class="hero-sub">An unsponsored, data-grounded comparison of BJP, TMC, CPIM, Congress, and ISF — their ideologies, their track records, and how they align with Bengal's actual development gaps.</p>
+    <div class="party-ribbon" id="parties">
+      <div class="party-ribbon-item">
+        <div class="party-ribbon-dot" style="background:var(--tmc)"></div>
+        <div class="party-ribbon-name">TMC</div>
+      </div>
+      <div class="party-ribbon-item">
+        <div class="party-ribbon-dot" style="background:var(--bjp)"></div>
+        <div class="party-ribbon-name">BJP</div>
+      </div>
+      <div class="party-ribbon-item">
+        <div class="party-ribbon-dot" style="background:var(--cpim)"></div>
+        <div class="party-ribbon-name">CPIM</div>
+      </div>
+      <div class="party-ribbon-item">
+        <div class="party-ribbon-dot" style="background:var(--inc)"></div>
+        <div class="party-ribbon-name">INC</div>
+      </div>
+      <div class="party-ribbon-item">
+        <div class="party-ribbon-dot" style="background:var(--isf)"></div>
+        <div class="party-ribbon-name">ISF</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTY OVERVIEW CARDS -->
+<section class="section-wrap bg-dark fade-in">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Overview</div>
+      <h2 class="section-title">The Five Contenders</h2>
+      <p class="section-sub">Core identity, current leadership, and ideological position of each major force in Bengal politics.</p>
+    </div>
+    <div class="party-grid">
+
+      <div class="party-card tmc">
+        <div class="party-card-abbr">TMC</div>
+        <div class="party-card-name">All India Trinamool Congress</div>
+        <div class="party-card-leader">Mamata Banerjee · Founded 1998</div>
+        <span class="party-card-tag">Centre-Left</span>
+        <span class="party-card-tag" style="margin-left:4px">Populist</span>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin-top:12px;">Dominant ruling party since 2011. Bengali-identity politics, welfare-first governance, centralized personal power. Anti-BJP at the national level.</p>
+        <div class="party-card-seats" style="margin-top:12px">2021 Assembly: 213/294 seats · 48% vote share</div>
+      </div>
+
+      <div class="party-card bjp">
+        <div class="party-card-abbr">BJP</div>
+        <div class="party-card-name">Bharatiya Janata Party</div>
+        <div class="party-card-leader">Suvendu Adhikari (State) · Founded 1980</div>
+        <span class="party-card-tag">Right-Wing</span>
+        <span class="party-card-tag" style="margin-left:4px">Hindu Nationalist</span>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin-top:12px;">Surged from 3 to 77 seats in a decade. National development agenda, Hindutva social policy, strong organizational machine backed by central resources.</p>
+        <div class="party-card-seats" style="margin-top:12px">2021 Assembly: 77/294 seats · 38.1% vote share</div>
+      </div>
+
+      <div class="party-card cpim">
+        <div class="party-card-abbr">CPIM</div>
+        <div class="party-card-name">Communist Party of India (Marxist)</div>
+        <div class="party-card-leader">Mohammed Salim (State) · Founded 1964</div>
+        <span class="party-card-tag">Far-Left</span>
+        <span class="party-card-tag" style="margin-left:4px">Marxist</span>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin-top:12px;">Ruled Bengal for 34 years (1977–2011). Land reform legacy, labor protections, educated cadre base. Collapsed electorally but retains institutional memory.</p>
+        <div class="party-card-seats" style="margin-top:12px">2021 Assembly: 0/294 seats · 4.7% vote share</div>
+      </div>
+
+      <div class="party-card inc">
+        <div class="party-card-abbr">INC</div>
+        <div class="party-card-name">Indian National Congress</div>
+        <div class="party-card-leader">Adhir Ranjan Chowdhury (State) · Founded 1885</div>
+        <span class="party-card-tag">Centre-Left</span>
+        <span class="party-card-tag" style="margin-left:4px">Secular</span>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin-top:12px;">Historical pre-eminence long eroded. Now runs in alliance (INDIA bloc). Secularism, minority rights, and welfare as core positions. Minimal presence in state government.</p>
+        <div class="party-card-seats" style="margin-top:12px">2021 Assembly: 5/294 seats · 2.9% vote share</div>
+      </div>
+
+      <div class="party-card isf">
+        <div class="party-card-abbr">ISF</div>
+        <div class="party-card-name">Indian Secular Front</div>
+        <div class="party-card-leader">Abbas Siddiqui · Founded 2021</div>
+        <span class="party-card-tag">Centre</span>
+        <span class="party-card-tag" style="margin-left:4px">Minority-Focused</span>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin-top:12px;">Emerged from rural South Bengal's Muslim minority base. Anti-establishment platform, focus on rural livelihoods, Bhadralok rejection of both TMC and BJP.</p>
+        <div class="party-card-seats" style="margin-top:12px">2021 Assembly: 1/294 seats · 2.05% vote share</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- IDEOLOGY SECTION -->
+<section class="section-wrap fade-in" id="ideology">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">What They Actually Believe</div>
+      <h2 class="section-title">Ideologies, <em>Honestly</em></h2>
+      <p class="section-sub">Beyond slogans — the structural worldview of each party, what they prioritize, and what they consistently de-prioritize.</p>
+    </div>
+
+    <div class="ideology-list">
+
+      <!-- TMC -->
+      <div class="ideo-item tmc">
+        <button class="ideo-trigger" onclick="toggleIdeo(this)">
+          <div class="ideo-trigger-left">
+            <div class="ideo-abbr">TMC</div>
+            <div>
+              <div class="ideo-headline">Welfare Populism + Bengali Identity Politics</div>
+              <div style="font-size:13px;color:var(--ink-faint);margin-top:2px;font-family:'JetBrains Mono',monospace;letter-spacing:.05em;">"Ma Mati Manush" — Mother, Earth, People</div>
+            </div>
+          </div>
+          <div class="ideo-arrow">▾</div>
+        </button>
+        <div class="ideo-body">
+          <div class="ideo-body-inner">
+            <div>
+              <div class="ideo-col-label">Core Positions</div>
+              <ul class="ideo-points">
+                <li>Direct cash/benefit transfers to women (Lakshmir Bhandar, ₹1000/month)</li>
+                <li>Bengali cultural nationalism over Hindu nationalism</li>
+                <li>Federal rights — strong opposition to Central encroachment</li>
+                <li>Free ration (Duare Sarkar welfare camp model)</li>
+                <li>Anti-CAA, anti-NRC — protection of minorities</li>
+              </ul>
+              <div class="ideo-col-label" style="margin-top:20px;">Consistent Gaps</div>
+              <ul class="ideo-points">
+                <li>Tolerance for syndicate/land mafia networks</li>
+                <li>Suppression of democratic opposition through party cadre</li>
+                <li>Industrial investment actively discouraged (Singur, Nandigram legacy)</li>
+                <li>Patronage over meritocracy in public employment</li>
+              </ul>
+            </div>
+            <div>
+              <div class="ideo-col-label">Policy Scores (out of 10)</div>
+              <div class="ideo-score-grid">
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Industry</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Welfare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:80%"></div></div><span class="ideo-score-num">8</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Education</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Law & Order</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:30%"></div></div><span class="ideo-score-num">3</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Anti-Corrupt</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:20%"></div></div><span class="ideo-score-num">2</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Employment</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Women Safety</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:30%"></div></div><span class="ideo-score-num">3</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Healthcare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BJP -->
+      <div class="ideo-item bjp">
+        <button class="ideo-trigger" onclick="toggleIdeo(this)">
+          <div class="ideo-trigger-left">
+            <div class="ideo-abbr">BJP</div>
+            <div>
+              <div class="ideo-headline">Hindu Nationalism + Development Narrative</div>
+              <div style="font-size:13px;color:var(--ink-faint);margin-top:2px;font-family:'JetBrains Mono',monospace;letter-spacing:.05em;">"Sabka Saath, Sabka Vikas" + Hindutva social agenda</div>
+            </div>
+          </div>
+          <div class="ideo-arrow">▾</div>
+        </button>
+        <div class="ideo-body">
+          <div class="ideo-body-inner">
+            <div>
+              <div class="ideo-col-label">Core Positions</div>
+              <ul class="ideo-points">
+                <li>Infrastructure-led economic development (highways, ports, rail)</li>
+                <li>Hindu cultural supremacy; CAA/NRC implementation</li>
+                <li>Central government investment-linked governance</li>
+                <li>Digital India, startup ecosystem, PLI schemes</li>
+                <li>Anti-TMC corruption as key electoral pitch</li>
+              </ul>
+              <div class="ideo-col-label" style="margin-top:20px;">Consistent Gaps</div>
+              <ul class="ideo-points">
+                <li>Communal polarization heightens social tension</li>
+                <li>Minority rights explicitly de-prioritized</li>
+                <li>Labour protections weakened via national Farm/Labour codes</li>
+                <li>Press freedom, democratic institutions under pressure nationally</li>
+              </ul>
+            </div>
+            <div>
+              <div class="ideo-col-label">Policy Scores (out of 10)</div>
+              <div class="ideo-score-grid">
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Industry</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:80%"></div></div><span class="ideo-score-num">8</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Welfare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Education</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Law & Order</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:70%"></div></div><span class="ideo-score-num">7</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Anti-Corrupt</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:50%"></div></div><span class="ideo-score-num">5</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Employment</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:70%"></div></div><span class="ideo-score-num">7</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Women Safety</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Healthcare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CPIM -->
+      <div class="ideo-item cpim">
+        <button class="ideo-trigger" onclick="toggleIdeo(this)">
+          <div class="ideo-trigger-left">
+            <div class="ideo-abbr">CPIM</div>
+            <div>
+              <div class="ideo-headline">Marxist-Leninist + Pro-Labour Land Reform</div>
+              <div style="font-size:13px;color:var(--ink-faint);margin-top:2px;font-family:'JetBrains Mono',monospace;letter-spacing:.05em;">Operation Barga legacy · 34-year Left Front government</div>
+            </div>
+          </div>
+          <div class="ideo-arrow">▾</div>
+        </button>
+        <div class="ideo-body">
+          <div class="ideo-body-inner">
+            <div>
+              <div class="ideo-col-label">Core Positions</div>
+              <ul class="ideo-points">
+                <li>Land reform & tenant rights (Operation Barga — 1.1M families)</li>
+                <li>Strong public sector, nationalization of key industries</li>
+                <li>Anti-communalism, secular constitution</li>
+                <li>Strong Panchayati Raj and local governance tradition</li>
+                <li>Education quality — IITs, IIMs, R&D investment during tenure</li>
+              </ul>
+              <div class="ideo-col-label" style="margin-top:20px;">Consistent Gaps</div>
+              <ul class="ideo-points">
+                <li>Anti-industry stance blocked Bengal's industrialization window</li>
+                <li>Party cadre violence entrenched during 34-year rule</li>
+                <li>Intellectual dogmatism; slow adaptation to globalization</li>
+                <li>Collapsed credibility after violent Nandigram eviction, 2007</li>
+              </ul>
+            </div>
+            <div>
+              <div class="ideo-col-label">Policy Scores (out of 10)</div>
+              <div class="ideo-score-grid">
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Industry</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:30%"></div></div><span class="ideo-score-num">3</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Welfare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Education</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:70%"></div></div><span class="ideo-score-num">7</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Law & Order</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:50%"></div></div><span class="ideo-score-num">5</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Anti-Corrupt</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:50%"></div></div><span class="ideo-score-num">5</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Employment</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Women Safety</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Healthcare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INC -->
+      <div class="ideo-item inc">
+        <button class="ideo-trigger" onclick="toggleIdeo(this)">
+          <div class="ideo-trigger-left">
+            <div class="ideo-abbr">INC</div>
+            <div>
+              <div class="ideo-headline">Liberal Secularism + Constitutional Pluralism</div>
+              <div style="font-size:13px;color:var(--ink-faint);margin-top:2px;font-family:'JetBrains Mono',monospace;letter-spacing:.05em;">NYAY, MGNREGA, RTI, RTE — policy legacy</div>
+            </div>
+          </div>
+          <div class="ideo-arrow">▾</div>
+        </button>
+        <div class="ideo-body">
+          <div class="ideo-body-inner">
+            <div>
+              <div class="ideo-col-label">Core Positions</div>
+              <ul class="ideo-points">
+                <li>Constitutional secularism and minority protection</li>
+                <li>Rights-based welfare (MGNREGA, Right to Education, RTI)</li>
+                <li>Anti-BJP institutional alliance (INDIA bloc)</li>
+                <li>Mixed-economy development — both industry and welfare</li>
+                <li>Judicial independence and democratic safeguards</li>
+              </ul>
+              <div class="ideo-col-label" style="margin-top:20px;">Consistent Gaps</div>
+              <ul class="ideo-points">
+                <li>Organisational collapse in Bengal — minimal grassroots presence</li>
+                <li>Dynastic politics and leadership vacuum</li>
+                <li>Internal contradictions (regionalism vs. national unity)</li>
+                <li>No independent state-level governance track record in Bengal</li>
+              </ul>
+            </div>
+            <div>
+              <div class="ideo-col-label">Policy Scores (out of 10)</div>
+              <div class="ideo-score-grid">
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Industry</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Welfare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Education</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Law & Order</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:50%"></div></div><span class="ideo-score-num">5</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Anti-Corrupt</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Employment</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Women Safety</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Healthcare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ISF -->
+      <div class="ideo-item isf">
+        <button class="ideo-trigger" onclick="toggleIdeo(this)">
+          <div class="ideo-trigger-left">
+            <div class="ideo-abbr">ISF</div>
+            <div>
+              <div class="ideo-headline">Rural Minority Rights + Anti-Establishment Populism</div>
+              <div style="font-size:13px;color:var(--ink-faint);margin-top:2px;font-family:'JetBrains Mono',monospace;letter-spacing:.05em;">South Bengal rural Muslim base · Pirzada politics</div>
+            </div>
+          </div>
+          <div class="ideo-arrow">▾</div>
+        </button>
+        <div class="ideo-body">
+          <div class="ideo-body-inner">
+            <div>
+              <div class="ideo-col-label">Core Positions</div>
+              <ul class="ideo-points">
+                <li>Rights of rural Muslim minority in South Bengal</li>
+                <li>Anti-CAA/NRC as existential politics</li>
+                <li>Fisherman and agricultural labourer livelihoods</li>
+                <li>Opposition to both TMC patronage and BJP communalism</li>
+                <li>Local autonomy and rural gram panchayat empowerment</li>
+              </ul>
+              <div class="ideo-col-label" style="margin-top:20px;">Consistent Gaps</div>
+              <ul class="ideo-points">
+                <li>No coherent economic policy beyond subsistence welfare</li>
+                <li>Identity-first approach limits cross-community appeal</li>
+                <li>Weak state-level organization outside Murshidabad/South 24 Pgs</li>
+                <li>Leader credibility contested; intra-party divisions</li>
+              </ul>
+            </div>
+            <div>
+              <div class="ideo-col-label">Policy Scores (out of 10)</div>
+              <div class="ideo-score-grid">
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Industry</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:30%"></div></div><span class="ideo-score-num">3</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Welfare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Education</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Law & Order</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Anti-Corrupt</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Employment</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Women Safety</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Healthcare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:50%"></div></div><span class="ideo-score-num">5</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RADAR CHART -->
+<section class="section-wrap bg-dark fade-in" id="radar">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Visual Comparison</div>
+      <h2 class="section-title">Party <em>Radar</em> — 8 Dimensions</h2>
+      <p class="section-sub">Toggle parties to compare their policy profiles. The gold overlay shows what Bengal actually needs most urgently.</p>
+    </div>
+
+    <div class="radar-controls">
+      <button class="radar-toggle active tmc" data-party="tmc" onclick="toggleRadar(this)">TMC</button>
+      <button class="radar-toggle active bjp" data-party="bjp" onclick="toggleRadar(this)">BJP</button>
+      <button class="radar-toggle cpim" data-party="cpim" onclick="toggleRadar(this)">CPIM</button>
+      <button class="radar-toggle inc" data-party="inc" onclick="toggleRadar(this)">INC</button>
+      <button class="radar-toggle isf" data-party="isf" onclick="toggleRadar(this)">ISF</button>
+      <button class="radar-toggle active bengal" data-party="bengal" onclick="toggleRadar(this)">Bengal's Needs</button>
+    </div>
+
+    <div class="radar-canvas-wrap">
+      <canvas id="radarChart" height="420"></canvas>
+    </div>
+    <p class="radar-note">Scores are policy-position assessments (1–10), not election predictions. Sources: manifesto analysis, governance records, NCRB data, NSSO data.</p>
+  </div>
+</section>
+
+<!-- COMPARISON SLIDER TOOL -->
+<section class="section-wrap fade-in" id="compare">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Head-to-Head</div>
+      <h2 class="section-title">Compare Any Two <em>Parties</em></h2>
+      <p class="section-sub">Select two parties. The bars show their relative policy strength on each dimension — wider bar means stronger position.</p>
+    </div>
+
+    <div class="compare-shell">
+      <div class="compare-selectors">
+        <div class="compare-sel">
+          <div class="compare-sel-label">Party A</div>
+          <select id="partyA" onchange="renderComparison()">
+            <option value="tmc">TMC — Trinamool Congress</option>
+            <option value="bjp">BJP — Bharatiya Janata Party</option>
+            <option value="cpim">CPIM — Communist Party (M)</option>
+            <option value="inc">INC — Indian National Congress</option>
+            <option value="isf">ISF — Indian Secular Front</option>
+          </select>
+        </div>
+        <div class="compare-vs">VS</div>
+        <div class="compare-sel">
+          <div class="compare-sel-label">Party B</div>
+          <select id="partyB" onchange="renderComparison()">
+            <option value="tmc">TMC — Trinamool Congress</option>
+            <option value="bjp" selected>BJP — Bharatiya Janata Party</option>
+            <option value="cpim">CPIM — Communist Party (M)</option>
+            <option value="inc">INC — Indian National Congress</option>
+            <option value="isf">ISF — Indian Secular Front</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="compare-bars" id="compareBars">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="compare-legend" id="compareLegend">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENGAL'S ACTUAL NEEDS -->
+<section class="section-wrap bg-ink fade-in" id="needs">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Ground Reality</div>
+      <h2 class="section-title">What Bengal <em>Actually</em> Needs</h2>
+      <p class="section-sub">Data-driven urgency scores from NCRB, NSSO, DPIIT, NFHS, and state economic surveys. Politics must respond to facts.</p>
+    </div>
+
+    <div class="needs-grid">
+
+      <div class="need-card">
+        <span class="need-icon">🏭</span>
+        <div class="need-title">Industrial Revival</div>
+        <div class="need-urgency">
+          <div class="need-urgency-bar"><div class="need-urgency-fill" style="width:90%"></div></div>
+          <div class="need-urgency-label">Critical</div>
+        </div>
+        <div class="need-stat">₹1.2L Cr</div>
+        <div class="need-desc">FDI lost since 2000 due to industrial hostility. Bengal ranked 23rd out of 28 in Ease of Doing Business (2020). Manufacturing share of state GDP fell from 16% to 11%.</div>
+      </div>
+
+      <div class="need-card">
+        <span class="need-icon">💼</span>
+        <div class="need-title">Youth Employment</div>
+        <div class="need-urgency">
+          <div class="need-urgency-bar"><div class="need-urgency-fill" style="width:100%"></div></div>
+          <div class="need-urgency-label">Urgent</div>
+        </div>
+        <div class="need-stat">28.4%</div>
+        <div class="need-desc">Youth unemployment rate (CMIE 2023), nearly double the national average of 16%. 1.2 million educated youth leave Bengal annually seeking work elsewhere.</div>
+      </div>
+
+      <div class="need-card">
+        <span class="need-icon">🎓</span>
+        <div class="need-title">Education Quality</div>
+        <div class="need-urgency">
+          <div class="need-urgency-bar"><div class="need-urgency-fill" style="width:85%"></div></div>
+          <div class="need-urgency-label">High</div>
+        </div>
+        <div class="need-stat">38th</div>
+        <div class="need-desc">Bengal's rank in ASER learning outcomes among major states. 47% of Class 8 students cannot read a Class 2 text. Teacher vacancy rate exceeds 24%.</div>
+      </div>
+
+      <div class="need-card">
+        <span class="need-icon">⚖️</span>
+        <div class="need-title">Law & Order</div>
+        <div class="need-urgency">
+          <div class="need-urgency-bar"><div class="need-urgency-fill" style="width:90%"></div></div>
+          <div class="need-urgency-label">Critical</div>
+        </div>
+        <div class="need-stat">#3</div>
+        <div class="need-desc">Bengal ranks 3rd nationally in total IPC cognizable offences (NCRB 2022). Political violence results in 80+ deaths per election cycle. Impunity for syndicate crime.</div>
+      </div>
+
+      <div class="need-card">
+        <span class="need-icon">🏥</span>
+        <div class="need-title">Healthcare Access</div>
+        <div class="need-urgency">
+          <div class="need-urgency-bar"><div class="need-urgency-fill" style="width:75%"></div></div>
+          <div class="need-urgency-label">Significant</div>
+        </div>
+        <div class="need-stat">0.48</div>
+        <div class="need-desc">Government hospital beds per 1,000 population — below national average of 0.55. Out-of-pocket healthcare expenditure is 71% of total (NFHS-5), pushing 4M into poverty annually.</div>
+      </div>
+
+      <div class="need-card">
+        <span class="need-icon">👩</span>
+        <div class="need-title">Women's Safety</div>
+        <div class="need-urgency">
+          <div class="need-urgency-bar"><div class="need-urgency-fill" style="width:90%"></div></div>
+          <div class="need-urgency-label">Critical</div>
+        </div>
+        <div class="need-stat">#2</div>
+        <div class="need-desc">Bengal ranked 2nd nationally in crimes against women (NCRB 2022) with 35,884 cases. Rape cases up 12% YoY. RG Kar Medical College assault (2024) catalysed national outrage.</div>
+      </div>
+
+      <div class="need-card">
+        <span class="need-icon">🏗️</span>
+        <div class="need-title">Infrastructure</div>
+        <div class="need-urgency">
+          <div class="need-urgency-bar"><div class="need-urgency-fill" style="width:80%"></div></div>
+          <div class="need-urgency-label">High</div>
+        </div>
+        <div class="need-stat">62%</div>
+        <div class="need-desc">Rural roads in adequate condition (vs 78% national average). Power supply reliability: 14.2 hours/day rural average vs 18+ in comparable states. Port capacity under-utilized at 60%.</div>
+      </div>
+
+      <div class="need-card">
+        <span class="need-icon">🌾</span>
+        <div class="need-title">Agricultural Modernization</div>
+        <div class="need-urgency">
+          <div class="need-urgency-bar"><div class="need-urgency-fill" style="width:70%"></div></div>
+          <div class="need-urgency-label">Moderate</div>
+        </div>
+        <div class="need-stat">42%</div>
+        <div class="need-desc">Agricultural workforce as share of employment — far above national 44%, but productivity per worker is 18% below national average. Cold chain coverage for perishables: under 8%.</div>
+      </div>
+
+    </div>
+
+    <div class="pull-quote" style="margin-top:56px;">
+      <p>"Bengal does not lack intelligence, culture, or resources. It lacks governance that treats citizens as sovereign rather than as beneficiaries of patronage."</p>
+      <cite>— Synthesis of state economic surveys, 2019–2024</cite>
+    </div>
+  </div>
+</section>
+
+<!-- POLICY GAP ANALYSIS -->
+<section class="section-wrap fade-in" id="gap">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Policy Alignment Matrix</div>
+      <h2 class="section-title">Party Promises vs. <em>Bengal's Gaps</em></h2>
+      <p class="section-sub">How strongly does each party's policy platform address Bengal's eight most urgent development needs? Heat cells: dark green = strong match, dark red = major gap.</p>
+    </div>
+
+    <div class="gap-table-wrap">
+      <table class="gap-table">
+        <thead>
+          <tr>
+            <th>Bengal's Need</th>
+            <th>Urgency</th>
+            <th style="color:var(--tmc)">TMC</th>
+            <th style="color:var(--bjp)">BJP</th>
+            <th style="color:var(--cpim)">CPIM</th>
+            <th style="color:var(--inc)">INC</th>
+            <th style="color:var(--isf)">ISF</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="gt-metric">Industrial Growth & Investment</td>
+            <td class="gt-need">9/10</td>
+            <td><div class="heat-cell heat-1">4</div></td>
+            <td><div class="heat-cell heat-5">8</div></td>
+            <td><div class="heat-cell heat-1">3</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-1">3</div></td>
+          </tr>
+          <tr>
+            <td class="gt-metric">Youth Employment Generation</td>
+            <td class="gt-need">10/10</td>
+            <td><div class="heat-cell heat-2">4</div></td>
+            <td><div class="heat-cell heat-4">7</div></td>
+            <td><div class="heat-cell heat-2">4</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-2">4</div></td>
+          </tr>
+          <tr>
+            <td class="gt-metric">Education Quality (learning outcomes)</td>
+            <td class="gt-need">9/10</td>
+            <td><div class="heat-cell heat-2">4</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-4">7</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-2">4</div></td>
+          </tr>
+          <tr>
+            <td class="gt-metric">Law & Order / Political Violence</td>
+            <td class="gt-need">9/10</td>
+            <td><div class="heat-cell heat-1">3</div></td>
+            <td><div class="heat-cell heat-4">7</div></td>
+            <td><div class="heat-cell heat-3">5</div></td>
+            <td><div class="heat-cell heat-3">5</div></td>
+            <td><div class="heat-cell heat-2">4</div></td>
+          </tr>
+          <tr>
+            <td class="gt-metric">Anti-Corruption Governance</td>
+            <td class="gt-need">10/10</td>
+            <td><div class="heat-cell heat-1">2</div></td>
+            <td><div class="heat-cell heat-3">5</div></td>
+            <td><div class="heat-cell heat-3">5</div></td>
+            <td><div class="heat-cell heat-2">4</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+          </tr>
+          <tr>
+            <td class="gt-metric">Women's Safety & Justice</td>
+            <td class="gt-need">9/10</td>
+            <td><div class="heat-cell heat-1">3</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-2">4</div></td>
+          </tr>
+          <tr>
+            <td class="gt-metric">Healthcare Infrastructure</td>
+            <td class="gt-need">8/10</td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-3">5</div></td>
+          </tr>
+          <tr>
+            <td class="gt-metric">Social Welfare Delivery</td>
+            <td class="gt-need">8/10</td>
+            <td><div class="heat-cell heat-5">8</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+          </tr>
+          <tr style="font-weight:600;background:var(--paper-dark);">
+            <td class="gt-metric" style="font-weight:700;">Weighted Total Score</td>
+            <td class="gt-need">—</td>
+            <td><div class="heat-cell heat-2" style="font-size:15px;">34</div></td>
+            <td><div class="heat-cell heat-4" style="font-size:15px;">51</div></td>
+            <td><div class="heat-cell heat-3" style="font-size:15px;">42</div></td>
+            <td><div class="heat-cell heat-4" style="font-size:15px;">45</div></td>
+            <td><div class="heat-cell heat-2" style="font-size:15px;">36</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-faint);margin-top:12px;text-align:center;letter-spacing:.06em;">SCORES REFLECT POLICY ALIGNMENT WITH BENGAL'S DOCUMENTED NEEDS, NOT PARTY ELECTABILITY OR GENERAL NATIONAL PERFORMANCE.</p>
+  </div>
+</section>
+
+<!-- VERDICT -->
+<section class="section-wrap bg-ink fade-in" id="verdict">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Assessment</div>
+      <h2 class="section-title">The <em>Honest</em> Verdict</h2>
+      <p class="section-sub">What each party offers Bengal, in plain language — and where they structurally fail the state's most urgent needs.</p>
+    </div>
+
+    <div class="verdict-grid">
+
+      <div class="verdict-card tmc">
+        <div class="verdict-party">TMC</div>
+        <div class="verdict-score">34<span style="font-size:16px;opacity:.5">/80</span></div>
+        <div class="verdict-label">Policy–Need Alignment</div>
+        <div class="verdict-bar"><div class="verdict-fill" style="width:42%"></div></div>
+        <ul class="verdict-points">
+          <li>Best on welfare delivery — Lakshmir Bhandar, Duare Sarkar genuinely reach poor women</li>
+          <li>Lowest score on anti-corruption — SSC scam, coal/cattle/sand mafia documented</li>
+          <li>Industrialization actively blocked for 15 years — Bengal's deepest long-term wound</li>
+          <li>Political violence and cadre impunity is structural, not accidental</li>
+        </ul>
+      </div>
+
+      <div class="verdict-card bjp">
+        <div class="verdict-party">BJP</div>
+        <div class="verdict-score">51<span style="font-size:16px;opacity:.5">/80</span></div>
+        <div class="verdict-label">Policy–Need Alignment</div>
+        <div class="verdict-bar"><div class="verdict-fill" style="width:64%"></div></div>
+        <ul class="verdict-points">
+          <li>Strongest on industry, employment, and infrastructure — Bengal's most urgent gaps</li>
+          <li>Communal polarisation creates social instability that harms investment climate</li>
+          <li>Central government investment linked to party loyalty, not merit</li>
+          <li>National labour code changes weaken protections Bengal's working class needs</li>
+        </ul>
+      </div>
+
+      <div class="verdict-card cpim">
+        <div class="verdict-party">CPIM</div>
+        <div class="verdict-score">42<span style="font-size:16px;opacity:.5">/80</span></div>
+        <div class="verdict-label">Policy–Need Alignment</div>
+        <div class="verdict-bar"><div class="verdict-fill" style="width:52%"></div></div>
+        <ul class="verdict-points">
+          <li>Genuine education and healthcare tradition; Land reform legacy still matters</li>
+          <li>Their 34-year anti-industry stance caused Bengal's current employment crisis</li>
+          <li>Electoral collapse means no governance capacity to deliver anything now</li>
+          <li>Valuable as an opposition accountability force rather than a ruling alternative</li>
+        </ul>
+      </div>
+
+      <div class="verdict-card inc">
+        <div class="verdict-party">INC</div>
+        <div class="verdict-score">45<span style="font-size:16px;opacity:.5">/80</span></div>
+        <div class="verdict-label">Policy–Need Alignment</div>
+        <div class="verdict-bar"><div class="verdict-fill" style="width:56%"></div></div>
+        <ul class="verdict-points">
+          <li>Policy platform most balanced across dimensions — rights + economy + welfare</li>
+          <li>Near-zero organisational presence in Bengal — good policy, no delivery mechanism</li>
+          <li>INDIA bloc alignment means trading independent positions for coalition calculus</li>
+          <li>Credible national-level check on BJP; irrelevant at state level currently</li>
+        </ul>
+      </div>
+
+      <div class="verdict-card isf">
+        <div class="verdict-party">ISF</div>
+        <div class="verdict-score">36<span style="font-size:16px;opacity:.5">/80</span></div>
+        <div class="verdict-label">Policy–Need Alignment</div>
+        <div class="verdict-bar"><div class="verdict-fill" style="width:45%"></div></div>
+        <ul class="verdict-points">
+          <li>Addresses real grievances of Bengal's most marginalized rural minority population</li>
+          <li>No coherent industrial, employment, or women's safety platform</li>
+          <li>Anti-corruption stance is genuine but lacks systemic policy depth</li>
+          <li>Important voice for underrepresented communities; not a governing alternative yet</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="pull-quote" style="margin-top:56px;">
+      <p>"No party fully matches what Bengal needs. The voter's task is to identify which gaps they can live with — and which are existential."</p>
+      <cite>— The Bengal Reader · Non-Partisan Analysis · 2026</cite>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer-bar">
+  <div class="disclaimer-inner">
+    METHODOLOGY: Policy scores (1–10) are derived from manifesto commitments, governance track records, NCRB 2022, NSSO 2023, CMIE employment data, ASER reports, NFHS-5, DPIIT rankings, and state economic surveys.
+    Scores reflect alignment between party policy positions and Bengal's documented development needs — they are not predictions of electoral outcomes or endorsements.
+    This is non-partisan civic education material. All data sources are publicly available.
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>The Bengal Reader · Party Compass · 2026 Edition</p>
+  <p style="margin-top:8px;"><a href="bengal-voter-guide.html">← Voter's Guide</a> &nbsp;·&nbsp; <a href="https://adrindia.org" target="_blank">ADR India</a> &nbsp;·&nbsp; <a href="https://eci.gov.in" target="_blank">Election Commission</a></p>
+</footer>
+
+<script>
+/* ── DATA ── */
+const PARTIES = {
+  tmc:  { name:'TMC',  color:'#1a7a3c', scores:[4,8,4,6,3,2,3,4] },
+  bjp:  { name:'BJP',  color:'#e8640a', scores:[8,6,6,6,7,5,6,7] },
+  cpim: { name:'CPIM', color:'#c0171b', scores:[3,6,7,6,5,5,6,4] },
+  inc:  { name:'INC',  color:'#1565c0', scores:[6,6,6,6,5,4,6,6] },
+  isf:  { name:'ISF',  color:'#6b3fa0', scores:[3,6,4,5,4,6,4,4] },
+  bengal:{ name:"Bengal's Need", color:'#b8860b', scores:[9,8,9,8,9,10,9,10] }
+};
+const DIMS = ['Industry','Welfare','Education','Healthcare','Law & Order','Anti-Corrupt','Women Safety','Employment'];
+
+/* ── THEME ── */
+const themeBtn = document.getElementById('themeBtn');
+const root = document.documentElement;
+let dark = false;
+themeBtn.addEventListener('click', () => {
+  dark = !dark;
+  root.setAttribute('data-theme', dark ? 'dark' : 'light');
+  themeBtn.textContent = dark ? 'Light' : 'Dark';
+  updateChartTheme();
+});
+
+/* ── PROGRESS BAR ── */
+window.addEventListener('scroll', () => {
+  const el = document.documentElement;
+  const pct = (el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100;
+  document.getElementById('progress-bar').style.width = pct + '%';
+});
+
+/* ── FADE IN ── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+/* ── IDEOLOGY ACCORDION ── */
+function toggleIdeo(btn) {
+  const item = btn.closest('.ideo-item');
+  item.classList.toggle('open');
+}
+
+/* ── RADAR CHART ── */
+let activeParties = new Set(['tmc','bjp','bengal']);
+let radarChart;
+
+function buildRadarDatasets() {
+  return [...activeParties].map(key => {
+    const p = PARTIES[key];
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    return {
+      label: p.name,
+      data: p.scores,
+      borderColor: p.color,
+      backgroundColor: p.color + (key === 'bengal' ? '22' : '18'),
+      borderWidth: key === 'bengal' ? 2.5 : 1.5,
+      borderDash: key === 'bengal' ? [5,3] : [],
+      pointBackgroundColor: p.color,
+      pointRadius: 4,
+      pointHoverRadius: 6
+    };
+  });
+}
+
+function getChartColors() {
+  const isDark = root.getAttribute('data-theme') === 'dark';
+  return {
+    grid: isDark ? 'rgba(244,241,234,0.08)' : 'rgba(26,23,20,0.08)',
+    tick: isDark ? 'rgba(244,241,234,0.3)' : 'rgba(26,23,20,0.35)',
+    label: isDark ? 'rgba(244,241,234,0.7)' : 'rgba(26,23,20,0.75)',
+    legend: isDark ? '#f0ece3' : '#1a1714'
+  };
+}
+
+function initRadar() {
+  const ctx = document.getElementById('radarChart').getContext('2d');
+  const c = getChartColors();
+  radarChart = new Chart(ctx, {
+    type: 'radar',
+    data: { labels: DIMS, datasets: buildRadarDatasets() },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: { color: c.legend, font: { family:'JetBrains Mono', size:11 }, padding:16 }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.dataset.label}: ${ctx.raw}/10`
+          }
+        }
+      },
+      scales: {
+        r: {
+          min:0, max:10,
+          ticks: { stepSize:2, color: c.tick, backdropColor:'transparent', font:{ family:'JetBrains Mono', size:9 } },
+          grid: { color: c.grid },
+          angleLines: { color: c.grid },
+          pointLabels: { color: c.label, font:{ family:'JetBrains Mono', size:10 } }
+        }
+      },
+      animation: { duration: 500 }
+    }
+  });
+}
+
+function updateChartTheme() {
+  if(!radarChart) return;
+  const c = getChartColors();
+  radarChart.options.plugins.legend.labels.color = c.legend;
+  radarChart.options.scales.r.ticks.color = c.tick;
+  radarChart.options.scales.r.grid.color = c.grid;
+  radarChart.options.scales.r.angleLines.color = c.grid;
+  radarChart.options.scales.r.pointLabels.color = c.label;
+  radarChart.update();
+}
+
+function toggleRadar(btn) {
+  const party = btn.dataset.party;
+  if(activeParties.has(party)) {
+    if(activeParties.size > 1) {
+      activeParties.delete(party);
+      btn.classList.remove('active');
+    }
+  } else {
+    activeParties.add(party);
+    btn.classList.add('active');
+  }
+  radarChart.data.datasets = buildRadarDatasets();
+  radarChart.update();
+}
+
+/* ── COMPARISON BARS ── */
+const METRICS = [
+  { key:'industry',  label:'Industrial Growth' },
+  { key:'welfare',   label:'Social Welfare' },
+  { key:'education', label:'Education' },
+  { key:'healthcare',label:'Healthcare' },
+  { key:'law',       label:'Law & Order' },
+  { key:'corrupt',   label:'Anti-Corruption' },
+  { key:'women',     label:'Women Safety' },
+  { key:'employ',    label:'Employment' }
+];
+
+function renderComparison() {
+  const aKey = document.getElementById('partyA').value;
+  const bKey = document.getElementById('partyB').value;
+  const a = PARTIES[aKey];
+  const b = PARTIES[bKey];
+  const maxBar = 120; // px
+
+  const barsEl = document.getElementById('compareBars');
+  const legendEl = document.getElementById('compareLegend');
+
+  barsEl.innerHTML = METRICS.map((m,i) => {
+    const aScore = a.scores[i];
+    const bScore = b.scores[i];
+    const aW = Math.round((aScore/10)*maxBar);
+    const bW = Math.round((bScore/10)*maxBar);
+    return `<div class="compare-row">
+      <div class="compare-bar-left">
+        <span class="cbar-val left" style="color:${a.color}">${aScore}</span>
+        <div class="cbar cbar-left" style="width:${aW}px;background:${a.color}"></div>
+      </div>
+      <div class="compare-metric">${m.label}</div>
+      <div class="compare-bar-right">
+        <div class="cbar cbar-right" style="width:${bW}px;background:${b.color}"></div>
+        <span class="cbar-val right" style="color:${b.color}">${bScore}</span>
+      </div>
+    </div>`;
+  }).join('');
+
+  legendEl.innerHTML = `
+    <div class="compare-legend-item">
+      <div class="compare-legend-dot" style="background:${a.color}"></div>
+      <span>${a.name}</span>
+    </div>
+    <span style="font-size:10px;color:var(--ink-faint)">Scores out of 10 · Policy–Need Alignment</span>
+    <div class="compare-legend-item">
+      <div class="compare-legend-dot" style="background:${b.color}"></div>
+      <span>${b.name}</span>
+    </div>
+  `;
+}
+
+/* ── VERDICT BARS ANIMATION ── */
+const verdictObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.querySelectorAll('.verdict-fill').forEach(el => {
+        const w = el.style.width;
+        el.style.width = '0';
+        requestAnimationFrame(() => requestAnimationFrame(() => { el.style.width = w; }));
+      });
+      verdictObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('#verdict').forEach(el => verdictObserver.observe(el));
+
+/* ── NEEDS URGENCY BAR ANIMATION ── */
+const needsObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.querySelectorAll('.need-urgency-fill').forEach(el => {
+        const w = el.style.width;
+        el.style.width = '0';
+        el.style.transition = 'width 1.2s cubic-bezier(.16,1,.3,1)';
+        requestAnimationFrame(() => requestAnimationFrame(() => { el.style.width = w; }));
+      });
+      needsObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('#needs').forEach(el => needsObserver.observe(el));
+
+/* ── INIT ── */
+document.addEventListener('DOMContentLoaded', () => {
+  initRadar();
+  renderComparison();
+});
+</script>
+</body>
+</html>
