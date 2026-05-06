@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#1a1714"/>
+  <!-- Party colour strip -->
+  <rect x="0" y="0" width="240" height="6" fill="#1a7a3c"/>
+  <rect x="240" y="0" width="240" height="6" fill="#e8640a"/>
+  <rect x="480" y="0" width="240" height="6" fill="#c0171b"/>
+  <rect x="720" y="0" width="240" height="6" fill="#1565c0"/>
+  <rect x="960" y="0" width="240" height="6" fill="#6b3fa0"/>
+  <rect x="0" y="580" width="1200" height="50" fill="#141210"/>
+  <!-- Brand -->
+  <text x="60" y="100" font-family="Georgia,serif" font-size="18" font-weight="400" fill="rgba(244,241,234,0.4)" letter-spacing="6">THE BENGAL READER</text>
+  <!-- Title -->
+  <text x="60" y="220" font-family="Georgia,serif" font-size="96" font-weight="900" fill="#f4f1ea">Party</text>
+  <text x="60" y="320" font-family="Georgia,serif" font-size="96" font-style="italic" font-weight="900" fill="#f4f1ea">Compass</text>
+  <!-- Party names -->
+  <text x="60" y="415" font-family="monospace" font-size="20" fill="#1a7a3c" letter-spacing="2">TMC</text>
+  <text x="130" y="415" font-family="monospace" font-size="20" fill="rgba(244,241,234,0.2)">·</text>
+  <text x="150" y="415" font-family="monospace" font-size="20" fill="#e8640a" letter-spacing="2">BJP</text>
+  <text x="218" y="415" font-family="monospace" font-size="20" fill="rgba(244,241,234,0.2)">·</text>
+  <text x="238" y="415" font-family="monospace" font-size="20" fill="#c0171b" letter-spacing="2">CPIM</text>
+  <text x="338" y="415" font-family="monospace" font-size="20" fill="rgba(244,241,234,0.2)">·</text>
+  <text x="358" y="415" font-family="monospace" font-size="20" fill="#1565c0" letter-spacing="2">INC</text>
+  <text x="420" y="415" font-family="monospace" font-size="20" fill="rgba(244,241,234,0.2)">·</text>
+  <text x="440" y="415" font-family="monospace" font-size="20" fill="#6b3fa0" letter-spacing="2">ISF</text>
+  <!-- Sub -->
+  <text x="60" y="490" font-family="Georgia,serif" font-size="22" fill="rgba(244,241,234,0.45)">Ideology · Track Record · What Bengal Actually Needs</text>
+  <!-- Footer -->
+  <text x="60" y="607" font-family="monospace" font-size="14" fill="rgba(244,241,234,0.25)" letter-spacing="3">DATA-DRIVEN · POLICY COMPARISON · 2026</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#1a1714"/>
+  <rect x="0" y="0" width="6" height="630" fill="#b8231c"/>
+  <rect x="0" y="580" width="1200" height="50" fill="#141210"/>
+  <!-- Decorative rule -->
+  <rect x="60" y="340" width="480" height="2" fill="rgba(244,241,234,0.12)"/>
+  <!-- Brand -->
+  <text x="60" y="130" font-family="Georgia,serif" font-size="18" font-weight="400" fill="rgba(244,241,234,0.4)" letter-spacing="6">THE BENGAL READER</text>
+  <!-- Title -->
+  <text x="60" y="240" font-family="Georgia,serif" font-size="80" font-weight="900" fill="#f4f1ea">Know Who</text>
+  <text x="60" y="330" font-family="Georgia,serif" font-size="80" font-style="italic" font-weight="900" fill="#f4f1ea">You're Voting</text>
+  <text x="60" y="390" font-family="Georgia,serif" font-size="56" font-style="italic" font-weight="400" fill="rgba(244,241,234,0.6)">For</text>
+  <!-- Sub -->
+  <text x="60" y="480" font-family="Georgia,serif" font-size="22" fill="rgba(244,241,234,0.45)">Bengal's political power structures · 2026 election guide</text>
+  <!-- Footer label -->
+  <text x="60" y="607" font-family="monospace" font-size="14" fill="rgba(244,241,234,0.25)" letter-spacing="3">NON-PARTISAN · CIVIC EDUCATION · WEST BENGAL</text>
+  <!-- Decorative element -->
+  <text x="900" y="420" font-family="Georgia,serif" font-size="320" font-weight="900" fill="rgba(244,241,234,0.03)">B</text>
+</svg>

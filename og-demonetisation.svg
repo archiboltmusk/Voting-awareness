@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0a0804"/>
+  <rect x="0" y="0" width="6" height="630" fill="#c0392b"/>
+  <rect x="0" y="580" width="1200" height="50" fill="#050302"/>
+  <!-- Large decorative rupee -->
+  <text x="760" y="480" font-family="Georgia,serif" font-size="560" font-weight="900" fill="rgba(255,255,255,0.03)">₹</text>
+  <!-- Brand -->
+  <text x="60" y="100" font-family="Georgia,serif" font-size="18" font-weight="400" fill="rgba(245,240,232,0.35)" letter-spacing="6">THE BENGAL READER · INVESTIGATION</text>
+  <!-- Title -->
+  <text x="60" y="220" font-family="Georgia,serif" font-size="64" font-weight="400" fill="rgba(245,240,232,0.7)">The Other Side of</text>
+  <text x="60" y="310" font-family="Georgia,serif" font-size="96" font-weight="900" font-style="italic" fill="#f5f0e8">Demonetisation</text>
+  <!-- Sub -->
+  <text x="60" y="410" font-family="Georgia,serif" font-size="24" fill="rgba(245,240,232,0.45)">How political parties earned, managed &amp; profited</text>
+  <text x="60" y="445" font-family="Georgia,serif" font-size="24" fill="rgba(245,240,232,0.45)">while the nation stood in queue</text>
+  <!-- Footer -->
+  <text x="60" y="607" font-family="monospace" font-size="14" fill="rgba(245,240,232,0.2)" letter-spacing="3">ADR DATA · ED RECORDS · LAND REGISTRY DOCUMENTS</text>
+</svg>

@@ -6,11 +6,16 @@
 <meta name="description" content="An honest, data-driven comparison of Bengal's political parties — their ideologies, track records, and how they match what Bengal actually needs.">
 <meta property="og:title" content="The Bengal Reader — Party Comparison">
 <meta property="og:description" content="BJP, TMC, CPIM, Congress, ISF — what they stand for, what they've done, and how they stack up against Bengal's real needs.">
+<meta property="og:image" content="/og-parties.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Bengal Reader — Party Compass">
+<meta name="twitter:description" content="BJP, TMC, CPIM, INC, ISF — ideology, track record, and how they match what Bengal actually needs.">
+<meta name="twitter:image" content="/og-parties.svg">
 <title>The Bengal Reader — Political Parties Compared</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 /* ── THEME ── */
 :root {
@@ -575,10 +580,31 @@ footer a:hover { color:var(--paper); }
 }
 .bg-ink .pull-quote cite { color:rgba(244,241,234,.35); }
 
+.sr-only {
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
 @media(max-width:700px) {
   .container { padding:0 16px; }
-  .compare-row { grid-template-columns:1fr 120px 1fr; }
+  .compare-row { grid-template-columns:1fr 100px 1fr; }
   .compare-metric { font-size:8px; }
+}
+@media(max-width:480px) {
+  .compare-selectors { grid-template-columns:1fr; }
+  .compare-vs { display:none; }
+  .compare-sel:first-child { border-right:none; border-bottom:1px solid var(--rule); }
+  .compare-row {
+    grid-template-columns:1fr;
+    padding:12px 16px; gap:4px;
+  }
+  .compare-metric {
+    order:-1; text-align:left; padding:0 0 4px; font-size:10px;
+    border-bottom:1px solid var(--paper-mid); margin-bottom:4px;
+  }
+  .compare-bar-left { justify-content:flex-start; padding:0; }
+  .compare-bar-right { padding:0; }
+  .cbar { max-width:180px; }
 }
 
 /* ── SITE NAV ── */
@@ -760,7 +786,7 @@ footer a:hover { color:var(--paper); }
 
       <!-- TMC -->
       <div class="ideo-item tmc">
-        <button class="ideo-trigger" onclick="toggleIdeo(this)">
+        <button class="ideo-trigger" aria-expanded="false" onclick="toggleIdeo(this)">
           <div class="ideo-trigger-left">
             <div class="ideo-abbr">TMC</div>
             <div>
@@ -808,7 +834,7 @@ footer a:hover { color:var(--paper); }
 
       <!-- BJP -->
       <div class="ideo-item bjp">
-        <button class="ideo-trigger" onclick="toggleIdeo(this)">
+        <button class="ideo-trigger" aria-expanded="false" onclick="toggleIdeo(this)">
           <div class="ideo-trigger-left">
             <div class="ideo-abbr">BJP</div>
             <div>
@@ -856,7 +882,7 @@ footer a:hover { color:var(--paper); }
 
       <!-- CPIM -->
       <div class="ideo-item cpim">
-        <button class="ideo-trigger" onclick="toggleIdeo(this)">
+        <button class="ideo-trigger" aria-expanded="false" onclick="toggleIdeo(this)">
           <div class="ideo-trigger-left">
             <div class="ideo-abbr">CPIM</div>
             <div>
@@ -904,7 +930,7 @@ footer a:hover { color:var(--paper); }
 
       <!-- INC -->
       <div class="ideo-item inc">
-        <button class="ideo-trigger" onclick="toggleIdeo(this)">
+        <button class="ideo-trigger" aria-expanded="false" onclick="toggleIdeo(this)">
           <div class="ideo-trigger-left">
             <div class="ideo-abbr">INC</div>
             <div>
@@ -952,7 +978,7 @@ footer a:hover { color:var(--paper); }
 
       <!-- ISF -->
       <div class="ideo-item isf">
-        <button class="ideo-trigger" onclick="toggleIdeo(this)">
+        <button class="ideo-trigger" aria-expanded="false" onclick="toggleIdeo(this)">
           <div class="ideo-trigger-left">
             <div class="ideo-abbr">ISF</div>
             <div>
@@ -1021,9 +1047,31 @@ footer a:hover { color:var(--paper); }
     </div>
 
     <div class="radar-canvas-wrap">
-      <canvas id="radarChart" height="420"></canvas>
+      <canvas id="radarChart" height="420" role="img"
+        aria-label="Radar chart comparing party policy scores across 8 dimensions: Industry, Welfare, Education, Healthcare, Law &amp; Order, Anti-Corruption, Women Safety, Employment. See accessible data table below.">
+      </canvas>
     </div>
     <p class="radar-note">Scores are policy-position assessments (1–10), not election predictions. Sources: manifesto analysis, governance records, NCRB data, NSSO data.</p>
+
+    <!-- Screen-reader accessible data table -->
+    <div class="sr-only" aria-label="Party policy score data table">
+      <table>
+        <caption>Party Policy Scores (1–10 scale)</caption>
+        <thead>
+          <tr><th scope="col">Dimension</th><th scope="col">TMC</th><th scope="col">BJP</th><th scope="col">CPIM</th><th scope="col">INC</th><th scope="col">ISF</th><th scope="col">Bengal's Need</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Industry</th><td>4</td><td>8</td><td>3</td><td>6</td><td>3</td><td>9</td></tr>
+          <tr><th scope="row">Welfare</th><td>8</td><td>6</td><td>6</td><td>6</td><td>6</td><td>8</td></tr>
+          <tr><th scope="row">Education</th><td>4</td><td>6</td><td>7</td><td>6</td><td>4</td><td>9</td></tr>
+          <tr><th scope="row">Healthcare</th><td>6</td><td>6</td><td>6</td><td>6</td><td>5</td><td>8</td></tr>
+          <tr><th scope="row">Law &amp; Order</th><td>3</td><td>7</td><td>5</td><td>5</td><td>4</td><td>9</td></tr>
+          <tr><th scope="row">Anti-Corruption</th><td>2</td><td>5</td><td>5</td><td>4</td><td>6</td><td>10</td></tr>
+          <tr><th scope="row">Women Safety</th><td>3</td><td>6</td><td>6</td><td>6</td><td>4</td><td>9</td></tr>
+          <tr><th scope="row">Employment</th><td>4</td><td>7</td><td>4</td><td>6</td><td>4</td><td>10</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
@@ -1431,6 +1479,7 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 function toggleIdeo(btn) {
   const item = btn.closest('.ideo-item');
   item.classList.toggle('open');
+  btn.setAttribute('aria-expanded', item.classList.contains('open'));
 }
 
 /* ── RADAR CHART ── */
@@ -1540,25 +1589,23 @@ function renderComparison() {
   const bKey = document.getElementById('partyB').value;
   const a = PARTIES[aKey];
   const b = PARTIES[bKey];
-  const maxBar = 120; // px
-
   const barsEl = document.getElementById('compareBars');
   const legendEl = document.getElementById('compareLegend');
 
   barsEl.innerHTML = METRICS.map((m,i) => {
     const aScore = a.scores[i];
     const bScore = b.scores[i];
-    const aW = Math.round((aScore/10)*maxBar);
-    const bW = Math.round((bScore/10)*maxBar);
+    const aW = aScore * 10; // % of container
+    const bW = bScore * 10;
     return `<div class="compare-row">
       <div class="compare-bar-left">
-        <span class="cbar-val left" style="color:${a.color}">${aScore}</span>
-        <div class="cbar cbar-left" style="width:${aW}px;background:${a.color}"></div>
+        <span class="cbar-val left" style="color:${a.color}" aria-label="${a.name} score: ${aScore} out of 10">${aScore}</span>
+        <div class="cbar cbar-left" style="width:${aW}%;background:${a.color}" role="presentation"></div>
       </div>
       <div class="compare-metric">${m.label}</div>
       <div class="compare-bar-right">
-        <div class="cbar cbar-right" style="width:${bW}px;background:${b.color}"></div>
-        <span class="cbar-val right" style="color:${b.color}">${bScore}</span>
+        <div class="cbar cbar-right" style="width:${bW}%;background:${b.color}" role="presentation"></div>
+        <span class="cbar-val right" style="color:${b.color}" aria-label="${b.name} score: ${bScore} out of 10">${bScore}</span>
       </div>
     </div>`;
   }).join('');
