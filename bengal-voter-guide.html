@@ -766,11 +766,50 @@ body::before {
   .evidence-body { max-height:none !important; }
   body { background:white; color:black; font-size:12pt; }
 }
+
+/* ── SITE NAV ── */
+.site-nav {
+  background:#0d0b09; border-bottom:1px solid rgba(255,255,255,0.06);
+  padding:9px 0; position:relative; z-index:200;
+}
+.site-nav-inner {
+  max-width:1280px; margin:0 auto; padding:0 32px;
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:8px;
+}
+.site-nav-brand {
+  font-family:'JetBrains Mono',monospace; font-size:9px;
+  letter-spacing:.25em; text-transform:uppercase; color:rgba(244,241,234,.3);
+}
+.site-nav-links { display:flex; }
+.site-nav-link {
+  font-family:'JetBrains Mono',monospace; font-size:9px;
+  letter-spacing:.15em; text-transform:uppercase;
+  color:rgba(244,241,234,.45); text-decoration:none;
+  padding:3px 14px; border-left:1px solid rgba(255,255,255,.07);
+  transition:color .2s;
+}
+.site-nav-link:first-child { border-left:none; }
+.site-nav-link:hover { color:rgba(244,241,234,.9); }
+.site-nav-link.active { color:rgba(244,241,234,.9); }
 </style>
 </head>
 <body lang="en" data-theme="light">
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- SITE NAV -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <span class="site-nav-brand">The Bengal Reader</span>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link active">Voter Guide</a>
+      <a href="/parties" class="site-nav-link">Party Compass</a>
+      <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+    </div>
+  </div>
+</nav>
+
 <div id="progress-bar"></div>
 
 <!-- MASTHEAD -->
