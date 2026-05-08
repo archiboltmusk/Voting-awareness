@@ -3,6 +3,7 @@
     { "source": "/", "destination": "/bengal-voter-guide.html" },
     { "source": "/parties", "destination": "/political-parties-comparison.html" },
     { "source": "/constituencies", "destination": "/constituencies.html" },
-    { "source": "/demonetisation", "destination": "/demonetisation.html" }
+    { "source": "/demonetisation", "destination": "/demonetisation.html" },
+    { "source": "/accountability", "destination": "/accountability.html" }
   ]
 }

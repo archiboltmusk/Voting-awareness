@@ -374,6 +374,44 @@ footer {
 footer a { color:rgba(244,241,234,.6); text-decoration:none; }
 footer a:hover { color:rgba(244,241,234,.9); }
 
+/* ── SEAT GRID ── */
+.seat-grid-section {
+  background:var(--paper-dark);
+  border-bottom:1px solid var(--paper-mid);
+  padding:20px 0 22px;
+}
+.seat-grid-head {
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  letter-spacing:.15em; text-transform:uppercase; color:var(--ink-faint);
+  margin-bottom:14px;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; align-items:center;
+}
+.seat-legend { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+.leg-item { display:flex; align-items:center; gap:5px; }
+.leg-swatch { width:10px; height:10px; border-radius:2px; flex-shrink:0; }
+.seat-grid {
+  display:grid;
+  grid-template-columns:repeat(42, 1fr);
+  gap:3px;
+}
+.seat-dot {
+  aspect-ratio:1;
+  border-radius:2px;
+  cursor:pointer;
+  transition:transform .12s, box-shadow .12s;
+  position:relative;
+}
+.seat-dot:hover { transform:scale(1.6); z-index:20; box-shadow:0 2px 10px rgba(0,0,0,.4); }
+.seat-tip {
+  position:fixed; z-index:500;
+  background:var(--ink); color:var(--paper);
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  padding:10px 14px; line-height:1.65;
+  pointer-events:none; display:none;
+  border-left:3px solid var(--bjp);
+  max-width:240px; box-shadow:0 4px 20px rgba(0,0,0,.4);
+}
+
 /* ── RESPONSIVE ── */
 @media(max-width:700px) {
   .container { padding:0 16px; }
@@ -400,6 +438,7 @@ footer a:hover { color:rgba(244,241,234,.9); }
       <a href="/parties" class="site-nav-link">Party Compass</a>
       <a href="/constituencies" class="site-nav-link active">2026 Results</a>
       <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+      <a href="/accountability" class="site-nav-link">100 Days</a>
     </div>
   </div>
 </nav>
@@ -448,6 +487,24 @@ footer a:hover { color:rgba(244,241,234,.9); }
     <p class="masthead-sub">Search, filter, and explore the constituency-level results from Bengal's most consequential election in a generation.</p>
   </div>
 </div>
+
+<!-- SEAT GRID -->
+<div class="seat-grid-section">
+  <div class="container">
+    <div class="seat-grid-head">
+      <span>294 Seats · Each square = one constituency · Click to filter table</span>
+      <span class="seat-legend">
+        <span class="leg-item"><span class="leg-swatch" style="background:var(--bjp)"></span>BJP 206</span>
+        <span class="leg-item"><span class="leg-swatch" style="background:var(--tmc)"></span>TMC 80</span>
+        <span class="leg-item"><span class="leg-swatch" style="background:var(--inc)"></span>INC 2</span>
+        <span class="leg-item"><span class="leg-swatch" style="background:var(--cpim)"></span>LF 1</span>
+        <span class="leg-item"><span class="leg-swatch" style="background:var(--ink-faint)"></span>Others</span>
+      </span>
+    </div>
+    <div class="seat-grid" id="seatGrid"></div>
+  </div>
+</div>
+<div class="seat-tip" id="seatTip"></div>
 
 <!-- CONTROLS BAR -->
 <div class="controls-bar" role="search">
@@ -1052,10 +1109,49 @@ function renderDistricts() {
   }).join('');
 }
 
+// ── SEAT GRID ──
+function renderSeatGrid() {
+  const grid = document.getElementById('seatGrid');
+  const tip  = document.getElementById('seatTip');
+  const sorted = [...RESULTS].sort((a,b) => a.ac - b.ac);
+  const colorMap = {BJP:'var(--bjp)',TMC:'var(--tmc)',INC:'var(--inc)',LF:'var(--cpim)',CPIM:'var(--cpim)',ISF:'var(--isf)'};
+  grid.innerHTML = sorted.map(r => {
+    const col = colorMap[r.winParty] || 'var(--ink-faint)';
+    const op  = r.verified ? '1' : '0.6';
+    const esc = r.name.replace(/'/g, "\\'");
+    return `<div class="seat-dot" style="background:${col};opacity:${op}"
+      data-name="${r.name}" data-ac="${r.ac}" data-party="${r.winParty}"
+      data-winner="${r.winner || r.winParty + ' cand.'}"
+      data-margin="${r.margin ? r.margin.toLocaleString('en-IN') : ''}"
+      onclick="filterToSeat('${esc}')"></div>`;
+  }).join('');
+
+  grid.addEventListener('mouseover', e => {
+    const dot = e.target.closest('.seat-dot');
+    if (!dot) return;
+    tip.style.display = 'block';
+    tip.style.borderLeftColor = colorMap[dot.dataset.party] || 'var(--ink-faint)';
+    tip.innerHTML = `<strong>${dot.dataset.name}</strong> · AC&nbsp;${dot.dataset.ac}<br>${dot.dataset.party} · ${dot.dataset.winner}${dot.dataset.margin ? '<br>Margin: ' + dot.dataset.margin : ''}`;
+  });
+  grid.addEventListener('mousemove', e => {
+    const x = e.clientX + 16, y = e.clientY - 10;
+    tip.style.left = (x + 240 > window.innerWidth ? e.clientX - 256 : x) + 'px';
+    tip.style.top  = y + 'px';
+  });
+  grid.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
+}
+
+function filterToSeat(name) {
+  document.getElementById('searchInput').value = name;
+  applyFilters();
+  document.querySelector('.controls-bar').scrollIntoView({behavior:'smooth'});
+}
+
 // ── INIT ──
 document.addEventListener('DOMContentLoaded', () => {
   applyFilters();
   renderDistricts();
+  renderSeatGrid();
   const verified = RESULTS.filter(r => r.verified).length;
   document.getElementById('verifiedCount').textContent = verified;
 });

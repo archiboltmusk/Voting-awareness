@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tracking BJP's key 2026 West Bengal election promises against delivery — updated as the new government acts in its first 100 days.">
+<meta property="og:title" content="BJP's 100-Day Pledge Tracker — The Bengal Reader">
+<meta property="og:description" content="What Bengal's new government promised. What it must deliver. Updated live.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="/og-demonetisation.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BJP 100-Day Pledge Tracker — The Bengal Reader">
+<meta name="twitter:description" content="Tracking every major BJP promise from Bengal's 2026 election manifesto. Updated as news breaks.">
+<title>BJP 100-Day Pledge Tracker — The Bengal Reader</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0a0804;
+  --paper: #f5f0e8;
+  --aged: #e8e0cc;
+  --accent: #c0171b;
+  --bjp: #e8640a;
+  --gold: #b8860b;
+  --muted: #6b5f4e;
+  --tmc: #1a7a3c;
+  --watching: #8a7a6a;
+  --announced: #1565c0;
+  --in-progress: #d97706;
+  --delivered: #166534;
+  --delayed: #b45309;
+  --broken: #c0171b;
+}
+
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--paper); color:var(--ink);
+  font-family:'Crimson Pro', serif; font-size:18px; line-height:1.7;
+  overflow-x:hidden;
+}
+body::before {
+  content:''; position:fixed; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none; z-index:9999; opacity:0.5;
+}
+
+/* ── SITE NAV ── */
+.site-nav { background:#050403; border-bottom:1px solid rgba(255,255,255,0.06); padding:9px 0; position:relative; z-index:10000; }
+.site-nav-inner { max-width:1100px; margin:0 auto; padding:0 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; }
+.site-nav-brand { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:rgba(245,240,232,0.35); }
+.site-nav-links { display:flex; }
+.site-nav-link { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(245,240,232,0.45); text-decoration:none; padding:3px 14px; border-left:1px solid rgba(255,255,255,0.07); transition:color 0.2s; }
+.site-nav-link:first-child { border-left:none; }
+.site-nav-link:hover { color:rgba(245,240,232,0.9); }
+.site-nav-link.active { color:rgba(245,240,232,0.9); }
+
+/* ── MASTHEAD ── */
+.masthead { border-bottom:4px double var(--ink); padding:1.5rem 2rem 1rem; text-align:center; position:relative; background:var(--paper); }
+.masthead-overline { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--muted); border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); padding:0.3rem 0; margin-bottom:1rem; }
+.masthead h1 { font-family:'Playfair Display',serif; font-size:clamp(2.4rem,6vw,5rem); font-weight:900; line-height:1.0; letter-spacing:-0.02em; text-transform:uppercase; }
+.masthead h1 em { font-style:italic; color:var(--bjp); }
+.masthead-sub { font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(1rem,2.5vw,1.35rem); color:var(--muted); margin-top:0.5rem; }
+.masthead-meta { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.15em; color:var(--muted); margin-top:1rem; border-top:1px solid var(--aged); padding-top:0.6rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; }
+
+/* ── COUNTER HERO ── */
+.counter-hero { background:var(--ink); color:var(--paper); padding:3rem 2rem; text-align:center; position:relative; overflow:hidden; }
+.counter-hero::before { content:'100'; position:absolute; font-family:'Playfair Display',serif; font-size:40vw; font-weight:900; opacity:0.04; top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; color:var(--paper); white-space:nowrap; }
+.counter-grid { display:flex; justify-content:center; gap:0; flex-wrap:wrap; max-width:700px; margin:0 auto; position:relative; }
+.counter-cell { padding:1.5rem 2.5rem; border-right:1px solid rgba(255,255,255,0.1); }
+.counter-cell:last-child { border-right:none; }
+.counter-big { font-family:'Playfair Display',serif; font-size:clamp(3rem,8vw,5.5rem); font-weight:900; line-height:1; color:var(--bjp); }
+.counter-label { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:#8a8070; margin-top:0.4rem; }
+.counter-sub { font-family:'Crimson Pro',serif; font-size:1rem; color:#b0a898; margin-top:1.5rem; max-width:500px; margin-left:auto; margin-right:auto; position:relative; }
+.mandate-bar { display:flex; height:8px; max-width:600px; margin:2rem auto 0.6rem; overflow:hidden; gap:2px; }
+.mandate-seg { height:8px; }
+.mandate-labels { display:flex; justify-content:space-between; max-width:600px; margin:0 auto; font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.1em; color:#8a8070; }
+
+/* ── LAYOUT ── */
+.container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+
+/* ── SECTION HEADERS ── */
+.section-header { border-top:4px solid var(--ink); padding-top:0.5rem; margin:4rem 0 2rem; }
+.section-label { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--bjp); margin-bottom:0.4rem; }
+.section-title { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,4vw,2.8rem); font-weight:700; line-height:1.15; }
+
+p { margin-bottom:1.2rem; font-size:1.05rem; color:#2a2018; }
+.article-lead { font-family:'Crimson Pro',serif; font-size:1.25rem; font-weight:600; line-height:1.6; border-left:4px solid var(--ink); padding-left:1.5rem; margin:2rem 0; color:#1a1510; }
+
+/* ── STATUS BADGES ── */
+.status-badge {
+  display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:0.58rem;
+  letter-spacing:0.15em; text-transform:uppercase; padding:3px 9px; font-weight:500;
+  border-radius:2px; white-space:nowrap;
+}
+.status-watching  { background:rgba(138,122,106,0.15); color:var(--watching); border:1px solid rgba(138,122,106,0.3); }
+.status-announced { background:rgba(21,101,192,0.12); color:var(--announced); border:1px solid rgba(21,101,192,0.3); }
+.status-in-progress { background:rgba(217,119,6,0.12); color:var(--in-progress); border:1px solid rgba(217,119,6,0.3); }
+.status-delivered { background:rgba(22,101,52,0.12); color:var(--delivered); border:1px solid rgba(22,101,52,0.3); }
+.status-delayed   { background:rgba(180,83,9,0.12); color:var(--delayed); border:1px solid rgba(180,83,9,0.3); }
+.status-broken    { background:rgba(192,23,27,0.1); color:var(--broken); border:1px solid rgba(192,23,27,0.3); }
+
+/* ── PLEDGE CARDS ── */
+.pledge-section { margin:2.5rem 0; }
+.pledge-category {
+  font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.25em; text-transform:uppercase;
+  color:var(--muted); padding:0.5rem 0; border-bottom:2px solid var(--ink);
+  margin-bottom:0; display:flex; align-items:center; gap:1rem;
+}
+.pledge-card {
+  border-bottom:1px solid var(--aged);
+  padding:1.4rem 0;
+  display:grid; grid-template-columns:1fr auto;
+  gap:1rem; align-items:start;
+}
+.pledge-card:last-child { border-bottom:none; }
+.pledge-title { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; margin-bottom:0.3rem; }
+.pledge-detail { font-family:'Crimson Pro',serif; font-size:0.95rem; color:var(--muted); margin:0; line-height:1.5; }
+.pledge-source { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--muted); margin-top:0.4rem; opacity:0.7; }
+.pledge-update { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:#3a2a1a; margin-top:0.5rem; background:var(--aged); padding:0.4rem 0.7rem; display:none; border-left:2px solid var(--bjp); }
+.pledge-update.visible { display:block; }
+.pledge-right { text-align:right; min-width:110px; }
+.pledge-deadline { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--muted); margin-top:0.5rem; }
+
+/* ── PROGRESS SUMMARY ── */
+.progress-summary {
+  background:var(--ink); color:var(--paper);
+  padding:2rem; margin:3rem 0;
+}
+.progress-summary-inner { display:flex; flex-wrap:wrap; gap:0; }
+.progress-cell { flex:1; min-width:80px; text-align:center; padding:1rem; border-right:1px solid rgba(255,255,255,0.08); }
+.progress-cell:last-child { border-right:none; }
+.progress-num { font-family:'IBM Plex Mono',monospace; font-size:1.8rem; font-weight:500; }
+.progress-lbl { font-family:'IBM Plex Mono',monospace; font-size:0.55rem; letter-spacing:0.15em; text-transform:uppercase; color:#8a8070; margin-top:0.3rem; }
+
+/* ── CALLOUT ── */
+.callout { border-left:5px solid var(--bjp); background:#fdf5ef; padding:1.2rem 1.5rem; margin:2rem 0; }
+.callout-label { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--bjp); margin-bottom:0.4rem; }
+.callout p { font-size:0.95rem; margin:0; color:#3a1a08; }
+.callout.neutral { border-left-color:var(--muted); background:var(--aged); }
+.callout.neutral .callout-label { color:var(--muted); }
+.callout.neutral p { color:#2a2018; }
+
+/* ── METHODOLOGY ── */
+.method-box { background:var(--aged); border:1px solid rgba(107,95,78,0.3); padding:1.5rem; margin:3rem 0; }
+.method-box h4 { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem; border-bottom:1px solid rgba(107,95,78,0.3); padding-bottom:0.5rem; }
+.method-box p { font-size:0.9rem; color:var(--muted); margin-bottom:0.6rem; }
+.method-box p:last-child { margin-bottom:0; }
+
+/* ── FOOTER ── */
+footer { background:#0a0804; color:#5a5040; padding:2rem; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.15em; }
+footer a { color:#8a7a60; text-decoration:none; }
+
+.hr-ornate { border:none; border-top:1px solid var(--aged); margin:2.5rem 0; position:relative; }
+.hr-ornate::before { content:'◆'; position:absolute; top:-0.6rem; left:50%; transform:translateX(-50%); background:var(--paper); padding:0 0.5rem; color:var(--muted); font-size:0.7rem; }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.fade-in { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+
+@media(max-width:700px) {
+  .pledge-card { grid-template-columns:1fr; }
+  .pledge-right { text-align:left; }
+  .counter-cell { padding:1rem 1.5rem; }
+  .progress-cell { min-width:60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <span class="site-nav-brand">The Bengal Reader</span>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Voter Guide</a>
+      <a href="/parties" class="site-nav-link">Party Compass</a>
+      <a href="/constituencies" class="site-nav-link">2026 Results</a>
+      <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+      <a href="/accountability" class="site-nav-link active">100 Days</a>
+    </div>
+  </div>
+</nav>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-overline">Political Accountability · 2026 West Bengal · Updated Continuously</div>
+  <h1><em>100-Day</em> Pledge Tracker</h1>
+  <p class="masthead-sub">What Bengal's New Government Promised. What It Must Deliver.</p>
+  <div class="masthead-meta">
+    <span>Source: BJP 2026 Manifesto · Press Statements · Campaign Speeches</span>
+    <span>Election: 4 May 2026 · Tracker begins: 8 May 2026</span>
+    <span>Day 100 deadline: 12 August 2026</span>
+  </div>
+</header>
+
+<!-- COUNTER HERO -->
+<section class="counter-hero">
+  <div class="counter-grid">
+    <div class="counter-cell">
+      <div class="counter-big" id="dayCount">4</div>
+      <div class="counter-label">Days Since Election</div>
+    </div>
+    <div class="counter-cell">
+      <div class="counter-big" style="color:#f4f1ea;opacity:.7">96</div>
+      <div class="counter-label">Days Remaining</div>
+    </div>
+    <div class="counter-cell">
+      <div class="counter-big" style="color:#5a5040">0</div>
+      <div class="counter-label">Promises Delivered</div>
+    </div>
+    <div class="counter-cell">
+      <div class="counter-big" style="color:#e8640a">16</div>
+      <div class="counter-label">Pledges Tracked</div>
+    </div>
+  </div>
+  <p class="counter-sub">BJP won 206 of 294 seats — a ⅔ supermajority — ending 14 years of TMC rule. With full legislative power and no coalition constraints, every promise is a full accountability obligation.</p>
+  <div class="mandate-bar" style="margin-top:2rem;">
+    <div class="mandate-seg" style="flex:206;background:#e8640a;"></div>
+    <div class="mandate-seg" style="flex:80;background:#1a7a3c;"></div>
+    <div class="mandate-seg" style="flex:8;background:#555;"></div>
+  </div>
+  <div class="mandate-labels">
+    <span>BJP 206</span>
+    <span>TMC 80</span>
+    <span>Others 8</span>
+  </div>
+</section>
+
+<main class="container">
+
+  <div class="section-header fade-in" style="margin-top:3rem;">
+    <div class="section-label">Overview</div>
+    <h2 class="section-title">The Accountability Framework</h2>
+  </div>
+  <p class="article-lead">A supermajority is a blank cheque — and a complete removal of excuses. BJP can pass any legislation, amend the state constitution, and appoint any official without a single opposition vote. Every unkept promise is therefore a choice, not a constraint.</p>
+  <p>This tracker monitors 16 key pledges drawn from the BJP 2026 West Bengal election manifesto and documented campaign speeches. Status is updated as orders are issued, schemes launched, or promises reversed. The 100-day window closes 12 August 2026.</p>
+
+  <div class="progress-summary fade-in">
+    <div class="progress-summary-inner">
+      <div class="progress-cell">
+        <div class="progress-num" style="color:#8a8070;">16</div>
+        <div class="progress-lbl">Watching</div>
+      </div>
+      <div class="progress-cell">
+        <div class="progress-num" style="color:#1565c0;">0</div>
+        <div class="progress-lbl">Announced</div>
+      </div>
+      <div class="progress-cell">
+        <div class="progress-num" style="color:#d97706;">0</div>
+        <div class="progress-lbl">In Progress</div>
+      </div>
+      <div class="progress-cell">
+        <div class="progress-num" style="color:#166534;">0</div>
+        <div class="progress-lbl">Delivered</div>
+      </div>
+      <div class="progress-cell">
+        <div class="progress-num" style="color:#b45309;">0</div>
+        <div class="progress-lbl">Delayed</div>
+      </div>
+      <div class="progress-cell">
+        <div class="progress-num" style="color:#c0171b;">0</div>
+        <div class="progress-lbl">Broken</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout neutral fade-in">
+    <div class="callout-label">ℹ Day 4 · Swearing-in pending</div>
+    <p>The BJP government has not yet been sworn in as of May 8, 2026. Governor C.V. Ananda Bose is expected to invite BJP to form the government imminently. The 100-day clock starts from the date of swearing-in. All pledges are currently in <strong>"Watching"</strong> status — no orders have been issued.</p>
+  </div>
+
+  <hr class="hr-ornate">
+
+  <!-- AGRICULTURE -->
+  <section class="fade-in">
+    <div class="section-header">
+      <div class="section-label">Category I</div>
+      <h2 class="section-title">Agriculture &amp; Farmers</h2>
+    </div>
+    <div class="pledge-section">
+      <div class="pledge-category">Pledges in this category: 3</div>
+
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">Direct Paddy Procurement at MSP</div>
+          <p class="pledge-detail">BJP promised to procure paddy directly from farmers at the Central MSP (₹2,183/quintal for common paddy, FY26) through government agencies, eliminating middlemen and the APMC commission agent layer that depressed farmer receipts under TMC.</p>
+          <p class="pledge-source">Source: BJP 2026 Manifesto (Agriculture chapter) · Suvendu Adhikari, rally speech, Paschim Medinipur, March 2026</p>
+          <div class="pledge-update" id="upd-paddy">No government order issued yet.</div>
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge status-watching">Watching</span>
+          <div class="pledge-deadline">Target: 100 days</div>
+        </div>
+      </div>
+
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">₹6,000/Year Kisan Samman Supplement</div>
+          <p class="pledge-detail">BJP pledged to supplement the Central PM-KISAN ₹6,000/year with a matching state contribution, bringing total direct benefit transfers to enrolled farmers to ₹12,000/year — a doubling of the existing Central scheme.</p>
+          <p class="pledge-source">Source: BJP 2026 Manifesto (Welfare chapter) · Campaign literature, Purba Medinipur, February 2026</p>
+          <div class="pledge-update" id="upd-kisan">No government order issued yet.</div>
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge status-watching">Watching</span>
+          <div class="pledge-deadline">Target: 30 days</div>
+        </div>
+      </div>
+
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">Irrigation Canal Restoration — North Bengal</div>
+          <p class="pledge-detail">Restore and desilt the Teesta Barrage distribution canals in Jalpaiguri and Cooch Behar — neglected under TMC — to expand irrigation coverage for 3 lakh acres of agricultural land ahead of the kharif season.</p>
+          <p class="pledge-source">Source: BJP Jalpaiguri district manifesto supplement · Union Minister speech, Cooch Behar, April 2026</p>
+          <div class="pledge-update" id="upd-irrigation">No government order issued yet.</div>
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge status-watching">Watching</span>
+          <div class="pledge-deadline">Target: 60 days</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr-ornate">
+
+  <!-- WELFARE -->
+  <section class="fade-in">
+    <div class="section-header">
+      <div class="section-label">Category II</div>
+      <h2 class="section-title">Welfare &amp; Women's Schemes</h2>
+    </div>
+    <div class="pledge-section">
+      <div class="pledge-category">Pledges in this category: 3</div>
+
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">Swastha Saathi 2.0 — Universal Health Cover</div>
+          <p class="pledge-detail">BJP pledged to expand the existing Swastha Saathi health insurance scheme (inherited from TMC) and increase the annual coverage cap from ₹5 lakh to ₹10 lakh per family, while expanding the empanelled hospital network to include private hospitals in district towns.</p>
+          <p class="pledge-source">Source: BJP 2026 Manifesto (Health chapter)</p>
+          <div class="pledge-update" id="upd-health">No government order issued yet.</div>
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge status-watching">Watching</span>
+          <div class="pledge-deadline">Target: 100 days</div>
+        </div>
+      </div>
+
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">Free Domestic Electricity — 300 Units/Month</div>
+          <p class="pledge-detail">BJP's campaign promise: households consuming up to 300 units/month would pay zero electricity bills — a significant expansion of the existing Central PM-Surya Ghar rooftop solar scheme's free-unit provisions.</p>
+          <p class="pledge-source">Source: BJP 2026 Manifesto (Energy chapter) · PM Modi rally, Brigade Parade Ground, April 2026</p>
+          <div class="pledge-update" id="upd-elec">No government order issued yet.</div>
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge status-watching">Watching</span>
+          <div class="pledge-deadline">Target: 100 days</div>
+        </div>
+      </div>
+
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">Bijoya Lakshmi — Women's Monthly Stipend</div>
+          <p class="pledge-detail">BJP's answer to TMC's Lakshmir Bhandar: a renamed/restructured scheme providing ₹2,000/month to women-headed households below the poverty line, using Aadhaar-linked direct bank transfer with zero intermediaries.</p>
+          <p class="pledge-source">Source: BJP 2026 Manifesto (Women's Empowerment chapter) · Dilip Ghosh rally speech, Burdwan, March 2026</p>
+          <div class="pledge-update" id="upd-bijoya">No government order issued yet.</div>
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge status-watching">Watching</span>
+          <div class="pledge-deadline">Target: 60 days</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr-ornate">
+
+  <!-- LAW AND ORDER -->
+  <section class="fade-in">
+    <div class="section-header">
+      <div class="section-label">Category III</div>
+      <h2 class="section-title">Law, Order &amp; Anti-Corruption</h2>
+    </div>
+    <div class="pledge-section">
+      <div class="pledge-category">Pledges in this category: 4</div>
+
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">Dissolve TMC Syndicate Networks — 100-Day Crackdown</div>
+          <p class="pledge-detail">BJP's most-cited promise: a systematic crackdown on the "cut money" and "tolly" collection networks operated by TMC-linked syndicates in construction, sand mining, and public works — with ED and CBI referrals for documented cases.</p>
+          <p class="pledge-source">Source: BJP 2026 Manifesto (Governance chapter) · Suvendu Adhikari, multiple rallies, 2025–26</p>
+          <div class="pledge-update" id="upd-syndicate">No action announced yet. Post-election violence against TMC workers reported in some districts — separate from syndicate dissolution.</div>
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge status-watching">Watching</span>
+          <div class="pledge-deadline">Target: 30 days</div>
+        </div>
+      </div>
+
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">SSC Teacher Regularization — Court-Compliant Scheme</div>
+          <p class="pledge-detail">Devise a scheme to re-employ the ~26,000 teachers dismissed under Supreme Court orders in the SSC recruitment scam — BJP promised a fresh, corruption-free recruitment process with interim employment for those who passed original written tests.</p>
+          <p class="pledge-source">Source: BJP 2026 Manifesto (Education chapter) · Suvendu Adhikari statement, February 2026</p>
+          <div class="pledge-update" id="upd-ssc">No government order issued yet. Supreme Court oversight remains active.</div>
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge status-watching">Watching</span>
+          <div class="pledge-deadline">Target: 60 days</div>
+        </div>
+      </div>
+
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">Sandeshkhali — Compensation &amp; FIR Action</div>
+          <p class="pledge-detail">BJP pledged to ensure all complainants from the Sandeshkhali sexual assault and land-grabbing cases receive state support, that all pending FIRs are reinvestigated under new leadership, and that the identified accused face trial.</p>
+          <p class="pledge-source">Source: BJP 2026 campaign material · PM Modi rally, Basirhat, March 2026</p>
+          <div class="pledge-update" id="upd-sandeshkhali">No official action yet.</div>
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge status-watching">Watching</span>
+          <div class="pledge-deadline">Target: 30 days</div>
+        </div>
+      </div>
+
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">Narada &amp; Rose Valley — CBI Handover</div>
+          <p class="pledge-detail">BJP pledged to formally hand over all pending Narada sting and Rose Valley chit-fund investigations to the CBI for time-bound completion, removing state police interference that had stalled prosecutions under TMC.</p>
+          <p class="pledge-source">Source: BJP 2026 Manifesto (Accountability chapter)</p>
+          <div class="pledge-update" id="upd-narada">No formal order issued.</div>
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge status-watching">Watching</span>
+          <div class="pledge-deadline">Target: 45 days</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr-ornate">
+
+  <!-- EMPLOYMENT -->
+  <section class="fade-in">
+    <div class="section-header">
+      <div class="section-label">Category IV</div>
+      <h2 class="section-title">Employment &amp; Industry</h2>
+    </div>
+    <div class="pledge-section">
+      <div class="pledge-category">Pledges in this category: 3</div>
+
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">10 Lakh Government Jobs — 5-Year Plan</div>
+          <p class="pledge-detail">BJP's headline employment pledge: 10 lakh new government and government-linked jobs over the 5-year term, starting with filling 2 lakh vacancies within the first 100 days by clearing the backlog of qualified applicants from clean recruitment processes.</p>
+          <p class="pledge-source">Source: BJP 2026 Manifesto (Employment chapter) · Amit Shah press conference, Kolkata, January 2026</p>
+          <div class="pledge-update" id="upd-jobs">No recruitment notification issued yet.</div>
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge status-watching">Watching</span>
+          <div class="pledge-deadline">Target: 100 days (first tranche)</div>
+        </div>
+      </div>
+
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">Tata Motors Return — Singur Industrial Development</div>
+          <p class="pledge-detail">BJP pledged to convert the Singur land (site of the 2008 Tata Nano controversy) into a dedicated industrial zone for automotive or electronics manufacturing, targeting 15,000 direct jobs as a symbolic reversal of Bengal's industrial retreat.</p>
+          <p class="pledge-source">Source: BJP 2026 campaign speeches · Hooghly district manifesto supplement</p>
+          <div class="pledge-update" id="upd-singur">No industrial tender or MoU issued yet.</div>
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge status-watching">Watching</span>
+          <div class="pledge-deadline">Target: 100 days (proposal)</div>
+        </div>
+      </div>
+
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">Bengal Global Business Summit — Revamped Format</div>
+          <p class="pledge-detail">BJP pledged to hold a revamped investor summit within 6 months, with binding investment MoUs (not aspirational — tracked via actual capital disbursement over 2 years), targeting ₹5 lakh crore in committed investments.</p>
+          <p class="pledge-source">Source: BJP 2026 Manifesto (Industry chapter)</p>
+          <div class="pledge-update" id="upd-bgbs">No summit date announced.</div>
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge status-watching">Watching</span>
+          <div class="pledge-deadline">Target: 6 months</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr-ornate">
+
+  <!-- INFRASTRUCTURE -->
+  <section class="fade-in">
+    <div class="section-header">
+      <div class="section-label">Category V</div>
+      <h2 class="section-title">Infrastructure &amp; Housing</h2>
+    </div>
+    <div class="pledge-section">
+      <div class="pledge-category">Pledges in this category: 3</div>
+
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">PMAY Backlog — 10 Lakh Homes in 100 Days</div>
+          <p class="pledge-detail">BJP identified ~10 lakh approved-but-unbuilt PMAY rural housing units stalled by TMC governance failures. The pledge: release withheld funds, complete verification, and ensure physical completion of the backlog within 100 days.</p>
+          <p class="pledge-source">Source: BJP 2026 Manifesto (Housing chapter) · Suvendu Adhikari statement, multiple venues</p>
+          <div class="pledge-update" id="upd-pmay">No housing order issued yet.</div>
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge status-watching">Watching</span>
+          <div class="pledge-deadline">Target: 100 days</div>
+        </div>
+      </div>
+
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">Kolkata Metro Phase IV — Accelerated Completion</div>
+          <p class="pledge-detail">BJP pledged to accelerate Phase IV (Joka–Esplanade and Noapara–Barasat corridors) by eliminating state government delays in land acquisition and utility shifting — targeting full Phase IV operationalization by 2028.</p>
+          <p class="pledge-source">Source: BJP Kolkata manifesto supplement</p>
+          <div class="pledge-update" id="upd-metro">No official state order or coordination meeting announced.</div>
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge status-watching">Watching</span>
+          <div class="pledge-deadline">Target: Land clearance in 100 days</div>
+        </div>
+      </div>
+
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">Ganga River Cleaning — NMG Phase II for Bengal</div>
+          <p class="pledge-detail">BJP pledged full state cooperation with the National Mission for Clean Ganga Phase II — specifically sewage treatment plants for Howrah, Kolkata's south-bank industrial zones, and 18 municipalities along the Ganga within Bengal's jurisdiction.</p>
+          <p class="pledge-source">Source: BJP 2026 Manifesto (Environment chapter)</p>
+          <div class="pledge-update" id="upd-ganga">No state coordination order issued.</div>
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge status-watching">Watching</span>
+          <div class="pledge-deadline">Target: MoU in 100 days</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr-ornate">
+
+  <div class="callout fade-in">
+    <div class="callout-label">📋 How This Tracker Works</div>
+    <p>Each pledge is sourced from documented BJP statements (manifesto, press conferences, rally speeches). Status changes only when <strong>official government orders, GO numbers, or independently verified action</strong> is reported by credible news sources. Campaign rhetoric is not treated as delivery. This tracker is updated as events occur — check back regularly.</p>
+  </div>
+
+  <div class="method-box fade-in">
+    <h4>Status Definitions</h4>
+    <p><span class="status-badge status-watching">Watching</span> — Promise made; no government action yet. Default state until an order is issued.</p>
+    <p><span class="status-badge status-announced">Announced</span> — Government has formally announced the policy/scheme via official communication.</p>
+    <p><span class="status-badge status-in-progress">In Progress</span> — Implementation has physically started (tenders issued, beneficiary lists activated, etc.).</p>
+    <p><span class="status-badge status-delivered">Delivered</span> — Independent verification confirms the promise has been substantially fulfilled.</p>
+    <p><span class="status-badge status-delayed">Delayed</span> — Past the stated or implied deadline without completion.</p>
+    <p><span class="status-badge status-broken">Broken</span> — Government has explicitly reversed the policy or confirmed it will not be implemented.</p>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>Sources: BJP 2026 West Bengal Election Manifesto · Campaign speeches (documented) · Press Conference transcripts · <a href="https://adrindia.org" target="_blank">ADR India</a> · <a href="https://eci.gov.in" target="_blank">Election Commission of India</a></p>
+  <p style="margin-top:0.5rem;opacity:0.5;">This tracker synthesizes publicly available BJP campaign commitments. Status updates are based on independent news verification, not government press releases alone.</p>
+</footer>
+
+<script>
+// Days since election (May 4, 2026)
+(function() {
+  const electionDate = new Date('2026-05-04');
+  const today = new Date();
+  const days = Math.floor((today - electionDate) / (1000*60*60*24));
+  const remaining = Math.max(0, 100 - days);
+  document.getElementById('dayCount').textContent = days;
+  document.querySelector('.counter-grid .counter-cell:nth-child(2) .counter-big').textContent = remaining;
+})();
+
+// Fade-in observer
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
