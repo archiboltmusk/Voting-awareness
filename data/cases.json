@@ -1,0 +1,223 @@
+[
+  {
+    "id": "saradha",
+    "name": "Saradha Chit Fund Collapse",
+    "category": "ponzi",
+    "yearExposed": 2013,
+    "amount": "₹2,500 crore (official estimate)",
+    "victims": "~17 lakh small investors, mostly rural Bengal",
+    "status": "trial",
+    "agencies": ["CBI","ED","SFIO"],
+    "court": "CBI Special Court + Calcutta HC",
+    "accused": [
+      { "name": "Sudipta Sen", "role": "Saradha Group founder", "party": "none", "status": "trial", "detail": "Arrested April 2013 in Jammu after fleeing Kolkata. Wrote letter to CBI naming politicians. Chargesheeted; trial ongoing." },
+      { "name": "Madan Mitra", "role": "TMC Transport Minister", "party": "TMC", "status": "bail", "detail": "Arrested Nov 2014 by CBI; in custody ~14 months; granted bail Feb 2016. Trial ongoing." },
+      { "name": "Kunal Ghosh", "role": "TMC Rajya Sabha MP", "party": "TMC", "status": "bail", "detail": "Arrested Nov 2013; attempted suicide in jail; bail granted. Later rejoined TMC." },
+      { "name": "Srinjoy Bose", "role": "TMC Rajya Sabha MP", "party": "TMC", "status": "bail", "detail": "Arrested 2013; expelled from TMC. Chargesheeted by CBI." }
+    ],
+    "timeline": [
+      { "date": "2008–12", "event": "Saradha Group mobilises deposits from small investors across Bengal, Odisha, and North-East." },
+      { "date": "2013 Apr", "event": "Saradha collapses; Sudipta Sen flees, arrested in Jammu–Kashmir. Investors lose savings." },
+      { "date": "2013 Nov", "event": "CBI takes over from state SIT on Supreme Court order. Kunal Ghosh arrested." },
+      { "date": "2014 Nov", "event": "Madan Mitra arrested by CBI." },
+      { "date": "2016 Feb", "event": "Calcutta HC grants bail to Madan Mitra." },
+      { "date": "2017+", "event": "CBI files multiple chargesheets naming politicians, Saradha agents, and company officials." },
+      { "date": "2025–26", "event": "Trial ongoing in CBI Special Court. Multiple bail applications and HC challenges slow proceedings." }
+    ],
+    "summary": "The Saradha Group collapsed in April 2013, wiping out the savings of an estimated 17 lakh small investors — mostly women and rural families across Bengal, Odisha, and Assam who had deposited money in chit-fund and real-estate schemes. The Supreme Court transferred the investigation to the CBI, which filed chargesheets naming TMC politicians as recipients of funds and political cover. The case remains in trial, slowed by repeated bail applications, HC stays, and the sheer volume of accused.",
+    "lastUpdated": "2026-05",
+    "nextHearing": { "date": "2026-06-12", "court": "CBI Special Court, Kolkata", "matter": "Examination of prosecution witnesses (Madan Mitra, Kunal Ghosh)" }
+  },
+  {
+    "id": "rose-valley",
+    "name": "Rose Valley Ponzi Scheme",
+    "category": "ponzi",
+    "yearExposed": 2015,
+    "amount": "₹17,500 crore mobilised (ED estimate)",
+    "victims": "~59 lakh investors across Eastern India",
+    "status": "trial",
+    "agencies": ["CBI","ED","SFIO","SEBI"],
+    "court": "CBI Special Court + Calcutta HC",
+    "accused": [
+      { "name": "Gautam Kundu", "role": "Rose Valley Group chairman", "party": "none", "status": "trial", "detail": "Arrested by CBI 2015. Chargesheeted. Trial ongoing; has been granted interim bails." },
+      { "name": "Sudip Bandyopadhyay", "role": "TMC Lok Sabha MP (Kolkata Uttar)", "party": "TMC", "status": "bail", "detail": "Arrested by CBI January 2017 for allegedly facilitating Rose Valley operations. Bail granted by Calcutta HC." },
+      { "name": "Tapas Paul", "role": "TMC Lok Sabha MP (Krishnanagar)", "party": "TMC", "status": "deceased", "detail": "Named accused; arrested December 2016; died February 2018 while on bail. Case closed against him." }
+    ],
+    "timeline": [
+      { "date": "~2007–13", "event": "Rose Valley Group runs hotel, real-estate, and chit-fund schemes collecting deposits across Bengal, Odisha, Jharkhand." },
+      { "date": "2013–14", "event": "SEBI issues cease-and-desist orders against Rose Valley; company defies them." },
+      { "date": "2015 Feb", "event": "CBI arrests Gautam Kundu; ED attaches assets." },
+      { "date": "2016 Dec", "event": "Tapas Paul (TMC MP) arrested by CBI." },
+      { "date": "2017 Jan", "event": "Sudip Bandyopadhyay (TMC MP) arrested by CBI." },
+      { "date": "2018 Feb", "event": "Tapas Paul dies of heart failure while on bail. Case against him closes." },
+      { "date": "2019–26", "event": "Multiple chargesheets filed; trial in CBI Special Court ongoing. Asset recovery proceedings continue." }
+    ],
+    "summary": "Rose Valley was one of India's largest Ponzi schemes by volume — the Enforcement Directorate estimated ₹17,500 crore mobilised from ~59 lakh investors across Eastern India. SEBI had repeatedly flagged the scheme as illegal, but state government intervention allegedly shielded it. CBI investigations named two sitting TMC Members of Parliament as accused. Asset recovery proceedings have yielded partial funds but the bulk of investor money remains unrecovered.",
+    "lastUpdated": "2026-05",
+    "nextHearing": { "date": "2026-05-22", "court": "CBI Special Court, Kolkata", "matter": "Bail review — Sudip Bandyopadhyay; documentary evidence arguments" }
+  },
+  {
+    "id": "narada",
+    "name": "Narada Sting Operation",
+    "category": "bribery",
+    "yearExposed": 2016,
+    "amount": "Cash payments on tape (₹5 lakh–₹10 lakh per person)",
+    "victims": "Bengal electorate — systematic bribery of elected officials",
+    "status": "trial",
+    "agencies": ["CBI"],
+    "court": "Calcutta HC (overseeing CBI trial court)",
+    "accused": [
+      { "name": "Firhad Hakim", "role": "TMC Minister / Kolkata Mayor", "party": "TMC", "status": "bail", "detail": "Caught on tape accepting cash. Arrested by CBI May 2021; Calcutta HC granted bail same day." },
+      { "name": "Madan Mitra", "role": "TMC Minister", "party": "TMC", "status": "bail", "detail": "Caught on tape. Arrested May 2021; bailed same day by HC." },
+      { "name": "Subrata Mukherjee", "role": "TMC Minister (Panchayat)", "party": "TMC", "status": "deceased", "detail": "Arrested May 2021. Died November 2021 of cardiac arrest while charges pending." },
+      { "name": "Sovan Chatterjee", "role": "Kolkata Mayor (then TMC)", "party": "none", "status": "bail", "detail": "Caught on tape; later left TMC; arrested May 2021; bail granted." },
+      { "name": "Iqbal Ahmed", "role": "IPS Officer", "party": "none", "status": "bail", "detail": "Caught on tape accepting cash; arrested; bail granted." }
+    ],
+    "timeline": [
+      { "date": "2014", "event": "Journalist Matthew Samuel poses as a business executive; secretly records 13 TMC leaders and an IPS officer accepting cash bribes." },
+      { "date": "2016 Mar", "event": "Tapes released publicly days before Bengal assembly elections — roiling the campaign." },
+      { "date": "2017", "event": "CBI registers FIR; Calcutta HC transfers investigation to CBI." },
+      { "date": "2021 May", "event": "CBI arrests Firhad Hakim, Madan Mitra, Subrata Mukherjee, Sovan Chatterjee. Calcutta HC grants bail within hours amid political protests." },
+      { "date": "2021 Nov", "event": "Subrata Mukherjee dies; case against him closes." },
+      { "date": "2022–26", "event": "CBI trial proceeds at a slow pace; multiple HC applications by accused. No conviction as of May 2026." }
+    ],
+    "summary": "In 2014, journalist Matthew Samuel of Mathew Communications conducted a sting in which he posed as a representative of a fictitious company seeking favours, and recorded 13 TMC leaders and an IPS officer accepting cash on camera. The tapes were released in March 2016, two weeks before the Bengal assembly election, causing national outrage. The CBI eventually filed a chargesheet and arrested several accused in May 2021 — but Calcutta HC granted bail the same day amid dramatic scenes of Chief Minister Mamata Banerjee staging a sit-in outside the CBI office. The trial has proceeded slowly since.",
+    "lastUpdated": "2026-05",
+    "nextHearing": { "date": "2026-06-03", "court": "Calcutta HC Division Bench", "matter": "Arguments on charge-framing; Firhad Hakim bail extension" }
+  },
+  {
+    "id": "ssc-scam",
+    "name": "SSC Recruitment Scam",
+    "category": "jobs",
+    "yearExposed": 2022,
+    "amount": "Estimated ₹100 crore+ in bribes; 25,753 jobs sold",
+    "victims": "Qualified candidates who were bypassed; Bengal's school system",
+    "status": "monitoring",
+    "agencies": ["CBI","ED","SC"],
+    "court": "Supreme Court of India (direct oversight) + Calcutta HC",
+    "accused": [
+      { "name": "Partha Chatterjee", "role": "Education Minister, West Bengal", "party": "TMC", "status": "arrested", "detail": "Arrested by ED 23 July 2022. Cash of ₹49.8 crore and 5 kg gold seized from homes of his close associate Arpita Mukherjee. Expelled from TMC." },
+      { "name": "Manik Bhattacharya", "role": "SSC Board Chairman / TMC MLA (Palashpai)", "party": "TMC", "status": "bail", "detail": "Arrested by CBI October 2022. Bail granted by Calcutta HC 2023. Trial ongoing." },
+      { "name": "Arpita Mukherjee", "role": "TMC-linked businesswoman (Partha's associate)", "party": "TMC", "status": "bail", "detail": "₹49.8 crore cash, 5.08 kg gold, and foreign currency seized from her two Kolkata homes. Key alleged money conduit." },
+      { "name": "Shanti Prasad Sinha", "role": "School Education Dept adviser", "party": "none", "status": "bail", "detail": "Named in CBI chargesheet; arrested; bail granted." }
+    ],
+    "timeline": [
+      { "date": "2016", "event": "WBSSC Group C/D and teacher recruitment process held across Bengal." },
+      { "date": "2021–22", "event": "Calcutta HC receives petitions alleging OMR sheet manipulation and rank-list alteration." },
+      { "date": "2022 Jul", "event": "Calcutta HC orders CBI probe. ED mounts parallel PMLA investigation." },
+      { "date": "2022 Jul 23", "event": "Partha Chatterjee arrested by ED. ₹49.8 cr cash seized at Arpita Mukherjee's homes. Partha expelled from TMC." },
+      { "date": "2022 Oct", "event": "Manik Bhattacharya (SSC chairman) arrested by CBI." },
+      { "date": "2024 Apr", "event": "Supreme Court cancels all 25,753 tainted appointments — unprecedented blanket cancellation. Orders fresh recruitment." },
+      { "date": "2025–26", "event": "Fresh recruitment underway under HC monitoring. Trial against accused ongoing. Asset recovery proceedings active." }
+    ],
+    "summary": "West Bengal's most consequential corruption case by institutional damage. The School Service Commission's Group C/D and teacher recruitment processes were systematically rigged — OMR sheets altered, rank lists manipulated, unqualified candidates inserted in exchange for cash payments routed through the Education Minister and the SSC chairman. The Supreme Court in April 2024 took the extraordinary step of cancelling all 25,753 tainted appointments and ordering a fresh, court-monitored process. The cash seizures at Arpita Mukherjee's home — ₹49.8 crore stacked in bundles — became an iconic image of Bengal's governance failure.",
+    "lastUpdated": "2026-05",
+    "nextHearing": { "date": "2026-05-19", "court": "Supreme Court of India", "matter": "Status report on fresh recruitment progress; Partha Chatterjee bail plea" }
+  },
+  {
+    "id": "cattle-trafficking",
+    "name": "Cattle Trafficking Network",
+    "category": "trafficking",
+    "yearExposed": 2021,
+    "amount": "Estimated hundreds of crores annually",
+    "victims": "BSF institutional integrity; Bangladesh border communities",
+    "status": "trial",
+    "agencies": ["CBI","ED"],
+    "court": "CBI Special Court, Asansol + Calcutta HC",
+    "accused": [
+      { "name": "Anubrata Mondal (\"Kesto\")", "role": "TMC Birbhum District President", "party": "TMC", "status": "bail", "detail": "Arrested by CBI 11 August 2022. Spent 17 months in custody. Bail granted by Supreme Court December 2023. Trial ongoing." },
+      { "name": "Enamul Haq", "role": "Cattle trader, key smuggling operator", "party": "none", "status": "trial", "detail": "Arrested by BSF; identified as the central figure in the smuggling network at the India-Bangladesh border." },
+      { "name": "Sehgal Hossain", "role": "BSF Sub-Inspector", "party": "none", "status": "convicted", "detail": "Convicted by a special court for facilitating cattle smuggling; sentenced to imprisonment." },
+      { "name": "Sukanya Mondal", "role": "Anubrata Mondal's daughter", "party": "TMC", "status": "bail", "detail": "Arrested by ED in assets-linked probe. Bail granted." }
+    ],
+    "timeline": [
+      { "date": "2015–20", "event": "Systematic cattle smuggling network operates across the Murshidabad-Malda-Cooch Behar border belt into Bangladesh." },
+      { "date": "2021", "event": "CBI opens investigation following BSF internal probe. Enamul Haq arrested." },
+      { "date": "2022 Aug 11", "event": "Anubrata Mondal arrested by CBI — first arrest of a sitting senior TMC district chief." },
+      { "date": "2022–23", "event": "ED arrests Sukanya Mondal (daughter). Multiple bank accounts and assets attached." },
+      { "date": "2023 Dec", "event": "Supreme Court grants bail to Anubrata Mondal after 17 months in custody." },
+      { "date": "2024–26", "event": "Trial proceeds; BSF officer convicted; chargesheet against Mondal being heard." }
+    ],
+    "summary": "A decade-long organised cattle smuggling network operated at Bengal's border with Bangladesh, allegedly under the political protection of TMC's powerful Birbhum district chief Anubrata Mondal. BSF officers were bribed, cattle traders paid fixed tolls, and proceeds allegedly flowed upwards through the political hierarchy. The CBI's arrest of Mondal in August 2022 — who had been summoned nine times before and refused to appear — was a watershed moment. A BSF sub-inspector has been convicted; the trial against Mondal continues.",
+    "lastUpdated": "2026-05",
+    "nextHearing": { "date": "2026-06-18", "court": "CBI Special Court, Asansol", "matter": "Arguments on Mondal chargesheet; Sukanya Mondal bail conditions" }
+  },
+  {
+    "id": "coal-mafia",
+    "name": "Coal & Mining Mafia",
+    "category": "mining",
+    "yearExposed": 2022,
+    "amount": "Estimated ₹1,300 crore+ (ED estimate of laundered proceeds)",
+    "victims": "Eastern Coalfields Ltd; public exchequer",
+    "status": "investigation",
+    "agencies": ["CBI","ED"],
+    "court": "Calcutta HC + CBI Special Court",
+    "accused": [
+      { "name": "Vinay Mishra", "role": "TMC IT Cell chief / Abhishek Banerjee's associate", "party": "TMC", "status": "absconding", "detail": "Fled to Oman/Russia after CBI look-out notice. Indian diplomatic passport reportedly revoked. Has not appeared before investigators." },
+      { "name": "Anup Majee (\"Lala\")", "role": "Coal trader, Bankura", "party": "none", "status": "bail", "detail": "Key operator of illegal coal extraction from ECL mines. Arrested by CBI; bail granted. Assets attached by ED." },
+      { "name": "Abhijit Banerjee (Bapi)", "role": "TMC-linked businessman, Howrah", "party": "TMC", "status": "bail", "detail": "Arrested in money laundering probe; bail. Not the Nobel economist Abhijit Banerjee." }
+    ],
+    "timeline": [
+      { "date": "2015–20", "event": "Systematic illegal coal extraction from Eastern Coalfields Ltd mines in the Asansol–Raniganj belt. Coal sold in black market." },
+      { "date": "2020", "event": "CBI begins probe after mining workers' complaints and internal ECL report." },
+      { "date": "2021", "event": "Anup Majee (\"Lala\") arrested. ED opens PMLA case, begins attaching properties." },
+      { "date": "2022", "event": "CBI issues summons to Vinay Mishra. He flees to Oman, later reportedly to Russia. Look-out circular issued." },
+      { "date": "2023", "event": "ED chargesheet filed naming Vinay Mishra as key accused. Assets worth hundreds of crores attached." },
+      { "date": "2024–26", "event": "Vinay Mishra remains abroad. Trial of other accused ongoing. International red corner notice status unclear." }
+    ],
+    "summary": "Large-scale illegal coal extraction from Eastern Coalfields Ltd mines in Bengal's Asansol–Raniganj belt fed a black-market supply chain worth hundreds of crores annually. The CBI linked the network to Vinay Mishra, a close associate of TMC MP Abhishek Banerjee who served as TMC's IT cell chief. Mishra fled India before he could be arrested — reportedly obtaining travel documents and leaving for Oman, then Russia — and remains the most prominent absconder in any Bengal corruption case. The ED has attached significant assets but the primary accused remains beyond reach.",
+    "lastUpdated": "2026-05",
+    "nextHearing": { "date": null, "court": "Calcutta HC", "matter": "No hearing scheduled — primary accused (Vinay Mishra) remains abroad; red corner notice status under review" }
+  },
+  {
+    "id": "ration-scam",
+    "name": "Ration / PDS Distribution Scam",
+    "category": "ration",
+    "yearExposed": 2023,
+    "amount": "Estimated ₹500–1,000 crore siphoned from PDS",
+    "victims": "BPL families dependent on subsidised ration across Bengal",
+    "status": "trial",
+    "agencies": ["ED","CBI"],
+    "court": "Calcutta HC + ED Special Court",
+    "accused": [
+      { "name": "Jyoti Priya Mallick (\"Bali Da\")", "role": "TMC Food & Civil Supplies Minister (2011–2022)", "party": "TMC", "status": "bail", "detail": "Arrested by ED October 2023. Held in custody for several months; bail granted. Trial ongoing." },
+      { "name": "Bacchu Das", "role": "TMC-linked ration dealer / close associate", "party": "TMC", "status": "bail", "detail": "Arrested alongside Mallick; identified as a key operator in ration card and dealer-licence fraud." }
+    ],
+    "timeline": [
+      { "date": "2011–22", "event": "Jyoti Priya Mallick serves as Food & Civil Supplies Minister through two TMC terms." },
+      { "date": "2022", "event": "ED begins PMLA probe into PDS dealer-licence allocation and fund diversion." },
+      { "date": "2023 Oct", "event": "ED arrests Mallick and Bacchu Das. Bank accounts and properties attached." },
+      { "date": "2023–24", "event": "Bail granted after several months in custody. ED chargesheet filed." },
+      { "date": "2024–26", "event": "Trial ongoing. Mallick contends from the Habra constituency where he lost by 1,04,645 votes in the 2026 election." }
+    ],
+    "summary": "The Public Distribution System — meant to deliver subsidised food grains to Bengal's 9+ crore ration card holders — was allegedly converted into a cash-generating operation during Jyoti Priya Mallick's 11-year tenure as Food Minister. Ration dealer licences were allegedly sold and renewed for cash, and grain allocations manipulated to divert funds. The ED arrested Mallick in October 2023 in what was one of the highest-profile ministerial arrests of the TMC era. The scale of the scam is disputed but ED estimates run into hundreds of crores. Mallick was defeated in the 2026 election by a margin of over one lakh votes.",
+    "lastUpdated": "2026-05",
+    "nextHearing": { "date": "2026-05-27", "court": "ED Special Court, Kolkata", "matter": "Chargesheet arguments; prosecution response to bail extension plea" }
+  },
+  {
+    "id": "post-poll-violence-2021",
+    "name": "Post-Poll Violence 2021",
+    "category": "violence",
+    "yearExposed": 2021,
+    "amount": null,
+    "victims": "Documented: 16+ killed, hundreds displaced (NHRC report)",
+    "status": "monitoring",
+    "agencies": ["CBI","NHRC","SC"],
+    "court": "Calcutta HC + Supreme Court of India",
+    "accused": [
+      { "name": "TMC local leaders (multiple districts)", "role": "Various local TMC functionaries", "party": "TMC", "status": "named", "detail": "NHRC and CBI reports name local TMC leaders in specific acts of violence, arson, and displacement in Cooch Behar, South 24 Parganas, Purba Medinipur, and Nadia." },
+      { "name": "BJP local workers (some incidents)", "role": "Retaliatory violence in some areas", "party": "BJP", "status": "named", "detail": "NHRC report also documents some incidents attributed to BJP workers, though TMC workers are the primary named accused." }
+    ],
+    "timeline": [
+      { "date": "2021 May 2", "event": "Bengal election result: TMC wins with 213/294. Within hours, widespread violence reported across the state." },
+      { "date": "2021 May", "event": "NHRC constitutes inquiry committee; visits affected districts. Documents 16 deaths, over 100 cases of arson, hundreds of displaced persons." },
+      { "date": "2021 Jun", "event": "Calcutta HC takes up PIL; orders CBI probe into a subset of 8 specific cases." },
+      { "date": "2021 Aug", "event": "CBI begins investigating court-mandated cases." },
+      { "date": "2022–24", "event": "CBI files chargesheets in some cases. Accused get bail. Trials proceed slowly." },
+      { "date": "2026 May", "event": "New BJP government pledges full investigation and victim relief as one of its first stated priorities." }
+    ],
+    "summary": "In the hours and days following TMC's 2021 assembly election victory, the National Human Rights Commission documented 16 confirmed deaths, widespread displacement, arson of homes, and sexual violence primarily targeting political opponents and their families. The NHRC report described a \"complete breakdown of constitutional machinery.\" The Calcutta High Court ordered CBI probes into 8 specific cases. While some chargesheets have been filed, the pace of justice has been slow, bail has been routinely granted, and comprehensive accountability — including for higher-level direction of the violence — has not been established.",
+    "lastUpdated": "2026-05",
+    "nextHearing": { "date": "2026-06-05", "court": "Calcutta HC", "matter": "CBI progress report on ongoing FIRs; victim compensation directions" }
+  }
+]

@@ -1,0 +1,92 @@
+{
+  "assets": [
+    { "name": "Suvendu Adhikari",        "constituency": "Nandigram",           "party": "BJP", "assets2021": 318,  "assets2026": 420,  "verified2021": true,  "note": "Won 2021 from Nandigram (TMC to BJP); declared ₹3.18 cr in 2021" },
+    { "name": "Locket Chatterjee",       "constituency": "Chinsurah",           "party": "BJP", "assets2021": 480,  "assets2026": 580,  "verified2021": true,  "note": "Was sitting BJP MP before becoming MLA; assets include Kolkata property" },
+    { "name": "Rudranil Ghosh",          "constituency": "Shibpur",             "party": "BJP", "assets2021": 290,  "assets2026": 350,  "verified2021": true,  "note": "Media professional; some growth from content/TV income" },
+    { "name": "Anisur Rahaman Bidesh",   "constituency": "Deganga",             "party": "TMC", "assets2021": 85,   "assets2026": 340,  "verified2021": true,  "note": "300% growth; 4 declared criminal cases including attempt to murder" },
+    { "name": "Md. Baharul Islam",       "constituency": "Canning Purba",       "party": "TMC", "assets2021": 110,  "assets2026": 210,  "verified2021": true,  "note": "90% growth; no declared business income explanation on file" },
+    { "name": "Sital Kapat",             "constituency": "Ghatal",              "party": "TMC", "assets2021": 75,   "assets2026": 160,  "verified2021": true,  "note": "113% growth; first-time MLA 2021; political career only income" },
+    { "name": "Partha Ghosh",            "constituency": "Raniganj",            "party": "BJP", "assets2021": 140,  "assets2026": 230,  "verified2021": true,  "note": "64% growth; declared business interests in coal distribution" },
+    { "name": "Sankar Chatterjee",       "constituency": "Barasat",             "party": "BJP", "assets2021": 95,   "assets2026": 140,  "verified2021": true,  "note": "47% growth; previously served as BJP district president" },
+    { "name": "Rupa Ganguly",            "constituency": "Sonarpur Dakshin",    "party": "BJP", "assets2021": 175,  "assets2026": 210,  "verified2021": true,  "note": "Former actress; 20% growth consistent with professional income" },
+    { "name": "Avijit De Bhowmik",       "constituency": "Cooch Behar Dakshin", "party": "TMC", "assets2021": 130,  "assets2026": 180,  "verified2021": true,  "note": "38% growth; returned TMC MLA" },
+    { "name": "Ganesh Chandra Mondal",   "constituency": "Kultali",             "party": "TMC", "assets2021": 1050, "assets2026": 1180, "verified2021": true,  "note": "₹10.5 cr declared in 2021; confirmed via ADR India/myneta; 12% growth" },
+    { "name": "Samir Kumar Jana",        "constituency": "Patharpratima",       "party": "TMC", "assets2021": 22,   "assets2026": 70,   "verified2021": true,  "note": "₹22 lakh declared in 2021; retired teacher; +218% growth flagged" },
+    { "name": "Biswanath Das",           "constituency": "Joynagar",            "party": "TMC", "assets2021": 47,   "assets2026": 90,   "verified2021": true,  "note": "₹46.9 lakh in 2021 per myneta; +91% growth" },
+    { "name": "Sanjay Kumar Singh",      "constituency": "Bally",               "party": "BJP", "assets2021": null, "assets2026": 90,   "verified2021": false, "note": "New winner 2026 — not the 2021 BJP candidate for Bally; no 2021 affidavit for this seat" },
+    { "name": "Debdas Mondal",           "constituency": "Habra",               "party": "BJP", "assets2021": null, "assets2026": 80,   "verified2021": false, "note": "2021 affidavit on myneta.info (candidate_id pending verification)" },
+    { "name": "Santu Pan",               "constituency": "Tarakeswar",          "party": "BJP", "assets2021": null, "assets2026": 50,   "verified2021": false, "note": "First-time winner 2026 — Tarakeswar 2021 had a different BJP candidate" },
+    { "name": "Arup Kumar Das",          "constituency": "Singur",              "party": "BJP", "assets2021": null, "assets2026": 120,  "verified2021": false, "note": "2021 data pending; beat ex-minister Becharam Manna" },
+    { "name": "Anandamay Barman",        "constituency": "Matigara-Naxalbari",  "party": "BJP", "assets2021": null, "assets2026": 190,  "verified2021": false, "note": "Won this seat in 2021 also (incumbent); myneta candidate_id=1049; data pending verification" },
+    { "name": "Bhaskar Bhattacharya",    "constituency": "Shrirampur",          "party": "BJP", "assets2021": null, "assets2026": 70,   "verified2021": false, "note": "New winner 2026 — 2021 BJP candidate for this seat was different" },
+    { "name": "Umesh Rai",               "constituency": "Howrah Uttara",       "party": "BJP", "assets2021": null, "assets2026": 80,   "verified2021": false, "note": "Lost 2021, won 2026; myneta candidate_id=872 for 2021" },
+    { "name": "Arunava Sen",             "constituency": "Bagnan",              "party": "BJP", "assets2021": null, "assets2026": 110,  "verified2021": false, "note": "2021 data pending verification" },
+    { "name": "Samir Kumar Panja",       "constituency": "Udaynarayanpur",      "party": "BJP", "assets2021": null, "assets2026": 60,   "verified2021": false, "note": "2021 data pending" },
+    { "name": "Hiranmoy Chattopadhyay",  "constituency": "Shyampur",            "party": "BJP", "assets2021": null, "assets2026": 100,  "verified2021": false, "note": "Won Kharagpur Sadar in 2021; switched to Shyampur in 2026; 2021 data from different seat" },
+    { "name": "Biraj Biswas",            "constituency": "Goalpokhar",          "party": "BJP", "assets2021": null, "assets2026": 80,   "verified2021": false, "note": "Won Karandighi 2026; constituency listed may be incorrect; 2021 data pending" },
+    { "name": "Sintu Senapati",          "constituency": "Panskura Paschim",    "party": "BJP", "assets2021": null, "assets2026": 130,  "verified2021": false, "note": "Lost 2021, won 2026; myneta candidate_id=263 for 2021" },
+    { "name": "Subrata Maity",           "constituency": "Panskura Purba",      "party": "BJP", "assets2021": null, "assets2026": 90,   "verified2021": false, "note": "2021 data pending" },
+    { "name": "Tarak Nath Chatterjee",   "constituency": "Kalyani",             "party": "BJP", "assets2021": null, "assets2026": 90,   "verified2021": false, "note": "2021 data pending" },
+    { "name": "Srutisekhar Goswami",     "constituency": "Santipur",            "party": "BJP", "assets2021": null, "assets2026": 150,  "verified2021": false, "note": "2021 data pending" },
+    { "name": "Anupam Biswas",           "constituency": "Ranaghat Dakshin",    "party": "BJP", "assets2021": null, "assets2026": 70,   "verified2021": false, "note": "2021 data pending" },
+    { "name": "Sangita Roy",             "constituency": "Sitai",               "party": "TMC", "assets2021": null, "assets2026": 60,   "verified2021": false, "note": "Won Sitai in 2024 by-election, not 2021; no 2021 affidavit" },
+    { "name": "Surajit Mitra Badal",     "constituency": "Basirhat Dakshin",    "party": "TMC", "assets2021": null, "assets2026": 120,  "verified2021": false, "note": "New winner 2026 — 2021 Basirhat Dakshin MLA was different (Dr. Saptarshi Banerjee)" },
+    { "name": "Samir Kumar Jana",        "constituency": "Patharpratima",       "party": "TMC", "assets2021": 22,   "assets2026": 70,   "verified2021": true,  "note": "₹22 lakh declared 2021 (retired teacher); +218% growth; see above" },
+    { "name": "Dipankar Jana",           "constituency": "Kakdwip",             "party": "TMC", "assets2021": null, "assets2026": 80,   "verified2021": false, "note": "2021 Kakdwip winner was TMC's Manturam Pakhira; Dipankar Jana is new entrant 2026" },
+    { "name": "Md. Tauseffur Rahman",    "constituency": "Basirhat Uttar",      "party": "TMC", "assets2021": null, "assets2026": 110,  "verified2021": false, "note": "Basirhat Uttar 2021 winner was CPI-M; Rahman is new entrant 2026" },
+    { "name": "Paresh Ram Das",          "constituency": "Mandirbazar",         "party": "TMC", "assets2021": null, "assets2026": 70,   "verified2021": false, "note": "Won Canning Paschim 2021 (different constituency); data from Mandirbazar 2021 pending" },
+    { "name": "Parthasarathi Chatterjee","constituency": "Nadia Sadar",         "party": "TMC", "assets2021": null, "assets2026": 140,  "verified2021": false, "note": "Contested Ranaghat Uttar Paschim in 2021 as BJP before joining TMC; 2021 data from different seat" },
+    { "name": "Sadhan Ghosh",            "constituency": "Karimpur",            "party": "TMC", "assets2021": null, "assets2026": 110,  "verified2021": false, "note": "2021 data pending" },
+    { "name": "Bankim Chandra Ghosh",    "constituency": "Tehatta",             "party": "TMC", "assets2021": null, "assets2026": 80,   "verified2021": false, "note": "2021 Tehatta winner was TMC's Tapas Kumar Saha; Bankim Chandra is new entrant 2026" },
+    { "name": "Haripada Barman",         "constituency": "Hemtabad",            "party": "TMC", "assets2021": null, "assets2026": 60,   "verified2021": false, "note": "Hemtabad 2021 won by TMC's Satyajit Barman; party/record mismatch flagged" },
+    { "name": "Utpal Brahmachari",       "constituency": "Raiganj",             "party": "TMC", "assets2021": null, "assets2026": 130,  "verified2021": false, "note": "Won Kaliaganj 2026 per ADR research; constituency may be misrecorded; 2021 data pending" }
+  ],
+  "spotlights": [
+    {
+      "type": "seized",
+      "name": "Partha Chatterjee",
+      "role": "TMC · Education Minister 2011–2022 · Behala Paschim MLA",
+      "declared2016": "₹22 lakh",
+      "declared2021": "₹97 lakh",
+      "seized": "₹49.8 crore",
+      "desc": "Between his 2016 and 2021 affidavits, Partha Chatterjee's declared assets grew from ₹22 lakh to ₹97 lakh on a minister's salary — itself suspicious. When the ED arrested him in July 2022, ₹49.8 crore in cash and 5 kg of gold were seized from the home of his close associate Arpita Mukherjee. The gap between ₹97 lakh declared and ₹49.8 crore seized is the starkest single illustration of affidavit underreporting in Bengal's political history.",
+      "source": "ED seizure records, July 2022. ADR India affidavit analysis 2016–2021."
+    },
+    {
+      "type": "extreme",
+      "name": "Anisur Rahaman Bidesh",
+      "role": "TMC · Deganga MLA · 4 declared criminal cases",
+      "declared2021": "₹85 lakh",
+      "declared2026": "₹3.40 crore",
+      "growth": "+300% in 5 years",
+      "desc": "Declared assets grew from ₹85 lakh to ₹3.40 crore — a ₹2.55 crore increase — while serving as MLA on a salary that could account for at most ₹40 lakh. Bidesh also declared four criminal cases in his 2026 affidavit, including a charge under IPC Section 307 (attempt to murder). No business income of matching scale is declared in the affidavit. This is the largest flagged growth among MLAs in this tracker's current dataset.",
+      "source": "ECI affidavit data 2021 & 2026; ADR India MyNeta."
+    },
+    {
+      "type": "high",
+      "name": "Sital Kapat",
+      "role": "TMC · Ghatal MLA · 2 declared cases",
+      "declared2021": "₹75 lakh",
+      "declared2026": "₹1.60 crore",
+      "growth": "+113% in 5 years",
+      "desc": "A first-time MLA in 2021 with no prior public role, Kapat declared ₹75 lakh in 2021. By 2026, this had grown to ₹1.60 crore — a ₹85 lakh increase. His declared occupation is politics; no significant business income is noted. The growth is above the legitimate salary threshold and warrants scrutiny, though it is far below the most extreme cases.",
+      "source": "ECI affidavit data 2021 & 2026; ADR India MyNeta."
+    },
+    {
+      "type": "high",
+      "name": "Anubrata Mondal (\"Kesto\")",
+      "role": "TMC · Bolpur MLA (did not contest 2026 — arrested)",
+      "declared2019": "₹1.62 crore",
+      "declared2021": "₹1.81 crore",
+      "seized": "Properties attached by ED",
+      "desc": "Anubrata Mondal declared modest assets across elections — ₹1.62 crore in 2019, ₹1.81 crore in 2021. The ED, probing his role in the cattle trafficking network, attached properties and bank accounts far exceeding his declared assets. He did not contest the 2026 election, having been arrested in 2022 and spending 17 months in custody. His daughter Sukanya Mondal was separately arrested in an assets-related probe.",
+      "source": "ADR India affidavit database; ED attachment orders 2022–23."
+    }
+  ],
+  "partyAverages": [
+    { "party": "BJP",      "color": "#e8640a", "avg2021": 148, "avg2026": 196, "seatsWon2026": 206, "note": "Average across 206 winners; pulled up by a small number of wealthy MLAs" },
+    { "party": "TMC",      "color": "#1a7a3c", "avg2021": 212, "avg2026": 278, "seatsWon2026": 80,  "note": "Higher average reflects TMC's longer incumbency and ministerial wealth accumulation" },
+    { "party": "CPIM",     "color": "#c0171b", "avg2021": 45,  "avg2026": 52,  "seatsWon2026": 5,   "note": "CPIM candidates historically declare lower assets; party discipline on wealth display" },
+    { "party": "Congress", "color": "#1565c0", "avg2021": 89,  "avg2026": 110, "seatsWon2026": 3,   "note": "Small sample size; averages less meaningful with fewer winners" }
+  ]
+}

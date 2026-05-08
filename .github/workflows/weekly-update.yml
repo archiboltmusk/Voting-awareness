@@ -1,0 +1,44 @@
+name: Weekly Auto-Update
+
+on:
+  schedule:
+    # Every Sunday at 00:00 IST (18:30 UTC Saturday)
+    - cron: '30 18 * * 6'
+  workflow_dispatch:
+    # Allow manual trigger from GitHub Actions UI
+
+permissions:
+  contents: write
+
+jobs:
+  auto-update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run weekly update script
+        run: node scripts/update.mjs
+
+      - name: Commit and push if data changed
+        run: |
+          git config user.name  "Bengal Reader Bot"
+          git config user.email "bot@bengal-reader.app"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "✓ No case data changes this week"
+          else
+            CHANGES=$(git diff --staged --stat | tail -1)
+            git commit -m "auto: weekly data refresh $(date -u +%Y-%m-%d) — ${CHANGES}"
+            git push
+            echo "✓ Updated data pushed — Vercel will auto-deploy"
+          fi
