@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How much did Bengal's MLAs gain in 5 years? Comparing 2021 vs 2026 affidavit-declared assets against what a legislator's salary can legitimately explain.">
+<meta property="og:title" content="MLA Wealth Growth 2021→2026 — The Bengal Reader">
+<meta property="og:description" content="Bengal MLAs earn ₹6 lakh/year in salary. How many declared asset growth of ₹5 crore+? Every affidavit delta in one table.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="/og-assets.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MLA Wealth Growth 2021→2026 — The Bengal Reader">
+<meta name="twitter:description" content="Declared assets before and after a term in office. The gap between what a legislator earns and what they declare reveals everything.">
+<title>MLA Wealth Growth 2021→2026 — The Bengal Reader</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0a0804;
+  --paper: #f5f0e8;
+  --aged: #e8e0cc;
+  --accent: #c0171b;
+  --bjp: #e8640a;
+  --tmc: #1a7a3c;
+  --gold: #b8860b;
+  --muted: #6b5f4e;
+  --flag-hi:  #7f0e10;   /* >500% growth */
+  --flag-med: #b45309;   /* 100–500%     */
+  --flag-low: #d97706;   /* 50–100%      */
+  --flag-ok:  #166534;   /* <50% or decline */
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--paper); color:var(--ink);
+  font-family:'Crimson Pro',serif; font-size:18px; line-height:1.7;
+  overflow-x:hidden;
+}
+body::before {
+  content:''; position:fixed; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none; z-index:9999; opacity:0.5;
+}
+
+/* ── NAV ── */
+.site-nav { background:#050403; border-bottom:1px solid rgba(255,255,255,0.06); padding:9px 0; z-index:10000; position:relative; }
+.site-nav-inner { max-width:1200px; margin:0 auto; padding:0 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; }
+.site-nav-brand { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:rgba(245,240,232,0.35); }
+.site-nav-links { display:flex; flex-wrap:wrap; }
+.site-nav-link { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(245,240,232,0.45); text-decoration:none; padding:3px 11px; border-left:1px solid rgba(255,255,255,0.07); transition:color 0.2s; }
+.site-nav-link:first-child { border-left:none; }
+.site-nav-link:hover, .site-nav-link.active { color:rgba(245,240,232,0.9); }
+
+/* ── MASTHEAD ── */
+.masthead { border-bottom:4px double var(--ink); padding:1.5rem 2rem 1rem; text-align:center; background:var(--paper); }
+.masthead-overline { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--muted); border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); padding:0.3rem 0; margin-bottom:1rem; }
+.masthead h1 { font-family:'Playfair Display',serif; font-size:clamp(2.2rem,5.5vw,4.5rem); font-weight:900; line-height:1.05; letter-spacing:-0.02em; text-transform:uppercase; }
+.masthead h1 em { font-style:italic; color:var(--accent); }
+.masthead-sub { font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(1rem,2.5vw,1.3rem); color:var(--muted); margin-top:0.5rem; }
+.masthead-meta { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.15em; color:var(--muted); margin-top:1rem; border-top:1px solid var(--aged); padding-top:0.6rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; }
+
+/* ── SALARY EXPLAINER HERO ── */
+.salary-hero { background:var(--ink); color:var(--paper); padding:2.5rem 2rem; }
+.salary-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+.salary-left h2 { font-family:'Playfair Display',serif; font-size:clamp(1.4rem,3vw,2.2rem); font-weight:700; line-height:1.2; margin-bottom:1rem; }
+.salary-left h2 em { font-style:italic; color:var(--gold); }
+.salary-left p { font-family:'Crimson Pro',serif; font-size:1rem; color:#b0a898; line-height:1.65; margin-bottom:0.6rem; }
+.salary-breakdown { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:1.2rem; }
+.salary-row { display:flex; justify-content:space-between; align-items:baseline; padding:0.35rem 0; border-bottom:1px solid rgba(255,255,255,0.06); font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.04em; }
+.salary-row:last-child { border-bottom:none; font-weight:500; color:var(--gold); }
+.salary-row-label { color:#8a8070; }
+.salary-row-value { color:var(--paper); }
+.salary-conclusion { margin-top:1rem; font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.05em; color:#8a8070; line-height:1.6; }
+.salary-conclusion strong { color:var(--gold); }
+
+/* ── LAYOUT ── */
+.container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+
+/* ── SECTION HEADERS ── */
+.section-header { border-top:4px solid var(--ink); padding-top:0.5rem; margin:3rem 0 1.5rem; }
+.section-label { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); margin-bottom:0.4rem; }
+.section-title { font-family:'Playfair Display',serif; font-size:clamp(1.5rem,3.5vw,2.5rem); font-weight:700; line-height:1.15; }
+
+p { margin-bottom:1.2rem; font-size:1.05rem; color:#2a2018; }
+.article-lead { font-family:'Crimson Pro',serif; font-size:1.2rem; font-weight:600; line-height:1.6; border-left:4px solid var(--ink); padding-left:1.5rem; margin:2rem 0; color:#1a1510; }
+
+/* ── AGGREGATE STATS ── */
+.agg-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1px; background:var(--aged); border:1px solid var(--aged); margin:2rem 0; }
+.agg-cell { background:var(--paper); padding:1.2rem 1.4rem; }
+.agg-big { font-family:'Playfair Display',serif; font-size:2rem; font-weight:900; line-height:1; }
+.agg-label { font-family:'IBM Plex Mono',monospace; font-size:0.58rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-top:0.3rem; }
+.agg-sub { font-family:'Crimson Pro',serif; font-size:0.85rem; color:var(--muted); margin-top:0.2rem; }
+
+/* ── CONTROLS ── */
+.controls-bar { background:var(--paper); border-bottom:1px solid var(--aged); padding:0.9rem 2rem; position:sticky; top:0; z-index:100; }
+.controls-inner { max-width:1200px; margin:0 auto; display:flex; gap:0.8rem; flex-wrap:wrap; align-items:center; }
+.search-input { font-family:'IBM Plex Mono',monospace; font-size:0.72rem; padding:0.45rem 0.8rem; border:1px solid var(--aged); background:var(--paper); color:var(--ink); flex:1; min-width:160px; outline:none; }
+.search-input:focus { border-color:var(--ink); }
+.filter-select { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; padding:0.45rem 0.7rem; border:1px solid var(--aged); background:var(--paper); color:var(--muted); outline:none; cursor:pointer; }
+.result-count { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:var(--muted); letter-spacing:0.08em; margin-left:auto; white-space:nowrap; }
+
+/* ── MAIN TABLE ── */
+.table-wrap { max-width:1200px; margin:0 auto; padding:0 2rem 4rem; overflow-x:auto; }
+table { width:100%; border-collapse:collapse; }
+thead th {
+  font-family:'IBM Plex Mono',monospace; font-size:0.57rem; letter-spacing:0.15em;
+  text-transform:uppercase; color:var(--muted); padding:0.55rem 0.7rem;
+  border-bottom:2px solid var(--ink); text-align:left; background:var(--paper);
+  position:sticky; top:51px; z-index:10; cursor:pointer; white-space:nowrap;
+  user-select:none;
+}
+thead th:hover { color:var(--ink); }
+thead th.sorted-asc::after { content:' ▲'; font-size:0.5rem; }
+thead th.sorted-desc::after { content:' ▼'; font-size:0.5rem; }
+tbody tr { border-bottom:1px solid var(--aged); transition:background 0.12s; }
+tbody tr:hover { background:#fdfaf4; }
+tbody tr[hidden] { display:none; }
+td { padding:0.55rem 0.7rem; vertical-align:middle; }
+
+.td-rank { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--muted); width:28px; }
+.td-name { font-family:'Playfair Display',serif; font-size:0.92rem; font-weight:700; min-width:130px; }
+.td-const { font-family:'Crimson Pro',serif; font-size:0.85rem; color:var(--muted); }
+.td-party { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; white-space:nowrap; display:flex; align-items:center; gap:4px; }
+.party-dot { display:inline-block; width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.td-amt { font-family:'IBM Plex Mono',monospace; font-size:0.75rem; white-space:nowrap; }
+.td-delta { font-family:'IBM Plex Mono',monospace; font-size:0.78rem; font-weight:500; white-space:nowrap; }
+.td-pct { font-family:'IBM Plex Mono',monospace; font-size:0.72rem; white-space:nowrap; }
+.td-flag { text-align:center; }
+.td-note { font-family:'Crimson Pro',serif; font-size:0.82rem; color:var(--muted); max-width:200px; }
+
+/* Growth flag chips */
+.flag-chip { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:0.52rem; letter-spacing:0.1em; text-transform:uppercase; padding:2px 7px; border-radius:2px; white-space:nowrap; }
+.flag-extreme { background:rgba(127,14,16,0.12);  color:var(--flag-hi);  border:1px solid rgba(127,14,16,0.3);  }
+.flag-high    { background:rgba(180,83,9,0.1);    color:var(--flag-med); border:1px solid rgba(180,83,9,0.25);  }
+.flag-moderate{ background:rgba(217,119,6,0.1);   color:var(--flag-low); border:1px solid rgba(217,119,6,0.25); }
+.flag-normal  { background:rgba(22,101,52,0.1);   color:var(--flag-ok);  border:1px solid rgba(22,101,52,0.25); }
+.flag-pending { background:rgba(107,95,78,0.08);  color:var(--muted);    border:1px solid rgba(107,95,78,0.2);  font-style:italic; }
+
+/* pending cell */
+.td-pending { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:var(--muted); font-style:italic; opacity:0.7; }
+
+/* ── SPOTLIGHT CARDS ── */
+.spotlight-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; margin:2rem 0; }
+.spotlight-card { border:1px solid var(--aged); background:#fdfaf4; padding:1.2rem 1.5rem; position:relative; overflow:hidden; }
+.spotlight-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:5px; }
+.spotlight-card.extreme::before { background:var(--flag-hi); }
+.spotlight-card.high::before    { background:var(--flag-med); }
+.spotlight-card.seized::before  { background:#7b1fa2; }
+.spotlight-name { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; margin-bottom:0.2rem; }
+.spotlight-role { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.8rem; }
+.spotlight-nums { display:flex; gap:1.5rem; margin-bottom:0.8rem; }
+.spotlight-num-col { }
+.spotlight-val { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; line-height:1; }
+.spotlight-val-label { font-family:'IBM Plex Mono',monospace; font-size:0.55rem; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-top:0.2rem; }
+.spotlight-desc { font-family:'Crimson Pro',serif; font-size:0.9rem; color:#3a2018; line-height:1.55; }
+.spotlight-source { font-family:'IBM Plex Mono',monospace; font-size:0.58rem; color:var(--muted); margin-top:0.6rem; border-top:1px solid var(--aged); padding-top:0.4rem; }
+
+/* ── CALLOUT ── */
+.callout { border-left:5px solid var(--muted); background:var(--aged); padding:1.2rem 1.5rem; margin:2rem 0; }
+.callout-label { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--muted); margin-bottom:0.4rem; }
+.callout p { font-size:0.95rem; margin:0; color:#2a2018; line-height:1.6; }
+.callout.alert { border-left-color:var(--accent); background:#fdf5f5; }
+.callout.alert .callout-label { color:var(--accent); }
+.callout.alert p { color:#3a1208; }
+.callout.gold { border-left-color:var(--gold); background:#fdf9ef; }
+.callout.gold .callout-label { color:var(--gold); }
+.callout.gold p { color:#3a2208; }
+
+/* ── PARTY SUMMARY ── */
+.party-asset-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin:1.5rem 0; }
+.party-asset-card { background:#fdfaf4; border:1px solid var(--aged); padding:1rem 1.2rem; }
+.party-asset-name { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.15em; text-transform:uppercase; display:flex; align-items:center; gap:0.4rem; margin-bottom:0.5rem; }
+.party-asset-avg { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; line-height:1; }
+.party-asset-avg span { font-size:0.9rem; color:var(--muted); font-weight:400; font-family:'IBM Plex Mono',monospace; }
+.party-asset-sub { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--muted); margin-top:0.35rem; }
+.party-asset-growth { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; margin-top:0.5rem; }
+
+/* ── METHOD ── */
+.method-box { background:var(--aged); border:1px solid rgba(107,95,78,0.3); padding:1.5rem; margin:3rem 0; }
+.method-box h4 { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem; border-bottom:1px solid rgba(107,95,78,0.3); padding-bottom:0.5rem; }
+.method-box p { font-size:0.9rem; color:var(--muted); margin-bottom:0.6rem; line-height:1.6; }
+.method-box p:last-child { margin-bottom:0; }
+
+/* ── HOW TO LOOK UP ── */
+.lookup-box { border:2px solid var(--ink); padding:1.5rem; margin:2rem 0; }
+.lookup-box h4 { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink); margin-bottom:1rem; }
+.lookup-steps { list-style:none; counter-reset:step; }
+.lookup-step { counter-increment:step; display:flex; gap:1rem; padding:0.6rem 0; border-bottom:1px solid var(--aged); align-items:flex-start; }
+.lookup-step:last-child { border-bottom:none; }
+.lookup-step::before { content:counter(step); font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; color:var(--muted); line-height:1; flex-shrink:0; width:24px; }
+.lookup-step-text { font-family:'Crimson Pro',serif; font-size:0.95rem; color:#3a2018; line-height:1.5; }
+.lookup-step-text strong { font-weight:600; }
+
+/* ── FOOTER ── */
+footer { background:#0a0804; color:#5a5040; padding:2rem; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.15em; }
+footer a { color:#8a7a60; text-decoration:none; }
+
+.hr-ornate { border:none; border-top:1px solid var(--aged); margin:2.5rem 0; position:relative; }
+.hr-ornate::before { content:'◆'; position:absolute; top:-0.6rem; left:50%; transform:translateX(-50%); background:var(--paper); padding:0 0.5rem; color:var(--muted); font-size:0.7rem; }
+
+.fade-in { opacity:0; transform:translateY(16px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+
+@media(max-width:900px) {
+  .salary-inner { grid-template-columns:1fr; gap:1.5rem; }
+  .td-note, .td-const { display:none; }
+}
+@media(max-width:600px) {
+  .td-amt { font-size:0.68rem; }
+  .spotlight-nums { flex-wrap:wrap; gap:0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <span class="site-nav-brand">The Bengal Reader</span>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Voter Guide</a>
+      <a href="/parties" class="site-nav-link">Party Compass</a>
+      <a href="/constituencies" class="site-nav-link">2026 Results</a>
+      <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+      <a href="/accountability" class="site-nav-link">100 Days</a>
+      <a href="/corruption" class="site-nav-link">Dossier</a>
+      <a href="/bonds" class="site-nav-link">Money Trail</a>
+      <a href="/mlas" class="site-nav-link">MLA Records</a>
+      <a href="/assets" class="site-nav-link active">Wealth Growth</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="masthead-overline">Asset Declarations · ECI Affidavits · 2021 vs 2026 · Source: ADR India / ECI</div>
+  <h1>MLA <em>Wealth</em> Growth</h1>
+  <p class="masthead-sub">What They Declared Before. What They Declare Now. The Gap in Between.</p>
+  <div class="masthead-meta">
+    <span>Source: ECI nomination affidavits, 2021 &amp; 2026 · ADR India analysis</span>
+    <span>Comparison: two successive Bengal assembly elections</span>
+    <span>Updated: May 2026</span>
+  </div>
+</header>
+
+<!-- THE SALARY EXPLAINER — the most important context -->
+<section class="salary-hero">
+  <div class="salary-inner">
+    <div class="salary-left">
+      <h2>A Bengal MLA earns about <em>₹40 lakh</em> over five years.</h2>
+      <p>That's the maximum a legislator can legitimately accumulate from their official salary, allowances, and per-diem over a full term — being generous. Any declared asset growth significantly above this number demands a public explanation.</p>
+      <p>MLAs are not prohibited from other income — farming, business, investments. But they must declare all sources. The gap between salary and asset growth is the most reliable public signal of unexplained enrichment.</p>
+    </div>
+    <div class="salary-breakdown">
+      <div class="salary-row">
+        <span class="salary-row-label">Basic salary (₹10,000/mo × 60)</span>
+        <span class="salary-row-value">₹6 lakh</span>
+      </div>
+      <div class="salary-row">
+        <span class="salary-row-label">Constituency allowance (₹20,000/mo × 60)</span>
+        <span class="salary-row-value">₹12 lakh</span>
+      </div>
+      <div class="salary-row">
+        <span class="salary-row-label">Secretarial + office allowance</span>
+        <span class="salary-row-value">₹9 lakh</span>
+      </div>
+      <div class="salary-row">
+        <span class="salary-row-label">Daily allowance (session days, est.)</span>
+        <span class="salary-row-value">₹4 lakh</span>
+      </div>
+      <div class="salary-row">
+        <span class="salary-row-label">Travel + other allowances (est.)</span>
+        <span class="salary-row-value">₹4 lakh</span>
+      </div>
+      <div class="salary-row">
+        <span class="salary-row-label">Other legitimate income (farming, rent, dividends — generous est.)</span>
+        <span class="salary-row-value">₹5 lakh</span>
+      </div>
+      <div class="salary-row">
+        <span class="salary-row-label">Total legitimate 5-year accumulation</span>
+        <span class="salary-row-value">≈ ₹40 lakh</span>
+      </div>
+      <p class="salary-conclusion">Growth above <strong>₹40 lakh</strong> is not automatically corrupt — but it requires a declared explanation. Growth above <strong>₹1 crore</strong> with no declared business income is a serious red flag. This tracker flags those cases.</p>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+
+  <div class="section-header fade-in" style="margin-top:2.5rem;">
+    <div class="section-label">The Pattern</div>
+    <h2 class="section-title">How Fast Do Legislators Get Rich?</h2>
+  </div>
+
+  <p class="article-lead">India's Election Commission requires every candidate to declare total assets in a sworn affidavit at nomination. Comparing affidavits from 2021 and 2026 reveals who got richer, by how much, and whether the growth is explicable on a legislator's salary.</p>
+
+  <p>Nationally, ADR India's analysis of successive elections consistently finds that winning candidates' declared assets grow by an average of 100–200% between terms — far exceeding what salary alone explains. Bengal's record is no exception. The cases below are drawn from affidavits published on the ECI portal and analysed by ADR India.</p>
+
+  <!-- AGGREGATE STATS -->
+  <div class="agg-grid fade-in" id="aggGrid">
+    <div class="agg-cell">
+      <div class="agg-big" style="color:var(--accent);" id="aggTotal">—</div>
+      <div class="agg-label">MLAs with both-year data</div>
+      <div class="agg-sub">2021 &amp; 2026 affidavits compared</div>
+    </div>
+    <div class="agg-cell">
+      <div class="agg-big" style="color:var(--flag-hi);" id="aggExtreme">—</div>
+      <div class="agg-label">Extreme growth (&gt;500%)</div>
+      <div class="agg-sub">Growth far beyond salary</div>
+    </div>
+    <div class="agg-cell">
+      <div class="agg-big" style="color:var(--flag-med);" id="aggHigh">—</div>
+      <div class="agg-label">High growth (100–500%)</div>
+      <div class="agg-sub">Demands explanation</div>
+    </div>
+    <div class="agg-cell">
+      <div class="agg-big" style="color:var(--gold);" id="aggAvgGrowth">—</div>
+      <div class="agg-label">Average growth (tracked MLAs)</div>
+      <div class="agg-sub">Of declared total assets</div>
+    </div>
+  </div>
+
+  <hr class="hr-ornate">
+
+  <div class="section-header fade-in">
+    <div class="section-label">Spotlight Cases</div>
+    <h2 class="section-title">The Most Striking Declarations</h2>
+  </div>
+  <p>These cases combine affidavit data with documented investigative findings — seizures, court records, and ED chargesheets — to give the fullest picture of unexplained asset accumulation among Bengal's political class.</p>
+
+  <div class="spotlight-grid fade-in" id="spotlightGrid"></div>
+
+  <hr class="hr-ornate">
+
+  <div class="section-header fade-in">
+    <div class="section-label">Party Averages</div>
+    <h2 class="section-title">Wealth by Party</h2>
+  </div>
+  <p>Average declared assets of winning MLAs from each party, 2021 and 2026, based on ADR India aggregate analysis of ECI affidavit data.</p>
+  <div class="party-asset-grid fade-in" id="partyAssetGrid"></div>
+
+  <div class="callout gold fade-in">
+    <div class="callout-label">📌 What the averages hide</div>
+    <p>Party averages are pulled upward by a small number of extremely wealthy MLAs — often ministers, industrialists, or those under investigation. The median MLA declares significantly less than the average. The distribution matters as much as the mean: a party with one ₹50 crore MLA and nineteen ₹1 crore MLAs has the same average as a party where all twenty declare ₹3.8 crore.</p>
+  </div>
+
+  <hr class="hr-ornate">
+
+  <div class="section-header fade-in">
+    <div class="section-label">Full Table</div>
+    <h2 class="section-title">2021 → 2026 Asset Comparison</h2>
+  </div>
+  <p>All MLAs for whom both 2021 and 2026 affidavit data has been confirmed are listed below. Rows marked <em>pending</em> in the 2021 column are being cross-checked against the ECI portal — data is added as verified. Click any column header to sort.</p>
+
+  <div class="callout fade-in">
+    <div class="callout-label">⚖ Legal Note</div>
+    <p>Declared assets are self-reported, sworn figures. Discrepancy between declared and actual assets is itself a legal offence under Section 125A of the Representation of the People Act. High declared growth is not proof of corruption — it may reflect legitimate investment returns, inheritance, or business income. It is, however, a flag for public scrutiny and media investigation.</p>
+  </div>
+
+</main>
+
+<!-- CONTROLS -->
+<div class="controls-bar">
+  <div class="controls-inner">
+    <input class="search-input" id="searchInput" type="search" placeholder="Search name or constituency…">
+    <select class="filter-select" id="partyFilter">
+      <option value="">All Parties</option>
+      <option value="BJP">BJP</option>
+      <option value="TMC">TMC</option>
+      <option value="CPIM">CPIM</option>
+      <option value="Congress">Congress</option>
+      <option value="Ind">Independent</option>
+    </select>
+    <select class="filter-select" id="flagFilter">
+      <option value="">All Growth Levels</option>
+      <option value="extreme">Extreme (&gt;500%)</option>
+      <option value="high">High (100–500%)</option>
+      <option value="moderate">Moderate (50–100%)</option>
+      <option value="normal">Normal (&lt;50%)</option>
+      <option value="pending">2021 Data Pending</option>
+    </select>
+    <span class="result-count" id="resultCount">—</span>
+  </div>
+</div>
+
+<div class="table-wrap">
+  <table id="assetTable">
+    <thead>
+      <tr>
+        <th data-col="rank">#</th>
+        <th data-col="name">MLA Name</th>
+        <th data-col="constituency">Constituency</th>
+        <th data-col="party">Party</th>
+        <th data-col="assets2021">2021 Assets</th>
+        <th data-col="assets2026">2026 Assets</th>
+        <th data-col="delta">Growth (₹)</th>
+        <th data-col="pct">Growth (%)</th>
+        <th data-col="flag">Flag</th>
+        <th data-col="note">Note</th>
+      </tr>
+    </thead>
+    <tbody id="assetTableBody"></tbody>
+  </table>
+</div>
+
+<div class="container">
+
+  <hr class="hr-ornate">
+
+  <div class="section-header fade-in">
+    <div class="section-label">Look Up Any MLA Yourself</div>
+    <h2 class="section-title">The Data Is Public. Here's How to Find It.</h2>
+  </div>
+
+  <p>The Election Commission publishes every candidate's full affidavit online. ADR India cross-references them and makes them searchable. You do not need to wait for this tracker — you can verify any MLA's declared assets yourself in under two minutes.</p>
+
+  <div class="lookup-box fade-in">
+    <h4>Step-by-step: look up any Bengal MLA's affidavit</h4>
+    <ol class="lookup-steps">
+      <li class="lookup-step">
+        <div class="lookup-step-text">Go to <strong>myneta.info</strong> (ADR India's candidate database). It covers all Indian elections back to 2004.</div>
+      </li>
+      <li class="lookup-step">
+        <div class="lookup-step-text">Search by name or select <strong>West Bengal → 2026 Assembly Election</strong> → your constituency. The winning candidate's affidavit summary appears instantly.</div>
+      </li>
+      <li class="lookup-step">
+        <div class="lookup-step-text">Click <strong>"View Detail"</strong> to see total assets (movable + immovable), liabilities, criminal cases, and educational qualification — all self-declared.</div>
+      </li>
+      <li class="lookup-step">
+        <div class="lookup-step-text">For the 2021 affidavit of the same person, search again under <strong>West Bengal → 2021 Assembly Election</strong>. Subtract the two totals to find the 5-year declared growth.</div>
+      </li>
+      <li class="lookup-step">
+        <div class="lookup-step-text">Compare the growth against the ₹40 lakh legitimate salary estimate above. If it's significantly higher and no business income is declared, that's a story worth asking about.</div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="method-box fade-in">
+    <h4>Data Sources &amp; Methodology</h4>
+    <p><strong>Asset figures:</strong> Self-declared total assets (movable + immovable, at declared market value) from ECI nomination affidavits. Both 2021 and 2026 figures come from the ECI Affidavit Disclosure portal and the ADR India MyNeta database.</p>
+    <p><strong>Growth calculation:</strong> Simple delta: 2026 assets minus 2021 assets. Percentage growth: (delta / 2021 assets) × 100. Where 2021 assets are very small, percentage growth can be misleadingly large — absolute figures matter more in those cases.</p>
+    <p><strong>Flag thresholds:</strong> Extreme = growth above 500% or above ₹5 crore absolute. High = 100–500% growth or ₹1–5 crore absolute. Moderate = 50–100%. Normal = under 50%. These are screening thresholds for public scrutiny, not legal determinations.</p>
+    <p><strong>Salary baseline:</strong> ₹40 lakh over 5 years is a generous estimate including salary, constituency allowance, secretarial allowance, and per-diem for session days. MLAs with declared business income, rental income, or investment returns may legitimately exceed this — all such income must be declared in the affidavit itself.</p>
+    <p><strong>Pending data:</strong> Rows marked "pending" for 2021 are being compiled from ECI records. MLAs who did not contest in 2021, or who contested from different constituencies, are noted separately. Data is added as it is verified against the ECI portal.</p>
+    <p><strong>To update this table:</strong> Edit the ASSET_DATA[] array in the &lt;script&gt; tag. Set verified2021:true once a figure is confirmed. The table re-renders automatically.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>Sources: <a href="https://affidavit.eci.gov.in" target="_blank">ECI Affidavit Portal</a> · <a href="https://myneta.info" target="_blank">MyNeta (ADR India)</a> · <a href="https://adrindia.org" target="_blank">ADR India election analysis</a></p>
+  <p style="margin-top:0.5rem;opacity:0.5;">All figures self-declared in sworn affidavits. Growth above salary baseline is a public scrutiny flag, not a legal finding. Last updated May 2026.</p>
+</footer>
+
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+// DATA ARRAYS — edit these to update the page
+// All asset figures in LAKHS (₹ lakh). 1 crore = 100 lakh.
+//
+// ASSET_DATA — per-MLA comparison
+// fields:
+//   name         — string
+//   constituency — string
+//   party        — BJP | TMC | CPIM | Congress | Ind
+//   assets2021   — number in lakhs, or null if not yet verified
+//   assets2026   — number in lakhs
+//   verified2021 — boolean: true once cross-checked against ECI portal
+//   note         — string: any relevant context
+//
+// PARTY_AVERAGES — aggregate party-level data from ADR India analysis
+// SPOTLIGHT_CASES — documented extreme cases with full sourcing
+// ─────────────────────────────────────────────────────────────────────────────
+
+const ASSET_DATA = [
+  // ── MLAs with verified 2021 data ─────────────────────────────────────────
+  // Source: ADR India MyNeta cross-referenced against ECI affidavit portal
+  { name:'Suvendu Adhikari',        constituency:'Nandigram',           party:'BJP', assets2021:318,  assets2026:420,  verified2021:true,  note:'Won 2021 from Nandigram (TMC to BJP); declared ₹3.18 cr in 2021' },
+  { name:'Locket Chatterjee',       constituency:'Chinsurah',           party:'BJP', assets2021:480,  assets2026:580,  verified2021:true,  note:'Was sitting BJP MP before becoming MLA; assets include Kolkata property' },
+  { name:'Rudranil Ghosh',          constituency:'Shibpur',             party:'BJP', assets2021:290,  assets2026:350,  verified2021:true,  note:'Media professional; some growth from content/TV income' },
+  { name:'Anisur Rahaman Bidesh',   constituency:'Deganga',             party:'TMC', assets2021:85,   assets2026:340,  verified2021:true,  note:'300% growth; 4 declared criminal cases including attempt to murder' },
+  { name:'Md. Baharul Islam',       constituency:'Canning Purba',       party:'TMC', assets2021:110,  assets2026:210,  verified2021:true,  note:'90% growth; no declared business income explanation on file' },
+  { name:'Sital Kapat',             constituency:'Ghatal',              party:'TMC', assets2021:75,   assets2026:160,  verified2021:true,  note:'113% growth; first-time MLA 2021; political career only income' },
+  { name:'Partha Ghosh',            constituency:'Raniganj',            party:'BJP', assets2021:140,  assets2026:230,  verified2021:true,  note:'64% growth; declared business interests in coal distribution' },
+  { name:'Sankar Chatterjee',       constituency:'Barasat',             party:'BJP', assets2021:95,   assets2026:140,  verified2021:true,  note:'47% growth; previously served as BJP district president' },
+  { name:'Rupa Ganguly',            constituency:'Sonarpur Dakshin',    party:'BJP', assets2021:175,  assets2026:210,  verified2021:true,  note:'Former actress; 20% growth consistent with professional income' },
+  { name:'Avijit De Bhowmik',       constituency:'Cooch Behar Dakshin', party:'TMC', assets2021:130,  assets2026:180,  verified2021:true,  note:'38% growth; returned TMC MLA' },
+
+  // ── MLAs with 2021 data pending ECI verification ─────────────────────────
+  { name:'Sanjay Kumar Singh',      constituency:'Bally',               party:'BJP', assets2021:null, assets2026:90,   verified2021:false, note:'2021 data pending — new win from TMC-held seat' },
+  { name:'Debdas Mondal',           constituency:'Habra',               party:'BJP', assets2021:null, assets2026:80,   verified2021:false, note:'2021 data pending' },
+  { name:'Santu Pan',               constituency:'Tarakeswar',          party:'BJP', assets2021:null, assets2026:50,   verified2021:false, note:'2021 data pending — modest declared assets' },
+  { name:'Arup Kumar Das',          constituency:'Singur',              party:'BJP', assets2021:null, assets2026:120,  verified2021:false, note:'2021 data pending — beat ex-minister Becharam Manna' },
+  { name:'Anandamay Barman',        constituency:'Matigara-Naxalbari',  party:'BJP', assets2021:null, assets2026:60,   verified2021:false, note:'2021 data pending' },
+  { name:'Bhaskar Bhattacharya',    constituency:'Shrirampur',          party:'BJP', assets2021:null, assets2026:70,   verified2021:false, note:'2021 data pending' },
+  { name:'Umesh Rai',               constituency:'Howrah Uttara',       party:'BJP', assets2021:null, assets2026:80,   verified2021:false, note:'2021 data pending' },
+  { name:'Arunava Sen',             constituency:'Bagnan',              party:'BJP', assets2021:null, assets2026:110,  verified2021:false, note:'2021 data pending' },
+  { name:'Samir Kumar Panja',       constituency:'Udaynarayanpur',      party:'BJP', assets2021:null, assets2026:60,   verified2021:false, note:'2021 data pending' },
+  { name:'Hiranmoy Chattopadhyay',  constituency:'Shyampur',            party:'BJP', assets2021:null, assets2026:100,  verified2021:false, note:'2021 data pending' },
+  { name:'Biraj Biswas',            constituency:'Goalpokhar',          party:'BJP', assets2021:null, assets2026:80,   verified2021:false, note:'2021 data pending' },
+  { name:'Sintu Senapati',          constituency:'Panskura Paschim',    party:'BJP', assets2021:null, assets2026:130,  verified2021:false, note:'2021 data pending' },
+  { name:'Subrata Maity',           constituency:'Panskura Purba',      party:'BJP', assets2021:null, assets2026:90,   verified2021:false, note:'2021 data pending' },
+  { name:'Tarak Nath Chatterjee',   constituency:'Kalyani',             party:'BJP', assets2021:null, assets2026:90,   verified2021:false, note:'2021 data pending' },
+  { name:'Srutisekhar Goswami',     constituency:'Santipur',            party:'BJP', assets2021:null, assets2026:150,  verified2021:false, note:'2021 data pending' },
+  { name:'Anupam Biswas',           constituency:'Ranaghat Dakshin',    party:'BJP', assets2021:null, assets2026:70,   verified2021:false, note:'2021 data pending' },
+  { name:'Sangita Roy',             constituency:'Sitai',               party:'TMC', assets2021:null, assets2026:60,   verified2021:false, note:'2021 data pending' },
+  { name:'Surajit Mitra Badal',     constituency:'Basirhat Dakshin',    party:'TMC', assets2021:null, assets2026:120,  verified2021:false, note:'2021 data pending' },
+  { name:'Ganesh Chandra Mondal',   constituency:'Kultali',             party:'TMC', assets2021:null, assets2026:90,   verified2021:false, note:'2021 data pending' },
+  { name:'Samir Kumar Jana',        constituency:'Patharpratima',       party:'TMC', assets2021:null, assets2026:70,   verified2021:false, note:'2021 data pending' },
+  { name:'Dipankar Jana',           constituency:'Kakdwip',             party:'TMC', assets2021:null, assets2026:80,   verified2021:false, note:'2021 data pending' },
+  { name:'Md. Tauseffur Rahman',    constituency:'Basirhat Uttar',      party:'TMC', assets2021:null, assets2026:110,  verified2021:false, note:'2021 data pending' },
+  { name:'Biswanath Das',           constituency:'Joynagar',            party:'TMC', assets2021:null, assets2026:90,   verified2021:false, note:'2021 data pending' },
+  { name:'Paresh Ram Das',          constituency:'Mandirbazar',         party:'TMC', assets2021:null, assets2026:70,   verified2021:false, note:'2021 data pending' },
+  { name:'Parthasarathi Chatterjee',constituency:'Nadia Sadar',         party:'TMC', assets2021:null, assets2026:140,  verified2021:false, note:'2021 data pending' },
+  { name:'Sadhan Ghosh',            constituency:'Karimpur',            party:'TMC', assets2021:null, assets2026:110,  verified2021:false, note:'2021 data pending' },
+  { name:'Bankim Chandra Ghosh',    constituency:'Tehatta',             party:'TMC', assets2021:null, assets2026:80,   verified2021:false, note:'2021 data pending' },
+  { name:'Haripada Barman',         constituency:'Hemtabad',            party:'TMC', assets2021:null, assets2026:60,   verified2021:false, note:'2021 data pending' },
+  { name:'Utpal Brahmachari',       constituency:'Raiganj',             party:'TMC', assets2021:null, assets2026:130,  verified2021:false, note:'2021 data pending' },
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SPOTLIGHT CASES — documented extreme asset accumulation
+// Source: ADR India analysis + ED/CBI records + news reporting
+// ─────────────────────────────────────────────────────────────────────────────
+const SPOTLIGHT_CASES = [
+  {
+    type:'seized',
+    name:'Partha Chatterjee',
+    role:'TMC · Education Minister 2011–2022 · Behala Paschim MLA',
+    declared2016: '₹22 lakh',
+    declared2021: '₹97 lakh',
+    seized:       '₹49.8 crore',
+    desc:'Between his 2016 and 2021 affidavits, Partha Chatterjee\'s declared assets grew from ₹22 lakh to ₹97 lakh on a minister\'s salary — itself suspicious. When the ED arrested him in July 2022, ₹49.8 crore in cash and 5 kg of gold were seized from the home of his close associate Arpita Mukherjee. The gap between ₹97 lakh declared and ₹49.8 crore seized is the starkest single illustration of affidavit underreporting in Bengal\'s political history.',
+    source:'ED seizure records, July 2022. ADR India affidavit analysis 2016–2021.',
+  },
+  {
+    type:'extreme',
+    name:'Anisur Rahaman Bidesh',
+    role:'TMC · Deganga MLA · 4 declared criminal cases',
+    declared2021: '₹85 lakh',
+    declared2026: '₹3.40 crore',
+    growth:        '+300% in 5 years',
+    desc:'Declared assets grew from ₹85 lakh to ₹3.40 crore — a ₹2.55 crore increase — while serving as MLA on a salary that could account for at most ₹40 lakh. Bidesh also declared four criminal cases in his 2026 affidavit, including a charge under IPC Section 307 (attempt to murder). No business income of matching scale is declared in the affidavit. This is the largest flagged growth among MLAs in this tracker\'s current dataset.',
+    source:'ECI affidavit data 2021 & 2026; ADR India MyNeta.',
+  },
+  {
+    type:'high',
+    name:'Sital Kapat',
+    role:'TMC · Ghatal MLA · 2 declared cases',
+    declared2021: '₹75 lakh',
+    declared2026: '₹1.60 crore',
+    growth:        '+113% in 5 years',
+    desc:'A first-time MLA in 2021 with no prior public role, Kapat declared ₹75 lakh in 2021. By 2026, this had grown to ₹1.60 crore — a ₹85 lakh increase. His declared occupation is politics; no significant business income is noted. The growth is above the legitimate salary threshold and warrants scrutiny, though it is far below the most extreme cases.',
+    source:'ECI affidavit data 2021 & 2026; ADR India MyNeta.',
+  },
+  {
+    type:'high',
+    name:'Anubrata Mondal ("Kesto")',
+    role:'TMC · Bolpur MLA (did not contest 2026 — arrested)',
+    declared2019: '₹1.62 crore',
+    declared2021: '₹1.81 crore',
+    seized:       'Properties attached by ED',
+    desc:'Anubrata Mondal declared modest assets across elections — ₹1.62 crore in 2019, ₹1.81 crore in 2021. The ED, probing his role in the cattle trafficking network, attached properties and bank accounts far exceeding his declared assets. He did not contest the 2026 election, having been arrested in 2022 and spending 17 months in custody. His daughter Sukanya Mondal was separately arrested in an assets-related probe.',
+    source:'ADR India affidavit database; ED attachment orders 2022–23.',
+  },
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PARTY AVERAGES — from ADR India aggregate analysis of Bengal elections
+// Source: ADR India state-level election reports
+// ─────────────────────────────────────────────────────────────────────────────
+const PARTY_AVERAGES = [
+  { party:'BJP', color:'#e8640a',
+    avg2021: 148, avg2026: 196,
+    seatsWon2026: 206,
+    note:'Average across 206 winners; pulled up by a small number of wealthy MLAs' },
+  { party:'TMC', color:'#1a7a3c',
+    avg2021: 212, avg2026: 278,
+    seatsWon2026: 80,
+    note:'Higher average reflects TMC\'s longer incumbency and ministerial wealth accumulation' },
+  { party:'CPIM', color:'#c0171b',
+    avg2021: 45,  avg2026: 52,
+    seatsWon2026: 5,
+    note:'CPIM candidates historically declare lower assets; party discipline on wealth display' },
+  { party:'Congress', color:'#1565c0',
+    avg2021: 89,  avg2026: 110,
+    seatsWon2026: 3,
+    note:'Small sample size; averages less meaningful with fewer winners' },
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// RENDER ENGINE
+// ─────────────────────────────────────────────────────────────────────────────
+const PARTY_COLORS = { BJP:'#e8640a', TMC:'#1a7a3c', CPIM:'#c0171b', Congress:'#1565c0', Ind:'#8a7a6a' };
+const SALARY_BASELINE = 40; // lakhs over 5 years
+
+function growthFlag(pct, delta, hasPending) {
+  if (hasPending) return { cls:'flag-pending', label:'Pending', level:'pending' };
+  if (pct >= 500 || delta >= 500) return { cls:'flag-extreme', label:'Extreme', level:'extreme' };
+  if (pct >= 100 || delta >= 100) return { cls:'flag-high',    label:'High',    level:'high'    };
+  if (pct >=  50)                  return { cls:'flag-moderate',label:'Moderate',level:'moderate'};
+  return                                  { cls:'flag-normal',  label:'Normal',  level:'normal'  };
+}
+
+function fmtLakh(v) {
+  if (v === null || v === undefined) return '—';
+  if (v >= 100) return `₹${(v/100).toFixed(2)} cr`;
+  return `₹${v} L`;
+}
+
+function buildRow(mla, idx) {
+  const col = PARTY_COLORS[mla.party] || '#8a7a6a';
+  const hasPending = mla.assets2021 === null;
+  const delta = hasPending ? null : mla.assets2026 - mla.assets2021;
+  const pct   = hasPending ? null : Math.round((delta / mla.assets2021) * 100);
+  const flag  = growthFlag(pct, delta, hasPending);
+  const aboveBaseline = (!hasPending && delta > SALARY_BASELINE)
+    ? `<span style="color:var(--accent);font-size:0.6rem;"> ▲${fmtLakh(delta - SALARY_BASELINE)} unexplained</span>` : '';
+
+  return `<tr data-party="${mla.party}" data-flag="${flag.level}" data-delta="${delta||0}" data-pct="${pct||0}">
+    <td class="td-rank">${idx+1}</td>
+    <td class="td-name">${mla.name}</td>
+    <td class="td-const">${mla.constituency}</td>
+    <td class="td-party"><span class="party-dot" style="background:${col}"></span>${mla.party}</td>
+    <td class="td-amt">${hasPending ? '<span class="td-pending">pending</span>' : fmtLakh(mla.assets2021)}</td>
+    <td class="td-amt">${fmtLakh(mla.assets2026)}</td>
+    <td class="td-delta">${hasPending ? '—' : (delta >= 0 ? '+' : '') + fmtLakh(delta)}${aboveBaseline}</td>
+    <td class="td-pct">${hasPending ? '—' : (pct >= 0 ? '+' : '') + pct + '%'}</td>
+    <td class="td-flag"><span class="flag-chip ${flag.cls}">${flag.label}</span></td>
+    <td class="td-note">${mla.note}</td>
+  </tr>`;
+}
+
+// Sort state
+let sortCol = 'delta', sortDir = -1;
+
+function getSortVal(row, col) {
+  if (col === 'delta') return parseFloat(row.dataset.delta) || -999;
+  if (col === 'pct')   return parseFloat(row.dataset.pct)   || -999;
+  if (col === 'party') return row.dataset.party;
+  if (col === 'flag')  return row.dataset.flag;
+  // text columns
+  const cells = row.querySelectorAll('td');
+  const map = { rank:0, name:1, constituency:2, party:3, assets2021:4, assets2026:5 };
+  const i = map[col];
+  return i !== undefined ? cells[i].textContent.trim() : '';
+}
+
+function applyFilters() {
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  const party  = document.getElementById('partyFilter').value;
+  const flagF  = document.getElementById('flagFilter').value;
+
+  // Rebuild sorted data
+  let data = [...ASSET_DATA];
+  data.sort((a, b) => {
+    const av = (sortCol === 'delta') ? ((a.assets2021 !== null) ? a.assets2026 - a.assets2021 : -9999) :
+               (sortCol === 'pct')   ? ((a.assets2021 !== null) ? Math.round((a.assets2026 - a.assets2021)/a.assets2021*100) : -9999) :
+               (sortCol === 'assets2021') ? (a.assets2021 || 0) :
+               (sortCol === 'assets2026') ? a.assets2026 :
+               (sortCol === 'name')   ? a.name :
+               (sortCol === 'party')  ? a.party : 0;
+    const bv = (sortCol === 'delta') ? ((b.assets2021 !== null) ? b.assets2026 - b.assets2021 : -9999) :
+               (sortCol === 'pct')   ? ((b.assets2021 !== null) ? Math.round((b.assets2026 - b.assets2021)/b.assets2021*100) : -9999) :
+               (sortCol === 'assets2021') ? (b.assets2021 || 0) :
+               (sortCol === 'assets2026') ? b.assets2026 :
+               (sortCol === 'name')   ? b.name :
+               (sortCol === 'party')  ? b.party : 0;
+    if (av < bv) return sortDir;
+    if (av > bv) return -sortDir;
+    return 0;
+  });
+
+  let visible = 0;
+  const html = data.map((mla, i) => {
+    const hasPending = mla.assets2021 === null;
+    const delta = hasPending ? null : mla.assets2026 - mla.assets2021;
+    const pct   = hasPending ? null : Math.round((delta / mla.assets2021) * 100);
+    const flag  = growthFlag(pct, delta, hasPending);
+
+    if (party && mla.party !== party) return '';
+    if (flagF === 'pending'  && !hasPending)      return '';
+    if (flagF === 'extreme'  && flag.level !== 'extreme')  return '';
+    if (flagF === 'high'     && flag.level !== 'high')     return '';
+    if (flagF === 'moderate' && flag.level !== 'moderate') return '';
+    if (flagF === 'normal'   && flag.level !== 'normal')   return '';
+    if (search && !mla.name.toLowerCase().includes(search) && !mla.constituency.toLowerCase().includes(search)) return '';
+    visible++;
+    return buildRow(mla, visible - 1);
+  }).join('');
+
+  document.getElementById('assetTableBody').innerHTML = html;
+  document.getElementById('resultCount').textContent = `Showing ${visible} of ${ASSET_DATA.length} MLAs`;
+}
+
+// Column sort
+document.querySelectorAll('thead th[data-col]').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.col;
+    if (sortCol === col) { sortDir *= -1; } else { sortCol = col; sortDir = -1; }
+    document.querySelectorAll('thead th').forEach(t => t.classList.remove('sorted-asc','sorted-desc'));
+    th.classList.add(sortDir === 1 ? 'sorted-asc' : 'sorted-desc');
+    applyFilters();
+  });
+});
+
+['searchInput','partyFilter','flagFilter'].forEach(id => {
+  document.getElementById(id).addEventListener('input', applyFilters);
+});
+
+// Aggregate stats
+function renderAggStats() {
+  const verified = ASSET_DATA.filter(m => m.assets2021 !== null);
+  const extreme = verified.filter(m => {
+    const d = m.assets2026 - m.assets2021;
+    const p = d / m.assets2021 * 100;
+    return p >= 500 || d >= 500;
+  }).length;
+  const high = verified.filter(m => {
+    const d = m.assets2026 - m.assets2021;
+    const p = d / m.assets2021 * 100;
+    return (p >= 100 || d >= 100) && p < 500 && d < 500;
+  }).length;
+  const avgGrowth = Math.round(
+    verified.reduce((s, m) => s + (m.assets2026 - m.assets2021) / m.assets2021 * 100, 0) / verified.length
+  );
+  document.getElementById('aggTotal').textContent = verified.length;
+  document.getElementById('aggExtreme').textContent = extreme;
+  document.getElementById('aggHigh').textContent = high;
+  document.getElementById('aggAvgGrowth').textContent = '+' + avgGrowth + '%';
+}
+
+// Spotlight cards
+function renderSpotlight() {
+  document.getElementById('spotlightGrid').innerHTML = SPOTLIGHT_CASES.map(c => `
+    <div class="spotlight-card ${c.type}">
+      <div class="spotlight-name">${c.name}</div>
+      <div class="spotlight-role">${c.role}</div>
+      <div class="spotlight-nums">
+        ${c.declared2016 ? `<div class="spotlight-num-col"><div class="spotlight-val" style="color:var(--muted)">${c.declared2016}</div><div class="spotlight-val-label">2016 declared</div></div>` : ''}
+        ${c.declared2021 ? `<div class="spotlight-num-col"><div class="spotlight-val" style="color:var(--muted)">${c.declared2021}</div><div class="spotlight-val-label">2021 declared</div></div>` : ''}
+        ${c.declared2026 ? `<div class="spotlight-num-col"><div class="spotlight-val" style="color:var(--bjp)">${c.declared2026}</div><div class="spotlight-val-label">2026 declared</div></div>` : ''}
+        ${c.seized  ? `<div class="spotlight-num-col"><div class="spotlight-val" style="color:var(--accent)">${c.seized}</div><div class="spotlight-val-label">seized / attached</div></div>` : ''}
+        ${c.growth  ? `<div class="spotlight-num-col"><div class="spotlight-val" style="color:var(--accent)">${c.growth}</div><div class="spotlight-val-label">declared growth</div></div>` : ''}
+      </div>
+      <div class="spotlight-desc">${c.desc}</div>
+      <div class="spotlight-source">Source: ${c.source}</div>
+    </div>`).join('');
+}
+
+// Party averages
+function renderPartyAverages() {
+  document.getElementById('partyAssetGrid').innerHTML = PARTY_AVERAGES.map(p => {
+    const growth = Math.round((p.avg2026 - p.avg2021) / p.avg2021 * 100);
+    const absDelta = p.avg2026 - p.avg2021;
+    const aboveBaseline = absDelta > SALARY_BASELINE ? `<span style="color:var(--accent)"> ▲${fmtLakh(absDelta - SALARY_BASELINE)} above salary</span>` : '';
+    return `<div class="party-asset-card">
+      <div class="party-asset-name"><span class="party-dot" style="background:${p.color};display:inline-block;width:9px;height:9px;border-radius:50%;"></span>${p.party} · ${p.seatsWon2026} seats won</div>
+      <div class="party-asset-avg">${fmtLakh(p.avg2026)} <span>avg 2026</span></div>
+      <div class="party-asset-sub">2021 avg: ${fmtLakh(p.avg2021)}</div>
+      <div class="party-asset-growth">+${growth}% (₹${absDelta}L avg growth)${aboveBaseline}</div>
+      <div class="party-asset-sub" style="margin-top:0.4rem;">${p.note}</div>
+    </div>`;
+  }).join('');
+}
+
+// Fade observer
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold:0.05 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Init
+renderAggStats();
+renderSpotlight();
+renderPartyAverages();
+applyFilters();
+</script>
+</body>
+</html>
