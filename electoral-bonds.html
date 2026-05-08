@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Electoral bonds data: who funded Bengal's parties, how much, and what they got back. Based on the Supreme Court-ordered SBI disclosure, March 2024.">
+<meta property="og:title" content="Electoral Bonds: The Money Trail — The Bengal Reader">
+<meta property="og:description" content="₹16,518 crore in anonymous political donations. Who gave to TMC and BJP — and what happened next.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="/og-bonds.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Electoral Bonds: The Money Trail — The Bengal Reader">
+<meta name="twitter:description" content="Supreme Court struck it down as unconstitutional. Before it fell, ₹16,518 crore flowed to political parties. Here is the full record.">
+<title>Electoral Bonds: The Money Trail — The Bengal Reader</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0a0804;
+  --paper: #f5f0e8;
+  --aged: #e8e0cc;
+  --accent: #c0171b;
+  --bjp: #e8640a;
+  --tmc: #1a7a3c;
+  --gold: #b8860b;
+  --muted: #6b5f4e;
+  --congress: #1565c0;
+  --brs: #7b1fa2;
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--paper); color:var(--ink);
+  font-family:'Crimson Pro',serif; font-size:18px; line-height:1.7;
+  overflow-x:hidden;
+}
+body::before {
+  content:''; position:fixed; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none; z-index:9999; opacity:0.5;
+}
+
+/* ── NAV ── */
+.site-nav { background:#050403; border-bottom:1px solid rgba(255,255,255,0.06); padding:9px 0; position:relative; z-index:10000; }
+.site-nav-inner { max-width:1100px; margin:0 auto; padding:0 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; }
+.site-nav-brand { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:rgba(245,240,232,0.35); }
+.site-nav-links { display:flex; flex-wrap:wrap; }
+.site-nav-link { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(245,240,232,0.45); text-decoration:none; padding:3px 14px; border-left:1px solid rgba(255,255,255,0.07); transition:color 0.2s; }
+.site-nav-link:first-child { border-left:none; }
+.site-nav-link:hover { color:rgba(245,240,232,0.9); }
+.site-nav-link.active { color:rgba(245,240,232,0.9); }
+
+/* ── MASTHEAD ── */
+.masthead { border-bottom:4px double var(--ink); padding:1.5rem 2rem 1rem; text-align:center; background:var(--paper); }
+.masthead-overline { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--muted); border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); padding:0.3rem 0; margin-bottom:1rem; }
+.masthead h1 { font-family:'Playfair Display',serif; font-size:clamp(2.2rem,6vw,4.8rem); font-weight:900; line-height:1.0; letter-spacing:-0.02em; text-transform:uppercase; }
+.masthead h1 em { font-style:italic; color:var(--gold); }
+.masthead-sub { font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(1rem,2.5vw,1.35rem); color:var(--muted); margin-top:0.5rem; }
+.masthead-meta { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.15em; color:var(--muted); margin-top:1rem; border-top:1px solid var(--aged); padding-top:0.6rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; }
+
+/* ── STATS HERO ── */
+.stats-hero { background:var(--ink); color:var(--paper); padding:2.5rem 2rem; text-align:center; }
+.stats-grid { display:flex; justify-content:center; flex-wrap:wrap; max-width:900px; margin:0 auto; }
+.stat-cell { padding:1.2rem 2rem; border-right:1px solid rgba(255,255,255,0.1); }
+.stat-cell:last-child { border-right:none; }
+.stat-big { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,3rem); font-weight:900; line-height:1; color:var(--gold); }
+.stat-label { font-family:'IBM Plex Mono',monospace; font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:#8a8070; margin-top:0.3rem; }
+.verdict-tag { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; padding:5px 14px; background:rgba(192,23,27,0.2); color:#e87070; border:1px solid rgba(192,23,27,0.4); margin-top:1.5rem; }
+
+/* ── LAYOUT ── */
+.container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+
+/* ── SECTION HEADERS ── */
+.section-header { border-top:4px solid var(--ink); padding-top:0.5rem; margin:4rem 0 2rem; }
+.section-label { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem; }
+.section-title { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,4vw,2.8rem); font-weight:700; line-height:1.15; }
+
+p { margin-bottom:1.2rem; font-size:1.05rem; color:#2a2018; }
+.article-lead { font-family:'Crimson Pro',serif; font-size:1.25rem; font-weight:600; line-height:1.6; border-left:4px solid var(--ink); padding-left:1.5rem; margin:2rem 0; color:#1a1510; }
+
+/* ── HOW IT WORKED ── */
+.how-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin:2rem 0; }
+.how-card { background:#fdfaf4; border:1px solid var(--aged); padding:1.2rem 1.5rem; }
+.how-num { font-family:'Playfair Display',serif; font-size:3rem; font-weight:900; color:var(--aged); line-height:1; float:left; margin-right:0.8rem; margin-top:-0.2rem; }
+.how-title { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem; clear:none; }
+.how-desc { font-family:'Crimson Pro',serif; font-size:0.95rem; color:#3a2a18; line-height:1.55; clear:both; }
+
+/* ── BAR CHART ── */
+.bar-chart { margin:2.5rem 0; }
+.bar-row { display:flex; align-items:center; gap:1rem; margin:0.6rem 0; }
+.bar-party { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; width:80px; flex-shrink:0; text-align:right; color:var(--muted); }
+.bar-track { flex:1; background:var(--aged); height:28px; position:relative; overflow:visible; }
+.bar-fill { height:28px; display:flex; align-items:center; padding-left:0; position:relative; transition:width 1s ease; }
+.bar-fill::after { content:attr(data-label); position:absolute; left:calc(100% + 8px); font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:var(--ink); white-space:nowrap; }
+.bar-fill-highlight { height:6px; position:absolute; top:0; left:0; width:100%; opacity:0.4; }
+
+/* ── DONOR TABLE ── */
+.donor-table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:0.95rem; }
+.donor-table th { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); padding:0.5rem 0.8rem; border-bottom:2px solid var(--ink); text-align:left; background:var(--paper); }
+.donor-table td { padding:0.65rem 0.8rem; border-bottom:1px solid var(--aged); vertical-align:top; font-family:'Crimson Pro',serif; font-size:0.95rem; }
+.donor-table tr:hover td { background:#fdfaf4; }
+.donor-rank { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:var(--muted); }
+.donor-name { font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:700; }
+.donor-industry { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--muted); letter-spacing:0.05em; }
+.donor-amount { font-family:'IBM Plex Mono',monospace; font-size:0.85rem; font-weight:500; color:var(--ink); white-space:nowrap; }
+.donor-recipients { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--muted); }
+.concern-tag { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:0.52rem; letter-spacing:0.08em; text-transform:uppercase; padding:2px 6px; background:rgba(192,23,27,0.08); color:var(--accent); border:1px solid rgba(192,23,27,0.2); border-radius:2px; white-space:nowrap; }
+
+/* ── TMC DONORS ── */
+.tmc-donor-row { display:flex; align-items:flex-start; gap:1rem; padding:1rem 0; border-bottom:1px solid var(--aged); }
+.tmc-donor-row:last-child { border-bottom:none; }
+.tmc-amount-big { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; color:var(--tmc); line-height:1; flex-shrink:0; width:110px; text-align:right; padding-top:0.15rem; }
+.tmc-donor-info { flex:1; }
+.tmc-donor-name { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; }
+.tmc-donor-sector { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.25rem; }
+.tmc-donor-note { font-family:'Crimson Pro',serif; font-size:0.9rem; color:#4a3a2a; line-height:1.5; }
+
+/* ── PATTERN SECTION ── */
+.pattern-card { border:1px solid rgba(192,23,27,0.25); background:#fdf5f5; padding:1.2rem 1.5rem; margin:1.2rem 0; }
+.pattern-card-header { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap; margin-bottom:0.6rem; }
+.pattern-donor { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; }
+.pattern-amounts { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:var(--muted); margin-top:0.15rem; }
+.pattern-desc { font-family:'Crimson Pro',serif; font-size:0.9rem; color:#3a2018; line-height:1.55; }
+.pattern-note { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--accent); margin-top:0.5rem; border-top:1px solid rgba(192,23,27,0.15); padding-top:0.4rem; }
+
+/* ── TIMELINE ── */
+.timeline-list { list-style:none; margin:1.5rem 0; }
+.tl-item { display:flex; gap:1.5rem; padding:0.9rem 0; border-bottom:1px solid var(--aged); align-items:flex-start; }
+.tl-item:last-child { border-bottom:none; }
+.tl-date-col { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.1em; color:var(--gold); flex-shrink:0; width:90px; padding-top:0.1rem; }
+.tl-event-col { font-family:'Crimson Pro',serif; font-size:1rem; color:#2a2018; line-height:1.55; flex:1; }
+
+/* ── CALLOUT ── */
+.callout { border-left:5px solid var(--gold); background:#fdf9ef; padding:1.2rem 1.5rem; margin:2rem 0; }
+.callout-label { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem; }
+.callout p { font-size:0.95rem; margin:0; color:#3a2208; }
+.callout.alert { border-left-color:var(--accent); background:#fdf5f5; }
+.callout.alert .callout-label { color:var(--accent); }
+.callout.alert p { color:#3a1208; }
+
+/* ── METHOD ── */
+.method-box { background:var(--aged); border:1px solid rgba(107,95,78,0.3); padding:1.5rem; margin:3rem 0; }
+.method-box h4 { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem; border-bottom:1px solid rgba(107,95,78,0.3); padding-bottom:0.5rem; }
+.method-box p { font-size:0.9rem; color:var(--muted); margin-bottom:0.6rem; line-height:1.6; }
+.method-box p:last-child { margin-bottom:0; }
+
+/* ── FOOTER ── */
+footer { background:#0a0804; color:#5a5040; padding:2rem; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.15em; }
+footer a { color:#8a7a60; text-decoration:none; }
+
+.hr-ornate { border:none; border-top:1px solid var(--aged); margin:2.5rem 0; position:relative; }
+.hr-ornate::before { content:'◆'; position:absolute; top:-0.6rem; left:50%; transform:translateX(-50%); background:var(--paper); padding:0 0.5rem; color:var(--muted); font-size:0.7rem; }
+
+.fade-in { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+
+@media(max-width:700px) {
+  .how-grid { grid-template-columns:1fr; }
+  .stat-cell { padding:0.9rem 1.2rem; }
+  .bar-party { width:55px; font-size:0.58rem; }
+  .bar-fill::after { font-size:0.55rem; }
+  .donor-table { font-size:0.85rem; }
+  .donor-table th, .donor-table td { padding:0.5rem; }
+  .tmc-amount-big { font-size:1.2rem; width:85px; }
+}
+</style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <span class="site-nav-brand">The Bengal Reader</span>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Voter Guide</a>
+      <a href="/parties" class="site-nav-link">Party Compass</a>
+      <a href="/constituencies" class="site-nav-link">2026 Results</a>
+      <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+      <a href="/accountability" class="site-nav-link">100 Days</a>
+      <a href="/corruption" class="site-nav-link">Dossier</a>
+      <a href="/bonds" class="site-nav-link active">Money Trail</a>
+    </div>
+  </div>
+</nav>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-overline">Electoral Finance · Supreme Court Disclosure · 2018–2024</div>
+  <h1>The <em>Money</em> Trail</h1>
+  <p class="masthead-sub">₹16,518 Crore in Political Donations. Anonymous by Design. Struck Down as Unconstitutional.</p>
+  <div class="masthead-meta">
+    <span>Source: SBI / ECI disclosure, March 2024 · ADR India analysis</span>
+    <span>Scheme ran: March 2018 – February 2024</span>
+    <span>Supreme Court verdict: 15 February 2024</span>
+  </div>
+</header>
+
+<!-- STATS HERO -->
+<section class="stats-hero">
+  <div class="stats-grid">
+    <div class="stat-cell">
+      <div class="stat-big">₹16,518 cr</div>
+      <div class="stat-label">Total Bonds Sold</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-big">₹6,060 cr</div>
+      <div class="stat-label">BJP Received</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-big">₹1,609 cr</div>
+      <div class="stat-label">TMC Received</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-big">23</div>
+      <div class="stat-label">Parties Funded</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-big">6</div>
+      <div class="stat-label">Years Active</div>
+    </div>
+  </div>
+  <div><span class="verdict-tag">⚖ Struck down as unconstitutional — Supreme Court, 15 Feb 2024</span></div>
+</section>
+
+<main class="container">
+
+  <div class="section-header fade-in" style="margin-top:3rem;">
+    <div class="section-label">The Scheme</div>
+    <h2 class="section-title">What Electoral Bonds Were</h2>
+  </div>
+
+  <p class="article-lead">Electoral bonds were promissory notes issued by the State Bank of India that any Indian citizen or company could buy and donate anonymously to a political party. The donor's name was never disclosed publicly — only the government, through the Finance Ministry, could identify who gave what, to whom.</p>
+  <p>The scheme was introduced via the Finance Act 2017 and operationalised in March 2018. In February 2024, a five-judge Supreme Court Constitution Bench unanimously struck it down, ruling that anonymous corporate funding violated voters' right to information and enabled quid pro quo corruption. By then, ₹16,518 crore had already flowed through the scheme.</p>
+
+  <div class="how-grid fade-in">
+    <div class="how-card">
+      <div class="how-num">1</div>
+      <div class="how-title">Buy from SBI</div>
+      <div class="how-desc">Any Indian entity — individual or company — could buy bonds in denominations of ₹1,000 to ₹1 crore from designated SBI branches during 30-day windows four times a year.</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">2</div>
+      <div class="how-title">Donate anonymously</div>
+      <div class="how-desc">The bond bore no donor name. It could be donated to any registered political party with at least 1% vote share. The donor's identity was permanently hidden from the public and from the party.</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">3</div>
+      <div class="how-title">Party encashes</div>
+      <div class="how-desc">The party received the bond and encashed it via its designated SBI account within 15 days. The cash arrived with no disclosure obligation to the Election Commission under the scheme's original rules.</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">4</div>
+      <div class="how-title">Only govt knew</div>
+      <div class="how-desc">SBI retained purchase records. The Finance Ministry — part of the ruling central government — could theoretically identify any donor at any time, creating a structural information asymmetry between the ruling party and opponents.</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">5</div>
+      <div class="how-title">Court orders disclosure</div>
+      <div class="how-desc">In February 2024, the Supreme Court ruled the scheme unconstitutional and ordered SBI to hand all bond data to the ECI. The ECI published the data on its website in March 2024.</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">6</div>
+      <div class="how-title">Pattern emerges</div>
+      <div class="how-desc">Analysis of the disclosed data by ADR India and investigative journalists showed a clear pattern: companies facing regulatory action or seeking government contracts were disproportionately large donors.</div>
+    </div>
+  </div>
+
+  <hr class="hr-ornate">
+
+  <div class="section-header fade-in">
+    <div class="section-label">Party Receipts</div>
+    <h2 class="section-title">Who Received How Much</h2>
+  </div>
+
+  <p>Of ₹16,518 crore in total bonds sold, BJP received 36.6% — more than the next three parties combined. TMC was the second-largest recipient nationally, receiving ₹1,609 crore (9.7% of the total). The data below shows all parties that received over ₹100 crore.</p>
+
+  <div class="bar-chart fade-in" id="partyChart" aria-label="Party-wise electoral bond receipts bar chart"></div>
+
+  <div class="callout fade-in">
+    <div class="callout-label">📌 Bengal Context</div>
+    <p>TMC's ₹1,609 crore represents donations from companies primarily in Bengal and Eastern India — energy, construction, food processing, and lottery sectors. As the state's ruling party for 14 years, TMC controlled state-level contracts, regulatory approvals, land allocation, and police oversight — all levers that create incentive for corporate political donation.</p>
+  </div>
+
+  <hr class="hr-ornate">
+
+  <div class="section-header fade-in">
+    <div class="section-label">Top Donors — National</div>
+    <h2 class="section-title">Who Was Buying</h2>
+  </div>
+
+  <p>The ten largest bond purchasers nationally accounted for over ₹5,000 crore — nearly a third of the entire scheme's value. Several donors were companies operating in heavily regulated sectors or under active government investigation at the time of donation.</p>
+
+  <div class="fade-in" style="overflow-x:auto;">
+    <table class="donor-table" id="donorTable" aria-label="Top electoral bond donors">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Donor</th>
+          <th>Industry</th>
+          <th>Total Donated</th>
+          <th>Primary Recipients</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody id="donorTableBody"></tbody>
+    </table>
+  </div>
+
+  <hr class="hr-ornate">
+
+  <div class="section-header fade-in">
+    <div class="section-label">Bengal Focus — TMC Donors</div>
+    <h2 class="section-title">What Flowed to TMC</h2>
+  </div>
+
+  <p>Of TMC's ₹1,609 crore in total receipts, a significant portion came from Bengal-based or Bengal-active companies in sectors where the state government had regulatory or contractual leverage. The following are the largest documented donors to TMC based on the SBI/ECI disclosure.</p>
+
+  <div class="fade-in" id="tmcDonors"></div>
+
+  <div class="callout alert fade-in">
+    <div class="callout-label">⚠ The Pattern</div>
+    <p>Analysis by ADR India and investigative journalists identified a consistent pattern across the scheme: companies facing ED or CBI investigations made large donations, and in several documented cases, investigations were subsequently dropped, stayed, or paused. This does not establish legal quid pro quo — but the Supreme Court found the anonymity structure enabled exactly this possibility, which is why it declared the scheme unconstitutional.</p>
+  </div>
+
+  <hr class="hr-ornate">
+
+  <div class="section-header fade-in">
+    <div class="section-label">The Quid Pro Quo Pattern</div>
+    <h2 class="section-title">Donors Under Scrutiny</h2>
+  </div>
+
+  <p>The following cases were documented by investigative journalists and parliamentary opposition parties as examples of the pattern. They represent correlation, not proven legal exchange — but each warrants scrutiny given the scheme's anonymous design.</p>
+
+  <div id="patternCards" class="fade-in"></div>
+
+  <hr class="hr-ornate">
+
+  <div class="section-header fade-in">
+    <div class="section-label">Timeline</div>
+    <h2 class="section-title">From Scheme to Disclosure</h2>
+  </div>
+
+  <ul class="timeline-list fade-in" id="bondTimeline"></ul>
+
+  <hr class="hr-ornate">
+
+  <div class="method-box fade-in">
+    <h4>Data Sources &amp; Methodology</h4>
+    <p><strong>Primary source:</strong> SBI submitted bond purchase and redemption data to the Election Commission of India under Supreme Court order. ECI published the data on its website on 14–15 March 2024.</p>
+    <p><strong>Analysis:</strong> ADR India (Association for Democratic Reforms) published a detailed party-wise and donor-wise breakdown. Investigative reporting by The Hindu, Indian Express, The Wire, and Hindustan Times cross-referenced donors with company registrations, income tax filings, and regulatory records.</p>
+    <p><strong>Caveats:</strong> The donor data has some gaps — approximately ₹1,500 crore in bonds were issued where SBI's data submission was incomplete. A few large donors appear under holding company names, making sector classification imprecise. All figures are from the official ECI-published dataset; discrepancies with internal party disclosures are noted in source reporting.</p>
+    <p><strong>Correlation vs. causation:</strong> This page identifies patterns between donations and regulatory outcomes. These are documented correlations reported by credible investigative outlets. No legal finding of quid pro quo has been made by any court in these cases, except where explicitly noted.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>Sources: <a href="https://eci.gov.in" target="_blank">Election Commission of India</a> · <a href="https://adrindia.org" target="_blank">ADR India</a> · Supreme Court of India (WP 880/2017) · SBI Bond Disclosure, March 2024</p>
+  <p style="margin-top:0.5rem;opacity:0.5;">Data from SBI/ECI disclosure, March 2024. Analysis based on ADR India and investigative reporting. All amounts in Indian Rupees (crore). Last updated May 2026.</p>
+</footer>
+
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+// DATA — update these arrays to add new information
+// Source: SBI/ECI disclosure March 2024; ADR India analysis
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Party-wise receipts (top recipients, ₹ crore)
+// Source: ECI published data, March 2024
+const PARTY_RECEIPTS = [
+  { party:'BJP',      amount:6060.5, color:'#e8640a', pct:36.6 },
+  { party:'TMC',      amount:1609.5, color:'#1a7a3c', pct:9.7  },
+  { party:'Congress', amount:1421.8, color:'#1565c0', pct:8.6  },
+  { party:'BRS',      amount:1214.7, color:'#7b1fa2', pct:7.3  },
+  { party:'BJD',      amount:944.5,  color:'#d97706', pct:5.7  },
+  { party:'DMK',      amount:639.5,  color:'#b45309', pct:3.9  },
+  { party:'YSRCP',    amount:442.8,  color:'#166534', pct:2.7  },
+  { party:'TDP',      amount:181.4,  color:'#0369a1', pct:1.1  },
+  { party:'Others',   amount:2003.3, color:'#8a7a6a', pct:12.1 },
+];
+
+// Top national donors (₹ crore)
+// Source: SBI/ECI disclosure; ADR India breakdown
+const TOP_DONORS = [
+  {
+    rank:1, name:'Future Gaming & Hotel Services', industry:'Lottery / Hospitality',
+    total:1368, recipients:'TMC, DMK, others',
+    note:'Santiago Martin ("Lottery King"); lottery businesses operate under state government licences in Bengal and Tamil Nadu. Under ED scrutiny in lottery-related cases.',
+    concern:true,
+  },
+  {
+    rank:2, name:'Megha Engineering & Infrastructures', industry:'Infrastructure / EPC',
+    total:966, recipients:'BJP, BRS, TDP',
+    note:'Hyderabad-based EPC contractor; major recipient of Central and state government infrastructure contracts in irrigation, water supply, and roads.',
+    concern:true,
+  },
+  {
+    rank:3, name:'Qwik Supply Chain', industry:'Logistics',
+    total:410, recipients:'BJP',
+    note:'Mumbai-based logistics company; donated entirely in a short window before a major Central government logistics contract award.',
+    concern:false,
+  },
+  {
+    rank:4, name:'Vedanta Limited', industry:'Mining / Natural Resources',
+    total:400, recipients:'BJP, BJD',
+    note:'Anil Agarwal\'s mining conglomerate; operates mines and smelters requiring Central and state government approvals. Under various regulatory proceedings.',
+    concern:true,
+  },
+  {
+    rank:5, name:'Haldia Energy', industry:'Power / Energy',
+    total:377, recipients:'TMC',
+    note:'Kolkata-based thermal power company; operates in Bengal under state-regulated power purchase agreements. Donated almost entirely to TMC.',
+    concern:true,
+  },
+  {
+    rank:6, name:'Bharti Group (Airtel, Infratel)', industry:'Telecom',
+    total:247, recipients:'BJP, Congress',
+    note:'Sunil Mittal\'s telecom group; telecom spectrum and infrastructure subject to Central government regulatory approvals.',
+    concern:false,
+  },
+  {
+    rank:7, name:'DLF Limited', industry:'Real Estate',
+    total:180, recipients:'BJP',
+    note:'India\'s largest listed real estate developer; land acquisition and approvals are state-regulated.',
+    concern:false,
+  },
+  {
+    rank:8, name:'Torrent Power', industry:'Power / Energy',
+    total:175, recipients:'BJP, Congress',
+    note:'Gujarat-based power company; operates under state distribution licences.',
+    concern:false,
+  },
+  {
+    rank:9, name:'Keventer Agro', industry:'Food Processing / FMCG',
+    total:160, recipients:'TMC',
+    note:'Kolkata-based food and dairy company operating primarily in Bengal.',
+    concern:false,
+  },
+  {
+    rank:10, name:'IFB Industries (& group)', industry:'Manufacturing / Consumer Durables',
+    total:95, recipients:'TMC',
+    note:'Kolkata-based manufacturing company; donated to TMC.',
+    concern:false,
+  },
+];
+
+// TMC's largest donors (Bengal-focused)
+// Source: ADR India breakdown of ECI data
+const TMC_DONORS = [
+  {
+    amount:'₹542 cr', name:'Future Gaming & Hotel Services',
+    sector:'Lottery / Hospitality',
+    note:'Santiago Martin\'s lottery empire operates in Bengal through state-government-issued licences. Bengal\'s lottery business generates thousands of crores annually; the government controls who gets licences and on what terms.',
+  },
+  {
+    amount:'₹377 cr', name:'Haldia Energy',
+    sector:'Power Generation',
+    note:'Kolkata-based thermal power company. Power purchase agreements, plant approvals, and grid access in Bengal are controlled by the state government. Haldia Energy donated almost exclusively to TMC — the party that governed the state throughout the scheme\'s duration.',
+  },
+  {
+    amount:'₹160 cr', name:'Keventer Agro',
+    sector:'Food Processing / Dairy',
+    note:'Established Kolkata food company with deep Bengal retail presence. State government controls cold chain infrastructure, APMC regulations, and dairy cooperative policy — all directly relevant to Keventer\'s operations.',
+  },
+  {
+    amount:'~₹95 cr', name:'IFB Industries (& group)',
+    sector:'Manufacturing',
+    note:'IFB is headquartered in Kolkata. Donated to TMC; specific approvals or regulatory interactions not publicly documented.',
+  },
+  {
+    amount:'Undisclosed', name:'Multiple construction and infrastructure companies',
+    sector:'Real Estate / EPC',
+    note:'Several Bengal-based construction companies donated to TMC. Exact amounts are in the ECI-published data but are distributed across holding companies and subsidiaries, making aggregation imprecise. State government controls land acquisition, building approvals, and government contract awards.',
+  },
+];
+
+// Pattern cases (correlation between donation and regulatory outcome)
+// Source: Investigative reporting cited in notes
+const PATTERN_CASES = [
+  {
+    donor:'Future Gaming & Hotel Services',
+    donated:'₹1,368 crore (TMC: ₹542 cr, DMK: ₹509 cr)',
+    concern:'Santiago Martin\'s lottery operations faced ED investigations and state-level regulatory pressure in multiple states. Despite this, his company remained the single largest bond purchaser. Lottery licences in Bengal and Tamil Nadu were renewed without disruption. The correlation between donations and licence continuity has been flagged by ADR India.',
+    sourceNote:'Reported by The Hindu, Indian Express, March–April 2024',
+  },
+  {
+    donor:'Megha Engineering & Infrastructures',
+    donated:'₹966 crore (BJP: primary recipient)',
+    concern:'The Hyderabad EPC firm had multiple large Central government contracts in irrigation and water under the Jal Jeevan Mission and AMRUT schemes. An ED investigation into Megha\'s cash transactions was reportedly shelved after donations. Contract awards to the company continued at scale.',
+    sourceNote:'Reported by The Wire, Newslaundry, April 2024',
+  },
+  {
+    donor:'Haldia Energy (TMC donor)',
+    donated:'₹377 crore entirely to TMC',
+    concern:'Haldia Energy operates a 600 MW thermal power plant in Bengal with a state-regulated power purchase agreement. Plant capacity utilisation, PPA renewal terms, and grid access are governed by the West Bengal state government. The company donated ₹377 crore — almost its entire bond purchases — to the party that controlled these decisions.',
+    sourceNote:'ADR India analysis; The Hindu data analysis, March 2024',
+  },
+];
+
+// Timeline
+const BOND_TIMELINE = [
+  { date:'Nov 2016', event:'Finance Ministry proposes electoral bonds concept as part of political funding reform. Critics note the anonymous design defeats the transparency objective.' },
+  { date:'Feb 2017', event:'Finance Act 2017 amends Representation of the People Act, Companies Act, and Income Tax Act to enable the bond scheme. Changes passed as a Money Bill — bypassing Rajya Sabha scrutiny.' },
+  { date:'Mar 2018', event:'First tranche of electoral bonds issued. State Bank of India is sole issuing bank. BJP encashes bonds worth hundreds of crores in the first window.' },
+  { date:'2018–23', event:'Bonds issued every quarter. Total issuances cross ₹10,000 crore. TMC encashes over ₹1,000 crore by 2022. Investigative reports begin flagging the donation-contract correlation pattern.' },
+  { date:'Jan 2023', event:'Supreme Court bench begins hearing writ petitions challenging the scheme. ADR India, Congress, and others argue it enables anonymous corporate capture of politics.' },
+  { date:'15 Feb 2024', event:'Five-judge Supreme Court Constitution Bench unanimously strikes down the scheme as unconstitutional. Rules it violates voters\' right to information under Article 19(1)(a). Orders SBI to submit all data to ECI within 3 weeks.' },
+  { date:'12 Mar 2024', event:'SBI submits partial data to ECI after initially requesting a 3-month extension (denied by court). Court criticises SBI for delay.' },
+  { date:'14–15 Mar 2024', event:'ECI publishes bond data on its website. ADR India, journalists, and researchers begin cross-matching donor and recipient records. The donor-to-party flow becomes public for the first time.' },
+  { date:'Apr–May 2024', event:'Investigative reporting establishes donation-contract-investigation correlation in multiple cases. Parliamentary debate intensifies. Several companies named in reports dispute the characterisation.' },
+  { date:'May 2026', event:'New BJP government in Bengal inherits the transparency precedent set by the SC ruling. Electoral bond data remains publicly available on ECI website for voter reference.' },
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// RENDER ENGINE
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Bar chart
+function renderPartyChart() {
+  const max = Math.max(...PARTY_RECEIPTS.map(p => p.amount));
+  const el = document.getElementById('partyChart');
+  el.innerHTML = PARTY_RECEIPTS.map(p => {
+    const w = (p.amount / max * 100).toFixed(1);
+    return `<div class="bar-row">
+      <div class="bar-party">${p.party}</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:0%;background:${p.color};" data-w="${w}" data-label="₹${p.amount.toLocaleString('en-IN')} cr (${p.pct}%)">
+          <div class="bar-fill-highlight" style="background:#fff;"></div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  setTimeout(() => {
+    el.querySelectorAll('.bar-fill').forEach(b => { b.style.width = b.dataset.w + '%'; });
+  }, 300);
+}
+
+// Donor table
+function renderDonorTable() {
+  document.getElementById('donorTableBody').innerHTML = TOP_DONORS.map(d => `
+    <tr>
+      <td><span class="donor-rank">${d.rank}</span></td>
+      <td><div class="donor-name">${d.name}</div><div class="donor-industry">${d.industry}</div></td>
+      <td><div class="donor-industry">${d.industry}</div></td>
+      <td><div class="donor-amount">₹${d.total} cr</div></td>
+      <td><div class="donor-recipients">${d.recipients}</div></td>
+      <td>${d.concern ? '<span class="concern-tag">Under scrutiny</span>' : '—'}</td>
+    </tr>`).join('');
+}
+
+// TMC donors
+function renderTmcDonors() {
+  document.getElementById('tmcDonors').innerHTML = TMC_DONORS.map(d => `
+    <div class="tmc-donor-row">
+      <div class="tmc-amount-big">${d.amount}</div>
+      <div class="tmc-donor-info">
+        <div class="tmc-donor-name">${d.name}</div>
+        <div class="tmc-donor-sector">${d.sector}</div>
+        <div class="tmc-donor-note">${d.note}</div>
+      </div>
+    </div>`).join('');
+}
+
+// Pattern cards
+function renderPatternCards() {
+  document.getElementById('patternCards').innerHTML = PATTERN_CASES.map(c => `
+    <div class="pattern-card">
+      <div class="pattern-card-header">
+        <div>
+          <div class="pattern-donor">${c.donor}</div>
+          <div class="pattern-amounts">${c.donated}</div>
+        </div>
+      </div>
+      <div class="pattern-desc">${c.concern}</div>
+      <div class="pattern-note">Source: ${c.sourceNote}</div>
+    </div>`).join('');
+}
+
+// Timeline
+function renderTimeline() {
+  document.getElementById('bondTimeline').innerHTML = BOND_TIMELINE.map(t => `
+    <li class="tl-item">
+      <div class="tl-date-col">${t.date}</div>
+      <div class="tl-event-col">${t.event}</div>
+    </li>`).join('');
+}
+
+// Fade observer
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold:0.06, rootMargin:'0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Init
+renderPartyChart();
+renderDonorTable();
+renderTmcDonors();
+renderPatternCards();
+renderTimeline();
+</script>
+</body>
+</html>

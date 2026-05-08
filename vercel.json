@@ -5,6 +5,7 @@
     { "source": "/constituencies", "destination": "/constituencies.html" },
     { "source": "/demonetisation", "destination": "/demonetisation.html" },
     { "source": "/accountability", "destination": "/accountability.html" },
-    { "source": "/corruption", "destination": "/corruption-tracker.html" }
+    { "source": "/corruption", "destination": "/corruption-tracker.html" },
+    { "source": "/bonds", "destination": "/electoral-bonds.html" }
   ]
 }
