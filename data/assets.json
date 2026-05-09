@@ -72,6 +72,36 @@
       "source": "ECI affidavit data 2021 & 2026; ADR India MyNeta."
     },
     {
+      "type": "extreme",
+      "name": "Haripada Barman",
+      "role": "TMC · Hemtabad MLA · 2026 winner",
+      "declared2021": "₹42.6 lakh",
+      "declared2026": "₹1.76 crore",
+      "growth": "+313% in 5 years",
+      "desc": "Haripada Barman declared ₹42.6 lakh in 2021 and ₹1.76 crore in 2026 — the single largest percentage increase in this tracker's dataset. The primary driver: a dramatic expansion in gold holdings, with approximately 490 grams of gold declared in 2026. An MLA salary over five years accounts for at most ₹40–50 lakh; the remaining ₹93 lakh increase has no declared business or professional income source on file.",
+      "source": "ECI affidavit data 2021 & 2026."
+    },
+    {
+      "type": "extreme",
+      "name": "Hiranmoy Chattopadhyay",
+      "role": "BJP · Shyampur MLA · 2026 winner",
+      "declared2021": "₹5.8 crore",
+      "declared2026": "₹12.89 crore",
+      "growth": "+122% in 5 years",
+      "desc": "With ₹12.89 crore declared in 2026, Hiranmoy Chattopadhyay holds the highest absolute wealth among all MLAs in this tracker. His investment profile is unusually sophisticated for a state legislator: over 60 distinct stock market holdings declared in the 2026 affidavit, alongside significant bank balances. The ₹7.09 crore increase in five years — while having no declared prior political office — warrants scrutiny of the income sources underpinning this portfolio.",
+      "source": "ECI affidavit data 2021 & 2026."
+    },
+    {
+      "type": "high",
+      "name": "Sadhan Ghosh",
+      "role": "TMC · Karimpur MLA · 2026 winner",
+      "declared2021": "₹82.1 lakh",
+      "declared2026": "₹2.4 crore",
+      "growth": "+192% in 5 years",
+      "desc": "Sadhan Ghosh nearly tripled his declared assets from ₹82.1 lakh to ₹2.4 crore between 2021 and 2026. Unusually, he also declared ₹75 lakh in liabilities — the highest debt-to-asset ratio among tracked MLAs. The combination of rapid asset accumulation and substantial outstanding liabilities raises questions about the financial arrangements underpinning both the growth and the debt.",
+      "source": "ECI affidavit data 2021 & 2026."
+    },
+    {
       "type": "high",
       "name": "Anubrata Mondal (\"Kesto\")",
       "role": "TMC · Bolpur MLA (did not contest 2026 — arrested)",
