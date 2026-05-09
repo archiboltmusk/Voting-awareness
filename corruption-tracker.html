@@ -475,6 +475,11 @@ function formatHearingDate(iso) {
   return `${d} ${months[m-1]} ${y}`;
 }
 
+function isDatePast(iso) {
+  const today = new Date().toISOString().slice(0,10);
+  return iso < today;
+}
+
 function renderHearings() {
   const STATUS_COLOR = {
     investigation:'#1565c0', trial:'#d97706', convicted:'#c0171b',
@@ -488,7 +493,7 @@ function renderHearings() {
     const isScheduled = nh && nh.date;
     const color = STATUS_COLOR[c.status] || '#6b5f4e';
     return `<tr class="docket-row">
-      <td class="docket-date${isScheduled ? '' : ' tbd'}">${isScheduled ? formatHearingDate(nh.date) : 'TBD'}</td>
+      <td class="docket-date${isScheduled ? (isDatePast(nh.date) ? ' tbd' : '') : ' tbd'}">${isScheduled ? (isDatePast(nh.date) ? '<span title="Hearing date has passed — verify current schedule" style="color:#b45309;">Date passed</span>' : formatHearingDate(nh.date)) : 'TBD'}</td>
       <td class="docket-case"><span class="docket-status-dot" style="background:${color}"></span><a href="#case-${c.id}">${c.name}</a></td>
       <td class="docket-court">${nh ? nh.court : '—'}</td>
       <td class="docket-matter">${nh ? nh.matter : 'No hearing scheduled'}</td>
@@ -567,7 +572,7 @@ function buildCard(c) {
   </div>
   <div class="case-footer">
     <span>Court: ${c.court}</span>
-    ${c.nextHearing && c.nextHearing.date ? `<span class="footer-next-hearing">Next hearing: ${formatHearingDate(c.nextHearing.date)} · ${c.nextHearing.matter.split(';')[0]}</span>` : ''}
+    ${c.nextHearing && c.nextHearing.date ? `<span class="footer-next-hearing">${isDatePast(c.nextHearing.date) ? '<span style="color:#b45309;">Hearing date passed — verify schedule</span>' : 'Next hearing: ' + formatHearingDate(c.nextHearing.date) + ' · ' + c.nextHearing.matter.split(';')[0]}</span>` : ''}
     <span>Last updated: ${c.lastUpdated}</span>
   </div>
 </div>`;

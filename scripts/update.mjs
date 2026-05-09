@@ -3,15 +3,20 @@
  * Auto-update for The Bengal Reader — runs every 6 hours via GitHub Actions.
  *
  * Sources:
- *   1. Google News RSS  — per-case keyword queries (primary)
+ *   1. Google News RSS  — per-case and per-pledge keyword queries (primary)
  *   2. enforcement.gov.in — ED press releases (Bengal-filtered)
  *   3. cbi.gov.in       — CBI press releases (Bengal-filtered)
  *
  * Writes:
- *   data/news.json  — rolling fresh headlines per case (overwritten every run)
- *   data/cases.json — permanent timeline entries for significant developments
- *   data/meta.json  — autoChecked timestamp
- *   sitemap.xml     — lastmod dates kept current
+ *   data/news.json    — rolling fresh headlines per case (overwritten every run)
+ *   data/cases.json   — permanent timeline entries for significant developments
+ *   data/pledges.json — live news + auto-delayed status for accountability pledges
+ *   data/meta.json    — autoChecked timestamp
+ *   sitemap.xml       — lastmod dates kept current
+ *
+ * Failure policy:
+ *   Exits 1 (fails the CI job visibly) if ALL fetch sources return zero results,
+ *   indicating a likely network or rate-limit problem that needs attention.
  */
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -278,27 +283,106 @@ async function main() {
   }
   summaryWrite('');
 
-  // ── 4. Write data files ───────────────────────────────────────────────────
-  meta.autoChecked = runISO;
+  // ── 4. Stale hearing date detection ──────────────────────────────────────
+  summaryWrite('## Court Hearing Dates');
+  let staleHearings = 0;
+  for (const c of cases) {
+    if (c.nextHearing && c.nextHearing.date && c.nextHearing.date < runDate) {
+      summaryWrite(`- ⚠️ **${c.name}**: hearing date ${c.nextHearing.date} is in the past — needs manual update in data/cases.json`);
+      staleHearings++;
+    }
+  }
+  if (!staleHearings) summaryWrite('- ✓ All hearing dates are current or TBD');
+  summaryWrite('');
 
+  // ── 5. Pledge tracker update ──────────────────────────────────────────────
+  summaryWrite('## Accountability Pledges');
+  let pledgesObj;
+  let pledgesUpdated = 0;
+  try {
+    pledgesObj = JSON.parse(readFileSync('data/pledges.json', 'utf-8'));
+  } catch (e) {
+    errors.push(`pledges.json load: ${e.message}`);
+    summaryWrite(`- ⚠️ Could not load pledges.json: ${e.message}`);
+    pledgesObj = null;
+  }
+
+  if (pledgesObj) {
+    for (const p of pledgesObj.pledges) {
+      // Auto-mark as delayed when deadline passes with status still 'watching'
+      if (p.deadlineDate && p.status === 'watching' && p.deadlineDate < runDate) {
+        p.status = 'delayed';
+        pledgesUpdated++;
+        summaryWrite(`- 🔴 **${p.id}** auto-marked DELAYED (deadline ${p.deadlineDate} passed)`);
+      }
+
+      // Search for latest news on this pledge
+      if (p.keywords && p.keywords.length) {
+        try {
+          const items = await fetchGoogleNews(p.keywords[0]);
+          const recent = items.filter(n => n.date > cutoff7d).sort((a,b) => b.date - a.date);
+          if (recent.length > 0) {
+            const top = recent[0];
+            if (p.newsHeadline !== top.title) {
+              p.newsHeadline = top.title;
+              p.newsDate     = top.pubDate;
+              p.newsUrl      = top.url || null;
+              pledgesUpdated++;
+              summaryWrite(`- 📰 **${p.id}**: new headline — "${top.title.slice(0, 70)}"`);
+            } else {
+              summaryWrite(`- · **${p.id}**: ${recent.length} articles (headline unchanged)`);
+            }
+          } else {
+            summaryWrite(`- · **${p.id}**: no recent news`);
+          }
+        } catch (e) {
+          errors.push(`pledge news ${p.id}: ${e.message}`);
+          summaryWrite(`- ⚠️ **${p.id}**: fetch error`);
+        }
+        await new Promise(r => setTimeout(r, 400));
+      }
+    }
+    pledgesObj.lastUpdated = runDate;
+    writeFileSync('data/pledges.json', JSON.stringify(pledgesObj, null, 2));
+    summaryWrite(`- **${pledgesUpdated}** pledge records updated`);
+  }
+  summaryWrite('');
+
+  // ── 6. Write data files ───────────────────────────────────────────────────
+  meta.autoChecked = runISO;
   const newsDoc = { generated: runISO, cases: newsFeed };
 
   writeFileSync('data/cases.json', JSON.stringify(cases, null, 2));
   writeFileSync('data/meta.json',  JSON.stringify(meta,  null, 2));
   writeFileSync('data/news.json',  JSON.stringify(newsDoc, null, 2));
-
   updateSitemap(runDate);
 
-  // ── 5. Summary footer ─────────────────────────────────────────────────────
+  // ── 7. Failure guard — hard-fail if everything returned zero ─────────────
+  const totalArticles = Object.values(newsFeed).reduce((s, d) => s + d.articles.length, 0);
+  const fetchErrors   = errors.filter(e => e.includes('fetch') || e.includes('HTTP')).length;
+  const totalSources  = Object.keys(CASE_KEYWORDS).length + 2; // cases + ED + CBI
+  const allFailed     = totalArticles === 0 && fetchErrors >= totalSources;
+
+  // ── 8. Summary footer ─────────────────────────────────────────────────────
   summaryWrite('## Result');
-  summaryWrite(`- **${timelineAdded}** permanent timeline entries added`);
-  summaryWrite(`- \`data/news.json\` refreshed with latest headlines for all ${cases.length} cases`);
+  summaryWrite(`- **${timelineAdded}** permanent timeline entries added to cases.json`);
+  summaryWrite(`- **${pledgesUpdated}** pledge records updated in pledges.json`);
+  summaryWrite(`- **${staleHearings}** stale hearing dates flagged`);
+  summaryWrite(`- \`data/news.json\` refreshed (${totalArticles} total articles across ${cases.length} cases)`);
   summaryWrite(`- \`meta.autoChecked\` → \`${runISO}\``);
+
   if (errors.length) {
     summaryWrite('\n### ⚠️ Non-fatal errors');
     errors.forEach(e => summaryWrite(`- ${e}`));
   } else {
     summaryWrite('- No errors');
+  }
+
+  if (allFailed) {
+    summaryWrite('\n## ❌ CRITICAL: All fetch sources returned zero results');
+    summaryWrite('This likely indicates rate-limiting or network failure. Marking run as failed.');
+    flushSummary();
+    process.exit(1);
   }
 
   flushSummary();
