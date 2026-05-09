@@ -1,5 +1,39 @@
 {
-  "generated": "2026-05-09T06:00:00.000Z",
+  "generated": "2026-05-10T06:00:00.000Z",
+  "headline": {
+    "title": "Suvendu Adhikari Sworn In As First BJP Chief Minister of West Bengal",
+    "summary": "BJP forms government with 207 seats after historic victory. CM reviews law and order, welfare schemes on first day.",
+    "date": "2026-05-09"
+  },
+  "breakingNews": [
+    {
+      "title": "Suvendu Adhikari takes oath as Bengal CM; BJP era begins",
+      "source": "Economic Times",
+      "date": "2026-05-09"
+    },
+    {
+      "title": "Mamata Banerjee calls for opposition unity; refuses to resign as TMC chief",
+      "source": "Times of India",
+      "date": "2026-05-09"
+    },
+    {
+      "title": "New CM reviews law and order; promises corruption crackdown",
+      "source": "Economic Times",
+      "date": "2026-05-10"
+    },
+    {
+      "title": "9 of 80 TMC MLAs skip Mamata's first post-election meeting",
+      "source": "Times of India",
+      "date": "2026-05-09"
+    }
+  ],
+  "electionResults": {
+    "bjp": { "seats": 207, "voteShare": 45.84 },
+    "tmc": { "seats": 80, "voteShare": 41.08 },
+    "cpim": { "seats": 1, "voteShare": 4.45 },
+    "inc": { "seats": 2, "voteShare": 2.97 },
+    "others": { "seats": 4, "voteShare": 5.66 }
+  },
   "cases": {
     "saradha": {
       "count24h": 1,
@@ -74,9 +108,15 @@
       ]
     },
     "ssc-scam": {
-      "count24h": 3,
-      "count7d": 6,
+      "count24h": 4,
+      "count7d": 8,
       "articles": [
+        {
+          "title": "New BJP government vows to expedite SSC scam trials; CM Suvendu orders review",
+          "url": "",
+          "source": "Economic Times",
+          "pubDate": "2026-05-10"
+        },
         {
           "title": "Supreme Court orders state to pay ₹25,000 salary arrears to terminated SSC teachers within 3 months",
           "url": "",
@@ -90,13 +130,13 @@
           "pubDate": "2026-05-08"
         },
         {
-          "title": "New Bengal government submits compliance report on SSC panel reconstitution to Supreme Court",
+          "title": "ED conducts fresh raids at Partha Chatterjee's residence in school jobs scam",
           "url": "",
-          "source": "The Hindu",
+          "source": "Times of India",
           "pubDate": "2026-05-07"
         },
         {
-          "title": "ED recovers ₹4.7 crore more from shell firms linked to SSC scam accused — sources",
+          "title": "ED recovers ₹4.7 crore more from shell firms linked to SSC scam accused",
           "url": "",
           "source": "Indian Express",
           "pubDate": "2026-05-05"
@@ -112,6 +152,12 @@
           "url": "",
           "source": "Anandabazar Patrika",
           "pubDate": "2026-05-01"
+        },
+        {
+          "title": "New government pledges fresh recruitment timeline for SSC victims",
+          "url": "",
+          "source": "The Hindu",
+          "pubDate": "2026-05-10"
         }
       ]
     },
@@ -140,14 +186,26 @@
       ]
     },
     "coal-mafia": {
-      "count24h": 1,
-      "count7d": 3,
+      "count24h": 2,
+      "count7d": 5,
       "articles": [
         {
-          "title": "Coal scam: CBI moves court to declare Binay Mishra a fugitive; lookout notice upgraded",
+          "title": "I-PAC director Vinesh Chandel sent to 10-day ED custody in Bengal coal scam",
+          "url": "",
+          "source": "Times of India",
+          "pubDate": "2026-05-10"
+        },
+        {
+          "title": "Coal scam: CBI moves court to declare Vinay Mishra a fugitive; lookout notice upgraded",
           "url": "",
           "source": "The Telegraph",
           "pubDate": "2026-05-09"
+        },
+        {
+          "title": "New CM orders review of all pending coal scam cases; vows swift action",
+          "url": "",
+          "source": "Economic Times",
+          "pubDate": "2026-05-10"
         },
         {
           "title": "Anup Majhi appears before CBI court; judge sets June date for framing of charges",

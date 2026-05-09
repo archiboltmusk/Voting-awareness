@@ -2,7 +2,7 @@
   "dims": ["Industry","Welfare","Education","Healthcare","Law & Order","Anti-Corrupt","Women Safety","Employment"],
   "parties": {
     "tmc":    { "name": "TMC",           "color": "#1a7a3c", "scores": [4,8,4,6,3,2,3,4], "seats2026": 80,  "seats2021": 213, "voteShare2026": 41.08, "status": "opposition" },
-    "bjp":    { "name": "BJP",           "color": "#e8640a", "scores": [8,6,6,6,7,5,6,7], "seats2026": 207, "seats2021": 77,  "voteShare2026": 45.84, "status": "ruling" },
+    "bjp":    { "name": "BJP",           "color": "#e8640a", "scores": [8,6,6,6,7,5,6,7], "seats2026": 207, "seats2021": 77,  "voteShare2026": 45.84, "status": "ruling", "cm": "Suvendu Adhikari", "swornIn": "2026-05-09" },
     "cpim":   { "name": "CPIM",          "color": "#c0171b", "scores": [3,6,7,6,5,5,6,4], "seats2026": 1,   "seats2021": 0,   "voteShare2026": 4.45,  "status": "opposition" },
     "inc":    { "name": "INC",           "color": "#1565c0", "scores": [6,6,6,6,5,4,6,6], "seats2026": 2,   "seats2021": 5,   "voteShare2026": 2.97,  "status": "opposition" },
     "isf":    { "name": "ISF",           "color": "#6b3fa0", "scores": [3,6,4,5,4,6,4,4], "seats2026": 0,   "seats2021": 1,   "voteShare2026": 1.20,  "status": "unrepresented" },
