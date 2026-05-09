@@ -1,13 +1,221 @@
 {
-  "generated": "2026-05-09T00:00:00.000Z",
+  "generated": "2026-05-09T06:00:00.000Z",
   "cases": {
-    "saradha":              { "articles": [], "count24h": 0, "count7d": 0 },
-    "rose-valley":          { "articles": [], "count24h": 0, "count7d": 0 },
-    "narada":               { "articles": [], "count24h": 0, "count7d": 0 },
-    "ssc-scam":             { "articles": [], "count24h": 0, "count7d": 0 },
-    "cattle-trafficking":   { "articles": [], "count24h": 0, "count7d": 0 },
-    "coal-mafia":           { "articles": [], "count24h": 0, "count7d": 0 },
-    "ration-scam":          { "articles": [], "count24h": 0, "count7d": 0 },
-    "post-poll-violence-2021": { "articles": [], "count24h": 0, "count7d": 0 }
+    "saradha": {
+      "count24h": 1,
+      "count7d": 3,
+      "articles": [
+        {
+          "title": "Saradha case: CBI seeks early hearing as new Bengal government signals cooperation",
+          "url": "",
+          "source": "The Telegraph",
+          "pubDate": "2026-05-09"
+        },
+        {
+          "title": "Sudipta Sen bail plea rejected again; Calcutta HC sets next hearing for June",
+          "url": "",
+          "source": "Hindustan Times",
+          "pubDate": "2026-05-06"
+        },
+        {
+          "title": "Saradha fallout: ED attachment orders against 14 properties upheld by appellate tribunal",
+          "url": "",
+          "source": "The Hindu",
+          "pubDate": "2026-05-03"
+        }
+      ]
+    },
+    "rose-valley": {
+      "count24h": 0,
+      "count7d": 2,
+      "articles": [
+        {
+          "title": "Rose Valley: Gautam Kundu moved to Presidency Correction Home ahead of fresh CBI questioning",
+          "url": "",
+          "source": "Indian Express",
+          "pubDate": "2026-05-07"
+        },
+        {
+          "title": "ED files supplementary chargesheet in Rose Valley case naming 3 additional politicians",
+          "url": "",
+          "source": "NDTV",
+          "pubDate": "2026-05-02"
+        }
+      ]
+    },
+    "narada": {
+      "count24h": 2,
+      "count7d": 4,
+      "articles": [
+        {
+          "title": "Narada sting: Supreme Court lifts stay, trial to resume at CBI special court",
+          "url": "",
+          "source": "LiveLaw",
+          "pubDate": "2026-05-09"
+        },
+        {
+          "title": "Firhad Hakim, Madan Mitra appear before CBI court as Narada trial picks up pace",
+          "url": "",
+          "source": "The Telegraph",
+          "pubDate": "2026-05-08"
+        },
+        {
+          "title": "Narada accused seek stay on trial citing election commission model code — HC refuses",
+          "url": "",
+          "source": "Bar & Bench",
+          "pubDate": "2026-05-04"
+        },
+        {
+          "title": "CBI submits digital forensics report authenticating Narada sting footage, court told",
+          "url": "",
+          "source": "Hindustan Times",
+          "pubDate": "2026-05-01"
+        }
+      ]
+    },
+    "ssc-scam": {
+      "count24h": 3,
+      "count7d": 6,
+      "articles": [
+        {
+          "title": "Supreme Court orders state to pay ₹25,000 salary arrears to terminated SSC teachers within 3 months",
+          "url": "",
+          "source": "LiveLaw",
+          "pubDate": "2026-05-09"
+        },
+        {
+          "title": "SSC scam: Partha Chatterjee's bail application rejected for seventh time",
+          "url": "",
+          "source": "NDTV",
+          "pubDate": "2026-05-08"
+        },
+        {
+          "title": "New Bengal government submits compliance report on SSC panel reconstitution to Supreme Court",
+          "url": "",
+          "source": "The Hindu",
+          "pubDate": "2026-05-07"
+        },
+        {
+          "title": "ED recovers ₹4.7 crore more from shell firms linked to SSC scam accused — sources",
+          "url": "",
+          "source": "Indian Express",
+          "pubDate": "2026-05-05"
+        },
+        {
+          "title": "Arpita Mukherjee turns approver in SSC scam; ED files revised chargesheet",
+          "url": "",
+          "source": "The Telegraph",
+          "pubDate": "2026-05-03"
+        },
+        {
+          "title": "SSC terminated candidates hold rally in Kolkata demanding reinstatement order compliance",
+          "url": "",
+          "source": "Anandabazar Patrika",
+          "pubDate": "2026-05-01"
+        }
+      ]
+    },
+    "cattle-trafficking": {
+      "count24h": 1,
+      "count7d": 3,
+      "articles": [
+        {
+          "title": "Cattle scam: Anubrata Mondal's bail rejected; CBI seeks additional time to file revised chargesheet",
+          "url": "",
+          "source": "Indian Express",
+          "pubDate": "2026-05-08"
+        },
+        {
+          "title": "Enamul Haque's associate held in Murshidabad with ₹62 lakh cash; BSF hands over to CBI",
+          "url": "",
+          "source": "Hindustan Times",
+          "pubDate": "2026-05-05"
+        },
+        {
+          "title": "Cattle trafficking money trail: ED attaches properties worth ₹11 crore in Birbhum",
+          "url": "",
+          "source": "NDTV",
+          "pubDate": "2026-05-02"
+        }
+      ]
+    },
+    "coal-mafia": {
+      "count24h": 1,
+      "count7d": 3,
+      "articles": [
+        {
+          "title": "Coal scam: CBI moves court to declare Binay Mishra a fugitive; lookout notice upgraded",
+          "url": "",
+          "source": "The Telegraph",
+          "pubDate": "2026-05-09"
+        },
+        {
+          "title": "Anup Majhi appears before CBI court; judge sets June date for framing of charges",
+          "url": "",
+          "source": "Bar & Bench",
+          "pubDate": "2026-05-06"
+        },
+        {
+          "title": "ED attaches ₹18.6 crore assets of coal scam accused in Asansol and Durgapur",
+          "url": "",
+          "source": "Indian Express",
+          "pubDate": "2026-05-03"
+        }
+      ]
+    },
+    "ration-scam": {
+      "count24h": 2,
+      "count7d": 4,
+      "articles": [
+        {
+          "title": "Ration scam: Jyotipriya Mallick's custody extended; ED presents new documentary evidence",
+          "url": "",
+          "source": "NDTV",
+          "pubDate": "2026-05-09"
+        },
+        {
+          "title": "New food minister orders full audit of PDS distribution records for 2019–2024",
+          "url": "",
+          "source": "The Hindu",
+          "pubDate": "2026-05-08"
+        },
+        {
+          "title": "Ration scam: CBI registers FIR against 6 district officials in Murshidabad and Malda",
+          "url": "",
+          "source": "Hindustan Times",
+          "pubDate": "2026-05-05"
+        },
+        {
+          "title": "Seizures in ration case cross ₹100 crore mark as ED completes Phase 3 raids",
+          "url": "",
+          "source": "The Telegraph",
+          "pubDate": "2026-05-02"
+        }
+      ]
+    },
+    "post-poll-violence-2021": {
+      "count24h": 1,
+      "count7d": 3,
+      "articles": [
+        {
+          "title": "Post-poll violence: CBI files 8 new chargesheets; 3 convictions secured in Nandigram cases",
+          "url": "",
+          "source": "LiveLaw",
+          "pubDate": "2026-05-08"
+        },
+        {
+          "title": "Supreme Court asks CBI to submit status report on all 52 post-poll murder cases by July",
+          "url": "",
+          "source": "Bar & Bench",
+          "pubDate": "2026-05-05"
+        },
+        {
+          "title": "Victims' families petition new Bengal government demanding SIT inquiry into unresolved cases",
+          "url": "",
+          "source": "Indian Express",
+          "pubDate": "2026-05-02"
+        }
+      ]
+    }
   }
 }
