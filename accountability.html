@@ -186,6 +186,22 @@ footer a { color:#8a7a60; text-decoration:none; }
   .counter-cell { padding:1rem 1.5rem; }
   .progress-cell { min-width:60px; }
 }
+
+/* ── MOBILE NAV ── */
+@media(max-width:640px) {
+  .site-nav-inner { padding:0 1rem; }
+  .site-nav-brand { display:none; }
+  .site-nav-links { overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; flex-wrap:nowrap; width:100%; }
+  .site-nav-links::-webkit-scrollbar { display:none; }
+  .site-nav-link { padding:10px 11px; white-space:nowrap; }
+}
+@media(max-width:500px) {
+  .counter-cell { padding:0.7rem 0.8rem; }
+  .counter-big { font-size:clamp(2rem,10vw,3.5rem); }
+  .progress-cell { padding:0.7rem 0.3rem; }
+  .progress-num { font-size:1.3rem; }
+  .masthead h1 { font-size:clamp(2rem,9vw,5rem); }
+}
 </style>
 </head>
 <body>

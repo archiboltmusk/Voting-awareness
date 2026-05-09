@@ -182,6 +182,15 @@ footer a { color:#8a7a60; text-decoration:none; }
   .td-const { display:none; }
   .controls-inner { gap:0.6rem; }
 }
+
+/* ── MOBILE NAV ── */
+@media(max-width:640px) {
+  .site-nav-inner { padding:0 1rem; }
+  .site-nav-brand { display:none; }
+  .site-nav-links { overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; flex-wrap:nowrap; width:100%; }
+  .site-nav-links::-webkit-scrollbar { display:none; }
+  .site-nav-link { padding:10px 11px; white-space:nowrap; }
+}
 </style>
 </head>
 <body>
