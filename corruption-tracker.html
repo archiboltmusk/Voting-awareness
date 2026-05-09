@@ -300,6 +300,15 @@ footer a { color:#8a7a60; text-decoration:none; }
   .site-nav-links::-webkit-scrollbar { display:none; }
   .site-nav-link { padding:10px 11px; white-space:nowrap; }
 }
+/* ── SMOOTH & SEAMLESS ── */
+#scroll-prog{position:fixed;top:0;left:0;height:2px;background:var(--ink,#2c2416);width:0%;z-index:9999;pointer-events:none;will-change:width}
+body{animation:_pgFade .4s ease both}
+@keyframes _pgFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+button:active,.filter-btn:active,.theme-toggle:active,.lang-btn:active,.sort-btn:active{transform:scale(.95)}
+input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
+.case-card{transition:transform .2s ease,box-shadow .22s ease,background .2s}
+.case-card:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,0,0,.1)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
@@ -740,5 +749,6 @@ async function loadData() {
 
 loadData();
 </script>
+<script>(function(){var p=document.createElement('div');p.id='scroll-prog';document.body.prepend(p);window.addEventListener('scroll',function(){var d=document.documentElement;p.style.width=Math.min(d.scrollTop/(d.scrollHeight-d.clientHeight)*100,100)+'%';},{passive:true});})();</script>
 </body>
 </html>

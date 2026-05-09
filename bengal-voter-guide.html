@@ -883,6 +883,17 @@ body::before {
   .site-nav-links::-webkit-scrollbar { display:none; }
   .site-nav-link { padding:10px 11px; white-space:nowrap; }
 }
+/* ── SMOOTH & SEAMLESS ── */
+#scroll-prog{position:fixed;top:0;left:0;height:2px;background:var(--ink,#2c2416);width:0%;z-index:9999;pointer-events:none;will-change:width}
+body{animation:_pgFade .4s ease both}
+@keyframes _pgFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+button:active,.filter-btn:active,.theme-toggle:active,.lang-btn:active,.sort-btn:active,.audience-tab:active,.filter-tab:active{transform:scale(.95)}
+input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
+.era-card{transition:transform .18s ease,background .3s}.era-card:hover{transform:translateY(-2px)}
+.step-card{transition:transform .18s ease,background .2s}.step-card:hover{transform:translateY(-1px)}
+.resource-card{transition:transform .18s ease,background .2s}.resource-card:hover{transform:translateY(-1px)}
+.right-item{transition:transform .18s ease,background .2s}.right-item:hover{transform:translateY(-1px)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body lang="en" data-theme="light">
@@ -2167,5 +2178,6 @@ document.addEventListener('click', function() {
   document.querySelectorAll('.gloss.tip-open').forEach(function(g) { g.classList.remove('tip-open'); });
 });
 </script>
+<script>(function(){var p=document.createElement('div');p.id='scroll-prog';document.body.prepend(p);window.addEventListener('scroll',function(){var d=document.documentElement;p.style.width=Math.min(d.scrollTop/(d.scrollHeight-d.clientHeight)*100,100)+'%';},{passive:true});})();</script>
 </body>
 </html>
