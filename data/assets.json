@@ -113,7 +113,7 @@
     }
   ],
   "partyAverages": [
-    { "party": "BJP",      "color": "#e8640a", "avg2021": 148, "avg2026": 196, "seatsWon2026": 206, "note": "Average across 206 winners; pulled up by a small number of wealthy MLAs" },
+    { "party": "BJP",      "color": "#e8640a", "avg2021": 148, "avg2026": 196, "seatsWon2026": 207, "note": "Average across 207 winners; pulled up by a small number of wealthy MLAs" },
     { "party": "TMC",      "color": "#1a7a3c", "avg2021": 212, "avg2026": 278, "seatsWon2026": 80,  "note": "Higher average reflects TMC's longer incumbency and ministerial wealth accumulation" },
     { "party": "CPIM",     "color": "#c0171b", "avg2021": 45,  "avg2026": 52,  "seatsWon2026": 5,   "note": "CPIM candidates historically declare lower assets; party discipline on wealth display" },
     { "party": "Congress", "color": "#1565c0", "avg2021": 89,  "avg2026": 110, "seatsWon2026": 3,   "note": "Small sample size; averages less meaningful with fewer winners" }
