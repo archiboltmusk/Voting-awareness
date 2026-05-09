@@ -131,6 +131,19 @@ p { margin-bottom:1.2rem; font-size:1.05rem; color:#2a2018; }
 .pledge-right { text-align:right; min-width:110px; }
 .pledge-deadline { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--muted); margin-top:0.5rem; }
 
+/* ── LIVE NEWS CHIP ── */
+@keyframes live-pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+.pledge-news-chip {
+  display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap;
+  font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:#1565c0;
+  margin-top:0.5rem; padding:0.3rem 0.6rem;
+  background:rgba(21,101,192,0.06); border:1px solid rgba(21,101,192,0.2); border-radius:2px;
+}
+.pledge-news-chip a { color:#1565c0; text-decoration:none; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.pledge-news-chip a:hover { text-decoration:underline; }
+.news-chip-dot { width:6px; height:6px; border-radius:50%; background:#c0171b; flex-shrink:0; animation:live-pulse 2s ease-in-out infinite; }
+.news-chip-date { color:var(--muted); flex-shrink:0; }
+
 /* ── PROGRESS SUMMARY ── */
 .progress-summary {
   background:var(--ink); color:var(--paper);
@@ -173,6 +186,22 @@ footer a { color:#8a7a60; text-decoration:none; }
   .counter-cell { padding:1rem 1.5rem; }
   .progress-cell { min-width:60px; }
 }
+
+/* ── MOBILE NAV ── */
+@media(max-width:640px) {
+  .site-nav-inner { padding:0 1rem; }
+  .site-nav-brand { display:none; }
+  .site-nav-links { overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; flex-wrap:nowrap; width:100%; }
+  .site-nav-links::-webkit-scrollbar { display:none; }
+  .site-nav-link { padding:10px 11px; white-space:nowrap; }
+}
+@media(max-width:500px) {
+  .counter-cell { padding:0.7rem 0.8rem; }
+  .counter-big { font-size:clamp(2rem,10vw,3.5rem); }
+  .progress-cell { padding:0.7rem 0.3rem; }
+  .progress-num { font-size:1.3rem; }
+  .masthead h1 { font-size:clamp(2rem,9vw,5rem); }
+}
 </style>
 </head>
 <body>
@@ -203,7 +232,7 @@ footer a { color:#8a7a60; text-decoration:none; }
   <div class="masthead-meta">
     <span>Source: BJP 2026 Manifesto · Press Statements · Campaign Speeches</span>
     <span>Election: 4 May 2026 · Swearing-in: 8 May 2026</span>
-    <span>Day 100 deadline: 16 August 2026</span>
+    <span id="lastUpdatedMeta">Day 100 deadline: 16 August 2026</span>
   </div>
 </header>
 
@@ -215,15 +244,15 @@ footer a { color:#8a7a60; text-decoration:none; }
       <div class="counter-label">Days Since Swearing-In</div>
     </div>
     <div class="counter-cell">
-      <div class="counter-big" style="color:#f4f1ea;opacity:.7">96</div>
+      <div class="counter-big" style="color:#f4f1ea;opacity:.7" id="daysRemaining">96</div>
       <div class="counter-label">Days Remaining</div>
     </div>
     <div class="counter-cell">
-      <div class="counter-big" style="color:#5a5040">0</div>
+      <div class="counter-big" style="color:#5a5040" id="deliveredCount">0</div>
       <div class="counter-label">Promises Delivered</div>
     </div>
     <div class="counter-cell">
-      <div class="counter-big" style="color:#e8640a">24</div>
+      <div class="counter-big" style="color:#e8640a" id="totalCount">24</div>
       <div class="counter-label">Pledges Tracked</div>
     </div>
   </div>
@@ -256,27 +285,27 @@ footer a { color:#8a7a60; text-decoration:none; }
   <div class="progress-summary fade-in">
     <div class="progress-summary-inner">
       <div class="progress-cell">
-        <div class="progress-num" style="color:#8a8070;">24</div>
+        <div class="progress-num" style="color:#8a8070;" id="cnt-watching">24</div>
         <div class="progress-lbl">Watching</div>
       </div>
       <div class="progress-cell">
-        <div class="progress-num" style="color:#1565c0;">0</div>
+        <div class="progress-num" style="color:#1565c0;" id="cnt-announced">0</div>
         <div class="progress-lbl">Announced</div>
       </div>
       <div class="progress-cell">
-        <div class="progress-num" style="color:#d97706;">0</div>
+        <div class="progress-num" style="color:#d97706;" id="cnt-in-progress">0</div>
         <div class="progress-lbl">In Progress</div>
       </div>
       <div class="progress-cell">
-        <div class="progress-num" style="color:#166534;">0</div>
+        <div class="progress-num" style="color:#166534;" id="cnt-delivered">0</div>
         <div class="progress-lbl">Delivered</div>
       </div>
       <div class="progress-cell">
-        <div class="progress-num" style="color:#b45309;">0</div>
+        <div class="progress-num" style="color:#b45309;" id="cnt-delayed">0</div>
         <div class="progress-lbl">Delayed</div>
       </div>
       <div class="progress-cell">
-        <div class="progress-num" style="color:#c0171b;">0</div>
+        <div class="progress-num" style="color:#c0171b;" id="cnt-broken">0</div>
         <div class="progress-lbl">Broken</div>
       </div>
     </div>
@@ -295,74 +324,7 @@ footer a { color:#8a7a60; text-decoration:none; }
       <div class="section-label">🌾 Category I</div>
       <h2 class="section-title">Agriculture &amp; Farmers</h2>
     </div>
-    <div class="pledge-section">
-      <div class="pledge-category">Pledges in this category: 5</div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Direct Paddy Procurement at MSP</div>
-          <p class="pledge-detail">BJP promised to procure paddy directly from farmers at the Central MSP (₹2,183/quintal for common paddy, FY26) through government agencies, eliminating middlemen and the APMC commission agent layer that depressed farmer receipts under TMC.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Agriculture chapter) · Suvendu Adhikari, rally speech, Paschim Medinipur, March 2026</p>
-          <div class="pledge-update" id="upd-paddy">No government order issued yet.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 100 days</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">₹6,000/Year Kisan Samman Supplement</div>
-          <p class="pledge-detail">BJP pledged to supplement the Central PM-KISAN ₹6,000/year with a matching state contribution, bringing total direct benefit transfers to enrolled farmers to ₹12,000/year — a doubling of the existing Central scheme.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Welfare chapter) · Campaign literature, Purba Medinipur, February 2026</p>
-          <div class="pledge-update" id="upd-kisan">No government order issued yet.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 30 days</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Irrigation Canal Restoration — North Bengal</div>
-          <p class="pledge-detail">Restore and desilt the Teesta Barrage distribution canals in Jalpaiguri and Cooch Behar — neglected under TMC — to expand irrigation coverage for 3 lakh acres of agricultural land ahead of the kharif season.</p>
-          <p class="pledge-source">Source: BJP Jalpaiguri district manifesto supplement · Union Minister speech, Cooch Behar, April 2026</p>
-          <div class="pledge-update" id="upd-irrigation">No government order issued yet.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 60 days</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">PM Fasal Bima Yojana — Full State Enrollment Drive</div>
-          <p class="pledge-detail">BJP pledged to enroll all eligible farmers in the Central crop insurance scheme PMFBY within 100 days — TMC had refused to implement it for over a decade, leaving Bengal's 70 lakh farming households without coverage during floods and cyclones. Target: 80 lakh enrollments.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Agriculture chapter) · Union Agriculture Minister speech, Kolkata, February 2026</p>
-          <div class="pledge-update" id="upd-pmfby">No enrollment drive or state notification launched.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 100 days</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Jute Direct Procurement at MSP — JCI Revival</div>
-          <p class="pledge-detail">BJP pledged to revive direct jute procurement through the Jute Corporation of India at declared MSP across Nadia, North 24 Parganas, and Murshidabad — bypassing the trader nexus that suppressed prices for 40 lakh jute farmer families dependent on the crop.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Agriculture chapter) · BJP rally, Krishnanagar, March 2026</p>
-          <div class="pledge-update" id="upd-jute">No JCI procurement circular issued by state.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: Before kharif 2026</div>
-        </div>
-      </div>
-    </div>
+    <div class="pledge-section" id="pledges-agriculture"></div>
   </section>
 
   <hr class="hr-ornate">
@@ -373,74 +335,7 @@ footer a { color:#8a7a60; text-decoration:none; }
       <div class="section-label">🏥 Category II</div>
       <h2 class="section-title">Welfare &amp; Women's Schemes</h2>
     </div>
-    <div class="pledge-section">
-      <div class="pledge-category">Pledges in this category: 5</div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Swastha Saathi 2.0 — Universal Health Cover</div>
-          <p class="pledge-detail">BJP pledged to expand the existing Swastha Saathi health insurance scheme (inherited from TMC) and increase the annual coverage cap from ₹5 lakh to ₹10 lakh per family, while expanding the empanelled hospital network to include private hospitals in district towns.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Health chapter)</p>
-          <div class="pledge-update" id="upd-health">No government order issued yet.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 100 days</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Free Domestic Electricity — 300 Units/Month</div>
-          <p class="pledge-detail">BJP's campaign promise: households consuming up to 300 units/month would pay zero electricity bills — a significant expansion of the existing Central PM-Surya Ghar rooftop solar scheme's free-unit provisions.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Energy chapter) · PM Modi rally, Brigade Parade Ground, April 2026</p>
-          <div class="pledge-update" id="upd-elec">No government order issued yet.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 100 days</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Bijoya Lakshmi — Women's Monthly Stipend</div>
-          <p class="pledge-detail">BJP's answer to TMC's Lakshmir Bhandar: a renamed/restructured scheme providing ₹2,000/month to women-headed households below the poverty line, using Aadhaar-linked direct bank transfer with zero intermediaries.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Women's Empowerment chapter) · Dilip Ghosh rally speech, Burdwan, March 2026</p>
-          <div class="pledge-update" id="upd-bijoya">No government order issued yet.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 60 days</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Old Pension Scheme — State Employee Restoration</div>
-          <p class="pledge-detail">BJP pledged to restore the Old Pension Scheme (OPS) for West Bengal state government employees, reversing the NPS enrollment that began under TMC — a demand from over 4 lakh state employees whose retirement security is at risk under market-linked NPS returns. A pension security committee was promised within 30 days.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Governance chapter) · BJP rally, Howrah, April 2026</p>
-          <div class="pledge-update" id="upd-ops">No committee constituted; no notification issued.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 30 days</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">PDS Ration Card Audit — Eliminate Ghost Beneficiaries</div>
-          <p class="pledge-detail">BJP pledged an Aadhaar-linked audit of all Public Distribution System ration cards within 100 days to eliminate duplicate and fake beneficiaries — with genuine BPL families to receive enhanced food entitlements freed by the audit savings. TMC-era estimates put ghost cards at 30–40 lakh.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Food Security chapter) · BJP press statement, January 2026</p>
-          <div class="pledge-update" id="upd-pds">No audit notification or NIC tender issued.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 100 days</div>
-        </div>
-      </div>
-    </div>
+    <div class="pledge-section" id="pledges-welfare"></div>
   </section>
 
   <hr class="hr-ornate">
@@ -451,87 +346,7 @@ footer a { color:#8a7a60; text-decoration:none; }
       <div class="section-label">⚖️ Category III</div>
       <h2 class="section-title">Law, Order &amp; Anti-Corruption</h2>
     </div>
-    <div class="pledge-section">
-      <div class="pledge-category">Pledges in this category: 6</div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Dissolve TMC Syndicate Networks — 100-Day Crackdown</div>
-          <p class="pledge-detail">BJP's most-cited promise: a systematic crackdown on the "cut money" and "tolly" collection networks operated by TMC-linked syndicates in construction, sand mining, and public works — with ED and CBI referrals for documented cases.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Governance chapter) · Suvendu Adhikari, multiple rallies, 2025–26</p>
-          <div class="pledge-update" id="upd-syndicate">No action announced yet. Post-election violence against TMC workers reported in some districts — separate from syndicate dissolution.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 30 days</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">SSC Teacher Regularization — Court-Compliant Scheme</div>
-          <p class="pledge-detail">Devise a scheme to re-employ the ~26,000 teachers dismissed under Supreme Court orders in the SSC recruitment scam — BJP promised a fresh, corruption-free recruitment process with interim employment for those who passed original written tests.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Education chapter) · Suvendu Adhikari statement, February 2026</p>
-          <div class="pledge-update" id="upd-ssc">No government order issued yet. Supreme Court oversight remains active.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 60 days</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Sandeshkhali — Compensation &amp; FIR Action</div>
-          <p class="pledge-detail">BJP pledged to ensure all complainants from the Sandeshkhali sexual assault and land-grabbing cases receive state support, that all pending FIRs are reinvestigated under new leadership, and that the identified accused face trial.</p>
-          <p class="pledge-source">Source: BJP 2026 campaign material · PM Modi rally, Basirhat, March 2026</p>
-          <div class="pledge-update" id="upd-sandeshkhali">No official action yet.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 30 days</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Narada &amp; Rose Valley — CBI Handover</div>
-          <p class="pledge-detail">BJP pledged to formally hand over all pending Narada sting and Rose Valley chit-fund investigations to the CBI for time-bound completion, removing state police interference that had stalled prosecutions under TMC.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Accountability chapter)</p>
-          <div class="pledge-update" id="upd-narada">No formal order issued.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 45 days</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Post-Election Violence — Victim Relief &amp; Guaranteed FIR</div>
-          <p class="pledge-detail">Following BJP's election win, widespread reports emerged of retaliatory violence against political opponents in Murshidabad, Cooch Behar, and South 24 Parganas. BJP pledged that under its government, all verified victims would receive state relief, medical aid, and guaranteed FIR registration — without police turning away complainants.</p>
-          <p class="pledge-source">Source: BJP post-result press conference, Kolkata, 5 May 2026 · DGP direction reported by Anandabazar Patrika</p>
-          <div class="pledge-update" id="upd-violence">DGP directed district police to register all complaints. Central observer teams reportedly deployed. Independent verification of FIR conversion rate pending.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: Immediate</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Cut-Money Recovery — Jan Adalat Mechanism</div>
-          <p class="pledge-detail">BJP proposed a fast-track "Jan Adalat" (people's court) mechanism to adjudicate and recover the "cut money" (kickbacks on government scheme payments) extorted by TMC-linked operatives from scheme beneficiaries over 14 years — with recovered funds returned directly to beneficiary accounts.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Anti-Corruption chapter) · Suvendu Adhikari press conference, Kolkata, March 2026</p>
-          <div class="pledge-update" id="upd-cutmoney">No Jan Adalat notification or legal framework issued.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 45 days</div>
-        </div>
-      </div>
-    </div>
+    <div class="pledge-section" id="pledges-justice"></div>
   </section>
 
   <hr class="hr-ornate">
@@ -542,61 +357,7 @@ footer a { color:#8a7a60; text-decoration:none; }
       <div class="section-label">💼 Category IV</div>
       <h2 class="section-title">Employment &amp; Industry</h2>
     </div>
-    <div class="pledge-section">
-      <div class="pledge-category">Pledges in this category: 4</div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">10 Lakh Government Jobs — 5-Year Plan</div>
-          <p class="pledge-detail">BJP's headline employment pledge: 10 lakh new government and government-linked jobs over the 5-year term, starting with filling 2 lakh vacancies within the first 100 days by clearing the backlog of qualified applicants from clean recruitment processes.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Employment chapter) · Amit Shah press conference, Kolkata, January 2026</p>
-          <div class="pledge-update" id="upd-jobs">No recruitment notification issued yet.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 100 days (first tranche)</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Tata Motors Return — Singur Industrial Development</div>
-          <p class="pledge-detail">BJP pledged to convert the Singur land (site of the 2008 Tata Nano controversy) into a dedicated industrial zone for automotive or electronics manufacturing, targeting 15,000 direct jobs as a symbolic reversal of Bengal's industrial retreat.</p>
-          <p class="pledge-source">Source: BJP 2026 campaign speeches · Hooghly district manifesto supplement</p>
-          <div class="pledge-update" id="upd-singur">No industrial tender or MoU issued yet.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 100 days (proposal)</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Bengal Global Business Summit — Revamped Format</div>
-          <p class="pledge-detail">BJP pledged to hold a revamped investor summit within 6 months, with binding investment MoUs (not aspirational — tracked via actual capital disbursement over 2 years), targeting ₹5 lakh crore in committed investments.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Industry chapter)</p>
-          <div class="pledge-update" id="upd-bgbs">No summit date announced.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 6 months</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Leather &amp; Jute Revival — Bantala Complex &amp; Mill Belt</div>
-          <p class="pledge-detail">BJP pledged to revive Kolkata's Bantala Leather Complex (3 lakh workers) and the Hooghly–Bhadreshwar jute mill belt through interest subvention loans, modernization grants, and linkage to Central MSME schemes — sectors that contracted steadily under TMC's governance failures and union politics.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Industry chapter) · BJP labour cell campaign material, Howrah &amp; Hooghly, 2026</p>
-          <div class="pledge-update" id="upd-leather">No scheme notification or fund release issued.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 100 days (revival plan)</div>
-        </div>
-      </div>
-    </div>
+    <div class="pledge-section" id="pledges-employment"></div>
   </section>
 
   <hr class="hr-ornate">
@@ -607,61 +368,7 @@ footer a { color:#8a7a60; text-decoration:none; }
       <div class="section-label">🏗️ Category V</div>
       <h2 class="section-title">Infrastructure &amp; Housing</h2>
     </div>
-    <div class="pledge-section">
-      <div class="pledge-category">Pledges in this category: 4</div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">PMAY Backlog — 10 Lakh Homes in 100 Days</div>
-          <p class="pledge-detail">BJP identified ~10 lakh approved-but-unbuilt PMAY rural housing units stalled by TMC governance failures. The pledge: release withheld funds, complete verification, and ensure physical completion of the backlog within 100 days.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Housing chapter) · Suvendu Adhikari statement, multiple venues</p>
-          <div class="pledge-update" id="upd-pmay">No housing order issued yet.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 100 days</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Kolkata Metro Phase IV — Accelerated Completion</div>
-          <p class="pledge-detail">BJP pledged to accelerate Phase IV (Joka–Esplanade and Noapara–Barasat corridors) by eliminating state government delays in land acquisition and utility shifting — targeting full Phase IV operationalization by 2028.</p>
-          <p class="pledge-source">Source: BJP Kolkata manifesto supplement</p>
-          <div class="pledge-update" id="upd-metro">No official state order or coordination meeting announced.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: Land clearance in 100 days</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Ganga River Cleaning — NMG Phase II for Bengal</div>
-          <p class="pledge-detail">BJP pledged full state cooperation with the National Mission for Clean Ganga Phase II — specifically sewage treatment plants for Howrah, Kolkata's south-bank industrial zones, and 18 municipalities along the Ganga within Bengal's jurisdiction.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Environment chapter)</p>
-          <div class="pledge-update" id="upd-ganga">No state coordination order issued.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: MoU in 100 days</div>
-        </div>
-      </div>
-
-      <div class="pledge-card">
-        <div>
-          <div class="pledge-title">Durgapur–Asansol Industrial Corridor — Central MoU</div>
-          <p class="pledge-detail">BJP pledged to sign a tripartite MoU between the state, the Central Ministry of Commerce, and DMIC Development Corporation to integrate Durgapur–Asansol into the industrial corridor network — unlocking ₹30,000 crore in designated investment for the coal-belt's post-mining economic transition.</p>
-          <p class="pledge-source">Source: BJP 2026 Manifesto (Infrastructure chapter) · BJP Paschim Burdwan district manifesto supplement</p>
-          <div class="pledge-update" id="upd-dmic">No MoU signed; no state–Centre coordination meeting convened.</div>
-        </div>
-        <div class="pledge-right">
-          <span class="status-badge status-watching">Watching</span>
-          <div class="pledge-deadline">Target: 100 days (MoU)</div>
-        </div>
-      </div>
-    </div>
+    <div class="pledge-section" id="pledges-infra"></div>
   </section>
 
   <hr class="hr-ornate">
@@ -698,7 +405,8 @@ footer a { color:#8a7a60; text-decoration:none; }
   const remaining = Math.max(0, 100 - days);
   const pct = Math.min(100, days);
   document.getElementById('dayCount').textContent = days;
-  document.querySelector('.counter-grid .counter-cell:nth-child(2) .counter-big').textContent = remaining;
+  const rem = document.getElementById('daysRemaining');
+  if (rem) rem.textContent = remaining;
   requestAnimationFrame(() => {
     const fill = document.getElementById('dayFill');
     const lbl = document.getElementById('dayPct');
@@ -712,6 +420,102 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ── Pledge data loader ──
+function escHtml(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function timeAgo(iso) {
+  if (!iso) return '';
+  const diff = Date.now() - new Date(iso).getTime();
+  const mins = Math.floor(diff / 60000);
+  if (mins < 60) return mins + 'm ago';
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return hrs + 'h ago';
+  return Math.floor(hrs / 24) + 'd ago';
+}
+
+const STATUS_LABELS = {
+  watching: 'Watching', announced: 'Announced', 'in-progress': 'In Progress',
+  delivered: 'Delivered', delayed: 'Delayed', broken: 'Broken'
+};
+
+function renderPledgeSection(containerId, pledges) {
+  const el = document.getElementById(containerId);
+  if (!el || !pledges.length) return;
+  let html = `<div class="pledge-category">Pledges in this category: ${pledges.length}</div>`;
+  for (const p of pledges) {
+    const statusClass = 'status-' + (p.status || 'watching');
+    const statusLabel = STATUS_LABELS[p.status] || p.status;
+    const updateNote = p.updateNote
+      ? `<div class="pledge-update visible">${escHtml(p.updateNote)}</div>` : '';
+    let newsChip = '';
+    if (p.newsHeadline) {
+      const href = p.newsUrl ? escHtml(p.newsUrl) : '#';
+      const date = p.newsDate ? `<span class="news-chip-date">${timeAgo(p.newsDate)}</span>` : '';
+      newsChip = `<div class="pledge-news-chip"><span class="news-chip-dot"></span><a href="${href}" target="_blank" rel="noopener noreferrer">${escHtml(p.newsHeadline)}</a>${date}</div>`;
+    }
+    html += `
+      <div class="pledge-card">
+        <div>
+          <div class="pledge-title">${escHtml(p.title)}</div>
+          <p class="pledge-detail">${escHtml(p.detail)}</p>
+          <p class="pledge-source">Source: ${escHtml(p.source)}</p>
+          ${updateNote}${newsChip}
+        </div>
+        <div class="pledge-right">
+          <span class="status-badge ${statusClass}">${statusLabel}</span>
+          <div class="pledge-deadline">Target: ${escHtml(p.deadlineLabel)}</div>
+        </div>
+      </div>`;
+  }
+  el.innerHTML = html;
+}
+
+async function loadData() {
+  try {
+    const resp = await fetch('/data/pledges.json');
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+    const pledges = data.pledges || [];
+
+    const byCategory = {};
+    const counts = { watching:0, announced:0, 'in-progress':0, delivered:0, delayed:0, broken:0 };
+
+    for (const p of pledges) {
+      (byCategory[p.category] = byCategory[p.category] || []).push(p);
+      if (p.status in counts) counts[p.status]++;
+    }
+
+    renderPledgeSection('pledges-agriculture', byCategory.agriculture || []);
+    renderPledgeSection('pledges-welfare',     byCategory.welfare     || []);
+    renderPledgeSection('pledges-justice',     byCategory.justice     || []);
+    renderPledgeSection('pledges-employment',  byCategory.employment  || []);
+    renderPledgeSection('pledges-infra',       byCategory.infra       || []);
+
+    // Update progress summary numbers
+    for (const [key, val] of Object.entries(counts)) {
+      const el = document.getElementById('cnt-' + key);
+      if (el) el.textContent = val;
+    }
+    // Update delivered counter in hero
+    const dc = document.getElementById('deliveredCount');
+    if (dc) dc.textContent = counts.delivered;
+    const tc = document.getElementById('totalCount');
+    if (tc) tc.textContent = pledges.length;
+
+    // Update masthead last-updated timestamp
+    if (data.lastUpdated) {
+      const meta = document.getElementById('lastUpdatedMeta');
+      if (meta) meta.textContent = 'Data updated: ' + new Date(data.lastUpdated).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' });
+    }
+  } catch (err) {
+    console.warn('Could not load pledges.json:', err.message);
+  }
+}
+
+loadData();
 </script>
 </body>
 </html>

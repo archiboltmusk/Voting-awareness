@@ -229,6 +229,8 @@ async function main() {
           timelineAdded++;
           summaryWrite(`- ✅ **${c.id}** (CBI): ${r.title.slice(0, 70)}…`);
         }
+      } else {
+        summaryWrite(`- · **${c.id}**: ${recent24h.length} in 24 h / ${newsFeed[c.id].count7d} in 7 d`);
       }
     } catch (e) { errors.push(`CBI match ${c.id}: ${e.message}`); }
   }
@@ -273,8 +275,60 @@ async function main() {
       errors.push(`News ${c.id}: ${e.message}`);
       summaryWrite(`- ⚠️ **${c.id}**: ${e.message}`);
     }
+  }
+  if (!staleHearings) summaryWrite('- ✓ All hearing dates are current or TBD');
+  summaryWrite('');
 
-    await new Promise(r => setTimeout(r, 600)); // rate-limit politeness
+  // ── 5. Pledge tracker update ──────────────────────────────────────────────
+  summaryWrite('## Accountability Pledges');
+  let pledgesObj;
+  let pledgesUpdated = 0;
+  try {
+    pledgesObj = JSON.parse(readFileSync('data/pledges.json', 'utf-8'));
+  } catch (e) {
+    errors.push(`pledges.json load: ${e.message}`);
+    summaryWrite(`- ⚠️ Could not load pledges.json: ${e.message}`);
+    pledgesObj = null;
+  }
+
+  if (pledgesObj) {
+    for (const p of pledgesObj.pledges) {
+      // Auto-mark as delayed when deadline passes with status still 'watching'
+      if (p.deadlineDate && p.status === 'watching' && p.deadlineDate < runDate) {
+        p.status = 'delayed';
+        pledgesUpdated++;
+        summaryWrite(`- 🔴 **${p.id}** auto-marked DELAYED (deadline ${p.deadlineDate} passed)`);
+      }
+
+      // Search for latest news on this pledge
+      if (p.keywords && p.keywords.length) {
+        try {
+          const items = await fetchGoogleNews(p.keywords[0]);
+          const recent = items.filter(n => n.date > cutoff7d).sort((a,b) => b.date - a.date);
+          if (recent.length > 0) {
+            const top = recent[0];
+            if (p.newsHeadline !== top.title) {
+              p.newsHeadline = top.title;
+              p.newsDate     = top.pubDate;
+              p.newsUrl      = top.url || null;
+              pledgesUpdated++;
+              summaryWrite(`- 📰 **${p.id}**: new headline — "${top.title.slice(0, 70)}"`);
+            } else {
+              summaryWrite(`- · **${p.id}**: ${recent.length} articles (headline unchanged)`);
+            }
+          } else {
+            summaryWrite(`- · **${p.id}**: no recent news`);
+          }
+        } catch (e) {
+          errors.push(`pledge news ${p.id}: ${e.message}`);
+          summaryWrite(`- ⚠️ **${p.id}**: fetch error`);
+        }
+        await new Promise(r => setTimeout(r, 400));
+      }
+    }
+    pledgesObj.lastUpdated = runDate;
+    writeFileSync('data/pledges.json', JSON.stringify(pledgesObj, null, 2));
+    summaryWrite(`- **${pledgesUpdated}** pledge records updated`);
   }
   summaryWrite('');
 

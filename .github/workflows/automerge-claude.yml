@@ -1,0 +1,61 @@
+name: Auto-Merge Claude Branches
+
+# Fires on every push to any claude/* branch.
+# Opens a PR to main (or updates the existing one) and immediately merges it.
+# This means every commit Claude pushes lands on main automatically — no manual
+# PR review needed for a solo project.
+
+on:
+  push:
+    branches:
+      - 'claude/**'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Create or update PR then merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          # Check if a PR already exists for this branch
+          PR_URL=$(gh pr list --head "$BRANCH" --base main --json url --jq '.[0].url' 2>/dev/null || true)
+
+          if [ -z "$PR_URL" ]; then
+            echo "Creating new PR for $BRANCH → main"
+            PR_URL=$(gh pr create \
+              --head "$BRANCH" \
+              --base main \
+              --title "auto: merge $BRANCH into main" \
+              --body "Automatically created by the automerge-claude workflow. Merges all changes from \`$BRANCH\` into \`main\` so Vercel auto-deploys immediately." \
+            )
+            echo "Created: $PR_URL"
+          else
+            echo "PR already exists: $PR_URL"
+          fi
+
+          PR_NUMBER=$(echo "$PR_URL" | grep -oE '[0-9]+$')
+
+          # Wait a moment for GitHub to process the push
+          sleep 5
+
+          echo "Merging PR #$PR_NUMBER"
+          gh pr merge "$PR_NUMBER" \
+            --squash \
+            --delete-branch=false \
+            --subject "auto: $BRANCH → main ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+
+          echo "✓ Merged — Vercel will auto-deploy"
