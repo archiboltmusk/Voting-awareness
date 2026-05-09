@@ -1,45 +1,13 @@
 {
-  "generated": "2026-05-09T08:08:22.360Z",
+  "generated": "2026-05-09T00:00:00.000Z",
   "cases": {
-    "saradha": {
-      "articles": [],
-      "count24h": 0,
-      "count7d": 0
-    },
-    "rose-valley": {
-      "articles": [],
-      "count24h": 0,
-      "count7d": 0
-    },
-    "narada": {
-      "articles": [],
-      "count24h": 0,
-      "count7d": 0
-    },
-    "ssc-scam": {
-      "articles": [],
-      "count24h": 0,
-      "count7d": 0
-    },
-    "cattle-trafficking": {
-      "articles": [],
-      "count24h": 0,
-      "count7d": 0
-    },
-    "coal-mafia": {
-      "articles": [],
-      "count24h": 0,
-      "count7d": 0
-    },
-    "ration-scam": {
-      "articles": [],
-      "count24h": 0,
-      "count7d": 0
-    },
-    "post-poll-violence-2021": {
-      "articles": [],
-      "count24h": 0,
-      "count7d": 0
-    }
+    "saradha":              { "articles": [], "count24h": 0, "count7d": 0 },
+    "rose-valley":          { "articles": [], "count24h": 0, "count7d": 0 },
+    "narada":               { "articles": [], "count24h": 0, "count7d": 0 },
+    "ssc-scam":             { "articles": [], "count24h": 0, "count7d": 0 },
+    "cattle-trafficking":   { "articles": [], "count24h": 0, "count7d": 0 },
+    "coal-mafia":           { "articles": [], "count24h": 0, "count7d": 0 },
+    "ration-scam":          { "articles": [], "count24h": 0, "count7d": 0 },
+    "post-poll-violence-2021": { "articles": [], "count24h": 0, "count7d": 0 }
   }
 }

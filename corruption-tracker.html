@@ -300,6 +300,77 @@ footer a { color:#8a7a60; text-decoration:none; }
   .site-nav-links::-webkit-scrollbar { display:none; }
   .site-nav-link { padding:10px 11px; white-space:nowrap; }
 }
+
+/* ── LIVE NEWS FEED ── */
+.news-feed-wrap {
+  background:#0d0b09; color:var(--paper);
+  padding:1.6rem 0 2rem; border-bottom:2px solid #222;
+}
+.news-feed-top {
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:0.5rem; margin-bottom:1.2rem;
+}
+.news-feed-label {
+  font-family:'IBM Plex Mono',monospace; font-size:0.62rem;
+  letter-spacing:0.25em; text-transform:uppercase; color:var(--accent);
+  display:flex; align-items:center; gap:0.5rem;
+}
+.news-live-dot {
+  width:7px; height:7px; border-radius:50%; background:var(--accent);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:0.4; transform:scale(0.7); }
+}
+.news-refresh-status {
+  font-family:'IBM Plex Mono',monospace; font-size:0.58rem;
+  letter-spacing:0.1em; color:#5a5040;
+}
+.news-refresh-btn {
+  font-family:'IBM Plex Mono',monospace; font-size:0.58rem;
+  letter-spacing:0.12em; text-transform:uppercase;
+  background:none; border:1px solid #333; color:#6a6050;
+  padding:3px 10px; cursor:pointer; transition:all 0.2s;
+}
+.news-refresh-btn:hover { border-color:#888; color:#aaa; }
+.news-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+  gap:1px; background:#1a1614;
+}
+.news-card {
+  background:#0d0b09; padding:1rem 1.2rem;
+  transition:background 0.2s; border:none;
+}
+.news-card:hover { background:#151210; }
+.news-card-case {
+  font-family:'IBM Plex Mono',monospace; font-size:0.55rem;
+  letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:0.4rem;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.news-card-title {
+  font-family:'Crimson Pro',serif; font-size:1rem; font-weight:600;
+  line-height:1.4; color:rgba(245,240,232,0.9); margin-bottom:0.5rem;
+}
+.news-card-title a {
+  color:inherit; text-decoration:none;
+}
+.news-card-title a:hover { text-decoration:underline; }
+.news-card-meta {
+  font-family:'IBM Plex Mono',monospace; font-size:0.55rem;
+  letter-spacing:0.08em; color:#5a5040;
+  display:flex; gap:0.7rem; flex-wrap:wrap;
+}
+.news-empty {
+  font-family:'IBM Plex Mono',monospace; font-size:0.72rem;
+  color:#3a3028; text-align:center; padding:2rem;
+  letter-spacing:0.1em;
+}
+@media(max-width:600px) {
+  .news-grid { grid-template-columns:1fr; }
+}
 </style>
 </head>
 <body>

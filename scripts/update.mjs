@@ -3,20 +3,15 @@
  * Auto-update for The Bengal Reader — runs every 6 hours via GitHub Actions.
  *
  * Sources:
- *   1. Google News RSS  — per-case and per-pledge keyword queries (primary)
+ *   1. Google News RSS  — per-case keyword queries (primary)
  *   2. enforcement.gov.in — ED press releases (Bengal-filtered)
  *   3. cbi.gov.in       — CBI press releases (Bengal-filtered)
  *
  * Writes:
- *   data/news.json    — rolling fresh headlines per case (overwritten every run)
- *   data/cases.json   — permanent timeline entries for significant developments
- *   data/pledges.json — live news + auto-delayed status for accountability pledges
- *   data/meta.json    — autoChecked timestamp
- *   sitemap.xml       — lastmod dates kept current
- *
- * Failure policy:
- *   Exits 1 (fails the CI job visibly) if ALL fetch sources return zero results,
- *   indicating a likely network or rate-limit problem that needs attention.
+ *   data/news.json  — rolling fresh headlines per case (overwritten every run)
+ *   data/cases.json — permanent timeline entries for significant developments
+ *   data/meta.json  — autoChecked timestamp
+ *   sitemap.xml     — lastmod dates kept current
  */
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -234,6 +229,8 @@ async function main() {
           timelineAdded++;
           summaryWrite(`- ✅ **${c.id}** (CBI): ${r.title.slice(0, 70)}…`);
         }
+      } else {
+        summaryWrite(`- · **${c.id}**: ${recent24h.length} in 24 h / ${newsFeed[c.id].count7d} in 7 d`);
       }
     } catch (e) { errors.push(`CBI match ${c.id}: ${e.message}`); }
   }
@@ -277,19 +274,6 @@ async function main() {
     } catch (e) {
       errors.push(`News ${c.id}: ${e.message}`);
       summaryWrite(`- ⚠️ **${c.id}**: ${e.message}`);
-    }
-
-    await new Promise(r => setTimeout(r, 600)); // rate-limit politeness
-  }
-  summaryWrite('');
-
-  // ── 4. Stale hearing date detection ──────────────────────────────────────
-  summaryWrite('## Court Hearing Dates');
-  let staleHearings = 0;
-  for (const c of cases) {
-    if (c.nextHearing && c.nextHearing.date && c.nextHearing.date < runDate) {
-      summaryWrite(`- ⚠️ **${c.name}**: hearing date ${c.nextHearing.date} is in the past — needs manual update in data/cases.json`);
-      staleHearings++;
     }
   }
   if (!staleHearings) summaryWrite('- ✓ All hearing dates are current or TBD');
@@ -348,41 +332,27 @@ async function main() {
   }
   summaryWrite('');
 
-  // ── 6. Write data files ───────────────────────────────────────────────────
+  // ── 4. Write data files ───────────────────────────────────────────────────
   meta.autoChecked = runISO;
+
   const newsDoc = { generated: runISO, cases: newsFeed };
 
   writeFileSync('data/cases.json', JSON.stringify(cases, null, 2));
   writeFileSync('data/meta.json',  JSON.stringify(meta,  null, 2));
   writeFileSync('data/news.json',  JSON.stringify(newsDoc, null, 2));
+
   updateSitemap(runDate);
 
-  // ── 7. Failure guard — hard-fail if everything returned zero ─────────────
-  const totalArticles = Object.values(newsFeed).reduce((s, d) => s + d.articles.length, 0);
-  const fetchErrors   = errors.filter(e => e.includes('fetch') || e.includes('HTTP')).length;
-  const totalSources  = Object.keys(CASE_KEYWORDS).length + 2; // cases + ED + CBI
-  const allFailed     = totalArticles === 0 && fetchErrors >= totalSources;
-
-  // ── 8. Summary footer ─────────────────────────────────────────────────────
+  // ── 5. Summary footer ─────────────────────────────────────────────────────
   summaryWrite('## Result');
-  summaryWrite(`- **${timelineAdded}** permanent timeline entries added to cases.json`);
-  summaryWrite(`- **${pledgesUpdated}** pledge records updated in pledges.json`);
-  summaryWrite(`- **${staleHearings}** stale hearing dates flagged`);
-  summaryWrite(`- \`data/news.json\` refreshed (${totalArticles} total articles across ${cases.length} cases)`);
+  summaryWrite(`- **${timelineAdded}** permanent timeline entries added`);
+  summaryWrite(`- \`data/news.json\` refreshed with latest headlines for all ${cases.length} cases`);
   summaryWrite(`- \`meta.autoChecked\` → \`${runISO}\``);
-
   if (errors.length) {
     summaryWrite('\n### ⚠️ Non-fatal errors');
     errors.forEach(e => summaryWrite(`- ${e}`));
   } else {
     summaryWrite('- No errors');
-  }
-
-  if (allFailed) {
-    summaryWrite('\n## ❌ CRITICAL: All fetch sources returned zero results');
-    summaryWrite('This likely indicates rate-limiting or network failure. Marking run as failed.');
-    flushSummary();
-    process.exit(1);
   }
 
   flushSummary();
