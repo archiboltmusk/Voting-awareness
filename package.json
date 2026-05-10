@@ -4,11 +4,27 @@
   "description": "Voting awareness site for Bengal",
   "main": "index.html",
   "scripts": {
+    "dev": "npx serve -l 3000 .",
+    "dev:open": "npx serve -l 3000 . &",
+    "build": "npm run lint && npm run generate-sitemap && npm run validate",
+    "lint": "npx htmlhint *.html && npx stylelint *.css || true",
+    "format": "npx prettier --write *.html *.css *.js *.mjs *.json *.yml *.md",
+    "validate": "node scripts/validate.mjs",
+    "generate-sitemap": "node scripts/generate-sitemap.mjs",
+    "update-data": "node scripts/update.mjs",
+    "scrape-results": "node scripts/scrape-results.mjs",
     "test": "echo \"No tests specified\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "htmlhint": "^1.1.4",
+    "prettier": "^3.2.5",
+    "serve": "^14.2.1",
+    "stylelint": "^16.3.1",
+    "stylelint-config-standard": "^36.0.0"
+  },
   "dependencies": {
     "@vercel/speed-insights": "^1.0.12"
   }

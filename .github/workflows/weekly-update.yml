@@ -25,9 +25,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Run auto-update script
         run: node scripts/update.mjs
+
+      - name: Regenerate sitemap
+        run: node scripts/generate-sitemap.mjs
+
+      - name: Run validation
+        run: node scripts/validate.mjs || true
 
       - name: Commit and push if data changed
         run: |

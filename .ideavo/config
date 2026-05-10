@@ -7,21 +7,52 @@
       "command": "npm install"
     }
   ],
-  "codeChecks": [],
-  "buildSteps": [],
+  "codeChecks": [
+    {
+      "name": "Lint HTML",
+      "command": "npx htmlhint *.html"
+    },
+    {
+      "name": "Lint CSS",
+      "command": "npx stylelint *.css"
+    },
+    {
+      "name": "Validate Site",
+      "command": "node scripts/validate.mjs"
+    }
+  ],
+  "buildSteps": [
+    {
+      "name": "Generate Sitemap",
+      "command": "node scripts/generate-sitemap.mjs"
+    },
+    {
+      "name": "Format Code",
+      "command": "npx prettier --write *.html *.css *.js *.mjs *.json *.yml *.md"
+    }
+  ],
   "runStep": [
     {
       "name": "Run Dev Server",
-      "command": "npx serve . --port 3000",
+      "command": "npx serve -l 3000 .",
       "port": "3000"
     }
   ],
-  "deploySteps": [],
+  "deploySteps": [
+    {
+      "name": "Validate Build",
+      "command": "node scripts/validate.mjs"
+    }
+  ],
   "cleanupFiles": [
     "node_modules/",
     ".vercel/",
     ".cache/",
-    "*.log"
+    "*.log",
+    ".stylelintcache",
+    ".htmlhintrc",
+    ".stylelintrc.json",
+    ".prettierrc"
   ],
   "packageManager": "npm",
   "envPaths": [
