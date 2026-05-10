@@ -154,7 +154,7 @@ function headlineIsFresh(timeline, title) {
 
 // ── Sitemap updater ───────────────────────────────────────────────────────────
 function updateSitemap(dateStr) {
-  const path = 'sitemap.xml';
+  const path = 'public/sitemap.xml';
   if (!existsSync(path)) return;
   try {
     const xml = readFileSync(path, 'utf-8');
@@ -169,8 +169,8 @@ async function main() {
   summaryWrite(`# Bengal Reader — Auto-Update ${runISO}`);
   summaryWrite('');
 
-  const cases = JSON.parse(readFileSync('data/cases.json', 'utf-8'));
-  const meta  = JSON.parse(readFileSync('data/meta.json',  'utf-8'));
+  const cases = JSON.parse(readFileSync('public/data/cases.json', 'utf-8'));
+  const meta  = JSON.parse(readFileSync('public/data/meta.json',  'utf-8'));
   const now   = new Date();
   const cutoff24h = new Date(now - 24  * 3600_000);   // articles in last 24 h
   const cutoff7d  = new Date(now - 7   * 86400_000);  // articles in last 7 d
@@ -281,7 +281,7 @@ async function main() {
   let pledgesObj;
   let pledgesUpdated = 0;
   try {
-    pledgesObj = JSON.parse(readFileSync('data/pledges.json', 'utf-8'));
+    pledgesObj = JSON.parse(readFileSync('public/data/pledges.json', 'utf-8'));
   } catch (e) {
     errors.push(`pledges.json load: ${e.message}`);
     summaryWrite(`- ⚠️ Could not load pledges.json: ${e.message}`);
@@ -324,7 +324,7 @@ async function main() {
       }
     }
     pledgesObj.lastUpdated = runDate;
-    writeFileSync('data/pledges.json', JSON.stringify(pledgesObj, null, 2));
+    writeFileSync('public/data/pledges.json', JSON.stringify(pledgesObj, null, 2));
     summaryWrite(`- **${pledgesUpdated}** pledge records updated`);
   }
   summaryWrite('');
@@ -334,9 +334,9 @@ async function main() {
 
   const newsDoc = { generated: runISO, cases: newsFeed };
 
-  writeFileSync('data/cases.json', JSON.stringify(cases, null, 2));
-  writeFileSync('data/meta.json',  JSON.stringify(meta,  null, 2));
-  writeFileSync('data/news.json',  JSON.stringify(newsDoc, null, 2));
+  writeFileSync('public/data/cases.json', JSON.stringify(cases, null, 2));
+  writeFileSync('public/data/meta.json',  JSON.stringify(meta,  null, 2));
+  writeFileSync('public/data/news.json',  JSON.stringify(newsDoc, null, 2));
 
   updateSitemap(runDate);
 

@@ -8,6 +8,7 @@
     { "source": "/corruption", "destination": "/corruption-tracker.html" },
     { "source": "/bonds", "destination": "/electoral-bonds.html" },
     { "source": "/mlas", "destination": "/mla-criminal-records.html" },
-    { "source": "/assets", "destination": "/asset-growth.html" }
+    { "source": "/assets", "destination": "/asset-growth.html" },
+    { "source": "/methodology", "destination": "/methodology.html" }
   ]
 }

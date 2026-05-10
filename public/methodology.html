@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sources, update methods, and editorial principles for The Bengal Reader: how data is collected, verified, and updated automatically.">
+<meta property="og:title" content="The Bengal Reader — Sources & Methodology">
+<meta property="og:description" content="How this site collects data, what counts as verification, and how automated updates work.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="/og-voter-guide.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Bengal Reader — Sources & Methodology">
+<meta name="twitter:description" content="How this site collects data, what counts as verification, and how automated updates work.">
+<meta name="twitter:image" content="/og-voter-guide.svg">
+<title>The Bengal Reader — Sources & Methodology</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #f4f1ea;
+  --paper-dark: #ebe6db;
+  --paper-mid: #e0dbd0;
+  --ink: #1a1714;
+  --ink-soft: #4a443c;
+  --ink-faint: #8a8275;
+  --rule: #2a2520;
+  --accent: #e8640a;
+}
+[data-theme="dark"] {
+  --paper: #141210;
+  --paper-dark: #1e1b18;
+  --paper-mid: #252220;
+  --ink: #f0ece3;
+  --ink-soft: #b8b2a8;
+  --ink-faint: #706a62;
+  --rule: #3a3530;
+  --accent: #f07830;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Fraunces', Georgia, serif;
+  font-size:18px;
+  line-height:1.65;
+  overflow-x:hidden;
+  transition: background .3s, color .3s;
+}
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  pointer-events:none; opacity:.2; z-index:1;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.09 0 0 0 0 0.08 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.container { max-width:980px; margin:0 auto; padding:0 32px; position:relative; z-index:2; }
+.skip-link {
+  position:fixed; top:0; left:0; right:0;
+  padding:14px; background:var(--accent); color:#fff;
+  font-family:'JetBrains Mono',monospace; font-size:12px;
+  text-align:center; text-decoration:none; z-index:10000;
+  letter-spacing:.08em; text-transform:uppercase; font-weight:600;
+  transform:translateY(-100%); transition:transform .2s;
+}
+.skip-link:focus { transform:translateY(0); }
+:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.site-nav {
+  background:#0d0b09; border-bottom:1px solid rgba(255,255,255,0.06);
+  padding:9px 0; position:relative; z-index:200;
+}
+.site-nav-inner {
+  max-width:1280px; margin:0 auto; padding:0 32px;
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:8px;
+}
+.site-nav-brand {
+  font-family:'JetBrains Mono',monospace; font-size:9px;
+  letter-spacing:.25em; text-transform:uppercase; color:rgba(244,241,234,.3);
+}
+.site-nav-links { display:flex; }
+.site-nav-link {
+  font-family:'JetBrains Mono',monospace; font-size:9px;
+  letter-spacing:.15em; text-transform:uppercase;
+  color:rgba(244,241,234,.45); text-decoration:none;
+  padding:3px 14px; border-left:1px solid rgba(255,255,255,.07);
+  transition:color .2s;
+}
+.site-nav-link:first-child { border-left:none; }
+.site-nav-link:hover { color:rgba(244,241,234,.9); }
+.site-nav-link.active { color:rgba(244,241,234,.9); }
+@media(max-width:640px) {
+  .site-nav-inner { padding:0 1rem; }
+  .site-nav-brand { display:none; }
+  .site-nav-links { overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; flex-wrap:nowrap; width:100%; }
+  .site-nav-links::-webkit-scrollbar { display:none; }
+  .site-nav-link { padding:10px 11px; white-space:nowrap; }
+}
+.masthead {
+  border-bottom:3px double var(--rule);
+  padding:34px 0 24px;
+}
+.masthead-kicker {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-faint); margin-bottom:12px;
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;
+}
+.masthead-title {
+  font-size:clamp(34px,6vw,60px);
+  font-weight:900;
+  letter-spacing:-.02em;
+  line-height:1.05;
+}
+.masthead-sub {
+  margin-top:10px;
+  font-size:17px;
+  color:var(--ink-soft);
+  max-width:72ch;
+  font-style:italic;
+}
+.theme-toggle {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.1em; background:none; border:1px solid var(--ink-faint);
+  color:var(--ink-faint); padding:5px 12px; cursor:pointer;
+  transition:all .2s;
+}
+.theme-toggle:hover { border-color:var(--ink); color:var(--ink); }
+main { padding:44px 0 66px; }
+h2 {
+  font-size:22px;
+  margin-top:34px;
+  margin-bottom:10px;
+  letter-spacing:-.01em;
+}
+p { margin:12px 0; color:var(--ink-soft); }
+ul { margin:10px 0 10px 22px; color:var(--ink-soft); }
+li { margin:8px 0; }
+.rule {
+  border:none; border-top:1px solid var(--paper-mid);
+  margin:26px 0;
+}
+.card {
+  border:1px solid var(--paper-mid);
+  background:var(--paper-dark);
+  padding:18px 18px;
+  margin:18px 0;
+}
+.card strong { color:var(--ink); }
+.mono {
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  letter-spacing:.06em;
+  color:var(--ink-faint);
+  text-transform:uppercase;
+}
+footer {
+  background:var(--ink); color:rgba(244,241,234,.45);
+  padding:34px 24px; text-align:center;
+  font-family:'JetBrains Mono',monospace; font-size:12px;
+}
+footer a { color:rgba(244,241,234,.65); text-decoration:none; }
+footer a:hover { color:rgba(244,241,234,.9); }
+#scroll-prog{position:fixed;top:0;left:0;height:2px;background:var(--ink,#2c2416);width:0%;z-index:9999;pointer-events:none;will-change:width}
+body{animation:_pgFade .4s ease both}
+@keyframes _pgFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+button:active{transform:scale(.95)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+<script>
+  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <span class="site-nav-brand">The Bengal Reader</span>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Voter Guide</a>
+      <a href="/parties" class="site-nav-link">Party Compass</a>
+      <a href="/constituencies" class="site-nav-link">2026 Results</a>
+      <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+      <a href="/accountability" class="site-nav-link">100 Days</a>
+      <a href="/corruption" class="site-nav-link">Dossier</a>
+      <a href="/bonds" class="site-nav-link">Money Trail</a>
+      <a href="/mlas" class="site-nav-link">MLA Records</a>
+      <a href="/assets" class="site-nav-link">Wealth Growth</a>
+      <a href="/methodology" class="site-nav-link active">Methodology</a>
+    </div>
+  </div>
+</nav>
+<div id="progress-bar"></div>
+<header class="masthead">
+  <div class="container">
+    <div class="masthead-kicker">
+      <span>Sources &amp; Methodology</span>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">◐ Dark</button>
+    </div>
+    <div class="masthead-title">How this site is built</div>
+    <p class="masthead-sub">What we count as evidence, where the data comes from, and how automated updates work.</p>
+  </div>
+</header>
+<main class="container" id="main-content" role="main">
+  <div class="card">
+    <div class="mono">Principle</div>
+    <p><strong>Separate claims from sources.</strong> If a page states a fact, it should be traceable to a source (official portal, affidavit, court order, or clearly named reporting). This page documents the default sources and the update rules used across the site.</p>
+  </div>
+  <h2>What “verification” means here</h2>
+  <p>Verification is specific to each tool/page, but the common rule is consistency: we only present a detail as verified when it is attributable to a named primary source or a named secondary source with a stable URL.</p>
+  <ul>
+    <li>Election results: candidate names appear only when confirmed by official results pages or named sources; otherwise a seat may show party attribution without names.</li>
+    <li>Corruption tracker updates: timeline entries are only added when there is either an official enforcement agency press release or a clear multi-article signal (2+ in 24 hours) that indicates meaningful movement.</li>
+    <li>Accountability tracker: statuses are descriptive labels; the aim is to change status only on official orders or independently verifiable actions.</li>
+  </ul>
+  <hr class="rule">
+  <h2>Automated updates (every 6 hours)</h2>
+  <p>The site includes an automated update job that refreshes news and metadata on a schedule. It writes these files in <span class="mono">/data</span>:</p>
+  <ul>
+    <li><strong>data/news.json</strong> (rolling headlines per case, refreshed each run)</li>
+    <li><strong>data/cases.json</strong> (long-term timelines; updated only when rules are met)</li>
+    <li><strong>data/meta.json</strong> (timestamps such as lastUpdated/autoChecked)</li>
+    <li><strong>data/pledges.json</strong> (adds latest pledge headline; auto-marks delayed pledges when deadlines pass)</li>
+  </ul>
+  <div class="card">
+    <div class="mono">Primary inputs</div>
+    <ul>
+      <li>Google News RSS search queries (per case keywords).</li>
+      <li>Enforcement Directorate press releases (enforcement.gov.in), filtered for Bengal-relevant text.</li>
+      <li>CBI press releases (cbi.gov.in), filtered for Bengal-relevant text.</li>
+    </ul>
+  </div>
+  <h2>Election results scraping (scheduled)</h2>
+  <p>The constituency results tool can auto-fill entries that are still marked unverified by scraping the official ECI constituency pages for West Bengal and updating the table data in place.</p>
+  <div class="card">
+    <div class="mono">ECI pattern</div>
+    <p><strong>results.eci.gov.in</strong> constituency pages follow a predictable URL pattern for West Bengal (state code S25). The scraper reads the winner row (status “Won”), normalises party labels, and computes the winning margin.</p>
+  </div>
+  <hr class="rule">
+  <h2>Editorial independence</h2>
+  <p>This is intended as a civic education and transparency project. It is not affiliated with any party, campaign, or government body. Where the site has an argument or point of view, it should be clearly distinguishable from factual reporting.</p>
+  <h2>Corrections</h2>
+  <p>If you find a factual error, the fastest way to get it fixed is to cite the correct source and link to the page/section where the issue appears. Corrections should prefer primary sources (ECI, affidavits, official orders) over screenshots or social posts.</p>
+  <hr class="rule">
+  <div class="card">
+    <div class="mono">Transparency</div>
+    <p>This site is a static build that can be audited: the pages are plain HTML and the update scripts are plain Node scripts. Data files are committed to the repository so changes are reviewable over time.</p>
+  </div>
+</main>
+<footer>
+  <p>The Bengal Reader · Sources &amp; Methodology</p>
+  <p style="margin-top:8px;">
+    <a href="/">Voter Guide</a> &nbsp;·&nbsp;
+    <a href="/constituencies">2026 Results</a> &nbsp;·&nbsp;
+    <a href="/corruption">Corruption Dossier</a>
+  </p>
+</footer>
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.querySelector('.theme-toggle').textContent = isDark ? '◐ Dark' : '◑ Light';
+  try { localStorage.setItem('theme', isDark ? 'light' : 'dark'); } catch(e) {}
+}
+(function(){
+  try {
+    const t = localStorage.getItem('theme');
+    if (t) {
+      document.documentElement.setAttribute('data-theme', t);
+      if (t === 'dark') document.querySelector('.theme-toggle').textContent = '◑ Light';
+    }
+  } catch(e) {}
+})();
+</script>
+<script>(function(){var p=document.createElement('div');p.id='scroll-prog';document.body.prepend(p);window.addEventListener('scroll',function(){var d=document.documentElement;p.style.width=Math.min(d.scrollTop/(d.scrollHeight-d.clientHeight)*100,100)+'%';},{passive:true});})();</script>
+</body>
+</html>

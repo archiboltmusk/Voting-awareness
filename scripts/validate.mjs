@@ -4,9 +4,11 @@
  */
 
 import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { join } from 'node:path';
 
-const HTML_FILES = readdirSync('.').filter(f => f.endsWith('.html'));
-const DATA_FILES = ['data/cases.json', 'data/news.json', 'data/meta.json', 'data/pledges.json'];
+const PUBLIC_DIR = 'public';
+const HTML_FILES = readdirSync(PUBLIC_DIR).filter(f => f.endsWith('.html'));
+const DATA_FILES = ['public/data/cases.json', 'public/data/news.json', 'public/data/meta.json', 'public/data/pledges.json'];
 
 let errors = 0;
 let warnings = 0;
@@ -18,7 +20,7 @@ function logOk(msg)    { console.log('  ✓ ' + msg); }
 console.log('\n=== HTML Validation ===\n');
 
 for (const file of HTML_FILES) {
-  const html = readFileSync(file, 'utf-8');
+  const html = readFileSync(join(PUBLIC_DIR, file), 'utf-8');
   const issues = [];
 
   // Critical checks
@@ -67,7 +69,7 @@ for (const file of DATA_FILES) {
 console.log('\n=== Meta.json Check ===\n');
 
 try {
-  const meta = JSON.parse(readFileSync('data/meta.json', 'utf-8'));
+  const meta = JSON.parse(readFileSync('public/data/meta.json', 'utf-8'));
   const lastUpdated = meta.lastUpdated;
   const autoChecked = meta.autoChecked;
   if (lastUpdated) {

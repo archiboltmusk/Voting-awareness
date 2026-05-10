@@ -28,10 +28,13 @@ jobs:
         run: npm ci
 
       - name: Lint HTML
-        run: npx htmlhint *.html || true
+        run: npx htmlhint public/*.html || true
 
       - name: Lint CSS
-        run: npx stylelint *.css || true
+        run: |
+          if ls public/*.css 1>/dev/null 2>&1; then
+            npx stylelint public/*.css
+          fi
 
       - name: Validate site
         run: node scripts/validate.mjs || true

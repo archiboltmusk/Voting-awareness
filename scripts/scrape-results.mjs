@@ -14,7 +14,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 
 const ECI_BASE = 'https://results.eci.gov.in/ResultAcGenMay2026/ConstituencywiseS25';
-const HTML_FILE = new URL('../constituencies.html', import.meta.url).pathname;
+const HTML_FILE = new URL('../public/constituencies.html', import.meta.url).pathname;
 const DELAY_MS  = 400; // ~2.5 req/sec — polite rate limit
 
 // ── Party normalisation ───────────────────────────────────────────────────────

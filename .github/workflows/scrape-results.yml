@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name  "Bengal Reader Bot"
           git config user.email "bot@bengal-reader.app"
-          git add constituencies.html
+          git add public/constituencies.html public/sitemap.xml
           if git diff --staged --quiet; then
             echo "✓ No new constituency data this run"
           else

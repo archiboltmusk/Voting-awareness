@@ -9,7 +9,8 @@ import { join } from 'node:path';
 
 const DOMAIN = 'https://voting-awareness.vercel.app';
 const VERCEL_JSON = 'vercel.json';
-const OUT = 'sitemap.xml';
+const PUBLIC_DIR = 'public';
+const OUT = join(PUBLIC_DIR, 'sitemap.xml');
 
 // Priority mapping by path pattern
 function getPriority(path) {
@@ -43,17 +44,17 @@ function getLastmod(filePath) {
 const vercel = JSON.parse(readFileSync(VERCEL_JSON, 'utf-8'));
 const rewriteRoutes = (vercel.rewrites || []).map(r => ({
   path: r.source,
-  file: r.destination.replace(/^\//, ''),
+  file: join(PUBLIC_DIR, r.destination.replace(/^\//, '')),
 }));
 
 // Also scan for any HTML files not in rewrites
-const htmlFiles = readdirSync('.').filter(f => f.endsWith('.html'));
+const htmlFiles = readdirSync(PUBLIC_DIR).filter(f => f.endsWith('.html'));
 const existingPaths = new Set(rewriteRoutes.map(r => r.path));
 const extraRoutes = htmlFiles
   .filter(f => !existingPaths.has('/' + f.replace('.html', '')))
   .map(f => ({
     path: '/' + f.replace('.html', ''),
-    file: f,
+    file: join(PUBLIC_DIR, f),
   }));
 
 const allRoutes = [...rewriteRoutes, ...extraRoutes];

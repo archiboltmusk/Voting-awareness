@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name  "Bengal Reader Bot"
           git config user.email "bot@bengal-reader.app"
-          git add data/ sitemap.xml
+          git add public/data/ public/sitemap.xml
           if git diff --staged --quiet; then
             echo "✓ No data changes this run"
           else
