@@ -6,7 +6,8 @@
 (function() {
   'use strict';
 
-  const DOMAIN = 'voting-awareness.vercel.app';
+  // Domain is derived from the actual page hostname at runtime — no hardcoding needed.
+  const DOMAIN = location.hostname || 'voting-awareness.vercel.app';
   const PLAUSIBLE_SCRIPT = 'https://plausible.io/js/script.js';
 
   // Simple page view tracking without cookies

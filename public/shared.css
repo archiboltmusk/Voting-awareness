@@ -1,0 +1,119 @@
+/*
+ * shared.css — The Bengal Reader
+ * Common styles shared across all pages.
+ * Page-specific styles remain inline in each HTML file.
+ */
+
+/* ── SITE NAV ──────────────────────────────────────────────────────────────── */
+.site-nav {
+  background: #050403;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 9px 0;
+  position: relative;
+  z-index: 10000;
+}
+.site-nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.site-nav-brand {
+  font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.35);
+}
+.site-nav-links {
+  display: flex;
+}
+.site-nav-link {
+  font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.45);
+  text-decoration: none;
+  padding: 3px 14px;
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+  transition: color 0.2s;
+}
+.site-nav-link:first-child {
+  border-left: none;
+}
+.site-nav-link:hover,
+.site-nav-link.active {
+  color: rgba(245, 240, 232, 0.9);
+}
+
+/* ── SCROLL PROGRESS BAR ───────────────────────────────────────────────────── */
+#scroll-prog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--ink, #2c2416);
+  width: 0%;
+  z-index: 9999;
+  pointer-events: none;
+  will-change: width;
+}
+
+/* ── PAGE FADE-IN ──────────────────────────────────────────────────────────── */
+body {
+  animation: _pgFade 0.4s ease both;
+}
+@keyframes _pgFade {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── INTERACTIVE MICRO-FEEDBACK ────────────────────────────────────────────── */
+button:active,
+.filter-btn:active,
+.theme-toggle:active,
+.lang-btn:active,
+.sort-btn:active,
+.audience-tab:active,
+.filter-tab:active {
+  transform: scale(0.95);
+}
+
+/* ── REDUCED MOTION ────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── MOBILE NAV ────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .site-nav-inner {
+    padding: 0 1rem;
+  }
+  .site-nav-brand {
+    display: none;
+  }
+  .site-nav-links {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  .site-nav-links::-webkit-scrollbar {
+    display: none;
+  }
+  .site-nav-link {
+    padding: 10px 11px;
+    white-space: nowrap;
+  }
+}

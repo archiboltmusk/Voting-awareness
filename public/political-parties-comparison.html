@@ -608,52 +608,12 @@ footer a:hover { color:var(--paper); }
   .cbar { max-width:180px; }
 }
 
-/* ── SITE NAV ── */
-.site-nav {
-  background:#0d0b09; border-bottom:1px solid rgba(255,255,255,0.06);
-  padding:9px 0; position:relative; z-index:200;
-}
-.site-nav-inner {
-  max-width:1200px; margin:0 auto; padding:0 32px;
-  display:flex; justify-content:space-between; align-items:center;
-  flex-wrap:wrap; gap:8px;
-}
-.site-nav-brand {
-  font-family:'JetBrains Mono',monospace; font-size:9px;
-  letter-spacing:.25em; text-transform:uppercase; color:rgba(244,241,234,.3);
-}
-.site-nav-links { display:flex; }
-.site-nav-link {
-  font-family:'JetBrains Mono',monospace; font-size:9px;
-  letter-spacing:.15em; text-transform:uppercase;
-  color:rgba(244,241,234,.45); text-decoration:none;
-  padding:3px 14px; border-left:1px solid rgba(255,255,255,.07);
-  transition:color .2s;
-}
-.site-nav-link:first-child { border-left:none; }
-.site-nav-link:hover { color:rgba(244,241,234,.9); }
-.site-nav-link.active { color:rgba(244,241,234,.9); }
-
-/* ── MOBILE NAV ── */
-@media(max-width:640px) {
-  .site-nav-inner { padding:0 1rem; }
-  .site-nav-brand { display:none; }
-  .site-nav-links { overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; flex-wrap:nowrap; width:100%; }
-  .site-nav-links::-webkit-scrollbar { display:none; }
-  .site-nav-link { padding:10px 11px; white-space:nowrap; }
-}
-/* ── SMOOTH & SEAMLESS ── */
-#scroll-prog{position:fixed;top:0;left:0;height:2px;background:var(--ink,#2c2416);width:0%;z-index:9999;pointer-events:none;will-change:width}
-body{animation:_pgFade .4s ease both}
-@keyframes _pgFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-button:active,.theme-toggle:active,.lang-btn:active{transform:scale(.95)}
+/* ── SMOOTH TRANSITIONS ── */
 input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
-<script>
-  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/speed-insights/script.js"></script>
+<link rel="stylesheet" href="/shared.css">
+<script defer src="/analytics.js"></script>
+<script defer src="/shared.js"></script>
 </head>
 <body>
 
@@ -1742,6 +1702,5 @@ async function loadData() {
 }
 document.addEventListener('DOMContentLoaded', loadData);
 </script>
-<script>(function(){var p=document.createElement('div');p.id='scroll-prog';document.body.prepend(p);window.addEventListener('scroll',function(){var d=document.documentElement;p.style.width=Math.min(d.scrollTop/(d.scrollHeight-d.clientHeight)*100,100)+'%';},{passive:true});})();</script>
 </body>
 </html>

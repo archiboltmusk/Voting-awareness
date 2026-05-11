@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   auto-update:
@@ -31,6 +32,7 @@ jobs:
         run: npm ci
 
       - name: Run auto-update script
+        id: update
         run: node scripts/update.mjs
 
       - name: Regenerate sitemap
@@ -55,3 +57,35 @@ jobs:
             git push
             echo "✓ Updated data pushed — Vercel will auto-deploy"
           fi
+
+      - name: Alert on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `Auto-update failed: ${new Date().toISOString().slice(0,10)}`;
+            const body = [
+              '## Auto-update job failed',
+              '',
+              `**Run:** ${context.runId}`,
+              `**Workflow:** ${context.workflow}`,
+              `**Branch:** ${context.ref}`,
+              '',
+              `[View run logs](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`,
+            ].join('\n');
+            // Check for existing open alert issue to avoid duplicates
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'auto-update-failure',
+              state: 'open',
+            });
+            if (issues.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['auto-update-failure'],
+              });
+            }

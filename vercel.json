@@ -1,4 +1,5 @@
 {
+  "outputDirectory": "public",
   "rewrites": [
     { "source": "/", "destination": "/bengal-voter-guide.html" },
     { "source": "/parties", "destination": "/political-parties-comparison.html" },

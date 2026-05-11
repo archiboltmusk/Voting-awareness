@@ -6,7 +6,9 @@
 
 import { readFileSync, writeFileSync } from 'node:fs';
 
-const DOMAIN = 'https://voting-awareness.vercel.app';
+const DOMAIN = process.env.SITE_DOMAIN
+  ? `https://${process.env.SITE_DOMAIN}`
+  : 'https://voting-awareness.vercel.app';
 const NEWS = JSON.parse(readFileSync('public/data/news.json', 'utf-8'));
 const META = JSON.parse(readFileSync('public/data/meta.json', 'utf-8'));
 

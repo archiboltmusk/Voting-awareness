@@ -1,19 +1,17 @@
 {
   "name": "voting-awareness",
   "version": "1.0.0",
-  "description": "Voting awareness site for Bengal",
+  "description": "The Bengal Reader — civic journalism and political accountability for West Bengal",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3000",
-    "build": "npm run lint && npm run generate-sitemap && npm run validate && next build",
-    "start": "next start -p 3000",
     "lint": "npx htmlhint public/*.html && (ls public/*.css >/dev/null 2>&1 && npx stylelint public/*.css || true)",
-    "format": "npx prettier --write public/*.html public/*.css public/*.js public/*.mjs public/*.json public/*.yml public/*.md *.js *.mjs *.json *.yml *.md",
+    "format": "npx prettier --write public/*.html public/*.css public/*.js public/*.mjs public/*.json public/*.yml public/*.md *.mjs *.json *.yml *.md",
     "validate": "node scripts/validate.mjs",
     "generate-sitemap": "node scripts/generate-sitemap.mjs",
     "generate-rss": "node scripts/generate-rss.mjs",
     "update-data": "node scripts/update.mjs",
     "scrape-results": "node scripts/scrape-results.mjs",
+    "build": "npm run lint && npm run generate-sitemap && npm run validate",
     "test": "echo \"No tests specified\""
   },
   "keywords": [],
@@ -24,11 +22,5 @@
     "prettier": "^3.2.5",
     "stylelint": "^16.3.1",
     "stylelint-config-standard": "^36.0.0"
-  },
-  "dependencies": {
-    "@vercel/speed-insights": "^1.0.12",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
   }
 }

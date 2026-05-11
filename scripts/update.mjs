@@ -70,6 +70,10 @@ async function fetchGoogleNews(query) {
   const url = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-IN&gl=IN&ceid=IN:en`;
   const xml = await safeFetch(url);
   if (!xml) return [];
+  if (!xml.includes('<item>')) {
+    console.warn(`  Google News: no <item> elements for query "${query}" — empty feed or changed format`);
+    return [];
+  }
 
   const items = [];
   const rx = /<item>([\s\S]*?)<\/item>/g;
@@ -102,13 +106,19 @@ async function fetchEDReleases() {
   if (!html) return [];
 
   const results = [];
-  const rx = /href="([^"]*(?:press|release|attachment)[^"]*)"[^>]*>([\s\S]{10,300}?)<\/a>/gi;
+  // Extract all anchor tags — handle href and content separately to avoid
+  // multiline greedy issues with raw regex on HTML
+  const anchorRx = /<a\s[^>]*href=["']([^"']*(?:press|release|attachment)[^"']*)["'][^>]*>([\s\S]{1,400}?)<\/a>/gi;
   let m;
-  while ((m = rx.exec(html)) !== null) {
+  while ((m = anchorRx.exec(html)) !== null) {
     const text = m[2].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    const href = m[1].trim();
     if (text.length > 15 && /Bengal|Kolkata|Calcutta|Saradha|SSC|Narada|Rose Valley|Mallick|Mondal|Mishra|coal|cattle|ration/i.test(text)) {
-      results.push({ url: m[1], title: text.slice(0, 200) });
+      results.push({ url: href, title: text.slice(0, 200) });
     }
+  }
+  if (results.length === 0) {
+    console.warn('  ED: zero results — page structure may have changed');
   }
   return results;
 }
@@ -119,13 +129,17 @@ async function fetchCBIReleases() {
   if (!html) return [];
 
   const results = [];
-  const rx = /href="([^"]*press[^"]*)"[^>]*>([\s\S]{10,300}?)<\/a>/gi;
+  const anchorRx = /<a\s[^>]*href=["']([^"']*press[^"']*)["'][^>]*>([\s\S]{1,400}?)<\/a>/gi;
   let m;
-  while ((m = rx.exec(html)) !== null) {
+  while ((m = anchorRx.exec(html)) !== null) {
     const text = m[2].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    const href = m[1].trim();
     if (text.length > 15 && /Bengal|Kolkata|Saradha|SSC|Narada|Rose Valley|Mondal|cattle|coal|ration/i.test(text)) {
-      results.push({ url: m[1], title: text.slice(0, 200) });
+      results.push({ url: href, title: text.slice(0, 200) });
     }
+  }
+  if (results.length === 0) {
+    console.warn('  CBI: zero results — page structure may have changed');
   }
   return results;
 }

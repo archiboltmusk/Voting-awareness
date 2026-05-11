@@ -48,15 +48,6 @@ body::before {
 }
 
 /* ── NAV ── */
-.site-nav { background:#050403; border-bottom:1px solid rgba(255,255,255,0.06); padding:9px 0; z-index:10000; position:relative; }
-.site-nav-inner { max-width:1200px; margin:0 auto; padding:0 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; }
-.site-nav-brand { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:rgba(245,240,232,0.35); }
-.site-nav-links { display:flex; flex-wrap:wrap; }
-.site-nav-link { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(245,240,232,0.45); text-decoration:none; padding:3px 11px; border-left:1px solid rgba(255,255,255,0.07); transition:color 0.2s; }
-.site-nav-link:first-child { border-left:none; }
-.site-nav-link:hover, .site-nav-link.active { color:rgba(245,240,232,0.9); }
-
-/* ── MASTHEAD ── */
 .masthead { border-bottom:4px double var(--ink); padding:1.5rem 2rem 1rem; text-align:center; background:var(--paper); }
 .masthead-overline { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--muted); border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); padding:0.3rem 0; margin-bottom:1rem; }
 .masthead h1 { font-family:'Playfair Display',serif; font-size:clamp(2.2rem,5.5vw,4.5rem); font-weight:900; line-height:1.05; letter-spacing:-0.02em; text-transform:uppercase; }
@@ -218,29 +209,15 @@ footer a { color:#8a7a60; text-decoration:none; }
   .td-pct, .td-flag { display:none; }
 }
 
-/* ── MOBILE NAV ── */
-@media(max-width:640px) {
-  .site-nav-inner { padding:0 1rem; }
-  .site-nav-brand { display:none; }
-  .site-nav-links { overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; flex-wrap:nowrap; width:100%; }
-  .site-nav-links::-webkit-scrollbar { display:none; }
-  .site-nav-link { padding:10px 11px; white-space:nowrap; }
-}
-/* ── SMOOTH & SEAMLESS ── */
-#scroll-prog{position:fixed;top:0;left:0;height:2px;background:var(--ink,#2c2416);width:0%;z-index:9999;pointer-events:none;will-change:width}
-body{animation:_pgFade .4s ease both}
-@keyframes _pgFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-button:active,.theme-toggle:active,.lang-btn:active,.sort-btn:active{transform:scale(.95)}
+/* ── SMOOTH TRANSITIONS ── */
 input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
 .spotlight-card{transition:transform .2s ease,box-shadow .22s ease}
 .spotlight-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.1)}
 tbody tr{transition:background .12s ease}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
-<script>
-  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/speed-insights/script.js"></script>
+<link rel="stylesheet" href="/shared.css">
+<script defer src="/analytics.js"></script>
+<script defer src="/shared.js"></script>
 </head>
 <body>
 
@@ -710,6 +687,5 @@ async function loadData() {
 
 loadData();
 </script>
-<script>(function(){var p=document.createElement('div');p.id='scroll-prog';document.body.prepend(p);window.addEventListener('scroll',function(){var d=document.documentElement;p.style.width=Math.min(d.scrollTop/(d.scrollHeight-d.clientHeight)*100,100)+'%';},{passive:true});})();</script>
 </body>
 </html>

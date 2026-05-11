@@ -7,7 +7,9 @@
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
-const DOMAIN = 'https://voting-awareness.vercel.app';
+const DOMAIN = process.env.SITE_DOMAIN
+  ? `https://${process.env.SITE_DOMAIN}`
+  : 'https://voting-awareness.vercel.app';
 const VERCEL_JSON = 'vercel.json';
 const PUBLIC_DIR = 'public';
 const OUT = join(PUBLIC_DIR, 'sitemap.xml');

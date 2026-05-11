@@ -436,23 +436,10 @@ footer a:hover { color:rgba(244,241,234,.9); }
   .banner-stat:nth-child(n+4) { display:none; }
 }
 
-/* ── MOBILE NAV ── */
-@media(max-width:640px) {
-  .site-nav-inner { padding:0 1rem; }
-  .site-nav-brand { display:none; }
-  .site-nav-links { overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; flex-wrap:nowrap; width:100%; }
-  .site-nav-links::-webkit-scrollbar { display:none; }
-  .site-nav-link { padding:10px 11px; white-space:nowrap; }
-}
-/* ── SMOOTH & SEAMLESS ── */
-#scroll-prog{position:fixed;top:0;left:0;height:2px;background:var(--ink,#2c2416);width:0%;z-index:9999;pointer-events:none;will-change:width}
-body{animation:_pgFade .4s ease both}
-@keyframes _pgFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-button:active,.filter-btn:active,.theme-toggle:active,.lang-btn:active{transform:scale(.95)}
+/* ── SMOOTH TRANSITIONS ── */
 input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
 .result-card{transition:transform .18s ease,box-shadow .2s ease,background .2s}
 .result-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 /* ── MOBILE TABLE FIX ── */
 @media(max-width:700px){
   .col-dist,.col-runner{display:none}
@@ -473,10 +460,9 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
   .col-margin{width:60px}
 }
 </style>
-<script>
-  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/speed-insights/script.js"></script>
+<link rel="stylesheet" href="/shared.css">
+<script defer src="/analytics.js"></script>
+<script defer src="/shared.js"></script>
 </head>
 <body>
 
@@ -692,24 +678,6 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
 </footer>
 
 <script>
-// ── THEME ──
-function toggleTheme() {
-  const html = document.documentElement;
-  const isDark = html.getAttribute('data-theme') === 'dark';
-  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  document.querySelector('.theme-toggle').textContent = isDark ? '◐ Dark' : '◑ Light';
-  try { localStorage.setItem('theme', isDark ? 'light' : 'dark'); } catch(e) {}
-}
-(function(){
-  try {
-    const t = localStorage.getItem('theme');
-    if (t) {
-      document.documentElement.setAttribute('data-theme', t);
-      if (t === 'dark') document.querySelector('.theme-toggle').textContent = '◑ Light';
-    }
-  } catch(e) {}
-})();
-
 // ── DATA ──
 // verified: true = candidate name confirmed from named source
 // winParty codes: BJP, TMC, INC, LF, OTH
@@ -1179,11 +1147,12 @@ function renderSeatGrid() {
     const col = colorMap[r.winParty] || 'var(--ink-faint)';
     const op  = r.verified ? '1' : '0.6';
     const esc = r.name.replace(/'/g, "\\'");
-    return `<div class="seat-dot" style="background:${col};opacity:${op}"
+     return `<div class="seat-dot" role="button" tabindex="0" style="background:${col};opacity:${op}"
       data-name="${r.name}" data-ac="${r.ac}" data-party="${r.winParty}"
       data-winner="${r.winner || r.winParty + ' cand.'}"
       data-margin="${r.margin ? r.margin.toLocaleString('en-IN') : ''}"
-      onclick="filterToSeat('${esc}')"></div>`;
+      onclick="filterToSeat('${esc}')"
+      onkeydown="if(event.key==='Enter'||event.key===' ')filterToSeat('${esc}')"></div>`;
   }).join('');
 
   grid.addEventListener('mouseover', e => {
@@ -1246,6 +1215,5 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('verifiedCount').textContent = verified;
 });
 </script>
-<script>(function(){var p=document.createElement('div');p.id='scroll-prog';document.body.prepend(p);window.addEventListener('scroll',function(){var d=document.documentElement;p.style.width=Math.min(d.scrollTop/(d.scrollHeight-d.clientHeight)*100,100)+'%';},{passive:true});})();</script>
 </body>
 </html>

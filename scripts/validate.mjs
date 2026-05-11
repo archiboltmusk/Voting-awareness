@@ -39,8 +39,11 @@ for (const file of HTML_FILES) {
 
   // Accessibility
   if (!html.includes('<main')) logWarn(`${file}: Missing <main> landmark`);
-  if (html.includes('onclick=') && !html.includes('role=')) {
-    logWarn(`${file}: onclick without role (accessibility)`);
+  // Flag onclick on non-interactive elements (div/span/td etc.) that lack role= in the same tag.
+  // Buttons and anchors with onclick are semantically correct and do not need role.
+  const nonInteractiveOnclick = /<(?:div|span|td|th|li|p|section|article|header|footer)\b(?:(?!role=)[^>])*\bonclick=[^>]*>/i;
+  if (nonInteractiveOnclick.test(html)) {
+    logWarn(`${file}: onclick on non-interactive element without role (add role and tabindex)`);
   }
 
   if (issues.length) {
