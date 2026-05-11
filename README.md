@@ -2,7 +2,7 @@
 
 A civic journalism and political accountability website for the 2026 West Bengal Assembly Election. Non-partisan, data-driven, and updated automatically every 6 hours.
 
-**Live site:** https://voting-awareness.vercel.app
+**Live site:** https://voting-awareness-psi.vercel.app
 
 ---
 
