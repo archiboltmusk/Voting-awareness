@@ -459,6 +459,45 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
   .col-no{width:24px}
   .col-margin{width:60px}
 }
+
+/* ── CONSTITUENCY DETAIL OVERLAY ── */
+.const-overlay {
+  display:none; position:fixed; inset:0; z-index:20000;
+  background:rgba(10,8,4,.55); backdrop-filter:blur(3px);
+  align-items:flex-start; justify-content:flex-end; padding:1rem;
+}
+.const-overlay.open { display:flex; }
+.const-panel {
+  background:var(--paper,#f4f1ea); color:var(--ink,#1a1714);
+  width:min(440px,calc(100vw - 2rem)); max-height:calc(100vh - 2rem);
+  overflow-y:auto; border-radius:4px;
+  box-shadow:0 8px 40px rgba(0,0,0,.25); padding:2rem; position:relative;
+}
+[data-theme="dark"] .const-panel { background:#1e1b18; }
+.const-panel-close {
+  position:absolute; top:1rem; right:1rem; background:none; border:none;
+  font-size:1.25rem; cursor:pointer; color:var(--ink-faint,#8a8275);
+  line-height:1; padding:4px 8px; border-radius:3px;
+}
+.const-panel-close:hover { color:var(--ink,#1a1714); background:var(--paper-dark,#ebe6db); }
+.const-panel h2 { font-size:1.45rem; font-weight:800; margin-bottom:.2rem; padding-right:2rem; }
+.const-panel-sub { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-faint,#8a8275); margin-bottom:1.5rem; }
+.const-result-row { display:flex; gap:1.5rem; margin-bottom:1.25rem; flex-wrap:wrap; }
+.const-result-col { flex:1; min-width:120px; }
+.const-result-label { font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-faint,#8a8275); margin-bottom:.25rem; }
+.const-result-value { font-size:1.05rem; font-weight:600; }
+.const-panel-divider { border:none; border-top:1px solid rgba(42,37,32,.15); margin:1.25rem 0; }
+[data-theme="dark"] .const-panel-divider { border-color:rgba(255,255,255,.1); }
+.const-panel-actions { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1.5rem; }
+.const-panel-btn {
+  font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em;
+  padding:7px 14px; border-radius:3px; border:1px solid var(--ink,#1a1714);
+  cursor:pointer; background:none; color:var(--ink,#1a1714); text-decoration:none;
+  display:inline-block;
+}
+.const-panel-btn:hover { background:var(--ink,#1a1714); color:var(--paper,#f4f1ea); }
+.const-panel-btn.primary { background:var(--ink,#1a1714); color:var(--paper,#f4f1ea); }
+#tableBody tr { cursor:pointer; }
 </style>
 <link rel="stylesheet" href="/shared.css">
 <script defer src="/analytics.js"></script>
@@ -876,6 +915,7 @@ function filterToSeat(name) {
   renderSeatGrid();
   const verified = RESULTS.filter(r => r.verified).length;
   document.getElementById('verifiedCount').textContent = verified;
+  handleConstHash();
 
   // 3. Load meta.json to update banner stats
   try {
@@ -911,6 +951,107 @@ function setLang(lang) {
   });
   if (window.trackEvent) window.trackEvent('language_toggle', { lang, page: 'constituencies' });
 }
+
+// ── Constituency detail overlay ───────────────────────────────────────────────
+const PARTY_COLORS_C = { BJP:'#e8640a', TMC:'#1a7a3c', INC:'#1565c0', CPIM:'#c0171b', LF:'#c0171b', Others:'#8a8275' };
+
+function slugConst(name) {
+  return 'ac-' + String(name).toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
+}
+
+function openConstituency(seat) {
+  document.getElementById('constPanelName').textContent   = seat.name;
+  document.getElementById('constPanelSub').textContent    = `AC ${seat.ac} · ${seat.district || ''}`;
+  document.getElementById('constWinner').textContent      = seat.winner  || '—';
+  document.getElementById('constWinParty').textContent    = seat.winParty || '?';
+  document.getElementById('constWinParty').style.color    = PARTY_COLORS_C[seat.winParty] || '#8a8275';
+  document.getElementById('constLoser').textContent       = seat.loser ? `${seat.loser} (${seat.loseParty || '?'})` : '—';
+  document.getElementById('constMargin').textContent      = seat.margin != null ? Number(seat.margin).toLocaleString() : '—';
+  document.getElementById('constVerified').textContent    = seat.verified ? '✓ Verified' : '* Pending';
+  const mlaLink = document.getElementById('constMlaLink');
+  if (seat.winner) {
+    const slug = seat.winner.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
+    mlaLink.href = '/mlas#' + slug;
+    mlaLink.style.display = '';
+  } else {
+    mlaLink.style.display = 'none';
+  }
+  document.getElementById('constOverlay').classList.add('open');
+  document.getElementById('constPanelClose').focus();
+  history.replaceState(null, '', '#ac-' + seat.ac);
+  if (window.trackEvent) window.trackEvent('Constituency View', { name: seat.name, ac: seat.ac });
+}
+
+function closeConstituency() {
+  document.getElementById('constOverlay').classList.remove('open');
+  history.replaceState(null, '', location.pathname);
+}
+
+function handleConstHash() {
+  const hash = location.hash.slice(1);
+  if (!hash || !RESULTS.length) return;
+  const byAc   = hash.match(/^ac-(\d+)$/);
+  const seat   = byAc
+    ? RESULTS.find(r => r.ac === parseInt(byAc[1]))
+    : RESULTS.find(r => slugConst(r.name) === hash);
+  if (seat) openConstituency(seat);
+}
+
+// Row click
+document.getElementById('tableBody').addEventListener('click', function (e) {
+  const tr = e.target.closest('tr');
+  if (!tr) return;
+  const acCell = tr.cells[0];
+  if (!acCell) return;
+  const ac = parseInt(acCell.textContent.trim());
+  const seat = RESULTS.find(r => r.ac === ac);
+  if (seat) openConstituency(seat);
+});
+
+document.getElementById('constOverlay').addEventListener('click', function (e) {
+  if (e.target === this) closeConstituency();
+});
+document.getElementById('constPanelClose').addEventListener('click', closeConstituency);
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') closeConstituency();
+});
+window.addEventListener('hashchange', handleConstHash);
 </script>
+
+<!-- CONSTITUENCY DETAIL OVERLAY -->
+<div class="const-overlay" id="constOverlay" role="dialog" aria-modal="true" aria-labelledby="constPanelName">
+  <div class="const-panel">
+    <button class="const-panel-close" id="constPanelClose" aria-label="Close">✕</button>
+    <h2 id="constPanelName"></h2>
+    <div class="const-panel-sub" id="constPanelSub"></div>
+    <div class="const-result-row">
+      <div class="const-result-col">
+        <div class="const-result-label">Winner</div>
+        <div class="const-result-value" id="constWinner"></div>
+      </div>
+      <div class="const-result-col">
+        <div class="const-result-label">Party</div>
+        <div class="const-result-value" id="constWinParty" style="font-family:'JetBrains Mono',monospace;"></div>
+      </div>
+    </div>
+    <div class="const-result-row">
+      <div class="const-result-col">
+        <div class="const-result-label">Runner-up</div>
+        <div class="const-result-value" style="font-size:.95rem;" id="constLoser"></div>
+      </div>
+      <div class="const-result-col">
+        <div class="const-result-label">Margin</div>
+        <div class="const-result-value" id="constMargin" style="font-family:'JetBrains Mono',monospace;"></div>
+      </div>
+    </div>
+    <hr class="const-panel-divider">
+    <div class="const-result-label">Data status</div>
+    <div style="font-size:.9rem;margin-top:.2rem;" id="constVerified"></div>
+    <div class="const-panel-actions">
+      <a id="constMlaLink" href="/mlas" class="const-panel-btn primary">MLA criminal record →</a>
+      <button class="const-panel-btn" onclick="closeConstituency()">Close</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
