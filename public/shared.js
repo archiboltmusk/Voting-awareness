@@ -10,6 +10,8 @@
  *   7. Active nav link highlighting
  *   8. Live data polling (30 s)
  *   9. Service worker registration
+ *  10. Lazy table renderer
+ *  11. Source citation tooltips ([data-cite])
  */
 
 /* ── 9. Service worker registration ─────────────────────────────────────── */
@@ -265,3 +267,88 @@ window.lazyTable = function (tbodyId, rows, buildRowHTML, chunkSize) {
     obs.observe(sentinel);
   }
 };
+
+/* ── 11. Source citation tooltips ────────────────────────────────────────── */
+/* Activates on any element with data-cite="Source name, year"
+   Optionally pair with data-cite-url="https://..." for a clickable link.
+   CSS lives in shared.css under "SOURCE CITATION TOOLTIPS". */
+(function () {
+  var tip = null;
+  var hideTimer = null;
+
+  function getTip() {
+    if (!tip) {
+      tip = document.createElement('div');
+      tip.className = 'bengal-cite-tip';
+      tip.setAttribute('role', 'tooltip');
+      document.body.appendChild(tip);
+      tip.addEventListener('mouseenter', function () {
+        clearTimeout(hideTimer);
+      });
+      tip.addEventListener('mouseleave', function () {
+        scheduleHide();
+      });
+    }
+    return tip;
+  }
+
+  function scheduleHide() {
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function () {
+      var t = getTip();
+      t.classList.remove('visible');
+    }, 120);
+  }
+
+  function show(el, e) {
+    clearTimeout(hideTimer);
+    var label = el.getAttribute('data-cite') || '';
+    var url = el.getAttribute('data-cite-url') || '';
+    var t = getTip();
+    t.innerHTML = label + (url
+      ? '<a href="' + url + '" target="_blank" rel="noopener">' + url.replace(/^https?:\/\//, '').split('/')[0] + ' ↗</a>'
+      : '');
+    t.classList.add('visible');
+    position(e);
+  }
+
+  function position(e) {
+    if (!tip) return;
+    var x = e.clientX + 12;
+    var y = e.clientY - 36;
+    var tw = tip.offsetWidth || 200;
+    var th = tip.offsetHeight || 50;
+    if (x + tw > window.innerWidth - 8) x = e.clientX - tw - 8;
+    if (y < 8) y = e.clientY + 16;
+    if (y + th > window.innerHeight - 8) y = window.innerHeight - th - 8;
+    tip.style.left = x + 'px';
+    tip.style.top = y + 'px';
+  }
+
+  document.addEventListener('mouseover', function (e) {
+    var el = e.target && e.target.closest('[data-cite]');
+    if (el) show(el, e);
+  });
+
+  document.addEventListener('mousemove', function (e) {
+    if (tip && tip.classList.contains('visible')) position(e);
+  });
+
+  document.addEventListener('mouseout', function (e) {
+    var el = e.target && e.target.closest('[data-cite]');
+    if (el) scheduleHide();
+  });
+
+  document.addEventListener('focusin', function (e) {
+    var el = e.target && e.target.closest('[data-cite]');
+    if (el) {
+      var rect = el.getBoundingClientRect();
+      show(el, { clientX: rect.left, clientY: rect.top });
+    }
+  });
+
+  document.addEventListener('focusout', function (e) {
+    var el = e.target && e.target.closest('[data-cite]');
+    if (el) scheduleHide();
+  });
+})();
