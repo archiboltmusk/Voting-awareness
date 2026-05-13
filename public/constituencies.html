@@ -749,44 +749,38 @@ function applyFilters() {
 
 const MAX_MARGIN = 55000;
 
-function renderTable(rows) {
-  const tbody = document.getElementById('tableBody');
-  const empty = document.getElementById('emptyState');
+function buildConstituencyRow(r) {
+  const badgeClass = ['BJP','TMC','INC','LF'].includes(r.winParty) ? r.winParty : 'OTH';
+  const winnerCell = r.winner
+    ? `<span class="winner-name">${r.winner}</span>${r.notable && r.note ? `<span class="notable-note">${r.note}</span>` : ''}`
+    : `<span class="no-data-cell">—</span>${r.notable && r.note ? `<span class="notable-note">${r.note}</span>` : ''}`;
+  const loserCell = r.loser
+    ? `${r.loser} <span style="font-family:'JetBrains Mono',monospace;font-size:10px;opacity:.5">(${r.loseParty})</span>`
+    : `<span class="no-data-cell">—</span>`;
+  const marginCell = r.winParty === '?' ? `<span class="no-data-cell">Pending</span>` :
+    r.margin !== null
+    ? `<div class="margin-num">${r.margin.toLocaleString()}</div><div class="margin-bar-wrap"><div class="margin-bar" style="width:${Math.min(100, r.margin/MAX_MARGIN*100).toFixed(1)}%;background:${partyColor(r.winParty)}"></div></div>`
+    : `<span class="no-data-cell">—</span>`;
+  return `<tr class="${r.notable ? 'notable' : ''}">
+    <td style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-faint)">${r.ac}</td>
+    <td>${r.notable ? '<span class="notable-star">★</span>' : ''}${r.name}</td>
+    <td class="col-dist" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-faint)">${r.district}</td>
+    <td>${winnerCell}</td>
+    <td><span class="party-badge ${badgeClass}">${r.winParty === '?' ? '?' : r.winParty}</span></td>
+    <td class="col-runner">${loserCell}</td>
+    <td>${marginCell}</td>
+  </tr>`;
+}
 
+function renderTable(rows) {
+  const empty = document.getElementById('emptyState');
   if (rows.length === 0) {
-    tbody.innerHTML = '';
+    document.getElementById('tableBody').innerHTML = '';
     empty.style.display = 'block';
     return;
   }
   empty.style.display = 'none';
-
-  tbody.innerHTML = rows.map(r => {
-    const partyClass = r.winParty === 'LF' ? 'LF' : r.winParty;
-    const badgeClass = ['BJP','TMC','INC','LF'].includes(r.winParty) ? r.winParty : 'OTH';
-
-    const winnerCell = r.winner
-      ? `<span class="winner-name">${r.winner}</span>${r.notable && r.note ? `<span class="notable-note">${r.note}</span>` : ''}`
-      : `<span class="no-data-cell">—</span>${r.notable && r.note ? `<span class="notable-note">${r.note}</span>` : ''}`;
-
-    const loserCell = r.loser
-      ? `${r.loser} <span style="font-family:'JetBrains Mono',monospace;font-size:10px;opacity:.5">(${r.loseParty})</span>`
-      : `<span class="no-data-cell">—</span>`;
-
-    const marginCell = r.winParty === '?' ? `<span class="no-data-cell">Pending</span>` :
-      r.margin !== null
-      ? `<div class="margin-num">${r.margin.toLocaleString()}</div><div class="margin-bar-wrap"><div class="margin-bar" style="width:${Math.min(100, r.margin/MAX_MARGIN*100).toFixed(1)}%;background:${partyColor(r.winParty)}"></div></div>`
-      : `<span class="no-data-cell">—</span>`;
-
-    return `<tr class="${r.notable ? 'notable' : ''}">
-      <td style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-faint)">${r.ac}</td>
-      <td>${r.notable ? '<span class="notable-star">★</span>' : ''}${r.name}</td>
-      <td class="col-dist" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-faint)">${r.district}</td>
-      <td>${winnerCell}</td>
-      <td><span class="party-badge ${badgeClass}">${r.winParty === '?' ? '?' : r.winParty}</span></td>
-      <td class="col-runner">${loserCell}</td>
-      <td>${marginCell}</td>
-    </tr>`;
-  }).join('');
+  window.lazyTable('tableBody', rows, buildConstituencyRow);
 }
 
 function partyColor(p) {

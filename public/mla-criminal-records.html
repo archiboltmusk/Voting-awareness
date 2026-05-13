@@ -432,7 +432,7 @@ function buildRow(mla, idx) {
 }
 
 function renderTable(rows) {
-  document.getElementById('mlaTableBody').innerHTML = rows.map((m,i) => buildRow(m,i)).join('');
+  window.lazyTable('mlaTableBody', rows, (m, i) => buildRow(m, i));
 }
 
 function computeStats(data) {

@@ -229,3 +229,39 @@ window.shareDataPoint = function (label, value, url) {
     setInterval(poll, POLL_MS);
   });
 })();
+
+/* ── 10. Lazy table renderer ─────────────────────────────────────────────── */
+/* Usage: window.lazyTable(tbodyId, rows, buildRowHTML, chunkSize)
+   Renders the first 50 rows immediately, then streams the rest as the user
+   scrolls near the bottom (IntersectionObserver sentinel at 400 px). */
+window.lazyTable = function (tbodyId, rows, buildRowHTML, chunkSize) {
+  var CHUNK = chunkSize || 50;
+  var tbody = document.getElementById(tbodyId);
+  if (!tbody) return;
+  tbody.innerHTML = '';
+  var offset = 0;
+
+  var sentinel = document.createElement('tr');
+  sentinel.setAttribute('aria-hidden', 'true');
+  sentinel.style.cssText = 'height:1px;padding:0;visibility:hidden;pointer-events:none;';
+  tbody.appendChild(sentinel);
+
+  function renderChunk() {
+    var chunk = rows.slice(offset, offset + CHUNK);
+    if (!chunk.length) { if (sentinel.parentNode) sentinel.remove(); return; }
+    var tmp = document.createElement('tbody');
+    tmp.innerHTML = chunk.map(function (row, i) { return buildRowHTML(row, offset + i); }).join('');
+    while (tmp.firstChild) tbody.insertBefore(tmp.firstChild, sentinel);
+    offset += chunk.length;
+    if (offset >= rows.length && sentinel.parentNode) sentinel.remove();
+  }
+
+  renderChunk();
+
+  if (offset < rows.length) {
+    var obs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) renderChunk();
+    }, { rootMargin: '400px' });
+    obs.observe(sentinel);
+  }
+};
