@@ -10,7 +10,11 @@
     { "source": "/bonds", "destination": "/electoral-bonds.html" },
     { "source": "/mlas", "destination": "/mla-criminal-records.html" },
     { "source": "/assets", "destination": "/asset-growth.html" },
-    { "source": "/methodology", "destination": "/methodology.html" }
+    { "source": "/methodology", "destination": "/methodology.html" },
+    { "source": "/corrections", "destination": "/corrections.html" },
+    { "source": "/rti", "destination": "/rti.html" },
+    { "source": "/search", "destination": "/search.html" },
+    { "source": "/compare", "destination": "/compare.html" }
   ],
   "headers": [
     {
