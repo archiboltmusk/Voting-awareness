@@ -493,12 +493,12 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
     <div class="banner-label">⚡ West Bengal Assembly Election 2026 · Results declared 4 May 2026 · 293/294 seats</div>
     <div class="banner-stats">
       <div class="banner-stat">
-        <div class="banner-num" style="color:var(--bjp)">207</div>
-        <div class="banner-sub" style="color:var(--bjp);opacity:.7">BJP · 45.84% · ⅔ majority</div>
+        <div id="banner-bjp-seats" class="banner-num" style="color:var(--bjp)">207</div>
+        <div id="banner-bjp-share" class="banner-sub" style="color:var(--bjp);opacity:.7">BJP · 45.84% · ⅔ majority</div>
       </div>
       <div class="banner-stat">
-        <div class="banner-num" style="color:rgba(244,241,234,.5)">80</div>
-        <div class="banner-sub" style="color:rgba(244,241,234,.35)">TMC · 41.08%</div>
+        <div id="banner-tmc-seats" class="banner-num" style="color:rgba(244,241,234,.5)">80</div>
+        <div id="banner-tmc-share" class="banner-sub" style="color:rgba(244,241,234,.35)">TMC · 41.08%</div>
       </div>
       <div class="banner-stat">
         <div class="banner-num" style="color:rgba(244,241,234,.35)">2</div>
@@ -889,20 +889,20 @@ function filterToSeat(name) {
     if (!res.ok) return;
     const meta = await res.json();
     if (meta.bjpSeats) {
-      const el = document.querySelector('.banner-num');
+      const el = document.getElementById('banner-bjp-seats');
       if (el) el.textContent = meta.bjpSeats;
     }
     if (meta.bjpVoteShare) {
-      const els = document.querySelectorAll('.banner-sub');
-      if (els[0]) els[0].textContent = 'BJP · ' + meta.bjpVoteShare + ' · ⅔ majority';
+      const el = document.getElementById('banner-bjp-share');
+      if (el) el.textContent = 'BJP · ' + meta.bjpVoteShare + ' · ⅔ majority';
     }
     if (meta.tmcSeats) {
-      const els = document.querySelectorAll('.banner-num');
-      if (els[1]) els[1].textContent = meta.tmcSeats;
+      const el = document.getElementById('banner-tmc-seats');
+      if (el) el.textContent = meta.tmcSeats;
     }
     if (meta.tmcVoteShare) {
-      const els = document.querySelectorAll('.banner-sub');
-      if (els[1]) els[1].textContent = 'TMC · ' + meta.tmcVoteShare;
+      const el = document.getElementById('banner-tmc-share');
+      if (el) el.textContent = 'TMC · ' + meta.tmcVoteShare;
     }
   } catch (e) {
     console.warn('Could not load meta.json:', e.message);
@@ -915,7 +915,7 @@ function setLang(lang) {
   document.querySelectorAll('[data-en][data-bn]').forEach(el => {
     el.textContent = el.dataset[lang] || el.dataset.en;
   });
-  if (window.trackEvent) trackEvent('language_toggle', { lang, page: 'constituencies' });
+  if (window.trackEvent) window.trackEvent('language_toggle', { lang, page: 'constituencies' });
 }
 </script>
 </body>

@@ -1724,7 +1724,7 @@ function setLang(lang) {
   document.querySelectorAll('[data-en][data-bn]').forEach(el => {
     el.textContent = el.dataset[lang] || el.dataset.en;
   });
-  if (window.trackEvent) trackEvent('language_toggle', { lang, page: 'parties' });
+  if (window.trackEvent) window.trackEvent('language_toggle', { lang, page: 'parties' });
 }
 </script>
 </body>
