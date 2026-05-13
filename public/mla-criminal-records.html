@@ -198,6 +198,52 @@ tbody tr{transition:background .12s ease}
 [data-theme="dark"] .hr-ornate { border-color:rgba(255,255,255,.08); }
 [data-theme="dark"] .hr-ornate::before { background:#141210; color:#9a9085; }
 [data-theme="dark"] body::before { opacity:0.15; }
+
+/* ── MLA PROFILE OVERLAY ── */
+.mla-overlay {
+  display:none; position:fixed; inset:0; z-index:20000;
+  background:rgba(10,8,4,.55); backdrop-filter:blur(3px);
+  align-items:flex-start; justify-content:flex-end;
+  padding:1rem;
+}
+.mla-overlay.open { display:flex; }
+.mla-panel {
+  background:var(--paper,#f4f1ea); color:var(--ink,#1a1714);
+  width:min(460px,calc(100vw - 2rem)); max-height:calc(100vh - 2rem);
+  overflow-y:auto; border-radius:4px;
+  box-shadow:0 8px 40px rgba(0,0,0,.25);
+  padding:2rem; position:relative;
+}
+[data-theme="dark"] .mla-panel { background:#1e1b18; }
+.mla-panel-close {
+  position:absolute; top:1rem; right:1rem; background:none; border:none;
+  font-size:1.25rem; cursor:pointer; color:var(--ink-faint,#8a8275);
+  line-height:1; padding:4px 8px; border-radius:3px;
+}
+.mla-panel-close:hover { color:var(--ink,#1a1714); background:var(--paper-dark,#ebe6db); }
+.mla-panel h2 { font-size:1.5rem; font-weight:800; margin-bottom:.25rem; padding-right:2rem; }
+.mla-panel-sub { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; color:var(--ink-faint,#8a8275); margin-bottom:1.5rem; }
+.mla-profile-row { display:flex; justify-content:space-between; gap:1rem; margin-bottom:1.25rem; flex-wrap:wrap; }
+.mla-profile-stat { flex:1; min-width:100px; }
+.mla-profile-stat-label { font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-faint,#8a8275); margin-bottom:.2rem; }
+.mla-profile-stat-value { font-size:1.4rem; font-weight:700; font-family:'JetBrains Mono',monospace; }
+.mla-profile-divider { border:none; border-top:1px solid var(--aged,#c8c0b4); margin:1.25rem 0; opacity:.5; }
+.mla-profile-field { margin-bottom:.9rem; }
+.mla-profile-field-label { font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-faint,#8a8275); margin-bottom:.2rem; }
+.mla-profile-field-value { font-size:.95rem; line-height:1.5; }
+.mla-panel-actions { display:flex; gap:.6rem; margin-top:1.5rem; flex-wrap:wrap; }
+.mla-panel-btn {
+  font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em;
+  padding:7px 14px; border-radius:3px; border:1px solid var(--ink,#1a1714);
+  cursor:pointer; background:none; color:var(--ink,#1a1714); text-decoration:none;
+  display:inline-block;
+}
+.mla-panel-btn:hover { background:var(--ink,#1a1714); color:var(--paper,#f4f1ea); }
+.mla-panel-btn.primary { background:var(--ink,#1a1714); color:var(--paper,#f4f1ea); }
+.mla-panel-btn.primary:hover { opacity:.85; }
+/* Make rows look clickable */
+#mlaTableBody tr { cursor:pointer; }
+#mlaTableBody tr:focus { outline:2px solid var(--saffron,#d97706); }
 </style>
 <link rel="stylesheet" href="/shared.css">
 <script defer src="/analytics.js"></script>
@@ -543,10 +589,131 @@ async function loadData() {
   renderPartySummary(MLA_DATA);
   applyFilters();
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  // Handle hash deep-link after data is ready
+  handleHash();
 }
 
 loadData();
+
+// ── MLA Profile deep-linking ──────────────────────────────────────────────────
+function slugify(name) {
+  return name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+}
+
+function openProfile(mla) {
+  document.getElementById('mlaProfileName').textContent    = mla.name;
+  document.getElementById('mlaProfileSub').textContent     = `${mla.party} · ${mla.constituency} · ${mla.district}`;
+  document.getElementById('mlaProfileCases').textContent   = mla.cases;
+  document.getElementById('mlaProfileSerious').textContent = mla.serious ? '⚠ Yes' : 'No';
+  document.getElementById('mlaProfileAssets').textContent  = mla.assets || '—';
+  const ipcWrap = document.getElementById('mlaProfileIpcWrap');
+  ipcWrap.style.display = mla.ipc ? '' : 'none';
+  document.getElementById('mlaProfileIpc').textContent     = mla.ipc || '';
+  document.getElementById('mlaProfileVerified').textContent = mla.verified ? '✓ Affidavit verified' : '* Pending verification';
+  document.getElementById('mlaOverlay').classList.add('open');
+  document.getElementById('mlaOverlayClose').focus();
+  history.replaceState(null, '', '#' + slugify(mla.name));
+  if (window.trackEvent) window.trackEvent('MLA Profile View', { name: mla.name, party: mla.party });
+}
+
+function closeProfile() {
+  document.getElementById('mlaOverlay').classList.remove('open');
+  history.replaceState(null, '', location.pathname);
+}
+
+function shareMlaProfile(e) {
+  e.preventDefault();
+  const name  = document.getElementById('mlaProfileName').textContent;
+  const cases = document.getElementById('mlaProfileCases').textContent;
+  const sub   = document.getElementById('mlaProfileSub').textContent;
+  const url   = location.origin + '/mlas#' + slugify(name);
+  if (window.shareWhatsApp) window.shareWhatsApp(`${name} (${sub}) — ${cases} criminal case(s) declared — The Bengal Reader`, url);
+}
+
+// Row click opens profile
+document.getElementById('mlaTableBody').addEventListener('click', function (e) {
+  const tr = e.target.closest('tr');
+  if (!tr) return;
+  // Ignore share button clicks inside the row
+  if (e.target.closest('button[title]')) return;
+  const name = tr.querySelector('.td-name')
+    ? tr.querySelector('.td-name').childNodes[0].textContent.trim()
+    : null;
+  if (!name) return;
+  const mla = MLA_DATA.find(m => m.name === name);
+  if (mla) openProfile(mla);
+});
+
+// Keyboard: Enter/Space on focused row
+document.getElementById('mlaTableBody').addEventListener('keydown', function (e) {
+  if (e.key === 'Enter' || e.key === ' ') {
+    const tr = e.target.closest('tr');
+    if (!tr) return;
+    e.preventDefault();
+    tr.click();
+  }
+});
+
+// Close on overlay backdrop click
+document.getElementById('mlaOverlay').addEventListener('click', function (e) {
+  if (e.target === this) closeProfile();
+});
+
+// Close on Esc
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') closeProfile();
+});
+
+// Close button
+document.getElementById('mlaOverlayClose').addEventListener('click', closeProfile);
+
+// Hash routing: open profile if URL has #mla-name on load or hash change
+function handleHash() {
+  const hash = location.hash.slice(1);
+  if (!hash || !MLA_DATA.length) return;
+  const mla = MLA_DATA.find(m => slugify(m.name) === hash);
+  if (mla) openProfile(mla);
+}
+window.addEventListener('hashchange', handleHash);
+// handleHash is also called at the end of loadData() once data is ready.
 </script>
+
+<!-- MLA PROFILE OVERLAY -->
+<div class="mla-overlay" id="mlaOverlay" role="dialog" aria-modal="true" aria-labelledby="mlaProfileName">
+  <div class="mla-panel" id="mlaPanel">
+    <button class="mla-panel-close" id="mlaOverlayClose" aria-label="Close profile">✕</button>
+    <h2 id="mlaProfileName"></h2>
+    <div class="mla-panel-sub" id="mlaProfileSub"></div>
+    <div class="mla-profile-row">
+      <div class="mla-profile-stat">
+        <div class="mla-profile-stat-label">Cases</div>
+        <div class="mla-profile-stat-value" id="mlaProfileCases"></div>
+      </div>
+      <div class="mla-profile-stat">
+        <div class="mla-profile-stat-label">Serious</div>
+        <div class="mla-profile-stat-value" id="mlaProfileSerious"></div>
+      </div>
+      <div class="mla-profile-stat">
+        <div class="mla-profile-stat-label">Assets</div>
+        <div class="mla-profile-stat-value" id="mlaProfileAssets" style="font-size:1.1rem;"></div>
+      </div>
+    </div>
+    <hr class="mla-profile-divider">
+    <div class="mla-profile-field" id="mlaProfileIpcWrap">
+      <div class="mla-profile-field-label">Nature of charges</div>
+      <div class="mla-profile-field-value" id="mlaProfileIpc"></div>
+    </div>
+    <div class="mla-profile-field">
+      <div class="mla-profile-field-label">Verified</div>
+      <div class="mla-profile-field-value" id="mlaProfileVerified"></div>
+    </div>
+    <div class="mla-panel-actions">
+      <a id="mlaProfileShareLink" href="#" class="mla-panel-btn primary" onclick="return shareMlaProfile(event)">Share profile</a>
+      <a id="mlaProfileAssetsLink" href="/assets" class="mla-panel-btn">View wealth growth →</a>
+      <button class="mla-panel-btn" onclick="closeProfile()">Close</button>
+    </div>
+  </div>
+</div>
 
 <!-- SUBSCRIBE STRIP -->
 <div class="subscribe-strip">
