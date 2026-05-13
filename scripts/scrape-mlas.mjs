@@ -14,10 +14,10 @@
 
 import { writeFileSync, mkdirSync, readFileSync } from 'node:fs';
 import { existsSync } from 'node:fs';
-import { dirname } from 'node:path';
 
 const AFFIDAVIT_DIR = './public/data/affidavits';
 const OUTPUT_FILE = './public/data/mlas.json';
+const DIFFS_FILE = './public/data/affidavit-diffs.json';
 const DELAY_MS = 300; // Rate limit: ~3 requests/sec
 
 // West Bengal election: State ID = 18, Election ID for 2026 assembly = 1026
@@ -114,6 +114,41 @@ function parseAssets(affidavitData) {
   return `₹${crores} cr`;
 }
 
+// ── Affidavit diff detection ─────────────────────────────────────────────────
+const DIFF_FIELDS = ['cases', 'serious', 'ipc', 'assets', 'party'];
+
+function loadExistingMlas() {
+  try {
+    const raw = readFileSync(OUTPUT_FILE, 'utf8');
+    const arr = JSON.parse(raw);
+    const map = {};
+    arr.forEach(m => { if (m.name) map[m.name] = m; });
+    return map;
+  } catch {
+    return {};
+  }
+}
+
+function loadExistingDiffs() {
+  try {
+    return JSON.parse(readFileSync(DIFFS_FILE, 'utf8'));
+  } catch {
+    return { lastUpdated: '', diffs: [] };
+  }
+}
+
+function diffMla(oldRecord, newRecord) {
+  const changes = [];
+  DIFF_FIELDS.forEach(field => {
+    const oldVal = String(oldRecord[field] ?? '');
+    const newVal = String(newRecord[field] ?? '');
+    if (oldVal !== newVal) {
+      changes.push({ field, from: oldVal, to: newVal });
+    }
+  });
+  return changes;
+}
+
 // ── Main scraper ─────────────────────────────────────────────────────────────
 async function main() {
   mkdirSync(AFFIDAVIT_DIR, { recursive: true });
@@ -138,6 +173,11 @@ async function main() {
   // Only process winners (elected MLAs)
   const winners = candidateList.filter(c => c.election_status === 'Won');
   console.log(`Processing ${winners.length} elected MLAs...\n`);
+
+  const existingMlas = loadExistingMlas();
+  const existingDiffs = loadExistingDiffs();
+  const today = new Date().toISOString().slice(0, 10);
+  const sessionDiffs = [];
 
   const mlas = [];
   let processed = 0;
@@ -179,8 +219,27 @@ async function main() {
         affidavitId: candidate.affidavit_id,
       };
 
+      // Detect changes vs existing record
+      const oldRecord = existingMlas[mlaRecord.name];
+      if (oldRecord) {
+        const changes = diffMla(oldRecord, mlaRecord);
+        if (changes.length > 0) {
+          sessionDiffs.push({
+            date: today,
+            name: mlaRecord.name,
+            constituency: mlaRecord.constituency,
+            party: mlaRecord.party,
+            changes,
+          });
+          console.log(`✓ ${criminal.cases} cases, ${assets} [CHANGED: ${changes.map(c => c.field).join(', ')}]`);
+        } else {
+          console.log(`✓ ${criminal.cases} cases, ${assets}`);
+        }
+      } else {
+        console.log(`✓ ${criminal.cases} cases, ${assets} [NEW]`);
+      }
+
       mlas.push(mlaRecord);
-      console.log(`✓ ${criminal.cases} cases, ${assets}`);
       processed++;
     } catch (e) {
       console.log(`(error: ${e.message})`);
@@ -196,6 +255,22 @@ async function main() {
 
   // Write consolidated file
   writeFileSync(OUTPUT_FILE, JSON.stringify(mlas, null, 2), 'utf8');
+
+  // Merge and write diffs log
+  if (sessionDiffs.length > 0) {
+    const mergedDiffs = [...existingDiffs.diffs, ...sessionDiffs];
+    writeFileSync(DIFFS_FILE, JSON.stringify({
+      lastUpdated: today,
+      totalDiffs: mergedDiffs.length,
+      diffs: mergedDiffs,
+    }, null, 2), 'utf8');
+    console.log(`\n  Affidavit changes detected: ${sessionDiffs.length} MLAs`);
+    sessionDiffs.forEach(d => {
+      console.log(`    ${d.name} (${d.constituency}): ${d.changes.map(c => `${c.field} ${c.from}→${c.to}`).join(', ')}`);
+    });
+  } else {
+    console.log('\n  No affidavit changes detected vs previous run.');
+  }
 
   console.log(`\n✓ Scraped ${processed} MLAs (${failed} failed). Written to ${OUTPUT_FILE}`);
   console.log(`  Total records: ${mlas.length}/294`);
