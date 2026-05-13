@@ -11,5 +11,31 @@
     { "source": "/mlas", "destination": "/mla-criminal-records.html" },
     { "source": "/assets", "destination": "/asset-growth.html" },
     { "source": "/methodology", "destination": "/methodology.html" }
+  ],
+  "headers": [
+    {
+      "source": "/data/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, s-maxage=60, stale-while-revalidate=30" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.css",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, s-maxage=3600, stale-while-revalidate=600" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, s-maxage=3600, stale-while-revalidate=600" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(?:svg|png)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, s-maxage=86400, stale-while-revalidate=3600" }
+      ]
+    }
   ]
 }

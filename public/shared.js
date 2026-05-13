@@ -168,3 +168,55 @@ window.shareDataPoint = function (label, value, url) {
     });
   });
 })();
+
+/* ── 8. Live data polling (30 s) ─────────────────────────────────────────── */
+/* Polls /data/meta.json every 30 s. When autoChecked changes (i.e. a new
+   data pipeline run landed), fires window event 'bengal:dataupdate' and
+   shows a dismissible toast inviting the user to reload. */
+(function () {
+  var POLL_MS = 30000;
+  var lastChecked = null;
+
+  function poll() {
+    fetch('/data/meta.json', { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (meta) {
+        if (lastChecked === null) { lastChecked = meta.autoChecked; return; }
+        if (meta.autoChecked !== lastChecked) {
+          lastChecked = meta.autoChecked;
+          window.dispatchEvent(new CustomEvent('bengal:dataupdate', { detail: meta }));
+          showToast();
+        }
+      })
+      .catch(function () {});
+  }
+
+  function showToast() {
+    var existing = document.getElementById('bengal-live-toast');
+    if (existing) existing.remove();
+    var t = document.createElement('div');
+    t.id = 'bengal-live-toast';
+    t.setAttribute('role', 'status');
+    t.textContent = '↻ Data updated — click to reload';
+    t.style.cssText = [
+      'position:fixed', 'bottom:1.5rem', 'right:1.5rem',
+      'background:#1f6b3a', 'color:#fff',
+      'padding:8px 18px', 'border-radius:3px',
+      'font-family:JetBrains Mono,monospace', 'font-size:11px', 'letter-spacing:.05em',
+      'z-index:99999', 'cursor:pointer',
+      'box-shadow:0 2px 8px rgba(0,0,0,.25)',
+      'transition:opacity .4s',
+    ].join(';');
+    t.onclick = function () { location.reload(); };
+    document.body.appendChild(t);
+    setTimeout(function () {
+      t.style.opacity = '0';
+      setTimeout(function () { if (t.parentNode) t.remove(); }, 400);
+    }, 5000);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    poll();
+    setInterval(poll, POLL_MS);
+  });
+})();
