@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Search across all Bengal Reader data — MLAs, corruption cases, constituencies, and accountability pledges.">
+<meta property="og:title" content="Search — The Bengal Reader">
+<meta property="og:description" content="Find any MLA, corruption case, constituency, or BJP pledge in the Bengal Reader database.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/og-assets.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Search — The Bengal Reader">
+<meta name="twitter:description" content="Search across MLAs, corruption cases, constituencies, and BJP pledges.">
+<meta name="twitter:image" content="/og-assets.png">
+<title>Search — The Bengal Reader</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
+<script defer src="/analytics.js"></script>
+<script defer src="/shared.js"></script>
+<style>
+:root {
+  --paper: #f4f1ea; --paper-dark: #ebe6db; --paper-mid: #e0dbd0;
+  --ink: #1a1714; --ink-soft: #4a443c; --ink-faint: #8a8275;
+  --rule: #2a2520; --red: #b8231c; --green: #1f6b3a; --saffron: #d97706;
+  --shadow: rgba(26,23,20,0.08);
+}
+[data-theme="dark"] {
+  --paper: #141210; --paper-dark: #1e1b18; --paper-mid: #252220;
+  --ink: #f0ece3; --ink-soft: #b8b2a8; --ink-faint: #706a62;
+  --rule: #3a3530; --red: #e05555; --green: #4ca86a; --saffron: #e8983a;
+  --shadow: rgba(0,0,0,0.3);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--paper); color:var(--ink); font-family:'Fraunces',Georgia,serif; font-size:17px; line-height:1.6; }
+.page-wrap { max-width:860px; margin:0 auto; padding:3rem 2rem 6rem; }
+h1 { font-size:2rem; font-weight:800; letter-spacing:-.02em; margin-bottom:.4rem; }
+.subtitle { color:var(--ink-faint); font-size:.95rem; font-family:'JetBrains Mono',monospace; margin-bottom:2rem; }
+.search-box-wrap { position:relative; margin-bottom:1rem; }
+#searchInput {
+  width:100%; padding:14px 18px; font-size:1.05rem; font-family:'Fraunces',Georgia,serif;
+  border:2px solid var(--rule); border-radius:4px; background:var(--paper-dark);
+  color:var(--ink); outline:none; transition:border-color .2s;
+}
+#searchInput:focus { border-color:var(--saffron); }
+.search-hint { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-faint); margin-bottom:2rem; }
+.search-hint kbd {
+  display:inline-block; padding:1px 5px; border:1px solid var(--ink-faint);
+  border-radius:3px; font-size:10px;
+}
+#results { display:none; }
+.results-meta { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-faint); margin-bottom:1.5rem; letter-spacing:.04em; }
+.result-group { margin-bottom:2rem; }
+.result-group-label {
+  font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--ink-faint); border-bottom:1px solid var(--rule);
+  padding-bottom:6px; margin-bottom:.75rem;
+}
+.result-item {
+  display:block; padding:12px 14px; border-radius:4px; text-decoration:none;
+  color:var(--ink); transition:background .15s; margin-bottom:4px;
+  border:1px solid transparent;
+}
+.result-item:hover { background:var(--paper-dark); border-color:var(--rule); }
+.result-title { font-weight:600; font-size:1rem; margin-bottom:2px; }
+.result-meta { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-faint); }
+.result-tag {
+  display:inline-block; font-family:'JetBrains Mono',monospace; font-size:9px;
+  letter-spacing:.1em; text-transform:uppercase; padding:2px 6px; border-radius:2px;
+  margin-right:6px; vertical-align:middle;
+}
+.tag-mla    { background:rgba(232,100,10,.12); color:#c8520a; }
+.tag-case   { background:rgba(184,35,28,.1);  color:#a01818; }
+.tag-seat   { background:rgba(31,107,58,.1);  color:#175c30; }
+.tag-pledge { background:rgba(217,119,6,.12); color:#b8620a; }
+[data-theme="dark"] .tag-mla    { background:rgba(232,100,10,.18); color:#e87030; }
+[data-theme="dark"] .tag-case   { background:rgba(224,85,85,.15);  color:#e05555; }
+[data-theme="dark"] .tag-seat   { background:rgba(76,168,106,.15); color:#4ca86a; }
+[data-theme="dark"] .tag-pledge { background:rgba(232,152,58,.15); color:#e8983a; }
+.empty-state { text-align:center; padding:4rem 2rem; color:var(--ink-faint); font-family:'JetBrains Mono',monospace; font-size:.85rem; }
+.loading { text-align:center; padding:2rem; color:var(--ink-faint); font-family:'JetBrains Mono',monospace; font-size:.85rem; }
+.highlight { background:rgba(217,119,6,.2); border-radius:2px; padding:0 1px; }
+[data-theme="dark"] .highlight { background:rgba(232,152,58,.25); }
+@media(max-width:600px){.page-wrap{padding:2rem 1rem 4rem;}}
+</style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">The Bengal Reader</a>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Voter Guide</a>
+      <a href="/parties" class="site-nav-link">Party Compass</a>
+      <a href="/constituencies" class="site-nav-link">2026 Results</a>
+      <a href="/accountability" class="site-nav-link">100 Days</a>
+      <a href="/corruption" class="site-nav-link">Dossier</a>
+      <a href="/bonds" class="site-nav-link">Money Trail</a>
+      <a href="/mlas" class="site-nav-link">MLA Records</a>
+      <a href="/assets" class="site-nav-link">Wealth Growth</a>
+      <a href="/search" class="site-nav-link">Search</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+<div class="page-wrap">
+  <h1>Search</h1>
+  <p class="subtitle">MLAs · Corruption cases · Constituencies · BJP pledges</p>
+
+  <div class="search-box-wrap">
+    <input type="search" id="searchInput" placeholder="Search by name, party, district, keyword…" autocomplete="off" spellcheck="false" aria-label="Search the Bengal Reader database">
+  </div>
+  <p class="search-hint">Type at least 2 characters &nbsp;·&nbsp; <kbd>Esc</kbd> to clear</p>
+
+  <div id="loadingState" class="loading">Loading data…</div>
+
+  <div id="results" role="region" aria-live="polite" aria-label="Search results">
+    <p class="results-meta" id="resultsMeta"></p>
+    <div id="resultsList"></div>
+  </div>
+</div>
+</main>
+
+<script>
+var DATA = { mlas: [], cases: [], seats: [], pledges: [] };
+var loaded = false;
+
+async function loadAll() {
+  try {
+    const [mlasRes, casesRes, constRes, pledgesRes] = await Promise.all([
+      fetch('/data/mlas.json'),
+      fetch('/data/cases.json'),
+      fetch('/data/constituencies.json'),
+      fetch('/data/pledges.json'),
+    ]);
+    DATA.mlas     = await mlasRes.json();
+    DATA.cases    = await casesRes.json();
+    const cd      = await constRes.json();
+    DATA.seats    = cd.seats || [];
+    const pd      = await pledgesRes.json();
+    DATA.pledges  = pd.pledges || [];
+    loaded = true;
+    document.getElementById('loadingState').style.display = 'none';
+    // If query already typed while loading, run it
+    const q = document.getElementById('searchInput').value.trim();
+    if (q.length >= 2) runSearch(q);
+  } catch (e) {
+    document.getElementById('loadingState').textContent = 'Could not load data. Please refresh.';
+  }
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function highlight(text, query) {
+  if (!query) return esc(text);
+  const re = new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
+  return esc(text).replace(re, '<mark class="highlight">$1</mark>');
+}
+
+function score(text, q) {
+  const t = text.toLowerCase(), ql = q.toLowerCase();
+  if (t === ql) return 3;
+  if (t.startsWith(ql)) return 2;
+  if (t.includes(ql)) return 1;
+  return 0;
+}
+
+function searchMLAs(q) {
+  const ql = q.toLowerCase();
+  return DATA.mlas
+    .map(m => {
+      const s = score(m.name, q) * 3 + score(m.constituency, q) * 2 + score(m.district, q) + score(m.party, q);
+      return { m, s };
+    })
+    .filter(x => x.s > 0)
+    .sort((a, b) => b.s - a.s)
+    .slice(0, 8)
+    .map(({ m }) => ({
+      title: m.name,
+      meta: `${m.party} · ${m.constituency} · ${m.district} · ${m.cases} case${m.cases !== 1 ? 's' : ''}${m.serious ? ' ⚠ serious' : ''}`,
+      url: '/mlas#' + m.name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,''),
+      tag: 'mla',
+      tagLabel: 'MLA',
+    }));
+}
+
+function searchCases(q) {
+  const ql = q.toLowerCase();
+  return DATA.cases
+    .map(c => {
+      const s = score(c.name, q) * 3 + score(c.id, q) * 2 +
+        (c.summary && c.summary.toLowerCase().includes(ql) ? 1 : 0);
+      return { c, s };
+    })
+    .filter(x => x.s > 0)
+    .sort((a, b) => b.s - a.s)
+    .slice(0, 5)
+    .map(({ c }) => ({
+      title: c.name,
+      meta: `${c.agencies ? c.agencies.join(' · ') : ''} · ${c.status || ''} · ${c.amount || ''}`,
+      url: '/corruption#' + c.id,
+      tag: 'case',
+      tagLabel: 'Case',
+    }));
+}
+
+function searchSeats(q) {
+  const ql = q.toLowerCase();
+  return DATA.seats
+    .map(r => {
+      const s = score(r.name, q) * 3 + score(r.winner || '', q) * 2 +
+        score(r.district || '', q) + score(r.party || r.winParty || '', q);
+      return { r, s };
+    })
+    .filter(x => x.s > 0)
+    .sort((a, b) => b.s - a.s)
+    .slice(0, 8)
+    .map(({ r }) => ({
+      title: r.name,
+      meta: `AC ${r.ac} · ${r.district || ''} · ${r.party || r.winParty || '?'}${r.winner ? ' · ' + r.winner : ''}${r.margin ? ' · Margin ' + Number(r.margin).toLocaleString() : ''}`,
+      url: '/constituencies#ac-' + r.ac,
+      tag: 'seat',
+      tagLabel: 'Constituency',
+    }));
+}
+
+function searchPledges(q) {
+  const ql = q.toLowerCase();
+  return DATA.pledges
+    .map(p => {
+      const s = score(p.title || p.id, q) * 3 +
+        (p.description && p.description.toLowerCase().includes(ql) ? 1 : 0);
+      return { p, s };
+    })
+    .filter(x => x.s > 0)
+    .sort((a, b) => b.s - a.s)
+    .slice(0, 5)
+    .map(({ p }) => ({
+      title: p.title || p.id,
+      meta: `Status: ${p.status || 'watching'} · Category: ${p.category || '—'}${p.deadlineDate ? ' · Deadline: ' + p.deadlineDate : ''}`,
+      url: '/accountability#' + (p.id || ''),
+      tag: 'pledge',
+      tagLabel: 'Pledge',
+    }));
+}
+
+function renderGroup(label, items, query) {
+  if (!items.length) return '';
+  const rows = items.map(item => `
+    <a href="${esc(item.url)}" class="result-item">
+      <div class="result-title">
+        <span class="result-tag tag-${item.tag}">${item.tagLabel}</span>
+        ${highlight(item.title, query)}
+      </div>
+      <div class="result-meta">${esc(item.meta)}</div>
+    </a>`).join('');
+  return `<div class="result-group"><div class="result-group-label">${label}</div>${rows}</div>`;
+}
+
+function runSearch(q) {
+  if (!loaded) return;
+  const results = document.getElementById('results');
+  const list    = document.getElementById('resultsList');
+  const meta    = document.getElementById('resultsMeta');
+
+  if (q.length < 2) {
+    results.style.display = 'none';
+    return;
+  }
+  results.style.display = 'block';
+
+  const mlas     = searchMLAs(q);
+  const cases    = searchCases(q);
+  const seats    = searchSeats(q);
+  const pledges  = searchPledges(q);
+  const total    = mlas.length + cases.length + seats.length + pledges.length;
+
+  if (total === 0) {
+    list.innerHTML = `<div class="empty-state">No results for "${esc(q)}"<br><br>Try a name, party, district, or keyword.</div>`;
+    meta.textContent = '';
+    return;
+  }
+
+  meta.textContent = `${total} result${total !== 1 ? 's' : ''} for "${q}"`;
+  list.innerHTML =
+    renderGroup('MLAs', mlas, q) +
+    renderGroup('Corruption Cases', cases, q) +
+    renderGroup('Constituencies', seats, q) +
+    renderGroup('BJP Pledges', pledges, q);
+
+  if (window.trackEvent) window.trackEvent('Search', { query: q, results: total });
+}
+
+// Debounce
+var debTimer;
+document.getElementById('searchInput').addEventListener('input', function () {
+  clearTimeout(debTimer);
+  debTimer = setTimeout(function () { runSearch(document.getElementById('searchInput').value.trim()); }, 200);
+});
+
+document.getElementById('searchInput').addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') { this.value = ''; runSearch(''); }
+});
+
+// Keyboard shortcut: / to focus search from anywhere on the page
+document.addEventListener('keydown', function (e) {
+  if (e.key === '/' && document.activeElement !== document.getElementById('searchInput')) {
+    e.preventDefault();
+    document.getElementById('searchInput').focus();
+  }
+});
+
+// Pre-fill from URL query param: /search?q=anubrata
+(function () {
+  var params = new URLSearchParams(location.search);
+  var q = params.get('q');
+  if (q) { document.getElementById('searchInput').value = q; }
+})();
+
+loadAll();
+</script>
+</body>
+</html>
