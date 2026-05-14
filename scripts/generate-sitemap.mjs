@@ -4,8 +4,9 @@
  * Run manually or via CI: node scripts/generate-sitemap.mjs
  */
 
-import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { execSync } from 'node:child_process';
 
 const DOMAIN = process.env.SITE_DOMAIN
   ? `https://${process.env.SITE_DOMAIN}`
@@ -36,10 +37,10 @@ function getChangefreq(path) {
 
 function getLastmod(filePath) {
   try {
-    return statSync(filePath).mtime.toISOString().slice(0, 10);
-  } catch {
-    return new Date().toISOString().slice(0, 10);
-  }
+    const out = execSync(`git log -1 --format=%cI -- "${filePath}"`, { encoding: 'utf-8' }).trim();
+    if (out) return out.slice(0, 10);
+  } catch {}
+  return new Date().toISOString().slice(0, 10);
 }
 
 // Collect routes from vercel.json rewrites
