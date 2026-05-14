@@ -605,6 +605,42 @@ body::before {
   .tools-grid { grid-template-columns:1fr; }
 }
 
+/* ── BENGAL WATCH STRIP ── */
+.bw-strip {
+  background:#0a0804; border-bottom:1px solid rgba(255,255,255,.06); padding:0;
+}
+.bw-inner {
+  max-width:1280px; margin:0 auto; padding:0 32px;
+  display:grid; grid-template-columns:repeat(5,1fr);
+}
+.bw-cell {
+  padding:14px 0 12px; border-right:1px solid rgba(255,255,255,.06);
+  display:flex; flex-direction:column; align-items:center; gap:3px;
+}
+.bw-cell:last-child { border-right:none; }
+.bw-num {
+  font-family:'JetBrains Mono',monospace; font-size:clamp(1.1rem,2.5vw,1.5rem);
+  font-weight:600; line-height:1; color:#f5f0e8;
+  transition:color .3s;
+}
+.bw-label {
+  font-family:'JetBrains Mono',monospace; font-size:0.5rem;
+  letter-spacing:.12em; text-transform:uppercase;
+  color:rgba(245,240,232,.3); text-align:center; line-height:1.4;
+}
+.bw-num.loaded { color:#e8640a; }
+.bw-num.danger { color:#c0171b; }
+.bw-num.safe   { color:#166534; }
+@media(max-width:680px) {
+  .bw-inner { grid-template-columns:repeat(3,1fr); }
+  .bw-cell:nth-child(4) { border-right:none; }
+}
+@media(max-width:400px) {
+  .bw-inner { grid-template-columns:repeat(2,1fr); }
+  .bw-cell:nth-child(2n) { border-right:none; }
+  .bw-cell:nth-child(5) { display:none; }
+}
+
 /* ── LIVE STATUS STRIP ── */
 .live-status-strip {
   background:#0d0b09; border-bottom:1px solid #1e1b18;
@@ -939,6 +975,32 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
         15 years of TMC rule ended · <a href="/accountability" style="color:#e8640a;text-decoration:none;">Track BJP's 24 promises →</a>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- BENGAL WATCH: live cross-dataset stats -->
+<div class="bw-strip" title="Live data — computed from ECI affidavits, election results, and manifesto records">
+  <div class="bw-inner">
+    <a href="/mlas" class="bw-cell" style="text-decoration:none;">
+      <span class="bw-num" id="bw-criminal">–</span>
+      <span class="bw-label">MLAs with<br>Criminal Cases</span>
+    </a>
+    <a href="/mlas" class="bw-cell" style="text-decoration:none;">
+      <span class="bw-num" id="bw-serious">–</span>
+      <span class="bw-label">MLAs with<br>Serious Charges</span>
+    </a>
+    <a href="/accountability" class="bw-cell" style="text-decoration:none;">
+      <span class="bw-num" id="bw-pledges">24</span>
+      <span class="bw-label">BJP Pledges<br>Tracked</span>
+    </a>
+    <a href="/bonds" class="bw-cell" style="text-decoration:none;">
+      <span class="bw-num" id="bw-bonds">₹1,609Cr</span>
+      <span class="bw-label">Electoral Bonds<br>Money Trail</span>
+    </a>
+    <a href="/constituencies" class="bw-cell" style="text-decoration:none;">
+      <span class="bw-num" id="bw-seats">294</span>
+      <span class="bw-label">Seats<br>Tracked</span>
+    </a>
   </div>
 </div>
 
@@ -1999,6 +2061,41 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
 <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
 <script>
+// Bengal Watch — live cross-dataset stats strip
+(function () {
+  function set(id, val, cls) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = val;
+    if (cls) el.classList.add(cls);
+  }
+  Promise.all([
+    fetch('/data/mlas.json').then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }),
+    fetch('/data/pledges.json').then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }),
+    fetch('/data/constituencies.json').then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }),
+  ]).then(function (results) {
+    var mlasData = results[0];
+    var pledgesData = results[1];
+    var consData = results[2];
+
+    if (mlasData) {
+      var mlas = Array.isArray(mlasData) ? mlasData : (mlasData.mlas || []);
+      var withCases = mlas.filter(function (m) { return m.cases > 0; }).length;
+      var serious = mlas.filter(function (m) { return m.serious; }).length;
+      set('bw-criminal', withCases, withCases > 50 ? 'danger' : 'loaded');
+      set('bw-serious', serious, serious > 20 ? 'danger' : 'loaded');
+    }
+    if (pledgesData) {
+      var pledges = pledgesData.pledges || [];
+      set('bw-pledges', pledges.length || 24, 'loaded');
+    }
+    if (consData) {
+      var seats = (consData.seats || []).length;
+      set('bw-seats', seats || 294, 'loaded');
+    }
+  });
+})();
+
 // Progress bar + back to top
 window.addEventListener('scroll', () => {
   const d = document.documentElement;

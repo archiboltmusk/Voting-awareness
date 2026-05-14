@@ -34,7 +34,6 @@
   --delivered: #166534;
   --delayed: #b45309;
   --broken: #c0171b;
-  --evaded: #7c3aed;
 }
 
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
@@ -75,36 +74,29 @@ body::before {
 .day-progress-bar { height:4px; background:rgba(255,255,255,0.08); overflow:hidden; }
 .day-progress-fill { height:4px; background:var(--bjp); width:0%; transition:width 1s ease; }
 .day-progress-labels { display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:0.58rem; letter-spacing:0.1em; color:#8a8070; margin-top:0.4rem; }
-.live-clock { font-family:'IBM Plex Mono',monospace; font-size:clamp(0.9rem,2.5vw,1.2rem); letter-spacing:0.12em; color:rgba(245,240,232,0.5); margin-top:1.2rem; }
-.live-clock span { color:rgba(245,240,232,0.85); }
-/* ── SEGMENTED STATUS BAR ── */
-.status-seg-wrap { max-width:700px; margin:1.5rem auto 0; }
-.status-seg-bar { display:flex; height:6px; overflow:hidden; border-radius:0; gap:1px; }
-.status-seg { height:6px; transition:flex 0.8s ease; }
-.status-seg-labels { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:0.6rem; font-family:'IBM Plex Mono',monospace; font-size:0.55rem; letter-spacing:0.1em; text-transform:uppercase; }
-.status-seg-lbl { display:flex; align-items:center; gap:4px; color:#8a8070; }
-.status-seg-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
-/* ── FIRST ACTIONS LOG ── */
-.actions-log { border:1px solid var(--aged); margin:2.5rem 0; }
-.actions-log-header { background:var(--ink); color:var(--paper); padding:0.7rem 1.2rem; display:flex; align-items:center; justify-content:space-between; }
-.actions-log-title { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; }
-.actions-live-dot { width:7px; height:7px; border-radius:50%; background:#22c55e; animation:pulse 2s ease-in-out infinite; display:inline-block; margin-right:6px; }
-.action-row { display:grid; grid-template-columns:auto 1fr auto; gap:1rem; padding:0.9rem 1.2rem; border-bottom:1px solid var(--aged); align-items:start; }
-.action-row:last-child { border-bottom:none; }
-.action-date { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:var(--muted); white-space:nowrap; padding-top:0.15rem; }
-.action-text { font-family:'Crimson Pro',serif; font-size:0.98rem; line-height:1.5; }
-.action-text strong { color:var(--ink); }
-.action-src { font-family:'IBM Plex Mono',monospace; font-size:0.55rem; color:var(--muted); white-space:nowrap; padding-top:0.2rem; }
-.action-src a { color:var(--muted); text-decoration:none; }
-.action-src a:hover { color:var(--ink); }
-.action-tag { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:0.52rem; letter-spacing:0.08em; text-transform:uppercase; padding:1px 6px; border:1px solid; margin-right:4px; margin-bottom:2px; }
-.tag-done { color:#166534; border-color:#166534; background:rgba(22,101,52,0.08); }
-.tag-reversed { color:#c0171b; border-color:#c0171b; background:rgba(192,23,27,0.08); }
-.tag-symbolic { color:#7c3aed; border-color:#7c3aed; background:rgba(124,58,237,0.08); }
-.tag-pending { color:#8a7a6a; border-color:#8a7a6a; background:rgba(138,122,106,0.08); }
 
 /* ── LAYOUT ── */
 .container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+
+/* ── PLEDGE HEAT GRID ── */
+.heat-grid-wrap { margin:2rem 0; }
+.heat-grid-title { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:.7rem; }
+.heat-grid { display:flex; flex-wrap:wrap; gap:5px; }
+.heat-cell {
+  width:36px; height:36px; display:flex; align-items:center; justify-content:center;
+  font-family:'IBM Plex Mono',monospace; font-size:0.58rem; font-weight:600;
+  cursor:pointer; transition:transform .15s, opacity .15s; position:relative;
+  border:2px solid transparent; color:#fff;
+}
+.heat-cell:hover { transform:scale(1.18); z-index:2; }
+.heat-cell:focus { outline:2px solid var(--bjp); outline-offset:2px; }
+.heat-cell .heat-tip {
+  display:none; position:absolute; bottom:calc(100% + 6px); left:50%; transform:translateX(-50%);
+  background:#050403; color:rgba(245,240,232,.9); font-size:0.55rem; white-space:nowrap;
+  padding:4px 8px; z-index:10; pointer-events:none; border:1px solid rgba(255,255,255,.12);
+  max-width:200px; white-space:normal; text-align:center;
+}
+.heat-cell:hover .heat-tip { display:block; }
 
 /* ── SECTION HEADERS ── */
 .section-header { border-top:4px solid var(--ink); padding-top:0.5rem; margin:4rem 0 2rem; display:flex; justify-content:space-between; align-items:flex-end; gap:1rem; }
@@ -127,7 +119,6 @@ p { margin-bottom:1.2rem; font-size:1.05rem; color:#2a2018; }
 .status-delivered { background:rgba(22,101,52,0.12); color:var(--delivered); border:1px solid rgba(22,101,52,0.3); }
 .status-delayed   { background:rgba(180,83,9,0.12); color:var(--delayed); border:1px solid rgba(180,83,9,0.3); }
 .status-broken    { background:rgba(192,23,27,0.1); color:var(--broken); border:1px solid rgba(192,23,27,0.3); }
-.status-evaded    { background:rgba(124,58,237,0.1); color:var(--evaded); border:1px solid rgba(124,58,237,0.3); }
 
 /* ── PLEDGE CARDS ── */
 .pledge-section { margin:2.5rem 0; }
@@ -239,10 +230,6 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
 [data-theme="dark"] .hr-ornate { border-color:rgba(255,255,255,.08); }
 [data-theme="dark"] .hr-ornate::before { background:#141210; color:#9a9085; }
 [data-theme="dark"] .filter-bar { background:#141210; border-color:rgba(255,255,255,.08); }
-[data-theme="dark"] .actions-log { border-color:rgba(255,255,255,.1); }
-[data-theme="dark"] .action-row { border-color:rgba(255,255,255,.07); }
-[data-theme="dark"] .action-text { color:#c8c0b4; }
-[data-theme="dark"] .action-text strong { color:#f0ece3; }
 [data-theme="dark"] body::before { opacity:0.15; }
 
 /* ── CATEGORY STICKY NAV ── */
@@ -347,7 +334,6 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
       <div class="counter-label">Pledges Tracked</div>
     </div>
   </div>
-  <div class="live-clock">Time in office — <span id="clockHours">00</span>h <span id="clockMins">00</span>m <span id="clockSecs">00</span>s</div>
   <p class="counter-sub">BJP won 207 of 294 seats — a ⅔ supermajority — ending 15 years of TMC rule. With full legislative power and no coalition constraints, every promise is a full accountability obligation.</p>
   <div class="mandate-bar" style="margin-top:2rem;">
     <div class="mandate-seg" style="flex:207;background:#e8640a;"></div>
@@ -416,14 +402,6 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
         <div class="progress-num" style="color:#c0171b;" id="cnt-broken">0</div>
         <div class="progress-lbl">Broken</div>
       </div>
-      <div class="progress-cell">
-        <div class="progress-num" style="color:#7c3aed;" id="cnt-evaded">0</div>
-        <div class="progress-lbl">Evaded</div>
-      </div>
-    </div>
-    <div class="status-seg-wrap" id="statusSegWrap" style="display:none;">
-      <div class="status-seg-bar" id="statusSegBar"></div>
-      <div class="status-seg-labels" id="statusSegLabels"></div>
     </div>
   </div>
 
@@ -434,60 +412,10 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
 
   <hr class="hr-ornate">
 
-  <!-- FIRST ACTIONS LOG -->
-  <div class="section-header fade-in" style="margin-top:3rem;">
-    <div class="section-header-text">
-      <div class="section-label">Documented Actions</div>
-      <h2 class="section-title">What the Government Has Actually Done</h2>
-    </div>
-  </div>
-  <p style="font-family:'Crimson Pro',serif;font-size:1rem;color:var(--muted);margin-bottom:1.5rem;">Verified government orders, policy reversals, and documented decisions — independent of pledge status. Each entry is sourced to a government circular, press release, or credible wire report.</p>
-
-  <div class="actions-log fade-in">
-    <div class="actions-log-header">
-      <span class="actions-log-title"><span class="actions-live-dot"></span>Government Action Log — Since May 9, 2026</span>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;color:rgba(245,240,232,0.4);">5 entries</span>
-    </div>
-    <div class="action-row">
-      <div class="action-date">May 11–12<br>2026</div>
-      <div class="action-text">
-        <span class="action-tag tag-done">Done</span><span class="action-tag tag-symbolic">Symbolic</span>
-        <strong>Biswa Bangla logo removed from all state government portals.</strong> The logo — trademarked by Mamata Banerjee and used royalty-free by the TMC-led government — was replaced with the Ashoka Stambha. CM Adhikari stated: "A logo created by an individual has no role in the state." Official branding shifted from TMC white-and-blue to white-and-saffron.
-      </div>
-      <div class="action-src">Egiye Bangla portal</div>
-    </div>
-    <div class="action-row">
-      <div class="action-date">May 10<br>2026</div>
-      <div class="action-text">
-        <span class="action-tag tag-reversed">Reversed</span>
-        <strong>Z+ CISF security for Abhishek Banerjee downgraded</strong> to standard MP entitlement by the new state government. The cover was reviewed on the first day of the new administration.
-      </div>
-      <div class="action-src">PTI, May 10 2026</div>
-    </div>
-    <div class="action-row">
-      <div class="action-date">May 9<br>2026</div>
-      <div class="action-text">
-        <span class="action-tag tag-done">Done</span>
-        <strong>Day-1 review of law and order.</strong> CM Adhikari convened an immediate review of district-level law and order. Post-election violence against TMC workers reported in several districts was placed under monitoring. No new GOs issued Day 1.
-      </div>
-      <div class="action-src">PIB West Bengal</div>
-    </div>
-    <div class="action-row">
-      <div class="action-date">Ongoing</div>
-      <div class="action-text">
-        <span class="action-tag tag-pending">Pending</span>
-        <strong>CBI/ED cases against TMC leaders — new government cooperation status.</strong> Active cases include: Abhishek Banerjee (School Jobs Scam via Leaps &amp; Bounds, Coal Pilferage Case). State cooperation orders with central agencies not yet issued by new administration.
-      </div>
-      <div class="action-src">CBI press releases</div>
-    </div>
-    <div class="action-row">
-      <div class="action-date">Ongoing</div>
-      <div class="action-text">
-        <span class="action-tag tag-pending">Pending</span>
-        <strong>Electoral bonds probe — new government stance awaited.</strong> West Bengal entities purchased ₹1,609 Cr in electoral bonds; several were under ED/CBI scrutiny. New administration has not yet stated its position on state cooperation with SC-ordered probes.
-      </div>
-      <div class="action-src"><a href="/bonds">Bengal Reader /bonds</a></div>
-    </div>
+  <!-- HEAT GRID -->
+  <div class="heat-grid-wrap fade-in">
+    <div class="heat-grid-title">All 24 pledges at a glance — click any square to jump to that pledge</div>
+    <div class="heat-grid" id="pledgeHeatGrid"></div>
   </div>
 
   <hr class="hr-ornate">
@@ -644,64 +572,29 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
 </footer>
 
 <script>
-// ── Accordion section toggle ──────────────────────────────────────────────────
-function toggleSection(id) {
-  var body = document.getElementById('body-' + id);
-  var btn = document.getElementById('toggle-' + id);
-  if (!body) return;
-  var collapsed = body.classList.toggle('collapsed');
-  if (btn) {
-    btn.textContent = collapsed ? '▶ Expand' : '▼ Collapse';
-    btn.setAttribute('aria-expanded', String(!collapsed));
-  }
-  if (window.trackEvent) window.trackEvent('Accordion Toggle', { section: id, state: collapsed ? 'collapsed' : 'expanded' });
-}
-
-// ── Cat-nav active section highlight (IntersectionObserver) ──────────────────
-(function () {
-  document.addEventListener('DOMContentLoaded', function () {
-    var tabs = document.querySelectorAll('.cat-nav-tab');
-    if (!tabs.length) return;
-    var sections = document.querySelectorAll('section[id^="sec-"]');
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          var href = '#' + e.target.id;
-          tabs.forEach(function (t) { t.classList.toggle('active', t.getAttribute('href') === href); });
-        }
-      });
-    }, { rootMargin: '-15% 0px -75% 0px' });
-    sections.forEach(function (s) { io.observe(s); });
-  });
-})();
-
-// Live counter — days + ticking H:M:S clock
-(function() {
-  var SWORN_IN = new Date('2026-05-09T12:00:00+05:30');
-  function pad(n) { return String(n).padStart(2, '0'); }
-  function tick() {
-    var now = new Date();
-    var diff = now - SWORN_IN;
-    if (diff < 0) diff = 0;
-    var totalSecs = Math.floor(diff / 1000);
-    var secs  = totalSecs % 60;
-    var mins  = Math.floor(totalSecs / 60) % 60;
-    var hours = Math.floor(totalSecs / 3600) % 24;
-    var days  = Math.floor(totalSecs / 86400);
-    var el;
-    el = document.getElementById('dayCount');       if (el) el.textContent = days;
-    el = document.getElementById('daysRemaining');  if (el) el.textContent = Math.max(0, 100 - days);
-    el = document.getElementById('clockHours');     if (el) el.textContent = pad(hours);
-    el = document.getElementById('clockMins');      if (el) el.textContent = pad(mins);
-    el = document.getElementById('clockSecs');      if (el) el.textContent = pad(secs);
-    var pct = Math.min(100, days);
-    var fill = document.getElementById('dayFill');
-    if (fill && fill.style.width === '0%') fill.style.width = pct + '%';
-    var lbl = document.getElementById('dayPct');
+// Days since swearing-in — fetch from pledges.json for consistency
+(async function() {
+  let swearingIn = new Date('2026-05-09');
+  try {
+    const res = await fetch('/data/pledges.json?t=' + Date.now());
+    if (res.ok) {
+      const data = await res.json();
+      if (data.swearingIn) swearingIn = new Date(data.swearingIn);
+    }
+  } catch(e) {}
+  const today = new Date();
+  const days = Math.max(0, Math.floor((today - swearingIn) / (1000*60*60*24)));
+  const remaining = Math.max(0, 100 - days);
+  const pct = Math.min(100, days);
+  document.getElementById('dayCount').textContent = days;
+  const rem = document.getElementById('daysRemaining');
+  if (rem) rem.textContent = remaining;
+  requestAnimationFrame(() => {
+    const fill = document.getElementById('dayFill');
+    const lbl = document.getElementById('dayPct');
+    if (fill) setTimeout(() => { fill.style.width = pct + '%'; }, 200);
     if (lbl) lbl.textContent = pct + '% of 100 days elapsed';
-  }
-  tick();
-  setInterval(tick, 1000);
+  });
 })();
 
 // Fade-in observer
@@ -727,11 +620,7 @@ function timeAgo(iso) {
 
 const STATUS_LABELS = {
   watching: 'Watching', announced: 'Announced', 'in-progress': 'In Progress',
-  delivered: 'Delivered', delayed: 'Delayed', broken: 'Broken', evaded: 'Evaded'
-};
-const STATUS_COLORS = {
-  watching: '#8a7a6a', announced: '#1565c0', 'in-progress': '#d97706',
-  delivered: '#166534', delayed: '#b45309', broken: '#c0171b', evaded: '#7c3aed'
+  delivered: 'Delivered', delayed: 'Delayed', broken: 'Broken'
 };
 
 function renderPledgeSection(containerId, pledges) {
@@ -835,7 +724,7 @@ async function loadData() {
   }
 
   const byCategory = {};
-  const counts = { watching:0, announced:0, 'in-progress':0, delivered:0, delayed:0, broken:0, evaded:0 };
+  const counts = { watching:0, announced:0, 'in-progress':0, delivered:0, delayed:0, broken:0 };
 
   for (const p of pledges) {
     (byCategory[p.category] = byCategory[p.category] || []).push(p);
@@ -851,6 +740,24 @@ async function loadData() {
   renderPledgeSection('pledges-women',       byCategory.women       || []);
   renderPledgeSection('pledges-education',   byCategory.education   || []);
 
+  // Render pledge heat grid
+  var heatGrid = document.getElementById('pledgeHeatGrid');
+  if (heatGrid) {
+    var CAT_IDS = { agriculture:'pledges-agriculture', welfare:'pledges-welfare', justice:'pledges-justice', employment:'pledges-employment', infra:'pledges-infra' };
+    heatGrid.innerHTML = pledges.map(function (p, i) {
+      var bg = STATUS_COLORS[p.status] || STATUS_COLORS.watching;
+      var tip = '#' + (i + 1) + ' ' + escHtml(p.title) + ' — ' + (STATUS_LABELS[p.status] || p.status);
+      var sectionId = CAT_IDS[p.category] || 'pledges-agriculture';
+      return '<div class="heat-cell" style="background:' + bg + ';border-color:' + bg + ';" ' +
+        'role="button" tabindex="0" ' +
+        'onclick="document.getElementById(\'' + sectionId + '\').scrollIntoView({behavior:\'smooth\',block:\'start\'})" ' +
+        'onkeydown="if(event.key===\'Enter\'||event.key===\' \')this.click()" ' +
+        'aria-label="Pledge ' + (i + 1) + ': ' + escHtml(p.title) + ' — ' + (STATUS_LABELS[p.status] || p.status) + '">' +
+        (i + 1) +
+        '<span class="heat-tip">' + tip + '</span></div>';
+    }).join('');
+  }
+
   // Update progress summary numbers
   for (const [key, val] of Object.entries(counts)) {
     const el = document.getElementById('cnt-' + key);
@@ -861,23 +768,6 @@ async function loadData() {
   if (dc) dc.textContent = counts.delivered;
   const tc = document.getElementById('totalCount');
   if (tc) tc.textContent = pledges.length;
-
-  // Render segmented status bar
-  const total = pledges.length;
-  const segBar = document.getElementById('statusSegBar');
-  const segLabels = document.getElementById('statusSegLabels');
-  const segWrap = document.getElementById('statusSegWrap');
-  if (segBar && total > 0) {
-    const order = ['delivered','in-progress','announced','evaded','broken','delayed','watching'];
-    segBar.innerHTML = order.map(k => {
-      const n = counts[k]; if (!n) return '';
-      return `<div class="status-seg" style="flex:${n};background:${STATUS_COLORS[k]};" title="${STATUS_LABELS[k]}: ${n}"></div>`;
-    }).join('');
-    segLabels.innerHTML = order.filter(k => counts[k] > 0).map(k =>
-      `<span class="status-seg-lbl"><span class="status-seg-dot" style="background:${STATUS_COLORS[k]};"></span>${counts[k]} ${STATUS_LABELS[k]}</span>`
-    ).join('');
-    if (segWrap) segWrap.style.display = '';
-  }
 }
 
 loadData();

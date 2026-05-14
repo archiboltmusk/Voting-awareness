@@ -132,7 +132,34 @@ window.shareDataPoint = function (label, value, url) {
   });
 })();
 
-/* ── 9. Lazy table renderer ─────────────────────────────────────────────── */
+/* ── 9. Mobile bottom nav ───────────────────────────────────────────────── */
+(function () {
+  var ITEMS = [
+    { href: '/', icon: '⌂', label: 'Home' },
+    { href: '/accountability', icon: '☑', label: 'Pledges' },
+    { href: '/corruption', icon: '⚖', label: 'Cases' },
+    { href: '/mlas', icon: '◉', label: 'MLAs' },
+    { href: '/bonds', icon: '₹', label: 'Bonds' },
+  ];
+  var nav = document.createElement('nav');
+  nav.className = 'mobile-btm-nav';
+  nav.setAttribute('aria-label', 'Quick navigation');
+  var path = location.pathname.replace(/\/$/, '') || '/';
+  nav.innerHTML = ITEMS.map(function (item) {
+    var active =
+      item.href === path || (path !== '/' && item.href !== '/' && path.startsWith(item.href))
+        ? ' active'
+        : '';
+    return (
+      '<a href="' + item.href + '" class="mobile-btm-item' + active + '">' +
+      '<span class="mobile-btm-icon" aria-hidden="true">' + item.icon + '</span>' +
+      '<span>' + item.label + '</span></a>'
+    );
+  }).join('');
+  document.addEventListener('DOMContentLoaded', function () { document.body.appendChild(nav); });
+})();
+
+/* ── 10. Lazy table renderer ─────────────────────────────────────────────── */
 window.lazyTable = function (tbodyId, rows, buildRowHTML, chunkSize) {
   var CHUNK = chunkSize || 50;
   var tbody = document.getElementById(tbodyId);
