@@ -32,6 +32,24 @@
       "label": "Infrastructure & Housing",
       "icon": "🏗️",
       "num": "V"
+    },
+    {
+      "id": "governance",
+      "label": "Governance & Admin",
+      "icon": "🏛️",
+      "num": "VI"
+    },
+    {
+      "id": "women",
+      "label": "Women's Safety",
+      "icon": "👩",
+      "num": "VII"
+    },
+    {
+      "id": "education",
+      "label": "Education & Youth",
+      "icon": "📚",
+      "num": "VIII"
     }
   ],
   "pledges": [
@@ -465,6 +483,168 @@
       "keywords": [
         "Durgapur Asansol industrial corridor BJP 2026 DMIC",
         "Bengal DMIC MoU BJP 2026"
+      ]
+    },
+    {
+      "id": "merit-transfers",
+      "category": "governance",
+      "title": "Merit-Based IPS/IAS Transfers — End Political Postings",
+      "detail": "BJP pledged to end the TMC practice of transferring IAS/IPS officers based on political loyalty, replacing it with a merit and seniority board within 30 days. Officers transferred out of punitive postings under TMC were to be restored. An independent transfer committee to be constituted.",
+      "source": "BJP 2026 Manifesto (Governance chapter) · BJP state campaign statements",
+      "status": "watching",
+      "deadlineLabel": "Committee in 30 days",
+      "deadlineDate": "2026-06-07",
+      "updateNote": "No independent transfer committee constituted yet.",
+      "newsHeadline": "Bengal's new BJP govt sanctions three cases including teacher recruitment scam for CBI - The Economic Times",
+      "newsDate": "2026-05-13",
+      "newsUrl": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNVk9JUTZueHlxWWtfSzVZeGFJSE5SRHJVX3VJWWptVTh6VEI1LXlpNjd1cVROMnlmZ3ZVYVdwSUJGQ1dCWERaQlZoTjd3c2NBM2dnNjYxcUh2NHdFV3JZektpVW5pZExXT29VeFZwVEtqMFkxUFNtYUxXRkFvUTV5NjFuM0lsX0NCX2xBYTMtZjYwUWxTelJ5ZlNCdE1GbU1WXzNFYVVQaF90Y0ZfR0dPQnZ5RHZ4N1FzWVNYS0V3dnd6YVBlZHFuUUJIeFhKZmQ5WTF2eVhmbUgxcktaQWlYeW02LWrSAeoBQVVfeXFMT05lY1Y1OVo2c1g4Q1FaRk1yZWJ4cWdqeWM4OHRkR3Y3M2h5a1VKbm0yT0ZhUTdVZzRMZEtOY2M3dDR3VFREaWNDclZaT2NIcEVZcVBsb0dkdmZKczh0Sko0VklJNUNYQkZuOC1jMms4eW1fWXlsZHVvbFZ0MzBiV3BlMlFOUlRqUW54dFpwZXBENE1YZjJBVDc0Y21Mc0Zrck5HMTBmaVZYOTN5cHNKUnZLQmRPUm9YX01lYVk0UnM0a3BiNC10a01DMnVadDl4QllYd2hzV0stbDRUd2Y3WnRwbFQ2QUVrUjNB",
+      "keywords": [
+        "IPS IAS transfer Bengal BJP merit 2026",
+        "Bengal bureaucracy transfer political BJP 2026"
+      ]
+    },
+    {
+      "id": "anticorruption-helpline",
+      "category": "governance",
+      "title": "24/7 Anti-Corruption Helpline & Grievance App",
+      "detail": "BJP pledged to launch a dedicated 24/7 anti-corruption helpline number and a grievance redressal app within 30 days, allowing citizens to report bribery, extortion, and government delays — with mandatory officer response within 72 hours and public accountability dashboards.",
+      "source": "BJP 2026 Manifesto (Governance chapter)",
+      "status": "watching",
+      "deadlineLabel": "30 days",
+      "deadlineDate": "2026-06-07",
+      "updateNote": "No helpline or grievance app launched yet.",
+      "newsHeadline": null,
+      "newsDate": null,
+      "newsUrl": null,
+      "keywords": [
+        "anti-corruption helpline Bengal BJP 2026",
+        "Bengal grievance redressal app BJP 2026"
+      ]
+    },
+    {
+      "id": "rti-compliance",
+      "category": "governance",
+      "title": "RTI Compliance Portal — 30-Day Response Guarantee",
+      "detail": "BJP pledged to digitize RTI filing and tracking for all state departments within 100 days, with a mandatory 30-day response SLA and automatic escalation for overdue requests — reversing the near-zero RTI compliance rate under the previous TMC administration.",
+      "source": "BJP 2026 Manifesto (Transparency chapter)",
+      "status": "watching",
+      "deadlineLabel": "Portal in 100 days",
+      "deadlineDate": "2026-08-17",
+      "updateNote": "No RTI portal or compliance order issued.",
+      "newsHeadline": null,
+      "newsDate": null,
+      "newsUrl": null,
+      "keywords": [
+        "RTI Bengal BJP 2026 portal compliance",
+        "West Bengal RTI reform BJP 2026"
+      ]
+    },
+    {
+      "id": "aparajita-courts",
+      "category": "women",
+      "title": "Aparajita Fast-Track Courts — Crimes Against Women",
+      "detail": "BJP pledged to operationalize dedicated Aparajita fast-track courts for crimes against women in all 23 districts within 100 days, with mandatory 60-day trial completion for rape and assault cases — building on the stalled Central fast-track scheme that TMC had under-implemented.",
+      "source": "BJP 2026 Manifesto (Women's Safety chapter) · Aparajita Act reference",
+      "status": "watching",
+      "deadlineLabel": "All 23 districts in 100 days",
+      "deadlineDate": "2026-08-17",
+      "updateNote": "No court notification or judicial appointment order issued.",
+      "newsHeadline": "West Bengal To Introduce Women's Aid, Ayushman Bharat And Free Bus Travel From June 1 - The Logical Indian",
+      "newsDate": "2026-05-12",
+      "newsUrl": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOREJVVER4aWpYSkEzSVNzd3BqbVlROFR4SDZoZHhxY1o0ZGdwT3hpSG5hTFg5V2dOWFU2amVmQjliN0lrRjYwZUdWejV2UVQyUE5QMXF5ZXBwZ1ZBYmhYQjl5YUc1cXhibjFlSDVlVFB1bWpnRU5UdndxdEFveTBSM1JwYkdaN1E0b3NSS0MzakFGWWZ2bHBNd1AtM0FBaWRiUnkxZ2NMdi1aM1JLdGNxS283RQ",
+      "keywords": [
+        "Aparajita fast track courts Bengal BJP 2026",
+        "West Bengal women safety courts BJP"
+      ]
+    },
+    {
+      "id": "women-police-stations",
+      "category": "women",
+      "title": "100 All-Women Police Stations — 100-Day Target",
+      "detail": "BJP pledged to open 100 new all-women police stations (Mahila Thana) statewide, prioritizing districts with high rates of crimes against women including North 24 Parganas, Murshidabad, South 24 Parganas, and Cooch Behar. Each station to have a 24/7 crisis response team.",
+      "source": "BJP 2026 Manifesto (Women's Safety chapter)",
+      "status": "watching",
+      "deadlineLabel": "100 stations in 100 days",
+      "deadlineDate": "2026-08-17",
+      "updateNote": "No women's police station notification issued.",
+      "newsHeadline": null,
+      "newsDate": null,
+      "newsUrl": null,
+      "keywords": [
+        "all women police station Bengal BJP 2026",
+        "Mahila Thana Bengal BJP 100 days"
+      ]
+    },
+    {
+      "id": "mahila-shakti",
+      "category": "women",
+      "title": "Mahila Shakti Kendras — All 341 Blocks",
+      "detail": "BJP pledged to operationalize Mahila Shakti Kendras (one-stop crisis support centres) in all 341 blocks of West Bengal within 100 days, providing legal aid, medical support, and counselling for survivors of domestic violence, trafficking, and acid attacks — extending the stalled Central scheme.",
+      "source": "BJP 2026 Manifesto (Women's Empowerment chapter)",
+      "status": "watching",
+      "deadlineLabel": "All 341 blocks in 100 days",
+      "deadlineDate": "2026-08-17",
+      "updateNote": "No block-level Mahila Shakti Kendra notification issued.",
+      "newsHeadline": null,
+      "newsDate": null,
+      "newsUrl": null,
+      "keywords": [
+        "Mahila Shakti Kendra Bengal BJP 341 blocks 2026",
+        "women crisis centre Bengal BJP 2026"
+      ]
+    },
+    {
+      "id": "ssc-fresh-recruitment",
+      "category": "education",
+      "title": "SSC Fresh Teacher Recruitment — Transparent Merit List",
+      "detail": "BJP pledged a clean, OMR-scanned merit-based SSC teacher recruitment process within 100 days to address the 26,000 dismissed teachers and fill ~1.2 lakh vacant teaching posts in state schools — supervised by a judicial committee to prevent recurrence of the scam.",
+      "source": "BJP 2026 Manifesto (Education chapter) · Supreme Court SSC order reference",
+      "status": "watching",
+      "deadlineLabel": "Process in 100 days",
+      "deadlineDate": "2026-08-17",
+      "updateNote": "CBI probe into SSC scam sanctioned by new government. Fresh recruitment framework not yet announced.",
+      "newsHeadline": "Bengal's new BJP govt sanctions three cases including teacher recruitment scam for CBI - The Economic Times",
+      "newsDate": "2026-05-13",
+      "newsUrl": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNVk9JUTZueHlxWWtfSzVZeGFJSE5SRHJVX3VJWWptVTh6VEI1LXlpNjd1cVROMnlmZ3ZVYVdwSUJGQ1dCWERaQlZoTjd3c2NBM2dnNjYxcUh2NHdFV3JZektpVW5pZExXT29VeFZwVEtqMFkxUFNtYUxXRkFvUTV5NjFuM0lsX0NCX2xBYTMtZjYwUWxTelJ5ZlNCdE1GbU1WXzNFYVVQaF90Y0ZfR0dPQnZ5RHZ4N1FzWVNYS0V3dnd6YVBlZHFuUUJIeFhKZmQ5WTF2eVhmbUgxcktaQWlYeW02LWrSAeoBQVVfeXFMT05lY1Y1OVo2c1g4Q1FaRk1yZWJ4cWdqeWM4OHRkR3Y3M2h5a1VKbm0yT0ZhUTdVZzRMZEtOY2M3dDR3VFREaWNDclZaT2NIcEVZcVBsb0dkdmZKczh0Sko0VklJNUNYQkZuOC1jMms4eW1fWXlsZHVvbFZ0MzBiV3BlMlFOUlRqUW54dFpwZXBENE1YZjJBVDc0Y21Mc0Zrck5HMTBmaVZYOTN5cHNKUnZLQmRPUm9YX01lYVk0UnM0a3BiNC10a01DMnVadDl4QllYd2hzV0stbDRUd2Y3WnRwbFQ2QUVrUjNB",
+      "keywords": [
+        "SSC teacher recruitment Bengal BJP 2026 merit",
+        "Bengal SSC fresh recruitment 100 days BJP"
+      ]
+    },
+    {
+      "id": "school-infra",
+      "category": "education",
+      "title": "10,000 School Infrastructure Upgrades — Classrooms & Toilets",
+      "detail": "BJP pledged to upgrade 10,000 state government primary and secondary schools within one year — adding classrooms, functional girls' toilets, drinking water, and electricity — releasing Central Samagra Shiksha funds that TMC had left unutilized for 3 years.",
+      "source": "BJP 2026 Manifesto (Education chapter) · Samagra Shiksha reference",
+      "status": "watching",
+      "deadlineLabel": "Plan in 100 days · Full completion in 1 year",
+      "deadlineDate": "2026-08-17",
+      "updateNote": "No school infrastructure order or Samagra Shiksha fund release issued.",
+      "newsHeadline": null,
+      "newsDate": null,
+      "newsUrl": null,
+      "keywords": [
+        "school infrastructure Bengal BJP 10000 2026",
+        "Samagra Shiksha Bengal BJP fund release 2026"
+      ]
+    },
+    {
+      "id": "scholarship-sc-st",
+      "category": "education",
+      "title": "SC/ST/OBC Scholarship Restoration — ₹1,200 Crore Backlog",
+      "detail": "BJP pledged to clear the ₹1,200 crore scholarship backlog for SC/ST/OBC students accumulated under TMC — with direct Aadhaar-linked payments within 60 days, restoring Central post-matric scholarship disbursements that had been routed through state agencies and diverted.",
+      "source": "BJP 2026 Manifesto (Social Justice chapter) · MoSJE scholarship scheme reference",
+      "status": "watching",
+      "deadlineLabel": "Backlog cleared in 60 days",
+      "deadlineDate": "2026-07-07",
+      "updateNote": "No scholarship disbursement order or Central fund release announced.",
+      "newsHeadline": null,
+      "newsDate": null,
+      "newsUrl": null,
+      "keywords": [
+        "SC ST scholarship Bengal BJP backlog 2026",
+        "Bengal OBC scholarship restoration BJP 2026"
       ]
     }
   ]

@@ -107,7 +107,8 @@ body::before {
 .container { max-width:1100px; margin:0 auto; padding:0 2rem; }
 
 /* ── SECTION HEADERS ── */
-.section-header { border-top:4px solid var(--ink); padding-top:0.5rem; margin:4rem 0 2rem; }
+.section-header { border-top:4px solid var(--ink); padding-top:0.5rem; margin:4rem 0 2rem; display:flex; justify-content:space-between; align-items:flex-end; gap:1rem; }
+.section-header-text { flex:1; min-width:0; }
 .section-label { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--bjp); margin-bottom:0.4rem; }
 .section-title { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,4vw,2.8rem); font-weight:700; line-height:1.15; }
 
@@ -243,6 +244,33 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
 [data-theme="dark"] .action-text { color:#c8c0b4; }
 [data-theme="dark"] .action-text strong { color:#f0ece3; }
 [data-theme="dark"] body::before { opacity:0.15; }
+
+/* ── CATEGORY STICKY NAV ── */
+.cat-nav { position:sticky; top:0; z-index:900; background:var(--paper); border-bottom:2px solid var(--ink); overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+.cat-nav::-webkit-scrollbar { display:none; }
+.cat-nav-inner { display:flex; max-width:1100px; margin:0 auto; padding:0 2rem; }
+.cat-nav-tab { font-family:'IBM Plex Mono',monospace; font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; white-space:nowrap; padding:0.65rem 0.85rem; color:var(--muted); text-decoration:none; border-bottom:2px solid transparent; margin-bottom:-2px; transition:color 0.15s,border-color 0.15s; }
+.cat-nav-tab:hover { color:var(--ink); border-color:var(--ink); }
+.cat-nav-tab.active { color:var(--bjp); border-color:var(--bjp); }
+
+/* ── ACCORDION ── */
+.section-toggle { font-family:'IBM Plex Mono',monospace; font-size:0.58rem; letter-spacing:0.08em; text-transform:uppercase; padding:4px 10px; border:1px solid var(--aged); background:transparent; color:var(--muted); cursor:pointer; flex-shrink:0; transition:background 0.15s,color 0.15s,border-color 0.15s; margin-bottom:0.2rem; align-self:flex-end; }
+.section-toggle:hover { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.pledge-section-body { display:grid; grid-template-rows:1fr; transition:grid-template-rows 0.38s ease; }
+.pledge-section-body > .pledge-section { overflow:hidden; }
+.pledge-section-body.collapsed { grid-template-rows:0fr; }
+
+/* ── DARK MODE: CAT NAV & ACCORDION ── */
+[data-theme="dark"] .cat-nav { background:#141210; border-color:rgba(255,255,255,0.15); }
+[data-theme="dark"] .cat-nav-tab:hover { color:#f0ece3; border-color:rgba(255,255,255,0.3); }
+[data-theme="dark"] .cat-nav-tab.active { color:var(--bjp); border-color:var(--bjp); }
+[data-theme="dark"] .section-toggle { border-color:rgba(255,255,255,0.15); color:#9a9085; }
+[data-theme="dark"] .section-toggle:hover { background:#f0ece3; color:#141210; border-color:#f0ece3; }
+
+@media(max-width:640px) {
+  .cat-nav-inner { padding:0 0.5rem; }
+  .cat-nav-tab { padding:0.6rem 0.6rem; font-size:0.52rem; }
+}
 </style>
 <link rel="stylesheet" href="/shared.css">
 <script defer src="/shared.js"></script>
@@ -337,11 +365,27 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
   </div>
 </section>
 
+<!-- CATEGORY STICKY NAV -->
+<nav class="cat-nav" id="catNav" aria-label="Jump to pledge category">
+  <div class="cat-nav-inner">
+    <a href="#sec-agriculture" class="cat-nav-tab">🌾 Agriculture</a>
+    <a href="#sec-welfare" class="cat-nav-tab">🏥 Welfare</a>
+    <a href="#sec-justice" class="cat-nav-tab">⚖️ Law &amp; Order</a>
+    <a href="#sec-employment" class="cat-nav-tab">💼 Employment</a>
+    <a href="#sec-infra" class="cat-nav-tab">🏗️ Infrastructure</a>
+    <a href="#sec-governance" class="cat-nav-tab">🏛️ Governance</a>
+    <a href="#sec-women" class="cat-nav-tab">👩 Women</a>
+    <a href="#sec-education" class="cat-nav-tab">📚 Education</a>
+  </div>
+</nav>
+
 <main class="container">
 
   <div class="section-header fade-in" style="margin-top:3rem;">
-    <div class="section-label">Overview</div>
-    <h2 class="section-title">The Accountability Framework</h2>
+    <div class="section-header-text">
+      <div class="section-label">Overview</div>
+      <h2 class="section-title">The Accountability Framework</h2>
+    </div>
   </div>
   <p class="article-lead">A supermajority is a blank cheque — and a complete removal of excuses. BJP can pass any legislation, amend the state constitution, and appoint any official without a single opposition vote. Every unkept promise is therefore a choice, not a constraint.</p>
   <p>This tracker monitors 24 pledges drawn from the BJP 2026 West Bengal election manifesto and documented campaign speeches across five domains: Agriculture, Welfare, Law &amp; Order, Employment, and Infrastructure. Status is updated as government orders are issued, schemes launched, or promises reversed. The 100-day window closes 17 August 2026.</p>
@@ -392,8 +436,10 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
 
   <!-- FIRST ACTIONS LOG -->
   <div class="section-header fade-in" style="margin-top:3rem;">
-    <div class="section-label">Documented Actions</div>
-    <h2 class="section-title">What the Government Has Actually Done</h2>
+    <div class="section-header-text">
+      <div class="section-label">Documented Actions</div>
+      <h2 class="section-title">What the Government Has Actually Done</h2>
+    </div>
   </div>
   <p style="font-family:'Crimson Pro',serif;font-size:1rem;color:var(--muted);margin-bottom:1.5rem;">Verified government orders, policy reversals, and documented decisions — independent of pledge status. Each entry is sourced to a government circular, press release, or credible wire report.</p>
 
@@ -447,56 +493,129 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
   <hr class="hr-ornate">
 
   <!-- AGRICULTURE -->
-  <section class="fade-in">
+  <section class="fade-in" id="sec-agriculture">
     <div class="section-header">
-      <div class="section-label">🌾 Category I</div>
-      <h2 class="section-title">Agriculture &amp; Farmers</h2>
+      <div class="section-header-text">
+        <div class="section-label">🌾 Category I</div>
+        <h2 class="section-title">Agriculture &amp; Farmers</h2>
+      </div>
+      <button class="section-toggle" id="toggle-agriculture" aria-expanded="true" onclick="toggleSection('agriculture')">▼ Collapse</button>
     </div>
-    <div class="pledge-section" id="pledges-agriculture"></div>
+    <div class="pledge-section-body" id="body-agriculture">
+      <div class="pledge-section" id="pledges-agriculture"></div>
+    </div>
   </section>
 
   <hr class="hr-ornate">
 
   <!-- WELFARE -->
-  <section class="fade-in">
+  <section class="fade-in" id="sec-welfare">
     <div class="section-header">
-      <div class="section-label">🏥 Category II</div>
-      <h2 class="section-title">Welfare &amp; Women's Schemes</h2>
+      <div class="section-header-text">
+        <div class="section-label">🏥 Category II</div>
+        <h2 class="section-title">Welfare &amp; Women's Schemes</h2>
+      </div>
+      <button class="section-toggle" id="toggle-welfare" aria-expanded="true" onclick="toggleSection('welfare')">▼ Collapse</button>
     </div>
-    <div class="pledge-section" id="pledges-welfare"></div>
+    <div class="pledge-section-body" id="body-welfare">
+      <div class="pledge-section" id="pledges-welfare"></div>
+    </div>
   </section>
 
   <hr class="hr-ornate">
 
   <!-- LAW AND ORDER -->
-  <section class="fade-in">
+  <section class="fade-in" id="sec-justice">
     <div class="section-header">
-      <div class="section-label">⚖️ Category III</div>
-      <h2 class="section-title">Law, Order &amp; Anti-Corruption</h2>
+      <div class="section-header-text">
+        <div class="section-label">⚖️ Category III</div>
+        <h2 class="section-title">Law, Order &amp; Anti-Corruption</h2>
+      </div>
+      <button class="section-toggle" id="toggle-justice" aria-expanded="true" onclick="toggleSection('justice')">▼ Collapse</button>
     </div>
-    <div class="pledge-section" id="pledges-justice"></div>
+    <div class="pledge-section-body" id="body-justice">
+      <div class="pledge-section" id="pledges-justice"></div>
+    </div>
   </section>
 
   <hr class="hr-ornate">
 
   <!-- EMPLOYMENT -->
-  <section class="fade-in">
+  <section class="fade-in" id="sec-employment">
     <div class="section-header">
-      <div class="section-label">💼 Category IV</div>
-      <h2 class="section-title">Employment &amp; Industry</h2>
+      <div class="section-header-text">
+        <div class="section-label">💼 Category IV</div>
+        <h2 class="section-title">Employment &amp; Industry</h2>
+      </div>
+      <button class="section-toggle" id="toggle-employment" aria-expanded="true" onclick="toggleSection('employment')">▼ Collapse</button>
     </div>
-    <div class="pledge-section" id="pledges-employment"></div>
+    <div class="pledge-section-body" id="body-employment">
+      <div class="pledge-section" id="pledges-employment"></div>
+    </div>
   </section>
 
   <hr class="hr-ornate">
 
   <!-- INFRASTRUCTURE -->
-  <section class="fade-in">
+  <section class="fade-in" id="sec-infra">
     <div class="section-header">
-      <div class="section-label">🏗️ Category V</div>
-      <h2 class="section-title">Infrastructure &amp; Housing</h2>
+      <div class="section-header-text">
+        <div class="section-label">🏗️ Category V</div>
+        <h2 class="section-title">Infrastructure &amp; Housing</h2>
+      </div>
+      <button class="section-toggle" id="toggle-infra" aria-expanded="true" onclick="toggleSection('infra')">▼ Collapse</button>
     </div>
-    <div class="pledge-section" id="pledges-infra"></div>
+    <div class="pledge-section-body" id="body-infra">
+      <div class="pledge-section" id="pledges-infra"></div>
+    </div>
+  </section>
+
+  <hr class="hr-ornate">
+
+  <!-- GOVERNANCE -->
+  <section class="fade-in" id="sec-governance">
+    <div class="section-header">
+      <div class="section-header-text">
+        <div class="section-label">🏛️ Category VI</div>
+        <h2 class="section-title">Governance &amp; Administration</h2>
+      </div>
+      <button class="section-toggle" id="toggle-governance" aria-expanded="true" onclick="toggleSection('governance')">▼ Collapse</button>
+    </div>
+    <div class="pledge-section-body" id="body-governance">
+      <div class="pledge-section" id="pledges-governance"></div>
+    </div>
+  </section>
+
+  <hr class="hr-ornate">
+
+  <!-- WOMEN -->
+  <section class="fade-in" id="sec-women">
+    <div class="section-header">
+      <div class="section-header-text">
+        <div class="section-label">👩 Category VII</div>
+        <h2 class="section-title">Women's Safety &amp; Empowerment</h2>
+      </div>
+      <button class="section-toggle" id="toggle-women" aria-expanded="true" onclick="toggleSection('women')">▼ Collapse</button>
+    </div>
+    <div class="pledge-section-body" id="body-women">
+      <div class="pledge-section" id="pledges-women"></div>
+    </div>
+  </section>
+
+  <hr class="hr-ornate">
+
+  <!-- EDUCATION -->
+  <section class="fade-in" id="sec-education">
+    <div class="section-header">
+      <div class="section-header-text">
+        <div class="section-label">📚 Category VIII</div>
+        <h2 class="section-title">Education &amp; Youth</h2>
+      </div>
+      <button class="section-toggle" id="toggle-education" aria-expanded="true" onclick="toggleSection('education')">▼ Collapse</button>
+    </div>
+    <div class="pledge-section-body" id="body-education">
+      <div class="pledge-section" id="pledges-education"></div>
+    </div>
   </section>
 
   <hr class="hr-ornate">
@@ -525,6 +644,37 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
 </footer>
 
 <script>
+// ── Accordion section toggle ──────────────────────────────────────────────────
+function toggleSection(id) {
+  var body = document.getElementById('body-' + id);
+  var btn = document.getElementById('toggle-' + id);
+  if (!body) return;
+  var collapsed = body.classList.toggle('collapsed');
+  if (btn) {
+    btn.textContent = collapsed ? '▶ Expand' : '▼ Collapse';
+    btn.setAttribute('aria-expanded', String(!collapsed));
+  }
+  if (window.trackEvent) window.trackEvent('Accordion Toggle', { section: id, state: collapsed ? 'collapsed' : 'expanded' });
+}
+
+// ── Cat-nav active section highlight (IntersectionObserver) ──────────────────
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var tabs = document.querySelectorAll('.cat-nav-tab');
+    if (!tabs.length) return;
+    var sections = document.querySelectorAll('section[id^="sec-"]');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          var href = '#' + e.target.id;
+          tabs.forEach(function (t) { t.classList.toggle('active', t.getAttribute('href') === href); });
+        }
+      });
+    }, { rootMargin: '-15% 0px -75% 0px' });
+    sections.forEach(function (s) { io.observe(s); });
+  });
+})();
+
 // Live counter — days + ticking H:M:S clock
 (function() {
   var SWORN_IN = new Date('2026-05-09T12:00:00+05:30');
@@ -697,6 +847,9 @@ async function loadData() {
   renderPledgeSection('pledges-justice',     byCategory.justice     || []);
   renderPledgeSection('pledges-employment',  byCategory.employment  || []);
   renderPledgeSection('pledges-infra',       byCategory.infra       || []);
+  renderPledgeSection('pledges-governance',  byCategory.governance  || []);
+  renderPledgeSection('pledges-women',       byCategory.women       || []);
+  renderPledgeSection('pledges-education',   byCategory.education   || []);
 
   // Update progress summary numbers
   for (const [key, val] of Object.entries(counts)) {
