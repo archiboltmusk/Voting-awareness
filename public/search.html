@@ -104,15 +104,35 @@ h1 { font-size:2rem; font-weight:800; letter-spacing:-.02em; margin-bottom:.4rem
 
 <main id="main-content">
 <div class="page-wrap">
-  <h1>Search</h1>
-  <p class="subtitle">MLAs · Corruption cases · Constituencies · BJP pledges</p>
+  <h1>
+    <span class="en-only">Search</span>
+    <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">অনুসন্ধান</span>
+  </h1>
+  <p class="subtitle">
+    <span class="en-only">MLAs · Corruption cases · Constituencies · BJP pledges</span>
+    <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">বিধায়ক · দুর্নীতির মামলা · আসন · বিজেপির প্রতিশ্রুতি</span>
+  </p>
+
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.5rem;">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="bn" onclick="setLang('bn')">বাং</button>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:4px 10px;border:1px solid var(--rule);background:transparent;color:var(--ink-faint);cursor:pointer;">◐ Dark</button>
+  </div>
 
   <div class="search-box-wrap">
     <input type="search" id="searchInput" placeholder="Search by name, party, district, keyword…" autocomplete="off" spellcheck="false" aria-label="Search the Bengal Reader database">
   </div>
-  <p class="search-hint">Type at least 2 characters &nbsp;·&nbsp; <kbd>Esc</kbd> to clear</p>
+  <p class="search-hint">
+    <span class="en-only">Type at least 2 characters &nbsp;·&nbsp; <kbd>Esc</kbd> to clear</span>
+    <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">কমপক্ষে ২টি অক্ষর টাইপ করুন &nbsp;·&nbsp; মুছতে <kbd>Esc</kbd> চাপুন</span>
+  </p>
 
-  <div id="loadingState" class="loading">Loading data…</div>
+  <div id="loadingState" class="loading">
+    <span class="en-only">Loading data…</span>
+    <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">তথ্য লোড হচ্ছে…</span>
+  </div>
 
   <div id="results" role="region" aria-live="polite" aria-label="Search results">
     <p class="results-meta" id="resultsMeta"></p>
@@ -124,6 +144,12 @@ h1 { font-size:2rem; font-weight:800; letter-spacing:-.02em; margin-bottom:.4rem
 <script>
 var DATA = { mlas: [], cases: [], seats: [], pledges: [] };
 var loaded = false;
+var isBn = localStorage.getItem('lang') === 'bn';
+var T = isBn
+  ? { loading: 'তথ্য লোড করা যায়নি। পুনরায় চেষ্টা করুন।', noResults: 'কোনও ফলাফল পাওয়া যায়নি', noResultsHint: 'নাম, দল, জেলা বা কীওয়ার্ড দিয়ে চেষ্টা করুন।', results: 'ফলাফল', result: 'ফলাফল', for: 'এর জন্য', groupMla: 'বিধায়ক', groupCase: 'দুর্নীতির মামলা', groupSeat: 'আসন', groupPledge: 'বিজেপির প্রতিশ্রুতি', placeholder: 'নাম, দল, জেলা বা কীওয়ার্ড দিয়ে খুঁজুন…', tagMla: 'বিধায়ক', tagCase: 'মামলা', tagSeat: 'আসন', tagPledge: 'প্রতিশ্রুতি', status: 'অবস্থা', category: 'বিভাগ', deadline: 'সীমা', margin: 'ব্যবধান', serious: 'গুরুতর' }
+  : { loading: 'Could not load data. Please refresh.', noResults: 'No results for', noResultsHint: 'Try a name, party, district, or keyword.', results: 'results', result: 'result', for: 'for', groupMla: 'MLAs', groupCase: 'Corruption Cases', groupSeat: 'Constituencies', groupPledge: 'BJP Pledges', placeholder: 'Search by name, party, district, keyword…', tagMla: 'MLA', tagCase: 'Case', tagSeat: 'Constituency', tagPledge: 'Pledge', status: 'Status', category: 'Category', deadline: 'Deadline', margin: 'Margin', serious: 'serious' };
+
+document.getElementById('searchInput').placeholder = T.placeholder;
 
 async function loadAll() {
   try {
@@ -145,7 +171,7 @@ async function loadAll() {
     const q = document.getElementById('searchInput').value.trim();
     if (q.length >= 2) runSearch(q);
   } catch (e) {
-    document.getElementById('loadingState').textContent = 'Could not load data. Please refresh.';
+    document.getElementById('loadingState').textContent = T.loading;
   }
 }
 
@@ -182,7 +208,7 @@ function searchMLAs(q) {
       meta: `${m.party} · ${m.constituency} · ${m.district} · ${m.cases} case${m.cases !== 1 ? 's' : ''}${m.serious ? ' ⚠ serious' : ''}`,
       url: '/mlas#' + m.name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,''),
       tag: 'mla',
-      tagLabel: 'MLA',
+      tagLabel: T.tagMla,
     }));
 }
 
@@ -202,7 +228,7 @@ function searchCases(q) {
       meta: `${c.agencies ? c.agencies.join(' · ') : ''} · ${c.status || ''} · ${c.amount || ''}`,
       url: '/corruption#' + c.id,
       tag: 'case',
-      tagLabel: 'Case',
+      tagLabel: T.tagCase,
     }));
 }
 
@@ -222,7 +248,7 @@ function searchSeats(q) {
       meta: `AC ${r.ac} · ${r.district || ''} · ${r.party || r.winParty || '?'}${r.winner ? ' · ' + r.winner : ''}${r.margin ? ' · Margin ' + Number(r.margin).toLocaleString() : ''}`,
       url: '/constituencies#ac-' + r.ac,
       tag: 'seat',
-      tagLabel: 'Constituency',
+      tagLabel: T.tagSeat,
     }));
 }
 
@@ -242,7 +268,7 @@ function searchPledges(q) {
       meta: `Status: ${p.status || 'watching'} · Category: ${p.category || '—'}${p.deadlineDate ? ' · Deadline: ' + p.deadlineDate : ''}`,
       url: '/accountability#' + (p.id || ''),
       tag: 'pledge',
-      tagLabel: 'Pledge',
+      tagLabel: T.tagPledge,
     }));
 }
 
@@ -278,17 +304,17 @@ function runSearch(q) {
   const total    = mlas.length + cases.length + seats.length + pledges.length;
 
   if (total === 0) {
-    list.innerHTML = `<div class="empty-state">No results for "${esc(q)}"<br><br>Try a name, party, district, or keyword.</div>`;
+    list.innerHTML = `<div class="empty-state">${T.noResults} "${esc(q)}"<br><br>${T.noResultsHint}</div>`;
     meta.textContent = '';
     return;
   }
 
-  meta.textContent = `${total} result${total !== 1 ? 's' : ''} for "${q}"`;
+  meta.textContent = `${total} ${total !== 1 ? T.results : T.result} ${T.for} "${q}"`;
   list.innerHTML =
-    renderGroup('MLAs', mlas, q) +
-    renderGroup('Corruption Cases', cases, q) +
-    renderGroup('Constituencies', seats, q) +
-    renderGroup('BJP Pledges', pledges, q);
+    renderGroup(T.groupMla, mlas, q) +
+    renderGroup(T.groupCase, cases, q) +
+    renderGroup(T.groupSeat, seats, q) +
+    renderGroup(T.groupPledge, pledges, q);
 
   if (window.trackEvent) window.trackEvent('Search', { query: q, results: total });
 }

@@ -87,26 +87,56 @@ h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem;}
 
 <main id="main-content">
 <div class="page-wrap">
-  <h1>RTI Tracker</h1>
-  <p class="page-meta">Right to Information · All filings on record</p>
+  <h1>
+    <span class="en-only">RTI Tracker</span>
+    <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">তথ্য অধিকার ট্র্যাকার</span>
+  </h1>
+  <p class="page-meta">
+    <span class="en-only">Right to Information · All filings on record</span>
+    <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">তথ্য অধিকার আইন · সমস্ত আবেদনের রেকর্ড</span>
+  </p>
+
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:2rem;">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="bn" onclick="setLang('bn')">বাং</button>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:4px 10px;border:1px solid var(--rule);background:transparent;color:var(--ink-faint);cursor:pointer;">◐ Dark</button>
+  </div>
 
   <div class="policy-box">
-    <strong>About this tracker</strong>
-    Every RTI application filed to obtain data used in this project is listed here. Filing RTIs is how we verify claims that public bodies don't publish proactively — candidate assets, criminal-case counts, constituency fund utilisation. We publish both responses and rejections; a rejection with Section 8 cited is itself a data point.
+    <strong>
+      <span class="en-only">About this tracker</span>
+      <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">এই ট্র্যাকার সম্পর্কে</span>
+    </strong>
+    <span class="en-only">Every RTI application filed to obtain data used in this project is listed here. Filing RTIs is how we verify claims that public bodies don't publish proactively — candidate assets, criminal-case counts, constituency fund utilisation. We publish both responses and rejections; a rejection with Section 8 cited is itself a data point.</span>
+    <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">এই প্রকল্পে ব্যবহৃত তথ্য সংগ্রহের জন্য দাখিল করা প্রতিটি আরটিআই আবেদন এখানে তালিকাভুক্ত। আরটিআই দাখিলই সেই উপায় যার মাধ্যমে আমরা সেই দাবিগুলি যাচাই করি যা সরকারি সংস্থাগুলি স্বতঃপ্রবৃত্তভাবে প্রকাশ করে না — প্রার্থীর সম্পদ, ফৌজদারি মামলার সংখ্যা, নির্বাচনী তহবিল ব্যবহার। আমরা সাড়া এবং প্রত্যাখ্যান উভয়ই প্রকাশ করি; ধারা ৮ উল্লেখ সহ প্রত্যাখ্যানও একটি তথ্য বিন্দু।</span>
   </div>
 
   <div class="stats-row" id="statsRow"></div>
 
   <div class="filter-bar" id="filterBar">
-    <span class="filter-label">Filter:</span>
-    <button class="filter-btn active" data-filter="all">All</button>
+    <span class="filter-label">
+      <span class="en-only">Filter:</span>
+      <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">ছাঁকুন:</span>
+    </span>
+    <button class="filter-btn active" data-filter="all">
+      <span class="en-only">All</span>
+      <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">সব</span>
+    </button>
   </div>
 
   <div id="rtiContainer">
-    <div class="empty-state">Loading RTI log…</div>
+    <div class="empty-state">
+      <span class="en-only">Loading RTI log…</span>
+      <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">তথ্য লোড হচ্ছে…</span>
+    </div>
   </div>
 
-  <a href="https://github.com/mahatoanupam002-lang/Voting-awareness/issues/new?template=rti.md&title=RTI+filing:" class="report-link" target="_blank" rel="noopener">Suggest an RTI filing →</a>
+  <a href="https://github.com/mahatoanupam002-lang/Voting-awareness/issues/new?template=rti.md&title=RTI+filing:" class="report-link" target="_blank" rel="noopener">
+    <span class="en-only">Suggest an RTI filing →</span>
+    <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">একটি আরটিআই আবেদন সাজেস্ট করুন →</span>
+  </a>
 </div>
 </main>
 
@@ -114,6 +144,10 @@ h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem;}
 (function () {
   var allFilings = [];
   var activeFilter = 'all';
+  var isBn = localStorage.getItem('lang') === 'bn';
+  var T = isBn
+    ? { totalFiled: 'মোট আবেদন', responded: 'উত্তর পাওয়া', pending: 'বিচারাধীন', rejected: 'প্রত্যাখ্যাত', inAppeal: 'আপিলে', filterAll: 'সব', filterStatus: 'অবস্থা:', filterCat: 'বিভাগ:', loading: 'তথ্য লোড হচ্ছে…', noMatch: 'কোনও আবেদন মেলেনি।', error: 'তথ্য লোড করা যায়নি।', filed: 'দাখিল:', response: 'উত্তর:', notes: 'বিবরণ', viewDoc: 'প্রতিক্রিয়া দেখুন →' }
+    : { totalFiled: 'Total Filed', responded: 'Responded', pending: 'Pending', rejected: 'Rejected', inAppeal: 'In Appeal', filterAll: 'All', filterStatus: 'Status:', filterCat: 'Category:', loading: 'Loading RTI log…', noMatch: 'No filings match this filter.', error: 'Could not load RTI data.', filed: 'Filed:', response: 'Response:', notes: 'Notes', viewDoc: 'View response document →' };
 
   var STATUS_COLORS = {
     responded: 'status-responded',
@@ -141,12 +175,12 @@ h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem;}
       <div class="rti-authority">${f.authority}</div>
       <div class="rti-subject">${f.subject}</div>
       <div class="rti-meta">
-        <span>Filed: ${fmt(f.filed)}</span>
-        ${f.responseDate ? `<span>Response: ${fmt(f.responseDate)}</span>` : ''}
+        <span>${T.filed} ${fmt(f.filed)}</span>
+        ${f.responseDate ? `<span>${T.response} ${fmt(f.responseDate)}</span>` : ''}
         <span class="rti-category-tag">${f.category}</span>
       </div>
-      ${f.notes ? `<div class="rti-notes"><span class="rti-notes-label">Notes</span>${f.notes}</div>` : ''}
-      ${f.responseUrl ? `<a href="${f.responseUrl}" class="rti-response-link" target="_blank" rel="noopener">View response document →</a>` : ''}
+      ${f.notes ? `<div class="rti-notes"><span class="rti-notes-label">${T.notes}</span>${f.notes}</div>` : ''}
+      ${f.responseUrl ? `<a href="${f.responseUrl}" class="rti-response-link" target="_blank" rel="noopener">${T.viewDoc}</a>` : ''}
     </div>`;
   }
 
@@ -159,7 +193,7 @@ h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem;}
         });
 
     if (!filtered.length) {
-      container.innerHTML = '<div class="empty-state">No filings match this filter.</div>';
+      container.innerHTML = `<div class="empty-state">${T.noMatch}</div>`;
       return;
     }
     container.innerHTML = filtered
@@ -177,11 +211,11 @@ h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem;}
       else if (f.status === 'first-appeal' || f.status === 'second-appeal') counts.appeal++;
     });
     document.getElementById('statsRow').innerHTML = `
-      <div class="stat-pill"><span class="stat-pill-num">${counts.total}</span><span class="stat-pill-label">Total Filed</span></div>
-      <div class="stat-pill stat-responded"><span class="stat-pill-num">${counts.responded}</span><span class="stat-pill-label">Responded</span></div>
-      <div class="stat-pill stat-pending"><span class="stat-pill-num">${counts.pending}</span><span class="stat-pill-label">Pending</span></div>
-      <div class="stat-pill stat-rejected"><span class="stat-pill-num">${counts.rejected}</span><span class="stat-pill-label">Rejected</span></div>
-      <div class="stat-pill stat-appeal"><span class="stat-pill-num">${counts.appeal}</span><span class="stat-pill-label">In Appeal</span></div>`;
+      <div class="stat-pill"><span class="stat-pill-num">${counts.total}</span><span class="stat-pill-label">${T.totalFiled}</span></div>
+      <div class="stat-pill stat-responded"><span class="stat-pill-num">${counts.responded}</span><span class="stat-pill-label">${T.responded}</span></div>
+      <div class="stat-pill stat-pending"><span class="stat-pill-num">${counts.pending}</span><span class="stat-pill-label">${T.pending}</span></div>
+      <div class="stat-pill stat-rejected"><span class="stat-pill-num">${counts.rejected}</span><span class="stat-pill-label">${T.rejected}</span></div>
+      <div class="stat-pill stat-appeal"><span class="stat-pill-num">${counts.appeal}</span><span class="stat-pill-label">${T.inAppeal}</span></div>`;
   }
 
   function renderFilters(data) {
@@ -192,8 +226,8 @@ h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem;}
     var catBtns = data.categories
       .map(function (c) { return `<button class="filter-btn" data-filter="${c.id}">${c.label}</button>`; })
       .join('');
-    bar.innerHTML = `<span class="filter-label">Status:</span>${statusBtns}
-      <span class="filter-label" style="margin-left:.5rem">Category:</span>${catBtns}`;
+    bar.innerHTML = `<span class="filter-label">${T.filterStatus}</span>${statusBtns}
+      <span class="filter-label" style="margin-left:.5rem">${T.filterCat}</span>${catBtns}`;
 
     bar.querySelectorAll('.filter-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -207,7 +241,7 @@ h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem;}
     var allBtn = document.createElement('button');
     allBtn.className = 'filter-btn active';
     allBtn.dataset.filter = 'all';
-    allBtn.textContent = 'All';
+    allBtn.textContent = T.filterAll;
     allBtn.addEventListener('click', function () {
       bar.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
       allBtn.classList.add('active');
@@ -217,7 +251,7 @@ h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem;}
     bar.insertBefore(allBtn, bar.firstChild);
     var lbl = document.createElement('span');
     lbl.className = 'filter-label';
-    lbl.textContent = 'Filter: ';
+    lbl.textContent = T.filterStatus;
     bar.insertBefore(lbl, bar.firstChild);
   }
 
@@ -231,7 +265,7 @@ h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem;}
       renderFilings(data);
       if (window.trackEvent) window.trackEvent('page_view', { page: 'rti', count: allFilings.length });
     } catch (e) {
-      container.innerHTML = '<div class="empty-state">Could not load RTI data.</div>';
+      container.innerHTML = `<div class="empty-state">${T.error}</div>`;
     }
   }
 

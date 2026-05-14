@@ -62,32 +62,57 @@ h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem;}
 
 <main id="main-content">
 <div class="page-wrap">
-  <h1>Corrections</h1>
-  <p class="page-meta">Transparency log · All factual corrections on record</p>
+  <h1>
+    <span class="en-only">Corrections</span>
+    <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">সংশোধনী</span>
+  </h1>
+  <p class="page-meta">
+    <span class="en-only">Transparency log · All factual corrections on record</span>
+    <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">স্বচ্ছতার লগ · সমস্ত তথ্যগত সংশোধনীর রেকর্ড</span>
+  </p>
+
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:2rem;">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="bn" onclick="setLang('bn')">বাং</button>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:4px 10px;border:1px solid var(--rule);background:transparent;color:var(--ink-faint);cursor:pointer;">◐ Dark</button>
+  </div>
 
   <div class="policy-box">
-    <strong>Corrections policy</strong>
-    Corrections are accepted only when supported by a primary source: ECI affidavit, court order, government gazette, or official press release. Screenshots and social media posts are not accepted. To submit a correction, open an issue on GitHub citing the exact claim, the correct fact, and the primary source URL.
+    <strong>
+      <span class="en-only">Corrections policy</span>
+      <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">সংশোধনী নীতি</span>
+    </strong>
+    <span class="en-only">Corrections are accepted only when supported by a primary source: ECI affidavit, court order, government gazette, or official press release. Screenshots and social media posts are not accepted. To submit a correction, open an issue on GitHub citing the exact claim, the correct fact, and the primary source URL.</span>
+    <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">সংশোধনী কেবলমাত্র তখনই গ্রহণযোগ্য যখন প্রাথমিক উৎস দ্বারা সমর্থিত: ইসিআই হলফনামা, আদালতের আদেশ, সরকারি গেজেট, বা আনুষ্ঠানিক প্রেস বিজ্ঞপ্তি। স্ক্রিনশট এবং সোশ্যাল মিডিয়া পোস্ট গ্রহণযোগ্য নয়। সংশোধনী জমা দিতে, সঠিক দাবি, সঠিক তথ্য এবং প্রাথমিক উৎসের URL উল্লেখ করে GitHub-এ একটি ইস্যু খুলুন।</span>
   </div>
 
   <div id="correctionsContainer">
-    <div class="empty-state">Loading corrections log…</div>
+    <div class="empty-state">
+      <span class="en-only">Loading corrections log…</span>
+      <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">সংশোধনী লোড হচ্ছে…</span>
+    </div>
   </div>
 
-  <a href="https://github.com/mahatoanupam002-lang/Voting-awareness/issues/new?template=correction.md&title=Correction:" class="report-link" target="_blank" rel="noopener">Report a correction via GitHub →</a>
+  <a href="https://github.com/mahatoanupam002-lang/Voting-awareness/issues/new?template=correction.md&title=Correction:" class="report-link" target="_blank" rel="noopener">
+    <span class="en-only">Report a correction via GitHub →</span>
+    <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">GitHub-এ সংশোধনী জানান →</span>
+  </a>
 </div>
 </main>
 
 <script>
 async function loadCorrections() {
+  const isBn = localStorage.getItem('lang') === 'bn';
+  const T = isBn
+    ? { noRecord: 'কোনও সংশোধনীর রেকর্ড নেই।<br><br>কোনো ত্রুটি পাওয়া গেলে, সঠিক প্রাথমিক উৎস সহ একটি GitHub ইস্যু খুলুন।', original: 'মূল (ভুল)', corrected: 'সংশোধিত', source: 'উৎস:', error: 'সংশোধনী ডেটা লোড করা যায়নি।' }
+    : { noRecord: 'No corrections on record.<br><br>If you find an error, please open a GitHub issue with the correct primary source.', original: 'Original (incorrect)', corrected: 'Corrected to', source: 'Source:', error: 'Could not load corrections data.' };
   const container = document.getElementById('correctionsContainer');
   try {
     const data = await fetch('/data/corrections.json').then(r => r.json());
     if (!data.corrections || data.corrections.length === 0) {
-      container.innerHTML = `<div class="empty-state">
-        No corrections on record.<br><br>
-        If you find an error, please open a GitHub issue with the correct primary source.
-      </div>`;
+      container.innerHTML = `<div class="empty-state">${T.noRecord}</div>`;
       return;
     }
     container.innerHTML = data.corrections
@@ -97,21 +122,21 @@ async function loadCorrections() {
           <div class="correction-date">${c.date}</div>
           <div class="correction-page"><a href="${c.pageUrl || '#'}">${c.page}</a></div>
           <div class="correction-original">
-            <div class="correction-original-label">Original (incorrect)</div>
+            <div class="correction-original-label">${T.original}</div>
             <div class="correction-original-text">${c.original}</div>
           </div>
           <div class="correction-new">
-            <div class="correction-new-label">Corrected to</div>
+            <div class="correction-new-label">${T.corrected}</div>
             <div class="correction-new-text">${c.corrected}</div>
           </div>
           <div class="correction-source">
-            Source: ${c.sourceUrl
+            ${T.source} ${c.sourceUrl
               ? `<a href="${c.sourceUrl}" target="_blank" rel="noopener">${c.source}</a>`
               : c.source}
           </div>
         </div>`).join('');
   } catch {
-    container.innerHTML = `<div class="empty-state">Could not load corrections data.</div>`;
+    container.innerHTML = `<div class="empty-state">${T.error}</div>`;
   }
 }
 

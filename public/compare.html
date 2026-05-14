@@ -127,15 +127,35 @@ h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem;}
 
 <main id="main-content">
 <div class="page-wrap">
-  <h1>Compare MLAs</h1>
-  <p class="subtitle">Side-by-side · Criminal records · Declared assets</p>
+  <h1>
+    <span class="en-only">Compare MLAs</span>
+    <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">বিধায়ক তুলনা</span>
+  </h1>
+  <p class="subtitle">
+    <span class="en-only">Side-by-side · Criminal records · Declared assets</span>
+    <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">পাশাপাশি · ফৌজদারি রেকর্ড · ঘোষিত সম্পদ</span>
+  </p>
 
-  <div id="loadingState" class="loading">Loading MLA data…</div>
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:2rem;">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="bn" onclick="setLang('bn')">বাং</button>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;padding:4px 10px;border:1px solid var(--rule);background:transparent;color:var(--ink-faint);cursor:pointer;">◐ Dark</button>
+  </div>
+
+  <div id="loadingState" class="loading">
+    <span class="en-only">Loading MLA data…</span>
+    <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">বিধায়কের তথ্য লোড হচ্ছে…</span>
+  </div>
 
   <div id="mainContent" style="display:none;">
     <div class="selector-row">
       <div class="selector-col">
-        <label for="inputA">MLA One</label>
+        <label for="inputA">
+          <span class="en-only">MLA One</span>
+          <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">প্রথম বিধায়ক</span>
+        </label>
         <div class="ac-wrap">
           <input type="text" id="inputA" placeholder="Type name or constituency…" autocomplete="off">
           <ul class="autocomplete-list" id="listA" style="display:none;"></ul>
@@ -143,7 +163,10 @@ h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem;}
       </div>
       <div class="selector-sep">vs</div>
       <div class="selector-col">
-        <label for="inputB">MLA Two</label>
+        <label for="inputB">
+          <span class="en-only">MLA Two</span>
+          <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">দ্বিতীয় বিধায়ক</span>
+        </label>
         <div class="ac-wrap">
           <input type="text" id="inputB" placeholder="Type name or constituency…" autocomplete="off">
           <ul class="autocomplete-list" id="listB" style="display:none;"></ul>
@@ -152,8 +175,14 @@ h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem;}
     </div>
 
     <div class="compare-grid" id="compareGrid">
-      <div class="compare-empty">Select the first MLA above</div>
-      <div class="compare-empty">Select the second MLA above</div>
+      <div class="compare-empty">
+        <span class="en-only">Select the first MLA above</span>
+        <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">উপরে প্রথম বিধায়ক বেছে নিন</span>
+      </div>
+      <div class="compare-empty">
+        <span class="en-only">Select the second MLA above</span>
+        <span class="bn-only" style="font-family:'Noto Serif Bengali',serif;">উপরে দ্বিতীয় বিধায়ক বেছে নিন</span>
+      </div>
     </div>
   </div>
 </div>
@@ -162,6 +191,10 @@ h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem;}
 <script>
 var MLA_DATA = [];
 var selected = [null, null];
+var isBn = localStorage.getItem('lang') === 'bn';
+var T = isBn
+  ? { loadError: 'তথ্য লোড করা যায়নি। পুনরায় চেষ্টা করুন।', selectA: 'উপরে প্রথম বিধায়ক বেছে নিন', selectB: 'উপরে দ্বিতীয় বিধায়ক বেছে নিন', constituency: 'আসন', district: 'জেলা', party: 'দল', crimCases: 'ফৌজদারি মামলা', seriousCases: 'গুরুতর মামলা', ipc: 'আইপিসি ধারা', assets: 'ঘোষিত সম্পদ', verified: 'যাচাইকৃত', yesSerious: '⚠ হ্যাঁ', no: 'না', pending: '* মুলতবি', verifiedYes: '✓ হ্যাঁ', summary: 'সারসংক্ষেপ', share: 'হোয়াটসঅ্যাপে শেয়ার করুন', fullProfile: 'সম্পূর্ণ প্রোফাইল:' }
+  : { loadError: 'Could not load data. Please refresh.', selectA: 'Select the first MLA above', selectB: 'Select the second MLA above', constituency: 'Constituency', district: 'District', party: 'Party', crimCases: 'Criminal Cases', seriousCases: 'Serious Cases', ipc: 'IPC Charges', assets: 'Declared Assets', verified: 'Verified', yesSerious: '⚠ Yes', no: 'No', pending: '* Pending', verifiedYes: '✓ Yes', summary: 'Summary', share: 'Share on WhatsApp', fullProfile: 'Full profile:' };
 
 const PARTY_COLORS = { BJP:'#e8640a', TMC:'#1a7a3c', CPIM:'#c0171b', Congress:'#1565c0', ISF:'#7b1fa2', Ind:'#8a7a6a' };
 
@@ -172,7 +205,7 @@ async function init() {
     document.getElementById('mainContent').style.display = '';
     restoreFromUrl();
   } catch (e) {
-    document.getElementById('loadingState').textContent = 'Could not load data. Please refresh.';
+    document.getElementById('loadingState').textContent = T.loadError;
   }
 }
 
@@ -243,23 +276,23 @@ function parseAssets(str) {
 function renderCard(mla, otherMla) {
   const col  = PARTY_COLORS[mla.party] || '#8a7a6a';
   const rows = [
-    { label: 'Constituency', value: mla.constituency, other: otherMla?.constituency },
-    { label: 'District',     value: mla.district,     other: otherMla?.district },
-    { label: 'Party',        value: mla.party,        other: otherMla?.party },
-    { label: 'Criminal Cases',
+    { label: T.constituency, value: mla.constituency, other: otherMla?.constituency },
+    { label: T.district,     value: mla.district,     other: otherMla?.district },
+    { label: T.party,        value: mla.party,        other: otherMla?.party },
+    { label: T.crimCases,
       value: mla.cases, other: otherMla?.cases,
       compare: (a, b) => a < b ? 'better' : a > b ? 'worse' : '' },
-    { label: 'Serious Cases',
-      value: mla.serious ? '⚠ Yes' : 'No', other: null,
+    { label: T.seriousCases,
+      value: mla.serious ? T.yesSerious : T.no, other: null,
       cls: mla.serious ? 'worse' : '' },
-    { label: 'IPC Charges',  value: mla.ipc || '—' },
-    { label: 'Declared Assets', value: mla.assets || '—',
+    { label: T.ipc,    value: mla.ipc || '—' },
+    { label: T.assets, value: mla.assets || '—',
       compare: (a, b) => {
         const av = parseAssets(mla.assets), bv = parseAssets(otherMla?.assets);
-        return null; // no better/worse for assets — just display
+        return null;
       }
     },
-    { label: 'Verified',     value: mla.verified ? '✓ Yes' : '* Pending' },
+    { label: T.verified, value: mla.verified ? T.verifiedYes : T.pending },
   ];
 
   const rowsHtml = rows.map(r => {
@@ -303,7 +336,7 @@ function renderSummary(a, b) {
     lines.push(`<strong>${richer.name}</strong> has declared ${ratio}× more assets than <strong>${poorer.name}</strong>.`);
   }
   return `<div class="summary-bar">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:.5rem;">Summary</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:.5rem;">${T.summary}</div>
     ${lines.map(l => `<div style="margin-bottom:.3rem;">· ${l}</div>`).join('')}
   </div>`;
 }
@@ -313,11 +346,11 @@ function renderComparison() {
   const [a, b] = selected;
 
   if (!a && !b) {
-    grid.innerHTML = `<div class="compare-empty">Select the first MLA above</div><div class="compare-empty">Select the second MLA above</div>`;
+    grid.innerHTML = `<div class="compare-empty">${T.selectA}</div><div class="compare-empty">${T.selectB}</div>`;
     return;
   }
-  if (!a) { grid.innerHTML = `<div class="compare-empty">Select the first MLA above</div>${renderCard(b, null)}`; return; }
-  if (!b) { grid.innerHTML = `${renderCard(a, null)}<div class="compare-empty">Select the second MLA above</div>`; return; }
+  if (!a) { grid.innerHTML = `<div class="compare-empty">${T.selectA}</div>${renderCard(b, null)}`; return; }
+  if (!b) { grid.innerHTML = `${renderCard(a, null)}<div class="compare-empty">${T.selectB}</div>`; return; }
 
   const shareText = `${a.name} (${a.cases} cases) vs ${b.name} (${b.cases} cases) — The Bengal Reader`;
   const shareUrl  = location.href;
@@ -327,9 +360,9 @@ function renderComparison() {
     renderCard(b, a) +
     renderSummary(a, b) +
     `<div class="compare-actions">
-       <button class="compare-btn" onclick="window.shareWhatsApp && window.shareWhatsApp('${shareText.replace(/'/g,"\\'")}', '${shareUrl}')">Share on WhatsApp</button>
-       <a href="/mlas#${a.name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'')}" class="compare-btn" target="_blank">Full profile: ${a.name.split(' ')[0]} →</a>
-       <a href="/mlas#${b.name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'')}" class="compare-btn" target="_blank">Full profile: ${b.name.split(' ')[0]} →</a>
+       <button class="compare-btn" onclick="window.shareWhatsApp && window.shareWhatsApp('${shareText.replace(/'/g,"\\'")}', '${shareUrl}')">${T.share}</button>
+       <a href="/mlas#${a.name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'')}" class="compare-btn" target="_blank">${T.fullProfile} ${a.name.split(' ')[0]} →</a>
+       <a href="/mlas#${b.name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'')}" class="compare-btn" target="_blank">${T.fullProfile} ${b.name.split(' ')[0]} →</a>
      </div>`;
 }
 
