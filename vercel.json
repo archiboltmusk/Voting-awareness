@@ -24,25 +24,7 @@
       ]
     },
     {
-      "source": "/(.*)\\.css",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, s-maxage=3600, stale-while-revalidate=600" }
-      ]
-    },
-    {
-      "source": "/(.*)\\.js",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, s-maxage=3600, stale-while-revalidate=600" }
-      ]
-    },
-    {
-      "source": "/(.*)\\.(?:svg|png)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, s-maxage=86400, stale-while-revalidate=3600" }
-      ]
-    },
-    {
-      "source": "/fonts/(.*)\\.woff2",
+      "source": "/fonts/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, s-maxage=31536000, immutable" }
       ]
