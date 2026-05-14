@@ -176,40 +176,40 @@ footer a:hover { color:rgba(244,241,234,.9); }
   </div>
 </header>
 <main class="container" id="main-content" role="main">
-  <div class=”card”>
-    <div class=”mono”>Core principle</div>
+  <div class="card">
+    <div class="mono">Core principle</div>
     <p><strong>Separate claims from sources.</strong> Every data point on this site is traceable to a named primary source — ECI affidavit, court order, government gazette, or official press release. This page documents the source and update rules for each data file.</p>
   </div>
 
-  <nav aria-label=”Sections” style=”margin:1.5rem 0 2rem;”>
-    <div class=”mono” style=”margin-bottom:.5rem”>Sections</div>
-    <ol style=”margin-left:1.4rem;color:var(--ink-soft);font-size:.9rem;line-height:2;”>
-      <li><a href=”#data-files” style=”color:inherit”>Data files: sources and update rules</a></li>
-      <li><a href=”#pipeline” style=”color:inherit”>Automated pipeline (hourly)</a></li>
-      <li><a href=”#verification” style=”color:inherit”>What “verified” means</a></li>
-      <li><a href=”#editorial” style=”color:inherit”>Editorial independence</a></li>
-      <li><a href=”#corrections” style=”color:inherit”>Corrections policy</a></li>
+  <nav aria-label="Sections" style="margin:1.5rem 0 2rem;">
+    <div class="mono" style="margin-bottom:.5rem">Sections</div>
+    <ol style="margin-left:1.4rem;color:var(--ink-soft);font-size:.9rem;line-height:2;">
+      <li><a href="#data-files" style="color:inherit">Data files: sources and update rules</a></li>
+      <li><a href="#pipeline" style="color:inherit">Automated pipeline (hourly)</a></li>
+      <li><a href="#verification" style="color:inherit">What "verified" means</a></li>
+      <li><a href="#editorial" style="color:inherit">Editorial independence</a></li>
+      <li><a href="#corrections" style="color:inherit">Corrections policy</a></li>
     </ol>
   </nav>
 
-  <hr class=”rule”>
+  <hr class="rule">
 
-  <h2 id=”data-files”>Data files: sources and update rules</h2>
-  <p>All data lives in <span class=”mono”>/data</span> as static JSON committed to the repository. Changes are reviewable via git history.</p>
+  <h2 id="data-files">Data files: sources and update rules</h2>
+  <p>All data lives in <span class="mono">/data</span> as static JSON committed to the repository. Changes are reviewable via git history.</p>
 
-  <div class=”card” style=”margin-top:1.5rem;”>
-    <div class=”mono” style=”margin-bottom:.6rem”>mlas.json — MLA criminal records</div>
+  <div class="card" style="margin-top:1.5rem;">
+    <div class="mono" style="margin-bottom:.6rem">mlas.json — MLA criminal records</div>
     <ul>
-      <li><strong>Primary source:</strong> ECI Form 26 affidavits submitted by candidates for the 2021 West Bengal Legislative Assembly election, scraped from <span class=”mono”>myneta.info</span> and cross-referenced with <span class=”mono”>eci.gov.in</span> candidate portals.</li>
-      <li><strong>Criminal case data:</strong> IPC section numbers, case counts, and “serious” flags (IPC 302, 307, 376, 420, 120B) are extracted directly from affidavit tables. No inference is made about guilt.</li>
+      <li><strong>Primary source:</strong> ECI Form 26 affidavits submitted by candidates for the 2021 West Bengal Legislative Assembly election, scraped from <span class="mono">myneta.info</span> and cross-referenced with <span class="mono">eci.gov.in</span> candidate portals.</li>
+      <li><strong>Criminal case data:</strong> IPC section numbers, case counts, and "serious" flags (IPC 302, 307, 376, 420, 120B) are extracted directly from affidavit tables. No inference is made about guilt.</li>
       <li><strong>CBI / ED overlay:</strong> Agency press releases are scraped hourly. An MLA is flagged as having an active CBI/ED case only when the agency names them in a press release.</li>
       <li><strong>Update frequency:</strong> Affidavit data is static (2021 election). CBI/ED flags update with each hourly pipeline run.</li>
       <li><strong>What we do not do:</strong> We do not infer guilt, do not include FIR allegations without charge-sheet, and do not use police sources alone.</li>
     </ul>
   </div>
 
-  <div class=”card”>
-    <div class=”mono” style=”margin-bottom:.6rem”>assets.json — MLA wealth declarations</div>
+  <div class="card">
+    <div class="mono" style="margin-bottom:.6rem">assets.json — MLA wealth declarations</div>
     <ul>
       <li><strong>Primary source:</strong> ECI Form 26 affidavits for 2021 and (where available) 2016. Self-declared movable and immovable assets, liabilities, and income.</li>
       <li><strong>Parsing:</strong> Asset totals are extracted in ₹ crore (rounded to 2 decimal places). Growth % is computed only where both years have an affidavit with non-zero declared assets.</li>
@@ -218,28 +218,28 @@ footer a:hover { color:rgba(244,241,234,.9); }
     </ul>
   </div>
 
-  <div class=”card”>
-    <div class=”mono” style=”margin-bottom:.6rem”>constituencies.json — 2026 constituency results</div>
+  <div class="card">
+    <div class="mono" style="margin-bottom:.6rem">constituencies.json — 2026 constituency results</div>
     <ul>
-      <li><strong>Primary source:</strong> ECI results portal (<span class=”mono”>results.eci.gov.in</span>, state code S25) for West Bengal. The scraper reads the winner row, normalises party labels, and computes winning margin from votes cast.</li>
-      <li><strong>Verification states:</strong> Each entry carries a <span class=”mono”>verified</span> boolean. Set to <span class=”mono”>true</span> only after ECI officially declares the result — never on exit-poll data or projections.</li>
+      <li><strong>Primary source:</strong> ECI results portal (<span class="mono">results.eci.gov.in</span>, state code S25) for West Bengal. The scraper reads the winner row, normalises party labels, and computes winning margin from votes cast.</li>
+      <li><strong>Verification states:</strong> Each entry carries a <span class="mono">verified</span> boolean. Set to <span class="mono">true</span> only after ECI officially declares the result — never on exit-poll data or projections.</li>
       <li><strong>Turnout:</strong> Derived from total votes polled ÷ total electors on roll (from ECI voter roll data).</li>
       <li><strong>Update frequency:</strong> Live on election day (scraper runs every 30 minutes during counting); static otherwise.</li>
     </ul>
   </div>
 
-  <div class=”card”>
-    <div class=”mono” style=”margin-bottom:.6rem”>cases.json — corruption case timelines</div>
+  <div class="card">
+    <div class="mono" style="margin-bottom:.6rem">cases.json — corruption case timelines</div>
     <ul>
-      <li><strong>Primary source:</strong> ED press releases (<span class=”mono”>enforcement.gov.in</span>), CBI press releases (<span class=”mono”>cbi.gov.in</span>), and court order summaries from Bar and Bench, LiveLaw, and Indian Kanoon.</li>
+      <li><strong>Primary source:</strong> ED press releases (<span class="mono">enforcement.gov.in</span>), CBI press releases (<span class="mono">cbi.gov.in</span>), and court order summaries from Bar and Bench, LiveLaw, and Indian Kanoon.</li>
       <li><strong>Update rule:</strong> A timeline entry is added only when (a) an official agency press release names the subject and a case number, or (b) 2+ independent news sources within 24 hours report the same specific action (arrest, charge-sheet, bail, conviction).</li>
       <li><strong>What is excluded:</strong> Social media claims, anonymous tips, single-source reports without agency confirmation.</li>
       <li><strong>Update frequency:</strong> Pipeline runs hourly; new entries are appended, existing entries are not overwritten.</li>
     </ul>
   </div>
 
-  <div class=”card”>
-    <div class=”mono” style=”margin-bottom:.6rem”>news.json — rolling headlines per case</div>
+  <div class="card">
+    <div class="mono" style="margin-bottom:.6rem">news.json — rolling headlines per case</div>
     <ul>
       <li><strong>Source:</strong> Google News RSS, queried per-case using the subject name + case keywords. Top 3 recent articles per case are stored.</li>
       <li><strong>Deduplication:</strong> Article titles are normalised and deduplicated across runs. A title seen within the last 72 hours is not re-added.</li>
@@ -248,17 +248,17 @@ footer a:hover { color:rgba(244,241,234,.9); }
     </ul>
   </div>
 
-  <div class=”card”>
-    <div class=”mono” style=”margin-bottom:.6rem”>pledges.json — election pledges tracker</div>
+  <div class="card">
+    <div class="mono" style="margin-bottom:.6rem">pledges.json — election pledges tracker</div>
     <ul>
       <li><strong>Source:</strong> Party manifestos (BJP, TMC, Congress, Left Front) for the 2026 election. Each pledge is manually coded with category, deadline, and verbatim manifesto text.</li>
-      <li><strong>Status logic:</strong> Status is one of <span class=”mono”>pending / fulfilled / partial / broken / delayed</span>. Set manually on official announcements, gazette notifications, or government press releases. Pipeline auto-marks <span class=”mono”>delayed</span> when a deadline passes and status is still <span class=”mono”>pending</span>.</li>
-      <li><strong>Update frequency:</strong> Manual entries on official announcements; <span class=”mono”>delayed</span> auto-flag on each hourly run.</li>
+      <li><strong>Status logic:</strong> Status is one of <span class="mono">pending / fulfilled / partial / broken / delayed</span>. Set manually on official announcements, gazette notifications, or government press releases. Pipeline auto-marks <span class="mono">delayed</span> when a deadline passes and status is still <span class="mono">pending</span>.</li>
+      <li><strong>Update frequency:</strong> Manual entries on official announcements; <span class="mono">delayed</span> auto-flag on each hourly run.</li>
     </ul>
   </div>
 
-  <div class=”card”>
-    <div class=”mono” style=”margin-bottom:.6rem”>parties.json — party policy comparison</div>
+  <div class="card">
+    <div class="mono" style="margin-bottom:.6rem">parties.json — party policy comparison</div>
     <ul>
       <li><strong>Source:</strong> 2026 election manifestos, publicly available policy statements, and official party websites. Data collected before the election.</li>
       <li><strong>Coverage:</strong> BJP, TMC, Congress, CPI(M), CPI. Positions on 8 themes: jobs, industry, agriculture, women, minorities, infrastructure, health, governance.</li>
@@ -266,35 +266,35 @@ footer a:hover { color:rgba(244,241,234,.9); }
     </ul>
   </div>
 
-  <div class=”card”>
-    <div class=”mono” style=”margin-bottom:.6rem”>meta.json — pipeline timestamp</div>
+  <div class="card">
+    <div class="mono" style="margin-bottom:.6rem">meta.json — pipeline timestamp</div>
     <ul>
-      <li>Written on every pipeline run. Contains <span class=”mono”>lastUpdated</span> (ISO timestamp) and <span class=”mono”>autoChecked</span> (human-readable IST).</li>
-      <li>Used by the live-polling script to detect when new data has landed and show the “data updated” toast.</li>
+      <li>Written on every pipeline run. Contains <span class="mono">lastUpdated</span> (ISO timestamp) and <span class="mono">autoChecked</span> (human-readable IST).</li>
+      <li>Used by the live-polling script to detect when new data has landed and show the "data updated" toast.</li>
     </ul>
   </div>
 
-  <hr class=”rule”>
+  <hr class="rule">
 
-  <h2 id=”pipeline”>Automated pipeline (hourly)</h2>
-  <p>A GitHub Actions workflow (<span class=”mono”>weekly-update.yml</span>) runs on a <span class=”mono”>0 * * * *</span> cron schedule — once per hour. The pipeline runs <span class=”mono”>scripts/update.mjs</span>, a Node.js ESM script with no npm runtime dependencies.</p>
-  <div class=”card”>
-    <div class=”mono”>Pipeline steps</div>
-    <ol style=”margin-left:1.4rem;color:var(--ink-soft);line-height:2;font-size:.9rem;”>
-      <li>Fetch ED press releases → filter for Bengal keywords → append new entries to <span class=”mono”>cases.json</span></li>
+  <h2 id="pipeline">Automated pipeline (hourly)</h2>
+  <p>A GitHub Actions workflow (<span class="mono">weekly-update.yml</span>) runs on a <span class="mono">0 * * * *</span> cron schedule — once per hour. The pipeline runs <span class="mono">scripts/update.mjs</span>, a Node.js ESM script with no npm runtime dependencies.</p>
+  <div class="card">
+    <div class="mono">Pipeline steps</div>
+    <ol style="margin-left:1.4rem;color:var(--ink-soft);line-height:2;font-size:.9rem;">
+      <li>Fetch ED press releases → filter for Bengal keywords → append new entries to <span class="mono">cases.json</span></li>
       <li>Fetch CBI press releases → same filter + append logic</li>
-      <li>For each of 8 case subjects: query Google News RSS → deduplicate → write to <span class=”mono”>news.json</span></li>
-      <li>For each of 24 tracked pledges: query Google News RSS for latest headline → store in <span class=”mono”>pledges.json</span>; auto-set <span class=”mono”>delayed</span> if deadline passed</li>
-      <li>Write <span class=”mono”>meta.json</span> with current timestamp</li>
+      <li>For each of 8 case subjects: query Google News RSS → deduplicate → write to <span class="mono">news.json</span></li>
+      <li>For each of 24 tracked pledges: query Google News RSS for latest headline → store in <span class="mono">pledges.json</span>; auto-set <span class="mono">delayed</span> if deadline passed</li>
+      <li>Write <span class="mono">meta.json</span> with current timestamp</li>
       <li>Commit and push if any file changed</li>
     </ol>
   </div>
   <p>The ED/CBI fetches and all Google News fetches run in parallel (concurrency pool of 3) to complete the full run in under 60 seconds. Commits are only made when at least one data file changes.</p>
 
-  <hr class=”rule”>
+  <hr class="rule">
 
-  <h2 id=”verification”>What “verified” means</h2>
-  <p>The word “verified” is used narrowly — it means attributable to a named primary source, not “true beyond doubt.” Page-level definitions:</p>
+  <h2 id="verification">What "verified" means</h2>
+  <p>The word "verified" is used narrowly — it means attributable to a named primary source, not "true beyond doubt." Page-level definitions:</p>
   <ul>
     <li><strong>MLA criminal records</strong> — verified = sourced from the candidate's own ECI affidavit (self-declared).</li>
     <li><strong>Constituency results</strong> — verified = ECI has officially declared the result for that seat, not exit-poll or projection.</li>
@@ -302,17 +302,17 @@ footer a:hover { color:rgba(244,241,234,.9); }
     <li><strong>Pledge statuses</strong> — verified = government gazette, official order, or minister's stated announcement on the record.</li>
   </ul>
 
-  <hr class=”rule”>
+  <hr class="rule">
 
-  <h2 id=”editorial”>Editorial independence</h2>
-  <p>This is a civic education and transparency project with no party affiliation, no advertising, and no government funding. Where a page applies a judgment (e.g. calling an IPC charge “serious”), the criterion is documented and applied uniformly across all parties.</p>
+  <h2 id="editorial">Editorial independence</h2>
+  <p>This is a civic education and transparency project with no party affiliation, no advertising, and no government funding. Where a page applies a judgment (e.g. calling an IPC charge "serious"), the criterion is documented and applied uniformly across all parties.</p>
   <p>All source code and data are public. Changes to data files are reviewable via git history. If you believe a data change was made in error, open a GitHub issue.</p>
 
-  <h2 id=”corrections”>Corrections policy</h2>
+  <h2 id="corrections">Corrections policy</h2>
   <p>Corrections are accepted only when supported by a primary source: ECI affidavit, court order, government gazette, or official press release. Screenshots and social media posts are not accepted as sole evidence.</p>
-  <p>To submit a correction: open a GitHub issue citing (1) the exact incorrect claim and its page, (2) the correct fact, and (3) a stable URL to the primary source. All accepted corrections are logged at <a href=”/corrections” style=”color:var(--ink-soft)”>/corrections</a>.</p>
+  <p>To submit a correction: open a GitHub issue citing (1) the exact incorrect claim and its page, (2) the correct fact, and (3) a stable URL to the primary source. All accepted corrections are logged at <a href="/corrections" style="color:var(--ink-soft)">/corrections</a>.</p>
 
-  <hr class=”rule”>
+  <hr class="rule">
   <div class="card">
     <div class="mono">Transparency</div>
     <p>This site is a static build. Pages are plain HTML; pipeline scripts are plain Node.js. All data files are version-controlled so every change is datable and attributable. There is no server, no database, and no private data store.</p>
