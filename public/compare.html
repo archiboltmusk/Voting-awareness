@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Compare any two West Bengal MLAs side-by-side — criminal cases, assets, party, constituency, and more.">
+<meta property="og:title" content="MLA Comparison Tool — The Bengal Reader">
+<meta property="og:description" content="Pick any two MLAs and compare their criminal records and declared wealth.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/og-mla-records.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MLA Comparison — The Bengal Reader">
+<meta name="twitter:description" content="Compare two West Bengal MLAs side-by-side.">
+<meta name="twitter:image" content="/og-mla-records.png">
+<title>MLA Comparison — The Bengal Reader</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/fonts.css">
+<link rel="stylesheet" href="/shared.css">
+<script defer src="/analytics.js"></script>
+<script defer src="/shared.js"></script>
+<style>
+:root {
+  --paper:#f4f1ea; --paper-dark:#ebe6db; --paper-mid:#e0dbd0;
+  --ink:#1a1714; --ink-soft:#4a443c; --ink-faint:#8a8275;
+  --rule:#2a2520; --red:#b8231c; --green:#1f6b3a; --saffron:#d97706;
+  --shadow:rgba(26,23,20,0.08);
+}
+[data-theme="dark"] {
+  --paper:#141210; --paper-dark:#1e1b18; --paper-mid:#252220;
+  --ink:#f0ece3; --ink-soft:#b8b2a8; --ink-faint:#706a62;
+  --rule:#3a3530; --red:#e05555; --green:#4ca86a; --saffron:#e8983a;
+  --shadow:rgba(0,0,0,0.3);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--paper);color:var(--ink);font-family:'Fraunces',Georgia,serif;font-size:17px;line-height:1.6;}
+.page-wrap{max-width:960px;margin:0 auto;padding:3rem 2rem 6rem;}
+h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem;}
+.subtitle{color:var(--ink-faint);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2.5rem;}
+
+/* selector row */
+.selector-row{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:end;margin-bottom:2rem;}
+.selector-col label{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:.4rem;}
+.selector-col input{
+  width:100%;padding:10px 14px;font-size:1rem;font-family:'Fraunces',Georgia,serif;
+  border:2px solid var(--rule);border-radius:3px;background:var(--paper-dark);
+  color:var(--ink);outline:none;transition:border-color .2s;
+}
+.selector-col input:focus{border-color:var(--saffron);}
+.selector-sep{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-faint);text-align:center;padding-bottom:10px;}
+.autocomplete-list{
+  position:absolute;z-index:1000;background:var(--paper);border:1px solid var(--rule);
+  border-radius:3px;max-height:220px;overflow-y:auto;width:100%;
+  box-shadow:0 4px 16px var(--shadow);
+}
+.autocomplete-list li{
+  padding:9px 14px;cursor:pointer;font-size:.95rem;list-style:none;
+  border-bottom:1px solid var(--paper-mid);
+}
+.autocomplete-list li:hover,.autocomplete-list li.active{background:var(--paper-dark);}
+.autocomplete-list li small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-faint);}
+.ac-wrap{position:relative;}
+
+/* comparison card grid */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem;}
+.compare-card{
+  border:2px solid var(--rule);border-radius:4px;overflow:hidden;
+}
+.compare-card-header{
+  padding:1.25rem 1.5rem;border-bottom:2px solid var(--rule);
+}
+.compare-card-name{font-size:1.3rem;font-weight:800;margin-bottom:.2rem;}
+.compare-card-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-faint);letter-spacing:.06em;}
+.compare-party-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:middle;}
+.compare-rows{padding:0;}
+.compare-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.85rem 1.5rem;border-bottom:1px solid var(--paper-mid);
+}
+.compare-row:last-child{border-bottom:none;}
+.compare-row-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);}
+.compare-row-value{font-weight:600;font-size:1rem;}
+.compare-row-value.worse{color:var(--red);}
+.compare-row-value.better{color:var(--green);}
+.compare-empty{
+  border:2px dashed var(--paper-mid);border-radius:4px;padding:3rem;
+  text-align:center;color:var(--ink-faint);font-family:'JetBrains Mono',monospace;font-size:.85rem;
+}
+.summary-bar{
+  grid-column:1/-1;background:var(--paper-dark);border-radius:4px;
+  padding:1.25rem 1.5rem;font-family:'JetBrains Mono',monospace;font-size:.85rem;
+  border:1px solid var(--paper-mid);
+}
+.summary-bar strong{color:var(--ink);}
+.compare-actions{grid-column:1/-1;display:flex;gap:.75rem;flex-wrap:wrap;}
+.compare-btn{
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;
+  padding:8px 16px;border-radius:3px;border:1px solid var(--rule);
+  cursor:pointer;background:none;color:var(--ink);text-decoration:none;display:inline-block;
+}
+.compare-btn:hover{background:var(--ink);color:var(--paper);}
+.loading{text-align:center;padding:3rem;color:var(--ink-faint);font-family:'JetBrains Mono',monospace;font-size:.85rem;}
+@media(max-width:640px){
+  .selector-row{grid-template-columns:1fr;gap:.5rem;}
+  .selector-sep{padding:0;}
+  .compare-grid{grid-template-columns:1fr;}
+  .summary-bar,.compare-actions{grid-column:1;}
+}
+</style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">The Bengal Reader</a>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Voter Guide</a>
+      <a href="/parties" class="site-nav-link">Party Compass</a>
+      <a href="/constituencies" class="site-nav-link">2026 Results</a>
+      <a href="/accountability" class="site-nav-link">100 Days</a>
+      <a href="/corruption" class="site-nav-link">Dossier</a>
+      <a href="/mlas" class="site-nav-link">MLA Records</a>
+      <a href="/assets" class="site-nav-link">Wealth Growth</a>
+      <a href="/compare" class="site-nav-link">Compare</a>
+      <a href="/search" class="site-nav-link">Search</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+<div class="page-wrap">
+  <h1>Compare MLAs</h1>
+  <p class="subtitle">Side-by-side · Criminal records · Declared assets</p>
+
+  <div id="loadingState" class="loading">Loading MLA data…</div>
+
+  <div id="mainContent" style="display:none;">
+    <div class="selector-row">
+      <div class="selector-col">
+        <label for="inputA">MLA One</label>
+        <div class="ac-wrap">
+          <input type="text" id="inputA" placeholder="Type name or constituency…" autocomplete="off">
+          <ul class="autocomplete-list" id="listA" style="display:none;"></ul>
+        </div>
+      </div>
+      <div class="selector-sep">vs</div>
+      <div class="selector-col">
+        <label for="inputB">MLA Two</label>
+        <div class="ac-wrap">
+          <input type="text" id="inputB" placeholder="Type name or constituency…" autocomplete="off">
+          <ul class="autocomplete-list" id="listB" style="display:none;"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="compare-grid" id="compareGrid">
+      <div class="compare-empty">Select the first MLA above</div>
+      <div class="compare-empty">Select the second MLA above</div>
+    </div>
+  </div>
+</div>
+</main>
+
+<script>
+var MLA_DATA = [];
+var selected = [null, null];
+
+const PARTY_COLORS = { BJP:'#e8640a', TMC:'#1a7a3c', CPIM:'#c0171b', Congress:'#1565c0', ISF:'#7b1fa2', Ind:'#8a7a6a' };
+
+async function init() {
+  try {
+    MLA_DATA = await fetch('/data/mlas.json').then(r => r.json());
+    document.getElementById('loadingState').style.display = 'none';
+    document.getElementById('mainContent').style.display = '';
+    restoreFromUrl();
+  } catch (e) {
+    document.getElementById('loadingState').textContent = 'Could not load data. Please refresh.';
+  }
+}
+
+// ── Autocomplete ──────────────────────────────────────────────────────────────
+function setupAutocomplete(inputId, listId, slot) {
+  const input = document.getElementById(inputId);
+  const list  = document.getElementById(listId);
+  let active  = -1;
+
+  input.addEventListener('input', function () {
+    const q = this.value.trim().toLowerCase();
+    active = -1;
+    if (q.length < 1) { list.style.display = 'none'; return; }
+    const matches = MLA_DATA
+      .filter(m => m.name.toLowerCase().includes(q) || m.constituency.toLowerCase().includes(q))
+      .slice(0, 8);
+    if (!matches.length) { list.style.display = 'none'; return; }
+    list.innerHTML = matches.map((m, i) => `
+      <li data-idx="${i}" tabindex="-1">
+        ${m.name}<small>${m.party} · ${m.constituency}</small>
+      </li>`).join('');
+    list._matches = matches;
+    list.style.display = 'block';
+  });
+
+  list.addEventListener('click', function (e) {
+    const li = e.target.closest('li');
+    if (!li) return;
+    const m = list._matches[parseInt(li.dataset.idx)];
+    selectMLA(slot, m, input, list);
+  });
+
+  input.addEventListener('keydown', function (e) {
+    const items = list.querySelectorAll('li');
+    if (e.key === 'ArrowDown') { active = Math.min(active + 1, items.length - 1); items.forEach((li,i) => li.classList.toggle('active', i === active)); e.preventDefault(); }
+    if (e.key === 'ArrowUp')   { active = Math.max(active - 1, 0); items.forEach((li,i) => li.classList.toggle('active', i === active)); e.preventDefault(); }
+    if (e.key === 'Enter' && active >= 0 && list._matches) { selectMLA(slot, list._matches[active], input, list); }
+    if (e.key === 'Escape')    { list.style.display = 'none'; }
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!input.contains(e.target) && !list.contains(e.target)) list.style.display = 'none';
+  });
+}
+
+function selectMLA(slot, mla, input, list) {
+  selected[slot] = mla;
+  input.value = mla.name;
+  list.style.display = 'none';
+  renderComparison();
+  updateUrl();
+  if (window.trackEvent) window.trackEvent('MLA Compare Select', { slot, name: mla.name });
+}
+
+// ── Render ────────────────────────────────────────────────────────────────────
+function parseAssets(str) {
+  if (!str) return null;
+  const m = str.match(/([\d.]+)\s*(cr|lakh|k)?/i);
+  if (!m) return null;
+  let n = parseFloat(m[1]);
+  const unit = (m[2] || '').toLowerCase();
+  if (unit === 'cr')   n *= 1e7;
+  if (unit === 'lakh') n *= 1e5;
+  if (unit === 'k')    n *= 1e3;
+  return n;
+}
+
+function renderCard(mla, otherMla) {
+  const col  = PARTY_COLORS[mla.party] || '#8a7a6a';
+  const rows = [
+    { label: 'Constituency', value: mla.constituency, other: otherMla?.constituency },
+    { label: 'District',     value: mla.district,     other: otherMla?.district },
+    { label: 'Party',        value: mla.party,        other: otherMla?.party },
+    { label: 'Criminal Cases',
+      value: mla.cases, other: otherMla?.cases,
+      compare: (a, b) => a < b ? 'better' : a > b ? 'worse' : '' },
+    { label: 'Serious Cases',
+      value: mla.serious ? '⚠ Yes' : 'No', other: null,
+      cls: mla.serious ? 'worse' : '' },
+    { label: 'IPC Charges',  value: mla.ipc || '—' },
+    { label: 'Declared Assets', value: mla.assets || '—',
+      compare: (a, b) => {
+        const av = parseAssets(mla.assets), bv = parseAssets(otherMla?.assets);
+        return null; // no better/worse for assets — just display
+      }
+    },
+    { label: 'Verified',     value: mla.verified ? '✓ Yes' : '* Pending' },
+  ];
+
+  const rowsHtml = rows.map(r => {
+    let cls = r.cls || '';
+    if (r.compare && otherMla) cls = r.compare(r.value, r.other) || '';
+    return `<div class="compare-row">
+      <span class="compare-row-label">${r.label}</span>
+      <span class="compare-row-value ${cls}">${r.value}</span>
+    </div>`;
+  }).join('');
+
+  return `<div class="compare-card">
+    <div class="compare-card-header">
+      <div class="compare-card-name">
+        <span class="compare-party-dot" style="background:${col};"></span>${mla.name}
+      </div>
+      <div class="compare-card-sub">${mla.party} · ${mla.constituency}</div>
+    </div>
+    <div class="compare-rows">${rowsHtml}</div>
+  </div>`;
+}
+
+function renderSummary(a, b) {
+  const lines = [];
+  if (a.cases !== b.cases) {
+    const more = a.cases > b.cases ? a : b;
+    const less = a.cases > b.cases ? b : a;
+    lines.push(`<strong>${more.name}</strong> has ${more.cases - less.cases} more criminal case${(more.cases - less.cases) !== 1 ? 's' : ''} than <strong>${less.name}</strong>.`);
+  } else {
+    lines.push(`Both MLAs have declared <strong>${a.cases}</strong> pending criminal case${a.cases !== 1 ? 's' : ''}.`);
+  }
+  if (a.serious || b.serious) {
+    const serious = [a.serious && a.name, b.serious && b.name].filter(Boolean);
+    lines.push(`${serious.join(' and ')} ${serious.length > 1 ? 'have' : 'has'} been flagged for serious/heinous charges.`);
+  }
+  const av = parseAssets(a.assets), bv = parseAssets(b.assets);
+  if (av && bv && av !== bv) {
+    const richer = av > bv ? a : b;
+    const poorer = av > bv ? b : a;
+    const ratio  = (Math.max(av, bv) / Math.min(av, bv)).toFixed(1);
+    lines.push(`<strong>${richer.name}</strong> has declared ${ratio}× more assets than <strong>${poorer.name}</strong>.`);
+  }
+  return `<div class="summary-bar">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:.5rem;">Summary</div>
+    ${lines.map(l => `<div style="margin-bottom:.3rem;">· ${l}</div>`).join('')}
+  </div>`;
+}
+
+function renderComparison() {
+  const grid = document.getElementById('compareGrid');
+  const [a, b] = selected;
+
+  if (!a && !b) {
+    grid.innerHTML = `<div class="compare-empty">Select the first MLA above</div><div class="compare-empty">Select the second MLA above</div>`;
+    return;
+  }
+  if (!a) { grid.innerHTML = `<div class="compare-empty">Select the first MLA above</div>${renderCard(b, null)}`; return; }
+  if (!b) { grid.innerHTML = `${renderCard(a, null)}<div class="compare-empty">Select the second MLA above</div>`; return; }
+
+  const shareText = `${a.name} (${a.cases} cases) vs ${b.name} (${b.cases} cases) — The Bengal Reader`;
+  const shareUrl  = location.href;
+
+  grid.innerHTML =
+    renderCard(a, b) +
+    renderCard(b, a) +
+    renderSummary(a, b) +
+    `<div class="compare-actions">
+       <button class="compare-btn" onclick="window.shareWhatsApp && window.shareWhatsApp('${shareText.replace(/'/g,"\\'")}', '${shareUrl}')">Share on WhatsApp</button>
+       <a href="/mlas#${a.name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'')}" class="compare-btn" target="_blank">Full profile: ${a.name.split(' ')[0]} →</a>
+       <a href="/mlas#${b.name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'')}" class="compare-btn" target="_blank">Full profile: ${b.name.split(' ')[0]} →</a>
+     </div>`;
+}
+
+// ── URL persistence ───────────────────────────────────────────────────────────
+function updateUrl() {
+  const params = new URLSearchParams();
+  if (selected[0]) params.set('a', selected[0].name);
+  if (selected[1]) params.set('b', selected[1].name);
+  history.replaceState(null, '', '?' + params.toString());
+}
+
+function restoreFromUrl() {
+  const params = new URLSearchParams(location.search);
+  const nameA = params.get('a'), nameB = params.get('b');
+  if (nameA) {
+    const m = MLA_DATA.find(x => x.name === nameA);
+    if (m) { selected[0] = m; document.getElementById('inputA').value = m.name; }
+  }
+  if (nameB) {
+    const m = MLA_DATA.find(x => x.name === nameB);
+    if (m) { selected[1] = m; document.getElementById('inputB').value = m.name; }
+  }
+  if (selected[0] || selected[1]) renderComparison();
+}
+
+setupAutocomplete('inputA', 'listA', 0);
+setupAutocomplete('inputB', 'listB', 1);
+init();
+</script>
+</body>
+</html>

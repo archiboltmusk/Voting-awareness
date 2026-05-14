@@ -1,0 +1,162 @@
+/**
+ * scripts/download-fonts.mjs
+ * Downloads the WOFF2 font files used by The Bengal Reader from fonts.gstatic.com
+ * and generates public/fonts.css with local @font-face declarations.
+ *
+ * Run once (or when font versions change):
+ *   node scripts/download-fonts.mjs
+ */
+
+import { writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { basename } from 'node:path';
+
+const FONTS_DIR = './public/fonts';
+const OUTPUT_CSS = './public/fonts.css';
+const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
+
+// Fonts to download — one Google Fonts CSS2 URL per family group
+const FONT_REQUESTS = [
+  {
+    url: 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,600&display=swap',
+    keepSubsets: ['latin', 'latin-ext'],
+  },
+  {
+    url: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap',
+    keepSubsets: ['latin', 'latin-ext'],
+  },
+  {
+    url: 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap',
+    keepSubsets: ['latin', 'latin-ext'],
+  },
+  {
+    url: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap',
+    keepSubsets: ['latin', 'latin-ext'],
+  },
+  {
+    url: 'https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap',
+    keepSubsets: ['latin', 'latin-ext'],
+  },
+  {
+    url: 'https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;800&display=swap',
+    keepSubsets: ['bengali'],
+  },
+];
+
+async function fetchCss(url) {
+  const res = await fetch(url, { headers: { 'User-Agent': UA } });
+  if (!res.ok) throw new Error(`CSS fetch failed: ${res.status} ${url}`);
+  return res.text();
+}
+
+async function downloadWoff2(url, destPath) {
+  if (existsSync(destPath)) {
+    console.log(`  skip (cached): ${basename(destPath)}`);
+    return;
+  }
+  const res = await fetch(url, { headers: { 'User-Agent': UA } });
+  if (!res.ok) throw new Error(`Font download failed: ${res.status} ${url}`);
+  const buf = Buffer.from(await res.arrayBuffer());
+  writeFileSync(destPath, buf);
+  console.log(`  downloaded: ${basename(destPath)} (${(buf.length / 1024).toFixed(0)} KB)`);
+}
+
+function parseFontFaces(css, keepSubsets) {
+  // Split CSS into @font-face blocks, keeping only desired subsets
+  const blocks = [];
+  const rx = /\/\*\s*([^*]+?)\s*\*\/\s*(@font-face\s*\{[^}]+\})/g;
+  let m;
+  while ((m = rx.exec(css)) !== null) {
+    const subset = m[1].trim().toLowerCase();
+    const block  = m[2];
+    if (keepSubsets.some(s => subset.includes(s))) {
+      blocks.push({ subset, block });
+    }
+  }
+  return blocks;
+}
+
+function extractWoff2Urls(block) {
+  const urls = [];
+  const rx = /url\((https:\/\/fonts\.gstatic\.com[^)]+\.woff2)\)/g;
+  let m;
+  while ((m = rx.exec(block)) !== null) urls.push(m[1]);
+  return [...new Set(urls)];
+}
+
+function rewriteLocalPaths(block, urlToLocal) {
+  return block.replace(/url\((https:\/\/fonts\.gstatic\.com[^)]+\.woff2)\)/g, (_, u) => {
+    return `url('/fonts/${urlToLocal[u]}')`;
+  });
+}
+
+async function main() {
+  mkdirSync(FONTS_DIR, { recursive: true });
+
+  const allBlocks = [];
+  const urlToLocal = {};
+
+  for (const req of FONT_REQUESTS) {
+    console.log(`\nFetching CSS: ${req.url.replace('https://fonts.googleapis.com/css2?', '')}`);
+    let css;
+    try {
+      css = await fetchCss(req.url);
+    } catch (e) {
+      console.error(`  ERROR: ${e.message}`);
+      continue;
+    }
+
+    const blocks = parseFontFaces(css, req.keepSubsets);
+    console.log(`  Found ${blocks.length} @font-face blocks for subsets [${req.keepSubsets.join(', ')}]`);
+
+    const woff2Urls = blocks.flatMap(b => extractWoff2Urls(b.block));
+    const uniqueUrls = [...new Set(woff2Urls)];
+    console.log(`  ${uniqueUrls.length} unique WOFF2 files`);
+
+    // Assign local filenames (hash the URL path to avoid collisions)
+    for (const url of uniqueUrls) {
+      if (!urlToLocal[url]) {
+        const pathPart = new URL(url).pathname.replace(/\//g, '-').replace(/^-/, '');
+        urlToLocal[url] = pathPart;
+      }
+    }
+
+    allBlocks.push(...blocks.map(b => ({ ...b, reqs: req })));
+  }
+
+  // Download all unique WOFF2 files
+  console.log('\nDownloading WOFF2 files...');
+  const allUrls = Object.keys(urlToLocal);
+  for (const url of allUrls) {
+    const dest = `${FONTS_DIR}/${urlToLocal[url]}`;
+    try {
+      await downloadWoff2(url, dest);
+    } catch (e) {
+      console.error(`  ERROR downloading ${url}: ${e.message}`);
+    }
+    // Small pause to be polite to gstatic servers
+    await new Promise(r => setTimeout(r, 50));
+  }
+
+  // Generate fonts.css
+  const cssLines = [
+    '/* fonts.css — self-hosted web fonts for The Bengal Reader */',
+    '/* Generated by scripts/download-fonts.mjs — do not edit manually */',
+    '',
+  ];
+  for (const { subset, block } of allBlocks) {
+    cssLines.push(`/* ${subset} */`);
+    cssLines.push(rewriteLocalPaths(block, urlToLocal));
+    cssLines.push('');
+  }
+
+  writeFileSync(OUTPUT_CSS, cssLines.join('\n'), 'utf8');
+  console.log(`\n✓ Written ${OUTPUT_CSS} with ${allBlocks.length} @font-face rules`);
+  console.log(`✓ Downloaded ${allUrls.length} WOFF2 files to ${FONTS_DIR}/`);
+
+  // Print HTML replacement instruction
+  console.log('\nReplace all Google Fonts <link> tags in HTML with:');
+  console.log('  <link rel="preload" href="/fonts.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">');
+  console.log('  <noscript><link rel="stylesheet" href="/fonts.css"></noscript>');
+}
+
+main().catch(e => { console.error('Fatal:', e); process.exit(1); });

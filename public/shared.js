@@ -8,7 +8,18 @@
  *   5. Live meta timestamp sync
  *   6. Share utilities (WhatsApp, Twitter, copy link)
  *   7. Active nav link highlighting
+ *   8. Live data polling (30 s)
+ *   9. Service worker registration
+ *  10. Lazy table renderer
+ *  11. Source citation tooltips ([data-cite])
  */
+
+/* ── 9. Service worker registration ─────────────────────────────────────── */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').catch(function () {});
+  });
+}
 
 /* ── 1. Scroll progress bar ─────────────────────────────────────────────── */
 (function () {
@@ -166,5 +177,178 @@ window.shareDataPoint = function (label, value, url) {
         a.classList.add('active');
       }
     });
+  });
+})();
+
+/* ── 8. Live data polling (30 s) ─────────────────────────────────────────── */
+/* Polls /data/meta.json every 30 s. When autoChecked changes (i.e. a new
+   data pipeline run landed), fires window event 'bengal:dataupdate' and
+   shows a dismissible toast inviting the user to reload. */
+(function () {
+  var POLL_MS = 30000;
+  var lastChecked = null;
+
+  function poll() {
+    fetch('/data/meta.json', { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (meta) {
+        if (lastChecked === null) { lastChecked = meta.autoChecked; return; }
+        if (meta.autoChecked !== lastChecked) {
+          lastChecked = meta.autoChecked;
+          window.dispatchEvent(new CustomEvent('bengal:dataupdate', { detail: meta }));
+          showToast();
+        }
+      })
+      .catch(function () {});
+  }
+
+  function showToast() {
+    var existing = document.getElementById('bengal-live-toast');
+    if (existing) existing.remove();
+    var t = document.createElement('div');
+    t.id = 'bengal-live-toast';
+    t.setAttribute('role', 'status');
+    t.textContent = '↻ Data updated — click to reload';
+    t.style.cssText = [
+      'position:fixed', 'bottom:1.5rem', 'right:1.5rem',
+      'background:#1f6b3a', 'color:#fff',
+      'padding:8px 18px', 'border-radius:3px',
+      'font-family:JetBrains Mono,monospace', 'font-size:11px', 'letter-spacing:.05em',
+      'z-index:99999', 'cursor:pointer',
+      'box-shadow:0 2px 8px rgba(0,0,0,.25)',
+      'transition:opacity .4s',
+    ].join(';');
+    t.onclick = function () { location.reload(); };
+    document.body.appendChild(t);
+    setTimeout(function () {
+      t.style.opacity = '0';
+      setTimeout(function () { if (t.parentNode) t.remove(); }, 400);
+    }, 5000);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    poll();
+    setInterval(poll, POLL_MS);
+  });
+})();
+
+/* ── 10. Lazy table renderer ─────────────────────────────────────────────── */
+/* Usage: window.lazyTable(tbodyId, rows, buildRowHTML, chunkSize)
+   Renders the first 50 rows immediately, then streams the rest as the user
+   scrolls near the bottom (IntersectionObserver sentinel at 400 px). */
+window.lazyTable = function (tbodyId, rows, buildRowHTML, chunkSize) {
+  var CHUNK = chunkSize || 50;
+  var tbody = document.getElementById(tbodyId);
+  if (!tbody) return;
+  tbody.innerHTML = '';
+  var offset = 0;
+
+  var sentinel = document.createElement('tr');
+  sentinel.setAttribute('aria-hidden', 'true');
+  sentinel.style.cssText = 'height:1px;padding:0;visibility:hidden;pointer-events:none;';
+  tbody.appendChild(sentinel);
+
+  function renderChunk() {
+    var chunk = rows.slice(offset, offset + CHUNK);
+    if (!chunk.length) { if (sentinel.parentNode) sentinel.remove(); return; }
+    var tmp = document.createElement('tbody');
+    tmp.innerHTML = chunk.map(function (row, i) { return buildRowHTML(row, offset + i); }).join('');
+    while (tmp.firstChild) tbody.insertBefore(tmp.firstChild, sentinel);
+    offset += chunk.length;
+    if (offset >= rows.length && sentinel.parentNode) sentinel.remove();
+  }
+
+  renderChunk();
+
+  if (offset < rows.length) {
+    var obs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) renderChunk();
+    }, { rootMargin: '400px' });
+    obs.observe(sentinel);
+  }
+};
+
+/* ── 11. Source citation tooltips ────────────────────────────────────────── */
+/* Activates on any element with data-cite="Source name, year"
+   Optionally pair with data-cite-url="https://..." for a clickable link.
+   CSS lives in shared.css under "SOURCE CITATION TOOLTIPS". */
+(function () {
+  var tip = null;
+  var hideTimer = null;
+
+  function getTip() {
+    if (!tip) {
+      tip = document.createElement('div');
+      tip.className = 'bengal-cite-tip';
+      tip.setAttribute('role', 'tooltip');
+      document.body.appendChild(tip);
+      tip.addEventListener('mouseenter', function () {
+        clearTimeout(hideTimer);
+      });
+      tip.addEventListener('mouseleave', function () {
+        scheduleHide();
+      });
+    }
+    return tip;
+  }
+
+  function scheduleHide() {
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function () {
+      var t = getTip();
+      t.classList.remove('visible');
+    }, 120);
+  }
+
+  function show(el, e) {
+    clearTimeout(hideTimer);
+    var label = el.getAttribute('data-cite') || '';
+    var url = el.getAttribute('data-cite-url') || '';
+    var t = getTip();
+    t.innerHTML = label + (url
+      ? '<a href="' + url + '" target="_blank" rel="noopener">' + url.replace(/^https?:\/\//, '').split('/')[0] + ' ↗</a>'
+      : '');
+    t.classList.add('visible');
+    position(e);
+  }
+
+  function position(e) {
+    if (!tip) return;
+    var x = e.clientX + 12;
+    var y = e.clientY - 36;
+    var tw = tip.offsetWidth || 200;
+    var th = tip.offsetHeight || 50;
+    if (x + tw > window.innerWidth - 8) x = e.clientX - tw - 8;
+    if (y < 8) y = e.clientY + 16;
+    if (y + th > window.innerHeight - 8) y = window.innerHeight - th - 8;
+    tip.style.left = x + 'px';
+    tip.style.top = y + 'px';
+  }
+
+  document.addEventListener('mouseover', function (e) {
+    var el = e.target && e.target.closest('[data-cite]');
+    if (el) show(el, e);
+  });
+
+  document.addEventListener('mousemove', function (e) {
+    if (tip && tip.classList.contains('visible')) position(e);
+  });
+
+  document.addEventListener('mouseout', function (e) {
+    var el = e.target && e.target.closest('[data-cite]');
+    if (el) scheduleHide();
+  });
+
+  document.addEventListener('focusin', function (e) {
+    var el = e.target && e.target.closest('[data-cite]');
+    if (el) {
+      var rect = el.getBoundingClientRect();
+      show(el, { clientX: rect.left, clientY: rect.top });
+    }
+  });
+
+  document.addEventListener('focusout', function (e) {
+    var el = e.target && e.target.closest('[data-cite]');
+    if (el) scheduleHide();
   });
 })();

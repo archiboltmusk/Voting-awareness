@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Bengal Reader corrections log — all factual corrections to our reporting, with original text, correction, and primary source.">
+<meta property="og:title" content="Corrections — The Bengal Reader">
+<meta property="og:description" content="A transparent record of every correction made to Bengal Reader data and reporting.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/og-assets.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Corrections — The Bengal Reader">
+<meta name="twitter:description" content="Transparent corrections log with original text and primary source citations.">
+<meta name="twitter:image" content="/og-assets.png">
+<title>Corrections — The Bengal Reader</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/fonts.css">
+<link rel="stylesheet" href="/shared.css">
+<script defer src="/analytics.js"></script>
+<script defer src="/shared.js"></script>
+<style>
+:root{--paper:#f4f1ea;--paper-dark:#ebe6db;--ink:#1a1714;--ink-soft:#4a443c;--ink-faint:#8a8275;--rule:#2a2520;--red:#b8231c;--green:#1f6b3a;--saffron:#d97706;}
+[data-theme="dark"]{--paper:#141210;--paper-dark:#1e1b18;--ink:#f0ece3;--ink-soft:#b8b2a8;--ink-faint:#706a62;--rule:#3a3530;--red:#e05555;--green:#4ca86a;--saffron:#e8983a;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--paper);color:var(--ink);font-family:'Fraunces',Georgia,serif;font-size:17px;line-height:1.65;}
+.page-wrap{max-width:760px;margin:0 auto;padding:3rem 2rem 6rem;}
+h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem;}
+.page-meta{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:2.5rem;}
+.policy-box{background:var(--paper-dark);border-left:3px solid var(--saffron);padding:1rem 1.25rem;border-radius:0 3px 3px 0;margin-bottom:2.5rem;font-size:.9rem;}
+.policy-box strong{font-size:.8rem;font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.35rem;color:var(--ink-faint);}
+.correction-card{border:1px solid var(--rule);border-radius:4px;padding:1.5rem;margin-bottom:1.25rem;}
+.correction-date{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:.5rem;}
+.correction-page{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;background:var(--paper-dark);border-radius:2px;color:var(--ink-faint);margin-bottom:.75rem;}
+.correction-original{margin-bottom:.75rem;}
+.correction-original-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:.25rem;}
+.correction-original-text{background:rgba(184,35,28,.06);border-left:3px solid var(--red);padding:.6rem .9rem;border-radius:0 3px 3px 0;font-size:.95rem;}
+.correction-new{margin-bottom:.75rem;}
+.correction-new-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:.25rem;}
+.correction-new-text{background:rgba(31,107,58,.06);border-left:3px solid var(--green);padding:.6rem .9rem;border-radius:0 3px 3px 0;font-size:.95rem;}
+.correction-source{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-faint);}
+.correction-source a{color:var(--ink-faint);}
+.empty-state{text-align:center;padding:4rem 2rem;color:var(--ink-faint);font-family:'JetBrains Mono',monospace;font-size:.85rem;border:1px dashed var(--rule);border-radius:4px;}
+.report-link{display:inline-block;margin-top:2rem;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;padding:8px 16px;border:1px solid var(--rule);border-radius:3px;color:var(--ink);text-decoration:none;}
+.report-link:hover{background:var(--ink);color:var(--paper);}
+</style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">The Bengal Reader</a>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Voter Guide</a>
+      <a href="/constituencies" class="site-nav-link">2026 Results</a>
+      <a href="/corruption" class="site-nav-link">Dossier</a>
+      <a href="/mlas" class="site-nav-link">MLA Records</a>
+      <a href="/assets" class="site-nav-link">Wealth Growth</a>
+      <a href="/methodology" class="site-nav-link">Methodology</a>
+      <a href="/corrections" class="site-nav-link">Corrections</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+<div class="page-wrap">
+  <h1>Corrections</h1>
+  <p class="page-meta">Transparency log · All factual corrections on record</p>
+
+  <div class="policy-box">
+    <strong>Corrections policy</strong>
+    Corrections are accepted only when supported by a primary source: ECI affidavit, court order, government gazette, or official press release. Screenshots and social media posts are not accepted. To submit a correction, open an issue on GitHub citing the exact claim, the correct fact, and the primary source URL.
+  </div>
+
+  <div id="correctionsContainer">
+    <div class="empty-state">Loading corrections log…</div>
+  </div>
+
+  <a href="https://github.com/mahatoanupam002-lang/Voting-awareness/issues/new?template=correction.md&title=Correction:" class="report-link" target="_blank" rel="noopener">Report a correction via GitHub →</a>
+</div>
+</main>
+
+<script>
+async function loadCorrections() {
+  const container = document.getElementById('correctionsContainer');
+  try {
+    const data = await fetch('/data/corrections.json').then(r => r.json());
+    if (!data.corrections || data.corrections.length === 0) {
+      container.innerHTML = `<div class="empty-state">
+        No corrections on record.<br><br>
+        If you find an error, please open a GitHub issue with the correct primary source.
+      </div>`;
+      return;
+    }
+    container.innerHTML = data.corrections
+      .sort((a, b) => b.date.localeCompare(a.date))
+      .map(c => `
+        <div class="correction-card">
+          <div class="correction-date">${c.date}</div>
+          <div class="correction-page"><a href="${c.pageUrl || '#'}">${c.page}</a></div>
+          <div class="correction-original">
+            <div class="correction-original-label">Original (incorrect)</div>
+            <div class="correction-original-text">${c.original}</div>
+          </div>
+          <div class="correction-new">
+            <div class="correction-new-label">Corrected to</div>
+            <div class="correction-new-text">${c.corrected}</div>
+          </div>
+          <div class="correction-source">
+            Source: ${c.sourceUrl
+              ? `<a href="${c.sourceUrl}" target="_blank" rel="noopener">${c.source}</a>`
+              : c.source}
+          </div>
+        </div>`).join('');
+  } catch {
+    container.innerHTML = `<div class="empty-state">Could not load corrections data.</div>`;
+  }
+}
+
+loadCorrections();
+</script>
+</body>
+</html>

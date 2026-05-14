@@ -1,0 +1,109 @@
+{
+  "lastUpdated": "2026-05-13",
+  "summary": "RTI applications filed to obtain public-interest data used in this project. Each entry includes the authority, subject, filing date, current status, and any response received.",
+  "filings": [
+    {
+      "id": "RTI-2025-001",
+      "authority": "Election Commission of India",
+      "subject": "Complete affidavit data for all 294 West Bengal assembly candidates — 2021 election",
+      "filed": "2025-09-10",
+      "status": "responded",
+      "responseDate": "2025-10-18",
+      "responseUrl": "",
+      "notes": "ECI confirmed all affidavits are available on myneta.info and eci.gov.in. Directed to public portal.",
+      "category": "affidavits"
+    },
+    {
+      "id": "RTI-2025-002",
+      "authority": "Central Bureau of Investigation",
+      "subject": "List of sitting West Bengal MLAs with active CBI charge-sheets as of 2025",
+      "filed": "2025-10-01",
+      "status": "responded",
+      "responseDate": "2025-11-20",
+      "responseUrl": "",
+      "notes": "CBI provided a list of 22 individuals with charge-sheets. Names matched against MLA list.",
+      "category": "criminal-cases"
+    },
+    {
+      "id": "RTI-2025-003",
+      "authority": "Enforcement Directorate",
+      "subject": "PMLA cases registered against elected representatives in West Bengal (2019–2025)",
+      "filed": "2025-10-15",
+      "status": "responded",
+      "responseDate": "2025-12-05",
+      "responseUrl": "",
+      "notes": "ED confirmed 14 MLAs under PMLA proceedings. Partial names provided; full list withheld citing Section 8(1)(h).",
+      "category": "criminal-cases"
+    },
+    {
+      "id": "RTI-2025-004",
+      "authority": "West Bengal Finance Department",
+      "subject": "Constituency-wise MPLAD / MLA LAD fund utilisation 2021–2024",
+      "filed": "2025-11-01",
+      "status": "first-appeal",
+      "responseDate": "",
+      "responseUrl": "",
+      "notes": "Initial response was incomplete — only 47 of 294 constituencies covered. First appeal filed 2025-12-10.",
+      "category": "funds"
+    },
+    {
+      "id": "RTI-2025-005",
+      "authority": "State Bank of India (Electoral Bonds Cell)",
+      "subject": "Denomination-wise electoral bond issuance data: West Bengal purchasers 2019–2024",
+      "filed": "2025-11-15",
+      "status": "rejected",
+      "responseDate": "2025-12-22",
+      "responseUrl": "",
+      "notes": "Rejected citing RBI confidentiality provisions. Supreme Court order data (Feb 2024) used as primary source instead.",
+      "category": "electoral-bonds"
+    },
+    {
+      "id": "RTI-2026-001",
+      "authority": "Election Commission of India",
+      "subject": "Voter roll anomalies — deletions and additions in 10 flagged constituencies between 2021 and 2026 rolls",
+      "filed": "2026-01-08",
+      "status": "pending",
+      "responseDate": "",
+      "responseUrl": "",
+      "notes": "30-day response deadline: 2026-02-07. No response received as of filing date.",
+      "category": "voter-rolls"
+    },
+    {
+      "id": "RTI-2026-002",
+      "authority": "West Bengal Police (CID)",
+      "subject": "FIR count and disposal rate for political violence cases: 2021 post-poll, constituency-wise",
+      "filed": "2026-01-20",
+      "status": "pending",
+      "responseDate": "",
+      "responseUrl": "",
+      "notes": "Pending.",
+      "category": "criminal-cases"
+    },
+    {
+      "id": "RTI-2026-003",
+      "authority": "National Crime Records Bureau",
+      "subject": "Elected representative crime data — West Bengal, breakdown by IPC section",
+      "filed": "2026-02-14",
+      "status": "pending",
+      "responseDate": "",
+      "responseUrl": "",
+      "notes": "Pending.",
+      "category": "criminal-cases"
+    }
+  ],
+  "categories": [
+    { "id": "affidavits", "label": "Affidavits & Disclosures" },
+    { "id": "criminal-cases", "label": "Criminal Cases" },
+    { "id": "funds", "label": "Constituency Funds" },
+    { "id": "electoral-bonds", "label": "Electoral Bonds" },
+    { "id": "voter-rolls", "label": "Voter Rolls" }
+  ],
+  "statusLabels": {
+    "pending": "Pending",
+    "responded": "Responded",
+    "rejected": "Rejected",
+    "first-appeal": "First Appeal",
+    "second-appeal": "Second Appeal / CIC",
+    "withdrawn": "Withdrawn"
+  }
+}

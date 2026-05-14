@@ -16,9 +16,7 @@
 <meta name="twitter:description" content="Supreme Court struck it down as unconstitutional. Before it fell, ₹16,518 crore flowed to political parties. Here is the full record.">
 <title>Electoral Bonds: The Money Trail — The Bengal Reader</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+Bengali:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fonts.css">
 <style>
 :root {
   --ink: #0a0804;
@@ -321,6 +319,15 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
     <div class="callout-label">📌 Bengal Context</div>
     <p>TMC's ₹1,609 crore represents donations from companies primarily in Bengal and Eastern India — energy, construction, food processing, and lottery sectors. As the state's ruling party for 14 years, TMC controlled state-level contracts, regulatory approvals, land allocation, and police oversight — all levers that create incentive for corporate political donation.</p>
   </div>
+
+  <hr class="hr-ornate">
+
+  <div class="section-header fade-in">
+    <div class="section-label">Money Flow</div>
+    <h2 class="section-title">Donor → Party Flow Map</h2>
+  </div>
+  <p>Flow width is proportional to the donation amount. Donor–party links are derived from the SBI/ECI disclosure and ADR India's analysis of redemption records.</p>
+  <div id="flowDiagram" class="fade-in" style="margin:2rem 0;" aria-label="Electoral bonds donor to party flow diagram"></div>
 
   <hr class="hr-ornate">
 
@@ -640,12 +647,136 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold:0.06, rootMargin:'0px 0px -40px 0px' });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+// Flow diagram — donor-to-party Sankey-style SVG
+function renderFlowDiagram() {
+  const FLOWS = [
+    { donor:'Future Gaming',       party:'TMC',      amount:900 },
+    { donor:'Future Gaming',       party:'DMK',      amount:420 },
+    { donor:'Future Gaming',       party:'Others',   amount:48  },
+    { donor:'Megha Engineering',   party:'BJP',      amount:584 },
+    { donor:'Megha Engineering',   party:'BRS',      amount:306 },
+    { donor:'Megha Engineering',   party:'TDP',      amount:76  },
+    { donor:'Qwik Supply Chain',   party:'BJP',      amount:410 },
+    { donor:'Vedanta',             party:'BJP',      amount:280 },
+    { donor:'Vedanta',             party:'BJD',      amount:120 },
+    { donor:'Haldia Energy',       party:'TMC',      amount:377 },
+    { donor:'Keventer Agro',       party:'TMC',      amount:160 },
+    { donor:'Bharti Group',        party:'BJP',      amount:170 },
+    { donor:'Bharti Group',        party:'Congress', amount:77  },
+    { donor:'Torrent Power',       party:'BJP',      amount:120 },
+    { donor:'Torrent Power',       party:'Congress', amount:55  },
+  ];
+
+  const PARTY_COLORS = {
+    BJP:      '#e8640a',
+    TMC:      '#1a7a3c',
+    Congress: '#1565c0',
+    BRS:      '#7b1fa2',
+    BJD:      '#d97706',
+    DMK:      '#b45309',
+    TDP:      '#0369a1',
+    Others:   '#8a7a6a',
+  };
+
+  // Compute totals per donor and party
+  const donorTotals = {}, partyTotals = {};
+  FLOWS.forEach(f => {
+    donorTotals[f.donor] = (donorTotals[f.donor] || 0) + f.amount;
+    partyTotals[f.party] = (partyTotals[f.party] || 0) + f.amount;
+  });
+
+  const donors   = [...new Set(FLOWS.map(f => f.donor))];
+  const parties  = Object.keys(PARTY_COLORS).filter(p => partyTotals[p]);
+
+  // Scale: tallest node = MAX_NODE_H px
+  const MAX_NODE_H = 90;
+  const GAP = 14;
+  const maxTotal = Math.max(...Object.values(donorTotals), ...Object.values(partyTotals));
+  const scale = MAX_NODE_H / maxTotal;
+  function nodeH(total) { return Math.max(6, Math.round(total * scale)); }
+
+  // Lay out left (donor) column
+  const dNodes = {};
+  let y = 36;
+  donors.forEach(d => {
+    const h = nodeH(donorTotals[d]);
+    dNodes[d] = { y, h, yUsed: 0 };
+    y += h + GAP;
+  });
+  const leftH = y - GAP + 36;
+
+  // Lay out right (party) column
+  const pNodes = {};
+  y = 36;
+  parties.forEach(p => {
+    const h = nodeH(partyTotals[p]);
+    pNodes[p] = { y, h, yUsed: 0, color: PARTY_COLORS[p] };
+    y += h + GAP;
+  });
+  const rightH = y - GAP + 36;
+
+  const W = 700, H = Math.max(leftH, rightH);
+  const LX = 178, RX = W - 178;
+  const CP = (RX - LX) * 0.44;
+
+  let paths = '', labels = '';
+
+  // Flows sorted largest-first so big flows are drawn behind small ones
+  [...FLOWS].sort((a, b) => b.amount - a.amount).forEach(f => {
+    const dn = dNodes[f.donor];
+    const pn = pNodes[f.party];
+    if (!dn || !pn) return;
+    const fh = Math.max(2, Math.round(f.amount * scale));
+    const y1 = dn.y + dn.yUsed + fh / 2;
+    const y2 = pn.y + pn.yUsed + fh / 2;
+    dn.yUsed += fh;
+    pn.yUsed += fh;
+    const alpha = (0.12 + (f.amount / maxTotal) * 0.5).toFixed(2);
+    paths += `<path d="M${LX},${y1} C${LX+CP},${y1} ${RX-CP},${y2} ${RX},${y2}" fill="none" stroke="${pn.color}" stroke-width="${fh}" stroke-opacity="${alpha}"/>`;
+  });
+
+  // Donor nodes + labels
+  donors.forEach(d => {
+    const { y, h } = dNodes[d];
+    const cy = y + h / 2;
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const nodeColor = isDark ? '#706a62' : '#4a443c';
+    labels += `<rect x="${LX - 5}" y="${y}" width="10" height="${h}" fill="${nodeColor}" rx="2"/>`;
+    labels += `<text x="${LX - 14}" y="${cy + 4}" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="10" fill="currentColor">${d}</text>`;
+  });
+
+  // Party nodes + labels
+  parties.forEach(p => {
+    const { y, h, color } = pNodes[p];
+    const cy = y + h / 2;
+    labels += `<rect x="${RX - 5}" y="${y}" width="10" height="${h}" fill="${color}" rx="2"/>`;
+    labels += `<text x="${RX + 14}" y="${cy + 4}" text-anchor="start" font-family="JetBrains Mono,monospace" font-size="10" fill="${color}" font-weight="600">${p}</text>`;
+  });
+
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const fg = isDark ? '#b8b2a8' : '#4a443c';
+
+  document.getElementById('flowDiagram').innerHTML =
+    `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg"
+      style="width:100%;max-width:${W}px;height:auto;color:${fg};display:block;margin:0 auto;overflow:visible;">
+      <g>${paths}</g>
+      <g>${labels}</g>
+    </svg>`;
+}
+
+// Rerender on theme change
+window.addEventListener('bengal:dataupdate', renderFlowDiagram);
+document.querySelectorAll('.theme-toggle, [onclick*="toggleTheme"]').forEach(el => {
+  el.addEventListener('click', () => setTimeout(renderFlowDiagram, 50));
+});
+
 // Init
 renderPartyChart();
 renderDonorTable();
 renderTmcDonors();
 renderPatternCards();
 renderTimeline();
+renderFlowDiagram();
 
 // Language toggle
 function setLang(lang) {
@@ -653,7 +784,7 @@ function setLang(lang) {
   document.querySelectorAll('[data-en][data-bn]').forEach(el => {
     el.textContent = el.dataset[lang] || el.dataset.en;
   });
-  if (window.trackEvent) trackEvent('language_toggle', { lang, page: 'bonds' });
+  if (window.trackEvent) window.trackEvent('language_toggle', { lang, page: 'bonds' });
 }
 </script>
 </body>
