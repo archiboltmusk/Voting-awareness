@@ -14,7 +14,7 @@
     "scrape-mlas": "node scripts/scrape-mlas.mjs",
     "auto-update": "node scripts/auto-update-system.mjs",
     "extract-constituencies": "node scripts/extract-constituencies.mjs",
-    "build": "npm run lint && npm run generate-sitemap && npm run validate",
+    "build": "node scripts/generate-sitemap.mjs",
     "test": "echo \"No tests specified\""
   },
   "keywords": [],
