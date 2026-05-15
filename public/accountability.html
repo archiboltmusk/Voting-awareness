@@ -628,6 +628,49 @@ a.source-chip:hover { border-color: var(--bjp); color: var(--bjp); }
 [data-theme="dark"] .status-watching { border-color: #555; color: #777; }
 [data-theme="dark"] .status-watching::before { color: #555; }
 
+/* ── BURNDOWN CHART ── */
+.burndown-wrap {
+  background: #0d0b09;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  padding: 1.5rem 2rem;
+}
+.burndown-inner { max-width: 860px; margin: 0 auto; }
+.burndown-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: #5a5040; margin-bottom: 0.8rem; display: flex; justify-content: space-between;
+  align-items: center;
+}
+.burndown-title span { color: var(--bjp); font-weight: 600; }
+.burndown-canvas { display: block; width: 100%; height: auto; }
+.burndown-legend {
+  display: flex; gap: 1.5rem; margin-top: 0.7rem;
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.5rem;
+  letter-spacing: 0.1em; text-transform: uppercase; color: #5a5040;
+}
+.burndown-legend-item { display: flex; align-items: center; gap: 0.4rem; }
+.burndown-legend-line { width: 20px; height: 2px; flex-shrink: 0; }
+
+/* ── URGENCY PANEL ── */
+.urgency-strip {
+  background: #12100e; border-bottom: 1px solid rgba(255,255,255,.04);
+  padding: 1rem 2rem;
+}
+.urgency-inner { max-width: 860px; margin: 0 auto; }
+.urgency-label {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.5rem;
+  letter-spacing: 0.22em; text-transform: uppercase; color: #c0171b;
+  margin-bottom: 0.6rem;
+}
+.urgency-items { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.urgency-item {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.55rem;
+  letter-spacing: 0.05em; color: #8a7a6a; background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06); padding: 0.4rem 0.8rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.urgency-days { color: var(--bjp); font-weight: 700; font-size: 0.8rem; line-height: 1; }
+
 /* ── MOBILE ── */
 @media (max-width: 700px) {
   .jump-bar { flex-wrap: wrap; }
@@ -748,6 +791,31 @@ a.source-chip:hover { border-color: var(--bjp); color: var(--bjp); }
     <span>Day 0 · 9 May 2026</span>
     <span id="progressLbl">Day 6 of 100</span>
     <span>Day 100 · 17 Aug 2026</span>
+  </div>
+</div>
+
+<!-- MANDATE BURNDOWN CHART -->
+<div class="burndown-wrap">
+  <div class="burndown-inner">
+    <div class="burndown-title">
+      Mandate Burndown — Promise Delivery Over 100 Days
+      <span id="burndownStatus">Day 6 · 0% resolved</span>
+    </div>
+    <canvas id="burndownCanvas" class="burndown-canvas" width="860" height="180" aria-label="Mandate burndown chart showing BJP pledge delivery pace over 100 days"></canvas>
+    <div class="burndown-legend">
+      <div class="burndown-legend-item"><div class="burndown-legend-line" style="background:#e8640a;"></div>Target pace</div>
+      <div class="burndown-legend-item"><div class="burndown-legend-line" style="background:#2d9e56;border-top:2px dashed #2d9e56;background:none;height:0;border-width:2px;"></div>Actual delivered</div>
+      <div class="burndown-legend-item"><div class="burndown-legend-line" style="background:rgba(255,255,255,.2);"></div>Today</div>
+      <div class="burndown-legend-item"><div class="burndown-legend-line" style="background:#c0171b;"></div>Deadlines due</div>
+    </div>
+  </div>
+</div>
+
+<!-- UPCOMING DEADLINES URGENCY STRIP -->
+<div class="urgency-strip" id="urgencyStrip" style="display:none;">
+  <div class="urgency-inner">
+    <div class="urgency-label">Upcoming Deadlines — Next 60 Days</div>
+    <div class="urgency-items" id="urgencyItems"></div>
   </div>
 </div>
 
@@ -1135,6 +1203,152 @@ async function loadData() {
   });
 
   document.getElementById('trackerContainer').innerHTML = html;
+
+  // Render burndown chart now that we have pledge data
+  renderBurndown(pledges);
+  renderUrgency(pledges);
+}
+
+// ── Mandate Burndown Chart ────────────────────────────────────────────────────
+function renderBurndown(pledges) {
+  var canvas = document.getElementById('burndownCanvas');
+  if (!canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+  var W = canvas.width, H = canvas.height;
+  var pad = { top: 16, right: 24, bottom: 32, left: 40 };
+  var chartW = W - pad.left - pad.right;
+  var chartH = H - pad.top - pad.bottom;
+  var total = pledges.length;
+
+  // Days elapsed
+  var swearingIn = new Date('2026-05-09');
+  var today = new Date();
+  var daysElapsed = Math.max(0, Math.min(100, Math.floor((today - swearingIn) / 86400000)));
+
+  // Count resolved pledges (delivered, broken, delayed, in-progress)
+  var resolved = pledges.filter(function(p) { return ['delivered','broken','delayed','in-progress'].indexOf(p.status) >= 0; }).length;
+  var delivered = pledges.filter(function(p) { return p.status === 'delivered'; }).length;
+
+  // Scale helpers
+  function xPx(day) { return pad.left + (day / 100) * chartW; }
+  function yPx(n)   { return pad.top + chartH - (n / total) * chartH; }
+
+  var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  ctx.clearRect(0, 0, W, H);
+
+  // Grid lines (horizontal)
+  ctx.strokeStyle = isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)';
+  ctx.lineWidth = 1;
+  [0, 0.25, 0.5, 0.75, 1].forEach(function(frac) {
+    var y = pad.top + chartH * (1 - frac);
+    ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(pad.left + chartW, y); ctx.stroke();
+    var label = Math.round(frac * total);
+    ctx.fillStyle = isDark ? 'rgba(255,255,255,0.25)' : 'rgba(0,0,0,0.3)';
+    ctx.font = '9px JetBrains Mono, monospace';
+    ctx.textAlign = 'right';
+    ctx.fillText(label, pad.left - 6, y + 3);
+  });
+
+  // X axis labels
+  ctx.fillStyle = isDark ? 'rgba(255,255,255,0.25)' : 'rgba(0,0,0,0.3)';
+  ctx.textAlign = 'center';
+  [0, 25, 50, 75, 100].forEach(function(day) {
+    ctx.fillText('Day ' + day, xPx(day), H - 6);
+  });
+
+  // Target pace line (diagonal from 0 to total over 100 days)
+  ctx.strokeStyle = 'rgba(232,100,10,0.4)';
+  ctx.lineWidth = 2;
+  ctx.setLineDash([6, 3]);
+  ctx.beginPath();
+  ctx.moveTo(xPx(0), yPx(0));
+  ctx.lineTo(xPx(100), yPx(total));
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Actual delivered step line (flat at 0 until current day, then step up)
+  ctx.strokeStyle = '#2d9e56';
+  ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  ctx.moveTo(xPx(0), yPx(0));
+  ctx.lineTo(xPx(daysElapsed), yPx(0));
+  if (resolved > 0) {
+    ctx.lineTo(xPx(daysElapsed), yPx(resolved));
+    ctx.lineTo(xPx(Math.min(daysElapsed + 1, 100)), yPx(resolved));
+  }
+  ctx.stroke();
+
+  // Current day marker
+  ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([3, 3]);
+  ctx.beginPath();
+  ctx.moveTo(xPx(daysElapsed), pad.top);
+  ctx.lineTo(xPx(daysElapsed), pad.top + chartH);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // "Day N" label on current day marker
+  ctx.fillStyle = 'rgba(255,255,255,0.5)';
+  ctx.font = '9px JetBrains Mono, monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('Day ' + daysElapsed, xPx(daysElapsed), pad.top - 4);
+
+  // Upcoming deadline markers (pledges with deadlineDate in next 60 days)
+  // (placeholder — actual dates come from pledge data)
+  pledges.forEach(function(p) {
+    if (!p.deadlineDate) return;
+    var dl = new Date(p.deadlineDate);
+    var dDay = Math.floor((dl - swearingIn) / 86400000);
+    if (dDay <= daysElapsed || dDay > 100) return;
+    ctx.strokeStyle = 'rgba(192,23,27,0.4)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([2, 2]);
+    ctx.beginPath();
+    ctx.moveTo(xPx(dDay), pad.top + chartH * 0.6);
+    ctx.lineTo(xPx(dDay), pad.top + chartH);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(192,23,27,0.5)';
+    ctx.font = '7px JetBrains Mono, monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('◆', xPx(dDay), pad.top + chartH * 0.55);
+  });
+
+  // Update status text
+  var statusEl = document.getElementById('burndownStatus');
+  if (statusEl) {
+    var pct = total > 0 ? Math.round(resolved / total * 100) : 0;
+    statusEl.textContent = 'Day ' + daysElapsed + ' of 100 · ' + delivered + ' delivered · ' + pct + '% actioned';
+  }
+}
+
+// ── Upcoming Deadlines Urgency Strip ─────────────────────────────────────────
+function renderUrgency(pledges) {
+  var swearingIn = new Date('2026-05-09');
+  var today = new Date();
+  var daysElapsed = Math.floor((today - swearingIn) / 86400000);
+
+  var upcoming = pledges.filter(function(p) {
+    if (!p.deadlineDate) return false;
+    var dl = new Date(p.deadlineDate);
+    var dDay = Math.floor((dl - swearingIn) / 86400000);
+    return dDay > daysElapsed && dDay <= daysElapsed + 60;
+  }).sort(function(a, b) { return new Date(a.deadlineDate) - new Date(b.deadlineDate); }).slice(0, 6);
+
+  if (!upcoming.length) return;
+
+  var strip = document.getElementById('urgencyStrip');
+  var container = document.getElementById('urgencyItems');
+  if (!strip || !container) return;
+  strip.style.display = '';
+
+  container.innerHTML = upcoming.map(function(p) {
+    var dl = new Date(p.deadlineDate);
+    var dDay = Math.floor((dl - swearingIn) / 86400000);
+    var daysLeft = dDay - daysElapsed;
+    return '<div class="urgency-item"><div class="urgency-days">' + daysLeft + 'd</div><div>' + escHtml(p.title) + '</div></div>';
+  }).join('');
 }
 
 loadData();

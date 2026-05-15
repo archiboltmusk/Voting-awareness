@@ -150,6 +150,54 @@ td { padding:0.6rem 0.8rem; vertical-align:middle; }
 footer { background:#0a0804; color:#5a5040; padding:2rem; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.15em; }
 footer a { color:#8a7a60; text-decoration:none; }
 
+/* ── CORRUPTION RISK INDEX ── */
+.cri-badge {
+  display:inline-flex; align-items:center; gap:3px;
+  font-family:'IBM Plex Mono',monospace; font-size:0.62rem;
+  letter-spacing:0.04em; padding:2px 7px; border-radius:2px;
+  font-weight:700; white-space:nowrap;
+}
+.cri-clean   { background:#d1fae5; color:#166534; border:1px solid rgba(22,101,52,.2); }
+.cri-low     { background:#fef9c3; color:#854d0e; border:1px solid rgba(133,77,14,.2); }
+.cri-medium  { background:#ffedd5; color:#9a3412; border:1px solid rgba(154,52,18,.2); }
+.cri-high    { background:#fee2e2; color:#991b1b; border:1px solid rgba(153,27,27,.25); }
+.cri-extreme { background:#7f1d1d; color:#fca5a5; border:1px solid rgba(252,165,165,.2); }
+[data-theme="dark"] .cri-clean   { background:rgba(22,101,52,.25); color:#4ade80; border-color:rgba(74,222,128,.2); }
+[data-theme="dark"] .cri-low     { background:rgba(133,77,14,.25); color:#fbbf24; border-color:rgba(251,191,36,.2); }
+[data-theme="dark"] .cri-medium  { background:rgba(154,52,18,.25); color:#fb923c; border-color:rgba(251,146,60,.2); }
+[data-theme="dark"] .cri-high    { background:rgba(153,27,27,.25); color:#f87171; border-color:rgba(248,113,113,.2); }
+[data-theme="dark"] .cri-extreme { background:rgba(127,29,29,.5); color:#fca5a5; border-color:rgba(252,165,165,.25); }
+
+/* ── CRI DISTRIBUTION SECTION ── */
+.cri-section { background:var(--ink); color:var(--paper); padding:2rem; }
+.cri-section-inner { max-width:1200px; margin:0 auto; }
+.cri-section-title { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; margin-bottom:0.25rem; }
+.cri-section-sub { font-family:'IBM Plex Mono',monospace; font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; color:#8a8070; margin-bottom:1.5rem; }
+.cri-bands { display:flex; gap:0; border:1px solid rgba(255,255,255,.08); overflow:hidden; border-radius:2px; }
+.cri-band { flex:1; padding:0.8rem 0.6rem; text-align:center; border-right:1px solid rgba(255,255,255,.06); cursor:pointer; transition:opacity .15s; }
+.cri-band:last-child { border-right:none; }
+.cri-band:hover { opacity:.85; }
+.cri-band-label { font-family:'IBM Plex Mono',monospace; font-size:0.52rem; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.3rem; opacity:.8; }
+.cri-band-count { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; line-height:1; }
+.cri-band-range { font-family:'IBM Plex Mono',monospace; font-size:0.48rem; letter-spacing:0.08em; opacity:.5; margin-top:0.2rem; }
+
+/* ── TOP RISK SPOTLIGHT ── */
+.risk-spotlight { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin:1.5rem 0; }
+.risk-card {
+  background:#fdfaf4; border:1px solid var(--aged); padding:1rem 1.2rem;
+  position:relative; overflow:hidden; cursor:pointer; transition:transform .15s;
+}
+[data-theme="dark"] .risk-card { background:#1e1b18; border-color:rgba(255,255,255,.08); }
+.risk-card:hover { transform:translateY(-2px); }
+.risk-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.risk-card-name { font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:700; margin-bottom:0.2rem; line-height:1.3; }
+.risk-card-meta { font-family:'IBM Plex Mono',monospace; font-size:0.56rem; color:var(--muted); letter-spacing:0.04em; margin-bottom:0.5rem; }
+.risk-card-cri-num { font-family:'IBM Plex Mono',monospace; font-size:1.4rem; font-weight:700; line-height:1; }
+.risk-card-cri-label { font-family:'IBM Plex Mono',monospace; font-size:0.5rem; letter-spacing:0.1em; text-transform:uppercase; opacity:.7; margin-top:0.1rem; }
+
+.td-cri { text-align:center; min-width:70px; }
+@media(max-width:900px) { .td-cri { display:none; } }
+
 .hr-ornate { border:none; border-top:1px solid var(--aged); margin:2.5rem 0; position:relative; }
 .hr-ornate::before { content:'◆'; position:absolute; top:-0.6rem; left:50%; transform:translateX(-50%); background:var(--paper); padding:0 0.5rem; color:var(--muted); font-size:0.7rem; }
 
@@ -338,6 +386,17 @@ tbody tr{transition:background .12s ease}
   </div>
 </div>
 
+<!-- CRI DISTRIBUTION + TOP RISK -->
+<div class="cri-section">
+  <div class="cri-section-inner">
+    <div class="cri-section-title">Corruption Risk Index (CRI)</div>
+    <div class="cri-section-sub">India's first composite politician risk score — cases × severity · Scale 0–100</div>
+    <div class="cri-bands" id="criBands" aria-label="CRI band distribution"></div>
+    <div class="section-label" style="margin-top:1.5rem;color:#8a8070;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;">Highest-Risk MLAs (click to view profile)</div>
+    <div class="risk-spotlight" id="riskSpotlight" style="margin-top:0.75rem;"></div>
+  </div>
+</div>
+
 <div class="controls-bar" role="search">
   <div class="controls-inner">
     <input class="search-input" id="searchInput" type="search" placeholder="Search name or constituency…" aria-label="Search MLA records">
@@ -375,6 +434,7 @@ tbody tr{transition:background .12s ease}
         <th data-col="party">Party</th>
         <th data-col="cases">Cases</th>
         <th data-col="serious">Serious</th>
+        <th data-col="cri" title="Corruption Risk Index — composite score based on criminal cases and severity">CRI ▾</th>
         <th data-col="ipc">Nature of Charges</th>
         <th data-col="assets">Self-Decl. Assets</th>
       </tr>
@@ -438,6 +498,87 @@ let MLA_DATA = [];
 
 const PARTY_COLORS = { BJP:'#e8640a', TMC:'#1a7a3c', CPIM:'#c0171b', Congress:'#1565c0', ISF:'#7b1fa2', Ind:'#8a7a6a', AISF:'#b45309' };
 
+// ── Corruption Risk Index ─────────────────────────────────────────────────────
+// CRI = composite risk score 0–100 based on declared criminal cases + severity
+// Formula: (cases × 12, capped at 60) + (serious charges +28) → max 100
+function computeCRI(mla) {
+  const caseScore = Math.min(60, (mla.cases || 0) * 12);
+  const seriousBonus = mla.serious ? 28 : 0;
+  return Math.min(100, caseScore + seriousBonus);
+}
+
+function criClass(score) {
+  if (score === 0)  return 'cri-clean';
+  if (score <= 24)  return 'cri-low';
+  if (score <= 52)  return 'cri-medium';
+  if (score <= 80)  return 'cri-high';
+  return 'cri-extreme';
+}
+
+function criLabel(score) {
+  if (score === 0)  return 'Clean';
+  if (score <= 24)  return 'Low';
+  if (score <= 52)  return 'Medium';
+  if (score <= 80)  return 'High';
+  return 'Extreme';
+}
+
+function renderCriDistribution(data) {
+  const bands = [
+    { key:'clean',   label:'Clean',   range:'Score 0',     color:'#166534', bgColor:'rgba(22,101,52,.15)',  filter:m => computeCRI(m) === 0 },
+    { key:'low',     label:'Low',     range:'1–24',        color:'#854d0e', bgColor:'rgba(133,77,14,.12)',  filter:m => { const s=computeCRI(m); return s>=1&&s<=24; } },
+    { key:'medium',  label:'Medium',  range:'25–52',       color:'#9a3412', bgColor:'rgba(154,52,18,.12)',  filter:m => { const s=computeCRI(m); return s>=25&&s<=52; } },
+    { key:'high',    label:'High',    range:'53–80',       color:'#991b1b', bgColor:'rgba(153,27,27,.12)',  filter:m => { const s=computeCRI(m); return s>=53&&s<=80; } },
+    { key:'extreme', label:'Extreme', range:'81–100',      color:'#7f0e10', bgColor:'rgba(127,14,16,.25)',  filter:m => computeCRI(m) >= 81 },
+  ];
+  const container = document.getElementById('criBands');
+  if (!container) return;
+  container.innerHTML = bands.map(b => {
+    const count = data.filter(b.filter).length;
+    return `<div class="cri-band" style="background:${b.bgColor};" title="Click to filter by ${b.label} risk"
+      role="button" tabindex="0"
+      onclick="filterByCRI('${b.key}')"
+      onkeydown="if(event.key==='Enter')filterByCRI('${b.key}')">
+      <div class="cri-band-label" style="color:${b.color};">${b.label}</div>
+      <div class="cri-band-count" style="color:${b.color};">${count}</div>
+      <div class="cri-band-range" style="color:${b.color};">Score ${b.range}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderRiskSpotlight(data) {
+  const container = document.getElementById('riskSpotlight');
+  if (!container) return;
+  const topRisk = [...data].sort((a,b) => computeCRI(b) - computeCRI(a)).slice(0, 5);
+  const accentColors = ['#7f0e10','#991b1b','#c0171b','#b45309','#b45309'];
+  container.innerHTML = topRisk.map((mla, i) => {
+    const cri = computeCRI(mla);
+    const col = PARTY_COLORS[mla.party] || '#8a7a6a';
+    return `<div class="risk-card" style="--card-accent:${accentColors[i]};"
+      role="button" tabindex="0" aria-label="View profile of ${mla.name}"
+      onclick="const m=MLA_DATA.find(x=>x.name===this.dataset.name);if(m)openProfile(m);"
+      onkeydown="if(event.key==='Enter'){const m=MLA_DATA.find(x=>x.name===this.dataset.name);if(m)openProfile(m);}"
+      data-name="${mla.name.replace(/"/g,'&quot;')}">
+      <div class="risk-card::before" style="background:${accentColors[i]};"></div>
+      <style>.risk-card:nth-child(${i+1})::before{background:${accentColors[i]};}</style>
+      <div class="risk-card-cri-num" style="color:${accentColors[i]};">${cri}</div>
+      <div class="risk-card-cri-label" style="color:${accentColors[i]};">${criLabel(cri)} Risk</div>
+      <div class="risk-card-name" style="margin-top:0.5rem;">${mla.name}</div>
+      <div class="risk-card-meta"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${col};margin-right:4px;vertical-align:middle;"></span>${mla.party} · ${mla.constituency}</div>
+      <div class="risk-card-meta">${mla.cases} case${mla.cases!==1?'s':''} · ${mla.serious?'<span style="color:#c0171b;">Serious charges</span>':'No serious charges'}</div>
+    </div>`;
+  }).join('');
+}
+
+// Filter table by CRI band
+function filterByCRI(band) {
+  const ranges = { clean:[0,0], low:[1,24], medium:[25,52], high:[53,80], extreme:[81,100] };
+  const [lo,hi] = ranges[band] || [0,100];
+  const filtered = MLA_DATA.filter(m => { const s=computeCRI(m); return s>=lo&&s<=hi; });
+  window.lazyTable('mlaTableBody', filtered, (m,i) => buildRow(m,i));
+  document.getElementById('resultCount').textContent = `Showing ${filtered.length} of ${MLA_DATA.length} · CRI ${band}`;
+}
+
 function casesColor(n) {
   if(n === 0) return 'cases-0';
   if(n <= 2)  return 'cases-1';
@@ -453,7 +594,10 @@ function sevBars(n, max=5) {
 
 function buildRow(mla, idx) {
   const col = PARTY_COLORS[mla.party] || '#8a7a6a';
-  return `<tr data-party="${mla.party}" data-cases="${mla.cases}" data-serious="${mla.serious}" data-district="${mla.district}">
+  const cri = computeCRI(mla);
+  const criCls = criClass(cri);
+  const criLbl = criLabel(cri);
+  return `<tr data-party="${mla.party}" data-cases="${mla.cases}" data-serious="${mla.serious}" data-district="${mla.district}" data-cri="${cri}">
     <td class="td-rank">${idx+1}</td>
     <td class="td-name">${mla.name}${!mla.verified?' <span style="color:var(--muted);font-size:0.7rem;">*</span>':''}
       <button title="Share this MLA's record on WhatsApp" onclick="shareDataPoint('${mla.name.replace(/'/g,"\\'")}','${mla.cases} case${mla.cases!==1?'s':''} — ${mla.constituency}')" style="background:none;border:none;cursor:pointer;color:#25d366;font-size:0.75rem;padding:0 4px;" aria-label="Share">⬆</button>
@@ -463,6 +607,7 @@ function buildRow(mla, idx) {
     <td class="td-party"><span class="party-dot" style="background:${col};"></span>${mla.party}</td>
     <td class="td-cases"><span class="${casesColor(mla.cases)}">${mla.cases}</span></td>
     <td class="td-serious"><span class="${mla.serious?'serious-yes':'serious-no'}">${mla.serious?'⚠ Yes':'—'}</span></td>
+    <td class="td-cri"><span class="cri-badge ${criCls}" title="CRI ${cri}/100 — ${criLbl} Risk">${cri}</span></td>
     <td class="td-ipc">${mla.ipc || '—'}</td>
     <td class="td-assets">${mla.assets || '—'}</td>
   </tr>`;
@@ -535,6 +680,20 @@ function applyFilters() {
     return true;
   });
 
+  // Sort
+  filtered.sort((a,b) => {
+    let av, bv;
+    if(sortCol === 'cri')    { av = computeCRI(a); bv = computeCRI(b); }
+    else if(sortCol === 'cases')  { av = a.cases; bv = b.cases; }
+    else if(sortCol === 'name')   { av = a.name; bv = b.name; return sortDir * av.localeCompare(bv); }
+    else if(sortCol === 'party')  { av = a.party; bv = b.party; return sortDir * av.localeCompare(bv); }
+    else if(sortCol === 'district') { av = a.district; bv = b.district; return sortDir * av.localeCompare(bv); }
+    else if(sortCol === 'constituency') { av = a.constituency; bv = b.constituency; return sortDir * av.localeCompare(bv); }
+    else if(sortCol === 'serious') { av = a.serious?1:0; bv = b.serious?1:0; }
+    else return 0;
+    return sortDir * (bv - av);
+  });
+
   renderTable(filtered);
   document.getElementById('resultCount').textContent = `Showing ${filtered.length} of ${MLA_DATA.length}`;
 }
@@ -546,8 +705,8 @@ function applyFilters() {
   });
 });
 
-// Sortable columns
-let sortCol = 'cases', sortDir = -1;
+// Sortable columns (including CRI)
+let sortCol = 'cri', sortDir = -1;
 document.querySelectorAll('thead th[data-col]').forEach(th => {
   th.addEventListener('click', () => {
     const col = th.dataset.col;
@@ -578,6 +737,8 @@ async function loadData() {
   populateDistrictFilter();
   computeStats(MLA_DATA);
   renderPartySummary(MLA_DATA);
+  renderCriDistribution(MLA_DATA);
+  renderRiskSpotlight(MLA_DATA);
   applyFilters();
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   // Handle hash deep-link after data is ready
@@ -597,6 +758,11 @@ function openProfile(mla) {
   document.getElementById('mlaProfileCases').textContent   = mla.cases;
   document.getElementById('mlaProfileSerious').textContent = mla.serious ? '⚠ Yes' : 'No';
   document.getElementById('mlaProfileAssets').textContent  = mla.assets || '—';
+  const cri = computeCRI(mla);
+  const criEl = document.getElementById('mlaProfileCri');
+  if (criEl) {
+    criEl.innerHTML = `<span class="cri-badge ${criClass(cri)}">${cri}/100 — ${criLabel(cri)}</span>`;
+  }
   const ipcWrap = document.getElementById('mlaProfileIpcWrap');
   ipcWrap.style.display = mla.ipc ? '' : 'none';
   document.getElementById('mlaProfileIpc').textContent     = mla.ipc || '';
@@ -683,6 +849,10 @@ window.addEventListener('hashchange', handleHash);
       <div class="mla-profile-stat">
         <div class="mla-profile-stat-label">Serious</div>
         <div class="mla-profile-stat-value" id="mlaProfileSerious"></div>
+      </div>
+      <div class="mla-profile-stat">
+        <div class="mla-profile-stat-label">Risk Index</div>
+        <div class="mla-profile-stat-value" id="mlaProfileCri" style="font-size:1.1rem;"></div>
       </div>
       <div class="mla-profile-stat">
         <div class="mla-profile-stat-label">Assets</div>

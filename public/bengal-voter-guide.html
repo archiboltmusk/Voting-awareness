@@ -888,6 +888,148 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
 .step-card{transition:transform .18s ease,background .2s}.step-card:hover{transform:translateY(-1px)}
 .resource-card{transition:transform .18s ease,background .2s}.resource-card:hover{transform:translateY(-1px)}
 .right-item{transition:transform .18s ease,background .2s}.right-item:hover{transform:translateY(-1px)}
+
+/* ── CONSTITUENCY INTELLIGENCE FINDER ── */
+.cif-section {
+  border-top:2px solid var(--rule); border-bottom:2px solid var(--rule);
+  padding:48px 0; background:var(--paper-dark);
+}
+.cif-search-wrap {
+  max-width:640px; margin:0 auto 36px; position:relative;
+}
+.cif-search-input {
+  width:100%; height:56px; padding:0 56px 0 20px;
+  font-family:'Fraunces',Georgia,serif; font-size:18px;
+  background:var(--paper); color:var(--ink);
+  border:2px solid var(--rule); outline:none;
+  transition:border-color .2s, box-shadow .2s;
+}
+.cif-search-input::placeholder { color:var(--ink-faint); font-style:italic; }
+.cif-search-input:focus {
+  border-color:var(--ink); box-shadow:0 0 0 3px rgba(107,95,78,.13);
+}
+.cif-search-icon {
+  position:absolute; right:18px; top:50%; transform:translateY(-50%);
+  font-size:20px; color:var(--ink-faint); pointer-events:none;
+  font-family:'JetBrains Mono',monospace;
+}
+.cif-result-area { max-width:640px; margin:0 auto; }
+/* Placeholder state */
+.cif-placeholder {
+  border:1px dashed var(--rule); padding:36px 28px;
+  text-align:center; background:var(--paper); color:var(--ink-faint);
+}
+.cif-placeholder-icon {
+  font-size:36px; margin-bottom:12px; line-height:1;
+  font-family:'JetBrains Mono',monospace; color:var(--ink-faint);
+  opacity:.5;
+}
+.cif-placeholder-text {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.15em; text-transform:uppercase; line-height:1.7;
+}
+/* Result card */
+.cif-card {
+  background:var(--paper); border:1px solid var(--rule);
+  padding:28px 32px; animation:cif-fade-in .22s ease;
+}
+@keyframes cif-fade-in { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+.cif-card-name {
+  font-family:'Playfair Display',Georgia,serif; font-size:clamp(22px,3.5vw,32px);
+  font-weight:700; line-height:1.1; margin-bottom:10px; color:var(--ink);
+}
+.cif-meta-row {
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px;
+  margin-bottom:20px;
+}
+.cif-party-badge {
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.1em; text-transform:uppercase;
+  border:1px solid currentColor; padding:3px 10px; color:var(--ink-soft);
+}
+.cif-party-dot {
+  width:8px; height:8px; border-radius:50%; flex-shrink:0;
+}
+.cif-district {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint);
+}
+.cif-data-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:1px; background:var(--rule); border:1px solid var(--rule);
+  margin-bottom:20px;
+}
+.cif-data-cell {
+  background:var(--paper); padding:14px 16px;
+}
+[data-theme="dark"] .cif-data-cell { background:var(--paper-mid); }
+.cif-data-label {
+  font-family:'JetBrains Mono',monospace; font-size:9px;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ink-faint); margin-bottom:4px;
+}
+.cif-data-value {
+  font-family:'JetBrains Mono',monospace; font-size:16px;
+  font-weight:600; line-height:1.2; color:var(--ink);
+}
+.cif-data-value.cases-clean { color:#166534; }
+.cif-data-value.cases-low { color:#d97706; }
+.cif-data-value.cases-high { color:#c0171b; }
+.cif-serious-flag {
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  letter-spacing:.12em; text-transform:uppercase;
+  background:#c0171b; color:#fff; padding:2px 8px;
+  display:inline-block; margin-top:4px;
+}
+/* CRI bar */
+.cif-cri-wrap { margin-bottom:20px; }
+.cif-cri-label-row {
+  display:flex; justify-content:space-between; align-items:baseline;
+  margin-bottom:6px;
+}
+.cif-cri-title {
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint);
+}
+.cif-cri-rating {
+  font-family:'JetBrains Mono',monospace; font-size:12px;
+  font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+}
+.cif-cri-bar-bg {
+  height:6px; background:var(--paper-mid); border:1px solid var(--rule);
+  overflow:hidden;
+}
+.cif-cri-bar-fill {
+  height:100%; transition:width .4s ease;
+}
+/* Action links */
+.cif-actions {
+  display:flex; gap:12px; flex-wrap:wrap;
+}
+.cif-action-link {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.12em; text-transform:uppercase;
+  border:1px solid var(--rule); padding:8px 18px;
+  text-decoration:none; color:var(--ink);
+  transition:background .18s, color .18s;
+}
+.cif-action-link:hover { background:var(--ink); color:var(--paper); }
+/* No result */
+.cif-no-result {
+  text-align:center; padding:32px 20px;
+  font-family:'JetBrains Mono',monospace; font-size:12px;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint);
+  border:1px dashed var(--rule); background:var(--paper);
+}
+@media(max-width:680px) {
+  .cif-data-grid { grid-template-columns:repeat(2,1fr); }
+  .cif-card { padding:20px 18px; }
+  .cif-search-input { font-size:16px; height:50px; }
+}
+@media(max-width:400px) {
+  .cif-data-grid { grid-template-columns:1fr; }
+}
 </style>
 <script defer src="/shared.js"></script>
 </head>
@@ -976,6 +1118,35 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
     </div>
   </div>
 </div>
+
+<!-- CONSTITUENCY INTELLIGENCE FINDER -->
+<section class="cif-section" aria-label="Constituency Intelligence Finder">
+  <div class="container">
+    <div class="section-header" style="text-align:center;margin-bottom:40px;">
+      <div class="section-kicker">Constituency Intelligence</div>
+      <h2 class="section-title">Find <em>Your</em> Representative</h2>
+      <p class="section-sub">Search your constituency to see your elected MLA's criminal record, assets, and accountability data — in one place.</p>
+    </div>
+    <div class="cif-search-wrap">
+      <input
+        type="search"
+        id="cif-input"
+        class="cif-search-input"
+        placeholder="Type your constituency…"
+        aria-label="Search constituency"
+        autocomplete="off"
+        spellcheck="false"
+      >
+      <span class="cif-search-icon" aria-hidden="true">⌕</span>
+    </div>
+    <div class="cif-result-area" id="cif-result" aria-live="polite">
+      <div class="cif-placeholder" id="cif-placeholder">
+        <div class="cif-placeholder-icon" aria-hidden="true">[  ]</div>
+        <p class="cif-placeholder-text">Type your constituency name above<br>to instantly see your MLA's full record</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- BENGAL WATCH: live cross-dataset stats -->
 <div class="bw-strip" title="Live data — computed from ECI affidavits, election results, and manifesto records">
@@ -2226,6 +2397,129 @@ document.querySelectorAll('.gloss').forEach(function(el) {
 document.addEventListener('click', function() {
   document.querySelectorAll('.gloss.tip-open').forEach(function(g) { g.classList.remove('tip-open'); });
 });
+
+// ── CONSTITUENCY INTELLIGENCE FINDER ─────────────────────────────────────────
+(function initConstituencyFinder() {
+  var PARTY_COLORS = { BJP: '#e8640a', TMC: '#1a7a3c', CPIM: '#c0171b', Congress: '#1565c0', INC: '#1565c0', ISF: '#7b1fa2' };
+
+  function computeCRI(mla) {
+    var caseScore = Math.min(60, mla.cases * 12);
+    var seriousBonus = mla.serious ? 28 : 0;
+    return Math.min(100, caseScore + seriousBonus);
+  }
+
+  function criLabel(score) {
+    if (score === 0) return { label: 'Clean', color: '#166534' };
+    if (score <= 25) return { label: 'Low Risk', color: '#d97706' };
+    if (score <= 50) return { label: 'Medium Risk', color: '#b45309' };
+    if (score <= 75) return { label: 'High Risk', color: '#c0171b' };
+    return { label: 'Extreme', color: '#7f0e10' };
+  }
+
+  function casesClass(n) {
+    if (n === 0) return 'cases-clean';
+    if (n <= 2) return 'cases-low';
+    return 'cases-high';
+  }
+
+  function escHtml(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function renderCard(mla) {
+    var cri = computeCRI(mla);
+    var criInfo = criLabel(cri);
+    var partyColor = PARTY_COLORS[mla.party] || '#555';
+    var caseCls = casesClass(mla.cases);
+    var caseText = mla.cases === 0 ? '0 Cases' : mla.cases + (mla.cases === 1 ? ' Case' : ' Cases');
+
+    return '<div class="cif-card">' +
+      '<div class="cif-card-name">' + escHtml(mla.name) + '</div>' +
+      '<div class="cif-meta-row">' +
+        '<span class="cif-party-badge" style="border-color:' + partyColor + ';color:' + partyColor + ';">' +
+          '<span class="cif-party-dot" style="background:' + partyColor + ';"></span>' +
+          escHtml(mla.party) +
+        '</span>' +
+        '<span class="cif-district">' + escHtml(mla.district) + '</span>' +
+      '</div>' +
+      '<div class="cif-data-grid">' +
+        '<div class="cif-data-cell">' +
+          '<div class="cif-data-label">Criminal Cases</div>' +
+          '<div class="cif-data-value ' + caseCls + '">' + escHtml(caseText) + '</div>' +
+          (mla.serious ? '<span class="cif-serious-flag">⚠ Serious</span>' : '') +
+        '</div>' +
+        '<div class="cif-data-cell">' +
+          '<div class="cif-data-label">Declared Assets</div>' +
+          '<div class="cif-data-value">' + escHtml(mla.assets || '—') + '</div>' +
+        '</div>' +
+        '<div class="cif-data-cell">' +
+          '<div class="cif-data-label">Constituency</div>' +
+          '<div class="cif-data-value" style="font-size:13px;">' + escHtml(mla.constituency) + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="cif-cri-wrap">' +
+        '<div class="cif-cri-label-row">' +
+          '<span class="cif-cri-title">Corruption Risk Index</span>' +
+          '<span class="cif-cri-rating" style="color:' + criInfo.color + ';">' + cri + ' / 100 — ' + escHtml(criInfo.label) + '</span>' +
+        '</div>' +
+        '<div class="cif-cri-bar-bg">' +
+          '<div class="cif-cri-bar-fill" style="width:' + cri + '%;background:' + criInfo.color + ';"></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="cif-actions">' +
+        '<a href="/mlas" class="cif-action-link">Full MLA Database →</a>' +
+        '<a href="/constituencies" class="cif-action-link">View Constituency Results →</a>' +
+      '</div>' +
+    '</div>';
+  }
+
+  var mlasData = null;
+  var inputEl = document.getElementById('cif-input');
+  var resultEl = document.getElementById('cif-result');
+  var placeholderEl = document.getElementById('cif-placeholder');
+
+  if (!inputEl || !resultEl) return;
+
+  function showPlaceholder() {
+    resultEl.innerHTML = '';
+    if (placeholderEl) resultEl.appendChild(placeholderEl);
+  }
+
+  function doSearch(query) {
+    var q = query.trim().toLowerCase();
+    if (!q) { showPlaceholder(); return; }
+    if (!mlasData) {
+      resultEl.innerHTML = '<div class="cif-no-result">Loading data…</div>';
+      return;
+    }
+    var match = mlasData.find(function(m) {
+      return m.constituency && m.constituency.toLowerCase().indexOf(q) !== -1;
+    });
+    if (match) {
+      resultEl.innerHTML = renderCard(match);
+    } else {
+      resultEl.innerHTML = '<div class="cif-no-result">No constituency found — try a different spelling</div>';
+    }
+  }
+
+  // Debounce helper
+  var debTimer;
+  inputEl.addEventListener('input', function() {
+    clearTimeout(debTimer);
+    var val = this.value;
+    debTimer = setTimeout(function() { doSearch(val); }, 160);
+  });
+
+  // Fetch MLA data once
+  fetch('/data/mlas.json?t=' + Date.now())
+    .then(function(r) { return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(function(data) {
+      mlasData = data;
+      // If user already typed something while data was loading, run search now
+      if (inputEl.value.trim()) doSearch(inputEl.value);
+    })
+    .catch(function(err) { console.warn('Constituency finder: could not load mlas.json', err); });
+})();
 
 // ── DATA-DRIVEN UPDATES ──────────────────────────────────────────────────────
 // Fetch meta.json to update results banner, hero stats, and day counter
