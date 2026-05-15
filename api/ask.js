@@ -18,8 +18,9 @@ const GROQ_URL  = 'https://api.groq.com/openai/v1/chat/completions';
 
 async function loadJSON(req, name) {
   try {
-    const origin = new URL(req.url).origin;
-    const res = await fetch(`${origin}/data/${name}`);
+    // SITE_URL env var takes priority; fall back to request origin
+    const base = (process.env.SITE_URL || new URL(req.url).origin).replace(/\/$/, '');
+    const res = await fetch(`${base}/data/${name}`);
     if (!res.ok) return null;
     return res.json();
   } catch { return null; }
