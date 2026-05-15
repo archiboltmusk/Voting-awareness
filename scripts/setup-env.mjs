@@ -34,6 +34,7 @@ if (existsSync(OUT)) {
 const NOTIFY_SECRET = existing.NOTIFY_SECRET || randomBytes(32).toString('hex');
 
 const env = {
+  SITE_URL:          existing.SITE_URL          || 'PASTE_YOUR_VERCEL_URL_e.g._https://voting-awareness-psi.vercel.app',
   GROQ_API_KEY:      existing.GROQ_API_KEY      || 'PASTE_KEY_FROM_CONSOLE_GROQ_COM',
   ONESIGNAL_APP_ID:  existing.ONESIGNAL_APP_ID  || 'PASTE_APP_ID_FROM_ONESIGNAL_COM',
   ONESIGNAL_API_KEY: existing.ONESIGNAL_API_KEY || 'PASTE_REST_API_KEY_FROM_ONESIGNAL_COM',
@@ -44,6 +45,10 @@ const lines = [
   '# The Bengal Reader — environment variables',
   '# Run:  node scripts/setup-env.mjs',
   '# Then: paste everything below into Vercel → Settings → Environment Variables',
+  '',
+  '# ── 0. Your site URL (used by the AI to fetch data files) ───────────────',
+  '# Set this to your Vercel deployment URL (no trailing slash)',
+  `SITE_URL=${env.SITE_URL}`,
   '',
   '# ── 1. Groq AI (powers the /ask page — free, no billing required) ───────',
   '# Free at: https://console.groq.com → API Keys → Create API Key',
