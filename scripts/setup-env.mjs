@@ -9,7 +9,7 @@
  *
  * You only need to fill in 3 values manually — all from FREE accounts:
  *
- *   GEMINI_API_KEY    → aistudio.google.com  (free, no credit card)
+ *   GROQ_API_KEY      → console.groq.com     (free, no credit card, no billing)
  *   ONESIGNAL_APP_ID  → onesignal.com        (free, up to 10k subscribers)
  *   ONESIGNAL_API_KEY → onesignal.com        (same app, Keys & IDs tab)
  *
@@ -34,7 +34,7 @@ if (existsSync(OUT)) {
 const NOTIFY_SECRET = existing.NOTIFY_SECRET || randomBytes(32).toString('hex');
 
 const env = {
-  GEMINI_API_KEY:    existing.GEMINI_API_KEY    || 'PASTE_KEY_FROM_AISTUDIO_GOOGLE_COM',
+  GROQ_API_KEY:      existing.GROQ_API_KEY      || 'PASTE_KEY_FROM_CONSOLE_GROQ_COM',
   ONESIGNAL_APP_ID:  existing.ONESIGNAL_APP_ID  || 'PASTE_APP_ID_FROM_ONESIGNAL_COM',
   ONESIGNAL_API_KEY: existing.ONESIGNAL_API_KEY || 'PASTE_REST_API_KEY_FROM_ONESIGNAL_COM',
   NOTIFY_SECRET,
@@ -45,9 +45,10 @@ const lines = [
   '# Run:  node scripts/setup-env.mjs',
   '# Then: paste everything below into Vercel → Settings → Environment Variables',
   '',
-  '# ── 1. Google Gemini AI (powers the /ask page) ──────────────────────────',
-  '# Free at: https://aistudio.google.com → Get API Key → Create API key',
-  `GEMINI_API_KEY=${env.GEMINI_API_KEY}`,
+  '# ── 1. Groq AI (powers the /ask page — free, no billing required) ───────',
+  '# Free at: https://console.groq.com → API Keys → Create API Key',
+  '# Free tier: 14,400 requests/day, no credit card needed',
+  `GROQ_API_KEY=${env.GROQ_API_KEY}`,
   '',
   '# ── 2. OneSignal (powers push notifications — free up to 10k subscribers) ─',
   '# Free at: https://onesignal.com → New App → Web → Keys & IDs',
@@ -61,7 +62,7 @@ const lines = [
 writeFileSync(OUT, lines.join('\n') + '\n');
 
 const needsFilling = [
-  env.GEMINI_API_KEY.startsWith('PASTE'),
+  env.GROQ_API_KEY.startsWith('PASTE'),
   env.ONESIGNAL_APP_ID.startsWith('PASTE'),
   env.ONESIGNAL_API_KEY.startsWith('PASTE'),
 ].filter(Boolean).length;
@@ -70,10 +71,10 @@ console.log('\n✅  .env.local written\n');
 
 if (needsFilling > 0) {
   console.log(`Fill in ${needsFilling} value${needsFilling > 1 ? 's' : ''} marked PASTE_… then come back:\n`);
-  if (env.GEMINI_API_KEY.startsWith('PASTE')) {
-    console.log('  GEMINI_API_KEY');
-    console.log('  → https://aistudio.google.com → "Get API Key" → "Create API key in new project"');
-    console.log('  → Takes 30 seconds. Free. No credit card.\n');
+  if (env.GROQ_API_KEY.startsWith('PASTE')) {
+    console.log('  GROQ_API_KEY');
+    console.log('  → https://console.groq.com → "API Keys" → "Create API Key"');
+    console.log('  → Takes 30 seconds. Completely free. No credit card. No billing.\n');
   }
   if (env.ONESIGNAL_APP_ID.startsWith('PASTE') || env.ONESIGNAL_API_KEY.startsWith('PASTE')) {
     console.log('  ONESIGNAL_APP_ID + ONESIGNAL_API_KEY');

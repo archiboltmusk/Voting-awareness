@@ -1,21 +1,20 @@
 /**
- * api/ask.js — Gemini-powered Q&A over The Bengal Reader's data
+ * api/ask.js — Groq-powered Q&A over The Bengal Reader's data
  *
  * POST /api/ask  { question: string }  → Server-Sent Events stream
  *
- * Uses Google Gemini 1.5 Flash (free tier: 15 req/min, 1M tokens/day).
- * Get a free API key at: https://aistudio.google.com  (no credit card)
+ * Uses Groq (free tier: 14,400 req/day, no credit card needed).
+ * Get a free API key at: https://console.groq.com → API Keys → Create
  *
  * Required env var:
- *   GEMINI_API_KEY — from aistudio.google.com → Get API Key
+ *   GROQ_API_KEY — from console.groq.com (free, no billing)
  */
 
 export const config = { runtime: 'edge' };
 
-const GEMINI_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.0-flash-lite';
-const API_VER = 'v1beta';
-const GEMINI_URL = `https://generativelanguage.googleapis.com/${API_VER}/models/${GEMINI_MODEL}:streamGenerateContent?alt=sse&key=`;
+const GROQ_KEY  = process.env.GROQ_API_KEY;
+const GROQ_MODEL = process.env.GROQ_MODEL || 'llama-3.1-8b-instant';
+const GROQ_URL  = 'https://api.groq.com/openai/v1/chat/completions';
 
 async function loadJSON(req, name) {
   try {
@@ -73,7 +72,7 @@ export default async function handler(req) {
   if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
   if (req.method !== 'POST') return new Response('POST only', { status: 405 });
 
-  if (!GEMINI_KEY) return new Response(JSON.stringify({ error: 'GEMINI_API_KEY not set — get one free at aistudio.google.com' }), { status: 503, headers: { ...cors, 'Content-Type': 'application/json' } });
+  if (!GROQ_KEY) return new Response(JSON.stringify({ error: 'GROQ_API_KEY not set — get one free at console.groq.com (no billing needed)' }), { status: 503, headers: { ...cors, 'Content-Type': 'application/json' } });
 
   let question;
   try { question = ((await req.json()).question || '').trim().slice(0, 500); } catch { return new Response('Invalid JSON', { status: 400 }); }
@@ -81,10 +80,10 @@ export default async function handler(req) {
 
   const needs = selectData(question);
   const [mlas, cases, pledges, constituencies] = await Promise.all([
-    needs.includes('mlas')             ? loadJSON(req, 'mlas.json')             : null,
-    needs.includes('cases')            ? loadJSON(req, 'cases.json')            : null,
-    needs.includes('pledges')          ? loadJSON(req, 'pledges.json')          : null,
-    needs.includes('constituencies')   ? loadJSON(req, 'constituencies.json')   : null,
+    needs.includes('mlas')           ? loadJSON(req, 'mlas.json')           : null,
+    needs.includes('cases')          ? loadJSON(req, 'cases.json')          : null,
+    needs.includes('pledges')        ? loadJSON(req, 'pledges.json')        : null,
+    needs.includes('constituencies') ? loadJSON(req, 'constituencies.json') : null,
   ]);
 
   const context = [
@@ -94,32 +93,40 @@ export default async function handler(req) {
     constituencies && summariseConstituencies(constituencies),
   ].filter(Boolean).join('\n\n---\n\n');
 
-  const systemPrompt = `You are a civic journalism assistant for The Bengal Reader, a non-partisan fact-based site covering West Bengal politics and the 2026 Assembly elections. Answer only from the data provided. Be concise and factual. Use Indian English. If data doesn't contain the answer, say so. Never take a partisan position.\n\nToday: 2026-05-15.\n\nDATA:\n${context}`;
+  const systemPrompt = `You are a civic journalism assistant for The Bengal Reader, a non-partisan fact-based site covering West Bengal politics and the 2026 Assembly elections. Answer only from the data provided. Be concise and factual. Use Indian English. If the data does not contain the answer, say so clearly. Never take a partisan position.\n\nToday: 2026-05-15.\n\nDATA:\n${context}`;
 
-  const geminiRes = await fetch(`${GEMINI_URL}${GEMINI_KEY}`, {
+  const groqRes = await fetch(GROQ_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Authorization': `Bearer ${GROQ_KEY}`,
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify({
-      system_instruction: { parts: [{ text: systemPrompt }] },
-      contents: [{ role: 'user', parts: [{ text: question }] }],
-      generationConfig: { maxOutputTokens: 600, temperature: 0.2 },
+      model: GROQ_MODEL,
+      messages: [
+        { role: 'system', content: systemPrompt },
+        { role: 'user',   content: question },
+      ],
+      max_tokens: 600,
+      temperature: 0.2,
+      stream: true,
     }),
   });
 
-  if (!geminiRes.ok) {
-    const err = await geminiRes.text();
+  if (!groqRes.ok) {
+    const err = await groqRes.text();
     let detail = err;
     try { const j = JSON.parse(err); detail = j.error?.message || err; } catch (_) {}
-    return new Response(JSON.stringify({ error: `Gemini ${geminiRes.status}: ${detail}` }), { status: 502, headers: { ...cors, 'Content-Type': 'application/json' } });
+    return new Response(JSON.stringify({ error: `Groq ${groqRes.status}: ${detail}` }), { status: 502, headers: { ...cors, 'Content-Type': 'application/json' } });
   }
 
-  // Transform Gemini SSE → simple text/event-stream the client can parse
+  // Transform Groq SSE (OpenAI-compatible) → simple {text} stream the client reads
   const { readable, writable } = new TransformStream();
   const writer = writable.getWriter();
   const enc = new TextEncoder();
 
   (async () => {
-    const reader = geminiRes.body.getReader();
+    const reader = groqRes.body.getReader();
     const dec = new TextDecoder();
     let buf = '';
     try {
@@ -135,7 +142,7 @@ export default async function handler(req) {
           if (!raw || raw === '[DONE]') continue;
           try {
             const chunk = JSON.parse(raw);
-            const text = chunk?.candidates?.[0]?.content?.parts?.[0]?.text;
+            const text = chunk?.choices?.[0]?.delta?.content;
             if (text) await writer.write(enc.encode(`data: ${JSON.stringify({ text })}\n\n`));
           } catch { /* skip malformed */ }
         }
@@ -146,5 +153,7 @@ export default async function handler(req) {
     }
   })();
 
-  return new Response(readable, { headers: { ...cors, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', 'X-Accel-Buffering': 'no' } });
+  return new Response(readable, {
+    headers: { ...cors, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', 'X-Accel-Buffering': 'no' },
+  });
 }
