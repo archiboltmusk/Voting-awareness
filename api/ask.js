@@ -13,8 +13,9 @@
 export const config = { runtime: 'edge' };
 
 const GEMINI_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-1.5-flash';
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1/models/${GEMINI_MODEL}:streamGenerateContent?alt=sse&key=`;
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.0-flash-lite';
+const API_VER = 'v1beta';
+const GEMINI_URL = `https://generativelanguage.googleapis.com/${API_VER}/models/${GEMINI_MODEL}:streamGenerateContent?alt=sse&key=`;
 
 async function loadJSON(req, name) {
   try {
@@ -99,9 +100,8 @@ export default async function handler(req) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      contents: [
-        { role: 'user', parts: [{ text: systemPrompt + '\n\nQuestion: ' + question }] },
-      ],
+      system_instruction: { parts: [{ text: systemPrompt }] },
+      contents: [{ role: 'user', parts: [{ text: question }] }],
       generationConfig: { maxOutputTokens: 600, temperature: 0.2 },
     }),
   });
