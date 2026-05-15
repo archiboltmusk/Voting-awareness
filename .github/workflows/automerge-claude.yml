@@ -37,8 +37,9 @@ jobs:
         run: |
           git fetch origin "$BRANCH"
 
-          # Squash all commits from the claude branch on top of main
-          git merge --squash "origin/$BRANCH"
+          # Squash all commits from the claude branch on top of main.
+          # -X theirs: auto-resolve any conflict by preferring the claude branch.
+          git merge --squash -X theirs "origin/$BRANCH"
 
           # Commit only if there are staged changes
           if git diff --cached --quiet; then
