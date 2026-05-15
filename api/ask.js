@@ -14,11 +14,11 @@ export const config = { runtime: 'edge' };
 
 const GEMINI_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse&key=`;
-const DATA_BASE = 'https://voting-awareness-psi.vercel.app/data';
 
-async function loadJSON(name) {
+async function loadJSON(req, name) {
   try {
-    const res = await fetch(`${DATA_BASE}/${name}`);
+    const origin = new URL(req.url).origin;
+    const res = await fetch(`${origin}/data/${name}`);
     if (!res.ok) return null;
     return res.json();
   } catch { return null; }
@@ -79,10 +79,10 @@ export default async function handler(req) {
 
   const needs = selectData(question);
   const [mlas, cases, pledges, constituencies] = await Promise.all([
-    needs.includes('mlas')             ? loadJSON('mlas.json')             : null,
-    needs.includes('cases')            ? loadJSON('cases.json')            : null,
-    needs.includes('pledges')          ? loadJSON('pledges.json')          : null,
-    needs.includes('constituencies')   ? loadJSON('constituencies.json')   : null,
+    needs.includes('mlas')             ? loadJSON(req, 'mlas.json')             : null,
+    needs.includes('cases')            ? loadJSON(req, 'cases.json')            : null,
+    needs.includes('pledges')          ? loadJSON(req, 'pledges.json')          : null,
+    needs.includes('constituencies')   ? loadJSON(req, 'constituencies.json')   : null,
   ]);
 
   const context = [

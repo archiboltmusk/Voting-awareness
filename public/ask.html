@@ -480,9 +480,7 @@ body::before {
     </div>
 
     <!-- ERROR STATE -->
-    <div class="answer-error" id="answer-error" role="alert" aria-live="assertive">
-      Unable to fetch an answer &mdash; please try again.
-    </div>
+    <div class="answer-error" id="answer-error" role="alert" aria-live="assertive"></div>
 
     <!-- ANSWER AREA -->
     <section class="answer-section" id="answer-section" aria-live="polite" aria-label="Answer">
@@ -607,8 +605,10 @@ body::before {
     })
       .then(function (res) {
         if (!res.ok) {
-          return res.text().then(function () {
-            throw new Error('HTTP ' + res.status);
+          return res.text().then(function (body) {
+            var msg = 'HTTP ' + res.status;
+            try { var j = JSON.parse(body); if (j.error) msg = j.error; } catch (_) {}
+            throw new Error(msg);
           });
         }
         if (!res.body) {
@@ -660,7 +660,7 @@ body::before {
         setLoading(false);
         if (!answerText.textContent) {
           /* nothing was rendered yet — show error banner */
-          showError();
+          showError(err.message);
         } else {
           /* partial answer rendered — append a note */
           answerText.classList.remove('streaming');
@@ -722,7 +722,12 @@ body::before {
     answerSection.classList.remove('visible');
   }
 
-  function showError() {
+  function showError(msg) {
+    if (msg && msg !== 'Failed to fetch') {
+      answerError.textContent = msg;
+    } else {
+      answerError.textContent = 'Unable to fetch an answer — please try again.';
+    }
     answerError.classList.add('visible');
   }
 
