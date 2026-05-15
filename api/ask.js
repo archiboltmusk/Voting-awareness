@@ -13,7 +13,7 @@
 export const config = { runtime: 'edge' };
 
 const GEMINI_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse&key=`;
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:streamGenerateContent?alt=sse&key=`;
 
 async function loadJSON(req, name) {
   try {
@@ -106,7 +106,9 @@ export default async function handler(req) {
 
   if (!geminiRes.ok) {
     const err = await geminiRes.text();
-    return new Response(JSON.stringify({ error: 'Gemini error', detail: err }), { status: 502, headers: { ...cors, 'Content-Type': 'application/json' } });
+    let detail = err;
+    try { const j = JSON.parse(err); detail = j.error?.message || err; } catch (_) {}
+    return new Response(JSON.stringify({ error: `Gemini ${geminiRes.status}: ${detail}` }), { status: 502, headers: { ...cors, 'Content-Type': 'application/json' } });
   }
 
   // Transform Gemini SSE → simple text/event-stream the client can parse
