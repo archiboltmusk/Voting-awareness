@@ -427,6 +427,8 @@ body::before {
       <a href="/accountability" class="site-nav-link">100 Days</a>
       <a href="/corruption" class="site-nav-link">Dossier</a>
       <a href="/mlas" class="site-nav-link">MLA Records</a>
+      <a href="/ask" class="site-nav-link">Ask AI</a>
+      <a href="/map" class="site-nav-link">Map</a>
       <a href="/ask" class="site-nav-link active">Ask AI</a>
     </div>
   </div>
@@ -679,20 +681,9 @@ body::before {
       return;
     }
 
-    /* Anthropic SSE: content_block_delta with text_delta */
-    if (
-      parsed.type === 'content_block_delta' &&
-      parsed.delta &&
-      parsed.delta.type === 'text_delta' &&
-      typeof parsed.delta.text === 'string'
-    ) {
-      appendText(parsed.delta.text);
-    }
-
-    /* message_stop signals end of stream */
-    if (parsed.type === 'message_stop') {
-      answerText.classList.remove('streaming');
-      setLoading(false);
+    /* Our API normalises both Gemini and Anthropic to { text: "..." } chunks */
+    if (typeof parsed.text === 'string') {
+      appendText(parsed.text);
     }
   }
 

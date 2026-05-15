@@ -101,34 +101,8 @@ async function cacheFirst(request) {
   return response;
 }
 
-// ── Push notifications ────────────────────────────────────────────────────────
-self.addEventListener('push', event => {
-  let data = {};
-  try { data = event.data ? event.data.json() : {}; } catch { data = { title: 'The Bengal Reader', body: event.data ? event.data.text() : 'Data updated.' }; }
-  const title = data.title || 'The Bengal Reader';
-  const opts = {
-    body: data.body || 'New data is available.',
-    icon: '/icon-192.png',
-    badge: '/favicon.svg',
-    tag: data.tag || 'bengal-update',
-    renotify: !!data.tag,
-    data: { url: data.url || '/' },
-    actions: data.actions || [{ action: 'open', title: 'View' }],
-  };
-  event.waitUntil(self.registration.showNotification(title, opts));
-});
-
-self.addEventListener('notificationclick', event => {
-  event.notification.close();
-  const url = (event.notification.data && event.notification.data.url) || '/';
-  event.waitUntil(
-    clients.matchAll({ type: 'window', includeUncontrolled: true }).then(wins => {
-      const match = wins.find(w => w.url === url && 'focus' in w);
-      if (match) return match.focus();
-      return clients.openWindow(url);
-    })
-  );
-});
+// Push notifications are handled by OneSignalSDKWorker.js at the site root.
+// This service worker only handles caching.
 
 async function networkFirst(request) {
   try {

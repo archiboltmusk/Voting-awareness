@@ -119,7 +119,7 @@ window.shareDataPoint = function (label, value, url) {
   window.shareWhatsApp('⁠' + label + ': ' + value + ' — The Bengal Reader', url || location.href);
 };
 
-/* ── 7. Active nav link ─────────────────────────────────────────────────── */
+/* ── 7. Active nav link + hamburger menu ────────────────────────────────── */
 (function () {
   document.addEventListener('DOMContentLoaded', function () {
     var path = location.pathname.replace(/\/$/, '') || '/';
@@ -127,6 +127,41 @@ window.shareDataPoint = function (label, value, url) {
       var href = a.getAttribute('href') || '';
       if (href === path || (path !== '/' && href !== '/' && path.startsWith(href))) {
         a.classList.add('active');
+      }
+    });
+
+    // Inject hamburger button
+    var inner = document.querySelector('.site-nav-inner');
+    var links = document.querySelector('.site-nav-links');
+    if (!inner || !links) return;
+    links.id = 'site-nav-links';
+
+    var btn = document.createElement('button');
+    btn.className = 'nav-hamburger';
+    btn.setAttribute('aria-label', 'Toggle navigation');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-controls', 'site-nav-links');
+    btn.innerHTML = '<span class="nav-hamburger-bar"></span>' +
+                    '<span class="nav-hamburger-bar"></span>' +
+                    '<span class="nav-hamburger-bar"></span>';
+    inner.appendChild(btn);
+
+    btn.addEventListener('click', function () {
+      var open = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!inner.contains(e.target)) {
+        links.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    links.addEventListener('click', function (e) {
+      if (e.target.closest('.site-nav-link')) {
+        links.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
       }
     });
   });
@@ -362,4 +397,29 @@ window.lazyTable = function (tbodyId, rows, buildRowHTML, chunkSize) {
       try { sessionStorage.setItem('install-dismissed', '1'); } catch (_) {}
     });
   }
+})();
+
+/* ── 15. OneSignal push notifications ────────────────────────────────────── */
+/* Loads the OneSignal Web SDK and initialises it with the App ID fetched
+   from /api/config. Skips silently if ONESIGNAL_APP_ID is not configured. */
+(function () {
+  fetch('/api/config', { cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (cfg) {
+      if (!cfg.onesignalAppId) return;
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
+      var s = document.createElement('script');
+      s.src = 'https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js';
+      s.defer = true;
+      document.head.appendChild(s);
+      OneSignalDeferred.push(function (OneSignal) {
+        OneSignal.init({
+          appId: cfg.onesignalAppId,
+          serviceWorkerPath: '/OneSignalSDKWorker.js',
+          notifyButton: { enable: false },
+          allowLocalhostAsSecureOrigin: true,
+        });
+      });
+    })
+    .catch(function () {});
 })();

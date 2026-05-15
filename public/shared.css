@@ -130,31 +130,91 @@ button:active,
   }
 }
 
+/* ── NAV HAMBURGER ─────────────────────────────────────────────────────────── */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: 1px solid rgb(255 255 255 / 15%);
+  cursor: pointer;
+  padding: 5px 9px;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav-hamburger-bar {
+  display: block;
+  width: 16px;
+  height: 1.5px;
+  background: rgb(245 240 232 / 60%);
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.nav-hamburger[aria-expanded="true"] .nav-hamburger-bar:nth-child(1) {
+  transform: translateY(5.5px) rotate(45deg);
+}
+
+.nav-hamburger[aria-expanded="true"] .nav-hamburger-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-hamburger[aria-expanded="true"] .nav-hamburger-bar:nth-child(3) {
+  transform: translateY(-5.5px) rotate(-45deg);
+}
+
 /* ── MOBILE NAV ────────────────────────────────────────────────────────────── */
-@media (width <= 640px) {
+@media (width <= 860px) {
+  .site-nav { position: relative; }
+
   .site-nav-inner {
     padding: 0 1rem;
+    flex-wrap: nowrap;
   }
 
   .site-nav-brand {
-    display: none;
+    font-size: 8px;
+  }
+
+  .nav-hamburger {
+    display: flex;
+    margin-left: auto;
   }
 
   .site-nav-links {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    flex-wrap: nowrap;
-    width: 100%;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: #050403;
+    border-top: 1px solid rgb(255 255 255 / 8%);
+    border-bottom: 1px solid rgb(255 255 255 / 8%);
+    z-index: 9999;
+    padding: 0.4rem 0;
   }
 
-  .site-nav-links::-webkit-scrollbar {
-    display: none;
+  .site-nav-links.open {
+    display: flex;
   }
 
   .site-nav-link {
-    padding: 10px 11px;
-    white-space: nowrap;
+    border-left: none;
+    border-bottom: 1px solid rgb(255 255 255 / 5%);
+    padding: 11px 1.5rem;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+  }
+
+  .site-nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .site-nav-link.active {
+    border-left: 2px solid var(--bjp, #e8640a);
+    padding-left: calc(1.5rem - 2px);
   }
 }
 
@@ -388,10 +448,12 @@ button:active,
 .mobile-btm-nav {
   display: none;
 }
-@media (max-width: 640px) {
+
+@media (width <= 640px) {
   body {
     padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px));
   }
+
   .mobile-btm-nav {
     display: flex;
     position: fixed;
@@ -399,10 +461,11 @@ button:active,
     left: 0;
     right: 0;
     background: #050403;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgb(255 255 255 / 10%);
     z-index: 9998;
-    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0);
   }
+
   .mobile-btm-item {
     flex: 1;
     display: flex;
@@ -412,7 +475,7 @@ button:active,
     gap: 3px;
     padding: 8px 2px 7px;
     text-decoration: none;
-    color: rgba(245, 240, 232, 0.3);
+    color: rgb(245 240 232 / 30%);
     font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
     font-size: 0.5rem;
     letter-spacing: 0.06em;
@@ -420,11 +483,13 @@ button:active,
     transition: color 0.15s, background 0.15s;
     -webkit-tap-highlight-color: transparent;
   }
+
   .mobile-btm-item:hover,
   .mobile-btm-item.active {
-    color: rgba(245, 240, 232, 0.92);
-    background: rgba(255, 255, 255, 0.04);
+    color: rgb(245 240 232 / 92%);
+    background: rgb(255 255 255 / 4%);
   }
+
   .mobile-btm-icon {
     font-size: 1.05rem;
     line-height: 1;
@@ -539,11 +604,17 @@ cite[data-cite] {
 
 /* ── VIEW TRANSITIONS ──────────────────────────────────────────────────────── */
 @keyframes vt-fade-in {
-  from { opacity: 0; transform: translateY(6px); }
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
 }
 
 @keyframes vt-fade-out {
-  to { opacity: 0; transform: translateY(-4px); }
+  to {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
 }
 
 ::view-transition-old(root) {
