@@ -21,69 +21,36 @@
  */
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { safeFetch, withConcurrency } from './lib/fetch.mjs';
+import { urlSeen, newsSummaryAddedToday, headlineIsFresh, today, thisMonth, nowISO, fmtMonthYear } from './lib/dedup.mjs';
+import { createArchiveQueue } from './lib/archive.mjs';
+import { createLogger } from './lib/logger.mjs';
 
 // ── Keywords per case ─────────────────────────────────────────────────────────
 const CASE_KEYWORDS = {
-  'saradha':              ['Saradha chit fund', 'Saradha scam court', 'Madan Mitra Saradha', 'Kunal Ghosh Saradha'],
-  'rose-valley':          ['Rose Valley ponzi', 'Rose Valley court', 'Sudip Bandyopadhyay court'],
-  'narada':               ['Narada sting case', 'Narada case Calcutta', 'Firhad Hakim court'],
-  'ssc-scam':             ['SSC recruitment scam Bengal', 'Partha Chatterjee court SSC', 'Manik Bhattacharya SSC', 'school job scam Bengal'],
-  'cattle-trafficking':   ['Anubrata Mondal court', 'cattle smuggling Bengal CBI', 'Sukanya Mondal court'],
-  'coal-mafia':           ['Vinay Mishra coal Bengal', 'coal mafia Bengal ED', 'Anup Majee Bengal'],
-  'ration-scam':          ['Jyoti Priya Mallick court', 'ration scam Bengal ED', 'PDS scam Bengal'],
+  saradha: ['Saradha chit fund', 'Saradha scam court', 'Madan Mitra Saradha', 'Kunal Ghosh Saradha'],
+  'rose-valley': ['Rose Valley ponzi', 'Rose Valley court', 'Sudip Bandyopadhyay court'],
+  narada: ['Narada sting case', 'Narada case Calcutta', 'Firhad Hakim court'],
+  'ssc-scam': [
+    'SSC recruitment scam Bengal',
+    'Partha Chatterjee court SSC',
+    'Manik Bhattacharya SSC',
+    'school job scam Bengal',
+  ],
+  'cattle-trafficking': ['Anubrata Mondal court', 'cattle smuggling Bengal CBI', 'Sukanya Mondal court'],
+  'coal-mafia': ['Vinay Mishra coal Bengal', 'coal mafia Bengal ED', 'Anup Majee Bengal'],
+  'ration-scam': ['Jyoti Priya Mallick court', 'ration scam Bengal ED', 'PDS scam Bengal'],
   'post-poll-violence-2021': ['post poll violence Bengal 2021 CBI', 'Bengal violence 2021 court', 'NHRC Bengal 2021'],
 };
 
-// ── Concurrency pool ──────────────────────────────────────────────────────────
-async function withConcurrency(items, limit, fn) {
-  const results = new Array(items.length);
-  let next = 0;
-  async function worker() {
-    while (next < items.length) {
-      const i = next++;
-      try { results[i] = await fn(items[i], i); } catch (e) { results[i] = { error: e }; }
-    }
-  }
-  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
-  return results;
-}
+// ── Step summary logger ───────────────────────────────────────────────────────
+const logger = createLogger();
+const summaryWrite = (line) => logger.write(line);
+const flushSummary = () => logger.flush();
 
-// ── Step summary helper ───────────────────────────────────────────────────────
-const summaryLines = [];
-function summaryWrite(line) {
-  summaryLines.push(line);
-  console.log(line.replace(/[*#`_]/g, '').trim());
-}
-function flushSummary() {
-  const path = process.env.GITHUB_STEP_SUMMARY;
-  if (path) {
-    try { writeFileSync(path, summaryLines.join('\n') + '\n', { flag: 'a' }); } catch { /**/ }
-  }
-}
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
-function fmtMonthYear(d) {
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  return `${d.getFullYear()} ${months[d.getMonth()]}`;
-}
-function today()     { return new Date().toISOString().slice(0, 10); }
-function thisMonth() { return today().slice(0, 7); }
-function nowISO()    { return new Date().toISOString(); }
-
-async function safeFetch(url, opts = {}) {
-  try {
-    const res = await fetch(url, {
-      ...opts,
-      headers: { 'User-Agent': 'BengalReader/1.0 (public transparency project)', ...opts.headers },
-      signal: AbortSignal.timeout(15000),
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.text();
-  } catch (e) {
-    console.warn(`  fetch failed: ${url} — ${e.message}`);
-    return null;
-  }
-}
+// ── Archive queue ─────────────────────────────────────────────────────────────
+const archiver = createArchiveQueue();
+const queueArchive = (url) => archiver.add(url);
 
 // ── Google News RSS ───────────────────────────────────────────────────────────
 async function fetchGoogleNews(query) {
@@ -99,20 +66,21 @@ async function fetchGoogleNews(query) {
   const rx = /<item>([\s\S]*?)<\/item>/g;
   let m;
   while ((m = rx.exec(xml)) !== null) {
-    const body  = m[1];
-    const title = (/<title><!\[CDATA\[([\s\S]*?)\]\]>/.exec(body) || /<title>([\s\S]*?)<\/title>/.exec(body) || [])[1];
-    const pub   = (/<pubDate>([\s\S]*?)<\/pubDate>/.exec(body) || [])[1];
-    const link  = (/<link>([\s\S]*?)<\/link>/.exec(body)  || [])[1];
-    const src   = (/<source[^>]*>([\s\S]*?)<\/source>/.exec(body) || [])[1];
+    const body = m[1];
+    const title =
+      (/<title><!\[CDATA\[([\s\S]*?)\]\]>/.exec(body) || /<title>([\s\S]*?)<\/title>/.exec(body) || [])[1];
+    const pub = (/<pubDate>([\s\S]*?)<\/pubDate>/.exec(body) || [])[1];
+    const link = (/<link>([\s\S]*?)<\/link>/.exec(body) || [])[1];
+    const src = (/<source[^>]*>([\s\S]*?)<\/source>/.exec(body) || [])[1];
     if (title && pub) {
       const date = new Date(pub);
       if (!isNaN(date)) {
         items.push({
-          title:  title.replace(/<[^>]+>/g, '').trim(),
+          title: title.replace(/<[^>]+>/g, '').trim(),
           date,
           pubDate: date.toISOString().slice(0, 10),
-          url:    (link || '').trim(),
-          source: (src  || 'Google News').replace(/<[^>]+>/g, '').trim(),
+          url: (link || '').trim(),
+          source: (src || 'Google News').replace(/<[^>]+>/g, '').trim(),
         });
       }
     }
@@ -131,7 +99,10 @@ async function fetchEDReleases() {
   while ((m = anchorRx.exec(html)) !== null) {
     const text = m[2].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
     const href = m[1].trim();
-    if (text.length > 15 && /Bengal|Kolkata|Calcutta|Saradha|SSC|Narada|Rose Valley|Mallick|Mondal|Mishra|coal|cattle|ration/i.test(text)) {
+    if (
+      text.length > 15 &&
+      /Bengal|Kolkata|Calcutta|Saradha|SSC|Narada|Rose Valley|Mallick|Mondal|Mishra|coal|cattle|ration/i.test(text)
+    ) {
       results.push({ url: href, title: text.slice(0, 200) });
     }
   }
@@ -152,7 +123,10 @@ async function fetchCBIReleases() {
   while ((m = anchorRx.exec(html)) !== null) {
     const text = m[2].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
     const href = m[1].trim();
-    if (text.length > 15 && /Bengal|Kolkata|Saradha|SSC|Narada|Rose Valley|Mondal|cattle|coal|ration/i.test(text)) {
+    if (
+      text.length > 15 &&
+      /Bengal|Kolkata|Saradha|SSC|Narada|Rose Valley|Mondal|cattle|coal|ration/i.test(text)
+    ) {
       results.push({ url: href, title: text.slice(0, 200) });
     }
   }
@@ -162,51 +136,6 @@ async function fetchCBIReleases() {
   return results;
 }
 
-// ── Dedup helpers ─────────────────────────────────────────────────────────────
-function urlSeen(timeline, url) {
-  return url && timeline.some(t => t.autoFrom === url);
-}
-
-function newsSummaryAddedToday(timeline) {
-  const t = today();
-  return timeline.some(e => e.autoAdded === t && e.source === 'Google News RSS');
-}
-
-function headlineIsFresh(timeline, title) {
-  const weekAgo = new Date(Date.now() - 7 * 86400_000).toISOString().slice(0, 10);
-  const fp = title.toLowerCase().slice(0, 50);
-  return !timeline.some(t =>
-    t.autoAdded >= weekAgo &&
-    t.event && t.event.toLowerCase().includes(fp)
-  );
-}
-
-// ── Wayback Machine preservation ─────────────────────────────────────────────
-/* Fire-and-forget: submits a URL to the Wayback Machine save endpoint.
-   Never throws, never blocks the pipeline. Returns the archive URL if saved. */
-async function archiveUrl(url) {
-  if (!url || !url.startsWith('http')) return null;
-  try {
-    const res = await fetch(`https://web.archive.org/save/${url}`, {
-      method: 'GET',
-      headers: { 'User-Agent': 'BengalReader/1.0 (public transparency archive)' },
-      signal: AbortSignal.timeout(20000),
-      redirect: 'follow',
-    });
-    if (res.ok || res.status === 302) {
-      const loc = res.headers.get('Content-Location') || res.headers.get('location') || '';
-      return loc ? `https://web.archive.org${loc}` : `https://web.archive.org/web/*/${url}`;
-    }
-  } catch { /* timeout or network failure — silently skip */ }
-  return null;
-}
-
-/* Queue of URLs to archive — accumulated during the run, flushed in parallel. */
-const archiveQueue = new Set();
-function queueArchive(url) {
-  if (url && url.startsWith('http')) archiveQueue.add(url);
-}
-
 // ── Sitemap updater ───────────────────────────────────────────────────────────
 function updateSitemap(dateStr) {
   const path = 'public/sitemap.xml';
@@ -214,21 +143,23 @@ function updateSitemap(dateStr) {
   try {
     const xml = readFileSync(path, 'utf-8');
     writeFileSync(path, xml.replace(/<lastmod>[^<]+<\/lastmod>/g, `<lastmod>${dateStr}</lastmod>`));
-  } catch (e) { console.warn('sitemap update failed:', e.message); }
+  } catch (e) {
+    console.warn('sitemap update failed:', e.message);
+  }
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 async function main() {
   const runDate = today();
-  const runISO  = nowISO();
+  const runISO = nowISO();
   summaryWrite(`# Bengal Reader — Auto-Update ${runISO}`);
   summaryWrite('');
 
   const cases = JSON.parse(readFileSync('public/data/cases.json', 'utf-8'));
-  const meta  = JSON.parse(readFileSync('public/data/meta.json',  'utf-8'));
-  const now   = new Date();
-  const cutoff24h = new Date(now - 24  * 3600_000);
-  const cutoff7d  = new Date(now - 7   * 86400_000);
+  const meta = JSON.parse(readFileSync('public/data/meta.json', 'utf-8'));
+  const now = new Date();
+  const cutoff24h = new Date(now - 24 * 3600_000);
+  const cutoff7d = new Date(now - 7 * 86400_000);
 
   let timelineAdded = 0;
   const errors = [];
@@ -239,7 +170,8 @@ async function main() {
 
   // ── 1+2. ED + CBI press releases (parallel) ───────────────────────────────
   summaryWrite('## Enforcement Directorate + CBI');
-  let edReleases = [], cbiReleases = [];
+  let edReleases = [],
+    cbiReleases = [];
   const [edResult, cbiResult] = await Promise.allSettled([fetchEDReleases(), fetchCBIReleases()]);
 
   if (edResult.status === 'fulfilled') {
@@ -261,9 +193,15 @@ async function main() {
     try {
       const kws = CASE_KEYWORDS[c.id] || [];
       for (const r of edReleases) {
-        const matchKw = kws.find(kw => r.title.toLowerCase().includes(kw.toLowerCase().split(' ')[0]));
+        const matchKw = kws.find((kw) => r.title.toLowerCase().includes(kw.toLowerCase().split(' ')[0]));
         if (matchKw && !urlSeen(c.timeline, r.url)) {
-          c.timeline.push({ date: fmtMonthYear(now), event: `ED: ${r.title}`, autoAdded: runDate, autoFrom: r.url, source: 'ED press release' });
+          c.timeline.push({
+            date: fmtMonthYear(now),
+            event: `ED: ${r.title}`,
+            autoAdded: runDate,
+            autoFrom: r.url,
+            source: 'ED press release',
+          });
           c.lastUpdated = thisMonth();
           timelineAdded++;
           queueArchive(r.url);
@@ -271,16 +209,24 @@ async function main() {
         }
       }
       for (const r of cbiReleases) {
-        const matchKw = kws.find(kw => r.title.toLowerCase().includes(kw.toLowerCase().split(' ')[0]));
+        const matchKw = kws.find((kw) => r.title.toLowerCase().includes(kw.toLowerCase().split(' ')[0]));
         if (matchKw && !urlSeen(c.timeline, r.url)) {
-          c.timeline.push({ date: fmtMonthYear(now), event: `CBI: ${r.title}`, autoAdded: runDate, autoFrom: r.url, source: 'CBI press release' });
+          c.timeline.push({
+            date: fmtMonthYear(now),
+            event: `CBI: ${r.title}`,
+            autoAdded: runDate,
+            autoFrom: r.url,
+            source: 'CBI press release',
+          });
           c.lastUpdated = thisMonth();
           timelineAdded++;
           queueArchive(r.url);
           summaryWrite(`- ✅ **${c.id}** (CBI): ${r.title.slice(0, 70)}…`);
         }
       }
-    } catch (e) { errors.push(`press release match ${c.id}: ${e.message}`); }
+    } catch (e) {
+      errors.push(`press release match ${c.id}: ${e.message}`);
+    }
   }
   summaryWrite('');
 
@@ -289,25 +235,32 @@ async function main() {
   const caseLines = new Array(cases.length);
   await withConcurrency(cases, 3, async (c, i) => {
     const kws = CASE_KEYWORDS[c.id];
-    if (!kws) { caseLines[i] = `- ⏭️ **${c.id}**: no keywords`; return; }
+    if (!kws) {
+      caseLines[i] = `- ⏭️ **${c.id}**: no keywords`;
+      return;
+    }
     try {
       const items = await fetchGoogleNews(kws[0]);
       const sorted = items.sort((a, b) => b.date - a.date);
-      newsFeed[c.id].articles = sorted.slice(0, 6).map(({ title, pubDate, url, source }) => ({ title, pubDate, url, source }));
-      newsFeed[c.id].count24h = items.filter(n => n.date > cutoff24h).length;
-      newsFeed[c.id].count7d  = items.filter(n => n.date > cutoff7d).length;
+      newsFeed[c.id].articles = sorted
+        .slice(0, 6)
+        .map(({ title, pubDate, url, source }) => ({ title, pubDate, url, source }));
+      newsFeed[c.id].count24h = items.filter((n) => n.date > cutoff24h).length;
+      newsFeed[c.id].count7d = items.filter((n) => n.date > cutoff7d).length;
 
-      const recent24h = items.filter(n => n.date > cutoff24h);
+      const recent24h = items.filter((n) => n.date > cutoff24h);
       // Archive the URLs of the most recent articles
-      sorted.slice(0, 3).forEach(n => { if (n.url) queueArchive(n.url); });
+      sorted.slice(0, 3).forEach((n) => {
+        if (n.url) queueArchive(n.url);
+      });
       if (recent24h.length >= 2 && !newsSummaryAddedToday(c.timeline)) {
         const top = recent24h[0];
         if (headlineIsFresh(c.timeline, top.title)) {
           c.timeline.push({
-            date:      fmtMonthYear(now),
-            event:     `${recent24h.length} news reports in last 24 h. Latest: "${top.title.slice(0, 110)}"`,
+            date: fmtMonthYear(now),
+            event: `${recent24h.length} news reports in last 24 h. Latest: "${top.title.slice(0, 110)}"`,
             autoAdded: runDate,
-            source:    'Google News RSS',
+            source: 'Google News RSS',
           });
           c.lastUpdated = thisMonth();
           timelineAdded++;
@@ -323,7 +276,7 @@ async function main() {
       caseLines[i] = `- ⚠️ **${c.id}**: ${e.message}`;
     }
   });
-  caseLines.forEach(l => summaryWrite(l));
+  caseLines.forEach((l) => summaryWrite(l));
   summaryWrite('');
 
   // ── 4. Pledge tracker update (concurrency = 3) ────────────────────────────
@@ -349,18 +302,18 @@ async function main() {
     }
 
     // Parallel news fetch for pledges that have keywords (concurrency = 3)
-    const pledgesWithKw = pledgesObj.pledges.filter(p => p.keywords && p.keywords.length);
+    const pledgesWithKw = pledgesObj.pledges.filter((p) => p.keywords && p.keywords.length);
     const pledgeLines = new Array(pledgesWithKw.length);
     await withConcurrency(pledgesWithKw, 3, async (p, i) => {
       try {
         const items = await fetchGoogleNews(p.keywords[0]);
-        const recent = items.filter(n => n.date > cutoff7d).sort((a, b) => b.date - a.date);
+        const recent = items.filter((n) => n.date > cutoff7d).sort((a, b) => b.date - a.date);
         if (recent.length > 0) {
           const top = recent[0];
           if (p.newsHeadline !== top.title) {
             p.newsHeadline = top.title;
-            p.newsDate     = top.pubDate;
-            p.newsUrl      = top.url || null;
+            p.newsDate = top.pubDate;
+            p.newsUrl = top.url || null;
             pledgesUpdated++;
             pledgeLines[i] = `- 📰 **${p.id}**: new headline — "${top.title.slice(0, 70)}"`;
           } else {
@@ -374,23 +327,27 @@ async function main() {
         pledgeLines[i] = `- ⚠️ **${p.id}**: fetch error`;
       }
     });
-    pledgeLines.forEach(l => summaryWrite(l));
+    pledgeLines.forEach((l) => summaryWrite(l));
 
-    pledgesObj.lastUpdated = runDate;
-    writeFileSync('public/data/pledges.json', JSON.stringify(pledgesObj, null, 2));
-    summaryWrite(`- **${pledgesUpdated}** pledge records updated`);
+    // Validate before write — never corrupt pledges.json
+    const invalidPledges = pledgesObj.pledges.filter((p) => !p.id || !p.category || !p.title || !p.status);
+    if (invalidPledges.length > 0) {
+      errors.push(`pledges.json write aborted: ${invalidPledges.length} pledges have missing required fields`);
+      summaryWrite(`- ⚠️ pledges.json NOT written — ${invalidPledges.length} invalid pledge objects`);
+    } else {
+      pledgesObj.lastUpdated = runDate;
+      writeFileSync('public/data/pledges.json', JSON.stringify(pledgesObj, null, 2));
+      summaryWrite(`- **${pledgesUpdated}** pledge records updated`);
+    }
   }
   summaryWrite('');
 
   // ── 5. Archive queued URLs to Wayback Machine (fire-and-forget, parallel) ──
   let archivedCount = 0;
-  if (archiveQueue.size > 0) {
-    summaryWrite(`## Wayback Machine archiving (${archiveQueue.size} URLs)`);
-    const archiveResults = await withConcurrency([...archiveQueue], 3, async (url) => {
-      const archived = await archiveUrl(url);
-      return { url, archived };
-    });
-    archiveResults.forEach(r => {
+  if (archiver.queue.size > 0) {
+    summaryWrite(`## Wayback Machine archiving (${archiver.queue.size} URLs)`);
+    const archiveResults = await archiver.flush(3);
+    archiveResults.forEach((r) => {
       if (r && r.archived) {
         archivedCount++;
         summaryWrite(`- ✅ Archived: ${r.url.slice(0, 80)}`);
@@ -405,8 +362,8 @@ async function main() {
   const newsDoc = { generated: runISO, cases: newsFeed };
 
   writeFileSync('public/data/cases.json', JSON.stringify(cases, null, 2));
-  writeFileSync('public/data/meta.json',  JSON.stringify(meta,  null, 2));
-  writeFileSync('public/data/news.json',  JSON.stringify(newsDoc, null, 2));
+  writeFileSync('public/data/meta.json', JSON.stringify(meta, null, 2));
+  writeFileSync('public/data/news.json', JSON.stringify(newsDoc, null, 2));
 
   updateSitemap(runDate);
 
@@ -418,7 +375,7 @@ async function main() {
   if (archivedCount > 0) summaryWrite(`- **${archivedCount}** source URLs archived to Wayback Machine`);
   if (errors.length) {
     summaryWrite('\n### ⚠️ Non-fatal errors');
-    errors.forEach(e => summaryWrite(`- ${e}`));
+    errors.forEach((e) => summaryWrite(`- ${e}`));
   } else {
     summaryWrite('- No errors');
   }
@@ -427,7 +384,7 @@ async function main() {
   process.exit(0);
 }
 
-main().catch(err => {
+main().catch((err) => {
   summaryWrite(`\n## ❌ Script crashed\n\`\`\`\n${err.stack}\n\`\`\``);
   flushSummary();
   console.error('Update script crashed:', err);

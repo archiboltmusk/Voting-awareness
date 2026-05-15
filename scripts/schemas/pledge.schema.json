@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://voting-awareness-psi.vercel.app/schemas/pledge.schema.json",
+  "title": "Pledge",
+  "description": "A single BJP pre-election pledge object",
+  "type": "object",
+  "required": ["id", "category", "title", "status", "progress"],
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique slug identifier for the pledge"
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Category id referencing categories array"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Short display title of the pledge"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["watching", "announced", "in-progress", "delivered", "delayed", "broken", "evaded"],
+      "description": "Current fulfilment status"
+    },
+    "progress": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Percentage progress toward fulfilment"
+    },
+    "deadlineDate": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "description": "Deadline date in YYYY-MM-DD format"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "detail": {
+      "type": "string",
+      "description": "Extended description of the pledge"
+    },
+    "source": {
+      "type": "string",
+      "description": "Source document or statement for the pledge"
+    },
+    "deadlineLabel": {
+      "type": "string",
+      "description": "Human-readable deadline label (e.g. '100 days')"
+    },
+    "updateNote": {
+      "type": "string",
+      "description": "Latest manual update note"
+    },
+    "newsHeadline": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ],
+      "description": "Most recent auto-fetched news headline"
+    },
+    "newsDate": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        { "type": "null" }
+      ],
+      "description": "Publication date of newsHeadline in YYYY-MM-DD format"
+    },
+    "newsUrl": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ],
+      "description": "URL of the news article"
+    },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Search keywords used for auto news fetching"
+    }
+  }
+}
