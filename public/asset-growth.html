@@ -199,6 +199,27 @@ footer a { color:#8a7a60; text-decoration:none; }
   .td-pct, .td-flag { display:none; }
 }
 
+/* ── ENRICHMENT CHART ── */
+.enrichment-section {
+  background:var(--ink); color:var(--paper); padding:2.5rem 2rem; margin:3rem 0;
+  width:100vw; position:relative; left:50%; transform:translateX(-50%);
+}
+.enrichment-inner { max-width:1100px; margin:0 auto; }
+.enrichment-title { font-family:'Playfair Display',serif; font-size:clamp(1.2rem,2.5vw,1.8rem); font-weight:700; margin-bottom:0.3rem; }
+.enrichment-sub { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:#8a8070; letter-spacing:0.08em; margin-bottom:1.5rem; }
+.enrichment-canvas-wrap { position:relative; width:100%; overflow:hidden; }
+.enrichment-canvas { width:100%; display:block; }
+.enrichment-legend { display:flex; gap:1.5rem; margin-top:1rem; flex-wrap:wrap; }
+.enrichment-legend-item { display:flex; align-items:center; gap:0.5rem; font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:#8a8070; letter-spacing:0.06em; }
+.enrichment-legend-swatch { width:14px; height:10px; border-radius:2px; flex-shrink:0; }
+.enrichment-note { font-family:'Crimson Pro',serif; font-size:0.82rem; color:#6a6050; margin-top:0.8rem; line-height:1.5; }
+
+/* ── SALARY RATIO BADGE ── */
+.salary-ratio { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:0.5rem; letter-spacing:0.06em; padding:1px 5px; border-radius:2px; margin-left:4px; vertical-align:middle; white-space:nowrap; }
+.salary-ratio.high { background:rgba(127,14,16,0.12); color:var(--flag-hi); border:1px solid rgba(127,14,16,0.3); }
+.salary-ratio.med  { background:rgba(180,83,9,0.1);   color:var(--flag-med);border:1px solid rgba(180,83,9,0.25);  }
+.salary-ratio.ok   { background:rgba(22,101,52,0.1);  color:var(--flag-ok); border:1px solid rgba(22,101,52,0.25); }
+
 /* ── SMOOTH TRANSITIONS ── */
 input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
 .spotlight-card{transition:transform .2s ease,box-shadow .22s ease}
@@ -237,6 +258,10 @@ tbody tr{transition:background .12s ease}
 [data-theme="dark"] .hr-ornate { border-color:rgba(255,255,255,.08); }
 [data-theme="dark"] .hr-ornate::before { background:#141210; color:#9a9085; }
 [data-theme="dark"] body::before { opacity:0.15; }
+[data-theme="dark"] .enrichment-section { background:#0e0c0a; }
+[data-theme="dark"] .enrichment-sub { color:#6a6050; }
+[data-theme="dark"] .enrichment-legend-item { color:#6a6050; }
+[data-theme="dark"] .enrichment-note { color:#5a5040; }
 </style>
 <script defer src="/analytics.js"></script>
 <script defer src="/shared.js"></script>
@@ -371,6 +396,24 @@ tbody tr{transition:background .12s ease}
   </div>
 
   <hr class="hr-ornate">
+
+<!-- ENRICHMENT CHART — full-bleed dark section (breaks out of container via CSS) -->
+<section class="enrichment-section" id="enrichmentSection">
+  <div class="enrichment-inner">
+    <div class="enrichment-title">How Much Growth Is <em style="font-style:italic;color:var(--gold)">Above Salary</em>?</div>
+    <div class="enrichment-sub">TOP 20 BY ABSOLUTE GROWTH · SALARY BASELINE = ₹40 LAKH OVER 5 YEARS · DOTTED LINE = LEGITIMATE LIMIT</div>
+    <div class="enrichment-canvas-wrap">
+      <canvas class="enrichment-canvas" id="enrichmentCanvas" aria-label="Horizontal bar chart showing MLA asset growth compared to salary baseline of ₹40 lakh"></canvas>
+    </div>
+    <div class="enrichment-legend">
+      <div class="enrichment-legend-item"><div class="enrichment-legend-swatch" style="background:#2d6a4f"></div>Within salary range (≤ ₹40L growth)</div>
+      <div class="enrichment-legend-item"><div class="enrichment-legend-swatch" style="background:#b45309"></div>Above salary baseline (₹40L–₹1cr)</div>
+      <div class="enrichment-legend-item"><div class="enrichment-legend-swatch" style="background:#7f0e10"></div>Far above baseline (&gt; ₹1cr above salary)</div>
+      <div class="enrichment-legend-item"><div class="enrichment-legend-swatch" style="border:1px dashed #d97706;background:transparent"></div>₹40 lakh salary limit</div>
+    </div>
+    <div class="enrichment-note">Each bar shows total declared growth (2026 − 2021 assets). The first ₹40 lakh of growth is shaded green — this is within what a legislator's salary can explain. Everything beyond the dotted line is growth the affidavit must explain through declared business income, inheritance, or investment returns. Absence of such declaration is a red flag for public scrutiny.</div>
+  </div>
+</section>
 
   <div class="section-header fade-in">
     <div class="section-label">Spotlight Cases</div>
@@ -552,8 +595,9 @@ function buildRow(mla, idx) {
   const delta = hasPending ? null : mla.assets2026 - mla.assets2021;
   const pct   = hasPending ? null : Math.round((delta / mla.assets2021) * 100);
   const flag  = growthFlag(pct, delta, hasPending);
-  const aboveBaseline = (!hasPending && delta > SALARY_BASELINE)
-    ? `<span style="color:var(--accent);font-size:0.6rem;"> ▲${fmtLakh(delta - SALARY_BASELINE)} unexplained</span>` : '';
+  const salaryRatio = (!hasPending && delta > 0) ? (delta / SALARY_BASELINE).toFixed(1) : null;
+  const ratioClass  = salaryRatio > 10 ? 'high' : salaryRatio > 3 ? 'med' : 'ok';
+  const ratioBadge  = salaryRatio ? `<span class="salary-ratio ${ratioClass}">${salaryRatio}× salary</span>` : '';
 
   return `<tr data-party="${mla.party}" data-flag="${flag.level}" data-delta="${delta||0}" data-pct="${pct||0}">
     <td class="td-rank">${idx+1}</td>
@@ -562,7 +606,7 @@ function buildRow(mla, idx) {
     <td class="td-party"><span class="party-dot" style="background:${col}"></span>${mla.party}</td>
     <td class="td-amt">${hasPending ? '<span class="td-pending">pending</span>' : fmtLakh(mla.assets2021)}</td>
     <td class="td-amt">${fmtLakh(mla.assets2026)}</td>
-    <td class="td-delta">${hasPending ? '—' : (delta >= 0 ? '+' : '') + fmtLakh(delta)}${aboveBaseline}</td>
+    <td class="td-delta">${hasPending ? '—' : (delta >= 0 ? '+' : '') + fmtLakh(delta)}${ratioBadge}</td>
     <td class="td-pct">${hasPending ? '—' : (pct >= 0 ? '+' : '') + pct + '%'}</td>
     <td class="td-flag"><span class="flag-chip ${flag.cls}">${flag.label}</span></td>
     <td class="td-note">${mla.note}</td>
@@ -702,6 +746,108 @@ function renderPartyAverages() {
   }).join('');
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// ENRICHMENT CHART (canvas)
+// ─────────────────────────────────────────────────────────────────────────────
+function renderEnrichmentChart() {
+  const canvas = document.getElementById('enrichmentCanvas');
+  if (!canvas) return;
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+  const verified = ASSET_DATA.filter(m => m.assets2021 !== null);
+  const sorted = [...verified].sort((a, b) => (b.assets2026 - b.assets2021) - (a.assets2026 - a.assets2021)).slice(0, 20);
+
+  const BAR_H = 22, GAP = 7, NAME_W = 170, AMT_W = 80, PAD = 16;
+  const totalH = sorted.length * (BAR_H + GAP) + PAD * 2 + 30;
+  const dpr = window.devicePixelRatio || 1;
+  const cssW = canvas.parentElement.clientWidth;
+  canvas.width  = cssW * dpr;
+  canvas.height = totalH * dpr;
+  canvas.style.height = totalH + 'px';
+
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const chartW = cssW - NAME_W - AMT_W - PAD;
+  const maxDelta = sorted[0] ? (sorted[0].assets2026 - sorted[0].assets2021) : 100;
+  const BASELINE = 40; // lakhs
+  const baselineX = NAME_W + (BASELINE / maxDelta) * chartW;
+
+  const ink    = isDark ? '#f0ece3' : '#1a1714';
+  const muted  = isDark ? '#6a6050' : '#9a9085';
+  const paper  = isDark ? '#0e0c0a' : 'transparent';
+  const green  = '#2d6a4f';
+  const orange = '#b45309';
+  const red    = '#7f0e10';
+  const trackBg = isDark ? 'rgba(255,255,255,0.04)' : 'rgba(107,95,78,0.07)';
+
+  // Header
+  ctx.fillStyle = muted;
+  ctx.font = `500 9px 'IBM Plex Mono', monospace`;
+  ctx.fillText('MLA', PAD, 14);
+  ctx.fillText('GROWTH ₹', NAME_W, 14);
+  ctx.fillText('TOTAL', NAME_W + chartW + 8, 14);
+
+  sorted.forEach((mla, i) => {
+    const y = PAD + 24 + i * (BAR_H + GAP);
+    const delta = mla.assets2026 - mla.assets2021;
+    const barW  = (delta / maxDelta) * chartW;
+    const greenW  = Math.min(barW, (BASELINE / maxDelta) * chartW);
+    const aboveW  = Math.max(0, barW - greenW);
+    const aboveLakh = Math.max(0, delta - BASELINE);
+
+    // Track bg
+    ctx.fillStyle = trackBg;
+    ctx.fillRect(NAME_W, y + 3, chartW, BAR_H - 6);
+
+    // Green: salary-explainable portion
+    if (greenW > 0) {
+      ctx.fillStyle = green;
+      ctx.fillRect(NAME_W, y + 3, greenW, BAR_H - 6);
+    }
+
+    // Orange/red: above baseline
+    if (aboveW > 0) {
+      ctx.fillStyle = aboveLakh > 100 ? red : orange;
+      ctx.fillRect(NAME_W + greenW, y + 3, aboveW, BAR_H - 6);
+    }
+
+    // Name
+    ctx.fillStyle = ink;
+    ctx.font = `600 11px 'IBM Plex Mono', monospace`;
+    const shortName = mla.name.length > 18 ? mla.name.slice(0, 17) + '…' : mla.name;
+    ctx.fillText(shortName, PAD, y + BAR_H / 2 + 4);
+
+    // Party indicator dot
+    const partyColors = { BJP:'#e8640a', TMC:'#1a7a3c', CPIM:'#c0171b', Congress:'#1565c0', Ind:'#8a7a6a' };
+    ctx.fillStyle = partyColors[mla.party] || '#8a7a6a';
+    ctx.beginPath();
+    ctx.arc(NAME_W - 8, y + BAR_H / 2, 3, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Amount label
+    ctx.fillStyle = muted;
+    ctx.font = `400 9px 'IBM Plex Mono', monospace`;
+    ctx.fillText(fmtLakh(delta), NAME_W + chartW + 8, y + BAR_H / 2 + 3);
+  });
+
+  // Baseline dotted line
+  ctx.save();
+  ctx.setLineDash([3, 3]);
+  ctx.strokeStyle = '#d97706';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(baselineX, 18);
+  ctx.lineTo(baselineX, totalH - 4);
+  ctx.stroke();
+  ctx.restore();
+
+  // Baseline label
+  ctx.fillStyle = '#d97706';
+  ctx.font = `500 8px 'IBM Plex Mono', monospace`;
+  ctx.fillText('₹40L', baselineX + 3, 14);
+}
+
 // Fade observer
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
@@ -725,8 +871,17 @@ async function loadData() {
   renderAggStats();
   renderSpotlight();
   renderPartyAverages();
+  renderEnrichmentChart();
   applyFilters();
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Re-render chart on theme toggle or resize
+  window.addEventListener('resize', renderEnrichmentChart);
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.theme-toggle, [onclick*="toggleTheme"]')) {
+      setTimeout(renderEnrichmentChart, 80);
+    }
+  });
 }
 
 loadData();
