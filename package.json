@@ -15,6 +15,7 @@
     "auto-update": "node scripts/auto-update-system.mjs",
     "extract-constituencies": "node scripts/extract-constituencies.mjs",
     "build": "node scripts/generate-sitemap.mjs",
+    "setup": "node scripts/setup-env.mjs",
     "test": "echo \"No tests specified\""
   },
   "keywords": [],
