@@ -165,7 +165,7 @@ button:active,
 }
 
 /* ── MOBILE NAV ────────────────────────────────────────────────────────────── */
-@media (width <= 1200px) {
+@media (max-width: 1200px) {
   .site-nav { position: relative; }
 
   .site-nav-inner {
@@ -450,7 +450,7 @@ button:active,
   display: none;
 }
 
-@media (width <= 640px) {
+@media (max-width: 640px) {
   body {
     padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px));
   }

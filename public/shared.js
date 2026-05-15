@@ -171,10 +171,10 @@ window.shareDataPoint = function (label, value, url) {
 (function () {
   var ITEMS = [
     { href: '/', icon: '⌂', label: 'Home' },
-    { href: '/accountability', icon: '☑', label: 'Pledges' },
     { href: '/corruption', icon: '⚖', label: 'Cases' },
+    { href: '/ask', icon: '✦', label: 'Ask AI' },
     { href: '/mlas', icon: '◉', label: 'MLAs' },
-    { href: '/bonds', icon: '₹', label: 'Bonds' },
+    { href: '/map', icon: '⬡', label: 'Map' },
   ];
   var nav = document.createElement('nav');
   nav.className = 'mobile-btm-nav';
