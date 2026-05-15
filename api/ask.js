@@ -52,7 +52,7 @@ function summarisePledges(pledges) {
 function summariseConstituencies(data) {
   if (!data || !data.seats) return '';
   const byParty = {};
-  data.seats.forEach(s => { byParty[s.party] = (byParty[s.party] || 0) + 1; });
+  data.seats.forEach(s => { byParty[s.winParty] = (byParty[s.winParty] || 0) + 1; });
   const sorted = Object.entries(byParty).sort((a, b) => b[1] - a[1]);
   return `2026 WB Assembly results: ${data.seats.length} seats. ` + sorted.map(([p, n]) => `${p}: ${n}`).join(', ') + '.';
 }
