@@ -1132,7 +1132,7 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
         type="search"
         id="cif-input"
         class="cif-search-input"
-        placeholder="Type your constituency…"
+        placeholder="Type constituency or MLA name…"
         aria-label="Search constituency"
         autocomplete="off"
         spellcheck="false"
@@ -2493,7 +2493,8 @@ document.addEventListener('click', function() {
       return;
     }
     var match = mlasData.find(function(m) {
-      return m.constituency && m.constituency.toLowerCase().indexOf(q) !== -1;
+      return (m.constituency && m.constituency.toLowerCase().indexOf(q) !== -1) ||
+             (m.name && m.name.toLowerCase().indexOf(q) !== -1);
     });
     if (match) {
       resultEl.innerHTML = renderCard(match);
