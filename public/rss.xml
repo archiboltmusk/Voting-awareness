@@ -5,7 +5,7 @@
     <link>https://voting-awareness.vercel.app</link>
     <description>Latest headlines on Bengal corruption cases, court hearings, and political accountability — updated every 6 hours.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 18 May 2026 16:29:45 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2026 18:50:44 GMT</lastBuildDate>
     <atom:link href="https://voting-awareness.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://voting-awareness.vercel.app/favicon.svg</url>
@@ -21,6 +21,19 @@
       <content:encoded>
         <![CDATA[
           <p>Saradha chit fund case: CBI summons Trinamool leader Partha Chatterjee - Indiablooms</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
+      <title>Saradha chief Sudipta Sen set for release after nearly 13 years in jail - The Statesman</title>
+      <link>https://news.google.com/rss/articles/CBMiwAFBVV95cUxQdWgxM1hrTlJvWWxuc0VwTHY5YzBSOGxkek5kOGJOZFdsMUhWRkd4aWNGR1FOV2w4Q29mVFZiN0QtUkVmam0wSHBuQjNVMjQxNXVfWWw5X0Z6OUlwZFZWSnhwcGlkMnJEeVlTc2JkN2RBbDEydkNhY1Y1Ry1ibGFNMFVfZmN4ZFhoaFdsZTJxZWNvMjdzOGRnbXZRNS1ncXRON2Jtd3BlR1lSMlg1ZnF6eUZIR1FNMHJxWXVlbF9wR0TSAcYBQVVfeXFMTWVtaTJjWkFpWC1OOHdua1BSTlU2TUlZSTYzNXozdUdFalhDOFNnamp6VUFnQXpLaEJCMnFOVlRJeV9YSTd1MklocEotdEowelAzWk5la3lFMWxjN1BhajR5MEs2eFdpVFotM3Y5bUVPRVZ6alBHVUswYlJiZEpOQ2ppRVFNYzI5NDBnOXN4SFhqT0NHTFJvTWRyaklyLVNLVGpNd2loVk5JVUhmc1FvRGI1ZXRCb2RnR293SEpZRzZhS3FRVUNn?oc=5</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <source>The Statesman</source>
+      <category>saradha</category>
+      <content:encoded>
+        <![CDATA[
+          <p>Saradha chief Sudipta Sen set for release after nearly 13 years in jail - The Statesman</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -60,19 +73,6 @@
       <content:encoded>
         <![CDATA[
           <p>After 13 years, Saradha chit fund scam accused Sudipta Sen to be out on bail - The Indian Express</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
-      <title>Calcutta High Court grants conditional bail to Saradha scam accused Sudipta Sen - Mid-day</title>
-      <link>https://news.google.com/rss/articles/CBMiygFBVV95cUxNR0MycklZU184UFpuNnBNdGpheEdGQWV0by1JbTc3bHBTTkxDa3F5ZFVMWWNENEsxekswV0h6ajFsUjR1WEttaWQtekgyT0FnY1JFV0c4YTNqOVlfNkQ3bWR3SEhYd2NwZS1CeWVyc09VZHJTUVpXaEUxNTd4eVhjRlUxcWR0WjNlTkVER1B4dmpsRmJ0VVh3V2Z3T2ZRTXdtal9lOXpxTlRtckVPQ2llRzNlVTFwUmRBMnFHWDhWYXFmWXRpZzlwMDR30gHPAUFVX3lxTFBBeGxPSWV4ZEEwSWxYTWxCWnFPejNKYUlhck45WGJmUVhUS0psbnVKNUx3RWs1bzRQWWo3T1JGbkNfcE9veVI5N1A4a0huVWlTSWtCbHd3LURubUM2VFZhX2RYVndTN3V6V2Nmbl9udTBBLWNGaElsV0tSTGhFNThXTzVKTXEzNUpJaTYwbkVFclRBYlNSUlVudGhsUjVybzNCcnZzQmVkVXhDM3V2QUJUTW44eXE2Y3Q3NFZYU0ZLdkx6Rm1mOVNuS2tqUVRMSQ?oc=5</link>
-      <pubDate>Thu, 09 Apr 2026 00:00:00 GMT</pubDate>
-      <source>Mid-day</source>
-      <category>saradha</category>
-      <content:encoded>
-        <![CDATA[
-          <p>Calcutta High Court grants conditional bail to Saradha scam accused Sudipta Sen - Mid-day</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -221,19 +221,6 @@
       </content:encoded>
     </item>
     <item>
-      <title>West Bengal phase 2 polls: Will anti-incumbency, scam charges and SIR row end TMC&apos;s 15-year run? - MSN</title>
-      <link>https://news.google.com/rss/articles/CBMimgJBVV95cUxQWklRNnFZM0g1R1d1Q3lnS254T2ZfLTB5TVFtdDZjRHQwUk9hdExZanA5LTdjeWRMc09qTzNoSUR1NDF6RXFqN3AxX1NOV3VhUFVpMU9TR00yVm5oR1RMOV9HOGlBc2dMZk1MRmRETFFoMnNCRG8yTDVDcnVadUt4eE5sdkpPSXFZWFlBQTE3Q2pwd1NUakNIZ3JNNEtEbTVPa3M1YVBWd1kyWDR2V3VmVktjOXBFR3F6MmJkNWtHSGxveEZpTHBzUGVDcXNkUkliRFE1TEs2OEZ2U29OTW1fYUZKWTM5Mk1ISTdaNHdxNjdvMXFmRVljS2tReTg3NGNTeDR4dGxCd21tTTNxYW1pX3YxYjdSMjFQdXc?oc=5</link>
-      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
-      <source>MSN</source>
-      <category>ssc-scam</category>
-      <content:encoded>
-        <![CDATA[
-          <p>West Bengal phase 2 polls: Will anti-incumbency, scam charges and SIR row end TMC&apos;s 15-year run? - MSN</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
       <title>ED Arrests Sujit Bose In Municipal Recruitment Scam Linked To SSC Probe - Oneindia</title>
       <link>https://news.google.com/rss/articles/CBMiuwFBVV95cUxNTUQzQXIwcUU3S01VcnpjMHROemJNM1EyZFltOF93cUxsUWZSRGlZNkJUdUR4OGx2YTJkVnhwd0p5bXZzWVdWM1FJam5HWUQ1T2kzU1MzVjYtOWRPVTA4MTFlMmYwaWxxNEZ5WWJfNmJHZm9BXzBXcWtKT0VDYm1EMlQyc0xtbW9SQmVTZTdXME8ySU5VXzNWZ3dMajFHa0JmY0NXVVAtMG5nTVI4QmpMdHJWenFWTGNSVlNR?oc=5</link>
       <pubDate>Wed, 13 May 2026 00:00:00 GMT</pubDate>
@@ -273,14 +260,14 @@
       </content:encoded>
     </item>
     <item>
-      <title>Mamata defends jailed Birbhum strongman Anubrata Mondal, talks of BJP as the &apos;bigger thief&apos; - Dailyhunt</title>
-      <link>https://news.google.com/rss/articles/CBMiigJBVV95cUxQX3RFWXp2VHM4UDRXUktVLWVRdEhjNVBZY2MzenpfOTlMOFlYUkZ3bnVqejhXX2s2dFhBclNjeklHd09Qa1dRNzlNU3UwQ0dPS1BvTjViUTZSQnBnT3RYODVCYVlnRFllWF9ZbXFtejFSMGEwY1pSMmJiZjlLbWdKa1lXWlZTcE9JN1p1YlFKRnZpRG1CS1J0MzNsa055SXc3eFNmVGllZkhxYWF4OGFOeHdyeTA1R0VJQ0tianRRSE9vckFwemN0cDhLSUVMWGp2UF93LVctRzlxREZZWmFKN3FJa3ctUkN3aHp5TTNhdUMzaGJuOUhlQ285U2I0ZlNrRGtjMzZBN3Rwdw?oc=5</link>
-      <pubDate>Sun, 03 May 2026 00:00:00 GMT</pubDate>
-      <source>Dailyhunt</source>
-      <category>cattle-trafficking</category>
+      <title>SSC uploads 22L OMR sheets from 2016 teacher recruitment test - The Times of India</title>
+      <link>https://news.google.com/rss/articles/CBMi0gFBVV95cUxQUzM0WWRRUjAzQWVKRnlhaVNzcTcwZDgzWXc0RS13MUpoTlFBbzRZZGY3T2I2OXZIYmRpUXdoZ3BuUGxVc1VaRE1od1lnUG02b0FzdG1oUWZ2dmlrMlBtUlpSQVJ0MWotbmhZN0hhOXR6ekY5blNCbEtxRWk0eFNYeWtHejlScWczLXVQT0tqOWluSm44Z2JxZHp3eEJqM0NVSWlfTEFNQ2tiaTdtMWlpejJiRXpfbS1BUTdGTjlzYzZicW90S0psS0FXUVljQ1dXMVHSAdcBQVVfeXFMTlg3c1oxUU1WN1VrUjFvMmtfc2NBVlBOdmxXSDdJdklDOTM1Vzl0Qk1pb1pOX0dwVnNHX0Z6VTM4aUczdzdaQ3JPZGQ5NFlZX2hwSGo1SG53dllkbk5QTmRYaEpCcTNzYmJfSDJMUmh1a1NfOEdyMHNMeDdJckd6TEtvTkNQdUpBbFhaaTRCQjNvWlVxdGRiSS1Ib2s0SmRPeGhQOTM4S1pMQjhKZ1NpZ0dsSUc1T3d2NmVlMXByaDZnQlVUcXRlaEk3UmpieENPU04xMmx2dWc?oc=5</link>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+      <source>The Times of India</source>
+      <category>ssc-scam</category>
       <content:encoded>
         <![CDATA[
-          <p>Mamata defends jailed Birbhum strongman Anubrata Mondal, talks of BJP as the &apos;bigger thief&apos; - Dailyhunt</p>
+          <p>SSC uploads 22L OMR sheets from 2016 teacher recruitment test - The Times of India</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -333,6 +320,19 @@
       <content:encoded>
         <![CDATA[
           <p>Birbhum SP moves HC against NCW summons - The Times of India</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
+      <title>Calcutta HC grants permission to Birbhum SP to challenge summons in Anubrata Mondal case - Telegraph India</title>
+      <link>https://news.google.com/rss/articles/CBMi5gFBVV95cUxQTHdtX1dNazNhWFJEb1g4YzFwdFYxWHNhdXFMZnJSVk5nYUZyN29RVkY2b1BaWGFCa2dmeXphajRjSkxhcGNudUlMbEZZQnJldjAwbUdIZzFwbmtsU3VLTWZBNURFVWxYako0UGlqQjUxc0hNdjRFanJKS2RfcW52cF84V1psZ3lGV3czeWU0V3lRbGsxbGpZeEpEcmpHVVc3WFdzUF9nRGEtVmNJUk9wMENuNEZmOFUtZ3J6UTdrRl9yWUlNOGpYRFM5Q29wMjNEdXlKLU9UdDlFbHdhc0twSzBmSVM1UdIB6wFBVV95cUxQTVJPbks1eUlkcGZTcjRHX1FzTDN6UXhjRGlEU2Y3UzA0QldIclhnUEFtRWdYZUFEUl9EOF9WSHFhYUQzYVFVRFlxbVVQc2RsYncxRHFlWHdZSEJXQjBvVVozSC04NWhBcVBoeTdBZDVqN3FRSlRyMjlfd0xUYWNrczlWY2lmMGtoSU1MbVpFeklRT21kYXJCcjVhbXpQYlpZczg0MDF6d3hHUXlXOTZfWnBBS21RY0NoTlBZWFhoQTFLUGVUQ1BBakxIZjk1VmhuZ3NIMDFyNGlKTWlJUmZ3NUdla2h2Z3VnVmZN?oc=5</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 GMT</pubDate>
+      <source>Telegraph India</source>
+      <category>cattle-trafficking</category>
+      <content:encoded>
+        <![CDATA[
+          <p>Calcutta HC grants permission to Birbhum SP to challenge summons in Anubrata Mondal case - Telegraph India</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
