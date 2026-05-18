@@ -2,6 +2,7 @@
   "swearingIn": "2026-05-09",
   "deadline100": "2026-08-17",
   "lastUpdated": "2026-05-18",
+  "sourceNote": "Pledges sourced from BJP's official 'Bhoroshar Shopoth' manifesto (bjp-govt-wb.pages.dev tracker) and verified against news reports.",
   "categories": [
     {
       "id": "agriculture",
@@ -50,6 +51,12 @@
       "label": "Education & Youth",
       "icon": "📚",
       "num": "VIII"
+    },
+    {
+      "id": "security",
+      "label": "Border & Security",
+      "icon": "🛡️",
+      "num": "IX"
     }
   ],
   "pledges": [
@@ -181,20 +188,20 @@
     },
     {
       "id": "bijoya",
-      "category": "welfare",
-      "title": "Bijoya Lakshmi — Women's Monthly Stipend",
-      "detail": "BJP's answer to TMC's Lakshmir Bhandar: a renamed/restructured scheme providing ₹2,000/month to women-headed households below the poverty line, using Aadhaar-linked direct bank transfer with zero intermediaries.",
-      "source": "BJP 2026 Manifesto (Welfare chapter) · BJP women's cell campaign material",
-      "status": "watching",
-      "deadlineLabel": "100 days",
-      "deadlineDate": "2026-08-17",
-      "updateNote": "No government order issued yet.",
-      "newsHeadline": null,
-      "newsDate": null,
-      "newsUrl": null,
+      "category": "women",
+      "title": "Annapurna Bhandar — ₹3,000/Month Direct Cash for Women",
+      "detail": "BJP's flagship women's welfare scheme: a direct ₹3,000/month bank transfer via DBT to Aadhaar-linked accounts for all eligible adult women in West Bengal — announced at the state's first cabinet meeting on May 11, 2026. Replaces and significantly expands on the previous administration's Lakshmir Bhandar (₹1,000/month) in both coverage and amount.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · First cabinet meeting, May 11 2026",
+      "status": "partial",
+      "deadlineLabel": "June 1 launch",
+      "deadlineDate": "2026-06-01",
+      "updateNote": "Officially announced at first cabinet meeting (May 11). Application process begun. Launch date set as June 1, 2026. DBT infrastructure under preparation.",
+      "newsHeadline": "What is Annapurna Bhandaar? Bengal BJP govt's Rs 3,000 scheme explained - BusinessToday",
+      "newsDate": "2026-05-12",
+      "newsUrl": "https://www.businesstoday.in/india/story/what-is-annapurna-bhandaar-bengal-bjp-govts-rs3000-scheme-explained-530946-2026-05-12",
       "keywords": [
-        "Bijoya Lakshmi scheme Bengal BJP 2026",
-        "West Bengal women stipend BJP 2000"
+        "Annapurna Bhandar Bengal BJP 3000 women 2026",
+        "West Bengal women monthly transfer BJP June 2026"
       ]
     },
     {
@@ -645,6 +652,294 @@
       "keywords": [
         "SC ST scholarship Bengal BJP backlog 2026",
         "Bengal OBC scholarship restoration BJP 2026"
+      ]
+    },
+    {
+      "id": "yuva-shakti",
+      "category": "employment",
+      "title": "Yuva Shakti Prakalpa — Rs 3,000/Month for Unemployed Youth",
+      "detail": "BJP pledged Rs 3,000/month direct bank transfer to all unemployed youth in West Bengal plus a one-time Rs 15,000 educational grant to help students prepare for competitive examinations — a dual-support approach addressing both immediate income needs and longer-term skill-building.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · Amit Shah Bengal manifesto launch, April 2026",
+      "status": "watching",
+      "deadlineLabel": "100 days",
+      "deadlineDate": "2026-08-17",
+      "updateNote": "No government order or scheme notification issued yet.",
+      "newsHeadline": null,
+      "newsDate": null,
+      "newsUrl": null,
+      "keywords": [
+        "Yuva Shakti Bengal BJP unemployed youth 3000 2026",
+        "West Bengal unemployed youth scheme BJP 2026"
+      ]
+    },
+    {
+      "id": "da-arrears",
+      "category": "governance",
+      "title": "DA Arrears — Full Clearance for State Employees",
+      "detail": "BJP pledged to clear all pending Dearness Allowance (DA) arrears owed to West Bengal state government employees and pensioners immediately upon assuming power — reversing years of DA underpayment under TMC that left state workers 25–30% below Central DA rates.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · Amit Shah Bengal manifesto launch",
+      "status": "watching",
+      "deadlineLabel": "45 days",
+      "deadlineDate": "2026-06-23",
+      "updateNote": "Pension payout hike announced (May 13) for existing retirees — a goodwill gesture, but full DA arrears clearance for serving employees not yet ordered.",
+      "newsHeadline": "Suvendu Adhikari-led govt to hike pension payouts in Bengal - The Hans India",
+      "newsDate": "2026-05-13",
+      "newsUrl": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPYV9WTWp4Q180aW1KQkozTndqTG5qZUNyQjNvRlhJeVc5d1premZFSFh2NFVmNWNmZXlzQVFjZTlCcTFYUEpXVkxGREZtLVZaeWFhMzZabzkxMERGMXNhR2FZaXlUQk1YOHRiZVl3STM5Y3F0NzN0QzBXLU12VF9CT0ZhSXhjcFVBbEJJSXdNQWhjS3F3ZmZ3VkdwZzVFN2xtRE5RVVQ3OGVqSDhwb2k1T3FSLVXSAbQBQVVfeXFMT2FfVk1qeENfNGltSkJKM053akxuamVDckIzb0ZYSXlXOXdaa3pmRUhYdjRVZjVjZmV5c0FRY2U5QnExWFBKV1ZMRkRGbS1WWnlhYTM2Wm85MTBERjFzYUdhWWl5VEJNWDh0YmVZd0kzOWNxdDczdEMwVy1NdlRfQk9GYUl4Y3BVQWxCSUl3TUFoY0txd2Zmd1ZHcGc1RTdsbUROUVVUNzhlakg4cG9pOU9xUi1V",
+      "keywords": [
+        "DA arrears West Bengal BJP clearance 2026",
+        "Bengal state employees Dearness Allowance BJP 2026"
+      ]
+    },
+    {
+      "id": "seventh-pay",
+      "category": "governance",
+      "title": "7th Pay Commission — State Implementation in 45 Days",
+      "detail": "BJP pledged to formally implement the Central 7th Pay Commission recommendations for West Bengal state government employees within 45 days of forming the government — aligning state pay scales with Central government scales and ending the large pay gap that persisted under TMC.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · Amit Shah Bengal manifesto launch",
+      "status": "watching",
+      "deadlineLabel": "45 days",
+      "deadlineDate": "2026-06-23",
+      "updateNote": "No formal 7th Pay Commission implementation order issued yet.",
+      "newsHeadline": null,
+      "newsDate": null,
+      "newsUrl": null,
+      "keywords": [
+        "7th Pay Commission West Bengal BJP 2026",
+        "Bengal state employees pay revision BJP 2026"
+      ]
+    },
+    {
+      "id": "border-fence",
+      "category": "security",
+      "title": "BSF Border Fencing — State Land Transfer in 45 Days",
+      "detail": "BJP pledged to immediately transfer all necessary state-owned land to the BSF for comprehensive border fencing along West Bengal's 2,217 km international boundary with Bangladesh — unblocking fencing stalled for a decade by TMC's refusal to cooperate with Central border security agencies.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · Amit Shah manifesto launch",
+      "status": "partial",
+      "deadlineLabel": "45 days",
+      "deadlineDate": "2026-06-23",
+      "updateNote": "First cabinet meeting (May 11) cleared the transfer of state land to BSF for border fencing — a major step. Physical fencing construction timeline and completion schedule not yet specified.",
+      "newsHeadline": "Bengal govt intensifies crackdown on cow smuggling; Suvendu Adhikari cabinet clears BSF fencing land - IBTimes India",
+      "newsDate": "2026-05-11",
+      "newsUrl": "https://www.ibtimes.co.in/bengal-govt-intensifies-crackdown-on-cow-smuggling-suvendu-adhikari-cabinet-clears-bsf-fencing-land-901953",
+      "keywords": [
+        "BSF border fencing Bengal BJP 2026 land",
+        "West Bengal border fence BSF land transfer 45 days"
+      ]
+    },
+    {
+      "id": "ucc",
+      "category": "governance",
+      "title": "Uniform Civil Code — 6-Month Implementation",
+      "detail": "BJP pledged to enact the Uniform Civil Code (UCC) in West Bengal within 6 months of taking the oath of office — making Bengal the second state (after Uttarakhand) to implement UCC, covering marriage, divorce, inheritance, and adoption laws uniformly regardless of religion.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · Amit Shah Kolkata manifesto launch, April 2026",
+      "status": "watching",
+      "deadlineLabel": "6 months",
+      "deadlineDate": "2026-11-08",
+      "updateNote": "No UCC draft committee constituted. No legislative timeline or Law Commission reference announced.",
+      "newsHeadline": null,
+      "newsDate": null,
+      "newsUrl": null,
+      "keywords": [
+        "Uniform Civil Code West Bengal BJP 2026 UCC",
+        "Bengal UCC implementation BJP 6 months"
+      ]
+    },
+    {
+      "id": "ayushman",
+      "category": "welfare",
+      "title": "Ayushman Bharat PM-JAY — West Bengal Rollout",
+      "detail": "BJP pledged to immediately implement Ayushman Bharat (PM-JAY) in West Bengal — which TMC had refused to join for 7 years — providing Rs 5 lakh annual health cover per family to an estimated 2.37 crore eligible Bengali households under the Central scheme's BPL and vulnerable category criteria.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · First cabinet meeting, May 11 2026",
+      "status": "partial",
+      "deadlineLabel": "Immediate",
+      "deadlineDate": "2026-05-23",
+      "updateNote": "First cabinet meeting (May 11) formally approved West Bengal's enrolment in Ayushman Bharat PM-JAY. Hospital empanelment and beneficiary card enrollment process yet to begin formally. Around 2.37 crore families are estimated to benefit.",
+      "newsHeadline": "BSF To Fence Bengal Border, Ayushman Bharat Finally Rolled Out: CM Suvendu Adhikari's 6 Big Decisions In First Cabinet Meet - Republic World",
+      "newsDate": "2026-05-11",
+      "newsUrl": "https://www.republicworld.com/india/suvendu-adhikaris-first-cabinet-bengal-fast-tracks-ayushman-bharat-and-bsf-land-transfer-among-six-key-decisions-2026-05-11-123847",
+      "keywords": [
+        "Ayushman Bharat West Bengal BJP 2026 rollout PM-JAY",
+        "Bengal health insurance 5 lakh BJP 2026"
+      ]
+    },
+    {
+      "id": "free-bus",
+      "category": "women",
+      "title": "Free Bus Travel for Women — State Transport from June 1",
+      "detail": "BJP pledged free travel for all women on state-owned and state-operated buses across West Bengal from June 1, 2026 — a daily relief measure targeting women commuters, students, and workers who spend a significant share of household income on public transport.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · Amit Shah manifesto launch",
+      "status": "partial",
+      "deadlineLabel": "June 1, 2026",
+      "deadlineDate": "2026-06-01",
+      "updateNote": "Scheme formally announced alongside Annapurna Bhandar with a June 1 start date. State Transport Corporation operational modalities (ticketing, revenue subsidy mechanism) not yet published.",
+      "newsHeadline": "Women's helpline, geo-tagging-based garbage complaint: Here are the latest initiatives of the new BJP government in Bengal - The Indian Express",
+      "newsDate": "2026-05-15",
+      "newsUrl": "https://news.google.com/rss/articles/CBMiigJBVV95cUxNZUVuVF9UdVBKSkNIYlF2LUJCeDNLMkZBa2FLcm1FTTBKeUlXdHlGQ25UR08ydFpHeWRQbW1IS0xKWmFVRWFuWU1Zc0pHWmNEYi05cENjbktkSmxFelpWZ1JiT0xHWFUtVVVqVlp3aldoODMtdEptdHRVVkJsVDNaMGJaU09nTTF2VHZYM3pKWjVxQnFnYmcxSGtNYmlEYmlCRXpRWDI2eUN6LWhCTk5EdXA5MjNSdUp6eERxdjJxWndOdHdjUkJyeUhNZWJrMV9Lbm1ibEZvNEc5Wko0WlFUUC12eDBfLTN2LVNPRzB0dk5jRzRBcEo0ck5EbGhTZmJQNUt5LUF3dWEwZ9IBkAJBVV95cUxQTXBvWnpHQktyYWZQcnlPeXZJT3NpTHBNa0FEZFlzUWNRMVVydzFmRHl0YjVNdmZoUDBSZlRQZ0JBbmZFaFZjUHg5N08zekkxMVJwUTBJazUwTW5JV0RESF92bkpkbF81SGVqUDNGUG9rLWtSdjNfclJmd3hpRGhtb09uLUJIbEJoNDlibTMxWlBaNi11ZjlUYTJUOFZFdnQzU0RoVXZ2Zk8wZU1iNHJaUnZKVXRzSmhHZHlrVnQ4TGQ1Qi1sRWo3bkZqTXNONHJSVEJEcFRBbHFhSmwxZUhpS1RvZWJSdmlEOG9oZ3F3TjRsV0MxSUNVNE52T2JmUUlxbTBEOHpyUHh0dk9hTVMyZw",
+      "keywords": [
+        "free bus travel women Bengal BJP 2026",
+        "West Bengal women free bus SBSTC 2026"
+      ]
+    },
+    {
+      "id": "women-quota",
+      "category": "women",
+      "title": "33% Women's Reservation — All Government Jobs",
+      "detail": "BJP pledged 33% horizontal reservation for women across all state government jobs and state police — including all levels of recruitment through SSC, PSC, WBPSC, and direct departmental hiring — to structurally improve women's representation in Bengal's public sector.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · Amit Shah manifesto launch",
+      "status": "watching",
+      "deadlineLabel": "100 days",
+      "deadlineDate": "2026-08-17",
+      "updateNote": "No gazette notification or recruitment rule amendment issued yet.",
+      "newsHeadline": null,
+      "newsDate": null,
+      "newsUrl": null,
+      "keywords": [
+        "33% women reservation Bengal BJP government jobs 2026",
+        "West Bengal women quota government jobs BJP"
+      ]
+    },
+    {
+      "id": "maternity-benefit",
+      "category": "women",
+      "title": "Maternity Benefit — Rs 21,000 per Pregnant Mother",
+      "detail": "BJP pledged a Rs 21,000 one-time direct bank transfer to every pregnant mother in West Bengal for pre- and post-natal child care — a major expansion of the existing Central PMMVY scheme's Rs 5,000 benefit, providing comprehensive financial support to mothers regardless of birth order.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · BJP4India official statement",
+      "status": "watching",
+      "deadlineLabel": "100 days",
+      "deadlineDate": "2026-08-17",
+      "updateNote": "No government order or scheme notification issued yet.",
+      "newsHeadline": null,
+      "newsDate": null,
+      "newsUrl": null,
+      "keywords": [
+        "maternity benefit Bengal BJP 21000 pregnant mother 2026",
+        "West Bengal PMMVY expansion BJP 2026"
+      ]
+    },
+    {
+      "id": "tea-garden-land",
+      "category": "agriculture",
+      "title": "Tea Garden Workers — Land Titles in 100 Days",
+      "detail": "BJP pledged to grant land pattas (titles) to all tea garden workers in North Bengal within 100 days, alongside setting up schools and health centres in tea estate areas, guaranteeing minimum wages, and strengthening the Darjeeling tea brand through GI protection enforcement.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · Amit Shah Siliguri rally, April 2026",
+      "status": "watching",
+      "deadlineLabel": "100 days",
+      "deadlineDate": "2026-08-17",
+      "updateNote": "No land patta distribution scheme or revenue department order issued for tea garden workers.",
+      "newsHeadline": null,
+      "newsDate": null,
+      "newsUrl": null,
+      "keywords": [
+        "tea garden workers land title Bengal BJP 2026",
+        "Darjeeling tea estate workers patta BJP 2026"
+      ]
+    },
+    {
+      "id": "north-bengal-institutions",
+      "category": "education",
+      "title": "AIIMS, IIT, IIM & Cancer Hospital — North Bengal",
+      "detail": "BJP pledged to establish an AIIMS, an IIT, an IIM, and a dedicated cancer hospital in North Bengal — addressing the severe deficit in premier educational and healthcare institutions that has driven the migration of skilled youth out of the region for decades.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · Amit Shah Siliguri rally",
+      "status": "watching",
+      "deadlineLabel": "5 years",
+      "deadlineDate": "2031-05-08",
+      "updateNote": "No Central Ministry of Education or Health approvals announced for new AIIMS/IIT/IIM sites in North Bengal.",
+      "newsHeadline": null,
+      "newsDate": null,
+      "newsUrl": null,
+      "keywords": [
+        "AIIMS IIT IIM North Bengal BJP 2026",
+        "North Bengal higher education BJP institutions 2026"
+      ]
+    },
+    {
+      "id": "hpv-vaccination",
+      "category": "welfare",
+      "title": "Free HPV Vaccination & Breast Cancer Screening",
+      "detail": "BJP pledged to launch a statewide free HPV vaccination programme for adolescent girls (to prevent cervical cancer) and free breast cancer screening camps for women across all 23 districts — integrating both programmes into the National Health Mission's state delivery network.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · Health chapter",
+      "status": "watching",
+      "deadlineLabel": "100 days",
+      "deadlineDate": "2026-08-17",
+      "updateNote": "No health department notification or NHM integration order issued yet.",
+      "newsHeadline": null,
+      "newsDate": null,
+      "newsUrl": null,
+      "keywords": [
+        "HPV vaccination Bengal BJP 2026 free",
+        "breast cancer screening Bengal BJP NHM 2026"
+      ]
+    },
+    {
+      "id": "cattle-crackdown",
+      "category": "security",
+      "title": "End Cattle Smuggling — Zero Tolerance Policy",
+      "detail": "BJP pledged zero tolerance on cattle smuggling across Bengal's borders with Bangladesh — coordinated state police and BSF enforcement, dedicated fast-track prosecution of smugglers, and asset seizures targeting the entrenched trafficking network that operated openly under TMC patronage.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · Amit Shah campaign rallies",
+      "status": "partial",
+      "deadlineLabel": "Immediate",
+      "deadlineDate": "2026-05-23",
+      "updateNote": "New government intensified cattle smuggling crackdowns post-formation (May 11–17). First cabinet cleared BSF land fencing which disrupts smuggling corridors. Fast-track prosecution mechanism not yet formally established.",
+      "newsHeadline": "Bengal govt intensifies crackdown on cow smuggling; Suvendu Adhikari cabinet clears BSF fencing land - IBTimes India",
+      "newsDate": "2026-05-11",
+      "newsUrl": "https://www.ibtimes.co.in/bengal-govt-intensifies-crackdown-on-cow-smuggling-suvendu-adhikari-cabinet-clears-bsf-fencing-land-901953",
+      "keywords": [
+        "cattle smuggling crackdown Bengal BJP 2026",
+        "Bengal cow smuggling BSF police 2026"
+      ]
+    },
+    {
+      "id": "illegal-mining-end",
+      "category": "justice",
+      "title": "End Illegal Sand & Coal Mining",
+      "detail": "BJP pledged to end illegal sand mining along Bengal's rivers, illegal coal mining in the Raniganj belt, and pollution from unregulated sponge iron units — with revenue from legitimised extraction to fund local employment and environmental restoration programmes.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · BJP Paschim Burdwan district supplement",
+      "status": "watching",
+      "deadlineLabel": "100 days",
+      "deadlineDate": "2026-08-17",
+      "updateNote": "No mining crackdown order or SIT formation announced.",
+      "newsHeadline": null,
+      "newsDate": null,
+      "newsUrl": null,
+      "keywords": [
+        "illegal sand mining Bengal BJP 2026",
+        "illegal coal mining Raniganj Bengal BJP 2026"
+      ]
+    },
+    {
+      "id": "age-relaxation",
+      "category": "employment",
+      "title": "Age Relaxation — Up to 5 Years for Government Job Aspirants",
+      "detail": "BJP pledged up to 5 years of age relaxation in all state government job recruitment processes for candidates who lost opportunities due to the SSC recruitment scam, court-stayed processes, or administrative delays under TMC — compensating applicants for the years lost to a corrupt system.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · Youth chapter",
+      "status": "watching",
+      "deadlineLabel": "100 days",
+      "deadlineDate": "2026-08-17",
+      "updateNote": "No gazette notification or recruitment rule amendment issued yet.",
+      "newsHeadline": null,
+      "newsDate": null,
+      "newsUrl": null,
+      "keywords": [
+        "age relaxation Bengal BJP government jobs 2026",
+        "West Bengal recruitment age relaxation 5 years BJP"
+      ]
+    },
+    {
+      "id": "infiltration-policy",
+      "category": "security",
+      "title": "Detect, Delete & Deport — Illegal Infiltration Drive",
+      "detail": "BJP pledged to implement a systematic 'detect, delete and deport' mechanism to identify and expel all illegal infiltrators from West Bengal — beginning with an Aadhaar-voter roll cross-check, followed by state database creation in coordination with Central agencies and BSF.",
+      "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · Amit Shah Kolkata manifesto launch",
+      "status": "watching",
+      "deadlineLabel": "100 days",
+      "deadlineDate": "2026-08-17",
+      "updateNote": "No state-level NRC exercise or voter roll audit initiated yet. Border fencing land transfer — a key prerequisite — cleared at first cabinet on May 11.",
+      "newsHeadline": "From a crackdown on cattle smuggling to border fencing to stop Muslim infiltration, the BJP Govt in West Bengal is moving along the Hindutva line - Struggle for Hindu Existence",
+      "newsDate": "2026-05-11",
+      "newsUrl": "https://news.google.com/rss/articles/CBMimAJBVV95cUxOTHE1THU2OFZYMG1RdmJFNHp1VFRMVk9GTGdsZzFZU09KazBVRDc5eGUxTFRYMDN0eGEtUU5JNkxNTHpYc2swY3R3RlM1ZVB1clQwY2dLNWxYQjJOSklKMDNVZlA5dFAzdnhkc0x2TVluSHUtMUtYREVMdmZTbFR2VVdQM1V0Y18tQUcwUXVMOHJWU3lxTUpkb1gtSFFoNUhvTE0xV1N5MlI0bG1ycnNmT2NLcWYyRllOaEVHQzNmWDRfSmpsSTNpb1dYMWdVdk1HY3dBdXpvR0hoX3RFNXJKQ0dKdVM0QVV5ZWJ2MDBEcnpsLTVhUWhrRS16UVZaQUpoblB2VjZZWng1SjFHdjZVQl9pU2RNYjRQ",
+      "keywords": [
+        "infiltration detect delete deport Bengal BJP 2026",
+        "NRC Bengal illegal infiltrators BJP 2026"
       ]
     }
   ]

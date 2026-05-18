@@ -833,6 +833,7 @@ a.source-chip:hover { border-color: var(--bjp); color: var(--bjp); }
       <option value="sec-governance">🏛️ Governance</option>
       <option value="sec-women">👩 Women</option>
       <option value="sec-education">📚 Education</option>
+      <option value="sec-security">🛡️ Border &amp; Security</option>
     </select>
     <span class="jump-arrow-icon" aria-hidden="true">▾</span>
   </div>
@@ -937,14 +938,15 @@ var STATUS_LABELS = {
 
 // ── Category keyword tags ────────────────────────────────────────────────────
 var CAT_TAGS = {
-  agriculture: ['MSP', 'Kisan', 'Procurement', 'Irrigation', 'Insurance'],
-  welfare: ['Health', 'Electricity', 'Women Stipend', 'PDS', 'Pension'],
-  justice: ['Syndicate', 'SSC', 'Sandeshkhali', 'CBI', 'Post-Election'],
-  employment: ['Govt Jobs', 'Singur', 'Investment', 'Leather & Jute'],
+  agriculture: ['MSP', 'Kisan', 'Procurement', 'Irrigation', 'Insurance', 'Tea Garden'],
+  welfare: ['Health', 'Electricity', 'Ayushman', 'PDS', 'Pension', 'HPV', 'Maternity'],
+  justice: ['Syndicate', 'SSC', 'Sandeshkhali', 'CBI', 'Post-Election', 'Mining'],
+  employment: ['Govt Jobs', 'Singur', 'Investment', 'Leather & Jute', 'Yuva Shakti', 'Age Relaxation'],
   infra: ['PMAY', 'Metro', 'Ganga', 'DMIC'],
-  governance: ['IAS/IPS', 'Anti-Corruption', 'RTI'],
-  women: ['Fast-Track Courts', 'Women Police', 'Mahila Shakti'],
-  education: ['Teacher Recruitment', 'School Infra', 'SC/ST Scholarships']
+  governance: ['IAS/IPS', 'Anti-Corruption', 'RTI', 'DA Arrears', '7th Pay', 'UCC'],
+  women: ['Fast-Track Courts', 'Women Police', 'Mahila Shakti', 'Annapurna Bhandar', 'Free Bus', 'Women Quota'],
+  education: ['Teacher Recruitment', 'School Infra', 'SC/ST Scholarships', 'AIIMS', 'IIT', 'IIM'],
+  security: ['Border Fencing', 'Cattle Smuggling', 'Infiltration']
 };
 
 // ── Update toggle ────────────────────────────────────────────────────────────
@@ -1192,7 +1194,8 @@ async function loadData() {
     { id: 'infra',       label: 'Infrastructure & Housing', icon: '🏗️' },
     { id: 'governance',  label: 'Governance & Admin',   icon: '🏛️' },
     { id: 'women',       label: "Women's Safety",       icon: '👩' },
-    { id: 'education',   label: 'Education & Youth',    icon: '📚' }
+    { id: 'education',   label: 'Education & Youth',    icon: '📚' },
+    { id: 'security',    label: 'Border & Security',    icon: '🛡️' }
   ];
 
   catOrder.forEach(function(cat) {
