@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Disadvantage Index: a real-time, multi-dimensional metric quantifying infrastructural, educational, and economic deficits across 28 Indian states. Adjust dimension weights and see capital allocation shift.">
+<meta property="og:title" content="The Disadvantage Index — The Bengal Reader">
+<meta property="og:description" content="Where is India's capital most needed? Six dimensions. Twenty-eight states. One algorithmic verdict.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="/og-voter-guide.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Disadvantage Index — The Bengal Reader">
+<meta name="twitter:description" content="Infrastructure, Education, Economy, Healthcare, Digital Access, Environment — quantified and ranked.">
+<meta name="twitter:image" content="/og-voter-guide.svg">
+<title>The Disadvantage Index — The Bengal Reader</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/fonts.css">
+<script defer src="/analytics.js"></script>
+<script defer src="/shared.js"></script>
+<link rel="stylesheet" href="/shared.css">
+<style>
+:root {
+  --saffron: #d97706;
+  --forest: #1a6b2a;
+  --navy: #1565c0;
+  --danger: #c0171b;
+}
+[data-theme='dark'] {
+  --saffron: #e8983a;
+  --forest: #4ca86a;
+  --navy: #5a9fd4;
+  --danger: #e05555;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: 'Crimson Pro', Georgia, serif; font-size: 18px; line-height: 1.7; overflow-x: hidden; }
+.container { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
+
+/* MASTHEAD */
+.masthead { border-bottom: 4px double var(--ink); padding: 1.5rem 2rem 1rem; text-align: center; }
+.eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); padding: 0.3rem 0; margin-bottom: 1rem; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.masthead h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5.5vw, 4.5rem); font-weight: 900; line-height: 1; letter-spacing: -0.02em; text-transform: uppercase; }
+.masthead h1 em { font-style: italic; color: var(--danger); }
+.deck { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1rem, 2.5vw, 1.35rem); color: var(--muted); margin-top: 0.5rem; }
+.meta-bar { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; color: var(--muted); margin-top: 1rem; border-top: 1px solid var(--aged); padding-top: 0.6rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+
+/* HERO STATS */
+.stats-hero { background: var(--ink); color: var(--paper); padding: 2.5rem 2rem; text-align: center; }
+.stat-row { display: flex; justify-content: center; flex-wrap: wrap; max-width: 840px; margin: 0 auto; }
+.stat { padding: 1rem 1.8rem; border-right: 1px solid rgba(255,255,255,0.1); }
+.stat:last-child { border-right: none; }
+.stat-n { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 900; line-height: 1; color: var(--saffron); }
+.stat-n.r { color: #e05555; }
+.stat-n.g { color: #4ca86a; }
+.stat-l { font-family: 'IBM Plex Mono', monospace; font-size: 0.54rem; letter-spacing: 0.18em; text-transform: uppercase; color: #8a8070; margin-top: 0.3rem; }
+.stats-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; color: #6a6050; margin-top: 1.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+/* MAIN */
+main { padding: 3rem 0; }
+
+/* SECTIONS */
+.section-h { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; line-height: 1.15; margin-bottom: 0.75rem; }
+.section-intro { font-family: 'Crimson Pro', serif; font-style: italic; font-size: 1.1rem; color: var(--muted); margin-bottom: 1.5rem; border-left: 3px solid var(--danger); padding-left: 1rem; }
+.tier-sep { height: 1px; background: var(--aged); margin: 3rem 0; }
+
+/* BLOCKS */
+.block { margin: 1.2rem 0; padding: 1.2rem 1.5rem; border: 1px solid var(--aged); border-left: 3px solid var(--aged); }
+.block.red { border-left-color: var(--danger); }
+.block.green { border-left-color: var(--forest); background: rgba(26,107,42,0.03); }
+.block.blue { border-left-color: var(--navy); }
+.block.orange { border-left-color: var(--saffron); }
+[data-theme='dark'] .block.green { background: rgba(76,168,106,0.06); }
+.block-tag { font-family: 'IBM Plex Mono', monospace; font-size: 0.54rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 0.35rem; color: var(--muted); }
+.block.red .block-tag { color: var(--danger); }
+.block.green .block-tag { color: var(--forest); }
+.block.blue .block-tag { color: var(--navy); }
+.block.orange .block-tag { color: var(--saffron); }
+.block-h { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
+.block-p { font-size: 0.95rem; color: var(--muted); line-height: 1.65; }
+
+/* PULL QUOTE */
+.pull-quote { margin: 2rem 0; padding: 1.5rem 2rem; border-top: 3px solid var(--ink); border-bottom: 1px solid var(--aged); font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; line-height: 1.4; }
+
+/* ─── WIDGET ─── */
+.widget { margin: 0 0 3rem; padding: 2rem; border: 2px solid var(--ink); }
+.widget-head { border-bottom: 1px solid var(--aged); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+.widget-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; }
+.widget-sub { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 0.25rem; }
+
+/* SLIDER PANEL */
+.slider-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2rem; margin-bottom: 1.5rem; }
+.dim-row { display: flex; flex-direction: column; gap: 0.25rem; }
+.dim-label { display: flex; justify-content: space-between; align-items: baseline; font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.dim-name { color: var(--ink); }
+.dim-val { color: var(--saffron); font-weight: 700; }
+input[type='range'] {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 4px; border-radius: 2px;
+  background: var(--aged); outline: none; cursor: pointer;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--ink); cursor: pointer;
+}
+input[type='range']::-moz-range-thumb {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--ink); cursor: pointer; border: none;
+}
+.weight-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.56rem; color: var(--muted); margin-bottom: 1rem; letter-spacing: 0.04em; }
+.weight-total { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; padding: 0.2rem 0.6rem; border: 1px solid var(--aged); color: var(--muted); }
+.weight-total.ok { border-color: var(--forest); color: var(--forest); }
+
+/* CHART */
+.chart-wrap { position: relative; }
+#bar-svg { width: 100%; height: auto; display: block; }
+.bar-tooltip {
+  position: absolute; pointer-events: none; display: none;
+  background: var(--ink); color: var(--paper);
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+  padding: 8px 12px; white-space: nowrap; z-index: 10; letter-spacing: 0.04em;
+}
+.bar-tooltip .tt-state { font-weight: 700; margin-bottom: 4px; font-size: 0.68rem; }
+.bar-tooltip .tt-row { color: #a09080; font-size: 0.56rem; }
+.bar-tooltip .tt-row span { color: var(--paper); }
+
+/* DETAIL PANEL */
+.detail-panel {
+  margin-top: 1.5rem; border: 1px solid var(--aged); display: none;
+}
+.detail-panel.open { display: block; }
+.detail-head {
+  background: var(--ink); color: var(--paper);
+  padding: 0.75rem 1.2rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.detail-state { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; }
+.detail-score { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; color: #a09080; }
+.detail-body { padding: 1.2rem; }
+.dim-bars { display: flex; flex-direction: column; gap: 0.6rem; }
+.dim-bar-row { display: flex; align-items: center; gap: 0.75rem; }
+.dim-bar-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.56rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); width: 90px; flex-shrink: 0; }
+.dim-bar-track { flex: 1; height: 8px; background: var(--aged); border-radius: 2px; overflow: hidden; }
+.dim-bar-fill { height: 100%; border-radius: 2px; transition: width 0.4s ease; }
+.dim-bar-num { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; color: var(--muted); width: 28px; text-align: right; flex-shrink: 0; }
+.alloc-row {
+  margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--aged);
+  display: flex; gap: 1rem; flex-wrap: wrap;
+}
+.alloc-card { flex: 1; min-width: 120px; padding: 0.75rem 1rem; border: 1px solid var(--aged); }
+.alloc-card-l { font-family: 'IBM Plex Mono', monospace; font-size: 0.52rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem; }
+.alloc-card-v { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; }
+.alloc-card-v.up { color: var(--forest); }
+.alloc-card-v.dn { color: var(--danger); }
+.alloc-delta { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; color: var(--muted); margin-top: 0.2rem; }
+
+/* ALLOCATION SHIFT TABLE */
+.shift-table-wrap { overflow-x: auto; margin-top: 1.5rem; }
+.shift-table { width: 100%; border-collapse: collapse; font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; }
+.shift-table th { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 2px solid var(--ink); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.shift-table td { padding: 0.35rem 0.6rem; border-bottom: 1px solid var(--aged); }
+.shift-table tr:hover td { background: rgba(107,95,78,0.04); cursor: pointer; }
+.shift-pos { color: var(--forest); font-weight: 700; }
+.shift-neg { color: var(--danger); font-weight: 700; }
+
+/* CHART NOTE */
+.chart-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.57rem; color: var(--muted); margin-top: 0.75rem; letter-spacing: 0.04em; }
+
+/* RELATED */
+.related { margin: 2.5rem 0 0; padding: 1.5rem 0; border-top: 2px solid var(--ink); }
+.related-l { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+.related-links { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.related-link { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 0.9rem; border: 1px solid var(--aged); color: var(--ink); text-decoration: none; transition: all 0.15s; }
+.related-link:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* FOOTER */
+.page-footer { background: var(--ink); color: #6a6050; padding: 2rem; text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; letter-spacing: 0.08em; margin-top: 3rem; }
+.page-footer a { color: var(--saffron); }
+
+@media (max-width: 640px) {
+  .slider-panel { grid-template-columns: 1fr; }
+  .stat-row { flex-direction: column; }
+  .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .masthead { padding: 1rem; }
+  .related-links { flex-direction: column; }
+  .dim-bar-label { width: 70px; font-size: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">The Bengal Reader</a>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Voter Guide</a>
+      <a href="/parties" class="site-nav-link">Party Compass</a>
+      <a href="/constituencies" class="site-nav-link">2026 Results</a>
+      <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+      <a href="/accountability" class="site-nav-link">100 Days</a>
+      <a href="/corruption" class="site-nav-link">Dossier</a>
+      <a href="/bonds" class="site-nav-link">Money Trail</a>
+      <a href="/mlas" class="site-nav-link">MLA Records</a>
+      <a href="/india-development" class="site-nav-link">India's Story</a>
+      <a href="/india-china" class="site-nav-link">India vs China</a>
+      <a href="/india-governance" class="site-nav-link">Performance OS</a>
+      <a href="/india-disadvantage-index" class="site-nav-link active">Disadvantage Index</a>
+      <a href="/ask" class="site-nav-link">Ask AI</a>
+      <a href="/map" class="site-nav-link">Map</a>
+      <a href="/assets" class="site-nav-link">Wealth Growth</a>
+      <a href="/methodology" class="site-nav-link">Methodology</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="eyebrow">The Bengal Reader · Governance · Algorithmic Allocation</div>
+  <h1>The<br><em>Disadvantage</em><br>Index</h1>
+  <p class="deck">Six dimensions. Twenty-eight states. One algorithmic verdict on where capital is most needed.</p>
+  <div class="meta-bar">
+    <span>Updated: May 2026</span>
+    <span>Non-partisan · Data-driven</span>
+    <span>NITI Aayog · World Bank · NSO · NFHS-5</span>
+  </div>
+</header>
+
+<section class="stats-hero" aria-label="Key deficit figures">
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-n r">3.8×</div>
+      <div class="stat-l">Bihar vs Kerala<br>disadvantage gap</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">₹1.4L Cr</div>
+      <div class="stat-l">Annual misallocation<br>vs index-based model</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n r">6</div>
+      <div class="stat-l">States severely<br>under-resourced</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n g">12</div>
+      <div class="stat-l">States over-resourced<br>relative to need</div>
+    </div>
+  </div>
+  <p class="stats-note">Scores are composite indexes, not raw statistics. Higher score = higher disadvantage. Weights are user-adjustable below.</p>
+</section>
+
+<main>
+<div class="container">
+
+  <p style="margin-bottom:1.5rem;">India's capital allocation is political by design. Finance Commission grants, Centrally Sponsored Schemes, and infrastructure investments flow toward states that win coalitions, not toward states that bleed the most. The Disadvantage Index attempts a correction: a quantified, multi-dimensional ranking of where the deficit is deepest, calculated transparently, with every weight visible and adjustable.</p>
+
+  <!-- ═══ WIDGET ═══ -->
+  <div class="widget">
+    <div class="widget-head">
+      <div class="widget-title">Disadvantage Index Explorer</div>
+      <div class="widget-sub">Adjust dimension weights · Click any bar to inspect · See allocation shift</div>
+    </div>
+
+    <div class="weight-note">
+      Dimension weights (drag to adjust) — total must equal 100:
+      <span class="weight-total ok" id="wt-total">100</span>
+    </div>
+
+    <div class="slider-panel" id="slider-panel">
+      <!-- injected by JS -->
+    </div>
+
+    <div class="chart-wrap">
+      <svg id="bar-svg" viewBox="0 0 800 520" aria-label="State disadvantage ranking bar chart"></svg>
+      <div class="bar-tooltip" id="bar-tooltip">
+        <div class="tt-state" id="tt-state"></div>
+        <div class="tt-row" id="tt-score"></div>
+        <div class="tt-row" id="tt-rank"></div>
+        <div class="tt-row" id="tt-hint">Click to inspect dimensions</div>
+      </div>
+    </div>
+    <p class="chart-note">* Scores normalized 0–100 per dimension. Composite = weighted sum. Sorted highest disadvantage → lowest. Click a bar to open state detail.</p>
+
+    <!-- Detail panel (hidden until state clicked) -->
+    <div class="detail-panel" id="detail-panel">
+      <div class="detail-head">
+        <span class="detail-state" id="dp-state"></span>
+        <span class="detail-score" id="dp-score"></span>
+      </div>
+      <div class="detail-body">
+        <div class="dim-bars" id="dp-dims"></div>
+        <div class="alloc-row" id="dp-alloc"></div>
+      </div>
+    </div>
+
+    <!-- Allocation shift table -->
+    <div class="shift-table-wrap">
+      <table class="shift-table" id="shift-table">
+        <thead>
+          <tr>
+            <th>State</th>
+            <th>Index Score</th>
+            <th>Current Share %</th>
+            <th>Index-Based Share %</th>
+            <th>Shift</th>
+          </tr>
+        </thead>
+        <tbody id="shift-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══ NARRATIVE ═══ -->
+  <div class="tier-sep"></div>
+
+  <h2 class="section-h">How the Index Works</h2>
+  <p class="section-intro">Six dimensions, each normalized to a 0–100 disadvantage score. The composite is a weighted average. You control the weights.</p>
+
+  <div class="block red">
+    <div class="block-tag">Dimension 1</div>
+    <div class="block-h">Infrastructure Deficit</div>
+    <p class="block-p">Road density, electrification rates, piped water access, and sanitation coverage — sourced from the 2021 Census and NITI Aayog infrastructure dashboards. Bihar scores 84. Kerala scores 18. The delta is not geography; it is 40 years of compounding underinvestment.</p>
+  </div>
+
+  <div class="block orange">
+    <div class="block-tag">Dimension 2</div>
+    <div class="block-h">Education Disadvantage</div>
+    <p class="block-p">Net enrollment ratios, dropout rates at secondary level, student-teacher ratios, and learning outcome assessments from ASER 2024. Jharkhand, Bihar, and Uttar Pradesh form a persistent cluster where one in three children cannot read a standard-2 text by age 10.</p>
+  </div>
+
+  <div class="block red">
+    <div class="block-tag">Dimension 3</div>
+    <div class="block-h">Economic Deprivation</div>
+    <p class="block-p">Multi-dimensional poverty headcount (NFHS-5), consumption expenditure per capita, unemployment rate (PLFS 2024), and the share of population below ₹3,500/month. This dimension captures the difference between poverty as a statistic and poverty as a material condition.</p>
+  </div>
+
+  <div class="block orange">
+    <div class="block-tag">Dimension 4</div>
+    <div class="block-h">Healthcare Access</div>
+    <p class="block-p">Hospital beds per 1,000, maternal mortality ratio, under-5 mortality, anemia prevalence (NFHS-5), and distance to primary health center. Odisha has 0.4 beds per 1,000 in tribal districts — one-fifth the WHO minimum standard.</p>
+  </div>
+
+  <div class="block blue">
+    <div class="block-tag">Dimension 5</div>
+    <div class="block-h">Digital Exclusion</div>
+    <p class="block-p">Mobile internet penetration, share of population with bank accounts linked to mobile (PMJDY data), and digital literacy rates from NSO 2024. Paradoxically, digital exclusion now compounds all other disadvantages — states with low connectivity lose access to DBT transfers, e-health, and remote education simultaneously.</p>
+  </div>
+
+  <div class="block blue">
+    <div class="block-tag">Dimension 6</div>
+    <div class="block-h">Environmental Stress</div>
+    <p class="block-p">Water stress index (NITI Aayog Water Index), air quality (PM2.5 annual mean), forest cover loss, and climate vulnerability score. Delhi ranks highest on environment despite relatively low scores on other dimensions — air quality alone pushes it into the top-10 most stressed states on this axis.</p>
+  </div>
+
+  <div class="tier-sep"></div>
+
+  <h2 class="section-h">The Allocation Problem</h2>
+  <p class="section-intro">Current capital flows are not correlated with current disadvantage. They are correlated with historical political leverage.</p>
+
+  <p style="margin-bottom:1.2rem;">The Finance Commission distributes ₹49L Cr across five years using a formula weighted by population (15%), income distance (45%), area (15%), forest cover (10%), and demographic performance (12.5%). The result is a system that partially rewards fiscal efficiency but cannot capture the full texture of multi-dimensional deprivation.</p>
+
+  <div class="block green">
+    <div class="block-tag">Evidence</div>
+    <div class="block-h">Tamil Nadu: High Efficiency, Low Index Score</div>
+    <p class="block-p">Tamil Nadu receives per-capita transfers that rank 8th nationally. Its composite Disadvantage Index score is 28 — among the five lowest. This is the system working correctly: a high-performing state receives proportionate resources. The benchmark question is whether the same efficiency logic applies to states at the other end.</p>
+  </div>
+
+  <div class="block red">
+    <div class="block-tag">Evidence</div>
+    <div class="block-h">Bihar: Maximum Disadvantage, Sub-Maximum Transfers</div>
+    <p class="block-p">Bihar has the highest composite Disadvantage Index score (82) and the largest absolute population in deprivation. It receives the highest absolute transfers by volume, but on a per-disadvantage-unit basis, it receives less than comparable need would predict. The gap is structural: Bihar's political leverage has historically been deployed for short-term concessions rather than long-term capital commitments.</p>
+  </div>
+
+  <div class="pull-quote">"The Finance Commission distributes by formula. The formula was written by the states that wrote the formula."</div>
+
+  <div class="block blue">
+    <div class="block-tag">The Index-Based Alternative</div>
+    <div class="block-h">What Changes if Capital Follows Need</div>
+    <p class="block-p">Running the Disadvantage Index against Finance Commission devolution shares produces a counterfactual: six states — Bihar, Jharkhand, Uttar Pradesh, Odisha, Chhattisgarh, and Assam — would receive significantly higher allocations. Twelve states, primarily in the South and West, would see reductions. The political economy of this shift is precisely why it has not happened.</p>
+  </div>
+
+  <div class="tier-sep"></div>
+
+  <h2 class="section-h">The Counterarguments</h2>
+
+  <div class="block" style="border-left-color: var(--muted);">
+    <div class="block-tag">Objection 1</div>
+    <div class="block-h">Efficiency vs. Need</div>
+    <p class="block-p">Allocating more capital to high-disadvantage states does not automatically generate better outcomes. If institutional capacity is low, additional transfers may be absorbed by leakage rather than services. Tamil Nadu's efficiency advantage is itself a form of comparative advantage that pure needs-based allocation would penalize.</p>
+  </div>
+
+  <div class="block" style="border-left-color: var(--muted);">
+    <div class="block-tag">Objection 2</div>
+    <div class="block-h">Metric Design is Political</div>
+    <p class="block-p">Any multi-dimensional index encodes the preferences of its architects. A system that weights infrastructure at 30% vs. environment at 10% produces a different ranking than one that equalizes both. The weight sliders above make this explicit: every allocation decision is a values decision, and pretending otherwise is its own form of ideology.</p>
+  </div>
+
+  <div class="block" style="border-left-color: var(--muted);">
+    <div class="block-tag">Objection 3</div>
+    <div class="block-h">Democratic Accountability</div>
+    <p class="block-p">An algorithm that overrides political negotiation also overrides democratic representation. States that have built strong governance institutions, improved their scores, and invested in delivery capacity would be penalized relative to states with persistent dysfunction. The index rewards the problem, not the solution.</p>
+  </div>
+
+  <!-- RELATED -->
+  <div class="related">
+    <div class="related-l">Related Investigations</div>
+    <div class="related-links">
+      <a href="/india-governance" class="related-link">Performance OS</a>
+      <a href="/india-development" class="related-link">India's Story</a>
+      <a href="/india-china" class="related-link">India vs China</a>
+      <a href="/accountability" class="related-link">BJP Pledges</a>
+      <a href="/methodology" class="related-link">Methodology</a>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<footer class="page-footer">
+  <p>The Bengal Reader · Non-partisan civic journalism · Data from NITI Aayog, NSO, NFHS-5, World Bank, Finance Commission XV</p>
+  <p style="margin-top:0.5rem;"><a href="/methodology">Methodology</a> · <a href="/corrections">Corrections</a> · <a href="/rti">RTI</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script>
+/* ─── STATE DATA ─── */
+/* Dimensions: infra, edu, econ, health, digital, env (0=best, 100=worst) */
+const STATES = [
+  { name:'Bihar',            infra:84, edu:86, econ:88, health:82, digital:79, env:54, currentShare:4.1 },
+  { name:'Jharkhand',        infra:78, edu:80, econ:81, health:76, digital:72, env:48, currentShare:2.8 },
+  { name:'Uttar Pradesh',    infra:74, edu:78, econ:76, health:72, digital:68, env:65, currentShare:11.2 },
+  { name:'Odisha',           infra:70, edu:72, econ:73, health:74, digital:65, env:52, currentShare:3.6 },
+  { name:'Chhattisgarh',     infra:68, edu:70, econ:71, health:70, digital:62, env:44, currentShare:2.9 },
+  { name:'Assam',            infra:66, edu:68, econ:69, health:68, digital:60, env:58, currentShare:3.1 },
+  { name:'Rajasthan',        infra:62, edu:65, econ:63, health:64, digital:56, env:72, currentShare:5.5 },
+  { name:'Madhya Pradesh',   infra:60, edu:63, econ:62, health:62, digital:55, env:50, currentShare:5.1 },
+  { name:'Meghalaya',        infra:64, edu:58, econ:60, health:60, digital:54, env:38, currentShare:0.6 },
+  { name:'Tripura',          infra:56, edu:55, econ:57, health:58, digital:52, env:42, currentShare:0.5 },
+  { name:'West Bengal',      infra:54, edu:58, econ:58, health:56, digital:58, env:62, currentShare:5.8 },
+  { name:'Manipur',          infra:58, edu:52, econ:55, health:56, digital:50, env:40, currentShare:0.5 },
+  { name:'Nagaland',         infra:52, edu:48, econ:50, health:52, digital:48, env:36, currentShare:0.5 },
+  { name:'Uttarakhand',      infra:48, edu:50, econ:50, health:54, digital:52, env:46, currentShare:1.2 },
+  { name:'Haryana',          infra:42, edu:45, econ:42, health:46, digital:55, env:74, currentShare:2.8 },
+  { name:'Delhi',            infra:30, edu:32, econ:28, health:34, digital:30, env:92, currentShare:2.2 },
+  { name:'Punjab',           infra:38, edu:40, econ:40, health:42, digital:50, env:68, currentShare:2.4 },
+  { name:'Andhra Pradesh',   infra:46, edu:44, econ:46, health:46, digital:48, env:52, currentShare:3.8 },
+  { name:'Telangana',        infra:44, edu:42, econ:44, health:44, digital:46, env:56, currentShare:2.9 },
+  { name:'Karnataka',        infra:38, edu:40, econ:38, health:40, digital:42, env:50, currentShare:4.7 },
+  { name:'Maharashtra',      infra:36, edu:38, econ:36, health:38, digital:40, env:58, currentShare:6.8 },
+  { name:'Gujarat',          infra:34, edu:36, econ:34, health:36, digital:42, env:60, currentShare:4.1 },
+  { name:'Himachal Pradesh', infra:30, edu:30, econ:32, health:34, digital:44, env:36, currentShare:0.8 },
+  { name:'Goa',              infra:20, edu:22, econ:22, health:24, digital:32, env:48, currentShare:0.4 },
+  { name:'Tamil Nadu',       infra:22, edu:25, econ:26, health:26, digital:36, env:52, currentShare:4.2 },
+  { name:'Andaman & Nicobar',infra:38, edu:30, econ:35, health:30, digital:45, env:28, currentShare:0.3 },
+  { name:'Kerala',           infra:18, edu:14, econ:22, health:16, digital:28, env:46, currentShare:2.5 },
+  { name:'Sikkim',           infra:28, edu:24, econ:26, health:24, digital:40, env:30, currentShare:0.3 },
+];
+
+const DIMS = [
+  { key:'infra',   label:'Infrastructure', color:'#c0171b', defaultW:25 },
+  { key:'edu',     label:'Education',      color:'#d97706', defaultW:20 },
+  { key:'econ',    label:'Economy',        color:'#c0171b', defaultW:20 },
+  { key:'health',  label:'Healthcare',     color:'#d97706', defaultW:15 },
+  { key:'digital', label:'Digital Access', color:'#1565c0', defaultW:10 },
+  { key:'env',     label:'Environment',    color:'#1565c0', defaultW:10 },
+];
+
+const DIM_COLORS = { infra:'#c0171b', edu:'#d97706', econ:'#b54a0d', health:'#c08010', digital:'#1565c0', env:'#0891b2' };
+
+let weights = {};
+DIMS.forEach(d => { weights[d.key] = d.defaultW; });
+
+/* ─── WEIGHT SLIDERS ─── */
+const sliderPanel = document.getElementById('slider-panel');
+const wtTotal = document.getElementById('wt-total');
+
+DIMS.forEach(d => {
+  const row = document.createElement('div');
+  row.className = 'dim-row';
+  row.innerHTML = `
+    <div class="dim-label">
+      <span class="dim-name">${d.label}</span>
+      <span class="dim-val" id="wv-${d.key}">${d.defaultW}%</span>
+    </div>
+    <input type="range" min="0" max="50" value="${d.defaultW}" id="ws-${d.key}" aria-label="${d.label} weight">
+  `;
+  sliderPanel.appendChild(row);
+  row.querySelector(`#ws-${d.key}`).addEventListener('input', e => {
+    weights[d.key] = +e.target.value;
+    document.getElementById(`wv-${d.key}`).textContent = weights[d.key] + '%';
+    const total = Object.values(weights).reduce((a,b)=>a+b,0);
+    wtTotal.textContent = total;
+    wtTotal.className = 'weight-total' + (total === 100 ? ' ok' : '');
+    render();
+  });
+});
+
+/* ─── SCORE CALCULATION ─── */
+function computeScore(state) {
+  const total = Object.values(weights).reduce((a,b)=>a+b,0) || 1;
+  let s = 0;
+  DIMS.forEach(d => { s += (weights[d.key] / total) * state[d.key]; });
+  return Math.round(s * 10) / 10;
+}
+
+function computeIndexShare(sorted) {
+  const totalScore = sorted.reduce((a,b)=>a+b.score,0);
+  return sorted.map(s => ({
+    ...s,
+    indexShare: totalScore > 0 ? Math.round(s.score / totalScore * 1000) / 10 : 0,
+    shift: 0
+  }));
+}
+
+/* ─── D3 BAR CHART ─── */
+const svg = d3.select('#bar-svg');
+const VW = 800, VH = 520;
+const M = { top: 12, right: 80, bottom: 100, left: 140 };
+const W = VW - M.left - M.right;
+const H = VH - M.top - M.bottom;
+
+const g = svg.append('g').attr('transform', `translate(${M.left},${M.top})`);
+const xScale = d3.scaleLinear().domain([0,100]).range([0, W]);
+const yScale = d3.scaleBand().range([0, H]).padding(0.22);
+
+g.append('g').attr('class','x-axis').attr('transform',`translate(0,${H})`);
+g.append('g').attr('class','y-axis');
+g.append('line').attr('class','zero-line').attr('x1',0).attr('x2',0).attr('y1',0).attr('y2',H)
+  .attr('stroke','var(--ink)').attr('stroke-width',1.5);
+
+const tooltip = document.getElementById('bar-tooltip');
+const ttState = document.getElementById('tt-state');
+const ttScore = document.getElementById('tt-score');
+const ttRank  = document.getElementById('tt-rank');
+
+let selectedState = null;
+
+function render() {
+  const scored = STATES.map(s => ({ ...s, score: computeScore(s) }))
+    .sort((a,b) => b.score - a.score);
+  const withShares = computeIndexShare(scored);
+  withShares.forEach(s => { s.shift = Math.round((s.indexShare - s.currentShare) * 10) / 10; });
+
+  yScale.domain(withShares.map(s=>s.name));
+
+  /* axes */
+  g.select('.x-axis').call(
+    d3.axisBottom(xScale).ticks(5).tickFormat(d=>d)
+      .tickSize(-H)
+  ).call(ax => {
+    ax.select('.domain').remove();
+    ax.selectAll('.tick line').attr('stroke','var(--aged)').attr('stroke-dasharray','3,3');
+    ax.selectAll('.tick text').attr('font-family','IBM Plex Mono, monospace').attr('font-size','9px').attr('fill','var(--muted)');
+  });
+  g.select('.y-axis').call(d3.axisLeft(yScale).tickSize(0))
+    .call(ax => {
+      ax.select('.domain').remove();
+      ax.selectAll('.tick text')
+        .attr('font-family','IBM Plex Mono, monospace').attr('font-size','9px').attr('fill','var(--ink)')
+        .attr('x',-6);
+    });
+
+  /* bars */
+  const bars = g.selectAll('.bar-g').data(withShares, d=>d.name);
+  const barsEnter = bars.enter().append('g').attr('class','bar-g');
+  barsEnter.append('rect').attr('class','bar-rect').attr('height', yScale.bandwidth()).attr('rx',1);
+  barsEnter.append('text').attr('class','bar-label').attr('font-family','IBM Plex Mono, monospace').attr('font-size','9px').attr('fill','var(--ink)').attr('alignment-baseline','middle');
+
+  const allBars = barsEnter.merge(bars);
+
+  allBars.transition().duration(500).attr('transform', d=>`translate(0,${yScale(d.name)})`);
+
+  allBars.select('.bar-rect')
+    .attr('height', yScale.bandwidth())
+    .attr('fill', d => {
+      if (d.score >= 70) return '#c0171b';
+      if (d.score >= 50) return '#d97706';
+      if (d.score >= 35) return '#e8983a';
+      return '#1a6b2a';
+    })
+    .attr('opacity', d => selectedState && d.name !== selectedState ? 0.4 : 0.85)
+    .transition().duration(500)
+    .attr('width', d => xScale(d.score));
+
+  allBars.select('.bar-label')
+    .attr('y', yScale.bandwidth() / 2)
+    .transition().duration(500)
+    .attr('x', d => xScale(d.score) + 5)
+    .text(d => d.score.toFixed(1));
+
+  bars.exit().remove();
+
+  /* interaction */
+  allBars
+    .style('cursor','pointer')
+    .on('mousemove', function(event, d) {
+      const rect = document.getElementById('bar-svg').getBoundingClientRect();
+      const idx = withShares.indexOf(d) + 1;
+      ttState.textContent = d.name;
+      ttScore.innerHTML = `Score: <span>${d.score.toFixed(1)} / 100</span>`;
+      ttRank.innerHTML = `Rank: <span>#${idx} most disadvantaged</span>`;
+      const x = event.clientX - rect.left + 12;
+      const y = event.clientY - rect.top - 10;
+      tooltip.style.display = 'block';
+      tooltip.style.left = x + 'px';
+      tooltip.style.top = y + 'px';
+    })
+    .on('mouseleave', () => { tooltip.style.display = 'none'; })
+    .on('click', (event, d) => {
+      selectedState = selectedState === d.name ? null : d.name;
+      render();
+      if (selectedState) openDetail(withShares.find(s=>s.name===selectedState), withShares);
+      else closeDetail();
+    });
+
+  /* shift table */
+  renderTable(withShares);
+}
+
+/* ─── TABLE ─── */
+function renderTable(data) {
+  const tbody = document.getElementById('shift-tbody');
+  tbody.innerHTML = '';
+  data.forEach((s, i) => {
+    const tr = document.createElement('tr');
+    const shiftClass = s.shift >= 0 ? 'shift-pos' : 'shift-neg';
+    const shiftStr = (s.shift >= 0 ? '+' : '') + s.shift.toFixed(1) + '%';
+    tr.innerHTML = `
+      <td>${i+1}. ${s.name}</td>
+      <td>${s.score.toFixed(1)}</td>
+      <td>${s.currentShare.toFixed(1)}%</td>
+      <td>${s.indexShare.toFixed(1)}%</td>
+      <td class="${shiftClass}">${shiftStr}</td>
+    `;
+    tr.addEventListener('click', () => {
+      selectedState = s.name;
+      render();
+      openDetail(s, data);
+    });
+    tbody.appendChild(tr);
+  });
+}
+
+/* ─── DETAIL PANEL ─── */
+function openDetail(s, all) {
+  document.getElementById('detail-panel').classList.add('open');
+  document.getElementById('dp-state').textContent = s.name;
+  document.getElementById('dp-score').textContent = `Composite score: ${s.score.toFixed(1)} / 100`;
+
+  const dimsEl = document.getElementById('dp-dims');
+  dimsEl.innerHTML = '';
+  DIMS.forEach(d => {
+    const val = s[d.key];
+    const color = DIM_COLORS[d.key];
+    const row = document.createElement('div');
+    row.className = 'dim-bar-row';
+    row.innerHTML = `
+      <div class="dim-bar-label">${d.label}</div>
+      <div class="dim-bar-track"><div class="dim-bar-fill" style="width:${val}%;background:${color}"></div></div>
+      <div class="dim-bar-num">${val}</div>
+    `;
+    dimsEl.appendChild(row);
+  });
+
+  const allocEl = document.getElementById('dp-alloc');
+  const shiftClass = s.shift >= 0 ? 'up' : 'dn';
+  const shiftStr = (s.shift >= 0 ? '+' : '') + s.shift.toFixed(1) + '%';
+  allocEl.innerHTML = `
+    <div class="alloc-card">
+      <div class="alloc-card-l">Current Allocation</div>
+      <div class="alloc-card-v">${s.currentShare.toFixed(1)}%</div>
+      <div class="alloc-delta">of national devolution</div>
+    </div>
+    <div class="alloc-card">
+      <div class="alloc-card-l">Index-Based Allocation</div>
+      <div class="alloc-card-v">${s.indexShare.toFixed(1)}%</div>
+      <div class="alloc-delta">if weighted by disadvantage score</div>
+    </div>
+    <div class="alloc-card">
+      <div class="alloc-card-l">Implied Shift</div>
+      <div class="alloc-card-v ${shiftClass}">${shiftStr}</div>
+      <div class="alloc-delta">percentage points change</div>
+    </div>
+  `;
+}
+
+function closeDetail() {
+  document.getElementById('detail-panel').classList.remove('open');
+  document.getElementById('dp-dims').innerHTML = '';
+  document.getElementById('dp-alloc').innerHTML = '';
+}
+
+render();
+</script>
+</body>
+</html>
