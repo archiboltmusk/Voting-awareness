@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="India's Performance OS: a governance blueprint for algorithmic resource allocation, infrastructure decentralisation, meritocratic institutions, and direct-to-citizen execution.">
+<meta property="og:title" content="India's Performance OS — The Bengal Reader">
+<meta property="og:description" content="Capital goes where politics points. The blueprint for making it go where data points instead.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="/og-voter-guide.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="India's Performance OS — The Bengal Reader">
+<meta name="twitter:description" content="Algorithmic governance, meritocratic institutions, direct-to-citizen execution. A blueprint for the next phase of Indian reform.">
+<meta name="twitter:image" content="/og-voter-guide.svg">
+<title>India's Performance OS — The Bengal Reader</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/fonts.css">
+<script defer src="/analytics.js"></script>
+<script defer src="/shared.js"></script>
+<link rel="stylesheet" href="/shared.css">
+<style>
+:root {
+  --saffron: #d97706;
+  --forest: #1a6b2a;
+  --navy: #1565c0;
+  --danger: #c0171b;
+}
+[data-theme='dark'] {
+  --saffron: #e8983a;
+  --forest: #4ca86a;
+  --navy: #5a9fd4;
+  --danger: #e05555;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: 'Crimson Pro', Georgia, serif; font-size: 18px; line-height: 1.7; overflow-x: hidden; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+
+/* MASTHEAD */
+.masthead { border-bottom: 4px double var(--ink); padding: 1.5rem 2rem 1rem; text-align: center; }
+.eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); padding: 0.3rem 0; margin-bottom: 1rem; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.masthead h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5.5vw, 4.5rem); font-weight: 900; line-height: 1; letter-spacing: -0.02em; text-transform: uppercase; }
+.masthead h1 em { font-style: italic; color: var(--saffron); }
+.deck { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1rem, 2.5vw, 1.35rem); color: var(--muted); margin-top: 0.5rem; }
+.meta-bar { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; color: var(--muted); margin-top: 1rem; border-top: 1px solid var(--aged); padding-top: 0.6rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+
+/* HERO STATS */
+.stats-hero { background: var(--ink); color: var(--paper); padding: 2.5rem 2rem; text-align: center; }
+.stat-row { display: flex; justify-content: center; flex-wrap: wrap; max-width: 840px; margin: 0 auto; }
+.stat { padding: 1rem 1.8rem; border-right: 1px solid rgba(255,255,255,0.1); }
+.stat:last-child { border-right: none; }
+.stat-n { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 900; line-height: 1; color: var(--saffron); }
+.stat-n.r { color: #e05555; }
+.stat-n.g { color: #4ca86a; }
+.stat-l { font-family: 'IBM Plex Mono', monospace; font-size: 0.54rem; letter-spacing: 0.18em; text-transform: uppercase; color: #8a8070; margin-top: 0.3rem; }
+.stats-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; color: #6a6050; margin-top: 1.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+/* MAIN */
+main { padding: 3rem 0; }
+
+/* TIER CHROME */
+.tier-lbl { font-family: 'IBM Plex Mono', monospace; font-size: 0.57rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem; }
+.tier-lbl::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--muted); }
+.tier-n { font-family: 'Playfair Display', serif; font-size: 0.7rem; color: var(--saffron); font-weight: 700; }
+.section-h { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; line-height: 1.15; margin-bottom: 0.75rem; }
+.section-intro { font-family: 'Crimson Pro', serif; font-style: italic; font-size: 1.1rem; color: var(--muted); margin-bottom: 1.5rem; border-left: 3px solid var(--saffron); padding-left: 1rem; }
+
+/* CONTENT BLOCKS */
+.block { margin: 1.2rem 0; padding: 1.2rem 1.5rem; border: 1px solid var(--aged); border-left: 3px solid var(--aged); }
+.block.blue { border-left-color: var(--navy); }
+.block.green { border-left-color: var(--forest); background: rgba(26,107,42,0.03); }
+.block.orange { border-left-color: var(--saffron); }
+.block.red { border-left-color: var(--danger); }
+[data-theme='dark'] .block.green { background: rgba(76,168,106,0.06); }
+.block-tag { font-family: 'IBM Plex Mono', monospace; font-size: 0.54rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 0.35rem; color: var(--muted); }
+.block.blue .block-tag { color: var(--navy); }
+.block.green .block-tag { color: var(--forest); }
+.block.orange .block-tag { color: var(--saffron); }
+.block.red .block-tag { color: var(--danger); }
+.block-h { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
+.block-p { font-size: 0.95rem; color: var(--muted); line-height: 1.65; }
+
+/* PULL QUOTE */
+.pull-quote { margin: 2rem 0; padding: 1.5rem 2rem; border-top: 3px solid var(--ink); border-bottom: 1px solid var(--aged); font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; line-height: 1.4; }
+
+/* TIER SEPARATOR */
+.tier-sep { height: 1px; background: var(--aged); margin: 3rem 0; }
+
+/* WIDGET */
+.widget { margin: 0 0 3rem; padding: 2rem; border: 2px solid var(--ink); }
+.widget-head { border-bottom: 1px solid var(--aged); padding-bottom: 1rem; margin-bottom: 1.2rem; }
+.widget-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; }
+.widget-sub { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 0.25rem; }
+.legend-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+.legend-dot { display: flex; align-items: center; gap: 0.4rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.legend-dot span { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+.chart-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.57rem; color: var(--muted); margin-top: 0.75rem; letter-spacing: 0.04em; }
+
+/* TOOLTIP */
+.sc-tooltip {
+  position: absolute; pointer-events: none; display: none;
+  background: var(--ink); color: var(--paper);
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+  padding: 8px 12px; white-space: nowrap; z-index: 10;
+  letter-spacing: 0.04em;
+}
+.sc-state { font-weight: 700; margin-bottom: 3px; }
+.sc-meta { color: #8a8070; font-size: 0.56rem; }
+.chart-wrap { position: relative; }
+
+/* COUNTERPOINT */
+.counterpoint {
+  margin: 2rem 0; padding: 1.5rem;
+  border: 1px solid var(--aged); border-left: 3px solid var(--muted);
+  background: rgba(107,95,78,0.04);
+}
+.counterpoint-label {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.56rem;
+  letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.counterpoint p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; }
+
+/* RELATED */
+.related { margin: 2.5rem 0 0; padding: 1.5rem 0; border-top: 2px solid var(--ink); }
+.related-l { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+.related-links { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.related-link { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 0.9rem; border: 1px solid var(--aged); color: var(--ink); text-decoration: none; transition: all 0.15s; }
+.related-link:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* FOOTER */
+.page-footer { background: var(--ink); color: #6a6050; padding: 2rem; text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; letter-spacing: 0.08em; margin-top: 3rem; }
+.page-footer a { color: var(--saffron); }
+
+@media (max-width: 600px) {
+  .stat-row { flex-direction: column; }
+  .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .masthead { padding: 1rem; }
+  .related-links { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">The Bengal Reader</a>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Voter Guide</a>
+      <a href="/parties" class="site-nav-link">Party Compass</a>
+      <a href="/constituencies" class="site-nav-link">2026 Results</a>
+      <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+      <a href="/accountability" class="site-nav-link">100 Days</a>
+      <a href="/corruption" class="site-nav-link">Dossier</a>
+      <a href="/bonds" class="site-nav-link">Money Trail</a>
+      <a href="/mlas" class="site-nav-link">MLA Records</a>
+      <a href="/india-development" class="site-nav-link">India's Story</a>
+      <a href="/india-china" class="site-nav-link">India vs China</a>
+      <a href="/india-governance" class="site-nav-link active">Performance OS</a>
+      <a href="/ask" class="site-nav-link">Ask AI</a>
+      <a href="/map" class="site-nav-link">Map</a>
+      <a href="/assets" class="site-nav-link">Wealth Growth</a>
+      <a href="/methodology" class="site-nav-link">Methodology</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="eyebrow">The Bengal Reader · Governance Reform · Policy Blueprint</div>
+  <h1>India's<br><em>Performance OS</em></h1>
+  <p class="deck">Capital goes where politics points. The blueprint for making it go where data points.</p>
+  <div class="meta-bar">
+    <span>Updated: May 2026</span>
+    <span>Non-partisan · Policy analysis</span>
+    <span>NITI Aayog · World Bank · CAG · EIU</span>
+  </div>
+</header>
+
+<section class="stats-hero" aria-label="Governance friction data">
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-n r">40%</div>
+      <div class="stat-l">Welfare leakage before DBT</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">65th</div>
+      <div class="stat-l">India govt. effectiveness rank</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n r">13%</div>
+      <div class="stat-l">GDP lost to logistics costs</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n g">DBT</div>
+      <div class="stat-l">Saved ₹3.5L Cr in leakage</div>
+    </div>
+  </div>
+  <p class="stats-note">The Direct Benefit Transfer system proved the model: removing human intermediaries and routing funds algorithmically saved an estimated ₹3.48 lakh crore in leakage between 2014 and 2024. The Performance OS blueprint extends that logic from welfare to every layer of the state.</p>
+</section>
+
+<main>
+  <div class="container">
+
+    <!-- WIDGET: STATE EFFICIENCY EXPLORER -->
+    <div class="widget" aria-label="Interactive: State development efficiency explorer">
+      <div class="widget-head">
+        <div class="widget-title">State Development Efficiency Explorer</div>
+        <div class="widget-sub">Development spend vs outcome score · 25 major states · Does spending equal results?</div>
+      </div>
+      <div class="legend-row" aria-hidden="true">
+        <div class="legend-dot"><span style="background:#1a6b2a;"></span> South</div>
+        <div class="legend-dot"><span style="background:#1565c0;"></span> North</div>
+        <div class="legend-dot"><span style="background:#c0171b;"></span> East</div>
+        <div class="legend-dot"><span style="background:#d97706;"></span> West</div>
+        <div class="legend-dot"><span style="background:#7c3aed;"></span> Central</div>
+        <div class="legend-dot"><span style="background:#0891b2;"></span> Northeast</div>
+        <div class="legend-dot" style="color:var(--muted);"><span style="background:var(--muted);border-radius:0;height:2px;"></span> Avg. trendline</div>
+      </div>
+      <div class="chart-wrap">
+        <svg id="eff-chart" style="width:100%;display:block;" viewBox="0 0 680 380" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+        <div class="sc-tooltip" id="sc-tt">
+          <div class="sc-state" id="sc-name"></div>
+          <div class="sc-meta" id="sc-data"></div>
+        </div>
+      </div>
+      <p class="chart-note">Composite Development Score: normalised index combining HDI components, infrastructure access, and NITI Aayog SDG rankings. Expenditure: state budget development spend per capita. Bubble size = population. Sources: MoSPI, NITI Aayog, World Bank. Figures approximate.</p>
+    </div>
+
+    <!-- FRAMING -->
+    <section aria-labelledby="frame-h">
+      <div class="tier-lbl"><span class="tier-n">The Case</span> Why Reform, Not Funding</div>
+      <h2 class="section-h" id="frame-h">India Does Not Have a Spending Problem. It Has an Efficiency Problem.</h2>
+      <p class="section-intro">The scatter plot above makes the core argument without words. Some states achieve high development scores on moderate budgets. Others spend significantly more and achieve less. The inputs are not the bottleneck — the system that converts inputs to outputs is.</p>
+
+      <div class="block blue">
+        <div class="block-tag">The Evidence</div>
+        <div class="block-h">Tamil Nadu vs Jharkhand: Same Spending, Different Outcomes</div>
+        <p class="block-p">Tamil Nadu spends roughly ₹24,000 per capita on development annually and achieves a composite score in the high 70s. Jharkhand spends a similar ₹22,000 per capita and scores in the low 60s. The 15-point gap is not a funding gap — it is a governance gap: the difference between systems that convert spending into outcomes and systems that absorb spending without converting it. The <strong>Performance OS</strong> blueprint is a framework for building more Tamil Nadus.</p>
+      </div>
+
+      <div class="block orange">
+        <div class="block-tag">The Proof of Concept</div>
+        <div class="block-h">DBT Already Ran This Experiment at National Scale</div>
+        <p class="block-p">Between 2014 and 2024, India's Direct Benefit Transfer system eliminated an estimated <strong>₹3.48 lakh crore</strong> in welfare leakage by routing subsidies algorithmically — removing human intermediaries from the flow of money. Ration card fraud, ghost beneficiaries, and middleman skimming collapsed almost immediately when the system changed from political/administrative discretion to automated, data-linked distribution. This is the performance operating system in its first version. The blueprint extends the principle upward, from welfare to capital allocation to institutional accountability.</p>
+      </div>
+    </section>
+
+    <div class="tier-sep"></div>
+
+    <!-- PILLAR 1: ALGORITHMIC GOVERNANCE -->
+    <section aria-labelledby="p1-h">
+      <div class="tier-lbl"><span class="tier-n">01 / 04</span> Allocation</div>
+      <h2 class="section-h" id="p1-h">Algorithmic Governance &amp; Resource Allocation</h2>
+      <p class="section-intro">Capital distribution is currently bottlenecked by political proximity and subjective lobbying. Replacing this with objective, data-driven allocation is the foundational reform — and it is technically achievable today.</p>
+
+      <div class="block blue">
+        <div class="block-tag">Mechanism</div>
+        <div class="block-h">The Disadvantage Index: A Real-Time Block-Level Metric</div>
+        <p class="block-p">Deploy a continuously updated, block-level composite index that quantifies infrastructural, educational, and economic deficits across all ~6,000 development blocks in India. The index aggregates satellite data (road quality, building density, agricultural yield), administrative records (school attendance, health outcomes, MSME density), and financial data (credit access, bank penetration). When a block's index crosses a threshold, it automatically triggers a development allocation request — removing the lobbying cycle entirely.</p>
+      </div>
+
+      <div class="block green">
+        <div class="block-tag">Mechanism</div>
+        <div class="block-h">Milestone-Gated Capital Deployment</div>
+        <p class="block-p">State and central funds are algorithmically routed based on the disadvantage index and measurable ROI projections. Crucially, funding tiers are milestone-gated: a district that completes Phase 1 infrastructure (roads, electrification, broadband) and hits verifiable data thresholds <em>automatically</em> unlocks Phase 2 capital for industrial zone development. No petition. No approval chain. The milestones are public and auditable by any citizen.</p>
+      </div>
+
+      <div class="block orange">
+        <div class="block-tag">Precedent</div>
+        <div class="block-h">PM Gati Shakti Is the Prototype</div>
+        <p class="block-p">The PM Gati Shakti master plan — which uses digital GIS mapping to coordinate 16 ministries' infrastructure spending on a single real-time platform — already demonstrates the principle at the infrastructure layer. The data is live; the bottleneck is political will to bind budget releases to objective progress metrics rather than ministerial discretion.</p>
+      </div>
+    </section>
+
+    <div class="tier-sep"></div>
+
+    <!-- PILLAR 2: DECENTRALISATION -->
+    <section aria-labelledby="p2-h">
+      <div class="tier-lbl"><span class="tier-n">02 / 04</span> Distribution</div>
+      <h2 class="section-h" id="p2-h">Infrastructure Decentralisation</h2>
+      <p class="section-intro">The current model hyper-concentrates economic activity in 8–10 Tier-1 cities, producing unsustainable sprawl in those cities while systematically starving the periphery. Building high-performance hubs out of neglected districts is both an equity imperative and an economic efficiency gain.</p>
+
+      <div class="block blue">
+        <div class="block-tag">Strategy</div>
+        <div class="block-h">Reverse Brain Drain: Incentivise Tech and Industrial Nodes in Tier-3 and Tier-4 Districts</div>
+        <p class="block-p">Mandate and heavily subsidise the relocation of specific technological and industrial nodes — data centres, semiconductor assembly, logistics hubs, research parks — to districts with high disadvantage index scores. The incentive structure should make a Tier-3 district in UP or Jharkhand <em>more financially attractive</em> for a manufacturer than a Tier-1 city, specifically to correct the market failure that produces uneven agglomeration. South Korea executed this model in the 1970s–90s to industrialise outside Seoul.</p>
+      </div>
+
+      <div class="block green">
+        <div class="block-tag">Mechanism</div>
+        <div class="block-h">Open-Source District Dashboards: Real-Time Civic Visibility</div>
+        <p class="block-p">Deploy transparent, unified digital dashboards for every district — publicly accessible, updated daily from integrated government data streams. Citizens, administrators, investors, and journalists must have real-time visibility into: local supply chain bottlenecks, project execution rates vs timelines, civic service delivery gaps, and fund utilisation ratios. The sunlight effect has a documented governance improvement track record — Andhra Pradesh's real-time governance dashboard (RTGS) showed measurable reductions in project delays within 18 months of deployment.</p>
+      </div>
+    </section>
+
+    <div class="tier-sep"></div>
+
+    <!-- PILLAR 3: MERITOCRACY -->
+    <section aria-labelledby="p3-h">
+      <div class="tier-lbl"><span class="tier-n">03 / 04</span> Institutions</div>
+      <h2 class="section-h" id="p3-h">Absolute Meritocracy in Institutions</h2>
+      <p class="section-intro">India's administrative paradox: the IAS system attracts extraordinary talent, then systematically misallocates it via seniority-based promotions, fixed tenure rotations, and political transfer mechanisms that ensure the most capable officers rarely stay long enough to see their work through.</p>
+
+      <div class="block blue">
+        <div class="block-tag">Reform</div>
+        <div class="block-h">Replace Seniority with Outcome-Based Progression</div>
+        <p class="block-p">Tenure and seniority must be eliminated as criteria for advancement. Bureaucratic and institutional leadership must be tied strictly to measurable output: project delivery velocity, citizen satisfaction scores (from authenticated government portals), and objective economic development metrics for their jurisdiction. Officers who consistently deliver above-benchmark outcomes should advance faster — and those who do not should face reassignment, not promotion on a fixed schedule. The lateral entry programme into IAS, which brought domain specialists into senior roles, is a partial implementation of this logic.</p>
+      </div>
+
+      <div class="block green">
+        <div class="block-tag">Infrastructure</div>
+        <div class="block-h">Democratise Agentic AI and High-Performance Tools Across the State</div>
+        <p class="block-p">The state should act as an accelerator for institutional competence. Provide universal, high-speed access to agentic AI tools, data analytics platforms, and development environments for all district and block-level administrators — regardless of their position in the hierarchy. A panchayat officer with a laptop, AI tools, and real-time data access can solve in 30 minutes what previously required 10 approval signatures and three weeks. Aggressively reward those who build scalable civic solutions within the system.</p>
+      </div>
+    </section>
+
+    <div class="tier-sep"></div>
+
+    <!-- PILLAR 4: LEGACY BYPASS -->
+    <section aria-labelledby="p4-h">
+      <div class="tier-lbl"><span class="tier-n">04 / 04</span> Execution</div>
+      <h2 class="section-h" id="p4-h">Bypassing Legacy Systems</h2>
+      <p class="section-intro">You cannot build a modern state on an outdated administrative chassis. The reconstruction protocol phases out inefficient human intermediaries while building algorithmic accountability into the replacement system.</p>
+
+      <div class="block blue">
+        <div class="block-tag">Mechanism</div>
+        <div class="block-h">Direct-to-Citizen Execution: Zero Human Intervention in Standard Civic Services</div>
+        <p class="block-p">Expand India's existing digital stack (Aadhaar, DigiLocker, UMANG, e-NAM, DBT) to handle all standard civic services, licensing, and regulatory compliance without human intervention. A business licence application in Singapore resolves in 15 minutes algorithmically. In India, the same process averages 30+ days involving 6–8 human checkpoints — each one a potential rent-seeking node. Every human checkpoint that remains in a system that does not genuinely require human judgement is a design failure, not a feature.</p>
+      </div>
+
+      <div class="block green">
+        <div class="block-tag">Accountability</div>
+        <div class="block-h">Zero-Tolerance Project Delay Tracking with Dynamic Reallocation</div>
+        <p class="block-p">Implement real-time tracking for every infrastructure project above ₹1 crore. If a node fails to meet its milestone timeline by more than a set threshold, the responsible administrative unit is automatically flagged in public dashboards, an escalation protocol is triggered, and — for repeat failures — decision-making authority is dynamically reassigned to a higher or parallel administrative node. The current system rewards delay by removing accountability from any single actor. The new system re-centralises accountability precisely on delay.</p>
+      </div>
+    </section>
+
+    <div class="pull-quote">"Performance is the only currency that matters. Speed requires eliminating the friction of obsolete administrative systems — not managing around them."</div>
+
+    <!-- HONEST COUNTERPOINT -->
+    <section aria-labelledby="counter-h">
+      <div class="tier-lbl"><span class="tier-n">Analysis</span> The Hard Questions</div>
+      <h2 class="section-h" id="counter-h">What the Blueprint Gets Right — and What It Leaves Unresolved</h2>
+      <div class="counterpoint">
+        <div class="counterpoint-label">Civic Journalism Note · Non-partisan analysis</div>
+        <p>The Performance OS blueprint presents a compelling model — and the DBT precedent is real evidence. But four questions require honest answers before implementation at scale.</p>
+        <p style="margin-top:0.8rem;"><strong>Algorithmic bias encodes existing inequities.</strong> A disadvantage index built on current data reflects current inequalities. If historical underinvestment made certain districts look "low ROI," the algorithm will continue to deprioritise them — replicating the failure it was designed to fix. The index design itself requires democratic scrutiny, not just technical optimisation.</p>
+        <p style="margin-top:0.8rem;"><strong>Removing human judgement removes democratic accountability.</strong> The 2019–2022 Aadhaar exclusions case documented how automated systems failed tribals, the elderly, and migrants — people whose data did not conform to system expectations. Algorithmic governance requires human override mechanisms, and those mechanisms require political will to use.</p>
+        <p style="margin-top:0.8rem;"><strong>Meritocracy in institutions requires defining "merit" carefully.</strong> Outcome-based progression for IAS officers works if the outcomes being measured are the right ones. If a district officer is measured on GDP growth, they have incentives to attract industry at the expense of environmental or social outcomes. The metrics define the system's values.</p>
+        <p style="margin-top:0.8rem;"><strong>Speed and equity are sometimes in direct tension.</strong> The fastest path to economic output is often to concentrate resources in already-capable zones. The just path redistributes them. A Performance OS must embed equity constraints into its optimisation function, or it will efficiently build a more unequal India, faster.</p>
+      </div>
+    </section>
+
+    <!-- RELATED LINKS -->
+    <div class="related" aria-label="Related investigations">
+      <div class="related-l">Related on The Bengal Reader</div>
+      <div class="related-links">
+        <a href="/india-development" class="related-link">India's Development Story</a>
+        <a href="/india-china" class="related-link">India vs China</a>
+        <a href="/accountability" class="related-link">100-Day Pledges</a>
+        <a href="/corruption" class="related-link">Corruption Dossier</a>
+        <a href="/bonds" class="related-link">Electoral Bonds</a>
+        <a href="/ask" class="related-link">Ask AI</a>
+        <a href="/methodology" class="related-link">Methodology &amp; Sources</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="page-footer">
+  <p>The Bengal Reader · Non-partisan civic journalism · Data from NITI Aayog, MoSPI, World Bank, CAG, EIU</p>
+  <p style="margin-top:0.5rem;">Composite Development Score is illustrative, derived from published HDI, SDG, and NITI Aayog rankings. See <a href="/methodology">methodology</a>.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  // ── DATA ──────────────────────────────────────────────────────────────────
+  // exp: development expenditure per capita (₹ thousands, approx.)
+  // score: composite development score 0–100 (HDI components + NITI SDG rankings)
+  // pop: population in millions
+  const STATES = [
+    { name: 'Kerala',            exp: 28, score: 82, pop: 35,  region: 'South'     },
+    { name: 'Tamil Nadu',        exp: 24, score: 76, pop: 77,  region: 'South'     },
+    { name: 'Goa',               exp: 45, score: 80, pop: 2,   region: 'West'      },
+    { name: 'Delhi',             exp: 38, score: 77, pop: 20,  region: 'North'     },
+    { name: 'Himachal Pradesh',  exp: 40, score: 74, pop: 7,   region: 'North'     },
+    { name: 'Maharashtra',       exp: 22, score: 72, pop: 125, region: 'West'      },
+    { name: 'Karnataka',         exp: 21, score: 70, pop: 68,  region: 'South'     },
+    { name: 'Haryana',           exp: 26, score: 71, pop: 29,  region: 'North'     },
+    { name: 'Punjab',            exp: 24, score: 70, pop: 30,  region: 'North'     },
+    { name: 'Uttarakhand',       exp: 32, score: 70, pop: 11,  region: 'North'     },
+    { name: 'Gujarat',           exp: 19, score: 69, pop: 67,  region: 'West'      },
+    { name: 'Andhra Pradesh',    exp: 20, score: 67, pop: 54,  region: 'South'     },
+    { name: 'Telangana',         exp: 22, score: 68, pop: 40,  region: 'South'     },
+    { name: 'Tripura',           exp: 30, score: 67, pop: 4,   region: 'Northeast' },
+    { name: 'West Bengal',       exp: 18, score: 65, pop: 100, region: 'East'      },
+    { name: 'Manipur',           exp: 35, score: 65, pop: 3,   region: 'Northeast' },
+    { name: 'Meghalaya',         exp: 32, score: 64, pop: 3,   region: 'Northeast' },
+    { name: 'Assam',             exp: 20, score: 62, pop: 36,  region: 'Northeast' },
+    { name: 'Rajasthan',         exp: 20, score: 62, pop: 82,  region: 'North'     },
+    { name: 'Odisha',            exp: 23, score: 62, pop: 47,  region: 'East'      },
+    { name: 'Chhattisgarh',      exp: 24, score: 61, pop: 30,  region: 'Central'   },
+    { name: 'Madhya Pradesh',    exp: 19, score: 60, pop: 85,  region: 'Central'   },
+    { name: 'Jharkhand',         exp: 22, score: 60, pop: 38,  region: 'East'      },
+    { name: 'Uttar Pradesh',     exp: 15, score: 57, pop: 235, region: 'North'     },
+    { name: 'Bihar',             exp: 13, score: 55, pop: 125, region: 'East'      },
+  ];
+
+  const RC = {
+    South: '#1a6b2a', North: '#1565c0', East: '#c0171b',
+    West: '#d97706', Central: '#7c3aed', Northeast: '#0891b2',
+  };
+
+  // ── CHART SETUP ───────────────────────────────────────────────────────────
+  const W = 680, H = 380;
+  const M = { top: 20, right: 20, bottom: 54, left: 62 };
+  const iW = W - M.left - M.right;
+  const iH = H - M.top - M.bottom;
+
+  const svg = d3.select('#eff-chart').attr('viewBox', `0 0 ${W} ${H}`);
+  const g = svg.append('g').attr('transform', `translate(${M.left},${M.top})`);
+
+  const xScale = d3.scaleLinear().domain([10, 50]).range([0, iW]);
+  const yScale = d3.scaleLinear().domain([50, 88]).range([iH, 0]);
+  const rScale = d3.scaleSqrt().domain([0, 235]).range([3.5, 20]);
+
+  // Grid
+  const xTicks = [10, 15, 20, 25, 30, 35, 40, 45, 50];
+  const yTicks = [50, 55, 60, 65, 70, 75, 80, 85];
+  xTicks.forEach(t => g.append('line').attr('x1', xScale(t)).attr('x2', xScale(t)).attr('y1', 0).attr('y2', iH).attr('stroke', 'rgba(160,140,120,0.13)').attr('stroke-dasharray', '3,3'));
+  yTicks.forEach(t => g.append('line').attr('x1', 0).attr('x2', iW).attr('y1', yScale(t)).attr('y2', yScale(t)).attr('stroke', 'rgba(160,140,120,0.13)').attr('stroke-dasharray', '3,3'));
+
+  // Axes
+  const xAxisG = g.append('g').attr('transform', `translate(0,${iH})`);
+  xAxisG.call(d3.axisBottom(xScale).ticks(8).tickFormat(d => '₹' + d + 'k').tickSize(4));
+  xAxisG.selectAll('text').attr('font-family', "'IBM Plex Mono',monospace").attr('font-size', '9').attr('fill', '#6b5f4e');
+  xAxisG.select('.domain').remove();
+  xAxisG.selectAll('line').attr('stroke', 'rgba(160,140,120,0.4)');
+
+  const yAxisG = g.append('g');
+  yAxisG.call(d3.axisLeft(yScale).ticks(7).tickSize(0));
+  yAxisG.selectAll('text').attr('font-family', "'IBM Plex Mono',monospace").attr('font-size', '9').attr('fill', '#6b5f4e').attr('dx', '-4');
+  yAxisG.select('.domain').remove();
+
+  // Axis labels
+  g.append('text').attr('x', iW / 2).attr('y', iH + 42).attr('text-anchor', 'middle')
+    .attr('font-family', "'IBM Plex Mono',monospace").attr('font-size', '9').attr('fill', '#6b5f4e').attr('letter-spacing', '0.1em')
+    .text('DEVELOPMENT EXPENDITURE PER CAPITA (₹ THOUSANDS/YEAR)');
+  g.append('text').attr('transform', 'rotate(-90)').attr('x', -iH / 2).attr('y', -48)
+    .attr('text-anchor', 'middle').attr('font-family', "'IBM Plex Mono',monospace").attr('font-size', '9').attr('fill', '#6b5f4e').attr('letter-spacing', '0.1em')
+    .text('COMPOSITE DEVELOPMENT SCORE');
+
+  // ── REGRESSION TRENDLINE ─────────────────────────────────────────────────
+  const n = STATES.length;
+  const sx = d3.sum(STATES, d => d.exp);
+  const sy = d3.sum(STATES, d => d.score);
+  const sxy = d3.sum(STATES, d => d.exp * d.score);
+  const sx2 = d3.sum(STATES, d => d.exp * d.exp);
+  const slope = (n * sxy - sx * sy) / (n * sx2 - sx * sx);
+  const intercept = (sy - slope * sx) / n;
+  const trendX1 = 10, trendX2 = 50;
+  const trendY1 = slope * trendX1 + intercept;
+  const trendY2 = slope * trendX2 + intercept;
+
+  g.append('line')
+    .attr('x1', xScale(trendX1)).attr('y1', yScale(trendY1))
+    .attr('x2', xScale(trendX2)).attr('y2', yScale(trendY2))
+    .attr('stroke', 'rgba(120,110,100,0.5)').attr('stroke-width', 1.5)
+    .attr('stroke-dasharray', '5,4');
+
+  g.append('text').attr('x', xScale(42)).attr('y', yScale(slope * 42 + intercept) - 7)
+    .attr('font-family', "'IBM Plex Mono',monospace").attr('font-size', '8')
+    .attr('fill', 'rgba(120,110,100,0.7)').attr('text-anchor', 'middle')
+    .text('AVERAGE TRENDLINE');
+
+  // ── BUBBLES ───────────────────────────────────────────────────────────────
+  const LABEL_STATES = new Set(['Tamil Nadu', 'Kerala', 'Bihar', 'Uttar Pradesh', 'Jharkhand', 'Gujarat']);
+
+  const circles = g.selectAll('.state-dot')
+    .data(STATES)
+    .enter()
+    .append('circle')
+    .attr('class', 'state-dot')
+    .attr('cx', d => xScale(d.exp))
+    .attr('cy', d => yScale(d.score))
+    .attr('r', d => rScale(d.pop))
+    .attr('fill', d => RC[d.region])
+    .attr('fill-opacity', 0.72)
+    .attr('stroke', d => RC[d.region])
+    .attr('stroke-width', 1)
+    .style('cursor', 'pointer');
+
+  // Static labels for notable states
+  STATES.forEach(d => {
+    if (!LABEL_STATES.has(d.name)) return;
+    const aboveLine = d.score > (slope * d.exp + intercept);
+    const isLarge = d.pop > 80;
+    let dx = rScale(d.pop) + 4;
+    let dy = 4;
+    let anchor = 'start';
+    if (d.name === 'Bihar') { dx = -(rScale(d.pop) + 4); anchor = 'end'; }
+    if (d.name === 'Uttar Pradesh') { dx = -(rScale(d.pop) + 4); anchor = 'end'; dy = -3; }
+    if (d.name === 'Jharkhand') { dy = -(rScale(d.pop) + 10); anchor = 'middle'; dx = 0; }
+    if (d.name === 'Gujarat') { dy = -(rScale(d.pop) + 8); anchor = 'middle'; dx = 0; }
+
+    const label = d.score > (slope * d.exp + intercept) ? '↑ efficient' : '↓ underperforming';
+    g.append('text')
+      .attr('x', xScale(d.exp) + dx)
+      .attr('y', yScale(d.score) + dy)
+      .attr('text-anchor', anchor)
+      .attr('font-family', "'IBM Plex Mono',monospace")
+      .attr('font-size', '8.5')
+      .attr('font-weight', '700')
+      .attr('fill', RC[d.region])
+      .text(d.name.split(' ')[0]); // first word only for brevity
+    g.append('text')
+      .attr('x', xScale(d.exp) + dx)
+      .attr('y', yScale(d.score) + dy + 10)
+      .attr('text-anchor', anchor)
+      .attr('font-family', "'IBM Plex Mono',monospace")
+      .attr('font-size', '7.5')
+      .attr('fill', RC[d.region])
+      .attr('opacity', 0.7)
+      .text(label);
+  });
+
+  // ── TOOLTIP ───────────────────────────────────────────────────────────────
+  const tt = document.getElementById('sc-tt');
+  const chartSvg = document.getElementById('eff-chart');
+
+  circles
+    .on('mouseover', function (event, d) {
+      d3.select(this).attr('fill-opacity', 1).attr('stroke-width', 2);
+      const expected = slope * d.exp + intercept;
+      const diff = d.score - expected;
+      const status = diff > 1.5 ? `↑ ${diff.toFixed(1)} pts above avg` : diff < -1.5 ? `↓ ${Math.abs(diff).toFixed(1)} pts below avg` : '≈ on trend';
+      document.getElementById('sc-name').textContent = d.name + ' · ' + d.region;
+      document.getElementById('sc-data').innerHTML =
+        `Spend: ₹${d.exp}k/capita &nbsp;|&nbsp; Score: ${d.score} &nbsp;|&nbsp; Pop: ${d.pop}M<br>${status}`;
+
+      const svgRect = chartSvg.getBoundingClientRect();
+      const scale = svgRect.width / W;
+      const cx = (xScale(d.exp) + M.left) * scale;
+      const cy = (yScale(d.score) + M.top) * scale;
+      const wrap = document.querySelector('.chart-wrap');
+      const wrapW = wrap.getBoundingClientRect().width;
+      tt.style.display = 'block';
+      tt.style.left = (cx + 12 > wrapW - 220 ? cx - 200 : cx + 12) + 'px';
+      tt.style.top = Math.max(0, cy - 30) + 'px';
+    })
+    .on('mouseout', function () {
+      d3.select(this).attr('fill-opacity', 0.72).attr('stroke-width', 1);
+      tt.style.display = 'none';
+    });
+})();
+</script>
+
+</body>
+</html>

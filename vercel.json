@@ -18,7 +18,8 @@
     { "source": "/ask", "destination": "/ask.html" },
     { "source": "/map", "destination": "/map.html" },
     { "source": "/india-development", "destination": "/india-development.html" },
-    { "source": "/india-china", "destination": "/india-china.html" }
+    { "source": "/india-china", "destination": "/india-china.html" },
+    { "source": "/india-governance", "destination": "/india-governance.html" }
   ],
   "headers": [
     {
