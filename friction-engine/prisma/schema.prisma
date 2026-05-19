@@ -24,9 +24,11 @@ model Department {
   createdAt     DateTime  @default(now()) @map("created_at")
   updatedAt     DateTime  @updatedAt @map("updated_at")
 
-  officials  Official[]
-  inquiries  Inquiry[]
-  scrapeRuns ScrapeLog[]
+  officials        Official[]
+  inquiries        Inquiry[]
+  scrapeRuns       ScrapeLog[]
+  alertSubscribers AlertSubscriber[]
+  alertThresholds  AlertThreshold[]
 
   @@unique([name, state])
   @@map("departments")
@@ -110,11 +112,30 @@ model ScrapeLog {
 model AlertSubscriber {
   id           String    @id @default(uuid())
   email        String
-  departmentId String?   @map("department_id")  // null = subscribe to all
+  departmentId String?   @map("department_id")  // null = global (all departments)
   threshold    Decimal   @default(100) @db.Decimal(8, 2)
+  webhookUrl   String?   @map("webhook_url") @db.Text
   isActive     Boolean   @default(true) @map("is_active")
   createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  department Department? @relation(fields: [departmentId], references: [id])
 
   @@unique([email, departmentId])
   @@map("alert_subscribers")
+}
+
+model AlertThreshold {
+  id             String    @id @default(uuid())
+  departmentId   String?   @map("department_id")  // null = global
+  metric         String                             // avg_friction_score | breach_rate | ghost_rate
+  thresholdValue Decimal   @map("threshold_value") @db.Decimal(8, 2)
+  webhookUrl     String?   @map("webhook_url") @db.Text
+  isActive       Boolean   @default(true) @map("is_active")
+  lastTriggered  DateTime? @map("last_triggered")
+  createdAt      DateTime  @default(now()) @map("created_at")
+
+  department Department? @relation(fields: [departmentId], references: [id])
+
+  @@map("alert_thresholds")
 }

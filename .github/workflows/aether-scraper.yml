@@ -1,0 +1,133 @@
+name: Aether OS · Daily Scraper
+
+on:
+  schedule:
+    - cron: '30 20 * * *'   # 20:30 UTC = 02:00 IST — off-peak for portal servers
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'discover (find new RTIs) | all (re-scrape known) | both'
+        default: 'both'
+        required: false
+        type: choice
+        options: [both, discover, all]
+
+concurrency:
+  group: aether-scraper
+  cancel-in-progress: false   # never interrupt a live scrape
+
+jobs:
+  scrape:
+    name: Scrape RTI Portals
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: friction-engine/requirements.txt
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+        working-directory: friction-engine
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}-${{ hashFiles('friction-engine/requirements.txt') }}
+
+      - name: Install Playwright browsers
+        run: python -m playwright install chromium --with-deps
+        working-directory: friction-engine
+
+      - name: Run scraper
+        id: scraper
+        env:
+          DATABASE_URL:      ${{ secrets.AETHER_DATABASE_URL }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SCRAPER_MODE:      ${{ inputs.mode || 'both' }}
+        run: |
+          python3 scraper.py --mode "$SCRAPER_MODE" 2>&1 | tee scraper.log
+          echo "lines=$(wc -l < scraper.log)" >> "$GITHUB_OUTPUT"
+        working-directory: friction-engine
+
+      - name: Upload scraper log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraper-log-${{ github.run_id }}
+          path: friction-engine/scraper.log
+          retention-days: 14
+
+      - name: Upload dead-letter queue
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dead-letter-${{ github.run_id }}
+          path: friction-engine/dead_letter/
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Trigger nightly DFI recalculation
+        if: success()
+        run: |
+          STATUS=$(curl -sf -o /tmp/dfi.json -w "%{http_code}" \
+            -X GET "$AETHER_SITE_URL/api/v1/internal/trigger-friction-update" \
+            -H "Authorization: Bearer $AETHER_CRON_SECRET")
+          if [ "$STATUS" != "200" ]; then
+            echo "DFI trigger failed with HTTP $STATUS"
+            cat /tmp/dfi.json
+            exit 1
+          fi
+          echo "DFI recalculation result:"
+          cat /tmp/dfi.json | python3 -m json.tool
+        env:
+          AETHER_SITE_URL:    ${{ secrets.AETHER_SITE_URL }}
+          AETHER_CRON_SECRET: ${{ secrets.AETHER_CRON_SECRET }}
+
+      - name: Open failure issue (deduplicated)
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const label = 'aether-scraper-failure';
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              labels: label, state: 'open',
+            });
+            if (open.length > 0) {
+              core.info('Failure issue already open — skipping duplicate.');
+              return;
+            }
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title: `[Aether OS] Scraper failure — ${new Date().toISOString().split('T')[0]}`,
+              body: `The Aether OS daily RTI scraper failed.\n\n[View workflow run](${runUrl})\n\nCheck the attached \`scraper.log\` artifact for details.`,
+              labels: [label],
+            });
+
+      - name: Close failure issue on success
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const label = 'aether-scraper-failure';
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              labels: label, state: 'open',
+            });
+            for (const issue of open) {
+              await github.rest.issues.update({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: issue.number, state: 'closed',
+              });
+              core.info(`Closed failure issue #${issue.number}`);
+            }

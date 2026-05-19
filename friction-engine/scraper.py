@@ -4,16 +4,19 @@ Aether OS — RTI Portal Scraper
 Scrapes RTI status from Indian government portals via Playwright.
 Extracts structured data via Claude API. Writes to PostgreSQL.
 
-Requirements:
-    pip install playwright anthropic asyncpg pydantic python-dotenv
-    playwright install chromium
+Modes:
+  discover  Find new RTI IDs from portal listing pages, scrape only new ones
+  all       Re-scrape all tracking IDs already in the database
+  both      Discover new IDs AND re-scrape all known IDs (default)
 """
 
+import argparse
 import asyncio
 import json
 import logging
 import os
 import random
+import re
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -42,12 +45,15 @@ PORTALS = [
         "name":       "Municipal Corporation of Greater Mumbai",
         "base_url":   "https://portal.mcgm.gov.in",
         "search_path":"/rti/status_check",
+        "list_path":  "/rti/recent",           # listing page for discovery
+        "id_pattern": r"RTI/\d{4}/\d{4,6}",   # regex to match tracking IDs in HTML
         "selectors": {
             "tracking_input": "input[name='rti_no']",
             "submit_btn":     "button[type='submit']",
             "status_cell":    ".rti-status-value",
             "response_text":  ".rti-reply-content",
             "officer_name":   ".pio-name",
+            "list_items":     ".rti-list-item .tracking-no",
         },
     },
     {
@@ -55,12 +61,79 @@ PORTALS = [
         "name":       "Kolkata Municipal Corporation",
         "base_url":   "https://www.kmcgov.in",
         "search_path":"/rti/track",
+        "list_path":  "/rti/list",
+        "id_pattern": r"KMC/RTI/\d{4}/\d{5}",
         "selectors": {
             "tracking_input": "#regNo",
             "submit_btn":     "#submitBtn",
             "status_cell":    "td.status-col",
             "response_text":  "div.response-text",
             "officer_name":   "span.officer-name",
+            "list_items":     "table.rti-table td.reg-no",
+        },
+    },
+    {
+        "short_code": "DDA",
+        "name":       "Delhi Development Authority",
+        "base_url":   "https://dda.gov.in",
+        "search_path":"/rti/status",
+        "list_path":  "/rti/applications",
+        "id_pattern": r"DDA/RTI/\d{4}/\d{5}",
+        "selectors": {
+            "tracking_input": "input#rtiNumber",
+            "submit_btn":     "button.search-btn",
+            "status_cell":    "#statusResult",
+            "response_text":  "#responseDiv",
+            "officer_name":   "#pioName",
+            "list_items":     ".application-row .app-id",
+        },
+    },
+    {
+        "short_code": "BBMP",
+        "name":       "Bruhat Bengaluru Mahanagara Palike",
+        "base_url":   "https://bbmp.gov.in",
+        "search_path":"/rti/check-status",
+        "list_path":  "/rti/applications-list",
+        "id_pattern": r"BBMP/\d{4}/RTI/\d{5}",
+        "selectors": {
+            "tracking_input": "input[placeholder*='RTI']",
+            "submit_btn":     "input[type='submit']",
+            "status_cell":    "#rti_status",
+            "response_text":  ".reply-box",
+            "officer_name":   ".officer-details span",
+            "list_items":     "ul.rti-apps li span.app-no",
+        },
+    },
+    {
+        "short_code": "PMC",
+        "name":       "Pune Municipal Corporation",
+        "base_url":   "https://pmc.gov.in",
+        "search_path":"/rti/application-status",
+        "list_path":  "/rti/recent-applications",
+        "id_pattern": r"PMC/RTI/\d{4}/\d{5}",
+        "selectors": {
+            "tracking_input": "#rti_reg_no",
+            "submit_btn":     "#check_status",
+            "status_cell":    ".current-status",
+            "response_text":  ".response-content",
+            "officer_name":   ".pio-details",
+            "list_items":     "table#recentRTI td.regNo",
+        },
+    },
+    {
+        "short_code": "GCC",
+        "name":       "Greater Chennai Corporation",
+        "base_url":   "https://chennaicorporation.gov.in",
+        "search_path":"/rti/status-enquiry",
+        "list_path":  "/rti/applications",
+        "id_pattern": r"GCC/RTI/\d{4}/\d{5}",
+        "selectors": {
+            "tracking_input": "input[name='rtiNo']",
+            "submit_btn":     "button[name='submit']",
+            "status_cell":    "#rtiStatusCell",
+            "response_text":  "#responseSection",
+            "officer_name":   "#officerName",
+            "list_items":     ".rti-grid .cell-id",
         },
     },
     {
@@ -68,15 +141,20 @@ PORTALS = [
         "name":       "Central RTI Portal",
         "base_url":   "https://rtionline.gov.in",
         "search_path":"/request/view_status.php",
+        "list_path":  "/request/list.php",
+        "id_pattern": r"DOPTR/R/\d{4}/\d{5}",
         "selectors": {
             "tracking_input": "#regNo",
             "submit_btn":     "input[type='submit']",
             "status_cell":    ".req_status",
             "response_text":  ".appeal_remarks",
             "officer_name":   None,
+            "list_items":     "table.rti-list td.reg-col",
         },
     },
 ]
+
+PORTAL_MAP = {p["short_code"]: p for p in PORTALS}
 
 
 # ── PYDANTIC MODELS ──────────────────────────────────────────────────────────
@@ -125,6 +203,73 @@ class InquiryExtraction(BaseModel):
     official: dict
     inquiry_data: InquiryData
     friction_events: list[FrictionEvent] = []
+
+
+# ── DISCOVERY ────────────────────────────────────────────────────────────────
+
+async def discover_tracking_ids(
+    playwright, portal: dict, conn: asyncpg.Connection
+) -> list[str]:
+    """
+    Scrape the portal's listing/recent-applications page to find tracking IDs
+    not yet in our database. Returns only genuinely new IDs.
+    """
+    browser = await playwright.chromium.launch(
+        headless=True,
+        args=["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"],
+    )
+    ctx = await browser.new_context(
+        user_agent=(
+            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+        ),
+        viewport={"width": 1280, "height": 720},
+        locale="en-IN",
+    )
+    found: list[str] = []
+    try:
+        page = await ctx.new_page()
+        list_url = portal["base_url"] + portal["list_path"]
+        log.info("  Discovering: %s", list_url)
+        await page.goto(list_url, wait_until="networkidle", timeout=30_000)
+
+        # Strategy 1: use portal-specific CSS selector for list items
+        sel = portal["selectors"].get("list_items")
+        if sel:
+            elements = await page.query_selector_all(sel)
+            for el in elements:
+                text = (await el.inner_text()).strip()
+                if text:
+                    found.append(text)
+
+        # Strategy 2: fall back to regex extraction over full page HTML
+        if not found and portal.get("id_pattern"):
+            html = await page.content()
+            found = list(set(re.findall(portal["id_pattern"], html)))
+
+        log.info("  Found %d candidate IDs on listing page", len(found))
+
+    except PwTimeout:
+        log.warning("  Timeout fetching listing page for %s", portal["name"])
+    except Exception as exc:
+        log.error("  Discovery error for %s: %s", portal["name"], exc)
+    finally:
+        await browser.close()
+
+    if not found:
+        return []
+
+    # Filter to IDs not yet in the DB
+    existing = set(
+        await conn.fetch(
+            "SELECT tracking_number FROM inquiries WHERE tracking_number = ANY($1::text[])",
+            found,
+        )
+    )
+    existing_numbers = {r["tracking_number"] for r in existing}
+    new_ids = [tid for tid in found if tid not in existing_numbers]
+    log.info("  %d new IDs after deduplication (of %d found)", len(new_ids), len(found))
+    return new_ids
 
 
 # ── SCRAPER ──────────────────────────────────────────────────────────────────
@@ -316,68 +461,137 @@ async def upsert(conn: asyncpg.Connection, extraction: InquiryExtraction, dept_i
     log.info("  → DB: %s written (status=%s)", extraction.tracking_number, rti.current_status)
 
 
+async def load_known_ids(conn: asyncpg.Connection, portal_code: str) -> list[str]:
+    """Fetch all tracking IDs in the DB that belong to this portal."""
+    dept_id = await conn.fetchval(
+        "SELECT id FROM departments WHERE short_code = $1", portal_code
+    )
+    if not dept_id:
+        return []
+    rows = await conn.fetch(
+        "SELECT tracking_number FROM inquiries WHERE department_id = $1", dept_id
+    )
+    return [r["tracking_number"] for r in rows]
+
+
 # ── MAIN PIPELINE ─────────────────────────────────────────────────────────────
 
+async def run_portal(
+    pw, portal: dict, conn: asyncpg.Connection, mode: str
+) -> tuple[int, int]:
+    """Process one portal. Returns (extracted_ok, errors)."""
+    log.info("\n▶  Portal: %s  [mode=%s]", portal["name"], mode)
+
+    dept_id = await conn.fetchval(
+        "SELECT id FROM departments WHERE short_code = $1", portal["short_code"]
+    )
+    if not dept_id:
+        log.warning("  Department %s not in DB — skipping", portal["short_code"])
+        return 0, 0
+
+    # Gather tracking IDs to scrape according to mode
+    ids_to_scrape: list[str] = []
+
+    if mode in ("discover", "both"):
+        new_ids = await discover_tracking_ids(pw, portal, conn)
+        ids_to_scrape.extend(new_ids)
+
+    if mode in ("all", "both"):
+        known = await load_known_ids(conn, portal["short_code"])
+        # Avoid duplicating IDs already queued from discovery
+        queued = set(ids_to_scrape)
+        ids_to_scrape.extend(tid for tid in known if tid not in queued)
+
+    if not ids_to_scrape:
+        log.info("  No IDs to scrape for %s", portal["short_code"])
+        return 0, 0
+
+    log.info("  %d IDs to scrape", len(ids_to_scrape))
+
+    # Log scrape run
+    run_id = await conn.fetchval(
+        "INSERT INTO scrape_log (department_id, started_at, status) "
+        "VALUES ($1, $2, 'running') RETURNING id",
+        dept_id, datetime.utcnow(),
+    )
+
+    raw_records = await scrape_portal_batch(pw, portal, ids_to_scrape)
+    extracted_ok = 0
+    errors = 0
+
+    for raw in raw_records:
+        extraction = extract_structured(raw)
+        if extraction:
+            await upsert(conn, extraction, dept_id)
+            extracted_ok += 1
+        else:
+            errors += 1
+
+    await conn.execute(
+        """
+        UPDATE scrape_log
+        SET completed_at    = $1,
+            status          = 'completed',
+            inquiries_found = $2,
+            errors          = $3
+        WHERE id = $4
+        """,
+        datetime.utcnow(), extracted_ok, errors, run_id,
+    )
+    log.info("  ✓ %d extracted, %d errors", extracted_ok, errors)
+    return extracted_ok, errors
+
+
 async def main():
-    ids_file = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("tracking_ids.txt")
-    if not ids_file.exists():
-        log.error("tracking_ids.txt not found. Pass path as first argument.")
+    parser = argparse.ArgumentParser(description="Aether OS RTI Scraper")
+    parser.add_argument(
+        "--mode",
+        choices=["discover", "all", "both"],
+        default="both",
+        help=(
+            "discover = find new IDs from portal listing pages only; "
+            "all = re-scrape all known IDs in DB; "
+            "both = discover new + re-scrape known (default)"
+        ),
+    )
+    parser.add_argument(
+        "--portals",
+        nargs="*",
+        default=None,
+        help="Limit to specific portal short codes (e.g. --portals MCGM KMC). "
+             "Defaults to all registered portals.",
+    )
+    args = parser.parse_args()
+
+    active_portals = (
+        [PORTAL_MAP[code] for code in args.portals if code in PORTAL_MAP]
+        if args.portals
+        else PORTALS
+    )
+    if not active_portals:
+        log.error("No matching portals found. Available: %s", list(PORTAL_MAP.keys()))
         sys.exit(1)
 
-    tracking_ids = [l.strip() for l in ids_file.read_text().splitlines() if l.strip()]
-    log.info("Loaded %d tracking IDs", len(tracking_ids))
+    log.info("Aether OS Scraper  mode=%s  portals=%s",
+             args.mode, [p["short_code"] for p in active_portals])
 
     conn = await asyncpg.connect(os.environ["DATABASE_URL"])
     log.info("Connected to PostgreSQL")
 
+    total_ok = 0
+    total_err = 0
+
     async with async_playwright() as pw:
-        for portal in PORTALS:
-            log.info("\n▶  Portal: %s", portal["name"])
-
-            dept_id = await conn.fetchval(
-                "SELECT id FROM departments WHERE short_code = $1",
-                portal["short_code"],
-            )
-            if not dept_id:
-                log.warning("  Department %s not found in DB — skipping", portal["short_code"])
-                continue
-
-            # Log scrape run
-            run_id = await conn.fetchval(
-                """
-                INSERT INTO scrape_log (department_id, started_at, status)
-                VALUES ($1, $2, 'running') RETURNING id
-                """,
-                dept_id, datetime.utcnow(),
-            )
-
-            raw_records = await scrape_portal_batch(pw, portal, tracking_ids)
-            extracted_ok = 0
-            errors = 0
-
-            for raw in raw_records:
-                extraction = extract_structured(raw)
-                if extraction:
-                    await upsert(conn, extraction, dept_id)
-                    extracted_ok += 1
-                else:
-                    errors += 1
-
-            await conn.execute(
-                """
-                UPDATE scrape_log
-                SET completed_at   = $1,
-                    status         = 'completed',
-                    inquiries_found = $2,
-                    errors         = $3
-                WHERE id = $4
-                """,
-                datetime.utcnow(), extracted_ok, errors, run_id,
-            )
-            log.info("  ✓ %d extracted, %d errors", extracted_ok, errors)
+        for portal in active_portals:
+            ok, err = await run_portal(pw, portal, conn, args.mode)
+            total_ok += ok
+            total_err += err
 
     await conn.close()
-    log.info("\n✓ Pipeline complete.")
+    log.info("\n✓ Pipeline complete — %d extracted, %d errors", total_ok, total_err)
+
+    if total_err > 0 and total_ok == 0:
+        sys.exit(1)   # signal CI failure only when nothing succeeded
 
 
 if __name__ == "__main__":
