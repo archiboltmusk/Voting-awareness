@@ -16,7 +16,8 @@
     { "source": "/search", "destination": "/search.html" },
     { "source": "/compare", "destination": "/compare.html" },
     { "source": "/ask", "destination": "/ask.html" },
-    { "source": "/map", "destination": "/map.html" }
+    { "source": "/map", "destination": "/map.html" },
+    { "source": "/india-development", "destination": "/india-development.html" }
   ],
   "headers": [
     {

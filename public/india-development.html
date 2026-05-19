@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="India's development story: a paradox of world-class digital payments and persistent water crises. An overview of India's core challenges from basic survival to 21st-century frontier issues.">
+<meta property="og:title" content="India's Development Paradox — The Bengal Reader">
+<meta property="og:description" content="From UPI to water scarcity: how a billion-person nation navigates poverty, jobless growth, gender gaps, pollution, and the digital divide simultaneously.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="/og-voter-guide.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="India's Development Paradox — The Bengal Reader">
+<meta name="twitter:description" content="From UPI to water scarcity: India's full spectrum of challenges from basic survival to cybersecurity.">
+<meta name="twitter:image" content="/og-voter-guide.svg">
+<title>India's Development Paradox — The Bengal Reader</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/fonts.css">
+<script defer src="/analytics.js"></script>
+<link rel="stylesheet" href="/shared.css">
+<style>
+:root {
+  --saffron: #d97706;
+  --green-india: #1a6b2a;
+  --navy: #1565c0;
+  --highlight: #fff3cd;
+  --highlight-green: rgba(26, 107, 42, 0.08);
+  --highlight-red: rgba(192, 23, 27, 0.07);
+}
+[data-theme='dark'] {
+  --saffron: #e8983a;
+  --green-india: #4ca86a;
+  --navy: #5a9fd4;
+  --highlight: rgba(217, 119, 6, 0.12);
+  --highlight-green: rgba(76, 168, 106, 0.1);
+  --highlight-red: rgba(224, 85, 85, 0.1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 0.5;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  border-bottom: 4px double var(--ink);
+  padding: 1.5rem 2rem 1rem;
+  text-align: center;
+  background: var(--paper);
+}
+.masthead-overline {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--muted);
+  border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink);
+  padding: 0.3rem 0; margin-bottom: 1rem;
+}
+.masthead h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  font-weight: 900; line-height: 1.0;
+  letter-spacing: -0.02em; text-transform: uppercase;
+}
+.masthead h1 em { font-style: italic; color: var(--saffron); }
+.masthead-sub {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: clamp(1rem, 2.5vw, 1.35rem); color: var(--muted); margin-top: 0.5rem;
+}
+.masthead-meta {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+  letter-spacing: 0.15em; color: var(--muted); margin-top: 1rem;
+  border-top: 1px solid var(--aged); padding-top: 0.6rem;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+}
+
+/* ── STATS HERO ── */
+.stats-hero { background: var(--ink); color: var(--paper); padding: 2.5rem 2rem; text-align: center; }
+.stats-grid { display: flex; justify-content: center; flex-wrap: wrap; max-width: 900px; margin: 0 auto; }
+.stat-cell { padding: 1.2rem 2rem; border-right: 1px solid rgba(255,255,255,0.1); }
+.stat-cell:last-child { border-right: none; }
+.stat-big {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; line-height: 1;
+  color: var(--saffron);
+}
+.stat-big.green { color: #4ca86a; }
+.stat-big.blue { color: #5a9fd4; }
+.stat-big.red { color: var(--accent); }
+.stat-label {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem;
+  letter-spacing: 0.2em; text-transform: uppercase; color: #8a8070; margin-top: 0.3rem;
+}
+.stats-note {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem;
+  color: #6a6050; margin-top: 1.5rem; max-width: 700px;
+  margin-left: auto; margin-right: auto;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+.article-grid {
+  display: grid; grid-template-columns: 1fr 340px; gap: 3rem;
+  padding: 3rem 0;
+}
+@media (max-width: 860px) {
+  .article-grid { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+}
+
+/* ── SECTION HEADERS ── */
+.section-label {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.5rem;
+  display: flex; align-items: center; gap: 0.7rem;
+}
+.section-label::before {
+  content: ''; display: inline-block; width: 24px; height: 1px;
+  background: var(--muted);
+}
+.section-number {
+  font-family: 'Playfair Display', serif; font-size: 0.75rem;
+  color: var(--saffron); font-weight: 700;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 800; line-height: 1.15; margin-bottom: 0.75rem;
+}
+.section-intro {
+  font-family: 'Crimson Pro', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--muted); margin-bottom: 1.5rem;
+  border-left: 3px solid var(--saffron); padding-left: 1rem;
+}
+
+/* ── CONTENT BLOCKS ── */
+.issue-block {
+  margin: 1.5rem 0; padding: 1.25rem 1.5rem;
+  border: 1px solid var(--aged); background: var(--paper);
+  position: relative;
+}
+.issue-block::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--ink);
+}
+.issue-block.orange::before { background: var(--saffron); }
+.issue-block.green::before { background: var(--green-india); }
+.issue-block.blue::before { background: var(--navy); }
+.issue-block.red::before { background: var(--accent); }
+.issue-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;
+}
+.issue-body { font-size: 0.95rem; color: var(--muted); line-height: 1.65; }
+
+/* ── SECTION DIVIDER ── */
+.section-divider {
+  border: none; border-top: 2px solid var(--aged); margin: 2.5rem 0;
+}
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  margin: 2rem 0; padding: 1.5rem 2rem;
+  border-top: 3px solid var(--ink); border-bottom: 1px solid var(--aged);
+  font-family: 'Playfair Display', serif; font-size: 1.3rem;
+  font-style: italic; line-height: 1.4; color: var(--ink);
+}
+
+/* ── DATA LABEL ── */
+.data-pill {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.2rem 0.5rem; margin-right: 0.4rem;
+  background: var(--aged); color: var(--muted);
+}
+
+/* ── WIDGET: ECONOMIC INEQUALITY EXPLORER ── */
+.widget-section {
+  margin: 2.5rem 0; padding: 2rem;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+}
+.widget-header {
+  border-bottom: 1px solid var(--aged); padding-bottom: 1rem; margin-bottom: 1.5rem;
+}
+.widget-title {
+  font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.02em;
+}
+.widget-subtitle {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+  margin-top: 0.3rem;
+}
+.widget-controls {
+  display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem;
+  align-items: flex-end;
+}
+.ctrl-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.ctrl-label {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
+}
+.ctrl-toggle {
+  display: flex; gap: 0; border: 1px solid var(--ink); overflow: hidden;
+}
+.ctrl-btn {
+  background: transparent; border: none;
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 14px; cursor: pointer; color: var(--muted);
+  transition: all 0.15s; border-right: 1px solid var(--aged);
+}
+.ctrl-btn:last-child { border-right: none; }
+.ctrl-btn.active { background: var(--ink); color: var(--paper); }
+.ctrl-btn:hover:not(.active) { background: var(--aged); color: var(--ink); }
+.slider-wrap { display: flex; align-items: center; gap: 0.8rem; }
+.year-slider {
+  -webkit-appearance: none; appearance: none;
+  width: 200px; height: 3px; background: var(--aged);
+  outline: none; cursor: pointer;
+}
+.year-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--ink); cursor: pointer;
+}
+.year-slider::-moz-range-thumb {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--ink); cursor: pointer; border: none;
+}
+.year-display {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; font-weight: 800; min-width: 52px;
+  color: var(--saffron);
+}
+.gini-display {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
+  letter-spacing: 0.1em; color: var(--muted);
+  padding: 4px 10px; border: 1px solid var(--aged);
+}
+#chart-area {
+  width: 100%; overflow: hidden;
+}
+.chart-svg { width: 100%; }
+.chart-note {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem;
+  color: var(--muted); margin-top: 0.75rem; letter-spacing: 0.05em;
+}
+
+/* ── SIDEBAR ── */
+.sidebar-card {
+  border: 1px solid var(--aged); padding: 1.2rem;
+  margin-bottom: 1.5rem; background: var(--paper);
+}
+.sidebar-card-title {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--muted); border-bottom: 1px solid var(--aged);
+  padding-bottom: 0.5rem; margin-bottom: 0.8rem;
+}
+.sidebar-stat {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 0.4rem 0; border-bottom: 1px dashed var(--aged); font-size: 0.9rem;
+}
+.sidebar-stat:last-child { border-bottom: none; }
+.sidebar-stat-label { color: var(--muted); font-size: 0.85rem; }
+.sidebar-stat-value {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
+  font-weight: 700; color: var(--ink);
+}
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--ink); color: var(--paper);
+  padding: 2rem; text-align: center;
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+  letter-spacing: 0.1em; color: #6a6050; margin-top: 3rem;
+}
+
+@media (max-width: 600px) {
+  .stats-grid { flex-direction: column; }
+  .stat-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .widget-controls { flex-direction: column; gap: 1rem; }
+  .year-slider { width: 160px; }
+  .masthead { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">The Bengal Reader</a>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Voter Guide</a>
+      <a href="/parties" class="site-nav-link">Party Compass</a>
+      <a href="/constituencies" class="site-nav-link">2026 Results</a>
+      <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+      <a href="/accountability" class="site-nav-link">100 Days</a>
+      <a href="/corruption" class="site-nav-link">Dossier</a>
+      <a href="/bonds" class="site-nav-link">Money Trail</a>
+      <a href="/mlas" class="site-nav-link">MLA Records</a>
+      <a href="/india-development" class="site-nav-link active">India's Story</a>
+      <a href="/ask" class="site-nav-link">Ask AI</a>
+      <a href="/map" class="site-nav-link">Map</a>
+      <a href="/assets" class="site-nav-link">Wealth Growth</a>
+      <a href="/methodology" class="site-nav-link">Methodology</a>
+    </div>
+  </div>
+</nav>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-overline">The Bengal Reader · India in Focus · Analysis</div>
+  <h1>India's Development<br><em>Paradox</em></h1>
+  <p class="masthead-sub">From UPI to water crisis — a continent-sized nation's full spectrum of challenges</p>
+  <div class="masthead-meta">
+    <span>Updated: May 2026</span>
+    <span>The Bengal Reader · Non-partisan analysis</span>
+    <span>Sources: World Bank · CMIE · Oxfam India · WID · NCRB</span>
+  </div>
+</header>
+
+<!-- HERO STATS -->
+<section class="stats-hero" aria-label="Key statistics">
+  <div class="stats-grid">
+    <div class="stat-cell">
+      <div class="stat-big">1.44B</div>
+      <div class="stat-label">Population</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-big green">7%+</div>
+      <div class="stat-label">GDP Growth Rate</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-big blue">17–20%</div>
+      <div class="stat-label">Women's Labour Force Participation</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-big red">600M</div>
+      <div class="stat-label">Under High Water Stress</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-big">70–92%</div>
+      <div class="stat-label">Mental Healthcare Treatment Gap</div>
+    </div>
+  </div>
+  <p class="stats-note">India's numbers span both extremes: world-class digital infrastructure coexists with persistent deficits in water, healthcare, and economic equity.</p>
+</section>
+
+<!-- MAIN ARTICLE -->
+<main>
+  <div class="container">
+    <div class="article-grid">
+
+      <!-- LEFT: Main content -->
+      <article>
+
+        <!-- SECTION 1 -->
+        <section aria-labelledby="section1-title">
+          <div class="section-label"><span class="section-number">01</span> The Foundation</div>
+          <h2 class="section-title" id="section1-title">Basic Needs &amp; Survival</h2>
+          <p class="section-intro">
+            Before looking at the high-tech economy, a massive portion of the population is still fighting to secure the basics.
+          </p>
+
+          <div class="issue-block orange">
+            <div class="issue-title">Poverty &amp; Malnutrition</div>
+            <p class="issue-body">
+              While extreme, abject poverty has significantly declined over the last two decades, a vast number of people remain highly vulnerable to economic shocks. Childhood malnutrition and stunting rates remain stubbornly high — impacting long-term cognitive and physical development in ways that compound across generations.
+            </p>
+          </div>
+
+          <div class="issue-block red">
+            <div class="issue-title">The Healthcare Gap</div>
+            <p class="issue-body">
+              Urban centres boast world-class private hospitals, but rural areas face severe shortages of doctors and primary clinics. Out-of-pocket healthcare expenses regularly push lower-middle-class families into debt. Mental healthcare is especially under-resourced: treatment gaps range from <strong>70% to 92%</strong>, depending on the condition — meaning the vast majority of people who need psychiatric care simply do not receive it.
+            </p>
+          </div>
+
+          <div class="issue-block blue">
+            <div class="issue-title">Learning Outcomes vs. Enrollment</div>
+            <p class="issue-body">
+              India has largely solved school <em>enrollment</em> — getting children into classrooms. But <em>learning outcomes</em> lag far behind. Many students in middle school struggle with foundational reading and arithmetic. The core challenge has shifted from access to quality: building systems that produce real skills, not exam-passing rote learners.
+            </p>
+          </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- SECTION 2 -->
+        <section aria-labelledby="section2-title">
+          <div class="section-label"><span class="section-number">02</span> The Core</div>
+          <h2 class="section-title" id="section2-title">Economic &amp; Structural Roadblocks</h2>
+          <p class="section-intro">
+            India's economy is growing rapidly, but the nature of that growth brings its own set of intense challenges.
+          </p>
+
+          <div class="issue-block red">
+            <div class="issue-title">Jobless Growth &amp; Skill Mismatch</div>
+            <p class="issue-body">
+              This is arguably India's biggest powder keg. The economy is growing, but it is not creating enough formal, well-paying jobs to absorb the millions of young people entering the workforce every year. Furthermore, many graduates hold degrees but lack the practical skills the modern market demands — the so-called "educated unemployment" trap where credentials and competence diverge.
+            </p>
+          </div>
+
+          <div class="issue-block orange">
+            <div class="issue-title">Agricultural Inefficiencies</div>
+            <p class="issue-body">
+              Agriculture employs roughly <strong>half of India's workforce</strong> but contributes less than 20% to its GDP. Farmers are constantly squeezed by erratic monsoons, fragmented land ownership, complex supply chains, and price volatility. The gap between farm income and urban wages drives continuous rural-to-urban migration, placing pressure on cities already straining under growth.
+            </p>
+          </div>
+
+          <div class="issue-block red">
+            <div class="issue-title">Deepening Wealth Inequality</div>
+            <p class="issue-body">
+              The gap between the ultra-rich and the working class continues to widen. Economic growth has disproportionately benefited the skilled and asset-owning wealthy, while marginalised groups — especially Dalit, Adivasi, and rural communities — are increasingly left behind. India's top 1% now control over half of the nation's total wealth.
+            </p>
+          </div>
+
+          <!-- WIDGET -->
+          <div class="widget-section" aria-label="Interactive: Economic inequality explorer">
+            <div class="widget-header">
+              <div class="widget-title">Economic Inequality Explorer</div>
+              <div class="widget-subtitle">Wealth &amp; income share by bracket · Urban vs Rural · 2000–2024</div>
+            </div>
+
+            <div class="widget-controls">
+              <div class="ctrl-group">
+                <div class="ctrl-label">Sector</div>
+                <div class="ctrl-toggle" role="group" aria-label="Sector selector">
+                  <button class="ctrl-btn active" data-sector="all" onclick="setSector('all')" type="button">All India</button>
+                  <button class="ctrl-btn" data-sector="urban" onclick="setSector('urban')" type="button">Urban</button>
+                  <button class="ctrl-btn" data-sector="rural" onclick="setSector('rural')" type="button">Rural</button>
+                </div>
+              </div>
+              <div class="ctrl-group">
+                <div class="ctrl-label">Metric</div>
+                <div class="ctrl-toggle" role="group" aria-label="Metric selector">
+                  <button class="ctrl-btn active" data-metric="wealth" onclick="setMetric('wealth')" type="button">Wealth Share</button>
+                  <button class="ctrl-btn" data-metric="income" onclick="setMetric('income')" type="button">Income Share</button>
+                </div>
+              </div>
+              <div class="ctrl-group">
+                <div class="ctrl-label">Year: <span class="year-display" id="year-label">2024</span></div>
+                <div class="slider-wrap">
+                  <input type="range" class="year-slider" id="year-slider"
+                    min="0" max="5" step="1" value="5"
+                    aria-label="Select year"
+                    oninput="setYear(this.value)">
+                  <div class="gini-display" id="gini-display">Gini: —</div>
+                </div>
+              </div>
+            </div>
+
+            <div id="chart-area" aria-live="polite" aria-label="Inequality bar chart">
+              <svg class="chart-svg" id="inequality-chart" viewBox="0 0 660 320" preserveAspectRatio="xMidYMid meet"></svg>
+            </div>
+            <p class="chart-note">
+              Sources: World Inequality Database (WID), Oxfam India, CMIE. Figures are approximations based on published estimates; urban/rural splits derived from NSSO/HCES surveys. Gini coefficients from World Bank.
+            </p>
+          </div>
+
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- SECTION 3 -->
+        <section aria-labelledby="section3-title">
+          <div class="section-label"><span class="section-number">03</span> The Fabric</div>
+          <h2 class="section-title" id="section3-title">Social &amp; Cultural Fissures</h2>
+          <p class="section-intro">
+            Deep-rooted social structures continue to influence modern life, often creating friction with democratic and economic ideals.
+          </p>
+
+          <div class="issue-block orange">
+            <div class="issue-title">Gender Disparities</div>
+            <p class="issue-body">
+              Women's workforce participation in India hovers around <strong>17–20%</strong> — far below the global average of ~45%. Safety concerns in public spaces, the absence of affordable childcare, and patriarchal norms keep millions of capable women out of the formal economy. The gender pay gap compounds the problem: women who do work earn significantly less than their male counterparts across nearly every sector.
+            </p>
+          </div>
+
+          <div class="issue-block blue">
+            <div class="issue-title">Caste and Social Exclusion</div>
+            <p class="issue-body">
+              Despite strong constitutional safeguards and affirmative action (reservations), the caste system still heavily influences social dynamics. It dictates residential segregation, marriage, and political alignment — making true social mobility difficult for marginalised groups. Inter-caste violence and discrimination, while legally prohibited, continue to be documented across states.
+            </p>
+          </div>
+
+          <div class="pull-quote">
+            "India's growth story is real — but so is the unevenness. A rising tide that lifts only some boats is not development. It is displacement with better statistics."
+          </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- SECTION 4 -->
+        <section aria-labelledby="section4-title">
+          <div class="section-label"><span class="section-number">04</span> The Environment</div>
+          <h2 class="section-title" id="section4-title">Urbanisation &amp; Climate Pressure</h2>
+          <p class="section-intro">
+            As people flock to cities for better opportunities, the infrastructure and the environment are buckling under the pressure.
+          </p>
+
+          <div class="issue-block red">
+            <div class="issue-title">Choking Cities &amp; Traffic</div>
+            <p class="issue-body">
+              Rapid, unplanned urbanisation has led to infrastructure nightmares. Cities like Bengaluru, Mumbai, and Delhi regularly top global traffic congestion indexes. Alongside traffic, waste management remains a severe issue: massive landfills overflow, local waste segregation is patchy at best, and urban rivers run as open sewers through some of India's most densely populated zones.
+            </p>
+          </div>
+
+          <div class="issue-block orange">
+            <div class="issue-title">Air Pollution &amp; Water Scarcity</div>
+            <p class="issue-body">
+              North Indian winters are infamous for hazardous smog — a toxic mix of vehicular emissions, industrial exhaust, and crop-stubble burning. Delhi regularly records air quality indices at 20–30× the WHO safe limit. Simultaneously, around <strong>600 million Indians</strong> face high water stress. Groundwater tables are depleting rapidly in key agricultural and urban zones, a crisis that is invisible until it is catastrophic.
+            </p>
+          </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- SECTION 5 -->
+        <section aria-labelledby="section5-title">
+          <div class="section-label"><span class="section-number">05</span> The Frontier</div>
+          <h2 class="section-title" id="section5-title">High-Standard &amp; Emerging Challenges</h2>
+          <p class="section-intro">
+            As India positions itself as a global superpower, it faces complex, 21st-century problems that sit alongside — not after — the foundational ones.
+          </p>
+
+          <div class="issue-block blue">
+            <div class="issue-title">The Digital Divide</div>
+            <p class="issue-body">
+              India has some of the cheapest mobile data in the world, and UPI is a genuine triumph of public digital infrastructure. But access to high-quality devices and true digital literacy remains largely an urban middle-class privilege. This became painfully obvious during the pandemic-era shift to online education, which excluded tens of millions of children who lacked smartphones, reliable connectivity, or power.
+            </p>
+          </div>
+
+          <div class="issue-block green">
+            <div class="issue-title">Brain Drain vs. Innovation</div>
+            <p class="issue-body">
+              India produces incredible tech and medical talent — then exports much of it to the US, UK, and Canada, where research ecosystems, pay, and quality of life are better. The challenge is not just retaining people: it is transitioning from being the world's "IT back-office" and outsourcing hub to a centre of original, high-value product innovation. A handful of unicorns masks a structural deficit in deep-tech R&amp;D.
+            </p>
+          </div>
+
+          <div class="issue-block orange">
+            <div class="issue-title">Ease of Doing Business</div>
+            <p class="issue-body">
+              While improving on global indices, navigating India's bureaucracy, complex tax structures, and rigid labour laws remains genuinely difficult for startups and foreign investors. The GST system was a major reform, but compliance costs are still high. Land acquisition for infrastructure projects remains a chronic bottleneck that delays critical investment.
+            </p>
+          </div>
+
+          <div class="issue-block red">
+            <div class="issue-title">Cybersecurity &amp; Data Privacy</div>
+            <p class="issue-body">
+              With over a billion people connected via Aadhaar (biometric ID), digital payment systems, and a rapidly expanding cloud footprint, securing national and personal data is now a critical national security challenge. Sophisticated, state-sponsored cyberattacks on infrastructure, finance, and health systems have increased sharply — while the regulatory framework for personal data privacy is still being built.
+            </p>
+          </div>
+
+        </section>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar" aria-label="Key data points">
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Foundation: Survival</div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Child stunting rate</span>
+            <span class="sidebar-stat-value">35%</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Rural doctor shortfall</span>
+            <span class="sidebar-stat-value">&gt;50%</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Mental health treatment gap</span>
+            <span class="sidebar-stat-value">70–92%</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Out-of-pocket health spend</span>
+            <span class="sidebar-stat-value">~62% of total</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Economy</div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Agri. workforce share</span>
+            <span class="sidebar-stat-value">~45%</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Agri. GDP share</span>
+            <span class="sidebar-stat-value">&lt;18%</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Top 1% wealth share</span>
+            <span class="sidebar-stat-value">~50%</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Youth unemployment</span>
+            <span class="sidebar-stat-value">~17%</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Society</div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Women's LFPR</span>
+            <span class="sidebar-stat-value">17–20%</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Global LFPR average</span>
+            <span class="sidebar-stat-value">~45%</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Registered SC/ST MPs</span>
+            <span class="sidebar-stat-value">131 / 543</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Environment</div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Under high water stress</span>
+            <span class="sidebar-stat-value">600M</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Delhi AQI peak (winter)</span>
+            <span class="sidebar-stat-value">400–500+</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">WHO PM2.5 safe limit</span>
+            <span class="sidebar-stat-value">15 µg/m³</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Delhi annual avg PM2.5</span>
+            <span class="sidebar-stat-value">~90 µg/m³</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Digital &amp; Frontier</div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Aadhaar enrolments</span>
+            <span class="sidebar-stat-value">1.3B+</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">UPI monthly transactions</span>
+            <span class="sidebar-stat-value">&gt;13B</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Smartphone penetration</span>
+            <span class="sidebar-stat-value">~54%</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-label">Internet users</span>
+            <span class="sidebar-stat-value">~700M</span>
+          </div>
+        </div>
+      </aside>
+
+    </div><!-- /article-grid -->
+  </div><!-- /container -->
+</main>
+
+<footer class="page-footer">
+  <p>The Bengal Reader · Non-partisan civic journalism · Data from World Bank, WID, CMIE, Oxfam India, NCRB, ECI</p>
+  <p style="margin-top:0.5rem;">This page presents publicly available data for civic education. All figures are approximate and drawn from published research.</p>
+</footer>
+
+<!-- D3.js -->
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  // ── DATA ─────────────────────────────────────────────────────────────────
+  // Approximate figures based on WID.world, Oxfam India Inequality Reports,
+  // World Bank GINI index, NSSO/HCES surveys. Numbers are illustrative
+  // approximations within published estimate ranges.
+  const YEARS = [2000, 2005, 2010, 2015, 2020, 2024];
+
+  const DATA = {
+    all: {
+      wealth: {
+        top1:    [33, 36, 39, 43, 47, 50],
+        top10:   [63, 65, 68, 72, 76, 78],
+        bottom50:[8,   7,  6,  5,  4,  3],
+      },
+      income: {
+        top1:    [18, 20, 22, 24, 27, 30],
+        top10:   [52, 55, 57, 60, 63, 65],
+        bottom50:[15, 14, 13, 12, 11, 10],
+      },
+      gini: [0.42, 0.43, 0.44, 0.46, 0.48, 0.49],
+    },
+    urban: {
+      wealth: {
+        top1:    [32, 35, 38, 42, 46, 50],
+        top10:   [62, 65, 68, 71, 74, 77],
+        bottom50:[8,   7,  5,  4,  3,  3],
+      },
+      income: {
+        top1:    [18, 20, 22, 25, 28, 31],
+        top10:   [50, 53, 57, 61, 64, 67],
+        bottom50:[16, 15, 14, 12, 10,  8],
+      },
+      gini: [0.37, 0.38, 0.40, 0.42, 0.43, 0.44],
+    },
+    rural: {
+      wealth: {
+        top1:    [28, 30, 32, 35, 38, 41],
+        top10:   [55, 57, 60, 63, 66, 69],
+        bottom50:[9,   8,  7,  6,  5,  4],
+      },
+      income: {
+        top1:    [15, 16, 18, 20, 22, 24],
+        top10:   [46, 48, 51, 54, 57, 60],
+        bottom50:[18, 17, 16, 14, 13, 11],
+      },
+      gini: [0.29, 0.30, 0.31, 0.31, 0.32, 0.33],
+    },
+  };
+
+  // ── STATE ─────────────────────────────────────────────────────────────────
+  let state = { sector: 'all', metric: 'wealth', yearIdx: 5 };
+
+  // ── HELPERS ───────────────────────────────────────────────────────────────
+  function getValues() {
+    const d = DATA[state.sector][state.metric];
+    const yi = state.yearIdx;
+    return [
+      { bracket: 'Top 1%',    pop: 1,  share: d.top1[yi],    color: '#c0171b' },
+      { bracket: 'Top 10%',   pop: 10, share: d.top10[yi],   color: '#d97706' },
+      { bracket: 'Bottom 50%',pop: 50, share: d.bottom50[yi],color: '#1565c0' },
+    ];
+  }
+
+  // ── CHART ─────────────────────────────────────────────────────────────────
+  const svgEl = document.getElementById('inequality-chart');
+  const W = 660, H = 320;
+  const margin = { top: 28, right: 20, bottom: 44, left: 100 };
+  const innerW = W - margin.left - margin.right;
+  const innerH = H - margin.top - margin.bottom;
+
+  const svg = d3.select(svgEl)
+    .attr('viewBox', `0 0 ${W} ${H}`);
+
+  const g = svg.append('g')
+    .attr('transform', `translate(${margin.left},${margin.top})`);
+
+  // Axes groups
+  const xAxisG = g.append('g').attr('transform', `translate(0,${innerH})`);
+  const yAxisG = g.append('g');
+
+  // Axis labels
+  svg.append('text')
+    .attr('x', margin.left + innerW / 2)
+    .attr('y', H - 6)
+    .attr('text-anchor', 'middle')
+    .attr('font-family', "'IBM Plex Mono', monospace")
+    .attr('font-size', '9')
+    .attr('fill', '#6b5f4e')
+    .attr('letter-spacing', '0.1em')
+    .text('WEALTH / INCOME BRACKET');
+
+  svg.append('text')
+    .attr('transform', `rotate(-90)`)
+    .attr('x', -(margin.top + innerH / 2))
+    .attr('y', 12)
+    .attr('text-anchor', 'middle')
+    .attr('font-family', "'IBM Plex Mono', monospace")
+    .attr('font-size', '9')
+    .attr('fill', '#6b5f4e')
+    .attr('letter-spacing', '0.1em')
+    .text('SHARE (%)');
+
+  // Population baseline label
+  const popLabel = svg.append('text')
+    .attr('font-family', "'IBM Plex Mono', monospace")
+    .attr('font-size', '8.5')
+    .attr('fill', '#6b5f4e')
+    .attr('x', margin.left)
+    .attr('y', margin.top - 8)
+    .text('Grey bar = population share  |  Coloured bar = ' + (state.metric === 'wealth' ? 'wealth' : 'income') + ' share');
+
+  // Scales
+  const yScale = d3.scaleBand().padding(0.28).range([0, innerH]);
+  const xScale = d3.scaleLinear().range([0, innerW]);
+
+  // ── RENDER ────────────────────────────────────────────────────────────────
+  function render(animated) {
+    const values = getValues();
+    const maxVal = Math.max(100, d3.max(values, d => d.share));
+
+    xScale.domain([0, 85]);
+    yScale.domain(values.map(d => d.bracket));
+
+    // Axes
+    xAxisG.call(
+      d3.axisBottom(xScale)
+        .ticks(6)
+        .tickFormat(d => d + '%')
+        .tickSize(-innerH)
+    );
+    xAxisG.selectAll('line').attr('stroke', '#e8e0cc').attr('stroke-dasharray', '3,3');
+    xAxisG.selectAll('text')
+      .attr('font-family', "'IBM Plex Mono', monospace")
+      .attr('font-size', '9')
+      .attr('fill', '#6b5f4e');
+    xAxisG.select('.domain').remove();
+
+    yAxisG.call(d3.axisLeft(yScale).tickSize(0));
+    yAxisG.selectAll('text')
+      .attr('font-family', "'Crimson Pro', serif")
+      .attr('font-size', '12')
+      .attr('fill', '#1a1714')
+      .attr('dx', '-8');
+    yAxisG.select('.domain').remove();
+
+    // Population bars (grey, background)
+    const popBars = g.selectAll('.pop-bar').data(values, d => d.bracket);
+    popBars.enter().append('rect')
+      .attr('class', 'pop-bar')
+      .attr('x', 0)
+      .attr('y', d => yScale(d.bracket))
+      .attr('height', yScale.bandwidth())
+      .attr('fill', '#e8e0cc')
+      .attr('rx', 1)
+      .merge(popBars)
+      .transition().duration(animated ? 500 : 0)
+      .attr('width', d => xScale(d.pop))
+      .attr('y', d => yScale(d.bracket))
+      .attr('height', yScale.bandwidth());
+
+    // Share bars (coloured, overlapping)
+    const shareBars = g.selectAll('.share-bar').data(values, d => d.bracket);
+    shareBars.enter().append('rect')
+      .attr('class', 'share-bar')
+      .attr('x', 0)
+      .attr('y', d => yScale(d.bracket) + yScale.bandwidth() * 0.15)
+      .attr('height', yScale.bandwidth() * 0.7)
+      .attr('fill', d => d.color)
+      .attr('rx', 1)
+      .attr('opacity', 0.85)
+      .merge(shareBars)
+      .transition().duration(animated ? 600 : 0)
+      .attr('width', d => xScale(d.share))
+      .attr('y', d => yScale(d.bracket) + yScale.bandwidth() * 0.15)
+      .attr('height', yScale.bandwidth() * 0.7)
+      .attr('fill', d => d.color);
+
+    // Value labels
+    const labels = g.selectAll('.val-label').data(values, d => d.bracket);
+    labels.enter().append('text')
+      .attr('class', 'val-label')
+      .attr('y', d => yScale(d.bracket) + yScale.bandwidth() * 0.15 + yScale.bandwidth() * 0.35 + 4)
+      .attr('font-family', "'IBM Plex Mono', monospace")
+      .attr('font-size', '10')
+      .attr('font-weight', '700')
+      .attr('fill', '#f5f0e8')
+      .merge(labels)
+      .transition().duration(animated ? 600 : 0)
+      .attr('x', d => xScale(d.share) - 4)
+      .attr('y', d => yScale(d.bracket) + yScale.bandwidth() * 0.15 + yScale.bandwidth() * 0.35 + 4)
+      .attr('text-anchor', 'end')
+      .text(d => d.share + '%');
+
+    // Update pop label
+    popLabel.text('Grey = population share  |  Coloured = ' + (state.metric === 'wealth' ? 'wealth' : 'income') + ' share');
+
+    // Update Gini
+    const gini = DATA[state.sector].gini[state.yearIdx];
+    document.getElementById('gini-display').textContent = 'Gini: ' + gini.toFixed(2);
+  }
+
+  // ── CONTROLS ──────────────────────────────────────────────────────────────
+  window.setSector = function (s) {
+    state.sector = s;
+    document.querySelectorAll('[data-sector]').forEach(b => {
+      b.classList.toggle('active', b.dataset.sector === s);
+    });
+    render(true);
+  };
+
+  window.setMetric = function (m) {
+    state.metric = m;
+    document.querySelectorAll('[data-metric]').forEach(b => {
+      b.classList.toggle('active', b.dataset.metric === m);
+    });
+    render(true);
+  };
+
+  window.setYear = function (idx) {
+    state.yearIdx = +idx;
+    document.getElementById('year-label').textContent = YEARS[state.yearIdx];
+    render(true);
+  };
+
+  // Initial render
+  document.getElementById('year-label').textContent = YEARS[state.yearIdx];
+  render(false);
+})();
+</script>
+
+</body>
+</html>
