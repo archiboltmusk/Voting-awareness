@@ -283,7 +283,7 @@ main { padding: 3rem 0; }
         <div class="tt-row" id="ft-breach"></div>
       </div>
     </div>
-    <p class="chart-note">* Friction Score = weighted sum of (Deadline_Missed × 15) + (Department_Transfer × 20) + (Rejected × 10) + (delay_days × 0.5), averaged across department RTIs and normalised 0–100.</p>
+    <p class="chart-note">* F<sub>inquiry</sub> = (α·Δt)<sup>1.2</sup> + Σ(w<sub>i</sub>·E<sub>i</sub>) + P<sub>status</sub> where α=2.0, DT=+15pts, Doc Request=+10pts, Rejected=+50pts. DFI = median(F) + Ghost Rate × 100. Dark overlay = ghost penalty. A 45-day delay scores ~220; a prompt rejection scores 50 — the formula encodes that administrative paralysis is worse than an honest refusal.</p>
   </div>
 
   <!-- ═══ RTI TRACKER ═══ -->
@@ -1029,34 +1029,53 @@ const DEPT_NAMES = {
   GCC:  'Greater Chennai Corporation',
 };
 
-const EVENT_SCORES = { Deadline_Missed: 15, Department_Transfer: 20, Rejected: 10, Document_Requested: 8, Status_Change: 0 };
-const EVENT_ABBR   = { Deadline_Missed:'DM', Department_Transfer:'DT', Rejected:'RJ', Document_Requested:'DR', Status_Change:'SC' };
-const EVENT_CLASS  = { Deadline_Missed:'ev-DM', Department_Transfer:'ev-DT', Rejected:'ev-RJ', Document_Requested:'ev-DR', Status_Change:'' };
+const EVENT_ABBR  = { Deadline_Missed:'DM', Department_Transfer:'DT', Rejected:'RJ', Document_Requested:'DR', Status_Change:'SC' };
+const EVENT_CLASS = { Deadline_Missed:'ev-DM', Department_Transfer:'ev-DT', Rejected:'ev-RJ', Document_Requested:'ev-DR', Status_Change:'' };
 
-/* ── COMPUTE FRICTION ───────────────────────────────────────────────────── */
-RTI_DATA.forEach(r => {
-  let s = 0;
-  r.events.forEach(ev => { s += EVENT_SCORES[ev] || 0; });
-  s += r.delayDays * 0.5;
-  r.frictionScore = Math.min(Math.round(s), 100);
-});
+/* ── MATHEMATICAL FRICTION MODEL ────────────────────────────────────────── */
+/* F_inquiry = (α · Δt)^1.2  +  Σ(w_i · E_i)  +  P_status              */
+/* α = 2.0 (daily severity weight)  exponent = 1.2 (non-linear time)      */
+/* Evasion: Department_Transfer +15, Format/Doc Request +10               */
+/* Status: Rejected +50, Resolved 0, all else 0 (time accumulates instead) */
+/* DFI = median(F) + (U/N × 100)  where U = ghosts past 90 days          */
+
+const ALPHA = 2.0, EXPONENT = 1.2;
+
+function computeF(r) {
+  const timePenalty = r.delayDays > 0 ? Math.pow(ALPHA * r.delayDays, EXPONENT) : 0;
+  let evasion = 0;
+  r.events.forEach(ev => {
+    if (ev === 'Department_Transfer') evasion += 15;
+    else if (ev === 'Document_Requested') evasion += 10;
+  });
+  const statusPenalty = r.status === 'Rejected' ? 50 : 0;
+  return Math.round((timePenalty + evasion + statusPenalty) * 10) / 10;
+}
+
+RTI_DATA.forEach(r => { r.frictionScore = computeF(r); });
+
+function median(arr) {
+  const s = [...arr].sort((a,b)=>a-b), n = s.length;
+  return n % 2 === 1 ? s[Math.floor(n/2)] : (s[n/2-1]+s[n/2])/2;
+}
 
 function deptStats() {
   const map = {};
   RTI_DATA.forEach(r => {
-    if (!map[r.dept]) map[r.dept] = { dept:r.dept, scores:[], breaches:0, total:0 };
+    if (!map[r.dept]) map[r.dept] = { dept:r.dept, scores:[], ghosts:0, total:0 };
     map[r.dept].scores.push(r.frictionScore);
     map[r.dept].total++;
-    if (r.delayDays > 0) map[r.dept].breaches++;
+    if (!['Resolved','Rejected'].includes(r.status) && r.delayDays > 90) map[r.dept].ghosts++;
   });
-  return Object.values(map).map(d => ({
-    dept: d.dept,
-    name: DEPT_NAMES[d.dept],
-    avgFriction: Math.round(d.scores.reduce((a,b)=>a+b,0)/d.scores.length),
-    breaches: d.breaches,
-    total: d.total,
-    breachRate: Math.round(d.breaches/d.total*100),
-  })).sort((a,b)=>b.avgFriction - a.avgFriction);
+  return Object.values(map).map(d => {
+    const med  = Math.round(median(d.scores) * 10) / 10;
+    const gRate = d.total > 0 ? Math.round(d.ghosts/d.total*100*10)/10 : 0;
+    return {
+      dept: d.dept, name: DEPT_NAMES[d.dept],
+      dfi: Math.round((med + gRate) * 10) / 10,
+      median: med, ghostCount: d.ghosts, ghostRate: gRate, total: d.total,
+    };
+  }).sort((a,b) => b.dfi - a.dfi);
 }
 
 /* ── D3 LEADERBOARD ─────────────────────────────────────────────────────── */
@@ -1067,7 +1086,8 @@ const M={top:8, right:50, bottom:30, left:220};
 const W=VW-M.left-M.right, H=VH-M.top-M.bottom;
 const g = svg.append('g').attr('transform',`translate(${M.left},${M.top})`);
 
-const x = d3.scaleLinear().domain([0,100]).range([0,W]);
+const maxDFI = d3.max(stats, d => d.dfi) || 100;
+const x = d3.scaleLinear().domain([0, Math.ceil(maxDFI / 50) * 50]).range([0,W]);
 const y = d3.scaleBand().domain(stats.map(d=>d.dept)).range([0,H]).padding(0.28);
 
 g.append('g').attr('transform',`translate(0,${H})`).call(
@@ -1085,6 +1105,11 @@ g.append('g').call(d3.axisLeft(y).tickSize(0)).call(ax=>{
     .attr('x',-8).text(d=>d+' — '+DEPT_NAMES[d].split(' ')[0]);
 });
 
+/* ghost marker line */
+g.append('line')
+  .attr('x1',0).attr('x2',0).attr('y1',0).attr('y2',H)
+  .attr('stroke','rgba(192,23,27,0.2)').attr('stroke-width',1).attr('stroke-dasharray','4,3');
+
 const tooltip = document.getElementById('fr-tooltip');
 let activeFilter = null;
 
@@ -1092,25 +1117,31 @@ const bars = g.selectAll('.f-bar').data(stats).enter().append('g').attr('class',
 
 bars.append('rect')
   .attr('y', d=>y(d.dept)).attr('height', y.bandwidth()).attr('rx',2)
-  .attr('fill', d=> d.avgFriction>=70?'#c0171b':d.avgFriction>=50?'#d97706':'#1a6b2a')
-  .attr('opacity',0.82)
-  .attr('width', d=>x(d.avgFriction))
+  .attr('fill', d => d.dfi >= 150?'#8b0000': d.dfi>=80?'#c0171b': d.dfi>=40?'#d97706':'#1a6b2a')
+  .attr('opacity',0.85)
+  .attr('width', d=>x(d.dfi))
   .style('cursor','pointer');
+
+/* ghost rate overlay segment */
+bars.append('rect')
+  .attr('y', d=>y(d.dept)+y.bandwidth()*0.7).attr('height', d=>y.bandwidth()*0.3).attr('rx',1)
+  .attr('fill','#8b0000').attr('opacity', d=>d.ghostRate>0?0.55:0)
+  .attr('x', d => x(d.median)).attr('width', d=>Math.max(0,x(d.dfi)-x(d.median)));
 
 bars.append('text')
   .attr('y', d=>y(d.dept)+y.bandwidth()/2)
-  .attr('x', d=>x(d.avgFriction)+5)
+  .attr('x', d=>x(d.dfi)+5)
   .attr('alignment-baseline','middle')
   .attr('font-family','IBM Plex Mono,monospace').attr('font-size','9px').attr('fill','var(--ink)')
-  .text(d=>d.avgFriction);
+  .text(d=>d.dfi);
 
 bars
   .on('mousemove',(event,d)=>{
     const rect=document.getElementById('friction-svg').getBoundingClientRect();
     document.getElementById('ft-name').textContent=d.name;
-    document.getElementById('ft-score').innerHTML=`Friction: <span>${d.avgFriction}/100</span>`;
+    document.getElementById('ft-score').innerHTML=`DFI: <span>${d.dfi}</span> = median ${d.median} + ghost ${d.ghostRate}`;
     document.getElementById('ft-rtis').innerHTML=`RTIs tracked: <span>${d.total}</span>`;
-    document.getElementById('ft-breach').innerHTML=`SLA breach rate: <span>${d.breachRate}%</span>`;
+    document.getElementById('ft-breach').innerHTML=`Ghosts (&gt;90d ignored): <span>${d.ghostCount}</span>`;
     tooltip.style.display='block';
     tooltip.style.left=(event.clientX-rect.left+12)+'px';
     tooltip.style.top=(event.clientY-rect.top-10)+'px';
@@ -1156,7 +1187,7 @@ function renderTable() {
       <td>${r.category}</td>
       <td><span class="badge badge-${r.status}">${r.status}</span></td>
       <td><span class="delay-badge ${delayClass(r.delayDays)}">${delayText(r.delayDays)}</span></td>
-      <td style="font-weight:700;color:${r.frictionScore>=70?'var(--danger)':r.frictionScore>=40?'var(--saffron)':'var(--forest)'}">${r.frictionScore}</td>
+      <td style="font-weight:700;color:${r.frictionScore>=150?'#8b0000':r.frictionScore>=80?'var(--danger)':r.frictionScore>=40?'var(--saffron)':'var(--forest)'}">${r.frictionScore}</td>
       <td>${r.events.map(ev=>`<span class="event-pill ${EVENT_CLASS[ev]}">${EVENT_ABBR[ev]||ev}</span>`).join('')}</td>
     `;
     tr.addEventListener('click',()=>{ selectedId=r.id===selectedId?null:r.id; openDetail(r); renderTable(); });
@@ -1195,7 +1226,7 @@ function openDetail(r) {
   if(selectedId===null){ closeDetail(); return; }
   panel.classList.add('open');
   document.getElementById('dp-id').textContent = r.id;
-  const fc = r.frictionScore>=70?'var(--danger)':r.frictionScore>=40?'var(--saffron)':'var(--forest)';
+  const fc = r.frictionScore>=150?'#8b0000':r.frictionScore>=80?'var(--danger)':r.frictionScore>=40?'var(--saffron)':'var(--forest)';
   document.getElementById('dp-body').innerHTML=`
     <div class="detail-field">
       <div class="detail-label">Department</div>
@@ -1224,7 +1255,7 @@ function openDetail(r) {
     <div class="detail-field" style="grid-column:1/-1">
       <div class="detail-label">Friction Score</div>
       <div class="friction-meter">
-        <div class="friction-track"><div class="friction-fill" style="width:${r.frictionScore}%;background:${fc}"></div></div>
+        <div class="friction-track"><div class="friction-fill" style="width:${Math.min(r.frictionScore/maxDFI*100,100)}%;background:${fc}"></div></div>
         <div class="friction-num" style="color:${fc}">${r.frictionScore}</div>
       </div>
     </div>

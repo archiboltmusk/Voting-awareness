@@ -121,29 +121,55 @@ CREATE INDEX idx_friction_date          ON friction_events(event_date DESC);
 CREATE INDEX idx_dead_letter_reviewed   ON dead_letter(reviewed) WHERE NOT reviewed;
 
 -- ── 9. FRICTION SCORE REFRESH FUNCTION ────────────────────────────────────
+-- Implements: F_inquiry = (α · Δt)^1.2  +  Σ(w_i · E_i)  +  P_status
+-- α = 2.0  |  exponent = 1.2 (non-linear time scaling)
+-- Evasion weights: Department_Transfer=15, Document_Requested=10
+-- Status penalty applied once from the inquiry record: Rejected=50
+-- Deadline_Missed events carry delay_days_incurred used in the time term.
 CREATE OR REPLACE FUNCTION refresh_friction_score(p_inquiry_id UUID)
 RETURNS VOID AS $$
 DECLARE
-    v_score DECIMAL := 0;
+    v_alpha         CONSTANT NUMERIC := 2.0;
+    v_exponent      CONSTANT NUMERIC := 1.2;
+    v_delay_days    INTEGER := 0;
+    v_evasion       NUMERIC := 0;
+    v_status_penalty NUMERIC := 0;
+    v_time_penalty  NUMERIC := 0;
+    v_final_score   NUMERIC := 0;
+    v_status        VARCHAR;
 BEGIN
-    SELECT
-        COALESCE(
-            SUM(
-                CASE event_category
-                    WHEN 'Deadline_Missed'      THEN 15
-                    WHEN 'Department_Transfer'  THEN 20
-                    WHEN 'Rejected'             THEN 10
-                    WHEN 'Document_Requested'   THEN 8
-                    ELSE 0
-                END
-            ) + SUM(delay_days_incurred) * 0.5,
-        0)
-    INTO v_score
+    -- Accumulate total delay days from Deadline_Missed events
+    SELECT COALESCE(SUM(delay_days_incurred), 0)
+    INTO v_delay_days
+    FROM friction_events
+    WHERE inquiry_id = p_inquiry_id AND event_category = 'Deadline_Missed';
+
+    -- Accumulate evasion penalty from transfer and format-request events
+    SELECT COALESCE(SUM(
+        CASE event_category
+            WHEN 'Department_Transfer'  THEN 15
+            WHEN 'Document_Requested'   THEN 10
+            ELSE 0
+        END
+    ), 0)
+    INTO v_evasion
     FROM friction_events
     WHERE inquiry_id = p_inquiry_id;
 
+    -- Fetch current status for terminal status penalty
+    SELECT current_status INTO v_status FROM inquiries WHERE id = p_inquiry_id;
+    v_status_penalty := CASE v_status WHEN 'Rejected' THEN 50 ELSE 0 END;
+
+    -- Time penalty: (α · Δt)^1.2
+    IF v_delay_days > 0 THEN
+        v_time_penalty := POWER(v_alpha * v_delay_days, v_exponent);
+    END IF;
+
+    -- Final score: no hard cap — administrative black holes must be visible
+    v_final_score := v_time_penalty + v_evasion + v_status_penalty;
+
     UPDATE inquiries
-    SET friction_score = LEAST(ROUND(v_score, 2), 100),
+    SET friction_score = ROUND(v_final_score, 2),  -- no cap: 500+ is a valid score
         updated_at     = CURRENT_TIMESTAMP
     WHERE id = p_inquiry_id;
 END;
@@ -188,32 +214,54 @@ $$ LANGUAGE plpgsql;
 -- Schedule via pg_cron (run after enabling the extension):
 -- SELECT cron.schedule('deadline-sweep', '0 * * * *', 'SELECT sweep_missed_deadlines()');
 
--- ── 11. DEPARTMENT FRICTION VIEW ───────────────────────────────────────────
+-- ── 11. DEPARTMENT FRICTION VIEW ─────────────────────────────────────────
+-- DFI = median(F_inquiry) + ghost_rate_pct
+-- Ghost: unresolved/non-rejected inquiry past 90 days — systemic paralysis
 CREATE OR REPLACE VIEW department_friction AS
+WITH scores AS (
+    SELECT
+        i.department_id,
+        i.friction_score,
+        i.current_status,
+        CASE
+            WHEN i.current_status NOT IN ('Resolved','Rejected')
+             AND CURRENT_DATE - i.statutory_deadline > 90
+            THEN 1 ELSE 0
+        END AS is_ghost
+    FROM inquiries i
+),
+dept_agg AS (
+    SELECT
+        department_id,
+        COUNT(*)                                                          AS total_n,
+        PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY friction_score)      AS median_f,
+        SUM(is_ghost)                                                     AS ghost_count,
+        ROUND(SUM(is_ghost)::numeric / NULLIF(COUNT(*),0) * 100, 2)      AS ghost_rate,
+        MAX(friction_score)                                               AS max_f,
+        COUNT(*) FILTER (WHERE current_status = 'Resolved')              AS resolved_n,
+        COUNT(*) FILTER (WHERE current_status = 'Rejected')              AS rejected_n
+    FROM scores
+    GROUP BY department_id
+)
 SELECT
     d.short_code,
     d.name,
     d.city,
     d.state,
     d.jurisdiction,
-    COUNT(i.id)                                                     AS total_inquiries,
-    COUNT(i.id) FILTER (WHERE i.current_status = 'Pending'
-        AND CURRENT_DATE > i.statutory_deadline)                    AS sla_breaches,
-    ROUND(
-        COUNT(i.id) FILTER (WHERE i.current_status = 'Pending'
-            AND CURRENT_DATE > i.statutory_deadline)::numeric
-        / NULLIF(COUNT(i.id),0) * 100, 1
-    )                                                               AS breach_rate_pct,
-    ROUND(AVG(i.friction_score), 1)                                AS avg_friction_score,
-    ROUND(AVG(i.delay_days))                                       AS avg_delay_days,
-    MAX(i.friction_score)                                          AS max_friction_score,
-    COUNT(i.id) FILTER (WHERE i.current_status = 'Resolved')       AS resolved_count,
-    COUNT(i.id) FILTER (WHERE i.current_status = 'Rejected')       AS rejected_count
+    da.total_n                                                            AS total_inquiries,
+    da.ghost_count,
+    ROUND(da.ghost_rate, 2)                                               AS ghost_rate_pct,
+    ROUND(da.median_f, 2)                                                AS median_friction,
+    ROUND(da.max_f, 2)                                                   AS max_friction,
+    -- DFI = median(F) + ghost_rate  — the core ranking metric
+    ROUND(da.median_f + da.ghost_rate, 2)                                AS dfi,
+    da.resolved_n                                                         AS resolved_count,
+    da.rejected_n                                                         AS rejected_count
 FROM departments d
-LEFT JOIN inquiries i ON i.department_id = d.id
+JOIN dept_agg da ON da.department_id = d.id
 WHERE d.is_active
-GROUP BY d.id, d.short_code, d.name, d.city, d.state, d.jurisdiction
-ORDER BY avg_friction_score DESC NULLS LAST;
+ORDER BY dfi DESC NULLS LAST;
 
 -- ── 12. SEED: SAMPLE DEPARTMENTS ───────────────────────────────────────────
 INSERT INTO departments (name, short_code, jurisdiction, state, city, portal_url) VALUES

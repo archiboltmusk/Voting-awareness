@@ -1,0 +1,42 @@
+{
+  "name": "aether-os",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Aether OS — India's Bureaucratic Friction Engine",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate deploy",
+    "db:seed": "npx tsx prisma/seed.ts",
+    "email:preview": "email dev --dir components/emails",
+    "scrape": "python3 scraper.py"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.14.0",
+    "@react-email/components": "^0.0.22",
+    "@upstash/ratelimit": "^2.0.1",
+    "@upstash/redis": "^1.34.0",
+    "@vercel/postgres": "^0.10.0",
+    "next": "^15.3.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-email": "^3.0.2",
+    "resend": "^3.3.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "prisma": "^5.14.0",
+    "tsx": "^4.15.0",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

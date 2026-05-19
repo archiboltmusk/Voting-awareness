@@ -1,0 +1,120 @@
+// Aether OS — Prisma Schema
+// Run: npx prisma generate && npx prisma db push
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL_UNPOOLED") // used for migrations, bypasses PgBouncer
+}
+
+model Department {
+  id            String    @id @default(uuid())
+  name          String
+  shortCode     String    @unique @map("short_code")
+  jurisdiction  String?   // Municipal | State | Central
+  state         String?
+  city          String?
+  portalUrl     String?   @map("portal_url")
+  scraperConfig Json?     @map("scraper_config")
+  isActive      Boolean   @default(true) @map("is_active")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  officials  Official[]
+  inquiries  Inquiry[]
+  scrapeRuns ScrapeLog[]
+
+  @@unique([name, state])
+  @@map("departments")
+}
+
+model Official {
+  id           String     @id @default(uuid())
+  departmentId String     @map("department_id")
+  name         String
+  designation  String?    // PIO | CPIO | Appellate Authority
+  contactEmail String?    @map("contact_email")
+  isActive     Boolean    @default(true) @map("is_active")
+  createdAt    DateTime   @default(now()) @map("created_at")
+
+  department Department @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  inquiries  Inquiry[]
+
+  @@unique([departmentId, name, designation])
+  @@map("officials")
+}
+
+model Inquiry {
+  id                  String   @id @default(uuid())
+  trackingNumber      String   @unique @map("tracking_number")
+  departmentId        String   @map("department_id")
+  assignedOfficialId  String?  @map("assigned_official_id")
+  inquiryType         String?  @map("inquiry_type")  // RTI | Tender | Grievance | Other
+  category            String?
+  dateFiled           DateTime @map("date_filed") @db.Date
+  statutoryDeadline   DateTime @map("statutory_deadline") @db.Date
+  currentStatus       String   @default("Pending") @map("current_status")
+  frictionScore       Decimal  @default(0) @map("friction_score") @db.Decimal(8, 2)
+  rawOcrText          String?  @map("raw_ocr_text") @db.Text
+  llmModelVersion     String?  @map("llm_model_version")
+  createdAt           DateTime @default(now()) @map("created_at")
+  updatedAt           DateTime @updatedAt @map("updated_at")
+
+  department       Department     @relation(fields: [departmentId], references: [id])
+  assignedOfficial Official?      @relation(fields: [assignedOfficialId], references: [id])
+  frictionEvents   FrictionEvent[]
+
+  @@index([departmentId])
+  @@index([currentStatus])
+  @@index([frictionScore(sort: Desc)])
+  @@map("inquiries")
+}
+
+model FrictionEvent {
+  id                UUID     @id @default(uuid())
+  inquiryId         String   @map("inquiry_id")
+  eventDate         DateTime @map("event_date")
+  eventCategory     String   @map("event_category")
+  description       String?  @db.Text
+  delayDaysIncurred Int      @default(0) @map("delay_days_incurred")
+  sourceDocument    String?  @map("source_document") @db.Text
+  createdAt         DateTime @default(now()) @map("created_at")
+
+  inquiry Inquiry @relation(fields: [inquiryId], references: [id], onDelete: Cascade)
+
+  @@index([inquiryId])
+  @@index([eventCategory])
+  @@index([eventDate(sort: Desc)])
+  @@map("friction_events")
+}
+
+model ScrapeLog {
+  id            String    @id @default(uuid())
+  departmentId  String    @map("department_id")
+  startedAt     DateTime  @map("started_at")
+  completedAt   DateTime? @map("completed_at")
+  inquiriesFound Int      @default(0) @map("inquiries_found")
+  errors        Int       @default(0)
+  status        String    // running | completed | failed
+  errorMessage  String?   @map("error_message") @db.Text
+
+  department Department @relation(fields: [departmentId], references: [id])
+
+  @@map("scrape_log")
+}
+
+model AlertSubscriber {
+  id           String    @id @default(uuid())
+  email        String
+  departmentId String?   @map("department_id")  // null = subscribe to all
+  threshold    Decimal   @default(100) @db.Decimal(8, 2)
+  isActive     Boolean   @default(true) @map("is_active")
+  createdAt    DateTime  @default(now()) @map("created_at")
+
+  @@unique([email, departmentId])
+  @@map("alert_subscribers")
+}

@@ -1,0 +1,25 @@
+{
+  "crons": [
+    {
+      "path": "/api/v1/internal/trigger-friction-update",
+      "schedule": "30 18 * * *",
+      "comment": "Fires at 18:30 UTC = 00:00 IST — nightly DFI recalculation"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/v1/internal/(.*)",
+      "headers": [
+        { "key": "x-robots-tag", "value": "noindex, nofollow" },
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/api/v1/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" }
+      ]
+    }
+  ]
+}
