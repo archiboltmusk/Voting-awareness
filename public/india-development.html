@@ -290,12 +290,71 @@ body::before {
   letter-spacing: 0.1em; color: #6a6050; margin-top: 3rem;
 }
 
+/* ── PART II DIVIDER ── */
+.part-divider {
+  margin: 3rem 0 2rem;
+  padding: 2rem;
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+}
+.part-divider-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase;
+  color: rgba(245,240,232,0.4); margin-bottom: 0.75rem;
+}
+.part-divider-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 900; line-height: 1.05;
+  letter-spacing: -0.02em; text-transform: uppercase;
+}
+.part-divider-title em { font-style: italic; color: var(--saffron); }
+.part-divider-sub {
+  font-family: 'Crimson Pro', serif; font-style: italic;
+  font-size: 1rem; color: rgba(245,240,232,0.55);
+  margin-top: 0.75rem; max-width: 600px; margin-left: auto; margin-right: auto;
+}
+
+/* ── SOLUTION BLOCKS ── */
+.solution-block {
+  margin: 1.5rem 0; padding: 1.25rem 1.5rem;
+  border: 1px solid var(--aged); background: var(--paper);
+  position: relative;
+}
+.solution-block::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px;
+}
+.solution-block.green::before { background: var(--green-india); }
+.solution-block.blue::before { background: var(--navy); }
+.solution-block.orange::before { background: var(--saffron); }
+.solution-tag {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.55rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green-india); margin-bottom: 0.35rem;
+}
+.solution-block.blue .solution-tag { color: var(--navy); }
+.solution-block.orange .solution-tag { color: var(--saffron); }
+
+/* ── VIDEO SECTION ── */
+.video-section {
+  margin: 2rem 0; padding: 1.5rem;
+  background: var(--aged); border-left: 4px solid var(--saffron);
+}
+.video-note {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
+  color: var(--muted); padding: 0.75rem 1rem;
+  border: 1px dashed var(--muted); margin-top: 0.75rem;
+}
+
 @media (max-width: 600px) {
   .stats-grid { flex-direction: column; }
   .stat-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
   .widget-controls { flex-direction: column; gap: 1rem; }
   .year-slider { width: 160px; }
   .masthead { padding: 1rem; }
+  .part-divider { padding: 1.5rem 1rem; }
 }
 </style>
 </head>
@@ -568,6 +627,185 @@ body::before {
             </p>
           </div>
 
+        </section>
+
+        <!-- PART II DIVIDER -->
+        <div class="part-divider" aria-label="Part II: Solutions">
+          <div class="part-divider-label">Part II</div>
+          <h2 class="part-divider-title">India's Response:<br><em>Policy &amp; Reform</em></h2>
+          <p class="part-divider-sub">
+            Addressing India's complex problems requires equally diverse and large-scale solutions. The government, private sector, and civil society are actively deploying structural reforms, massive infrastructure projects, and world-class digital technology to bridge these gaps — based on the 2025–2026 economic roadmap.
+          </p>
+        </div>
+
+        <!-- SOLUTION 1 -->
+        <section aria-labelledby="sol1-title">
+          <div class="section-label"><span class="section-number">01</span> Securing Basic Needs</div>
+          <h2 class="section-title" id="sol1-title">The Foundation: Digital Welfare &amp; Healthcare</h2>
+          <p class="section-intro">
+            To fix leaks in the system and ensure the poorest actually receive help, India has heavily leaned into digital governance.
+          </p>
+
+          <div class="solution-block green">
+            <div class="solution-tag">JAM Trinity · Direct Benefit Transfer</div>
+            <div class="issue-title">Digital Welfare</div>
+            <p class="issue-body">
+              By linking <strong>Jan Dhan</strong> (bank accounts), <strong>Aadhaar</strong> (biometric ID), and <strong>Mobile numbers</strong>, the government uses Direct Benefit Transfers (DBT) to send subsidies, pensions, and relief funds directly into the bank accounts of the poor — virtually eliminating the "middlemen" who previously siphoned off funds.
+            </p>
+          </div>
+
+          <div class="solution-block blue">
+            <div class="solution-tag">Ayushman Bharat · NDHM</div>
+            <div class="issue-title">Healthcare Expansion</div>
+            <p class="issue-body">
+              <em>Ayushman Bharat</em> serves as the world's largest state-sponsored health insurance scheme, aiming to provide free secondary and tertiary care for the bottom 50% of the population. This is being paired with a National Digital Health Mission to create unified, portable health records for every citizen.
+            </p>
+          </div>
+
+          <div class="solution-block orange">
+            <div class="solution-tag">NEP 2020 · DIKSHA</div>
+            <div class="issue-title">Fixing Education at the Roots</div>
+            <p class="issue-body">
+              The National Education Policy (NEP) rollout is shifting the focus away from rote memorisation toward foundational literacy, vocational training, and critical thinking. Digital platforms like <strong>DIKSHA</strong> are distributing standardised, high-quality learning materials to rural teachers — addressing the quality gap without requiring new physical infrastructure.
+            </p>
+          </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- SOLUTION 2 -->
+        <section aria-labelledby="sol2-title">
+          <div class="section-label"><span class="section-number">02</span> Economic Reforms</div>
+          <h2 class="section-title" id="sol2-title">The Core: Jobs, Industry &amp; Agriculture</h2>
+          <p class="section-intro">
+            To generate jobs and fix the agricultural and manufacturing lag, the focus has shifted to making business easier and boosting domestic production.
+          </p>
+
+          <div class="solution-block green">
+            <div class="solution-tag">PLI Schemes · India Semiconductor Mission</div>
+            <div class="issue-title">Manufacturing &amp; Job Creation</div>
+            <p class="issue-body">
+              Production-Linked Incentive (PLI) schemes offer massive tax rebates to global and domestic companies manufacturing electronics, solar panels, and automobiles within India. The <em>India Semiconductor Mission</em> is pulling in billions in investments to build a domestic chip-making ecosystem — aiming to create high-quality formal jobs and reduce import dependency in critical sectors.
+            </p>
+          </div>
+
+          <div class="solution-block blue">
+            <div class="solution-tag">Labour Codes · MSME Credit</div>
+            <div class="issue-title">Labour &amp; MSME Simplification</div>
+            <p class="issue-body">
+              Dozens of complex, archaic labour laws have been consolidated into streamlined codes. The new codes extend social security and health benefits to the booming sector of gig and platform workers. For small businesses (MSMEs), the government has expanded credit guarantee limits and simplified the GST structure to reduce compliance headaches for the 63 million small enterprises that form the backbone of India's employment.
+            </p>
+          </div>
+
+          <div class="solution-block orange">
+            <div class="solution-tag">Agri-Stack · Digital Agriculture</div>
+            <div class="issue-title">Upgrading Agriculture</div>
+            <p class="issue-body">
+              The government is building an "Agri-Stack" — a digital infrastructure that gives farmers real-time access to weather patterns, soil health data, and direct market linkages to bypass local monopolies and middlemen. Combined with expanded crop insurance and e-NAM (the national digital agricultural marketplace), this aims to stabilise farm incomes and reduce the urban migration pressure.
+            </p>
+          </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- SOLUTION 3 -->
+        <section aria-labelledby="sol3-title">
+          <div class="section-label"><span class="section-number">03</span> Social Equity</div>
+          <h2 class="section-title" id="sol3-title">The Fabric: Financial Inclusion &amp; Formalisation</h2>
+          <p class="section-intro">
+            Social change is slow, but economic empowerment is being used as a lever to accelerate it — especially for women, Dalits, Adivasis, and informal workers.
+          </p>
+
+          <div class="solution-block green">
+            <div class="solution-tag">Stand-Up India Scheme</div>
+            <div class="issue-title">Financial Inclusion for the Marginalised</div>
+            <p class="issue-body">
+              The <em>Stand-Up India Scheme</em> provides dedicated, collateral-free business loans (₹10 lakh to ₹1 crore) specifically for women, Scheduled Caste (SC), and Scheduled Tribe (ST) entrepreneurs — fostering economic independence as a path to social mobility. Over 200,000 accounts have been sanctioned since launch.
+            </p>
+          </div>
+
+          <div class="solution-block blue">
+            <div class="solution-tag">PM SVANidhi</div>
+            <div class="issue-title">Formalising the Informal</div>
+            <p class="issue-body">
+              <em>PM SVANidhi</em> provides working capital loans to street vendors, bringing millions of marginalised, cash-based workers into the formal banking and credit system. Digital loan repayments build credit histories — creating a pathway from the informal economy to formal financial inclusion for one of India's most invisible workforces.
+            </p>
+          </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- SOLUTION 4 -->
+        <section aria-labelledby="sol4-title">
+          <div class="section-label"><span class="section-number">04</span> Sustainable Growth</div>
+          <h2 class="section-title" id="sol4-title">The Environment: Green Transition &amp; Infrastructure</h2>
+          <p class="section-intro">
+            India is trying to avoid the heavy-polluting mistakes of early Western industrialisation by leapfrogging directly to green technology.
+          </p>
+
+          <div class="solution-block green">
+            <div class="solution-tag">Renewable Energy · EV Mission</div>
+            <div class="issue-title">The Green Transition</div>
+            <p class="issue-body">
+              India has massively scaled its renewable energy capacity, surpassing <strong>180 GW</strong>, and is aggressively promoting Electric Vehicles (EVs) through manufacturing subsidies under the FAME scheme. This aims to curb severe urban air pollution while reducing India's massive crude oil import bill — simultaneously addressing both the climate and current-account deficit challenges.
+            </p>
+          </div>
+
+          <div class="solution-block blue">
+            <div class="solution-tag">Jal Jeevan Mission · PM Gati Shakti</div>
+            <div class="issue-title">Water &amp; Infrastructure</div>
+            <p class="issue-body">
+              The <em>Jal Jeevan Mission</em> is an ongoing massive public works project targeting piped drinking water for every rural household — one of the largest water access programmes in human history. To fix choking cities, the <em>PM Gati Shakti</em> master plan uses digital mapping to seamlessly coordinate transport, railway, and urban infrastructure projects, eliminating the inter-ministry delays that previously cost years and crores in idle investment.
+            </p>
+          </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- SOLUTION 5 -->
+        <section aria-labelledby="sol5-title">
+          <div class="section-label"><span class="section-number">05</span> Tech &amp; Global Integration</div>
+          <h2 class="section-title" id="sol5-title">The Frontier: Leading the Digital Economy</h2>
+          <p class="section-intro">
+            India is positioning itself not just to catch up with advanced economies, but to lead in the digital infrastructure of the developing world.
+          </p>
+
+          <div class="solution-block green">
+            <div class="solution-tag">Digital Public Infrastructure · UPI Export</div>
+            <div class="issue-title">Exporting Digital Public Infrastructure</div>
+            <p class="issue-body">
+              India's homegrown digital plumbing — UPI, Aadhaar, ONDC — is a global success story. The country is now actively exporting this architecture to other developing nations through the G20 and bilateral partnerships, positioning itself as a leader of the Global South and a model for how middle-income countries can leapfrog legacy financial systems.
+            </p>
+          </div>
+
+          <div class="solution-block blue">
+            <div class="solution-tag">AI Compute · Data Centres · Deep Tech</div>
+            <div class="issue-title">Strategic Indispensability</div>
+            <p class="issue-body">
+              The latest economic strategies focus on moving India from being an "IT back-office" for the West to building domestic AI compute infrastructure, massive data centres, and deep-tech R&amp;D capabilities. Large-scale investments in semiconductor fabrication and AI research labs aim to create the conditions that keep Indian talent in India — and attract global talent back.
+            </p>
+          </div>
+
+          <div class="solution-block orange">
+            <div class="solution-tag">Faceless Assessment · Digital Customs</div>
+            <div class="issue-title">Faceless Bureaucracy</div>
+            <p class="issue-body">
+              To improve Ease of Doing Business, tax assessments and customs clearances are increasingly becoming "faceless" — handled by algorithms and remote officers to drastically reduce local corruption and rent-seeking. Combined with e-courts and online dispute resolution, this targets the single biggest deterrent cited by foreign investors: unpredictable regulatory friction at the human level.
+            </p>
+          </div>
+        </section>
+
+        <!-- VIDEO SECTION -->
+        <section class="video-section" aria-labelledby="video-title">
+          <div class="section-label"><span class="section-number">→</span> Further Reading</div>
+          <h2 class="section-title" id="video-title">Economic Survey 2026: The Full Picture</h2>
+          <p class="issue-body" style="margin-bottom:1rem;">
+            The Economic Survey 2026 breaks down the structural reforms and policies shaping India's economic future — covering GDP outlook, sectoral targets, welfare expenditure, and the roadmap for India's next decade of growth.
+          </p>
+          <div class="video-note">
+            <span class="data-pill">Recommended</span>
+            Search for <strong>"Economic Survey 2026 Explained"</strong> on YouTube for a full breakdown of the key highlights, including manufacturing targets, social sector spending, and India's digital economy ambitions.
+          </div>
         </section>
 
       </article>
