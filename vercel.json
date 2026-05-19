@@ -20,7 +20,8 @@
     { "source": "/india-development", "destination": "/india-development.html" },
     { "source": "/india-china", "destination": "/india-china.html" },
     { "source": "/india-governance", "destination": "/india-governance.html" },
-    { "source": "/india-disadvantage-index", "destination": "/india-disadvantage-index.html" }
+    { "source": "/india-disadvantage-index", "destination": "/india-disadvantage-index.html" },
+    { "source": "/friction-engine", "destination": "/friction-engine.html" }
   ],
   "headers": [
     {

@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Aether OS: India's bureaucratic friction engine. Automated RTI tracking, SLA enforcement, and institutional accountability across Indian municipal corporations.">
+<meta property="og:title" content="Aether OS — Friction Engine · The Bengal Reader">
+<meta property="og:description" content="India's bureaucratic friction, quantified. An open-source transparency engine for RTI tracking, SLA enforcement, and institutional accountability.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="/og-voter-guide.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aether OS — Friction Engine · The Bengal Reader">
+<meta name="twitter:description" content="Automated RTI tracking. Friction Index. PostgreSQL + Playwright + Claude API. Open source.">
+<meta name="twitter:image" content="/og-voter-guide.svg">
+<title>Aether OS — Friction Engine · The Bengal Reader</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/fonts.css">
+<script defer src="/analytics.js"></script>
+<script defer src="/shared.js"></script>
+<link rel="stylesheet" href="/shared.css">
+<style>
+:root {
+  --saffron: #d97706;
+  --forest: #1a6b2a;
+  --navy: #1565c0;
+  --danger: #c0171b;
+  --teal: #0891b2;
+}
+[data-theme='dark'] {
+  --saffron: #e8983a;
+  --forest: #4ca86a;
+  --navy: #5a9fd4;
+  --danger: #e05555;
+  --teal: #38bcd8;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: 'Crimson Pro', Georgia, serif; font-size: 18px; line-height: 1.7; overflow-x: hidden; }
+.container { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
+
+/* MASTHEAD */
+.masthead { border-bottom: 4px double var(--ink); padding: 1.5rem 2rem 1rem; text-align: center; }
+.eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); padding: 0.3rem 0; margin-bottom: 1rem; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.masthead h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1; letter-spacing: -0.02em; text-transform: uppercase; }
+.masthead h1 em { font-style: italic; color: var(--teal); }
+.deck { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1rem, 2.5vw, 1.35rem); color: var(--muted); margin-top: 0.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+.meta-bar { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; color: var(--muted); margin-top: 1rem; border-top: 1px solid var(--aged); padding-top: 0.6rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+
+/* HERO STATS */
+.stats-hero { background: var(--ink); color: var(--paper); padding: 2.5rem 2rem; text-align: center; }
+.stat-row { display: flex; justify-content: center; flex-wrap: wrap; max-width: 840px; margin: 0 auto; }
+.stat { padding: 1rem 1.8rem; border-right: 1px solid rgba(255,255,255,0.1); }
+.stat:last-child { border-right: none; }
+.stat-n { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 900; line-height: 1; color: var(--saffron); }
+.stat-n.r { color: #e05555; }
+.stat-n.g { color: #4ca86a; }
+.stat-n.b { color: #38bcd8; }
+.stat-l { font-family: 'IBM Plex Mono', monospace; font-size: 0.54rem; letter-spacing: 0.18em; text-transform: uppercase; color: #8a8070; margin-top: 0.3rem; }
+.stats-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; color: #6a6050; margin-top: 1.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+main { padding: 3rem 0; }
+
+/* WIDGET */
+.widget { margin: 0 0 2.5rem; padding: 2rem; border: 2px solid var(--ink); }
+.widget-head { border-bottom: 1px solid var(--aged); padding-bottom: 1rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; }
+.widget-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; }
+.widget-sub { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 0.25rem; }
+.chart-wrap { position: relative; }
+#friction-svg { width: 100%; height: auto; display: block; }
+
+/* FRICTION TOOLTIP */
+.fr-tooltip {
+  position: absolute; pointer-events: none; display: none;
+  background: var(--ink); color: var(--paper);
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+  padding: 8px 12px; z-index: 10; letter-spacing: 0.04em; white-space: nowrap;
+}
+.fr-tooltip .tt-name { font-weight: 700; margin-bottom: 3px; font-size: 0.68rem; }
+.fr-tooltip .tt-row { color: #a09080; font-size: 0.56rem; }
+.fr-tooltip .tt-row span { color: var(--paper); }
+.chart-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.57rem; color: var(--muted); margin-top: 0.75rem; letter-spacing: 0.04em; }
+
+/* FILTER ROW */
+.filter-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.filter-row input, .filter-row select {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+  padding: 0.4rem 0.7rem; border: 1px solid var(--aged);
+  background: var(--paper); color: var(--ink); outline: none;
+  letter-spacing: 0.06em;
+}
+.filter-row input { flex: 1; min-width: 180px; }
+.filter-row input:focus, .filter-row select:focus { border-color: var(--ink); }
+.filter-clear { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; padding: 0.4rem 0.8rem; border: 1px solid var(--aged); background: none; color: var(--muted); cursor: pointer; transition: all 0.15s; }
+.filter-clear:hover { background: var(--ink); color: var(--paper); }
+
+/* RTI TABLE */
+.table-wrap { overflow-x: auto; }
+.rti-table { width: 100%; border-collapse: collapse; font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; }
+.rti-table th { text-align: left; padding: 0.45rem 0.7rem; border-bottom: 2px solid var(--ink); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; cursor: pointer; user-select: none; }
+.rti-table th:hover { color: var(--ink); }
+.rti-table th.sorted { color: var(--ink); }
+.rti-table th .sort-arrow { margin-left: 4px; opacity: 0.5; }
+.rti-table th.sorted .sort-arrow { opacity: 1; }
+.rti-table td { padding: 0.4rem 0.7rem; border-bottom: 1px solid var(--aged); vertical-align: middle; white-space: nowrap; }
+.rti-table tr { cursor: pointer; }
+.rti-table tr:hover td { background: rgba(107,95,78,0.05); }
+.rti-table tr.selected td { background: rgba(8,145,178,0.07); }
+
+/* STATUS BADGE */
+.badge { display: inline-block; padding: 0.15rem 0.5rem; font-size: 0.52rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; border-radius: 2px; }
+.badge-Pending { background: rgba(192,23,27,0.12); color: var(--danger); }
+.badge-Transferred { background: rgba(217,119,6,0.12); color: var(--saffron); }
+.badge-Rejected { background: rgba(192,23,27,0.2); color: var(--danger); border: 1px solid var(--danger); }
+.badge-Resolved { background: rgba(26,107,42,0.12); color: var(--forest); }
+.badge-Appealed { background: rgba(21,101,192,0.12); color: var(--navy); }
+
+/* DELAY BADGE */
+.delay-badge { font-family: 'IBM Plex Mono', monospace; font-size: 0.56rem; font-weight: 700; }
+.delay-0 { color: var(--forest); }
+.delay-low { color: var(--saffron); }
+.delay-high { color: var(--danger); }
+
+/* EVENTS */
+.event-pill { display: inline-block; margin: 1px; padding: 0.1rem 0.4rem; font-size: 0.48rem; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(107,95,78,0.1); color: var(--muted); border-radius: 2px; }
+.event-pill.ev-DM { background: rgba(192,23,27,0.1); color: var(--danger); }
+.event-pill.ev-DT { background: rgba(217,119,6,0.1); color: var(--saffron); }
+.event-pill.ev-RJ { background: rgba(192,23,27,0.15); color: var(--danger); }
+.event-pill.ev-DR { background: rgba(21,101,192,0.1); color: var(--navy); }
+
+/* DETAIL PANEL */
+.detail-panel { margin-top: 1.2rem; border: 1px solid var(--aged); display: none; }
+.detail-panel.open { display: block; }
+.detail-head { background: var(--ink); color: var(--paper); padding: 0.75rem 1.2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.detail-id { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; }
+.detail-close { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; background: none; border: 1px solid rgba(255,255,255,0.2); color: var(--paper); padding: 0.25rem 0.6rem; cursor: pointer; }
+.detail-close:hover { background: rgba(255,255,255,0.1); }
+.detail-body { padding: 1.2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.detail-field { font-family: 'IBM Plex Mono', monospace; }
+.detail-label { font-size: 0.52rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; }
+.detail-value { font-size: 0.72rem; color: var(--ink); }
+.detail-events { grid-column: 1/-1; }
+.friction-meter { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.5rem; }
+.friction-track { flex: 1; height: 8px; background: var(--aged); border-radius: 2px; overflow: hidden; }
+.friction-fill { height: 100%; border-radius: 2px; }
+.friction-num { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; font-weight: 700; width: 30px; text-align: right; }
+
+/* ARCHITECTURE */
+.arch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.arch-card { padding: 1.2rem; border: 1px solid var(--aged); border-top: 3px solid var(--teal); }
+.arch-n { font-family: 'IBM Plex Mono', monospace; font-size: 0.52rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.4rem; }
+.arch-h { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+.arch-p { font-family: 'IBM Plex Mono', monospace; font-size: 0.56rem; color: var(--muted); line-height: 1.6; }
+.arch-tech { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.tech-tag { font-family: 'IBM Plex Mono', monospace; font-size: 0.48rem; letter-spacing: 0.08em; padding: 0.15rem 0.4rem; background: var(--ink); color: var(--paper); }
+
+/* CODE BLOCKS */
+.code-section { margin: 1.5rem 0 2.5rem; }
+.code-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; }
+.code-copy { background: none; border: 1px solid var(--aged); color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 0.52rem; padding: 0.2rem 0.6rem; cursor: pointer; transition: all 0.15s; }
+.code-copy:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.code-copy.copied { color: var(--forest); border-color: var(--forest); }
+.code-block {
+  background: #111008; color: #d0c9b8;
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem;
+  line-height: 1.65; padding: 1.5rem; overflow-x: auto;
+  white-space: pre; tab-size: 2; border: 1px solid #2a2520;
+  max-height: 520px;
+}
+
+/* SECTION */
+.section-h { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; line-height: 1.15; margin: 2.5rem 0 0.75rem; }
+.section-intro { font-family: 'Crimson Pro', serif; font-style: italic; font-size: 1.05rem; color: var(--muted); margin-bottom: 1.5rem; border-left: 3px solid var(--teal); padding-left: 1rem; }
+.tier-sep { height: 1px; background: var(--aged); margin: 2.5rem 0; }
+
+/* RELATED */
+.related { margin: 2.5rem 0 0; padding: 1.5rem 0; border-top: 2px solid var(--ink); }
+.related-l { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+.related-links { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.related-link { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 0.9rem; border: 1px solid var(--aged); color: var(--ink); text-decoration: none; transition: all 0.15s; }
+.related-link:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* FOOTER */
+.page-footer { background: var(--ink); color: #6a6050; padding: 2rem; text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; letter-spacing: 0.08em; margin-top: 3rem; }
+.page-footer a { color: var(--saffron); }
+
+/* LIVE COUNTER */
+.live-bar { background: rgba(8,145,178,0.08); border: 1px solid rgba(8,145,178,0.2); padding: 0.6rem 1rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.live-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); }
+.live-pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); display: inline-block; margin-right: 0.4rem; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+@media (max-width: 640px) {
+  .stat-row { flex-direction: column; }
+  .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .masthead { padding: 1rem; }
+  .detail-body { grid-template-columns: 1fr; }
+  .arch-grid { grid-template-columns: 1fr; }
+  .related-links { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">The Bengal Reader</a>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Voter Guide</a>
+      <a href="/parties" class="site-nav-link">Party Compass</a>
+      <a href="/constituencies" class="site-nav-link">2026 Results</a>
+      <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+      <a href="/accountability" class="site-nav-link">100 Days</a>
+      <a href="/corruption" class="site-nav-link">Dossier</a>
+      <a href="/bonds" class="site-nav-link">Money Trail</a>
+      <a href="/mlas" class="site-nav-link">MLA Records</a>
+      <a href="/india-development" class="site-nav-link">India's Story</a>
+      <a href="/india-china" class="site-nav-link">India vs China</a>
+      <a href="/india-governance" class="site-nav-link">Performance OS</a>
+      <a href="/india-disadvantage-index" class="site-nav-link">Disadvantage Index</a>
+      <a href="/friction-engine" class="site-nav-link active">Friction Engine</a>
+      <a href="/ask" class="site-nav-link">Ask AI</a>
+      <a href="/map" class="site-nav-link">Map</a>
+      <a href="/assets" class="site-nav-link">Wealth Growth</a>
+      <a href="/methodology" class="site-nav-link">Methodology</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="eyebrow">The Bengal Reader · Aether OS · Open Source Infrastructure</div>
+  <h1>Friction<br><em>Engine</em></h1>
+  <p class="deck">India's bureaucratic friction, quantified. An automated transparency engine that scrapes RTI portals, calculates institutional delay, and publishes the results as a public API.</p>
+  <div class="meta-bar">
+    <span>Prototype · May 2026</span>
+    <span>Open Source · MIT License</span>
+    <span>RTI Act 2005 · CIC Jurisprudence</span>
+  </div>
+</header>
+
+<section class="stats-hero" aria-label="System status">
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-n b">20</div>
+      <div class="stat-l">RTIs tracked<br>across 6 corporations</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n r">42</div>
+      <div class="stat-l">Average days overdue<br>on breached filings</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n r">65%</div>
+      <div class="stat-l">SLA breach rate<br>across all departments</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n g">₹0</div>
+      <div class="stat-l">Cost to file<br>an RTI application</div>
+    </div>
+  </div>
+  <p class="stats-note">Demo dataset · 20 RTIs across 6 municipal corporations · Friction scores computed from delay events, department transfers, and rejection patterns</p>
+</section>
+
+<main>
+<div class="container">
+
+  <!-- ═══ LEADERBOARD ═══ -->
+  <div class="widget">
+    <div class="widget-head">
+      <div>
+        <div class="widget-title">Department Friction Leaderboard</div>
+        <div class="widget-sub">Composite friction score · Higher = more institutional resistance · Click bar to filter RTI table</div>
+      </div>
+    </div>
+    <div class="live-bar">
+      <span class="live-label"><span class="live-pulse"></span>Live demo data · Scraper runs every 6 hours</span>
+      <span class="live-label">Last scan: 14 May 2026 · 06:00 UTC</span>
+    </div>
+    <div class="chart-wrap">
+      <svg id="friction-svg" viewBox="0 0 680 260" aria-label="Department friction scores"></svg>
+      <div class="fr-tooltip" id="fr-tooltip">
+        <div class="tt-name" id="ft-name"></div>
+        <div class="tt-row" id="ft-score"></div>
+        <div class="tt-row" id="ft-rtis"></div>
+        <div class="tt-row" id="ft-breach"></div>
+      </div>
+    </div>
+    <p class="chart-note">* Friction Score = weighted sum of (Deadline_Missed × 15) + (Department_Transfer × 20) + (Rejected × 10) + (delay_days × 0.5), averaged across department RTIs and normalised 0–100.</p>
+  </div>
+
+  <!-- ═══ RTI TRACKER ═══ -->
+  <div class="widget">
+    <div class="widget-head">
+      <div>
+        <div class="widget-title">RTI Status Tracker</div>
+        <div class="widget-sub">Click any row to inspect · Click column headers to sort</div>
+      </div>
+    </div>
+    <div class="filter-row">
+      <input type="text" id="rti-search" placeholder="Search ID, department, category, officer…" aria-label="Search RTIs">
+      <select id="status-filter" aria-label="Filter by status">
+        <option value="">All Statuses</option>
+        <option value="Pending">Pending</option>
+        <option value="Transferred">Transferred</option>
+        <option value="Rejected">Rejected</option>
+        <option value="Resolved">Resolved</option>
+        <option value="Appealed">Appealed</option>
+      </select>
+      <select id="dept-filter" aria-label="Filter by department">
+        <option value="">All Departments</option>
+        <option value="MCGM">MCGM (Mumbai)</option>
+        <option value="KMC">KMC (Kolkata)</option>
+        <option value="DDA">DDA (Delhi)</option>
+        <option value="BBMP">BBMP (Bengaluru)</option>
+        <option value="PMC">PMC (Pune)</option>
+        <option value="GCC">GCC (Chennai)</option>
+      </select>
+      <button class="filter-clear" id="filter-clear" aria-label="Clear filters">Clear</button>
+    </div>
+    <div class="table-wrap">
+      <table class="rti-table" id="rti-table" aria-label="RTI tracking data">
+        <thead>
+          <tr>
+            <th data-col="id">RTI ID <span class="sort-arrow">↕</span></th>
+            <th data-col="dept">Dept <span class="sort-arrow">↕</span></th>
+            <th data-col="category">Category <span class="sort-arrow">↕</span></th>
+            <th data-col="status">Status <span class="sort-arrow">↕</span></th>
+            <th data-col="delayDays">Delay <span class="sort-arrow">↕</span></th>
+            <th data-col="frictionScore">Friction <span class="sort-arrow">↕</span></th>
+            <th>Events</th>
+          </tr>
+        </thead>
+        <tbody id="rti-tbody"></tbody>
+      </table>
+    </div>
+    <div class="detail-panel" id="detail-panel">
+      <div class="detail-head">
+        <span class="detail-id" id="dp-id"></span>
+        <button class="detail-close" id="dp-close" aria-label="Close detail">✕ Close</button>
+      </div>
+      <div class="detail-body" id="dp-body"></div>
+    </div>
+  </div>
+
+  <div class="tier-sep"></div>
+
+  <!-- ═══ ARCHITECTURE ═══ -->
+  <h2 class="section-h">System Architecture</h2>
+  <p class="section-intro">Five layers from hostile government portal to public accountability API. No human in the loop after deployment.</p>
+
+  <div class="arch-grid">
+    <div class="arch-card">
+      <div class="arch-n">Layer 1</div>
+      <div class="arch-h">Ingestion Matrix</div>
+      <p class="arch-p">Distributed Playwright scrapers on serverless functions. Stochastic request timing. Proxy rotation. Targets RTI portals, tender dashboards, grievance trackers.</p>
+      <div class="arch-tech"><span class="tech-tag">Python</span><span class="tech-tag">Playwright</span><span class="tech-tag">AWS Lambda</span></div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-n">Layer 2</div>
+      <div class="arch-h">Sanitization</div>
+      <p class="arch-p">OCR pipeline for scanned PDFs. LLM extraction with strict schema enforcement. Zero-tolerance hallucination: nulls over guesses. Pydantic validation gates.</p>
+      <div class="arch-tech"><span class="tech-tag">Claude API</span><span class="tech-tag">Tesseract</span><span class="tech-tag">Pydantic</span></div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-n">Layer 3</div>
+      <div class="arch-h">Friction Diagnostics</div>
+      <p class="arch-p">Cron jobs cross-reference filing dates against statutory deadlines. Friction Index computed per department. Threshold alerts trigger automated broadcasts.</p>
+      <div class="arch-tech"><span class="tech-tag">PostgreSQL</span><span class="tech-tag">pg_cron</span><span class="tech-tag">Redis</span></div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-n">Layer 4</div>
+      <div class="arch-h">Immutable Store</div>
+      <p class="arch-p">Normalised PostgreSQL schema. UUID primary keys. Append-only friction_events audit log. Vector store for semantic search across bureaucratic evasion language.</p>
+      <div class="arch-tech"><span class="tech-tag">PostgreSQL</span><span class="tech-tag">pgvector</span><span class="tech-tag">TimescaleDB</span></div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-n">Layer 5</div>
+      <div class="arch-h">Exposure API</div>
+      <p class="arch-p">Read-only REST + GraphQL. Public endpoints for department scores, SLA breach rates, and friction timelines. Webhooks to X bots and Substack when thresholds crossed.</p>
+      <div class="arch-tech"><span class="tech-tag">Next.js</span><span class="tech-tag">Vercel</span><span class="tech-tag">tRPC</span></div>
+    </div>
+  </div>
+
+  <div class="tier-sep"></div>
+
+  <!-- ═══ SCHEMA ═══ -->
+  <h2 class="section-h">PostgreSQL Schema</h2>
+  <p class="section-intro">Normalized, indexed, append-only. The friction_events table is the atomic unit — every delay, transfer, and rejection is an immutable row.</p>
+
+  <div class="code-section">
+    <div class="code-label">
+      <span>schema.sql · PostgreSQL 15+</span>
+      <button class="code-copy" data-target="sql-block">Copy</button>
+    </div>
+    <pre class="code-block" id="sql-block">-- Enable UUID extension for collision-resistant, decentralised IDs
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+-- ── 1. DEPARTMENTS ─────────────────────────────────────────────────────────
+CREATE TABLE departments (
+    id               UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    name             VARCHAR(255) NOT NULL,
+    short_code       VARCHAR(20)  NOT NULL UNIQUE,
+    jurisdiction     VARCHAR(50)  CHECK (jurisdiction IN ('Municipal','State','Central')),
+    state            VARCHAR(100),
+    city             VARCHAR(100),
+    portal_url       TEXT,
+    created_at       TIMESTAMPTZ  DEFAULT CURRENT_TIMESTAMP,
+    updated_at       TIMESTAMPTZ  DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT unique_dept_name_state UNIQUE (name, state)
+);
+
+-- ── 2. OFFICIALS ───────────────────────────────────────────────────────────
+CREATE TABLE officials (
+    id               UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    department_id    UUID NOT NULL REFERENCES departments(id) ON DELETE CASCADE,
+    name             VARCHAR(255) NOT NULL,
+    designation      VARCHAR(150),   -- PIO, CPIO, Appellate Authority, Nodal Officer
+    contact_email    VARCHAR(255),
+    is_active        BOOLEAN DEFAULT TRUE,
+    created_at       TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (department_id, name, designation)
+);
+
+-- ── 3. INQUIRIES ───────────────────────────────────────────────────────────
+CREATE TABLE inquiries (
+    id                    UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    tracking_number       VARCHAR(100) NOT NULL UNIQUE,
+    department_id         UUID NOT NULL REFERENCES departments(id),
+    assigned_official_id  UUID REFERENCES officials(id) ON DELETE SET NULL,
+    inquiry_type          VARCHAR(50)  CHECK (inquiry_type IN ('RTI','Tender','Grievance','Other')),
+    category              VARCHAR(100),
+    date_filed            DATE NOT NULL,
+    statutory_deadline    DATE NOT NULL,
+    current_status        VARCHAR(50)  DEFAULT 'Pending'
+        CHECK (current_status IN ('Pending','Transferred','Rejected','Resolved','Appealed')),
+    friction_score        DECIMAL(5,2) DEFAULT 0.00,  -- cached for rapid API reads
+    delay_days            INTEGER GENERATED ALWAYS AS (
+        CASE WHEN current_status = 'Pending'
+             THEN GREATEST(0, CURRENT_DATE - statutory_deadline)
+             ELSE 0 END
+    ) STORED,
+    created_at            TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    updated_at            TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ── 4. FRICTION EVENTS ─────────────────────────────────────────────────────
+-- Append-only audit log. Never update or delete rows in this table.
+CREATE TABLE friction_events (
+    id                 UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    inquiry_id         UUID NOT NULL REFERENCES inquiries(id) ON DELETE CASCADE,
+    event_date         TIMESTAMPTZ NOT NULL,
+    event_category     VARCHAR(50) NOT NULL
+        CHECK (event_category IN (
+            'Status_Change','Department_Transfer','Deadline_Missed',
+            'Document_Requested','Rejected'
+        )),
+    description        TEXT,
+    delay_days_incurred INTEGER DEFAULT 0,  -- atomic unit of the friction score
+    created_at         TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ── 5. INDEXES ─────────────────────────────────────────────────────────────
+CREATE INDEX idx_inquiries_department   ON inquiries(department_id);
+CREATE INDEX idx_inquiries_status       ON inquiries(current_status);
+CREATE INDEX idx_inquiries_deadline     ON inquiries(statutory_deadline)
+    WHERE current_status = 'Pending';
+CREATE INDEX idx_friction_events_inq    ON friction_events(inquiry_id);
+CREATE INDEX idx_friction_events_cat    ON friction_events(event_category);
+CREATE INDEX idx_friction_events_date   ON friction_events(event_date DESC);
+
+-- ── 6. FRICTION SCORE REFRESH (runs via pg_cron every hour) ───────────────
+CREATE OR REPLACE FUNCTION refresh_friction_score(p_inquiry_id UUID)
+RETURNS VOID AS $$
+DECLARE
+    v_score DECIMAL := 0;
+BEGIN
+    SELECT
+        COALESCE(SUM(
+            CASE event_category
+                WHEN 'Deadline_Missed'      THEN 15
+                WHEN 'Department_Transfer'  THEN 20
+                WHEN 'Rejected'             THEN 10
+                WHEN 'Document_Requested'   THEN 8
+                ELSE 0
+            END
+        ) + SUM(delay_days_incurred) * 0.5, 0)
+    INTO v_score
+    FROM friction_events
+    WHERE inquiry_id = p_inquiry_id;
+
+    UPDATE inquiries
+    SET friction_score = LEAST(ROUND(v_score, 2), 100),
+        updated_at = CURRENT_TIMESTAMP
+    WHERE id = p_inquiry_id;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ── 7. DEPARTMENT FRICTION VIEW ────────────────────────────────────────────
+CREATE OR REPLACE VIEW department_friction AS
+SELECT
+    d.short_code,
+    d.name,
+    d.city,
+    COUNT(i.id)                                         AS total_inquiries,
+    COUNT(i.id) FILTER (WHERE i.current_status = 'Pending'
+        AND CURRENT_DATE &gt; i.statutory_deadline)        AS sla_breaches,
+    ROUND(AVG(i.friction_score), 1)                    AS avg_friction_score,
+    ROUND(AVG(i.delay_days))                           AS avg_delay_days,
+    MAX(i.friction_score)                              AS max_friction_score
+FROM departments d
+LEFT JOIN inquiries i ON i.department_id = d.id
+GROUP BY d.id, d.short_code, d.name, d.city
+ORDER BY avg_friction_score DESC;</pre>
+  </div>
+
+  <!-- ═══ LLM EXTRACTION PROMPT ═══ -->
+  <h2 class="section-h">LLM Extraction Prompt</h2>
+  <p class="section-intro">Temperature 0.0. JSON mode enforced. Null over hallucination. Evasion language explicitly classified.</p>
+
+  <div class="code-section">
+    <div class="code-label">
+      <span>extract-prompt.txt · Claude API · json_object mode</span>
+      <button class="code-copy" data-target="prompt-block">Copy</button>
+    </div>
+    <pre class="code-block" id="prompt-block">You are a stateless, deterministic data extraction agent operating within a
+civic transparency engine. Your sole objective is to ingest noisy, OCR-extracted
+text from Indian bureaucratic documents (RTIs, Tenders, Grievances, Official
+Responses) and output a strictly formatted JSON object.
+
+You will NOT summarize. You will NOT provide conversational text.
+You will output ONLY valid JSON.
+
+══════════════════════════════════════════════════════════════════════════
+RULES OF ENGAGEMENT
+══════════════════════════════════════════════════════════════════════════
+
+1. DATE STANDARDIZATION
+   All dates MUST be converted to ISO 8601 format (YYYY-MM-DD).
+   If a date is partial or illegible, output null.
+
+2. EVASION CLASSIFICATION PROTOCOL
+   Map evasive bureaucratic language to correct status codes:
+   - "does not fall under purview"           → current_status: "Rejected"
+   - "data not maintained in this format"    → current_status: "Rejected"
+   - "transferred under section 6(3)"        → current_status: "Transferred"
+   - "information is third-party in nature"  → current_status: "Rejected"
+   - "application under process"             → current_status: "Pending"
+   - Any acknowledgment without resolution   → current_status: "Pending"
+
+3. HALLUCINATION ZERO-TOLERANCE
+   If a field is not explicitly present or highly inferable from the text,
+   output null. Do NOT guess tracking numbers, officer names, or dates.
+
+4. STATUTORY DEADLINE CALCULATION
+   For RTI applications: deadline = date_filed + 30 days.
+   For appeals to CIC: deadline = date_filed + 45 days.
+   If date_filed is null, set statutory_deadline to null.
+
+══════════════════════════════════════════════════════════════════════════
+TARGET JSON SCHEMA
+══════════════════════════════════════════════════════════════════════════
+
+{
+  "tracking_number": "string | null",
+  "department": {
+    "name": "string — specific department receiving/responding",
+    "jurisdiction": "Municipal | State | Central | Unknown"
+  },
+  "official": {
+    "name": "string | null",
+    "designation": "PIO | CPIO | Appellate Authority | Nodal Officer | null"
+  },
+  "inquiry_data": {
+    "type": "RTI | Tender | Grievance | Other",
+    "category": "string | null — subject matter (Road Construction, Water Supply…)",
+    "date_filed": "YYYY-MM-DD | null",
+    "statutory_deadline": "YYYY-MM-DD | null",
+    "current_status": "Pending | Transferred | Rejected | Resolved | Appealed"
+  },
+  "friction_events": [
+    {
+      "event_date": "YYYY-MM-DD | null",
+      "event_category": "Status_Change | Department_Transfer | Deadline_Missed | Document_Requested | Rejected",
+      "description": "string — 1-sentence summary of the bureaucratic action or excuse",
+      "delay_days_incurred": "integer — quantified time wasted by this specific event"
+    }
+  ]
+}
+
+══════════════════════════════════════════════════════════════════════════
+STATUS CLASSIFICATION LOGIC
+══════════════════════════════════════════════════════════════════════════
+
+Resolved   → Requested information or action was fully provided.
+Rejected   → Denied, exempt, dismissed, or "wrong format" refusal.
+Transferred → Explicitly forwarded to another department.
+Pending    → Acknowledgment only; no final resolution.
+Appealed   → Citizen has escalated to First Appellate Authority or CIC.
+
+Process the following input text and return the JSON object only:
+
+[INSERT_OCR_TEXT_HERE]</pre>
+  </div>
+
+  <!-- ═══ PYTHON SCRAPER ═══ -->
+  <h2 class="section-h">Ingestion Layer</h2>
+  <p class="section-intro">Playwright-based async scraper fleet. Stochastic delays. Proxy rotation. Dead-letter queue for validation failures.</p>
+
+  <div class="code-section">
+    <div class="code-label">
+      <span>scraper.py · Python 3.11+ · pip install playwright anthropic pydantic</span>
+      <button class="code-copy" data-target="scraper-block">Copy</button>
+    </div>
+    <pre class="code-block" id="scraper-block">#!/usr/bin/env python3
+"""
+Aether OS — RTI Portal Scraper + Extraction Pipeline
+Scrapes RTI status from Indian government portals, extracts structured
+data via Claude API, and writes to PostgreSQL.
+"""
+
+import asyncio
+import json
+import os
+import random
+import re
+from datetime import datetime
+from pathlib import Path
+
+import anthropic
+import asyncpg
+from playwright.async_api import async_playwright
+from pydantic import BaseModel, validator
+
+
+# ── SCHEMA MODELS ──────────────────────────────────────────────────────────
+
+class FrictionEvent(BaseModel):
+    event_date: str | None
+    event_category: str
+    description: str
+    delay_days_incurred: int = 0
+
+    @validator("event_category")
+    def validate_category(cls, v):
+        allowed = {"Status_Change","Department_Transfer","Deadline_Missed",
+                   "Document_Requested","Rejected"}
+        if v not in allowed:
+            raise ValueError(f"Invalid event_category: {v}")
+        return v
+
+
+class InquiryExtraction(BaseModel):
+    tracking_number: str | None
+    department: dict
+    official: dict
+    inquiry_data: dict
+    friction_events: list[FrictionEvent]
+
+    @validator("inquiry_data")
+    def validate_status(cls, v):
+        allowed = {"Pending","Transferred","Rejected","Resolved","Appealed"}
+        if v.get("current_status") not in allowed:
+            v["current_status"] = "Pending"
+        return v
+
+
+# ── PORTAL CONFIGURATIONS ───────────────────────────────────────────────────
+
+PORTALS = [
+    {
+        "name": "Central RTI Portal",
+        "base_url": "https://rtionline.gov.in",
+        "search_path": "/request/view_status.php",
+        "selectors": {
+            "tracking_input": "#regNo",
+            "submit_btn":     "input[type='submit']",
+            "status_cell":    "td.status",
+            "response_text":  "div.response-content",
+        },
+    },
+    {
+        "name": "MCGM RTI Portal",
+        "base_url": "https://portal.mcgm.gov.in",
+        "search_path": "/rti/status",
+        "selectors": {
+            "tracking_input": "input[name='rti_no']",
+            "submit_btn":     "button[type='submit']",
+            "status_cell":    ".rti-status-value",
+            "response_text":  ".rti-reply-text",
+        },
+    },
+]
+
+
+# ── SCRAPER ─────────────────────────────────────────────────────────────────
+
+async def scrape_rti(playwright, portal: dict, tracking_id: str) -&gt; dict | None:
+    """Scrape a single RTI status from a portal. Returns raw text or None."""
+    browser = await playwright.chromium.launch(
+        headless=True,
+        args=["--no-sandbox", "--disable-dev-shm-usage"],
+    )
+    context = await browser.new_context(
+        user_agent=(
+            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/122.0 Safari/537.36"
+        ),
+        viewport={"width": 1280, "height": 720},
+        java_script_enabled=True,
+    )
+
+    try:
+        page = await context.new_page()
+        url = portal["base_url"] + portal["search_path"]
+        await page.goto(url, wait_until="networkidle", timeout=30_000)
+
+        sel = portal["selectors"]
+        await page.fill(sel["tracking_input"], tracking_id)
+
+        # Stochastic delay before submit — evades primitive rate limiting
+        await asyncio.sleep(random.uniform(1.5, 4.5))
+        await page.click(sel["submit_btn"])
+        await page.wait_for_load_state("networkidle", timeout=20_000)
+
+        status_el   = await page.query_selector(sel["status_cell"])
+        response_el = await page.query_selector(sel["response_text"])
+
+        raw_text = ""
+        if status_el:
+            raw_text += f"Status: {await status_el.inner_text()}\n"
+        if response_el:
+            raw_text += f"Response:\n{await response_el.inner_text()}"
+
+        return {
+            "tracking_number": tracking_id,
+            "portal": portal["name"],
+            "raw_text": raw_text.strip(),
+            "scraped_at": datetime.utcnow().isoformat(),
+        }
+
+    except Exception as exc:
+        print(f"  ✗ {tracking_id}: {exc}")
+        return None
+
+    finally:
+        await browser.close()
+
+
+# ── LLM EXTRACTION ──────────────────────────────────────────────────────────
+
+SYSTEM_PROMPT = Path("extract-prompt.txt").read_text()
+client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+
+
+def extract_structured(raw_text: str) -&gt; InquiryExtraction | None:
+    """Send raw OCR text to Claude API and parse structured output."""
+    prompt = SYSTEM_PROMPT.replace("[INSERT_OCR_TEXT_HERE]", raw_text)
+
+    message = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=1024,
+        temperature=0,                # deterministic extraction
+        system="Output only valid JSON. No prose.",
+        messages=[{"role": "user", "content": prompt}],
+    )
+
+    try:
+        data = json.loads(message.content[0].text)
+        return InquiryExtraction(**data)
+    except Exception as exc:
+        # Route to dead-letter queue for manual review
+        dead_letter_path = Path("dead_letter") / f"{datetime.utcnow().isoformat()}.json"
+        dead_letter_path.parent.mkdir(exist_ok=True)
+        dead_letter_path.write_text(json.dumps({
+            "raw_text": raw_text,
+            "error": str(exc),
+            "raw_response": message.content[0].text,
+        }, indent=2))
+        print(f"  ✗ Extraction failed → dead_letter/{dead_letter_path.name}")
+        return None
+
+
+# ── DATABASE WRITE ───────────────────────────────────────────────────────────
+
+async def upsert_inquiry(conn, extraction: InquiryExtraction, dept_id: str):
+    """Upsert inquiry and append new friction events."""
+    rti = extraction.inquiry_data
+
+    inquiry_id = await conn.fetchval("""
+        INSERT INTO inquiries
+            (tracking_number, department_id, inquiry_type, category,
+             date_filed, statutory_deadline, current_status)
+        VALUES ($1,$2,$3,$4,$5,$6,$7)
+        ON CONFLICT (tracking_number) DO UPDATE
+            SET current_status = EXCLUDED.current_status,
+                updated_at     = CURRENT_TIMESTAMP
+        RETURNING id
+    """, extraction.tracking_number, dept_id,
+        rti.get("type"), rti.get("category"),
+        rti.get("date_filed"), rti.get("statutory_deadline"),
+        rti.get("current_status", "Pending"))
+
+    for ev in extraction.friction_events:
+        await conn.execute("""
+            INSERT INTO friction_events
+                (inquiry_id, event_date, event_category, description, delay_days_incurred)
+            VALUES ($1,$2,$3,$4,$5)
+            ON CONFLICT DO NOTHING
+        """, inquiry_id, ev.event_date, ev.event_category,
+            ev.description, ev.delay_days_incurred)
+
+    # Refresh cached friction score
+    await conn.execute("SELECT refresh_friction_score($1)", inquiry_id)
+
+
+# ── MAIN PIPELINE ────────────────────────────────────────────────────────────
+
+async def main():
+    tracking_ids = Path("tracking_ids.txt").read_text().strip().splitlines()
+    conn = await asyncpg.connect(os.environ["DATABASE_URL"])
+
+    async with async_playwright() as pw:
+        for portal in PORTALS:
+            print(f"\n▶ Scraping {portal['name']} ({len(tracking_ids)} RTIs)…")
+            for tid in tracking_ids:
+                # Stochastic inter-request delay
+                await asyncio.sleep(random.uniform(3.0, 9.0))
+
+                raw = await scrape_rti(pw, portal, tid)
+                if not raw or not raw["raw_text"]:
+                    continue
+
+                print(f"  → Extracting {tid}…")
+                extraction = extract_structured(raw["raw_text"])
+                if not extraction:
+                    continue
+
+                # Resolve department UUID from short code
+                dept_id = await conn.fetchval(
+                    "SELECT id FROM departments WHERE short_code = $1",
+                    portal["name"].split()[0].upper()
+                )
+                if dept_id:
+                    await upsert_inquiry(conn, extraction, dept_id)
+                    print(f"  ✓ {tid} written to DB")
+
+    await conn.close()
+    print("\n✓ Pipeline complete.")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())</pre>
+  </div>
+
+  <!-- ═══ API EXAMPLE ═══ -->
+  <h2 class="section-h">Public API</h2>
+  <p class="section-intro">Read-only. No auth required. Rate-limited at 100 req/min per IP. Webhook alerts when department friction crosses threshold.</p>
+
+  <div class="code-section">
+    <div class="code-label">
+      <span>api-routes.ts · Next.js 14 · App Router</span>
+      <button class="code-copy" data-target="api-block">Copy</button>
+    </div>
+    <pre class="code-block" id="api-block">// app/api/friction/departments/route.ts
+// GET /api/friction/departments
+// Returns ranked department friction scores for the public leaderboard
+
+import { NextResponse } from "next/server";
+import { sql } from "@vercel/postgres";
+
+export const revalidate = 3600; // ISR: regenerate every hour
+
+export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url);
+  const jurisdiction = searchParams.get("jurisdiction"); // Municipal | State | Central
+
+  const result = await sql`
+    SELECT
+      d.short_code,
+      d.name,
+      d.city,
+      d.state,
+      df.total_inquiries,
+      df.sla_breaches,
+      ROUND(df.sla_breaches::numeric / NULLIF(df.total_inquiries,0) * 100, 1) AS breach_rate_pct,
+      df.avg_friction_score,
+      df.avg_delay_days,
+      df.max_friction_score
+    FROM department_friction df
+    JOIN departments d ON d.short_code = df.short_code
+    WHERE ($1::text IS NULL OR d.jurisdiction = $1)
+    ORDER BY df.avg_friction_score DESC
+    LIMIT 50
+  `;
+
+  return NextResponse.json({
+    data: result.rows,
+    generated_at: new Date().toISOString(),
+    schema_version: "1.0",
+  });
+}
+
+
+// app/api/friction/inquiries/route.ts
+// GET /api/friction/inquiries?dept=MCGM&status=Pending&page=1
+// Paginated RTI inquiry list with friction scores
+
+export async function GET_INQUIRIES(req: Request) {
+  const { searchParams } = new URL(req.url);
+  const dept   = searchParams.get("dept");
+  const status = searchParams.get("status");
+  const page   = parseInt(searchParams.get("page") ?? "1");
+  const limit  = 25;
+  const offset = (page - 1) * limit;
+
+  const result = await sql`
+    SELECT
+      i.tracking_number,
+      d.short_code         AS department,
+      i.inquiry_type,
+      i.category,
+      i.date_filed,
+      i.statutory_deadline,
+      i.current_status,
+      i.friction_score,
+      i.delay_days,
+      o.name               AS assigned_officer,
+      o.designation        AS officer_designation
+    FROM inquiries i
+    JOIN departments d ON d.id = i.department_id
+    LEFT JOIN officials o ON o.id = i.assigned_official_id
+    WHERE ($1::text IS NULL OR d.short_code = $1)
+      AND ($2::text IS NULL OR i.current_status = $2)
+    ORDER BY i.friction_score DESC, i.delay_days DESC
+    LIMIT ${limit} OFFSET ${offset}
+  `;
+
+  return NextResponse.json({
+    data: result.rows,
+    page,
+    per_page: limit,
+    generated_at: new Date().toISOString(),
+  });
+}
+
+
+// app/api/friction/webhook/route.ts
+// POST — internal endpoint called by pg_cron when threshold exceeded
+// Broadcasts to configured X bot and Substack newsletter
+
+export async function POST_WEBHOOK(req: Request) {
+  const body = await req.json();
+  const { department_short_code, friction_score, threshold } = body;
+
+  const secret = req.headers.get("x-aether-secret");
+  if (secret !== process.env.WEBHOOK_SECRET) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  // Post to X via API v2
+  const tweet = `🚨 FRICTION ALERT: ${department_short_code} has crossed ` +
+    `friction threshold ${threshold}. Current score: ${friction_score}/100. ` +
+    `View breakdown: aetheros.in/friction/${department_short_code.toLowerCase()} ` +
+    `#RTI #Accountability`;
+
+  await fetch("https://api.twitter.com/2/tweets", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${process.env.X_BEARER_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ text: tweet }),
+  });
+
+  return NextResponse.json({ ok: true, tweet_length: tweet.length });
+}</pre>
+  </div>
+
+  <!-- RELATED -->
+  <div class="related">
+    <div class="related-l">Related Investigations</div>
+    <div class="related-links">
+      <a href="/india-governance" class="related-link">Performance OS</a>
+      <a href="/india-disadvantage-index" class="related-link">Disadvantage Index</a>
+      <a href="/corruption" class="related-link">Corruption Dossier</a>
+      <a href="/rti" class="related-link">File an RTI</a>
+      <a href="/methodology" class="related-link">Methodology</a>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<footer class="page-footer">
+  <p>Aether OS · Open Source · MIT License · The Bengal Reader · Civic Transparency Infrastructure</p>
+  <p style="margin-top:0.5rem;"><a href="/methodology">Methodology</a> · <a href="/corrections">Corrections</a> · <a href="/rti">RTI</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script>
+/* ── DATA ──────────────────────────────────────────────────────────────── */
+const RTI_DATA = [
+  { id:'MCGM/RTI/2025/08421', dept:'MCGM', city:'Mumbai', category:'Road Construction',  officer:'R. Patil (PIO)',       filed:'2025-02-10', deadline:'2025-03-12', status:'Pending',     delayDays:68, events:['Deadline_Missed','Department_Transfer','Deadline_Missed'] },
+  { id:'MCGM/RTI/2025/06183', dept:'MCGM', city:'Mumbai', category:'Water Supply',        officer:'S. Jadhav (PIO)',      filed:'2025-01-20', deadline:'2025-02-19', status:'Transferred', delayDays:34, events:['Department_Transfer','Deadline_Missed'] },
+  { id:'MCGM/RTI/2025/09002', dept:'MCGM', city:'Mumbai', category:'Solid Waste',         officer:'M. Deshpande (PIO)',   filed:'2025-03-01', deadline:'2025-03-31', status:'Rejected',    delayDays:0,  events:['Rejected'] },
+  { id:'MCGM/RTI/2025/07744', dept:'MCGM', city:'Mumbai', category:'Housing Permits',     officer:'R. Patil (PIO)',       filed:'2025-02-28', deadline:'2025-03-30', status:'Pending',     delayDays:51, events:['Deadline_Missed'] },
+  { id:'MCGM/RTI/2025/10101', dept:'MCGM', city:'Mumbai', category:'Public Health',       officer:'K. Rane (PIO)',        filed:'2025-04-01', deadline:'2025-05-01', status:'Resolved',    delayDays:0,  events:['Status_Change'] },
+  { id:'KMC/RTI/2025/04421',  dept:'KMC',  city:'Kolkata', category:'Road Construction', officer:'A. Banerjee (PIO)',    filed:'2025-01-15', deadline:'2025-02-14', status:'Pending',     delayDays:94, events:['Deadline_Missed','Department_Transfer','Deadline_Missed','Deadline_Missed'] },
+  { id:'KMC/RTI/2025/03892',  dept:'KMC',  city:'Kolkata', category:'Drainage',          officer:'P. Ghosh (PIO)',       filed:'2025-02-05', deadline:'2025-03-07', status:'Transferred', delayDays:45, events:['Department_Transfer','Deadline_Missed'] },
+  { id:'KMC/RTI/2025/05112',  dept:'KMC',  city:'Kolkata', category:'Education',         officer:'S. Mukherjee (PIO)',   filed:'2025-03-10', deadline:'2025-04-09', status:'Rejected',    delayDays:0,  events:['Rejected'] },
+  { id:'KMC/RTI/2025/06001',  dept:'KMC',  city:'Kolkata', category:'Public Health',     officer:'A. Banerjee (PIO)',    filed:'2025-03-25', deadline:'2025-04-24', status:'Pending',     delayDays:25, events:['Deadline_Missed'] },
+  { id:'DDA/RTI/2025/03291',  dept:'DDA',  city:'Delhi',   category:'Housing Permits',   officer:'S. Sharma (PIO)',      filed:'2025-01-15', deadline:'2025-02-14', status:'Rejected',    delayDays:0,  events:['Rejected'] },
+  { id:'DDA/RTI/2025/04102',  dept:'DDA',  city:'Delhi',   category:'Land Records',      officer:'V. Gupta (CPIO)',      filed:'2025-02-20', deadline:'2025-03-22', status:'Pending',     delayDays:58, events:['Deadline_Missed','Document_Requested','Deadline_Missed'] },
+  { id:'DDA/RTI/2025/05503',  dept:'DDA',  city:'Delhi',   category:'Construction',      officer:'R. Verma (PIO)',       filed:'2025-03-15', deadline:'2025-04-14', status:'Appealed',    delayDays:35, events:['Rejected','Status_Change'] },
+  { id:'BBMP/RTI/2025/11022', dept:'BBMP', city:'Bengaluru', category:'Road Construction', officer:'K. Reddy (PIO)',    filed:'2025-02-01', deadline:'2025-03-03', status:'Transferred', delayDays:30, events:['Department_Transfer','Deadline_Missed'] },
+  { id:'BBMP/RTI/2025/12891', dept:'BBMP', city:'Bengaluru', category:'Solid Waste',       officer:'N. Kumar (PIO)',    filed:'2025-03-10', deadline:'2025-04-09', status:'Resolved',    delayDays:0,  events:['Status_Change'] },
+  { id:'BBMP/RTI/2025/13445', dept:'BBMP', city:'Bengaluru', category:'Drainage',          officer:'K. Reddy (PIO)',    filed:'2025-04-02', deadline:'2025-05-02', status:'Pending',     delayDays:17, events:['Deadline_Missed'] },
+  { id:'PMC/RTI/2025/07812',  dept:'PMC',  city:'Pune',    category:'Water Supply',      officer:'P. Joshi (PIO)',       filed:'2025-02-15', deadline:'2025-03-17', status:'Resolved',    delayDays:0,  events:['Status_Change'] },
+  { id:'PMC/RTI/2025/08234',  dept:'PMC',  city:'Pune',    category:'Road Construction', officer:'A. Kulkarni (PIO)',    filed:'2025-03-20', deadline:'2025-04-19', status:'Pending',     delayDays:30, events:['Deadline_Missed'] },
+  { id:'PMC/RTI/2025/09001',  dept:'PMC',  city:'Pune',    category:'Housing Permits',   officer:'P. Joshi (PIO)',       filed:'2025-04-10', deadline:'2025-05-10', status:'Resolved',    delayDays:0,  events:['Status_Change'] },
+  { id:'GCC/RTI/2025/02211',  dept:'GCC',  city:'Chennai', category:'Public Health',     officer:'M. Rajan (PIO)',       filed:'2025-03-01', deadline:'2025-03-31', status:'Resolved',    delayDays:0,  events:['Status_Change'] },
+  { id:'GCC/RTI/2025/03344',  dept:'GCC',  city:'Chennai', category:'Solid Waste',       officer:'K. Sundaram (PIO)',    filed:'2025-04-05', deadline:'2025-05-05', status:'Pending',     delayDays:14, events:['Deadline_Missed'] },
+];
+
+const DEPT_NAMES = {
+  MCGM: 'Mun. Corp. of Greater Mumbai',
+  KMC:  'Kolkata Municipal Corporation',
+  DDA:  'Delhi Development Authority',
+  BBMP: 'Bruhat Bengaluru Mahanagara Palike',
+  PMC:  'Pune Municipal Corporation',
+  GCC:  'Greater Chennai Corporation',
+};
+
+const EVENT_SCORES = { Deadline_Missed: 15, Department_Transfer: 20, Rejected: 10, Document_Requested: 8, Status_Change: 0 };
+const EVENT_ABBR   = { Deadline_Missed:'DM', Department_Transfer:'DT', Rejected:'RJ', Document_Requested:'DR', Status_Change:'SC' };
+const EVENT_CLASS  = { Deadline_Missed:'ev-DM', Department_Transfer:'ev-DT', Rejected:'ev-RJ', Document_Requested:'ev-DR', Status_Change:'' };
+
+/* ── COMPUTE FRICTION ───────────────────────────────────────────────────── */
+RTI_DATA.forEach(r => {
+  let s = 0;
+  r.events.forEach(ev => { s += EVENT_SCORES[ev] || 0; });
+  s += r.delayDays * 0.5;
+  r.frictionScore = Math.min(Math.round(s), 100);
+});
+
+function deptStats() {
+  const map = {};
+  RTI_DATA.forEach(r => {
+    if (!map[r.dept]) map[r.dept] = { dept:r.dept, scores:[], breaches:0, total:0 };
+    map[r.dept].scores.push(r.frictionScore);
+    map[r.dept].total++;
+    if (r.delayDays > 0) map[r.dept].breaches++;
+  });
+  return Object.values(map).map(d => ({
+    dept: d.dept,
+    name: DEPT_NAMES[d.dept],
+    avgFriction: Math.round(d.scores.reduce((a,b)=>a+b,0)/d.scores.length),
+    breaches: d.breaches,
+    total: d.total,
+    breachRate: Math.round(d.breaches/d.total*100),
+  })).sort((a,b)=>b.avgFriction - a.avgFriction);
+}
+
+/* ── D3 LEADERBOARD ─────────────────────────────────────────────────────── */
+const stats = deptStats();
+const svg = d3.select('#friction-svg');
+const VW=680, VH=260;
+const M={top:8, right:50, bottom:30, left:220};
+const W=VW-M.left-M.right, H=VH-M.top-M.bottom;
+const g = svg.append('g').attr('transform',`translate(${M.left},${M.top})`);
+
+const x = d3.scaleLinear().domain([0,100]).range([0,W]);
+const y = d3.scaleBand().domain(stats.map(d=>d.dept)).range([0,H]).padding(0.28);
+
+g.append('g').attr('transform',`translate(0,${H})`).call(
+  d3.axisBottom(x).ticks(5).tickSize(-H)
+).call(ax=>{
+  ax.select('.domain').remove();
+  ax.selectAll('.tick line').attr('stroke','var(--aged)').attr('stroke-dasharray','3,3');
+  ax.selectAll('.tick text').attr('font-family','IBM Plex Mono,monospace').attr('font-size','9px').attr('fill','var(--muted)');
+});
+
+g.append('g').call(d3.axisLeft(y).tickSize(0)).call(ax=>{
+  ax.select('.domain').remove();
+  ax.selectAll('.tick text')
+    .attr('font-family','IBM Plex Mono,monospace').attr('font-size','9.5px').attr('fill','var(--ink)')
+    .attr('x',-8).text(d=>d+' — '+DEPT_NAMES[d].split(' ')[0]);
+});
+
+const tooltip = document.getElementById('fr-tooltip');
+let activeFilter = null;
+
+const bars = g.selectAll('.f-bar').data(stats).enter().append('g').attr('class','f-bar');
+
+bars.append('rect')
+  .attr('y', d=>y(d.dept)).attr('height', y.bandwidth()).attr('rx',2)
+  .attr('fill', d=> d.avgFriction>=70?'#c0171b':d.avgFriction>=50?'#d97706':'#1a6b2a')
+  .attr('opacity',0.82)
+  .attr('width', d=>x(d.avgFriction))
+  .style('cursor','pointer');
+
+bars.append('text')
+  .attr('y', d=>y(d.dept)+y.bandwidth()/2)
+  .attr('x', d=>x(d.avgFriction)+5)
+  .attr('alignment-baseline','middle')
+  .attr('font-family','IBM Plex Mono,monospace').attr('font-size','9px').attr('fill','var(--ink)')
+  .text(d=>d.avgFriction);
+
+bars
+  .on('mousemove',(event,d)=>{
+    const rect=document.getElementById('friction-svg').getBoundingClientRect();
+    document.getElementById('ft-name').textContent=d.name;
+    document.getElementById('ft-score').innerHTML=`Friction: <span>${d.avgFriction}/100</span>`;
+    document.getElementById('ft-rtis').innerHTML=`RTIs tracked: <span>${d.total}</span>`;
+    document.getElementById('ft-breach').innerHTML=`SLA breach rate: <span>${d.breachRate}%</span>`;
+    tooltip.style.display='block';
+    tooltip.style.left=(event.clientX-rect.left+12)+'px';
+    tooltip.style.top=(event.clientY-rect.top-10)+'px';
+  })
+  .on('mouseleave',()=>{ tooltip.style.display='none'; })
+  .on('click',(e,d)=>{
+    activeFilter = activeFilter===d.dept ? null : d.dept;
+    document.getElementById('dept-filter').value = activeFilter || '';
+    renderTable();
+  });
+
+/* ── TABLE ──────────────────────────────────────────────────────────────── */
+let sortCol='frictionScore', sortDir=-1, selectedId=null;
+
+function delayClass(d) { return d===0?'delay-0':d<30?'delay-low':'delay-high'; }
+function delayText(d)  { return d===0?'On time':d+'d late'; }
+
+function renderTable() {
+  const search = document.getElementById('rti-search').value.toLowerCase();
+  const status = document.getElementById('status-filter').value;
+  const dept   = document.getElementById('dept-filter').value || activeFilter;
+
+  let data = RTI_DATA.filter(r => {
+    if (dept   && r.dept !== dept) return false;
+    if (status && r.status !== status) return false;
+    if (search && ![r.id,r.dept,r.category,r.officer,r.status].join(' ').toLowerCase().includes(search)) return false;
+    return true;
+  });
+
+  data.sort((a,b)=>{
+    const av=a[sortCol], bv=b[sortCol];
+    return typeof av==='string' ? av.localeCompare(bv)*sortDir : (av-bv)*sortDir;
+  });
+
+  const tbody = document.getElementById('rti-tbody');
+  tbody.innerHTML='';
+  data.forEach(r=>{
+    const tr=document.createElement('tr');
+    if(r.id===selectedId) tr.classList.add('selected');
+    tr.innerHTML=`
+      <td style="font-weight:600;letter-spacing:0.03em">${r.id}</td>
+      <td>${r.dept}</td>
+      <td>${r.category}</td>
+      <td><span class="badge badge-${r.status}">${r.status}</span></td>
+      <td><span class="delay-badge ${delayClass(r.delayDays)}">${delayText(r.delayDays)}</span></td>
+      <td style="font-weight:700;color:${r.frictionScore>=70?'var(--danger)':r.frictionScore>=40?'var(--saffron)':'var(--forest)'}">${r.frictionScore}</td>
+      <td>${r.events.map(ev=>`<span class="event-pill ${EVENT_CLASS[ev]}">${EVENT_ABBR[ev]||ev}</span>`).join('')}</td>
+    `;
+    tr.addEventListener('click',()=>{ selectedId=r.id===selectedId?null:r.id; openDetail(r); renderTable(); });
+    tbody.appendChild(tr);
+  });
+
+  document.querySelectorAll('.rti-table th').forEach(th=>{
+    th.classList.toggle('sorted', th.dataset.col===sortCol);
+    const arrow=th.querySelector('.sort-arrow');
+    if(arrow && th.dataset.col===sortCol) arrow.textContent=sortDir>0?'↑':'↓';
+    else if(arrow) arrow.textContent='↕';
+  });
+}
+
+document.querySelectorAll('.rti-table th[data-col]').forEach(th=>{
+  th.addEventListener('click',()=>{
+    if(sortCol===th.dataset.col) sortDir*=-1;
+    else { sortCol=th.dataset.col; sortDir=-1; }
+    renderTable();
+  });
+});
+document.getElementById('rti-search').addEventListener('input', renderTable);
+document.getElementById('status-filter').addEventListener('change', renderTable);
+document.getElementById('dept-filter').addEventListener('change', ()=>{ activeFilter=null; renderTable(); });
+document.getElementById('filter-clear').addEventListener('click',()=>{
+  document.getElementById('rti-search').value='';
+  document.getElementById('status-filter').value='';
+  document.getElementById('dept-filter').value='';
+  activeFilter=null; selectedId=null;
+  closeDetail(); renderTable();
+});
+
+/* ── DETAIL PANEL ───────────────────────────────────────────────────────── */
+function openDetail(r) {
+  const panel = document.getElementById('detail-panel');
+  if(selectedId===null){ closeDetail(); return; }
+  panel.classList.add('open');
+  document.getElementById('dp-id').textContent = r.id;
+  const fc = r.frictionScore>=70?'var(--danger)':r.frictionScore>=40?'var(--saffron)':'var(--forest)';
+  document.getElementById('dp-body').innerHTML=`
+    <div class="detail-field">
+      <div class="detail-label">Department</div>
+      <div class="detail-value">${DEPT_NAMES[r.dept]} (${r.dept})</div>
+    </div>
+    <div class="detail-field">
+      <div class="detail-label">Category</div>
+      <div class="detail-value">${r.category}</div>
+    </div>
+    <div class="detail-field">
+      <div class="detail-label">Assigned Officer</div>
+      <div class="detail-value">${r.officer}</div>
+    </div>
+    <div class="detail-field">
+      <div class="detail-label">Status</div>
+      <div class="detail-value"><span class="badge badge-${r.status}">${r.status}</span></div>
+    </div>
+    <div class="detail-field">
+      <div class="detail-label">Filed</div>
+      <div class="detail-value">${r.filed}</div>
+    </div>
+    <div class="detail-field">
+      <div class="detail-label">Statutory Deadline</div>
+      <div class="detail-value">${r.deadline}${r.delayDays>0?' ⚠ overdue':''}</div>
+    </div>
+    <div class="detail-field" style="grid-column:1/-1">
+      <div class="detail-label">Friction Score</div>
+      <div class="friction-meter">
+        <div class="friction-track"><div class="friction-fill" style="width:${r.frictionScore}%;background:${fc}"></div></div>
+        <div class="friction-num" style="color:${fc}">${r.frictionScore}</div>
+      </div>
+    </div>
+    <div class="detail-events detail-field">
+      <div class="detail-label">Friction Events</div>
+      <div style="margin-top:0.3rem">${r.events.map(ev=>`<span class="event-pill ${EVENT_CLASS[ev]}">${ev.replace(/_/g,' ')}</span>`).join(' ')}</div>
+    </div>
+  `;
+}
+
+function closeDetail() {
+  document.getElementById('detail-panel').classList.remove('open');
+  document.getElementById('dp-body').innerHTML='';
+  selectedId=null;
+}
+document.getElementById('dp-close').addEventListener('click', ()=>{ closeDetail(); renderTable(); });
+
+/* ── COPY BUTTONS ───────────────────────────────────────────────────────── */
+document.querySelectorAll('.code-copy').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const target = document.getElementById(btn.dataset.target);
+    navigator.clipboard.writeText(target.textContent).then(()=>{
+      btn.textContent='Copied!'; btn.classList.add('copied');
+      setTimeout(()=>{ btn.textContent='Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  });
+});
+
+renderTable();
+</script>
+</body>
+</html>
