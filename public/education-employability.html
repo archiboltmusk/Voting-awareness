@@ -893,6 +893,103 @@
       }
       .nisa-phase-body ul li { margin-bottom: 0.25rem; }
 
+      /* ── GEN Z ── */
+      .gz-intro {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      @media (max-width: 580px) { .gz-intro { grid-template-columns: 1fr; } }
+      .gz-stat {
+        background: var(--card-bg);
+        border: 1px solid var(--rule);
+        padding: 1.1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      .gz-stat .gzn {
+        font-family: 'Courier New', monospace;
+        font-size: 2.2rem;
+        font-weight: bold;
+        line-height: 1;
+        color: var(--accent);
+      }
+      .gz-stat .gzl {
+        font-size: 0.8rem;
+        color: var(--ink2);
+        line-height: 1.4;
+      }
+      .gz-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      .gz-card {
+        border: 1px solid var(--rule);
+        background: var(--card-bg);
+        padding: 1.1rem;
+        border-top: 3px solid var(--accent);
+      }
+      .gz-pillar {
+        font-family: 'Courier New', monospace;
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink3);
+        margin-bottom: 0.4rem;
+      }
+      .gz-card h4 { font-size: 0.92rem; margin-bottom: 0.55rem; line-height: 1.3; }
+      .gz-card p  { font-size: 0.8rem; color: var(--ink2); line-height: 1.55; margin-bottom: 0.5rem; }
+      .gz-role {
+        font-family: 'Courier New', monospace;
+        font-size: 0.7rem;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        padding: 0.3rem 0.55rem;
+        color: var(--accent);
+        display: block;
+        margin-top: 0.4rem;
+        line-height: 1.5;
+      }
+      .gz-superpower {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      [data-theme='dark'] .gz-superpower {
+        background: var(--card-bg);
+        border: 1px solid var(--rule);
+      }
+      .gz-superpower .sp-kicker {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--saffron);
+        margin-bottom: 0.5rem;
+      }
+      .gz-superpower h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.75rem;
+        color: var(--paper);
+      }
+      [data-theme='dark'] .gz-superpower h3 { color: var(--ink); }
+      .gz-superpower p {
+        font-size: 0.85rem;
+        color: var(--ink3);
+        line-height: 1.65;
+        margin-bottom: 0.75rem;
+        max-width: 740px;
+      }
+      [data-theme='dark'] .gz-superpower p { color: var(--ink2); }
+      .gz-superpower p:last-child { margin-bottom: 0; }
+      .gz-superpower strong { color: var(--saffron); }
+      [data-theme='dark'] .gz-superpower strong { color: var(--saffron); }
+
       /* ── FOOTER NOTE ── */
       .data-note {
         max-width: 900px;
@@ -1535,6 +1632,106 @@
             <p class="ntitle">First Cohort Launch</p>
           </div>
           <div class="nisa-phase-body open" id="nisa-phase-body"></div>
+        </div>
+      </section>
+
+      <!-- ── GEN Z ── -->
+      <section class="section">
+        <div class="section-hd">
+          <h2>Gen Z: The Engine's Fuel</h2>
+          <p>
+            64 million Gen Z workers are already in India's workforce — digitally native, radically pragmatic, and
+            deeply frustrated by exactly the systems this blueprint dismantles. They won't just participate in this
+            model. They will build and run it.
+          </p>
+        </div>
+
+        <div class="gz-intro">
+          <div class="gz-stat">
+            <span class="gzn">64M</span>
+            <span class="gzl">Gen Z workers currently in India's workforce — over a quarter of the national total</span>
+          </div>
+          <div class="gz-stat">
+            <span class="gzn">57%</span>
+            <span class="gzl">of Indian Gen Z define career growth as learning new skills — not chasing titles or promotions</span>
+          </div>
+        </div>
+
+        <div class="gz-grid">
+          <div class="gz-card">
+            <p class="gz-pillar">Pillar 01 · Education</p>
+            <h4>The Builders &amp; Guild Masters</h4>
+            <p>
+              Gen Z already understands that traditional degrees are losing value relative to actual high-income
+              skills. The oldest tier are learning AI tools, coding, and digital workflows faster than any
+              university faculty. In NISA, they become the Guild Masters — building localised learning tech in
+              regional languages, leading peer-to-peer tech modules, and being the visible face of the
+              project-portfolio model that erases vocational stigma.
+            </p>
+            <span class="gz-role">Role: Guild Masters · Peer Tutors · Vernacular Content Builders</span>
+          </div>
+
+          <div class="gz-card">
+            <p class="gz-pillar">Pillar 02 · Smart Cities</p>
+            <h4>The Platform Architects</h4>
+            <p>
+              Autonomous transit, utility automation, and smart grid management run on software written and
+              maintained by engineers who grew up thinking in APIs and open-source repos. Gen Z will write the
+              algorithms keeping the city's infrastructure alive. And in the car-free 5-Minute Grid commercial
+              zones, they will turn physical space into high-velocity hubs for independent digital brands and
+              automated logistics startups — the "phygital" micro-economy they've already been building on
+              Instagram and Meesho.
+            </p>
+            <span class="gz-role">Role: Infrastructure Engineers · Digital Brand Founders · Logistics Startup Operators</span>
+          </div>
+
+          <div class="gz-card">
+            <p class="gz-pillar">Pillar 03 · Healthcare</p>
+            <h4>The Frontend Operators</h4>
+            <p>
+              The hardest bottleneck in AI-augmented healthcare isn't the AI — it's the human layer translating
+              diagnostics into empathetic, localised execution. Running an Autonomous Triage Wall or a
+              telemedicine kiosk requires digital fluency and interpersonal trust simultaneously. Gen Z nurses,
+              medical techs, and community health leads are the only cohort who can operate these interfaces
+              effortlessly while being the trusted human face that rural patients actually engage with.
+            </p>
+            <span class="gz-role">Role: Medical Tech Operators · Triage Interface Leads · Community Health Navigators</span>
+          </div>
+
+          <div class="gz-card">
+            <p class="gz-pillar">Pillar 04 · Agriculture</p>
+            <h4>The Drone &amp; Data Pilots</h4>
+            <p>
+              The deepest failure of Indian agriculture policy has been assuming young people don't want to farm.
+              They don't want to farm the way their grandparents did — bent over in a field. Transform the job
+              from manual labour to high-tech operations and they show up immediately. Gen Z will run the
+              open-field sectors not with sickles but as drone pilots, data architects, and hydroponic facility
+              managers — analysing real-time soil feeds on dashboards and optimising supply chains via dynamic
+              digital marketplaces.
+            </p>
+            <span class="gz-role">Role: Drone Pilots · Precision Agriculture Analysts · Hydroponic Facility Managers</span>
+          </div>
+        </div>
+
+        <div class="gz-superpower">
+          <p class="sp-kicker">Their Superpower</p>
+          <h3>Phygital Mobilisation — The Blueprint's Free Marketing Engine</h3>
+          <p>
+            No generation in history has been better at decentralised, cause-based mobilisation. When Gen Z cares
+            about an issue — economic stagnation, systemic rot, a model that actually works — they use short-form
+            video, memes, and digital networks to coordinate massive real-world action overnight. This isn't
+            activism for its own sake; it's logistics.
+          </p>
+          <p>
+            We don't need millions of rupees in marketing to launch NISA. If we show Gen Z a model that offers
+            <strong>genuine upskilling, psychological safety, and financial freedom from Day 1</strong>, they will
+            make it go viral. They will crowd-source the data, pressure local leadership to allocate the land, and
+            show up in droves to apply for the first cohort.
+          </p>
+          <p>
+            They aren't looking for a job. They are looking for a system that actually works.
+            <strong>We've built the blueprint — they are the army that will deploy it.</strong>
+          </p>
         </div>
       </section>
 
