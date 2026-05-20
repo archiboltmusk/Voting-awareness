@@ -127,38 +127,8 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://voting-awareness.vercel.app/india-development</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://voting-awareness.vercel.app/india-china</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://voting-awareness.vercel.app/india-governance</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://voting-awareness.vercel.app/india-disadvantage-index</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://voting-awareness.vercel.app/friction-engine</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://voting-awareness.vercel.app/education</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -182,7 +152,7 @@
   </url>
   <url>
     <loc>https://voting-awareness.vercel.app/education-employability</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
