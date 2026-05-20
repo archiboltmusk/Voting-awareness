@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The Unofficial Constitution of the Cockroach Janta Party — satirical charter, code of conduct, and meme manifesto for India's most resilient decentralized protest movement."
+    />
+    <meta property="og:title" content="The Bengal Reader — CJP Unofficial Constitution" />
+    <meta
+      property="og:description"
+      content="We survived the dinosaurs. We will survive the IT cell. The CJP charter: stay viral, stay legal, stay funny."
+    />
+    <meta property="og:image" content="/og-cjp.svg" />
+    <title>The Bengal Reader — CJP Unofficial Constitution</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/shared.css" />
+    <script defer src="/analytics.js"></script>
+    <script defer src="/shared.js"></script>
+    <style>
+      :root {
+        --paper: #f4f1ea;
+        --ink: #1a1714;
+        --ink2: #4a3f35;
+        --ink3: #7a6a5a;
+        --rule: #d8d0c4;
+        --saffron: #e87c2a;
+        --danger: #c0392b;
+        --good: #2d7a4f;
+        --card-bg: #ede9e0;
+        --hover: #e0dbd0;
+        --cjp: #1c8a0e;
+        --cjp-dark: #0e4808;
+      }
+      [data-theme='dark'] {
+        --paper: #141210;
+        --ink: #f0ece3;
+        --ink2: #c8bfb0;
+        --ink3: #8a7d6e;
+        --rule: #2a2420;
+        --card-bg: #1e1a16;
+        --hover: #252018;
+        --cjp: #2db314;
+        --cjp-dark: #1a6610;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { background: var(--paper); color: var(--ink); font-family: 'Georgia', serif; line-height: 1.6; }
+
+      /* ── HERO ── */
+      .cjp-hero {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 3rem 1.5rem 2.5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .cjp-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(255,255,255,0.015) 2px,
+          rgba(255,255,255,0.015) 4px
+        );
+        pointer-events: none;
+      }
+      .cjp-stamp {
+        font-family: 'Courier New', monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--cjp);
+        border: 1px solid var(--cjp);
+        display: inline-block;
+        padding: 0.2rem 0.7rem;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+      }
+      .cjp-ascii {
+        font-family: 'Courier New', monospace;
+        font-size: clamp(0.55rem, 1.5vw, 0.85rem);
+        color: var(--cjp);
+        line-height: 1.2;
+        margin: 0 auto 1.5rem;
+        display: inline-block;
+        text-align: left;
+        opacity: 0.85;
+      }
+      .cjp-hero h1 {
+        font-size: clamp(1.6rem, 5vw, 3rem);
+        color: var(--paper);
+        line-height: 1.15;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.01em;
+      }
+      .cjp-hero h1 span {
+        color: var(--cjp);
+      }
+      .cjp-doc-title {
+        font-family: 'Courier New', monospace;
+        font-size: 0.78rem;
+        letter-spacing: 0.1em;
+        color: var(--ink3);
+        text-transform: uppercase;
+        margin-bottom: 1.25rem;
+      }
+      .cjp-tagline {
+        font-size: 1.05rem;
+        color: var(--ink2);
+        font-style: italic;
+        max-width: 500px;
+        margin: 0 auto;
+        line-height: 1.5;
+      }
+      [data-theme='dark'] .cjp-tagline { color: var(--ink3); }
+
+      /* ── CHAPTER LABEL ── */
+      .chapter-label {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--cjp);
+        margin-bottom: 0.4rem;
+      }
+
+      /* ── SECTION ── */
+      .section {
+        max-width: 940px;
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+      }
+      .section-hd {
+        border-top: 2px solid var(--ink);
+        padding-top: 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+      .section-hd.green { border-top-color: var(--cjp); }
+      .section-hd h2 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+      .section-hd p  { font-size: 0.88rem; color: var(--ink2); }
+
+      /* ── RULE CARDS ── */
+      .rule-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1rem;
+      }
+      .rule-card {
+        border: 1px solid var(--rule);
+        background: var(--card-bg);
+        padding: 1.15rem;
+        border-left: 4px solid var(--cjp);
+      }
+      .rule-num {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--cjp);
+        margin-bottom: 0.35rem;
+      }
+      .rule-card h3 { font-size: 0.98rem; margin-bottom: 0.55rem; }
+      .rule-card p  { font-size: 0.83rem; color: var(--ink2); line-height: 1.55; }
+      .rule-survival {
+        font-family: 'Courier New', monospace;
+        font-size: 0.72rem;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        color: var(--cjp);
+        padding: 0.3rem 0.55rem;
+        display: inline-block;
+        margin-top: 0.65rem;
+      }
+
+      /* ── SCUTTLE PROTOCOL TABLE ── */
+      .protocol-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.82rem;
+        margin-bottom: 0.5rem;
+      }
+      .protocol-table thead tr {
+        background: var(--ink);
+        color: var(--paper);
+      }
+      .protocol-table thead th {
+        padding: 0.6rem 0.85rem;
+        text-align: left;
+        font-family: 'Courier New', monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: normal;
+      }
+      .protocol-table tbody tr {
+        border-bottom: 1px solid var(--rule);
+      }
+      .protocol-table tbody tr:hover {
+        background: var(--hover);
+      }
+      .protocol-table tbody td {
+        padding: 0.75rem 0.85rem;
+        vertical-align: top;
+        line-height: 1.5;
+        color: var(--ink2);
+      }
+      .protocol-table tbody td:first-child {
+        font-family: 'Courier New', monospace;
+        font-size: 0.75rem;
+        font-weight: bold;
+        color: var(--ink);
+        white-space: nowrap;
+        border-left: 3px solid var(--cjp);
+      }
+      .protocol-table tbody td strong { color: var(--ink); }
+
+      /* ── NO SELL-OUT ── */
+      .sellout-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      @media (max-width: 560px) { .sellout-grid { grid-template-columns: 1fr; } }
+      .sellout-card {
+        border: 1px solid var(--rule);
+        background: var(--card-bg);
+        padding: 1.15rem;
+      }
+      .sellout-card.banned {
+        border-left: 4px solid var(--danger);
+      }
+      .sellout-card.allowed {
+        border-left: 4px solid var(--cjp);
+      }
+      .sellout-tag {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.15rem 0.5rem;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+      }
+      .sellout-tag.banned-tag { background: var(--danger); color: #fff; }
+      .sellout-tag.allowed-tag { background: var(--cjp); color: #fff; }
+      .sellout-card h3 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+      .sellout-card p  { font-size: 0.82rem; color: var(--ink2); line-height: 1.55; }
+
+      /* ── MEME MANIFESTO ── */
+      .manifesto-steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        position: relative;
+        margin-bottom: 0.5rem;
+      }
+      .manifesto-steps::before {
+        content: '';
+        position: absolute;
+        top: 24px;
+        left: calc(12.5%);
+        right: calc(12.5%);
+        height: 2px;
+        background: var(--cjp);
+        opacity: 0.3;
+        z-index: 0;
+      }
+      @media (max-width: 600px) {
+        .manifesto-steps { grid-template-columns: 1fr 1fr; }
+        .manifesto-steps::before { display: none; }
+      }
+      .mstep {
+        padding: 0 0.5rem;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
+      .mstep-dot {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--rule);
+        border: 2px solid var(--rule);
+        margin: 0 auto 0.5rem;
+        transition: background 0.2s, border-color 0.2s;
+      }
+      .mstep.active .mstep-dot,
+      .mstep:hover .mstep-dot { background: var(--cjp); border-color: var(--cjp); }
+      .mstep-num {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        color: var(--ink3);
+        letter-spacing: 0.1em;
+        margin-bottom: 0.2rem;
+      }
+      .mstep-title {
+        font-size: 0.78rem;
+        font-weight: bold;
+        color: var(--ink2);
+        line-height: 1.3;
+        transition: color 0.2s;
+      }
+      .mstep.active .mstep-title,
+      .mstep:hover .mstep-title { color: var(--cjp); }
+      .mstep-body {
+        display: none;
+        background: var(--card-bg);
+        border: 1px solid var(--rule);
+        border-top: 2px solid var(--cjp);
+        padding: 1.15rem;
+        margin-top: 1rem;
+        grid-column: 1 / -1;
+      }
+      .mstep-body.open { display: block; }
+      .mstep-body h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+        color: var(--cjp);
+        font-family: 'Courier New', monospace;
+        letter-spacing: 0.04em;
+      }
+      .mstep-body p { font-size: 0.85rem; color: var(--ink2); line-height: 1.6; }
+      .mstep-example {
+        margin-top: 0.75rem;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-left: 3px solid var(--cjp);
+        padding: 0.6rem 0.85rem;
+        font-family: 'Courier New', monospace;
+        font-size: 0.75rem;
+        color: var(--ink2);
+        line-height: 1.5;
+      }
+      .mstep-example strong { color: var(--cjp); display: block; margin-bottom: 0.2rem; }
+
+      /* ── GOLDEN RULE ── */
+      .golden-rule {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 2.5rem 1.5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 3rem;
+      }
+      .golden-rule::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          0deg, transparent, transparent 3px,
+          rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 6px
+        );
+        pointer-events: none;
+      }
+      .golden-label {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--cjp);
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .golden-rule blockquote {
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        line-height: 1.6;
+        color: var(--paper);
+        font-style: italic;
+        border: none;
+        padding: 0;
+        position: relative;
+        z-index: 1;
+      }
+      .golden-rule blockquote strong { color: var(--cjp); font-style: normal; }
+      .golden-coda {
+        margin-top: 1.5rem;
+        font-family: 'Courier New', monospace;
+        font-size: 0.75rem;
+        color: var(--ink3);
+        letter-spacing: 0.08em;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ── HASHTAG BAR ── */
+      .hashtag-bar {
+        background: var(--card-bg);
+        border: 1px solid var(--rule);
+        border-top: 2px solid var(--cjp);
+        padding: 0.85rem 1.25rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+      .hashtag-bar .hb-label {
+        font-family: 'Courier New', monospace;
+        font-size: 0.7rem;
+        color: var(--ink3);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-right: 0.25rem;
+      }
+      .hashtag {
+        font-family: 'Courier New', monospace;
+        font-size: 0.8rem;
+        color: var(--cjp);
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        padding: 0.2rem 0.6rem;
+        cursor: default;
+      }
+
+      .data-note {
+        max-width: 900px;
+        margin: 0 auto 4rem;
+        padding: 1rem 1.5rem;
+        border-top: 1px solid var(--rule);
+        font-size: 0.78rem;
+        color: var(--ink3);
+        font-family: 'Courier New', monospace;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav">
+      <div class="site-nav-inner">
+        <a href="/" class="site-nav-brand">The Bengal Reader</a>
+        <div class="site-nav-links">
+          <a href="/" class="site-nav-link">Voter Guide</a>
+          <a href="/parties" class="site-nav-link">Party Compass</a>
+          <a href="/constituencies" class="site-nav-link">2026 Results</a>
+          <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+          <a href="/accountability" class="site-nav-link">100 Days</a>
+          <a href="/corruption" class="site-nav-link">Dossier</a>
+          <a href="/bonds" class="site-nav-link">Money Trail</a>
+          <a href="/mlas" class="site-nav-link">MLA Records</a>
+          <a href="/india-development" class="site-nav-link">India's Story</a>
+          <a href="/india-china" class="site-nav-link">India vs China</a>
+          <a href="/india-governance" class="site-nav-link">Performance OS</a>
+          <a href="/india-disadvantage-index" class="site-nav-link">Disadvantage Index</a>
+          <a href="/friction-engine" class="site-nav-link">Friction Engine</a>
+          <a href="/education" class="site-nav-link">Education Gap</a>
+          <a href="/cjp" class="site-nav-link active">CJP</a>
+          <a href="/ask" class="site-nav-link">Ask AI</a>
+          <a href="/map" class="site-nav-link">Map</a>
+          <a href="/assets" class="site-nav-link">Wealth Growth</a>
+          <a href="/methodology" class="site-nav-link">Methodology</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- ── HERO ── -->
+      <div class="cjp-hero">
+        <div class="cjp-stamp">Unofficial &middot; Unregistered &middot; Unstoppable</div>
+        <pre class="cjp-ascii">  /~~\  /~~\
+ ( o  )( o )
+  \  (__)  /
+   \______/
+  /|      |\
+ / |      | \
+    ~~~~~~</pre>
+        <h1>Cockroach <span>Janta</span> Party</h1>
+        <p class="cjp-doc-title">Unofficial Constitution &amp; Code of Conduct · Version 1.0</p>
+        <p class="cjp-tagline">We survived the dinosaurs. We will survive the IT cell.</p>
+      </div>
+
+      <!-- ── CHAPTER 1 ── -->
+      <section class="section">
+        <div class="section-hd green">
+          <p class="chapter-label">Chapter 1</p>
+          <h2>The Core Ideology — The Hive Mind</h2>
+          <p>Three rules that define what CJP is and what it will never compromise on.</p>
+        </div>
+        <div class="rule-grid">
+          <div class="rule-card">
+            <p class="rule-num">Rule 01</p>
+            <h3>Survival Above All</h3>
+            <p>
+              Cockroaches can survive a nuclear blast. CJP members must survive internet trolls, IT cell attacks,
+              and algorithmic suppression. The swarm does not self-destruct under pressure — it adapts, mutates,
+              and reappears from a different angle.
+            </p>
+            <span class="rule-survival">Never delete a good meme just because it gets backlash.</span>
+          </div>
+          <div class="rule-card">
+            <p class="rule-num">Rule 02</p>
+            <h3>Power to the Unemployed</h3>
+            <p>
+              The party is built by the over-educated and under-employed. Anyone who has ever been told
+              <em>"go look for a job"</em> after making a political tweet is automatically a cabinet minister.
+              The more degrees you have relative to your salary, the higher your rank.
+            </p>
+            <span class="rule-survival">Unemployment is not a bug in this system. It is the credential.</span>
+          </div>
+          <div class="rule-card">
+            <p class="rule-num">Rule 03</p>
+            <h3>Absolute Satire</h3>
+            <p>
+              Reality is already a joke. Our job is just to point it out with a spotlight and a rubber duck.
+              Every critique must be dipped in irony, sarcasm, or profound absurdity. Earnest outrage is
+              for people who still believe in press conferences.
+            </p>
+            <span class="rule-survival">If it cannot be expressed as a meme, it is not a policy position.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CHAPTER 2 ── -->
+      <section class="section">
+        <div class="section-hd green">
+          <p class="chapter-label">Chapter 2</p>
+          <h2>The Code of Conduct — The Scuttle Protocol</h2>
+          <p>
+            To keep the swarm functioning without getting the platform suspended or inviting legal trouble.
+            These are not suggestions. Violation means forfeiting your antennae.
+          </p>
+        </div>
+        <table class="protocol-table" aria-label="CJP Scuttle Protocol code of conduct">
+          <thead>
+            <tr>
+              <th>Directive</th>
+              <th>The Rule</th>
+              <th>Why It Matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Policy over Person</td>
+              <td>
+                <strong>Critique the policy, the system, and the institutional failure.</strong>
+                Avoid targeting a politician's personal or family life.
+              </td>
+              <td>
+                Policy critique is a protected right. Personal defamation is a criminal liability. We want to
+                outlive the news cycle, not become it.
+              </td>
+            </tr>
+            <tr>
+              <td>No Hate Speech</td>
+              <td>
+                <strong>Zero tolerance for communal, casteist, sexist, or discriminatory slurs.</strong>
+                We punch up at power, never down at marginalised groups.
+              </td>
+              <td>
+                Hate speech kills a movement instantly and surrenders the moral high ground. We mock the
+                mahel, not the mazdoor.
+              </td>
+            </tr>
+            <tr>
+              <td>Fact-Check the Fiction</td>
+              <td>
+                <strong>Satire can be exaggerated, but the underlying facts must be real.</strong>
+                Mock the paper leak using the real paper leak data.
+              </td>
+              <td>
+                Spreading fake news destroys credibility and invites legal crackdown faster than any meme.
+                If the truth isn't absurd enough, look harder.
+              </td>
+            </tr>
+            <tr>
+              <td>No Incitement</td>
+              <td>
+                <strong>The only thing we ignite is a digital firestorm.</strong>
+                Never call for physical violence, riots, or unlawful assemblies.
+              </td>
+              <td>
+                Our weapon is the keyboard and the meme template. Public order is not our target.
+                The algorithm is.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ── CHAPTER 3 ── -->
+      <section class="section">
+        <div class="section-hd green">
+          <p class="chapter-label">Chapter 3</p>
+          <h2>Monetisation &amp; Integrity — The No Sell-Out Clause</h2>
+          <p>
+            The party takes no corporate cash and holds no bank account. What you do with your own antennae
+            is your business — with one absolute exception.
+          </p>
+        </div>
+        <div class="sellout-grid">
+          <div class="sellout-card allowed">
+            <span class="sellout-tag allowed-tag">Permitted</span>
+            <h3>Rule 04 — Decentralised Hustle</h3>
+            <p>
+              The official party takes no corporate cash or anonymous funds. Members are therefore encouraged to
+              monetise <em>independently</em>. Sell your own CJP merch. Monetise your own CJP-themed podcast.
+              Write substacks. Build a Substack empire. Keep the cash — share the memes.
+            </p>
+            <p>
+              Your independent hustle is not a conflict of interest. It is the proof of concept that the
+              under-employed can build something real without asking permission.
+            </p>
+          </div>
+          <div class="sellout-card banned">
+            <span class="sellout-tag banned-tag">Immediate Expulsion</span>
+            <h3>Rule 05 — No Paid Shilling</h3>
+            <p>
+              A cockroach does not bow to corporate sponsors or political IT cells. If you accept money under
+              the table to stop criticising a specific politician, policy, or party — you forfeit your antennae
+              and are banished from the swarm permanently.
+            </p>
+            <p>
+              There is no appeals process. There is no tribunal. The swarm decides. The scuttling continues
+              without you.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CHAPTER 4 ── -->
+      <section class="section">
+        <div class="section-hd green">
+          <p class="chapter-label">Chapter 4</p>
+          <h2>The Digital Warfare Strategy — Meme Manifesto</h2>
+          <p>
+            Four steps. Repeatable. Scalable. Legally defensible. Click each step for the full protocol.
+          </p>
+        </div>
+
+        <div class="hashtag-bar">
+          <span class="hb-label">Official hashtags</span>
+          <span class="hashtag">#CockroachPower</span>
+          <span class="hashtag">#IAmACockroach</span>
+          <span class="hashtag">#CJPSwarm</span>
+          <span class="hashtag">#ScuttleProtocol</span>
+        </div>
+
+        <div class="manifesto-steps" id="manifesto">
+          <div class="mstep active" data-mstep="0" role="button" tabindex="0">
+            <div class="mstep-dot"></div>
+            <p class="mstep-num">Step 01</p>
+            <p class="mstep-title">Identify the Absurdity</p>
+          </div>
+          <div class="mstep" data-mstep="1" role="button" tabindex="0">
+            <div class="mstep-dot"></div>
+            <p class="mstep-num">Step 02</p>
+            <p class="mstep-title">Apply the Cockroach Filter</p>
+          </div>
+          <div class="mstep" data-mstep="2" role="button" tabindex="0">
+            <div class="mstep-dot"></div>
+            <p class="mstep-num">Step 03</p>
+            <p class="mstep-title">Strip the Hate</p>
+          </div>
+          <div class="mstep" data-mstep="3" role="button" tabindex="0">
+            <div class="mstep-dot"></div>
+            <p class="mstep-num">Step 04</p>
+            <p class="mstep-title">Release the Swarm</p>
+          </div>
+          <div class="mstep-body open" id="mstep-body"></div>
+        </div>
+      </section>
+
+      <!-- ── GOLDEN RULE ── -->
+      <div class="golden-rule">
+        <span class="golden-label">The Golden Rule</span>
+        <blockquote>
+          The moment we take ourselves too seriously, we lose. The government knows exactly how to deal with
+          angry protesters. It has <strong>absolutely no idea</strong> how to deal with a million people
+          laughing at them.
+        </blockquote>
+        <p class="golden-coda">Keep crawling. Keep laughing. &nbsp;— The Swarm</p>
+      </div>
+
+      <p class="data-note">
+        This page is satire. The Cockroach Janta Party is a decentralised internet protest movement, not a
+        registered political party under the Representation of the People Act, 1951. Nothing on this page
+        constitutes legal advice. The Scuttle Protocol is not a substitute for consulting an actual lawyer
+        before posting anything that might land you in Patiala House. All content on this site is protected
+        under editorial and satirical speech. Stay legal. Stay funny. Keep scuttling.
+      </p>
+    </main>
+
+    <script>
+      const MSTEPS = [
+        {
+          title: 'Step 01 — Identify the Absurdity',
+          body: `Find a recent government statement, judicial remark, or policy decision that sounds completely disconnected from the lived reality of the average Indian. The raw material is everywhere. Budget allocation tables. Press conference transcripts. Parliamentary session highlights. Court orders. You are not inventing absurdity — you are just pointing a flashlight at it.`,
+          example: `EXAMPLE: Government announces ₹1 lakh crore allocation for smart cities while 40% of existing city roads remain below BIS quality standards. The gap between announcement and reality is the meme.`,
+        },
+        {
+          title: 'Step 02 — Apply the Cockroach Filter',
+          body: `Translate the issue into "pest perspective." Reframe the political failure through the cockroach's-eye view: the creature that lives inside the walls of every government building, survives every crisis, and witnesses every meeting. The cockroach is not angry — it is amused, pragmatic, and has seen this before. That detachment is the tone.`,
+          example: `EXAMPLE (Infrastructure budget cut): "Even the drains aren't safe anymore. We used to live inside the ministry — they've cut the water budget so hard we had to relocate to Parliament Street. At least the potholes are consistent." — CJP Field Correspondent, Storm Drain 7B`,
+        },
+        {
+          title: 'Step 03 — Strip the Hate',
+          body: `Before hitting post, run the content through the Scuttle Protocol checklist. Target: the policy, the institution, the systemic failure, the public statement. Not: a politician's family, their religion, their ethnicity, their community, or any marginalised group associated with the story. If removing the discriminatory element makes the joke fall apart, the joke was never about policy — it was about hate. Rebuild it.`,
+          example: `FAIL: Mocking a politician's regional accent or community origin.\nPASS: Mocking the exact words of a policy statement with a screenshot of the original source attached.\n\nIf the source document is attached, the satire is shielded. If the source is "I heard somewhere," it is not.`,
+        },
+        {
+          title: 'Step 04 — Release the Swarm',
+          body: `Post using the designated hashtags. Tag the relevant ministries, departments, and officials named in the source document — not personal accounts, official ones. Let the algorithmic amplification handle the rest. Do not coordinate mass-reporting campaigns against individuals. Do not organise pile-ons. The swarm moves by individuals independently arriving at the same absurd conclusion and posting it simultaneously. That is not coordination — that is consensus.`,
+          example: `HASHTAGS: #CockroachPower #IAmACockroach #CJPSwarm #ScuttleProtocol\nTAG: Ministry official accounts, not personal handles.\nATTACH: Screenshot of the source document or official statement.\nTIMING: Within 48 hours of the original statement — the news cycle waits for no cockroach.`,
+        },
+      ];
+
+      let activeMStep = 0;
+
+      function setMStep(idx) {
+        activeMStep = idx;
+        document.querySelectorAll('.mstep').forEach((el, i) => {
+          el.classList.toggle('active', i === idx);
+        });
+        const body = document.getElementById('mstep-body');
+        const s = MSTEPS[idx];
+        body.innerHTML = `
+          <h4>${s.title}</h4>
+          <p>${s.body.replace(/\n/g, '<br />')}</p>
+          <div class="mstep-example">
+            <strong>Field Note</strong>
+            ${s.example.replace(/\n/g, '<br />')}
+          </div>
+        `;
+        body.classList.add('open');
+      }
+
+      document.querySelectorAll('.mstep').forEach((el, i) => {
+        el.addEventListener('click', () => setMStep(i));
+        el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') setMStep(i); });
+      });
+
+      setMStep(0);
+    </script>
+  </body>
+</html>
