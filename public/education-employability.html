@@ -400,6 +400,226 @@
         margin-bottom: 0.2rem;
       }
 
+      /* ── BLUEPRINT ── */
+      .blueprint-intro {
+        background: var(--card-bg);
+        border: 1px solid var(--rule);
+        border-left: 4px solid var(--accent);
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+        color: var(--ink2);
+        line-height: 1.6;
+      }
+      .blueprint-intro strong {
+        color: var(--ink);
+      }
+
+      .pipeline-compare {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      @media (max-width: 580px) {
+        .pipeline-compare { grid-template-columns: 1fr; }
+      }
+      .pipeline-col {
+        border: 1px solid var(--rule);
+        background: var(--card-bg);
+        padding: 1rem;
+      }
+      .pipeline-col-tag {
+        font-family: 'Courier New', monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.2rem 0.5rem;
+        display: inline-block;
+        margin-bottom: 0.75rem;
+      }
+      .pipeline-col-tag.old { background: var(--danger); color: #fff; }
+      .pipeline-col-tag.new { background: var(--good); color: #fff; }
+      .pipeline-flow {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.3rem;
+      }
+      .pipeline-step {
+        font-family: 'Courier New', monospace;
+        font-size: 0.72rem;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        padding: 0.25rem 0.45rem;
+        white-space: nowrap;
+      }
+      .pipeline-arrow {
+        font-family: 'Courier New', monospace;
+        font-size: 0.75rem;
+        color: var(--ink3);
+      }
+
+      .track-section-hd {
+        display: flex;
+        align-items: baseline;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+      }
+      .track-section-hd h3 {
+        font-size: 1.1rem;
+      }
+      .track-badge {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.18rem 0.5rem;
+        border-radius: 2px;
+        flex-shrink: 0;
+      }
+      .track-badge.t1 { background: var(--accent); color: #fff; }
+      .track-badge.t2 { background: var(--saffron); color: #fff; }
+
+      .track-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2.5rem;
+      }
+      .track-card {
+        border: 1px solid var(--rule);
+        padding: 1.15rem;
+        background: var(--card-bg);
+        position: relative;
+      }
+      .track-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+      }
+      .track-card.t1::before { background: var(--accent); }
+      .track-card.t2::before { background: var(--saffron); }
+      .track-pillar-num {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        color: var(--ink3);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 0.4rem;
+      }
+      .track-card h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.65rem;
+        line-height: 1.35;
+      }
+      .track-card p {
+        font-size: 0.82rem;
+        color: var(--ink2);
+        line-height: 1.55;
+        margin-bottom: 0.65rem;
+      }
+      .track-mechanic {
+        font-family: 'Courier New', monospace;
+        font-size: 0.72rem;
+        border: 1px solid var(--rule);
+        padding: 0.35rem 0.55rem;
+        background: var(--paper);
+        color: var(--ink2);
+        display: block;
+        margin-top: 0.5rem;
+        line-height: 1.45;
+      }
+      .track-mechanic strong {
+        color: var(--ink);
+        display: block;
+        margin-bottom: 0.1rem;
+      }
+
+      /* ── EXECUTION TIMELINE ── */
+      .timeline-phases {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        position: relative;
+        margin-bottom: 0.5rem;
+      }
+      .timeline-phases::before {
+        content: '';
+        position: absolute;
+        top: 28px;
+        left: calc(12.5%);
+        right: calc(12.5%);
+        height: 2px;
+        background: var(--rule);
+        z-index: 0;
+      }
+      @media (max-width: 620px) {
+        .timeline-phases { grid-template-columns: 1fr 1fr; }
+        .timeline-phases::before { display: none; }
+      }
+      .phase {
+        padding: 0 0.5rem 0;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
+      .phase-dot {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--rule);
+        border: 2px solid var(--rule);
+        margin: 0 auto 0.5rem;
+        transition: background 0.2s, border-color 0.2s;
+      }
+      .phase.active .phase-dot,
+      .phase:hover .phase-dot {
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+      .phase-period {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        color: var(--ink3);
+        letter-spacing: 0.08em;
+        margin-bottom: 0.2rem;
+      }
+      .phase-title {
+        font-size: 0.8rem;
+        font-weight: bold;
+        line-height: 1.3;
+        color: var(--ink2);
+        transition: color 0.2s;
+      }
+      .phase.active .phase-title,
+      .phase:hover .phase-title {
+        color: var(--ink);
+      }
+      .phase-body {
+        display: none;
+        background: var(--card-bg);
+        border: 1px solid var(--rule);
+        border-top: 2px solid var(--accent);
+        padding: 1rem;
+        margin-top: 1rem;
+        grid-column: 1 / -1;
+      }
+      .phase-body.open { display: block; }
+      .phase-body h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0.65rem;
+      }
+      .phase-body ul {
+        padding-left: 1.2rem;
+        font-size: 0.83rem;
+        color: var(--ink2);
+        line-height: 1.7;
+      }
+      .phase-body ul li { margin-bottom: 0.25rem; }
+
       /* ── FOOTER NOTE ── */
       .data-note {
         max-width: 900px;
@@ -649,6 +869,197 @@
                 ~₹18 lakh per lab; covers 750 million people in underserved zones.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── BLUEPRINT INTRO ── -->
+      <section class="section">
+        <div class="section-hd">
+          <h2>The Implementation Blueprint</h2>
+          <p>
+            We cannot wait 15 years for today's primary schoolers to graduate, nor can a workforce band-aid fix a
+            root curriculum leak. Both tracks must run simultaneously.
+          </p>
+        </div>
+
+        <div class="blueprint-intro">
+          The core shift is from <strong>"What to think"</strong> (memorisation) to
+          <strong>"How to think"</strong> (application). The old factory-line model produces certificates.
+          The new model must produce demonstrated capability — a portfolio an employer can actually test.
+        </div>
+
+        <div class="pipeline-compare">
+          <div class="pipeline-col">
+            <span class="pipeline-col-tag old">Old Way</span>
+            <div class="pipeline-flow">
+              <span class="pipeline-step">Textbook</span>
+              <span class="pipeline-arrow">→</span>
+              <span class="pipeline-step">Rote Memorisation</span>
+              <span class="pipeline-arrow">→</span>
+              <span class="pipeline-step">3-Hour Written Exam</span>
+              <span class="pipeline-arrow">→</span>
+              <span class="pipeline-step">Degree (No Skills)</span>
+            </div>
+          </div>
+          <div class="pipeline-col">
+            <span class="pipeline-col-tag new">New Way</span>
+            <div class="pipeline-flow">
+              <span class="pipeline-step">Core Concept</span>
+              <span class="pipeline-arrow">→</span>
+              <span class="pipeline-step">Lab / Project Work</span>
+              <span class="pipeline-arrow">→</span>
+              <span class="pipeline-step">Continuous Peer Review</span>
+              <span class="pipeline-arrow">→</span>
+              <span class="pipeline-step">Industry Portfolio</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Track 1 -->
+        <div class="track-section-hd">
+          <span class="track-badge t1">Track 1</span>
+          <h3>Reengineering the Educational Pipeline</h3>
+        </div>
+        <div class="track-grid">
+          <div class="track-card t1">
+            <p class="track-pillar-num">Pillar 01</p>
+            <h4>The 30% Micro-Apprenticeship Rule</h4>
+            <p>
+              Every degree — Arts, Commerce, or Science — must mandate that 30% of its credits come from actual work
+              or project delivery, not classroom hours. An Economics student shouldn't just read Keynes; they should
+              be analysing data for a municipal body or a micro-business.
+            </p>
+            <span class="track-mechanic">
+              <strong>Mechanism</strong>
+              Credits earned only on submission of verified deliverable to a registered employer or community partner.
+              Online project platforms (GitHub, public datasets) count as valid work records.
+            </span>
+          </div>
+
+          <div class="track-card t1">
+            <p class="track-pillar-num">Pillar 02</p>
+            <h4>The Curriculum API — Semiannual Updates</h4>
+            <p>
+              University syllabi currently take years to change, making them obsolete on arrival. Introduce an
+              API-like model where local industry boards inject 20% of curriculum content based on live market demand:
+              cloud computing, logistics management, modern agronomy tools, vernacular AI interfaces.
+            </p>
+            <span class="track-mechanic">
+              <strong>Mechanism</strong>
+              Industry boards publish a quarterly "skills deficit" list. Universities must incorporate top-3 items
+              within one semester or lose accreditation points.
+            </span>
+          </div>
+
+          <div class="track-card t1">
+            <p class="track-pillar-num">Pillar 03</p>
+            <h4>Open-Book Radical Exam Reform</h4>
+            <p>
+              To kill rote learning structurally: make 50% of all major board and university exams open-book or
+              project-defence style. When you cannot pass by copying a textbook, teachers are forced to teach
+              conceptual clarity — and students are forced to learn how to apply knowledge, not just store it.
+            </p>
+            <span class="track-mechanic">
+              <strong>Mechanism</strong>
+              Board exams: 50% case-analysis / open-notes. College finals: 50% project presentation or take-home
+              applied problem. Implementation timeline: 3 years, starting with elective subjects.
+            </span>
+          </div>
+        </div>
+
+        <!-- Track 2 -->
+        <div class="track-section-hd">
+          <span class="track-badge t2">Track 2</span>
+          <h3>National Upskilling Emergency Response</h3>
+        </div>
+        <div class="track-grid">
+          <div class="track-card t2">
+            <p class="track-pillar-num">Pillar 01</p>
+            <h4>Pay-After-Placement (ISA) Public-Private Mesh</h4>
+            <p>
+              The government subsidises private bootcamps and ed-tech accelerators to train graduates in high-demand
+              fields: digital marketing, data operations, advanced CNC machining, medical lab tech. The catch:
+              institutes only get fully paid via an Income Share Agreement once the student lands a job above a
+              baseline salary. Their survival is aligned with the student's success.
+            </p>
+            <span class="track-mechanic">
+              <strong>Mechanism</strong>
+              Government pays 40% upfront per enrollee. Remaining 60% disbursed in tranches at placement +3 months
+              and +12 months, conditional on salary &gt; ₹22,000/month. Institutes failing &lt;50% placement rate
+              lose accreditation.
+            </span>
+          </div>
+
+          <div class="track-card t2">
+            <p class="track-pillar-num">Pillar 02</p>
+            <h4>Localised Skill Hubs in Tier-2/3 Cities</h4>
+            <p>
+              Convert underutilised government infrastructure and local colleges into evening Skill Hubs focused
+              strictly on local economic drivers. Textile town: e-commerce logistics and modern supply chain
+              software. Rural district: agritech tools and solar equipment maintenance. Industrial zone: CNC
+              programming and quality control certification.
+            </p>
+            <span class="track-mechanic">
+              <strong>Mechanism</strong>
+              District Collectors identify top-3 local industries. NSDC maps curriculum. Existing ITI buildings
+              repurposed 6pm–10pm. Local employers co-fund equipment in exchange for first-hire preference.
+            </span>
+          </div>
+
+          <div class="track-card t2">
+            <p class="track-pillar-num">Pillar 03</p>
+            <h4>Vernacular Tech Stack</h4>
+            <p>
+              Break the English barrier entirely. Build AI-driven learning tools that teach high-value modern skills
+              — Python coding, bookkeeping, project management — in regional languages, with a parallel
+              workplace-specific English module. Absolute English fluency is not a prerequisite; functional
+              workplace English is a parallel outcome, not a gate.
+            </p>
+            <span class="track-mechanic">
+              <strong>Mechanism</strong>
+              Mandate all PMKVY-funded content be available in all 22 scheduled languages by Year 1. Open-source
+              the base learning models. Community validators (not just central teams) approve regional translations.
+            </span>
+          </div>
+        </div>
+
+        <!-- Execution Timeline -->
+        <div class="section-hd" style="margin-top:1rem">
+          <h2>Execution Phases</h2>
+          <p>Click a phase to see the actions. Sequenced to avoid the bureaucratic trap of waiting for perfect before starting.</p>
+        </div>
+        <div class="timeline-phases" id="timeline">
+          <div class="phase active" data-phase="0" role="button" tabindex="0">
+            <div class="phase-dot"></div>
+            <p class="phase-period">Months 1–6</p>
+            <p class="phase-title">Regional Pilots</p>
+          </div>
+          <div class="phase" data-phase="1" role="button" tabindex="0">
+            <div class="phase-dot"></div>
+            <p class="phase-period">Months 6–12</p>
+            <p class="phase-title">Skills-to-Jobs Matching</p>
+          </div>
+          <div class="phase" data-phase="2" role="button" tabindex="0">
+            <div class="phase-dot"></div>
+            <p class="phase-period">Year 1–2</p>
+            <p class="phase-title">National Credit Bank</p>
+          </div>
+          <div class="phase" data-phase="3" role="button" tabindex="0">
+            <div class="phase-dot"></div>
+            <p class="phase-period">Year 2+</p>
+            <p class="phase-title">Full National Scale</p>
+          </div>
+          <div class="phase-body open" id="phase-body">
+            <h4>Phase 1: Regional Pilots</h4>
+            <ul>
+              <li>Select 3 districts: one highly urban, one semi-urban/industrial, one deeply rural.</li>
+              <li>Partner with 10 local colleges per district and 50 local businesses to implement the 30% project credit rule.</li>
+              <li>Launch Pay-After-Placement bootcamps via 3–5 ed-tech partners with government ISA funding.</li>
+              <li>Activate Skill Hubs in repurposed ITI buildings using NSDC-mapped local curriculum.</li>
+              <li>Deploy vernacular learning pilots in Hindi, Bengali, Tamil, and Telugu for 4 high-demand modules.</li>
+              <li>Measure: placement rate at 6 months, student completion rate, employer satisfaction score.</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -919,6 +1330,72 @@
           if (selectedState) renderDetail(selectedState);
         });
       });
+
+      // ── EXECUTION TIMELINE ───────────────────────────────────────────────
+      const PHASE_CONTENT = [
+        {
+          title: 'Phase 1: Regional Pilots',
+          items: [
+            'Select 3 districts: one highly urban, one semi-urban/industrial, one deeply rural.',
+            'Partner with 10 local colleges per district and 50 businesses to implement the 30% project credit rule.',
+            'Launch Pay-After-Placement bootcamps via 3–5 ed-tech partners with government ISA co-funding.',
+            'Activate Skill Hubs in repurposed ITI buildings using NSDC-mapped local economic curriculum.',
+            'Deploy vernacular learning pilots in Hindi, Bengali, Tamil, and Telugu for 4 high-demand modules.',
+            'Measure: placement rate at 6 months, completion rate, employer satisfaction score. Kill what fails.',
+          ],
+        },
+        {
+          title: 'Phase 2: Skills-to-Jobs Matching Infrastructure',
+          items: [
+            'Deploy a unified AI-driven national portal mapping real-time hiring data to pilot college curricula.',
+            'Flag exact skill gaps: if 40% of open roles in a district require Excel + SQL but no college teaches it, the portal surfaces this weekly.',
+            'Integrate with government job portals (NCS, state employment exchanges) so matching is automatic.',
+            'Begin open-book exam reform in 3 elective subjects per board — evaluate outcome data at 12 months.',
+            'Expand ISA bootcamp programme to 10 districts based on pilot learnings.',
+          ],
+        },
+        {
+          title: 'Phase 3: National Skilling Credit Bank',
+          items: [
+            'Allow students to earn academic credits through verified vocational work, online micro-credentials, or apprenticeships.',
+            'Credits made transferable to standard UG degrees — a student can complete 30% of a B.Com via verified bookkeeping work.',
+            'Industry boards, universities, and NSDC jointly maintain the credit registry. Credits have a 5-year validity window.',
+            'Mandate all PMKVY-funded content available in all 22 scheduled languages by end of Year 1.',
+            'Run the Curriculum API in all pilot colleges: industry boards submit quarterly skills-deficit lists.',
+          ],
+        },
+        {
+          title: 'Phase 4: Full National Scale',
+          items: [
+            'Mandate open-book / project-defence format for 50% of all board and university exams nationwide.',
+            'Link state Higher Education funding allocations directly to graduate placement rates (3-year rolling average).',
+            'Scale Pay-After-Placement ISA programme to all 700+ districts. Government covers 40% upfront; institutes earn the rest on verified placement.',
+            'Require all colleges above 500 enrolled students to demonstrate a 30% project-credit pathway by Year 3 or lose UGC recognition.',
+            'Publish annual State Education Accountability Index — placement rate, salary at placement, drop-out rate — as binding public data.',
+          ],
+        },
+      ];
+
+      let activePhase = 0;
+
+      function setPhase(idx) {
+        activePhase = idx;
+        document.querySelectorAll('.phase').forEach((el, i) => {
+          el.classList.toggle('active', i === idx);
+        });
+        const body = document.getElementById('phase-body');
+        const p = PHASE_CONTENT[idx];
+        body.innerHTML = `<h4>${p.title}</h4><ul>${p.items.map(it => `<li>${it}</li>`).join('')}</ul>`;
+        body.classList.add('open');
+      }
+
+      document.querySelectorAll('.phase').forEach((el, i) => {
+        el.addEventListener('click', () => setPhase(i));
+        el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') setPhase(i); });
+      });
+
+      // init
+      setPhase(0);
     </script>
   </body>
 </html>
