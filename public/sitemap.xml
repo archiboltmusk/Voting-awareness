@@ -134,6 +134,12 @@
   </url>
   <url>
     <loc>https://voting-awareness.vercel.app/cjp</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voting-awareness.vercel.app/cjp-projects</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

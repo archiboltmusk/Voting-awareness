@@ -23,7 +23,8 @@
     { "source": "/india-disadvantage-index", "destination": "/india-disadvantage-index.html" },
     { "source": "/friction-engine", "destination": "/friction-engine.html" },
     { "source": "/education", "destination": "/education-employability.html" },
-    { "source": "/cjp", "destination": "/cjp.html" }
+    { "source": "/cjp", "destination": "/cjp.html" },
+    { "source": "/cjp-projects", "destination": "/cjp-projects.html" }
   ],
   "headers": [
     {

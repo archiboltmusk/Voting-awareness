@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CJP Civic-Tech Projects: SwarmAudit, RTI Swarm, and the Resilient Skill Guild — three open-source platforms turning digital activism into a real public auditing infrastructure."
+    />
+    <meta property="og:title" content="The Bengal Reader — CJP Swarm Projects" />
+    <meta
+      property="og:description"
+      content="From slacktivism to civic infrastructure. Three open-source projects that turn 100,000 chronically online youth into a decentralized public auditing machine."
+    />
+    <meta property="og:image" content="/og-cjp.svg" />
+    <title>The Bengal Reader — CJP Swarm Projects</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/shared.css" />
+    <script defer src="/analytics.js"></script>
+    <script defer src="/shared.js"></script>
+    <style>
+      :root {
+        --paper: #f4f1ea;
+        --ink: #1a1714;
+        --ink2: #4a3f35;
+        --ink3: #7a6a5a;
+        --rule: #d8d0c4;
+        --saffron: #e87c2a;
+        --danger: #c0392b;
+        --good: #2d7a4f;
+        --card-bg: #ede9e0;
+        --hover: #e0dbd0;
+        --cjp: #1c8a0e;
+        --cjp-dim: rgba(28, 138, 14, 0.12);
+      }
+      [data-theme='dark'] {
+        --paper: #141210;
+        --ink: #f0ece3;
+        --ink2: #c8bfb0;
+        --ink3: #8a7d6e;
+        --rule: #2a2420;
+        --card-bg: #1e1a16;
+        --hover: #252018;
+        --cjp: #2db314;
+        --cjp-dim: rgba(45, 179, 20, 0.08);
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { background: var(--paper); color: var(--ink); font-family: 'Georgia', serif; line-height: 1.6; }
+
+      /* ── HERO ── */
+      .hero {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 2.5rem 1.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          0deg, transparent, transparent 2px,
+          rgba(255,255,255,0.015) 2px, rgba(255,255,255,0.015) 4px
+        );
+        pointer-events: none;
+      }
+      .hero-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+      .hero-kicker {
+        font-family: 'Courier New', monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--cjp);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .hero-kicker::before {
+        content: '';
+        display: inline-block;
+        width: 24px;
+        height: 1px;
+        background: var(--cjp);
+      }
+      .hero h1 {
+        font-size: clamp(1.6rem, 4vw, 2.8rem);
+        color: var(--paper);
+        line-height: 1.15;
+        margin-bottom: 0.75rem;
+      }
+      .hero h1 em { font-style: normal; color: var(--cjp); }
+      .hero p {
+        font-size: 1rem;
+        color: var(--ink3);
+        max-width: 640px;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+      .hero-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+      .hero-stat {
+        font-family: 'Courier New', monospace;
+        font-size: 0.72rem;
+        color: var(--ink3);
+        letter-spacing: 0.06em;
+      }
+      .hero-stat strong { color: var(--cjp); display: block; font-size: 1.4rem; line-height: 1; margin-bottom: 0.2rem; }
+
+      /* ── SECTION ── */
+      .section {
+        max-width: 960px;
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+      }
+      .section-hd {
+        border-top: 2px solid var(--cjp);
+        padding-top: 1.2rem;
+        margin-bottom: 1.75rem;
+      }
+      .section-hd h2 { font-size: 1.35rem; margin-bottom: 0.3rem; }
+      .section-hd p  { font-size: 0.88rem; color: var(--ink2); }
+
+      /* ── PROJECT CARDS ── */
+      .project {
+        border: 1px solid var(--rule);
+        background: var(--card-bg);
+        margin-bottom: 2rem;
+        overflow: hidden;
+      }
+      .project-header {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 1.1rem 1.4rem;
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .project-num {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--cjp);
+        flex-shrink: 0;
+      }
+      .project-header h3 {
+        font-size: 1.1rem;
+        color: var(--paper);
+        line-height: 1.25;
+      }
+      .project-tagline {
+        font-family: 'Courier New', monospace;
+        font-size: 0.7rem;
+        color: var(--ink3);
+        margin-left: auto;
+        flex-shrink: 0;
+        align-self: center;
+      }
+      .project-body {
+        padding: 1.4rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      @media (max-width: 640px) { .project-body { grid-template-columns: 1fr; } }
+      .project-what {
+        grid-column: 1 / -1;
+        font-size: 0.9rem;
+        color: var(--ink2);
+        line-height: 1.6;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--rule);
+        margin-bottom: 0.25rem;
+      }
+      .project-what strong { color: var(--ink); }
+      .roles-col h4 {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--ink3);
+        margin-bottom: 0.75rem;
+      }
+      .role-item {
+        display: flex;
+        gap: 0.6rem;
+        margin-bottom: 0.75rem;
+        align-items: flex-start;
+      }
+      .role-tag {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        padding: 0.15rem 0.45rem;
+        color: var(--cjp);
+        white-space: nowrap;
+        flex-shrink: 0;
+        margin-top: 0.1rem;
+      }
+      .role-desc {
+        font-size: 0.8rem;
+        color: var(--ink2);
+        line-height: 1.5;
+      }
+      .output-col {
+        background: var(--cjp-dim);
+        border: 1px solid var(--cjp);
+        border-radius: 1px;
+        padding: 1rem;
+      }
+      .output-col h4 {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--cjp);
+        margin-bottom: 0.65rem;
+      }
+      .output-col p {
+        font-size: 0.82rem;
+        color: var(--ink2);
+        line-height: 1.6;
+      }
+      .output-col p + p { margin-top: 0.6rem; }
+      .output-metric {
+        font-family: 'Courier New', monospace;
+        font-size: 0.72rem;
+        color: var(--ink);
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        padding: 0.3rem 0.6rem;
+        display: block;
+        margin-top: 0.75rem;
+        line-height: 1.45;
+      }
+      .output-metric strong { color: var(--cjp); }
+
+      /* ── PIPELINE DIAGRAM ── */
+      .pipeline {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 2rem 1.5rem;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .pipeline::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          0deg, transparent, transparent 3px,
+          rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 6px
+        );
+        pointer-events: none;
+      }
+      .pipeline-inner {
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+      .pipeline-label {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--cjp);
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+      .pipeline-node {
+        border: 1px solid var(--cjp);
+        padding: 0.85rem 1.1rem;
+        text-align: center;
+        background: rgba(28, 138, 14, 0.06);
+        position: relative;
+      }
+      .pipeline-node-title {
+        font-family: 'Courier New', monospace;
+        font-size: 0.7rem;
+        color: var(--cjp);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+      }
+      .pipeline-node-desc {
+        font-size: 0.8rem;
+        color: var(--ink3);
+        line-height: 1.4;
+      }
+      .pipeline-arrow {
+        text-align: center;
+        font-family: 'Courier New', monospace;
+        font-size: 1.1rem;
+        color: var(--cjp);
+        padding: 0.35rem 0;
+        opacity: 0.7;
+      }
+
+      /* ── SHIELDS ── */
+      .shields-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      @media (max-width: 560px) { .shields-grid { grid-template-columns: 1fr; } }
+      .shield-card {
+        border: 1px solid var(--rule);
+        background: var(--card-bg);
+        padding: 1.1rem;
+        border-top: 3px solid var(--cjp);
+      }
+      .shield-card h4 {
+        font-size: 0.92rem;
+        margin-bottom: 0.5rem;
+      }
+      .shield-card p {
+        font-size: 0.82rem;
+        color: var(--ink2);
+        line-height: 1.55;
+      }
+      .shield-icon {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--cjp);
+        margin-bottom: 0.35rem;
+      }
+
+      /* ── CLOSING QUOTE ── */
+      .closing {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 2.25rem 1.5rem;
+        margin: 2rem 0 0;
+      }
+      .closing-inner {
+        max-width: 740px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .closing blockquote {
+        font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+        color: var(--ink2);
+        line-height: 1.7;
+        font-style: italic;
+        border: none;
+        padding: 0;
+      }
+      [data-theme='dark'] .closing blockquote { color: var(--ink3); }
+      .closing blockquote strong { color: var(--cjp); font-style: normal; }
+      .closing-attr {
+        font-family: 'Courier New', monospace;
+        font-size: 0.68rem;
+        color: var(--ink3);
+        margin-top: 1rem;
+        letter-spacing: 0.08em;
+      }
+
+      .data-note {
+        max-width: 900px;
+        margin: 3rem auto 4rem;
+        padding: 1rem 1.5rem;
+        border-top: 1px solid var(--rule);
+        font-size: 0.78rem;
+        color: var(--ink3);
+        font-family: 'Courier New', monospace;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav">
+      <div class="site-nav-inner">
+        <a href="/" class="site-nav-brand">The Bengal Reader</a>
+        <div class="site-nav-links">
+          <a href="/" class="site-nav-link">Voter Guide</a>
+          <a href="/parties" class="site-nav-link">Party Compass</a>
+          <a href="/constituencies" class="site-nav-link">2026 Results</a>
+          <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+          <a href="/accountability" class="site-nav-link">100 Days</a>
+          <a href="/corruption" class="site-nav-link">Dossier</a>
+          <a href="/bonds" class="site-nav-link">Money Trail</a>
+          <a href="/mlas" class="site-nav-link">MLA Records</a>
+          <a href="/india-development" class="site-nav-link">India's Story</a>
+          <a href="/india-china" class="site-nav-link">India vs China</a>
+          <a href="/india-governance" class="site-nav-link">Performance OS</a>
+          <a href="/india-disadvantage-index" class="site-nav-link">Disadvantage Index</a>
+          <a href="/friction-engine" class="site-nav-link">Friction Engine</a>
+          <a href="/education" class="site-nav-link">Education Gap</a>
+          <a href="/cjp" class="site-nav-link">CJP</a>
+          <a href="/cjp-projects" class="site-nav-link active">Swarm Projects</a>
+          <a href="/ask" class="site-nav-link">Ask AI</a>
+          <a href="/map" class="site-nav-link">Map</a>
+          <a href="/assets" class="site-nav-link">Wealth Growth</a>
+          <a href="/methodology" class="site-nav-link">Methodology</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- ── HERO ── -->
+      <div class="hero">
+        <div class="hero-inner">
+          <p class="hero-kicker">CJP Civic-Tech Platform</p>
+          <h1>From <em>Slacktivism</em><br />to Civic Infrastructure</h1>
+          <p>
+            100,000 chronically online, tech-savvy youth don't need to march on streets.
+            They need to build a digital panopticon that monitors public spending, tracks policies,
+            and creates data assets the government cannot ignore.
+          </p>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>3</strong>
+              open-source civic platforms
+            </div>
+            <div class="hero-stat">
+              <strong>0</strong>
+              central command required
+            </div>
+            <div class="hero-stat">
+              <strong>100%</strong>
+              built on public data
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PROJECT 1 ── -->
+      <section class="section">
+        <div class="section-hd">
+          <h2>Three High-Impact Swarm Projects</h2>
+          <p>
+            Each project produces resume-building real work. Each is legally structured to survive
+            "anti-national" labels. Each runs without a central organisation.
+          </p>
+        </div>
+
+        <div class="project">
+          <div class="project-header">
+            <span class="project-num">Project 01</span>
+            <h3>SwarmAudit — Open-Source Public Failure Registry</h3>
+            <span class="project-tagline">github · openstreetmap · pwа</span>
+          </div>
+          <div class="project-body">
+            <p class="project-what">
+              Instead of complaining about broken infrastructure on Twitter, build a geo-tagged, verifiable record of it.
+              <strong>SwarmAudit</strong> is a GitHub-hosted, open-source progressive web app where any citizen can report
+              local civic failures — collapsing bridges, flooded roads, broken public toilets, non-functional streetlights —
+              with absolute metadata proof: latitude, longitude, timestamp, photograph hash. Every report is immutable and
+              publicly auditable the moment it's submitted. The government cannot dispute what it cannot delete.
+            </p>
+            <div class="roles-col">
+              <h4>Roles &amp; Real Work</h4>
+              <div class="role-item">
+                <span class="role-tag">Frontend</span>
+                <p class="role-desc">Build a lightweight PWA with OpenStreetMap integration. Offline-first — reports queue locally and sync when connected.</p>
+              </div>
+              <div class="role-item">
+                <span class="role-tag">Backend</span>
+                <p class="role-desc">Design the API layer: report ingestion, de-duplication by GPS radius, automated photo EXIF validation to prevent fabrication.</p>
+              </div>
+              <div class="role-item">
+                <span class="role-tag">Data Analyst</span>
+                <p class="role-desc">Aggregate reports by municipal ward and assembly constituency. Compute a per-politician "Civic Failure Index" — failures per ward per month, weighted by severity.</p>
+              </div>
+              <div class="role-item">
+                <span class="role-tag">DevOps</span>
+                <p class="role-desc">Host on GitHub Pages + Cloudflare. Zero server cost. Uptime guaranteed by CDN. Cannot be taken down by a court order targeting a single server.</p>
+              </div>
+            </div>
+            <div class="output-col">
+              <h4>Real-World Output</h4>
+              <p>
+                A monthly automated dashboard emailed directly to local municipal offices, district collectors,
+                and registered press contacts — showing every verified infrastructure failure in their jurisdiction,
+                tagged to the responsible ward and the sitting councillor.
+              </p>
+              <p>
+                A government can ignore a tweet. It cannot ignore a structured dataset
+                showing 5,000 verified failures in a single district, sent to 40 journalists simultaneously.
+              </p>
+              <span class="output-metric">
+                <strong>Target metric:</strong> Civic Failure Index per constituency published monthly.
+                Any ward scoring in the top decile gets a public "Red Zone" designation.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── PROJECT 2 ── -->
+        <div class="project">
+          <div class="project-header">
+            <span class="project-num">Project 02</span>
+            <h3>RTI Swarm — Template-Driven Data Journalism Pipeline</h3>
+            <span class="project-tagline">legal · journalism · data</span>
+          </div>
+          <div class="project-body">
+            <p class="project-what">
+              The Right to Information Act is one of the most powerful democratic tools ever legislated in India —
+              and almost nobody uses it correctly. <strong>RTI Swarm</strong> is a structured, template-driven portal
+              that teaches citizens how to file targeted RTI applications on local public spending:
+              <em>"How much was allocated for road repair in Ward 4, and which contractor was paid?"</em>
+              Once the government responds, a volunteer team of content creators converts the raw PDF into
+              infographics, investigative threads, and short-form explainers. Raw data in, viral content out.
+            </p>
+            <div class="roles-col">
+              <h4>Roles &amp; Real Work</h4>
+              <div class="role-item">
+                <span class="role-tag">Legal Researcher</span>
+                <p class="role-desc">Build a library of sector-specific RTI templates (Education, Municipal Operations, Health, Infrastructure). Each template must be filed within 30 days by law — the system tracks and notifies on deadlines.</p>
+              </div>
+              <div class="role-item">
+                <span class="role-tag">Data Journalist</span>
+                <p class="role-desc">Receive government RTI responses. Extract budget allocations vs actual expenditure. Flag discrepancies. Convert to a 3-slide infographic and a 300-word thread format ready to publish.</p>
+              </div>
+              <div class="role-item">
+                <span class="role-tag">Content Creator</span>
+                <p class="role-desc">Translate the infographic into short-form video (60–90 seconds). Local language versions prioritised. Post simultaneously across platforms using the CJP hashtag stack.</p>
+              </div>
+              <div class="role-item">
+                <span class="role-tag">Tracker / PM</span>
+                <p class="role-desc">Monitor each RTI from filing to response. Flag non-responses (legally actionable after 30 days). Escalate to first appeal automatically at Day 31.</p>
+              </div>
+            </div>
+            <div class="output-col">
+              <h4>Real-World Output</h4>
+              <p>
+                A hyper-local investigative news network run entirely by volunteers — one that breaks budget
+                discrepancies at the ward level, months before any mainstream outlet notices.
+              </p>
+              <p>
+                Each RTI response is a legally obtained public document. Publishing it verbatim, with a
+                discrepancy highlighted, is not defamation. It is journalism protected by the act that
+                produced the document.
+              </p>
+              <span class="output-metric">
+                <strong>Target metric:</strong> 500 RTIs filed per month across 50 districts.
+                Response rate and discrepancy rate published as a "Transparency Score" per department.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── PROJECT 3 ── -->
+        <div class="project">
+          <div class="project-header">
+            <span class="project-num">Project 03</span>
+            <h3>Resilient Skill Guild — Peer-to-Peer Skill Incubator</h3>
+            <span class="project-tagline">education · portfolio · open-source</span>
+          </div>
+          <div class="project-body">
+            <p class="project-what">
+              If the CJP manifesto targets unemployment, the movement itself must act as a decentralised skill
+              incubator. <strong>Resilient Skill Guild</strong> is an open peer-to-peer learning network where
+              highly skilled swarm members train unemployed members in market-ready digital skills —
+              not on dummy projects, but on the live codebase of SwarmAudit and the design assets of RTI Swarm.
+              Every contribution goes directly on a public GitHub profile. The portfolio builds itself
+              as the movement builds itself.
+            </p>
+            <div class="roles-col">
+              <h4>Roles &amp; Real Work</h4>
+              <div class="role-item">
+                <span class="role-tag">Product Manager</span>
+                <p class="role-desc">Design micro-cohorts of 8–12 students for specific skill tracks: Python + data visualisation, UI/UX design, technical writing, video editing, DevOps. 6-week sprints. Real deliverables required to pass.</p>
+              </div>
+              <div class="role-item">
+                <span class="role-tag">Guild Mentor</span>
+                <p class="role-desc">Senior swarm members with 3+ years industry experience lead cohorts. No academic qualification required — only a verified portfolio. Mentors earn a CJP Guild Badge displayed on all published work.</p>
+              </div>
+              <div class="role-item">
+                <span class="role-tag">Student / Builder</span>
+                <p class="role-desc">Write actual code for SwarmAudit features. Design actual infographic templates for RTI Swarm. Every contribution is a merged GitHub PR or a published design file — verifiable proof of work for any recruiter.</p>
+              </div>
+              <div class="role-item">
+                <span class="role-tag">Placement Coordinator</span>
+                <p class="role-desc">Maintain a public directory of Guild graduates with portfolio links. Reach out to startups and companies that have publicly committed to open-source hiring pipelines. Track placement rate per cohort.</p>
+              </div>
+            </div>
+            <div class="output-col">
+              <h4>Real-World Output</h4>
+              <p>
+                A graduated cohort member has: 6 merged pull requests on a live open-source project,
+                a public GitHub profile with real commit history, and a reference from a verified
+                industry mentor. This outperforms most college portfolios.
+              </p>
+              <p>
+                The establishment can dismiss a meme page. It cannot dismiss an engineer with
+                a public codebase, three shipped features, and a 4-star GitHub repository.
+              </p>
+              <span class="output-metric">
+                <strong>Target metric:</strong> 1,000 Guild graduates per quarter.
+                Public placement rate published. Any cohort below 60% placement triggers
+                a curriculum review.
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── LEGAL FRAMEWORK ── -->
+      <section class="section">
+        <div class="section-hd">
+          <h2>Legal Architecture — How to Structure It to Survive</h2>
+          <p>
+            The framework is designed so that no single point of failure can collapse the entire platform.
+            Every node is replaceable. Every dataset is mirrored.
+          </p>
+        </div>
+
+        <div class="pipeline">
+          <div class="pipeline-inner">
+            <p class="pipeline-label">The Decentralised Operations Stack</p>
+            <div class="pipeline-node">
+              <p class="pipeline-node-title">Layer 1 — Idea Generation</p>
+              <p class="pipeline-node-desc">Discord servers · Reddit communities · anonymous Telegram channels<br />No central leadership. No registered entity. Pure distributed consensus.</p>
+            </div>
+            <div class="pipeline-arrow">↓</div>
+            <div class="pipeline-node">
+              <p class="pipeline-node-title">Layer 2 — Build &amp; Maintenance</p>
+              <p class="pipeline-node-desc">Public GitHub repositories — fully open-source, MIT licence<br />Codebase is the product. Anyone can fork. Nobody can own it.</p>
+            </div>
+            <div class="pipeline-arrow">↓</div>
+            <div class="pipeline-node">
+              <p class="pipeline-node-title">Layer 3 — Output &amp; Distribution</p>
+              <p class="pipeline-node-desc">Published via verified CJP social channels<br />Simultaneously sent to local authorities, district press, and RTI appeal bodies</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="shields-grid">
+          <div class="shield-card">
+            <p class="shield-icon">Shield 01</p>
+            <h4>Anonymity for Safety, Transparency for Code</h4>
+            <p>
+              Individual contributors may remain fully anonymous online — pseudonymous GitHub accounts are
+              legally standard practice. But the entire codebase, dataset, and methodology is completely
+              public. The work is transparent even when the worker is not.
+            </p>
+            <p style="margin-top:0.6rem; font-size:0.82rem; color:var(--ink2)">
+              This splits the legal exposure: there is no named individual to prosecute, and no secret
+              activity to classify as sedition. The code is open. The data is public. The RTI responses
+              are government documents.
+            </p>
+          </div>
+          <div class="shield-card">
+            <p class="shield-icon">Shield 02</p>
+            <h4>The Incorruptible Data Shield</h4>
+            <p>
+              By focusing strictly on data, technology, and public records (RTI responses, government
+              expenditure reports, official tender documents), the platform is structurally inoculated
+              against "propaganda" or "anti-national activity" labels.
+            </p>
+            <p style="margin-top:0.6rem; font-size:0.82rem; color:var(--ink2)">
+              You are taking the government's own public data and presenting it in a readable format.
+              That is not activism. It is a public service. The IT cell cannot prosecute
+              a spreadsheet.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CLOSING ── -->
+      <div class="closing">
+        <div class="closing-inner">
+          <blockquote>
+            The establishment can call a meme page "lazy internet clowns." They cannot call a group of young
+            engineers who built an <strong>open-source public auditing tool</strong> useless. It forces the system
+            to respect the movement — while giving the youth genuine, elite experience building real-world digital
+            products. <strong>This changes the entire narrative.</strong>
+          </blockquote>
+          <p class="closing-attr">— CJP Civic-Tech Working Group · Swarm Projects v1.0</p>
+        </div>
+      </div>
+
+      <p class="data-note">
+        SwarmAudit, RTI Swarm, and the Resilient Skill Guild are proposed open-source platforms under the CJP
+        civic-tech framework. None are currently registered entities. RTI filing procedures are governed by the
+        Right to Information Act, 2005. All data published through these platforms must comply with the Information
+        Technology Act, 2000 and applicable state laws. Contributors are individually responsible for content they
+        submit. This page does not constitute legal advice.
+      </p>
+    </main>
+  </body>
+</html>
