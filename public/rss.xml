@@ -5,7 +5,7 @@
     <link>https://voting-awareness.vercel.app</link>
     <description>Latest headlines on Bengal corruption cases, court hearings, and political accountability — updated every 6 hours.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 23 May 2026 16:08:50 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 23 May 2026 20:04:48 GMT</lastBuildDate>
     <atom:link href="https://voting-awareness.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://voting-awareness.vercel.app/favicon.svg</url>
@@ -169,6 +169,19 @@
       </content:encoded>
     </item>
     <item>
+      <title>Narada sting: Kolkata Police summon IPS officer S. M. H. Mirza - Indiablooms</title>
+      <link>https://news.google.com/rss/articles/CBMioAFBVV95cUxQTHJJOFpMNkZQcDF1d0xyckRCbHhKWk9lU3hmLTNUdDgxWTRIY3lrckpGNTNnX2tCVU8tRTlIOVZfb1c5ZzJqdDl1U19iMGwwU3BzOTVNQ0RTYVZDOFd1V0I3eGxDRXJZNWZSTExBU1FXblpaRWI4eFZHMFkzYlZ2c1ExWlAyejBHZ3ktUy14SDNfN05ubHN6RTRGdm53Tnpy?oc=5</link>
+      <pubDate>Mon, 10 Nov 2025 00:00:00 GMT</pubDate>
+      <source>Indiablooms</source>
+      <category>narada</category>
+      <content:encoded>
+        <![CDATA[
+          <p>Narada sting: Kolkata Police summon IPS officer S. M. H. Mirza - Indiablooms</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
       <title>CBI summons journalist Mathew Samuel in Narada Sting case again - India Today</title>
       <link>https://news.google.com/rss/articles/CBMivwFBVV95cUxQN0hiYU54dXdLMVNNUXpiUzNYSHdKY2ZNc0VtY2NvT2phMUk3WFBTRDNTRmpoVUM3SFJYQmRjT0Z0WHdMb09PcGZwSkNHOWFfenA4RjhZOE5pM2sxblZLRlpoZ0R0RFFSSEVJVVFLNEFaVmV2cnBYb3lTYlFfbnk4MEVWSzNGYXpJLUxoNnphNWtWbUQyeEVhSmlzUnZwc0RGNXJCSWZaWFNJMGxKbHlZLTAyT25oMzVWUXhGOEUtTdIBxAFBVV95cUxNdlpzSDhOTXBUZW82enNLS0J3SklTLUVoeXVHX1cwX0VhbVBVVkFHYVozcDFZd202SVo1RElfVEN2X2hBYWcwYkE4c1RWY19DODZRMjB5UDh2ZUJYbWZyTkFzdk1SV2VuQlFwdU56VXBCQXFZNENvaVJFT00ybENtbnRIemVSQy1qUXY2LUJKSWFYdEdhdUFGYmViTE9MNDhCVkh3cjkyQ1BZTTRsWmJXQXZtN2hqdy1Gd0NIajl1WEhfUkdU?oc=5</link>
       <pubDate>Wed, 07 Aug 2024 00:00:00 GMT</pubDate>
@@ -190,19 +203,6 @@
       <content:encoded>
         <![CDATA[
           <p>&apos;Act of political drama&apos;: Journalist summoned by CBI in Narada sting case - India Today</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
-      <title>CBI summons Mathew Samuel in Narada sting case - The Federal</title>
-      <link>https://news.google.com/rss/articles/CBMilAFBVV95cUxOdEhHSm9vNWNvb0hINlExaFl5aEYxckZDMVd5T1dTOWI5bHVrS0hmLXJkZlJCam1zbWtIRjdnMUozM1VOd3htcUZBOWFDMzN0YmZEQ1FsRkNzVkV3ME93OGt5S3htVktkQS11UmpzSlJvcFdYNWItalAweTRnNk1NQW1DZTE0eklsZGZNZ3Z3cTNOUzJL?oc=5</link>
-      <pubDate>Wed, 27 Mar 2024 00:00:00 GMT</pubDate>
-      <source>The Federal</source>
-      <category>narada</category>
-      <content:encoded>
-        <![CDATA[
-          <p>CBI summons Mathew Samuel in Narada sting case - The Federal</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -455,14 +455,14 @@
       </content:encoded>
     </item>
     <item>
-      <title>West Bengal PDS scam: Former Minister Jyotipriya Mallick granted bail - The Hindu</title>
-      <link>https://news.google.com/rss/articles/CBMi1gFBVV95cUxQT2o4OFExYTY2RUZCRXdJeU1tZXBFMlk0eUJyeDBEWDV4d0pNUkpIcFAycWhsOWJON2dkb2o4SkhuS1lvVmdzSktMYUR3QzBzQUhUc2lRVXpkZWo4YUV3TXZiN3AzTlVtZ2RJb2RmVjgwcFZ5ZmtmVUVCSzNuNFpRU2FleUJIMFRiNi1UQms3bHhGdTlaTm9sNGROYXFNWkJMSUZsV2M5N1hKY3k5cEdxNHJ2bjhvMmlLd0VSVHBISm1rMGlOV0NOVVFBUWc2TG1aWUFiNE1n0gHcAUFVX3lxTE1zamZCX25DMHV2X2o5SGprV3hVOWJxWFZjd3Q3RFBicVdnX05NeDNQaHJvLTlEMUtUemZqTmFLVEkza21vVXpLSUdpdV8xUS1Wa2tJY2NJVlBsYzRhOVQ3cW9lLW01cGJfS1ZYdHE1MmRNRlFHZnZ6eE0zUl9WRTI2N1ZFcUlsVFRTcXFaLU9qUXBrVEIzM2FLWktrS0k5NWZycDVEQ2JyNlN1UXJLZEgwUDlBNFlBc0Mwc3lxOWhkeHJEd0FIYTFqREJPVHJPNHhqcjRoS25GRUhzUjg?oc=5</link>
-      <pubDate>Thu, 16 Jan 2025 00:00:00 GMT</pubDate>
-      <source>The Hindu</source>
+      <title>Bengal PDS case: Court permits ED to collect handwriting specimens of former minister - Social News XYZ</title>
+      <link>https://news.google.com/rss/articles/CBMiwAFBVV95cUxNcnFGRl9WYTZOblVKbm83WU9QYlI4a2dyd20zY3RmUG40d01KaWlRSkJ2VTRHNm9OQnkxcVhXQVZxX3V2ZmJKWGF4VHBJOFA5QmlBcGZVekFsajV2YXhVa2hGNF8waTQzYVkzNWN5WVc4djhfUmhUQW10V1REa2t3YndzTnB5UVJaZUY2dnNXMzB0aXZUSl9NM1VObmN2ZDl3Vmd1YzZBREdFcGNtUV9XUi14ajFiTzF5RU15cWcxLULSAcYBQVVfeXFMT29tdUoxRm5uWjVPSjg2TVIyZTBla1JWMktJdWFqV01GbUh2RngzaEtsSmMyaUhRd1U4RHhGREdTLWkwbks4MWxWNkU1NEUteVItR2l3NDNvbzdEdGxPUEpRSUFaeUg1TFUtOHZoM1c5TXNzWTgtQVFlWkdub2p4VW1BZlNaaFYzWEEtTkp2SDhFYnMtUkhVQWpocTByNnlNdFNoNXRsdkJtZXZmSHRMaGdUNnBiY29QU29zZEtJc1h3QlR6X0Nn?oc=5</link>
+      <pubDate>Mon, 21 Apr 2025 00:00:00 GMT</pubDate>
+      <source>Social News XYZ</source>
       <category>ration-scam</category>
       <content:encoded>
         <![CDATA[
-          <p>West Bengal PDS scam: Former Minister Jyotipriya Mallick granted bail - The Hindu</p>
+          <p>Bengal PDS case: Court permits ED to collect handwriting specimens of former minister - Social News XYZ</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
