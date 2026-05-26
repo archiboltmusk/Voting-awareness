@@ -5,7 +5,7 @@
     <link>https://voting-awareness.vercel.app</link>
     <description>Latest headlines on Bengal corruption cases, court hearings, and political accountability — updated every 6 hours.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 26 May 2026 19:21:29 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2026 21:44:52 GMT</lastBuildDate>
     <atom:link href="https://voting-awareness.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://voting-awareness.vercel.app/favicon.svg</url>
@@ -21,6 +21,19 @@
       <content:encoded>
         <![CDATA[
           <p>Saradha chit fund case: CBI summons Trinamool leader Partha Chatterjee - Indiablooms</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
+      <title>Saradha chief Sudipta Sen set for release after nearly 13 years in jail - The Statesman</title>
+      <link>https://news.google.com/rss/articles/CBMiwAFBVV95cUxQdWgxM1hrTlJvWWxuc0VwTHY5YzBSOGxkek5kOGJOZFdsMUhWRkd4aWNGR1FOV2w4Q29mVFZiN0QtUkVmam0wSHBuQjNVMjQxNXVfWWw5X0Z6OUlwZFZWSnhwcGlkMnJEeVlTc2JkN2RBbDEydkNhY1Y1Ry1ibGFNMFVfZmN4ZFhoaFdsZTJxZWNvMjdzOGRnbXZRNS1ncXRON2Jtd3BlR1lSMlg1ZnF6eUZIR1FNMHJxWXVlbF9wR0TSAcYBQVVfeXFMTWVtaTJjWkFpWC1OOHdua1BSTlU2TUlZSTYzNXozdUdFalhDOFNnamp6VUFnQXpLaEJCMnFOVlRJeV9YSTd1MklocEotdEowelAzWk5la3lFMWxjN1BhajR5MEs2eFdpVFotM3Y5bUVPRVZ6alBHVUswYlJiZEpOQ2ppRVFNYzI5NDBnOXN4SFhqT0NHTFJvTWRyaklyLVNLVGpNd2loVk5JVUhmc1FvRGI1ZXRCb2RnR293SEpZRzZhS3FRVUNn?oc=5</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <source>The Statesman</source>
+      <category>saradha</category>
+      <content:encoded>
+        <![CDATA[
+          <p>Saradha chief Sudipta Sen set for release after nearly 13 years in jail - The Statesman</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -60,19 +73,6 @@
       <content:encoded>
         <![CDATA[
           <p>After 13 years, Saradha chit fund scam accused Sudipta Sen to be out on bail - The Indian Express</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
-      <title>Calcutta High Court grants conditional bail to Saradha scam accused Sudipta Sen - Mid-day</title>
-      <link>https://news.google.com/rss/articles/CBMiygFBVV95cUxNR0MycklZU184UFpuNnBNdGpheEdGQWV0by1JbTc3bHBTTkxDa3F5ZFVMWWNENEsxekswV0h6ajFsUjR1WEttaWQtekgyT0FnY1JFV0c4YTNqOVlfNkQ3bWR3SEhYd2NwZS1CeWVyc09VZHJTUVpXaEUxNTd4eVhjRlUxcWR0WjNlTkVER1B4dmpsRmJ0VVh3V2Z3T2ZRTXdtal9lOXpxTlRtckVPQ2llRzNlVTFwUmRBMnFHWDhWYXFmWXRpZzlwMDR30gHPAUFVX3lxTFBBeGxPSWV4ZEEwSWxYTWxCWnFPejNKYUlhck45WGJmUVhUS0psbnVKNUx3RWs1bzRQWWo3T1JGbkNfcE9veVI5N1A4a0huVWlTSWtCbHd3LURubUM2VFZhX2RYVndTN3V6V2Nmbl9udTBBLWNGaElsV0tSTGhFNThXTzVKTXEzNUpJaTYwbkVFclRBYlNSUlVudGhsUjVybzNCcnZzQmVkVXhDM3V2QUJUTW44eXE2Y3Q3NFZYU0ZLdkx6Rm1mOVNuS2tqUVRMSQ?oc=5</link>
-      <pubDate>Thu, 09 Apr 2026 00:00:00 GMT</pubDate>
-      <source>Mid-day</source>
-      <category>saradha</category>
-      <content:encoded>
-        <![CDATA[
-          <p>Calcutta High Court grants conditional bail to Saradha scam accused Sudipta Sen - Mid-day</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -261,7 +261,7 @@
     </item>
     <item>
       <title>ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR</title>
-      <link>https://news.google.com/rss/articles/CBMiugFBVV95cUxQMTV2QzdCVm5vOVpDVXBZRUFUZFBzaTFIRktmNkgtN05sMTFzdEFxNVlLMFlpUVhWbU1lOGdMOVRZTVZPbjZGWVoxN3dNSWdycWRFMVNSUVNBbGtvQ3d2a2tySVg2dm9XNVdNRkFFUTRtaTYtUFlwZTlwTlRNUTloajNIaWdMbFhEUXIwMDI0TGYyVUtjWkhJODYzM0NPMGJXdUJJQl9jTGZhOWNBcGhILUtmal9BOUlMU0E?oc=5</link>
+      <link>https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5</link>
       <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
       <source>News On AIR</source>
       <category>ssc-scam</category>
@@ -281,19 +281,6 @@
       <content:encoded>
         <![CDATA[
           <p>West Bengal Police takes custody of TMC leader Anubrata Mondal - The News Mill</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
-      <title>Mamata defends jailed Birbhum strongman Anubrata Mondal, talks of BJP as the &apos;bigger thief&apos; - Dailyhunt</title>
-      <link>https://news.google.com/rss/articles/CBMiigJBVV95cUxQX3RFWXp2VHM4UDRXUktVLWVRdEhjNVBZY2MzenpfOTlMOFlYUkZ3bnVqejhXX2s2dFhBclNjeklHd09Qa1dRNzlNU3UwQ0dPS1BvTjViUTZSQnBnT3RYODVCYVlnRFllWF9ZbXFtejFSMGEwY1pSMmJiZjlLbWdKa1lXWlZTcE9JN1p1YlFKRnZpRG1CS1J0MzNsa055SXc3eFNmVGllZkhxYWF4OGFOeHdyeTA1R0VJQ0tianRRSE9vckFwemN0cDhLSUVMWGp2UF93LVctRzlxREZZWmFKN3FJa3ctUkN3aHp5TTNhdUMzaGJuOUhlQ285U2I0ZlNrRGtjMzZBN3Rwdw?oc=5</link>
-      <pubDate>Sun, 03 May 2026 00:00:00 GMT</pubDate>
-      <source>Dailyhunt</source>
-      <category>cattle-trafficking</category>
-      <content:encoded>
-        <![CDATA[
-          <p>Mamata defends jailed Birbhum strongman Anubrata Mondal, talks of BJP as the &apos;bigger thief&apos; - Dailyhunt</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -338,14 +325,14 @@
       </content:encoded>
     </item>
     <item>
-      <title>From Kolkata to Goa: How Rs 2,742 cr coal scam funds allegedly fueled I-PAC’s election machine - The Indian Express</title>
-      <link>https://news.google.com/rss/articles/CBMinAFBVV95cUxPQUhyV0NNNlltWTZHMDBEdklBWTVCSmYwYno5NFVrNnBuX2lDejRIOWJ4TWRQaVI5d1JoY0lhVi03OUpNejAtQjhibXlDOGFsN0dJRi1FVmxZV3BZYmpNTnVSdXJkejFuXzNMT2hUWnZKZEZkc1pJQlYyQW84SGxPSk1HVWJQaXRaQ0tKYy1QWTdWME1NUU5iajNENy3SAaMBQVVfeXFMUDUxa1NJWmtZZ0NraGhTRTg1LXJqTVZLVmlBdmxOSkV2Yi14QzNHVGpQV2hTMGhwMC0tZ1lzTmNKZi15MG94MzQxUDFVMWlPWTV3VUZCa0pEM2xFSTNiOVJOWVE5RVVrM0lRaExSejFUbFlWSkRYZmZrZnVrVE5YcDRQZEcyRlEySHFrMG1wbmhjb3JCLWRXalpDWXVQdE9wZkhnZw?oc=5</link>
-      <pubDate>Sat, 10 Jan 2026 00:00:00 GMT</pubDate>
-      <source>The Indian Express</source>
-      <category>coal-mafia</category>
+      <title>TMC strongman Anubrata Mondal gets bail in attempt to murder case - Indiablooms</title>
+      <link>https://news.google.com/rss/articles/CBMirAFBVV95cUxQX0Q0enFQUVp6RnIxVVNvYmdRN0pHYkkwNUVWeHdZdWYtZzFfSmZ6WV81SkxoQS1wRzVVd2ZPMDY2eFAzOUVMVkoyWW5pOC1YNEdaY3l5QTY5RmI2aXBvMVprU182Y3pWUzk0WVMtVFR2ZTNRbDB3cEU0dkVKaDByd3JrYURFdFZWUlhRTkRMQnUxUU5TRUJrTnkySXMyd2RXWkhzNFRJY0xmUm5n?oc=5</link>
+      <pubDate>Sat, 16 Aug 2025 00:00:00 GMT</pubDate>
+      <source>Indiablooms</source>
+      <category>cattle-trafficking</category>
       <content:encoded>
         <![CDATA[
-          <p>From Kolkata to Goa: How Rs 2,742 cr coal scam funds allegedly fueled I-PAC’s election machine - The Indian Express</p>
+          <p>TMC strongman Anubrata Mondal gets bail in attempt to murder case - Indiablooms</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -403,14 +390,14 @@
       </content:encoded>
     </item>
     <item>
-      <title>TMC Trade Union Leader Arrested for Alleged Extortion of Auto and Toto Drivers in North 24 Parganas - Hindusthan Samachar English</title>
-      <link>https://news.google.com/rss/articles/CBMikgFBVV95cUxPZlMwZXEwOFA4anF1Y0t6YlJ4MFVrNEpMWV9vZk1SZEZJSl9fdmRrQ05SOUxSUU5UTUJWR0xtZ25hcU5GYzlwekRsdnFabEtNeGNhdzAxdjYtOEJmckc2bDZqZURlS0wzWHhETTF0VnJaSHJ0bzg4d01FR3RJZWYydWJiaGhvOHFxRVRYYVhxaWZTZw?oc=5</link>
-      <pubDate>Tue, 19 May 2026 00:00:00 GMT</pubDate>
-      <source>Hindusthan Samachar English</source>
-      <category>ration-scam</category>
+      <title>Prime accused in Bengal coal smuggling case residing in Vanuatu Islands: CBI - The Hans India</title>
+      <link>https://news.google.com/rss/articles/CBMiwwFBVV95cUxNbFNsYmwtY2JGZ0Q3dUR4OWdsU1dJREE3VzkyX1hoX3h5dHowam54endWeGtpNFY5OTNLTzgydzBTSjRiUGRzOXktVm82Q19vcElwVDZlTVYyM0ZhaUpjVGxFTXMyc0tYX2tUQWxDcERxZWVURW1fNDRLNm4xbDR0ZnIycDhPUG5JLTltWkFNdEFYUzVYMjNKOW81OFYxVW5zbVB1dGM4LXozRzRkVHp6dFFpby1UQlBFNkUtX3U3eW9TcVHSAcgBQVVfeXFMTldVOTduOElXSlVfaFlRRVBFblpHUkhUMVhUOFhSX09lZDZlekpEcUFZYkMyZDdtd0NVYnYtNTJYTWNFTU1wZXBsOHdkSzZ1X1RHTGFfb2FRRmxOSG1XejZJRFNIWU9WcVh5M2xSTzUwallJVm9LdmRKa3NOc0hyeWM0cmkycEhIRkU5WmE4cEVORUpVeWZudjRxLWNJS1dsdDJaamF1ZWdqOXRLdC1nR2t5UjVFMlJxVFVvMkxxSE5ZM3JjWDU3VzE?oc=5</link>
+      <pubDate>Mon, 07 Jul 2025 00:00:00 GMT</pubDate>
+      <source>The Hans India</source>
+      <category>coal-mafia</category>
       <content:encoded>
         <![CDATA[
-          <p>TMC Trade Union Leader Arrested for Alleged Extortion of Auto and Toto Drivers in North 24 Parganas - Hindusthan Samachar English</p>
+          <p>Prime accused in Bengal coal smuggling case residing in Vanuatu Islands: CBI - The Hans India</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -442,19 +429,6 @@
       </content:encoded>
     </item>
     <item>
-      <title>ED collects Mallick’s handwriting samples - The Times of India</title>
-      <link>https://news.google.com/rss/articles/CBMitgFBVV95cUxOcmZlamZtanlad3BqUk5xY0JJVURqQ3FKTldWYnFGVWt2V3BOLWFhckt1Z3ZaTVJNVy0tM3RadmExRmUtcklQeE4tVjZhbGFWZzY0RUlKdVNvUmdJa0k3ZDRGQ1FlYURvOEFpTldHTEQ0UGFFLUNWWWU5VXJKbFNwS09GUDlQd1lKeDg2dDJQNFhyXzVuR2pGUk12YkZOZFRfUXNzM013Q1B6VHZ3QWlyUlN6aDFiQdIBuwFBVV95cUxOUFk4SVh3TW5WY0hOTDllenRmaFpScUd3TUlBR01MdXh4S2kycWtCanlydkFhckF3a1lwVHRqY1hkRzR1VVVNODBrc2xtNklwN3J5N0RjdFFmQ1N3MzhwLU9BWkc2am9qWEtNdUJZTklJaTRlTGo3MlJYci16U3liNjYzUkNhRFBYSUJDTGVld3J4ZUlHR1RhV0V3TlVqd2dtZVM4bnotakZFblM1VVBoN3d2enQxaERYUTJn?oc=5</link>
-      <pubDate>Mon, 19 May 2025 00:00:00 GMT</pubDate>
-      <source>The Times of India</source>
-      <category>ration-scam</category>
-      <content:encoded>
-        <![CDATA[
-          <p>ED collects Mallick’s handwriting samples - The Times of India</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
       <title>Bengal PDS case: Court permits ED to collect handwriting specimens of former minister - Social News XYZ</title>
       <link>https://news.google.com/rss/articles/CBMiwAFBVV95cUxNcnFGRl9WYTZOblVKbm83WU9QYlI4a2dyd20zY3RmUG40d01KaWlRSkJ2VTRHNm9OQnkxcVhXQVZxX3V2ZmJKWGF4VHBJOFA5QmlBcGZVekFsajV2YXhVa2hGNF8waTQzYVkzNWN5WVc4djhfUmhUQW10V1REa2t3YndzTnB5UVJaZUY2dnNXMzB0aXZUSl9NM1VObmN2ZDl3Vmd1YzZBREdFcGNtUV9XUi14ajFiTzF5RU15cWcxLULSAcYBQVVfeXFMT29tdUoxRm5uWjVPSjg2TVIyZTBla1JWMktJdWFqV01GbUh2RngzaEtsSmMyaUhRd1U4RHhGREdTLWkwbks4MWxWNkU1NEUteVItR2l3NDNvbzdEdGxPUEpRSUFaeUg1TFUtOHZoM1c5TXNzWTgtQVFlWkdub2p4VW1BZlNaaFYzWEEtTkp2SDhFYnMtUkhVQWpocTByNnlNdFNoNXRsdkJtZXZmSHRMaGdUNnBiY29QU29zZEtJc1h3QlR6X0Nn?oc=5</link>
       <pubDate>Mon, 21 Apr 2025 00:00:00 GMT</pubDate>
@@ -463,6 +437,32 @@
       <content:encoded>
         <![CDATA[
           <p>Bengal PDS case: Court permits ED to collect handwriting specimens of former minister - Social News XYZ</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
+      <title>West Bengal PDS scam: Former Minister Jyotipriya Mallick granted bail - The Hindu</title>
+      <link>https://news.google.com/rss/articles/CBMi1gFBVV95cUxQT2o4OFExYTY2RUZCRXdJeU1tZXBFMlk0eUJyeDBEWDV4d0pNUkpIcFAycWhsOWJON2dkb2o4SkhuS1lvVmdzSktMYUR3QzBzQUhUc2lRVXpkZWo4YUV3TXZiN3AzTlVtZ2RJb2RmVjgwcFZ5ZmtmVUVCSzNuNFpRU2FleUJIMFRiNi1UQms3bHhGdTlaTm9sNGROYXFNWkJMSUZsV2M5N1hKY3k5cEdxNHJ2bjhvMmlLd0VSVHBISm1rMGlOV0NOVVFBUWc2TG1aWUFiNE1n0gHcAUFVX3lxTE1zamZCX25DMHV2X2o5SGprV3hVOWJxWFZjd3Q3RFBicVdnX05NeDNQaHJvLTlEMUtUemZqTmFLVEkza21vVXpLSUdpdV8xUS1Wa2tJY2NJVlBsYzRhOVQ3cW9lLW01cGJfS1ZYdHE1MmRNRlFHZnZ6eE0zUl9WRTI2N1ZFcUlsVFRTcXFaLU9qUXBrVEIzM2FLWktrS0k5NWZycDVEQ2JyNlN1UXJLZEgwUDlBNFlBc0Mwc3lxOWhkeHJEd0FIYTFqREJPVHJPNHhqcjRoS25GRUhzUjg?oc=5</link>
+      <pubDate>Thu, 16 Jan 2025 00:00:00 GMT</pubDate>
+      <source>The Hindu</source>
+      <category>ration-scam</category>
+      <content:encoded>
+        <![CDATA[
+          <p>West Bengal PDS scam: Former Minister Jyotipriya Mallick granted bail - The Hindu</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
+      <title>Bengal PDS case: Bail for ex-minister Jyotipriya Mallick - The Statesman</title>
+      <link>https://news.google.com/rss/articles/CBMiqwFBVV95cUxNNjZjTXAxcFFtSXJSOHZqalNsWW1NcVlfSU5tNjVsa2ZOcm4zMzFrRUdGalNVektzQUJ4c2V5UlN1Q1R2VEFvYWJHUUV6bi1wUFhtV2pyNVpjR2VOTjhielRHQzNLSlp6R0p2UExjOFAyQjEwd1RvZENQNW1RT2owTDNoV2dPTDlYMFc1eHp3a1NhZ1pnRDdJcDZsS0FEVFhYeHh6OFVEZk50dlnSAbABQVVfeXFMTndCY3g3MFM4Sm9CZExsX08yRW1uSDloYVNTS2JINlpKcHo3dTFPNU1ZR216N2Z5UndCMjZPYlBkQ0dnS29wNDBEb0xCelpxSkhid1BEdEJ2SkFVR2t6dkZ0dkFsNHhuYTc4aW1naXlBd2FNNXRudER6STlLX1c0ak95UkdjV0pacy1XcG5EZnpxLXplQnV1Y2xkYlkwQ3BRV0diVVVtcUkxRmRLWHpGQ0o?oc=5</link>
+      <pubDate>Thu, 16 Jan 2025 00:00:00 GMT</pubDate>
+      <source>The Statesman</source>
+      <category>ration-scam</category>
+      <content:encoded>
+        <![CDATA[
+          <p>Bengal PDS case: Bail for ex-minister Jyotipriya Mallick - The Statesman</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
