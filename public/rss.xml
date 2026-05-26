@@ -5,7 +5,7 @@
     <link>https://voting-awareness.vercel.app</link>
     <description>Latest headlines on Bengal corruption cases, court hearings, and political accountability — updated every 6 hours.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 25 May 2026 22:07:31 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2026 00:05:07 GMT</lastBuildDate>
     <atom:link href="https://voting-awareness.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://voting-awareness.vercel.app/favicon.svg</url>
@@ -21,6 +21,19 @@
       <content:encoded>
         <![CDATA[
           <p>Saradha chit fund case: CBI summons Trinamool leader Partha Chatterjee - Indiablooms</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
+      <title>Saradha chief Sudipta Sen set for release after nearly 13 years in jail - The Statesman</title>
+      <link>https://news.google.com/rss/articles/CBMiwAFBVV95cUxQdWgxM1hrTlJvWWxuc0VwTHY5YzBSOGxkek5kOGJOZFdsMUhWRkd4aWNGR1FOV2w4Q29mVFZiN0QtUkVmam0wSHBuQjNVMjQxNXVfWWw5X0Z6OUlwZFZWSnhwcGlkMnJEeVlTc2JkN2RBbDEydkNhY1Y1Ry1ibGFNMFVfZmN4ZFhoaFdsZTJxZWNvMjdzOGRnbXZRNS1ncXRON2Jtd3BlR1lSMlg1ZnF6eUZIR1FNMHJxWXVlbF9wR0TSAcYBQVVfeXFMTWVtaTJjWkFpWC1OOHdua1BSTlU2TUlZSTYzNXozdUdFalhDOFNnamp6VUFnQXpLaEJCMnFOVlRJeV9YSTd1MklocEotdEowelAzWk5la3lFMWxjN1BhajR5MEs2eFdpVFotM3Y5bUVPRVZ6alBHVUswYlJiZEpOQ2ppRVFNYzI5NDBnOXN4SFhqT0NHTFJvTWRyaklyLVNLVGpNd2loVk5JVUhmc1FvRGI1ZXRCb2RnR293SEpZRzZhS3FRVUNn?oc=5</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <source>The Statesman</source>
+      <category>saradha</category>
+      <content:encoded>
+        <![CDATA[
+          <p>Saradha chief Sudipta Sen set for release after nearly 13 years in jail - The Statesman</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -60,19 +73,6 @@
       <content:encoded>
         <![CDATA[
           <p>After 13 years, Saradha chit fund scam accused Sudipta Sen to be out on bail - The Indian Express</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
-      <title>Calcutta High Court grants conditional bail to Saradha scam accused Sudipta Sen - Mid-day</title>
-      <link>https://news.google.com/rss/articles/CBMiygFBVV95cUxNR0MycklZU184UFpuNnBNdGpheEdGQWV0by1JbTc3bHBTTkxDa3F5ZFVMWWNENEsxekswV0h6ajFsUjR1WEttaWQtekgyT0FnY1JFV0c4YTNqOVlfNkQ3bWR3SEhYd2NwZS1CeWVyc09VZHJTUVpXaEUxNTd4eVhjRlUxcWR0WjNlTkVER1B4dmpsRmJ0VVh3V2Z3T2ZRTXdtal9lOXpxTlRtckVPQ2llRzNlVTFwUmRBMnFHWDhWYXFmWXRpZzlwMDR30gHPAUFVX3lxTFBBeGxPSWV4ZEEwSWxYTWxCWnFPejNKYUlhck45WGJmUVhUS0psbnVKNUx3RWs1bzRQWWo3T1JGbkNfcE9veVI5N1A4a0huVWlTSWtCbHd3LURubUM2VFZhX2RYVndTN3V6V2Nmbl9udTBBLWNGaElsV0tSTGhFNThXTzVKTXEzNUpJaTYwbkVFclRBYlNSUlVudGhsUjVybzNCcnZzQmVkVXhDM3V2QUJUTW44eXE2Y3Q3NFZYU0ZLdkx6Rm1mOVNuS2tqUVRMSQ?oc=5</link>
-      <pubDate>Thu, 09 Apr 2026 00:00:00 GMT</pubDate>
-      <source>Mid-day</source>
-      <category>saradha</category>
-      <content:encoded>
-        <![CDATA[
-          <p>Calcutta High Court grants conditional bail to Saradha scam accused Sudipta Sen - Mid-day</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -195,14 +195,14 @@
       </content:encoded>
     </item>
     <item>
-      <title>Top TMC leaders spar over Abhishek remarks on Narada sting operation’ - The Indian Express</title>
-      <link>https://news.google.com/rss/articles/CBMivAFBVV95cUxNcS1mQTlOX2RQbFVPRGRMTjFITm4zUzQwZlFMcGliNHZ6LWVPdm1MTVhzLUFVTGJMNE5sUG5JQnVqRlBBR2xsY0dZRm1POS1TeVZLZjBqbFRtckZLQW5LcXZEZnJaTnFTM1luTTA4eVpaRTVZTGk5NDFIQ0lJOENIbUNIM0tLWkVYQ2lhSUJIVGhnVjlQZ1BMWnhaODhfeUtrWmZQb3NZbDZXQ2UxMjZ2QTBPLTRlOUZVanNZNNIBwwFBVV95cUxOWWMxMXBxZXkxOUdaYUg0QzZNaUZHZ2Nrd0dVRVpNUFZ6WnpmeV9jM0VFRFNYaWlNUklvYk9Ca0JtWjR0UGpVNks1cUh3RnhEcFl4NnBTdktDc0RPV2E0aEZwcG0xVUkwZ0ctMDBWSGtZOXVRU2lJMFpaTlhYX0NKS1lBdkVVdEc3b3JXN2MtLS1hRi1sUjNIU3ZJbENMcVBWaUNpdWJISzN6bVpfcXhFVFpVdzRndTl6bEtNNHZwbm5aakU?oc=5</link>
-      <pubDate>Mon, 18 Sep 2023 00:00:00 GMT</pubDate>
-      <source>The Indian Express</source>
+      <title>CBI summons Mathew Samuel in Narada sting case - The Federal</title>
+      <link>https://news.google.com/rss/articles/CBMilAFBVV95cUxOdEhHSm9vNWNvb0hINlExaFl5aEYxckZDMVd5T1dTOWI5bHVrS0hmLXJkZlJCam1zbWtIRjdnMUozM1VOd3htcUZBOWFDMzN0YmZEQ1FsRkNzVkV3ME93OGt5S3htVktkQS11UmpzSlJvcFdYNWItalAweTRnNk1NQW1DZTE0eklsZGZNZ3Z3cTNOUzJL?oc=5</link>
+      <pubDate>Wed, 27 Mar 2024 00:00:00 GMT</pubDate>
+      <source>The Federal</source>
       <category>narada</category>
       <content:encoded>
         <![CDATA[
-          <p>Top TMC leaders spar over Abhishek remarks on Narada sting operation’ - The Indian Express</p>
+          <p>CBI summons Mathew Samuel in Narada sting case - The Federal</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -247,14 +247,14 @@
       </content:encoded>
     </item>
     <item>
-      <title>ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - Newsonair</title>
+      <title>ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR</title>
       <link>https://news.google.com/rss/articles/CBMiugFBVV95cUxQMTV2QzdCVm5vOVpDVXBZRUFUZFBzaTFIRktmNkgtN05sMTFzdEFxNVlLMFlpUVhWbU1lOGdMOVRZTVZPbjZGWVoxN3dNSWdycWRFMVNSUVNBbGtvQ3d2a2tySVg2dm9XNVdNRkFFUTRtaTYtUFlwZTlwTlRNUTloajNIaWdMbFhEUXIwMDI0TGYyVUtjWkhJODYzM0NPMGJXdUJJQl9jTGZhOWNBcGhILUtmal9BOUlMU0E?oc=5</link>
       <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
-      <source>Newsonair</source>
+      <source>News On AIR</source>
       <category>ssc-scam</category>
       <content:encoded>
         <![CDATA[
-          <p>ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - Newsonair</p>
+          <p>ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
