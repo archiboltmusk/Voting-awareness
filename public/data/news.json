@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-28T11:41:39.361Z",
+  "generated": "2026-05-28T15:55:13.026Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -46,10 +46,10 @@
     "rose-valley": {
       "articles": [
         {
-          "title": "Probe Agency Disburses Rs 127.69 Crore To 1.73 Lakh Rose Valley Scam Victims - ndtv.com",
+          "title": "Probe Agency Disburses Rs 127.69 Crore To 1.73 Lakh Rose Valley Scam Victims - NDTV",
           "pubDate": "2026-04-28",
           "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNN1NZbmFMb01FdThJSi03X0pjUHFBRi1kTWt0cW1Ob3FpbzB4UlBraGd1TVVHTGUzbTUxa3ozQW9hdHUtR3E5bnNZMnpRS3BuUU9ad3pmTDl4WDFNZWVIbmlTSjZyQXNtYlByRko3VGdWZWhFekZTV1QyME9QemtZcFB6TUtnSjNDMG1wcWJUOFJwSmoxendmdkRMZF9wYk5VbGJBMW9JUGdKSTBPREpBWXVXVGpDT0oz0gHAAUFVX3lxTE1uWWVLXzZWM2tKSzJKMGhra3o0SGM4cjR5Sl90MzNQYmNjdG5ZVVJveXlhbkVWcDZoM1Y2SUFlRkRScUZmU1NPQmQwRy05eVI1VWpqbEJ2U3hWajRPYTRSbTRKNHlwLXFLRjY2Zl9YeXVPY1pKdVNBUTdzWTdYQThteU41MFg3WWl2TmdhVC1INW1mVFg5ak9WSzRVZFNwSTVZX3pwQXdhZUQxZVd0QU5OYVlwVHBoYWE1M19Eb0k3eg?oc=5",
-          "source": "ndtv.com"
+          "source": "NDTV"
         },
         {
           "title": "ED compensates 1.73 lakh Rose Valley scam investors in India - The News Mill",
@@ -130,12 +130,6 @@
     "ssc-scam": {
       "articles": [
         {
-          "title": "ED conducts raids on Partha Chatterjee in teacher recruitment scam - The News Mill",
-          "pubDate": "2026-05-27",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONGZRQXVvdHdGcG5pYWlUZTg4b0I4UmxxaHRGdFBuRTBlT2hzQTdJdGZjd0xpWDJYbk92S2hFMGQzVl9lSGMzSUFyN3JETHg2SzM5MmkzdkRFX2ptUGFxelU4VjBEMGkxSWk5aGk5UFNZUkhPVW9Eb2g2SmVYNXQ1bzVYc19HWWE3QllNUDZ0VzlkckQwNnh5UzlOejRqYUNqV2Nqcl8xUmhUN1pVQVFwemc1MmtZQmM?oc=5",
-          "source": "The News Mill"
-        },
-        {
           "title": "Bengal teacher recruitment scam: ED raids former education minister Partha Chatterjee’s Kolkata residence - The Indian Express",
           "pubDate": "2026-04-12",
           "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNdDJmNkxQYWRFMTVNSEJmY1ZQSDNKaF90MTU2bkxpVG5LZ3ZoTXNCdnZqaTVmdGNZS2I0dnNwVWtla3RaWG03YTY2ZUxKVXVfYnlKaG1jZ2lqSmdKZlhIdVBObXFsUTYzemMtNzdxZVVGMjhGTU5aXzlpZUsycy1aOVRUblVINXZLYlpCUWtKSFB3RjNLQi11UENhLXd6c1RKZHlQZ1ZWWUJMYVR5TWx0TUF6OEJhZEZ6a1hJSXJBSFBaOW9jbGM3OUZ2VFBiQlNEV3ZOVFdhdjJENjJ6RTNuYmgwWGlFZUpXdzd6b0ZwZ3F6Z2Uz0gH7AUFVX3lxTE40YkxMbVBMS0NXcy0yNk9uVzlIbFJWRl9BVjFuUk9MWG1oYy1yeHFOMnRsdWw0X2V2bGpCaTNNWUxPS2VRcUhManQ4QXBHMVNXS0U3WWl5eU1VQmFLOWlEUG5Qc2FKU1BZME5McDEyWlpyX3R0ZmJ6ajBSdkRhUUNqNktySDhCREJRYmZza05RaW1RRDNPMElpZlJrVmQzQUtsTUpXaHlfLTZBYmctSkRLTVBHTW1FeWtkQlJteTFTQ2lScnR3dTlUOW9rTUpldUNQSzFxUDRnQ3FPUmxsY2kwNkxERXByRlJLcTdLbDY0dFdqOVdrcmttUk53?oc=5",
@@ -154,20 +148,26 @@
           "source": "The New Indian Express"
         },
         {
-          "title": "Teachers’ recruitment scam: ED raids premises of ex-Bengal minister Partha Chatterjee, middleman - The Times of India",
+          "title": "ED Raids Partha Chatterjee’s Residence Amid SSC Recruitment Probe - The CSR Journal",
           "pubDate": "2026-04-11",
-          "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxNZTh3bzFpZUp0bUU1Sk9YU3c4SHVpUklSUloyWXNWczFPQ2JKal9VdWUxeEhweHh6YXh3RjF1UG01cDBBMmROR1JhZDJ6Tk9zd05DWlNkTlh2QUFoVVZVanZ4M0RWbExrbVpOOFVpcGo0X0JjR1AzejR1cGRJSDRrcDFDa2JHZktRU1hlbEI1TVBqUlhaMUNnRFNGNGdNcGFtVWhhRkRkWENIUjZPVTk1bTlVNzI3cDBjRTBKcURSY3Q3MzNDNTFmbGRIS2UxaWZLdWRwdXZGazRINTZkdEtpZ28yWUxkdF9hMUd5NmZFTGR2YjlkNEx5aklwVnTSAYICQVVfeXFMTmhZWElwVGNQNGtsd3JqNjdIcUJuRHZMYncxMzhhdjM1VEtfTnBEekRyWWJUaklhTDJkYm9Nb0NxMUFhZF9veUFfUlZQcjdBamszcklZczNrWFFDUl8ybmU5RVMyZlFaMnhuUDRicEc4UjJ0ejZqekFqS0pMS3dSa3ozeXR6LWk5WWVEdWxkWVc2SndzaU1ad3U5NzBTQld0RDRPazRFRnJfMXBUTHhvSHQydU1fZmtDSDlUcDhhUGtTS250OFRyUy1ja0YxODJxNTREVVI4alBhT01iWG5aWjdWejl1dkpWVEZ1Sy1IRjRyRmp5YnZVYzJBYWQ3aEZ4T3BB?oc=5",
-          "source": "The Times of India"
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPTGI0bXJHV2hMbWRtNUJveHdGNzE3aTNkQy0xWUNaZDJvbnVJM3k4QmhxMjZzSHd0WmkwWXhzVXhOVk9kdS1Mc242SnRSbk5Fa1hQZVRGT19iS0Q4VkxYRVktQ1VJTW1kQlhfV0lkajJFellDRDZzNDhPQ1pRSFM3a3dFOFhER0NRQkJN?oc=5",
+          "source": "The CSR Journal"
         },
         {
-          "title": "ED conducts searches at former TMC leader Partha Chatterjee's residence in teacher recruitment scam case - ANI News",
-          "pubDate": "2026-04-11",
-          "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNVGFOMzBvNmFhX3kycmpadjdaeXRmZ1U4c0hPQWVwVXI3alhMc3NQSmpoTW95M2VobU4yUW11YkxJNkd1SnJwVWFQc3VHQ0owRDdGUVgxWXJwMkd6ekZNMWJ2N3Qza1pLUXFEa3RYMVFSd1pEV2cya3hDdmQyZmM0OEMwaVlGLUNiTXNmcmo4c1RHRGU3THlNV3lNQjJFWVk4cVJWUFU5TGNFRm9qbWlKZFFJQXFMcHRYMFh2T2hCSjcwVjFwZ3ZvYzJUNWlLMGIycEl4ZHlLZEpUa243dWhLUG1rVThFSGk5ZURsYUNyUTFlLWRhd29yNk5YQQ?oc=5",
-          "source": "ANI News"
+          "title": "ED steps up probe in SSC recruitment scam, summons Partha Chatterjee, Arpita Mukherjee - The Statesman",
+          "pubDate": "2026-03-02",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQd3N5SWduVXIzYXpQenlYdGgzT2tRNGtWZE5EUllmc3c4UEM5cFZ1YUZ4c0ZLb3JJMW41bVc2RDF0ZWNhRDdkcWtHWFhkS1lCeXh6WFNTZFgxdk9faFVmemUxb21aTkU3ajJtQVdQSzhIQWdsc2k3RnB2ZlJQWGg0WjZsRURadUVkRDhrOTZhVm1uSGRFVW1DbnQzTU1Xd3VXbnZpWjJlT1FLRGl3NUJHNDZmREJjc3JJbUp2dWczNXVyc1NYN3ozcGpDbzZheTg5YXfSAdcBQVVfeXFMTlVVWkJUUXROR2UzZXF2YTQ1dFlPS0xsSjFGX0JqM2pGZ1d2cUdDdmxDOEs5b0FoTndJV1B1STdpMUl3bzRfOGZXbW1HRmd5RjhGWjh4b3RQMWdFYUpzZm1MRV81ZnRpUEpmX0lTS05BSHZnelJJNWx3THRKWGk1TENGNmUzUnVuems4QVlJQTNVQlhMbWFCV0NSaExOQWVVenh1VEpUaVpDWUdPVGcydFlIVFpNUHJyaUdwZ2xfbVF0Smh1S2xSNXVSd2Z0aWJkMVZqOTdEaGM?oc=5",
+          "source": "The Statesman"
+        },
+        {
+          "title": "ED Summons Partha Chatterjee, Arpita Mukherjee In Bengal SSC Recruitment Corruption Case - Ommcom News",
+          "pubDate": "2026-03-02",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOcFlkSzJSZlVMUDBZSDVFdm85UUdyMlB1R0o3N0VrT2huUzh3bFZ0Y1VXWlNEUk9xSHF3bnBCSDRURGFDcW5QZHZNZjBBWFBUenJuWFBjQnBqU3IzV2l1QjFySElkQTM3a0lxdkpYTU5RYURSbDh1STczTWZwZ2RCX2hPWDFmR0VRT3hXRXhTOGFoOE91bVg5ZHc4Rjg0ZWR4MmRrQjdtaGlDdXB3eGVrUTlwYllQYkxJNDZVVkJKZw?oc=5",
+          "source": "Ommcom News"
         }
       ],
-      "count24h": 1,
-      "count7d": 1
+      "count24h": 0,
+      "count7d": 0
     },
     "cattle-trafficking": {
       "articles": [
@@ -178,22 +178,22 @@
           "source": "The News Mill"
         },
         {
-          "title": "Mamata defends jailed Birbhum strongman Anubrata Mondal, talks of BJP as the 'bigger thief' - Dailyhunt",
-          "pubDate": "2026-05-03",
-          "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxQX3RFWXp2VHM4UDRXUktVLWVRdEhjNVBZY2MzenpfOTlMOFlYUkZ3bnVqejhXX2s2dFhBclNjeklHd09Qa1dRNzlNU3UwQ0dPS1BvTjViUTZSQnBnT3RYODVCYVlnRFllWF9ZbXFtejFSMGEwY1pSMmJiZjlLbWdKa1lXWlZTcE9JN1p1YlFKRnZpRG1CS1J0MzNsa055SXc3eFNmVGllZkhxYWF4OGFOeHdyeTA1R0VJQ0tianRRSE9vckFwemN0cDhLSUVMWGp2UF93LVctRzlxREZZWmFKN3FJa3ctUkN3aHp5TTNhdUMzaGJuOUhlQ285U2I0ZlNrRGtjMzZBN3Rwdw?oc=5",
-          "source": "Dailyhunt"
-        },
-        {
-          "title": "Trinamool Leader Anubrata Mondal Gets Bail In Police Officer Abuse Case - ndtv.com",
+          "title": "Trinamool Leader Anubrata Mondal Gets Bail In Police Officer Abuse Case - NDTV",
           "pubDate": "2025-08-18",
           "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNLWU4TzBRMGFzMTk0dkoxckJJdkZFYk12bXhXNXpyNnZFTm02TjRuaFFmc0h5Q1hsQV9hM010cTN5bkZzbFZlUnk4S21KMnUxcjF1T0lLV19Idi1lMnotcXhkT1N5V2VRWTgtN2E0VmFkanpIV2t5R1Z6UGlPX21VaVJkenRKZWl3SXVNQURZQ0NUYnEwZFp5ZlFldUliUTlCOEh4aDFSYi1IRFg2OHRDaNIBuAFBVV95cUxQUVhfLXl4cUM2WHozYVpWUFVHLW9UVmhJVk94M2hYeWttQzkzTng5bi1vYUZKSnFUYnRzYmVDTDNUSEJKU295dGFBZWkxdVRaRHRhMkxybGZFWXFWZDJ2d0dNMFE3dWFpY3U1WXQ0N1d2ZDF6ZFBJbjVPU21QVXZLNmlPbU9HbmI2bE9XNTRESkNLbENlTTBZZXJGbUpOdmd3d0JoZ3BjQ2VKYkExTVptN1NsQU5VcXBj?oc=5",
-          "source": "ndtv.com"
+          "source": "NDTV"
         },
         {
           "title": "TMC’s Anubrata Mondal gets anticipatory bail in case for abusing cop’s family | Kolkata - Hindustan Times",
           "pubDate": "2025-08-18",
           "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPVEVBM2VhZXI2eWxzN2M3YUdCcHIteTZONUxwU2hUUjdVeWUzYkplTXdzOVpYc3oyYnZvNXc4M2ZKeGFKUnU3MG83SHdXRUVURERMeG9HZ0EyajU5RGpNUWpLblZiWmFDMGJ3NE9FR2NDTlRHc1VnenVabHdmTGNoQ2dFT0MyOHNqd2RwckhxcVhrbDBGYlpjaEtuWmpQOUMyTHNSclBNcGJlZVhOSDBIcGdsbW04czVCMWtpeFRZc0FxNWhCMlJ6VTRHM1NxSG1tUXJxNGpfTlNzVWRLZkRqMDl30gHnAUFVX3lxTFBySWdjZjlGQkFrQU9ubDZYLWhuZlpxdDF2WWhCYkItcF9EUDB4d3luc09oQWVpYnRoazRlcHQwMmhkbFd3a0dKNFB1cGYyVGg1cXViNi1FM1JiOFRLZ0Q0QmxIR0FzdGM3NUxsM2J6dzFyVVRYX29QTnNFV25VWjNkZ2FIVFh4clJsNVB4b0MtM184aFhZbWlWRjFMVk5jaGhfVmxva2tvMnl5bDhaOWdLNjJvU0o2NXgwazRHMkxxdjdxNGNNOS12N21iaWRiWXBrNnBfaS02ZGctT3IybWx3WlRDUDZuWQ?oc=5",
           "source": "Hindustan Times"
+        },
+        {
+          "title": "TMC strongman Anubrata Mondal gets bail in attempt to murder case - Indiablooms",
+          "pubDate": "2025-08-16",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQX0Q0enFQUVp6RnIxVVNvYmdRN0pHYkkwNUVWeHdZdWYtZzFfSmZ6WV81SkxoQS1wRzVVd2ZPMDY2eFAzOUVMVkoyWW5pOC1YNEdaY3l5QTY5RmI2aXBvMVprU182Y3pWUzk0WVMtVFR2ZTNRbDB3cEU0dkVKaDByd3JrYURFdFZWUlhRTkRMQnUxUU5TRUJrTnkySXMyd2RXWkhzNFRJY0xmUm5n?oc=5",
+          "source": "Indiablooms"
         },
         {
           "title": "Calcutta HC grants permission to Birbhum SP to challenge summons in Anubrata Mondal case - Telegraph India",
