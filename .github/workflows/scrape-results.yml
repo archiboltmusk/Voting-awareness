@@ -5,7 +5,17 @@ on:
     # 04:00, 10:00, 16:00 UTC  (09:30, 15:30, 21:30 IST)
     - cron: '0 4,10,16 * * *'
   workflow_dispatch:
-    # Allow manual trigger from GitHub Actions UI
+    inputs:
+      force:
+        description: 'Force re-scrape all seats (including already-verified ones)'
+        required: false
+        default: 'false'
+        type: boolean
+      reset:
+        description: 'Reset all seats to unverified before scraping (clears stale data)'
+        required: false
+        default: 'false'
+        type: boolean
 
 permissions:
   contents: write
@@ -22,7 +32,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Node.js 20
+      - name: Setup Node.js 24
         uses: actions/setup-node@v5
         with:
           node-version: '24'
@@ -33,7 +43,15 @@ jobs:
 
       - name: Scrape ECI results
         id: scrape
-        run: node scripts/scrape-results.mjs
+        run: |
+          FLAGS=""
+          if [[ "${{ github.event.inputs.reset }}" == "true" ]]; then
+            FLAGS="--reset"
+          elif [[ "${{ github.event.inputs.force }}" == "true" ]]; then
+            FLAGS="--force"
+          fi
+          echo "Running: node scripts/scrape-results.mjs $FLAGS"
+          node scripts/scrape-results.mjs $FLAGS
 
       - name: Regenerate sitemap
         run: node scripts/generate-sitemap.mjs

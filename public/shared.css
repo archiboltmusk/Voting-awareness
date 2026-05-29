@@ -1094,3 +1094,184 @@ body::before {
 .party-dot.isf { background: #00897b; }
 .party-dot.ajup { background: #7b1fa2; }
 .party-dot.none { background: var(--muted); }
+
+/* ── RESPONSIVE BREAKPOINTS FOR SHARED COMPONENTS ───────────────────────────── */
+
+/* Tablet (≤900px) */
+@media (max-width: 900px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .stats-grid {
+    gap: 0;
+  }
+
+  .stat-cell {
+    padding: 1rem 1.2rem;
+  }
+
+  .masthead {
+    padding: 1.2rem 1.5rem 0.8rem;
+  }
+}
+
+/* Mobile (≤640px) */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* Stats hero: stack cells vertically */
+  .stats-hero {
+    padding: 1.5rem 1rem;
+  }
+
+  .stats-grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stat-cell {
+    border-right: none;
+    border-bottom: 1px solid rgb(255 255 255 / 8%);
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .stat-cell:last-child {
+    border-bottom: none;
+  }
+
+  .stat-big {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .stat-label {
+    margin-top: 0;
+  }
+
+  /* Masthead */
+  .masthead {
+    padding: 1rem 1rem 0.8rem;
+  }
+
+  .masthead h1 {
+    font-size: clamp(1.8rem, 8vw, 3rem);
+  }
+
+  .masthead-meta {
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.58rem;
+  }
+
+  /* Filter bar: scrollable horizontally */
+  .filter-bar {
+    padding: 0 1rem;
+  }
+
+  .filter-btn {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.58rem;
+  }
+
+  /* Controls bar: stack vertically */
+  .controls-bar {
+    padding: 0.75rem 1rem;
+  }
+
+  .controls-inner {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .search-input {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+
+  .result-count {
+    margin-left: 0;
+  }
+
+  /* Section header */
+  .section-header {
+    margin: 2rem 0 1rem;
+  }
+
+  /* Callout */
+  .callout {
+    padding: 1rem 1rem;
+  }
+
+  /* Table: allow horizontal scroll */
+  .table-wrap {
+    padding: 0 1rem 2rem;
+  }
+}
+
+/* Extra small (≤400px) */
+@media (max-width: 400px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .stat-big {
+    font-size: 1.7rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+  }
+
+  .masthead-overline {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+  }
+}
+
+/* ── RESPONSIVE FIXES FOR SPECIFIC PAGE PATTERNS ────────────────────────────── */
+
+/* Dark mode table hover */
+[data-theme='dark'] .table-wrap tbody tr:hover {
+  background: #1e1b18 !important;
+}
+
+/* Prevent horizontal scroll bleed on narrow screens */
+@media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Share bar wraps gracefully */
+  .share-bar {
+    gap: 6px;
+  }
+
+  .share-btn {
+    padding: 5px 10px;
+    font-size: 0.58rem;
+  }
+
+  /* Lang toggle stays compact */
+  .lang-btn {
+    padding: 4px 8px;
+  }
+
+  /* Footer stacks */
+  .site-footer-inner {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

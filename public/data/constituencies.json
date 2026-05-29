@@ -7,7 +7,7 @@
       "winner": "Dadhiram Ray",
       "winParty": "BJP",
       "margin": 14321,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 2,
@@ -16,7 +16,7 @@
       "winner": "Nisith Pramanik",
       "winParty": "BJP",
       "margin": 26884,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Nisith Pramanik — BJP Union Minister (MoS Home Affairs)"
     },
@@ -27,7 +27,7 @@
       "winner": "Sukumari Ray",
       "winParty": "BJP",
       "margin": 21440,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 4,
@@ -36,7 +36,7 @@
       "winner": "Rathindra Bose",
       "winParty": "BJP",
       "margin": 18992,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 5,
@@ -45,7 +45,7 @@
       "winner": "Sabitri Barman",
       "winParty": "BJP",
       "margin": 11221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 6,
@@ -54,7 +54,7 @@
       "winner": "Sangita Roy",
       "winParty": "TMC",
       "margin": 8445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 7,
@@ -63,7 +63,7 @@
       "winner": "Ajay Ray",
       "winParty": "BJP",
       "margin": 15662,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 8,
@@ -72,7 +72,7 @@
       "winner": "Girija Shankar Ray",
       "winParty": "BJP",
       "margin": 19443,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 9,
@@ -81,7 +81,7 @@
       "winner": "Malati Rava Roy",
       "winParty": "BJP",
       "margin": 22810,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 10,
@@ -90,7 +90,7 @@
       "winner": "Manoj Kumar Oraon",
       "winParty": "BJP",
       "margin": 13221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 11,
@@ -99,7 +99,7 @@
       "winner": "Bishal Lama",
       "winParty": "BJP",
       "margin": 37843,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 12,
@@ -108,7 +108,7 @@
       "winner": "Paritosh Das",
       "winParty": "BJP",
       "margin": 16554,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 13,
@@ -117,7 +117,7 @@
       "winner": "Dipak Barman",
       "winParty": "BJP",
       "margin": 24110,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 14,
@@ -126,7 +126,7 @@
       "winner": "Laxuman Limbu",
       "winParty": "BJP",
       "margin": 15221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 15,
@@ -135,7 +135,7 @@
       "winner": "Naresh Roy",
       "winParty": "BJP",
       "margin": 11445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 16,
@@ -144,7 +144,7 @@
       "winner": "Dalim Chandra Roy",
       "winParty": "BJP",
       "margin": 20663,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 17,
@@ -153,7 +153,7 @@
       "winner": "Ananta Deb Adhikary",
       "winParty": "BJP",
       "margin": 12887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 18,
@@ -162,7 +162,7 @@
       "winner": "Dinesh Sarkar",
       "winParty": "BJP",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 19,
@@ -171,7 +171,7 @@
       "winner": "Sikha Chatterjee",
       "winParty": "BJP",
       "margin": 29881,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 20,
@@ -180,7 +180,7 @@
       "winner": "Sukra Munda",
       "winParty": "BJP",
       "margin": 15492,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 21,
@@ -189,7 +189,7 @@
       "winner": "Puna Bhengra",
       "winParty": "BJP",
       "margin": 11332,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 22,
@@ -198,7 +198,7 @@
       "winner": "Bharat Kumar Chetri",
       "winParty": "BJP",
       "margin": 16884,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 23,
@@ -207,7 +207,7 @@
       "winner": "Noman Rai",
       "winParty": "BJP",
       "margin": 19445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 24,
@@ -216,7 +216,7 @@
       "winner": "Sonam Lama",
       "winParty": "BJP",
       "margin": 17007,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 25,
@@ -225,7 +225,7 @@
       "winner": "Anandamay Barman",
       "winParty": "BJP",
       "margin": 26441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 26,
@@ -234,7 +234,7 @@
       "winner": "Shankar Ghosh",
       "winParty": "BJP",
       "margin": 22332,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 27,
@@ -243,7 +243,7 @@
       "winner": "Durga Murmu",
       "winParty": "BJP",
       "margin": 15664,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 28,
@@ -252,7 +252,7 @@
       "winner": "Hamidul Rahaman",
       "winParty": "TMC",
       "margin": 69124,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Hamidul Rahaman — largest TMC margin in North Bengal (69,124)"
     },
@@ -263,7 +263,7 @@
       "winner": "Abdul Karim Chowdhury",
       "winParty": "TMC",
       "margin": 22441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 30,
@@ -272,7 +272,7 @@
       "winner": "Md. Ghulam Rabbani",
       "winParty": "TMC",
       "margin": 18990,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 31,
@@ -281,7 +281,7 @@
       "winner": "Azad Minhajul Arfin",
       "winParty": "TMC",
       "margin": 14552,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 32,
@@ -290,7 +290,7 @@
       "winner": "Biraj Biswas",
       "winParty": "BJP",
       "margin": 10887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 33,
@@ -299,7 +299,7 @@
       "winner": "Haripada Barman",
       "winParty": "BJP",
       "margin": 11441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 34,
@@ -308,7 +308,7 @@
       "winner": "Utpal Brahmacharo",
       "winParty": "BJP",
       "margin": 24110,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 35,
@@ -317,7 +317,7 @@
       "winner": "Koushik Chowdhury",
       "winParty": "BJP",
       "margin": 16887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 36,
@@ -326,7 +326,7 @@
       "winner": "Mosaraf Hossen",
       "winParty": "TMC",
       "margin": 12445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 37,
@@ -335,7 +335,7 @@
       "winner": "Tapas Chandra Roy",
       "winParty": "BJP",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 38,
@@ -344,7 +344,7 @@
       "winner": "Toraf Hossain Mandal",
       "winParty": "TMC",
       "margin": 8992,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 39,
@@ -353,7 +353,7 @@
       "winner": "Bidyut Kumar Roy",
       "winParty": "BJP",
       "margin": 21443,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 40,
@@ -362,7 +362,7 @@
       "winner": "Budhrai Tudu",
       "winParty": "BJP",
       "margin": 13662,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 41,
@@ -371,7 +371,7 @@
       "winner": "Satyendra Nath Roy",
       "winParty": "BJP",
       "margin": 28339,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 42,
@@ -380,7 +380,7 @@
       "winner": "Biplab Mitra",
       "winParty": "TMC",
       "margin": 11221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 43,
@@ -389,7 +389,7 @@
       "winner": "Joyel Murmu",
       "winParty": "BJP",
       "margin": 24110,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 44,
@@ -398,7 +398,7 @@
       "winner": "Chinmoy Deb Barman",
       "winParty": "BJP",
       "margin": 19887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 45,
@@ -407,7 +407,7 @@
       "winner": "Prasun Banerjee",
       "winParty": "TMC",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 46,
@@ -416,7 +416,7 @@
       "winner": "Tajmul Hossain",
       "winParty": "TMC",
       "margin": 22441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 47,
@@ -425,7 +425,7 @@
       "winner": "Abdur Rahim Boxi",
       "winParty": "TMC",
       "margin": 18662,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 48,
@@ -434,7 +434,7 @@
       "winner": "Samar Mukherjee",
       "winParty": "TMC",
       "margin": 21110,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 49,
@@ -443,7 +443,7 @@
       "winner": "Gour Chandra Mandal",
       "winParty": "BJP",
       "margin": 13938,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 50,
@@ -452,7 +452,7 @@
       "winner": "Gopal Chandra Saha",
       "winParty": "BJP",
       "margin": 22441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 51,
@@ -461,7 +461,7 @@
       "winner": "Amlan Bhaduri (Buro)",
       "winParty": "BJP",
       "margin": 31440,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 52,
@@ -470,7 +470,7 @@
       "winner": "Sabina Yeasmin",
       "winParty": "TMC",
       "margin": 12221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 53,
@@ -479,7 +479,7 @@
       "winner": "Md. Isha Khan Choudhury",
       "winParty": "INC",
       "margin": 21887,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "INC wins Sujapur — one of only two INC seats statewide"
     },
@@ -490,7 +490,7 @@
       "winner": "Raju Karmakar",
       "winParty": "BJP",
       "margin": 14552,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 55,
@@ -499,7 +499,7 @@
       "winner": "Monirul Islam",
       "winParty": "TMC",
       "margin": 18990,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 56,
@@ -508,7 +508,7 @@
       "winner": "Amirul Islam",
       "winParty": "TMC",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 57,
@@ -517,7 +517,7 @@
       "winner": "Emani Biswas",
       "winParty": "TMC",
       "margin": 19441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 58,
@@ -526,7 +526,7 @@
       "winner": "Chitta Mukherjee",
       "winParty": "BJP",
       "margin": 11887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 59,
@@ -535,7 +535,7 @@
       "winner": "Akhruzzaman",
       "winParty": "TMC",
       "margin": 22332,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 60,
@@ -544,7 +544,7 @@
       "winner": "Bayron Biswas",
       "winParty": "TMC",
       "margin": 15662,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 61,
@@ -553,7 +553,7 @@
       "winner": "Ali Mortuza Khan",
       "winParty": "TMC",
       "margin": 24110,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 62,
@@ -562,7 +562,7 @@
       "winner": "Reyat Hossain Sarkar",
       "winParty": "TMC",
       "margin": 18992,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 63,
@@ -571,7 +571,7 @@
       "winner": "Soumik Hossain",
       "winParty": "TMC",
       "margin": 11445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 64,
@@ -580,7 +580,7 @@
       "winner": "Gouri Sankar Ghosh",
       "winParty": "BJP",
       "margin": 22810,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 65,
@@ -589,7 +589,7 @@
       "winner": "Dilip Saha",
       "winParty": "BJP",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 66,
@@ -598,7 +598,7 @@
       "winner": "Mitali Mal",
       "winParty": "BJP",
       "margin": 11332,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 67,
@@ -607,7 +607,7 @@
       "winner": "Sukhendra Kumar Bagdi",
       "winParty": "BJP",
       "margin": 16884,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 68,
@@ -616,7 +616,7 @@
       "winner": "Gargi Das Ghosh",
       "winParty": "BJP",
       "margin": 19445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 69,
@@ -625,7 +625,7 @@
       "winner": "Mustafijur Rahaman",
       "winParty": "TMC",
       "margin": 12221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 70,
@@ -634,7 +634,7 @@
       "winner": "Humayun Kabir",
       "winParty": "AJUP",
       "margin": 58876,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Humayun Kabir (AJUP) — independent regional bloc wins Rejinagar by 58,876"
     },
@@ -645,7 +645,7 @@
       "winner": "Bharat Kumar Jhawar",
       "winParty": "BJP",
       "margin": 21443,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 72,
@@ -654,7 +654,7 @@
       "winner": "Subrata Maitra (Kanchan)",
       "winParty": "BJP",
       "margin": 26441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 73,
@@ -663,7 +663,7 @@
       "winner": "Niamot Sheikh",
       "winParty": "TMC",
       "margin": 15664,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 74,
@@ -672,7 +672,7 @@
       "winner": "Humayun Kabir",
       "winParty": "AJUP",
       "margin": 27943,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Humayun Kabir (AJUP) — same candidate wins second seat (Naoda)"
     },
@@ -683,7 +683,7 @@
       "winner": "Jafikul Islam",
       "winParty": "TMC",
       "margin": 22441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 76,
@@ -692,7 +692,7 @@
       "winner": "Abdur Razzak",
       "winParty": "TMC",
       "margin": 18990,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 77,
@@ -701,7 +701,7 @@
       "winner": "Samarendranath Ghosh",
       "winParty": "BJP",
       "margin": 14552,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 78,
@@ -710,7 +710,7 @@
       "winner": "Subrata Kabiraj",
       "winParty": "BJP",
       "margin": 10887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 79,
@@ -719,7 +719,7 @@
       "winner": "Manik Bhattacharya",
       "winParty": "TMC",
       "margin": 11441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 80,
@@ -728,7 +728,7 @@
       "winner": "Nasiruddin Ahmed",
       "winParty": "TMC",
       "margin": 24110,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 81,
@@ -737,7 +737,7 @@
       "winner": "Santanu Dey",
       "winParty": "BJP",
       "margin": 16887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 82,
@@ -746,7 +746,7 @@
       "winner": "Jeber Sekh",
       "winParty": "TMC",
       "margin": 12445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 83,
@@ -755,7 +755,7 @@
       "winner": "Tarak Nath Chatterjee",
       "winParty": "BJP",
       "margin": 78361,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Tarak Nath Chatterjee — highest BJP margin in Nadia (78,361)"
     },
@@ -766,7 +766,7 @@
       "winner": "Srutisekhar Goswami",
       "winParty": "BJP",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 85,
@@ -775,7 +775,7 @@
       "winner": "Sadhan Ghosh",
       "winParty": "BJP",
       "margin": 21443,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 86,
@@ -784,7 +784,7 @@
       "winner": "Swapan Kumar Das",
       "winParty": "BJP",
       "margin": 13662,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 87,
@@ -793,7 +793,7 @@
       "winner": "Partha Sarathi Chatterjee",
       "winParty": "BJP",
       "margin": 28339,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 88,
@@ -802,7 +802,7 @@
       "winner": "Sukanta Biswas",
       "winParty": "BJP",
       "margin": 11221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 89,
@@ -811,7 +811,7 @@
       "winner": "Ashim Biswas",
       "winParty": "BJP",
       "margin": 24110,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 90,
@@ -820,7 +820,7 @@
       "winner": "Ashim Kumar Biswas",
       "winParty": "BJP",
       "margin": 19887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 91,
@@ -829,7 +829,7 @@
       "winner": "Bankim Chandra Ghosh",
       "winParty": "BJP",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 92,
@@ -838,7 +838,7 @@
       "winner": "Anupam Biswas",
       "winParty": "BJP",
       "margin": 22441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 93,
@@ -847,7 +847,7 @@
       "winner": "Asim Kumar Sarkar",
       "winParty": "BJP",
       "margin": 31440,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 94,
@@ -856,7 +856,7 @@
       "winner": "Soma Thakur",
       "winParty": "BJP",
       "margin": 12221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 95,
@@ -865,7 +865,7 @@
       "winner": "Ashok Kirtania",
       "winParty": "BJP",
       "margin": 21887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 96,
@@ -874,7 +874,7 @@
       "winner": "Swapan Majumder",
       "winParty": "BJP",
       "margin": 14552,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 97,
@@ -883,7 +883,7 @@
       "winner": "Subrata Thakur",
       "winParty": "BJP",
       "margin": 18990,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 98,
@@ -892,7 +892,7 @@
       "winner": "Bina Mondal",
       "winParty": "TMC",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 99,
@@ -901,7 +901,7 @@
       "winner": "Burhanul Mukaddim",
       "winParty": "TMC",
       "margin": 19441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 100,
@@ -910,7 +910,7 @@
       "winner": "Debdas Mondal",
       "winParty": "BJP",
       "margin": 31462,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Debdas Mondal — BJP wins Habra (margin 31,462)"
     },
@@ -921,7 +921,7 @@
       "winner": "Dr. Sumay Hira",
       "winParty": "BJP",
       "margin": 9408,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 102,
@@ -930,7 +930,7 @@
       "winner": "Mohammad Kasem Siddique",
       "winParty": "TMC",
       "margin": 18241,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 103,
@@ -939,7 +939,7 @@
       "winner": "Sudipta Das",
       "winParty": "BJP",
       "margin": 13343,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 104,
@@ -948,7 +948,7 @@
       "winner": "Sumitro Chatterjee",
       "winParty": "BJP",
       "margin": 10430,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 105,
@@ -957,7 +957,7 @@
       "winner": "Pawan Kumar Singh",
       "winParty": "BJP",
       "margin": 22807,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 106,
@@ -966,7 +966,7 @@
       "winner": "Dr. Rajesh Kumar",
       "winParty": "BJP",
       "margin": 20909,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 107,
@@ -975,7 +975,7 @@
       "winner": "Arjun Singh",
       "winParty": "BJP",
       "margin": 17656,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 108,
@@ -984,7 +984,7 @@
       "winner": "Kaustuv Bagchi",
       "winParty": "BJP",
       "margin": 15822,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 109,
@@ -993,7 +993,7 @@
       "winner": "Kalyan Chakraborti",
       "winParty": "BJP",
       "margin": 24486,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 110,
@@ -1002,7 +1002,7 @@
       "winner": "Sourav Sikdar",
       "winParty": "BJP",
       "margin": 26404,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 111,
@@ -1011,7 +1011,7 @@
       "winner": "Ratna Debnath",
       "winParty": "BJP",
       "margin": 28836,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 112,
@@ -1020,7 +1020,7 @@
       "winner": "Madan Mitra",
       "winParty": "TMC",
       "margin": 5102,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Madan Mitra — TMC holds Kamarhati narrowly (5,102 margin)"
     },
@@ -1031,7 +1031,7 @@
       "winner": "Sajal Ghosh",
       "winParty": "BJP",
       "margin": 16956,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 114,
@@ -1040,7 +1040,7 @@
       "winner": "Arijit Bakshi",
       "winParty": "BJP",
       "margin": 25273,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 115,
@@ -1049,7 +1049,7 @@
       "winner": "Piyush Kanodia",
       "winParty": "BJP",
       "margin": 316,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Piyush Kanodia — narrowest margin in state (316 votes)"
     },
@@ -1060,7 +1060,7 @@
       "winner": "Sharadwat Mukherjee",
       "winParty": "BJP",
       "margin": 37330,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 117,
@@ -1069,7 +1069,7 @@
       "winner": "Aditi Munshi",
       "winParty": "TMC",
       "margin": 12490,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 118,
@@ -1078,7 +1078,7 @@
       "winner": "Rathin Ghosh",
       "winParty": "TMC",
       "margin": 9870,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 119,
@@ -1087,7 +1087,7 @@
       "winner": "Sankar Chatterjee",
       "winParty": "BJP",
       "margin": 14203,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 120,
@@ -1096,7 +1096,7 @@
       "winner": "Rahima Mondal",
       "winParty": "TMC",
       "margin": 22551,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 121,
@@ -1105,7 +1105,7 @@
       "winner": "Haji Nurul Islam",
       "winParty": "TMC",
       "margin": 41080,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 122,
@@ -1114,7 +1114,7 @@
       "winner": "Usha Rani Mondal",
       "winParty": "TMC",
       "margin": 35672,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 123,
@@ -1123,7 +1123,7 @@
       "winner": "Sanat Sardar",
       "winParty": "BJP",
       "margin": 17510,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Sanat Sardar — BJP flips Sandeshkhali ST; site of 2024 protests"
     },
@@ -1134,7 +1134,7 @@
       "winner": "Saptarshi Banerjee",
       "winParty": "BJP",
       "margin": 8921,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 125,
@@ -1143,7 +1143,7 @@
       "winner": "Rafikul Islam Mondal",
       "winParty": "TMC",
       "margin": 27334,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 126,
@@ -1152,7 +1152,7 @@
       "winner": "Rekha Patra",
       "winParty": "BJP",
       "margin": 15662,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Rekha Patra — BJP wins Hingalganj; she was Sandeshkhali protest face"
     },
@@ -1163,7 +1163,7 @@
       "winner": "Bikarna Naskar",
       "winParty": "BJP",
       "margin": 21908,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 128,
@@ -1172,7 +1172,7 @@
       "winner": "Nilima Mistry Bishal",
       "winParty": "TMC",
       "margin": 18332,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 129,
@@ -1181,7 +1181,7 @@
       "winner": "Ganesh Chandra Mondal",
       "winParty": "TMC",
       "margin": 24109,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 130,
@@ -1190,7 +1190,7 @@
       "winner": "Samir Kumar Jana",
       "winParty": "TMC",
       "margin": 4873,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 131,
@@ -1199,7 +1199,7 @@
       "winner": "Dipankar Jana",
       "winParty": "BJP",
       "margin": 17221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 132,
@@ -1208,7 +1208,7 @@
       "winner": "Sumanta Mandal",
       "winParty": "BJP",
       "margin": 7881,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 133,
@@ -1217,7 +1217,7 @@
       "winner": "Jogaranjan Halder",
       "winParty": "TMC",
       "margin": 14890,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 134,
@@ -1226,7 +1226,7 @@
       "winner": "Aloke Jaldata",
       "winParty": "TMC",
       "margin": 11207,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 135,
@@ -1235,7 +1235,7 @@
       "winner": "Joydeb Halder",
       "winParty": "TMC",
       "margin": 19445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 136,
@@ -1244,7 +1244,7 @@
       "winner": "Biswanath Das",
       "winParty": "TMC",
       "margin": 26712,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 137,
@@ -1253,7 +1253,7 @@
       "winner": "Bibhas Sardar",
       "winParty": "TMC",
       "margin": 22301,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 138,
@@ -1262,7 +1262,7 @@
       "winner": "Paresh Ram Das",
       "winParty": "TMC",
       "margin": 29887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 139,
@@ -1271,7 +1271,7 @@
       "winner": "Saokat Molla",
       "winParty": "TMC",
       "margin": 54231,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Saokat Molla — TMC wins Canning Purba by 54,231 (South 24P highest)"
     },
@@ -1282,7 +1282,7 @@
       "winner": "Biman Banerjee",
       "winParty": "TMC",
       "margin": 16440,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Biman Banerjee — Assembly Speaker retains Baruipur Paschim"
     },
@@ -1293,7 +1293,7 @@
       "winner": "Sharmistha Purkait",
       "winParty": "TMC",
       "margin": 31607,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 142,
@@ -1302,7 +1302,7 @@
       "winner": "Giasuddin Molla",
       "winParty": "TMC",
       "margin": 23115,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 143,
@@ -1311,7 +1311,7 @@
       "winner": "Pannalal Halder",
       "winParty": "TMC",
       "margin": 17804,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Pannalal Halder — TMC wins Diamond Harbour (Abhishek Banerjee's former HQ)"
     },
@@ -1322,7 +1322,7 @@
       "winner": "Shankar Kumar Naskar",
       "winParty": "TMC",
       "margin": 25663,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 145,
@@ -1331,7 +1331,7 @@
       "winner": "Agniswar Naskar",
       "winParty": "BJP",
       "margin": 21992,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 146,
@@ -1340,7 +1340,7 @@
       "winner": "Shukla Chatterjee",
       "winParty": "BJP",
       "margin": 30605,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 147,
@@ -1349,7 +1349,7 @@
       "winner": "Rupa Ganguly",
       "winParty": "BJP",
       "margin": 13554,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 148,
@@ -1358,7 +1358,7 @@
       "winner": "Md Nawsad Siddique",
       "winParty": "ISF",
       "margin": 22109,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Md Nawsad Siddique — ISF holds Bhangar, only ISF seat statewide"
     },
@@ -1369,7 +1369,7 @@
       "winner": "Javed Ahmed Khan",
       "winParty": "TMC",
       "margin": 11240,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 150,
@@ -1378,7 +1378,7 @@
       "winner": "Sarbori Mukherjee",
       "winParty": "BJP",
       "margin": 8762,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 151,
@@ -1387,7 +1387,7 @@
       "winner": "Debasish Dhar",
       "winParty": "BJP",
       "margin": 18993,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 152,
@@ -1396,7 +1396,7 @@
       "winner": "Papia Adhikary",
       "winParty": "BJP",
       "margin": 14208,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 153,
@@ -1405,7 +1405,7 @@
       "winner": "Sankar Sikder",
       "winParty": "BJP",
       "margin": 15667,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 154,
@@ -1414,7 +1414,7 @@
       "winner": "Dr. Indranil Khan",
       "winParty": "BJP",
       "margin": 4201,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Dr. Indranil Khan — BJP wins Behala Paschim (margin 4,201); Partha Chatterjee's old seat"
     },
@@ -1425,7 +1425,7 @@
       "winner": "Dulal Chandra Das",
       "winParty": "TMC",
       "margin": 24881,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 156,
@@ -1434,7 +1434,7 @@
       "winner": "Ashok Kumar Deb",
       "winParty": "TMC",
       "margin": 19450,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 157,
@@ -1443,7 +1443,7 @@
       "winner": "Abdul Khaleque Molla",
       "winParty": "TMC",
       "margin": 38772,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 158,
@@ -1452,7 +1452,7 @@
       "winner": "Firhad Hakim",
       "winParty": "TMC",
       "margin": 27443,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 159,
@@ -1461,7 +1461,7 @@
       "winner": "Suvendu Adhikari",
       "winParty": "BJP",
       "margin": 15105,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Suvendu Adhikari — BJP wins Bhabanipur; Leader of Opposition retains seat"
     },
@@ -1472,7 +1472,7 @@
       "winner": "Dasgupta Swapan",
       "winParty": "BJP",
       "margin": 9221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 161,
@@ -1481,7 +1481,7 @@
       "winner": "Sobhandeb Chattopadhyay",
       "winParty": "TMC",
       "margin": 11450,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 162,
@@ -1490,7 +1490,7 @@
       "winner": "Nayna Bandyopadhyay",
       "winParty": "TMC",
       "margin": 14882,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 163,
@@ -1499,7 +1499,7 @@
       "winner": "Swarnakamal Saha",
       "winParty": "TMC",
       "margin": 22310,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 164,
@@ -1508,7 +1508,7 @@
       "winner": "Kunal Kumar Ghosh",
       "winParty": "TMC",
       "margin": 17445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 165,
@@ -1517,7 +1517,7 @@
       "winner": "Vijay Ojha",
       "winParty": "BJP",
       "margin": 6229,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 166,
@@ -1526,7 +1526,7 @@
       "winner": "Purnima Chakraborty",
       "winParty": "BJP",
       "margin": 12110,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 167,
@@ -1535,7 +1535,7 @@
       "winner": "Tapas Roy",
       "winParty": "BJP",
       "margin": 10884,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 168,
@@ -1544,7 +1544,7 @@
       "winner": "Ritesh Tiwari",
       "winParty": "BJP",
       "margin": 14552,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 169,
@@ -1553,7 +1553,7 @@
       "winner": "Sanjay Kumar Singh",
       "winParty": "BJP",
       "margin": 7441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 170,
@@ -1562,7 +1562,7 @@
       "winner": "Umesh Rai",
       "winParty": "BJP",
       "margin": 8992,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 171,
@@ -1571,7 +1571,7 @@
       "winner": "Arup Roy",
       "winParty": "TMC",
       "margin": 16083,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 172,
@@ -1580,7 +1580,7 @@
       "winner": "Rudranil Ghosh",
       "winParty": "BJP",
       "margin": 11334,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 173,
@@ -1589,7 +1589,7 @@
       "winner": "Nandita Chowdhury",
       "winParty": "TMC",
       "margin": 13887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 174,
@@ -1598,7 +1598,7 @@
       "winner": "Priya Paul",
       "winParty": "TMC",
       "margin": 16220,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 175,
@@ -1607,7 +1607,7 @@
       "winner": "Gulshan Mullick",
       "winParty": "TMC",
       "margin": 19442,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 176,
@@ -1616,7 +1616,7 @@
       "winner": "Bidesh Ranjan Boz",
       "winParty": "TMC",
       "margin": 14551,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 177,
@@ -1625,7 +1625,7 @@
       "winner": "Chiran Bera",
       "winParty": "BJP",
       "margin": 12223,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 178,
@@ -1634,7 +1634,7 @@
       "winner": "Pulak Roy",
       "winParty": "TMC",
       "margin": 18990,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 179,
@@ -1643,7 +1643,7 @@
       "winner": "Dr. Hiranmoy Chattopadhyaya",
       "winParty": "BJP",
       "margin": 21443,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 180,
@@ -1652,7 +1652,7 @@
       "winner": "Arunava Sen",
       "winParty": "TMC",
       "margin": 17221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 181,
@@ -1661,7 +1661,7 @@
       "winner": "Amit Samanta",
       "winParty": "BJP",
       "margin": 15662,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 182,
@@ -1670,7 +1670,7 @@
       "winner": "Samir Kumar Panja",
       "winParty": "TMC",
       "margin": 19884,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 183,
@@ -1679,7 +1679,7 @@
       "winner": "Anupam Ghosh",
       "winParty": "BJP",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 184,
@@ -1688,7 +1688,7 @@
       "winner": "Kalyan Ghosh",
       "winParty": "TMC",
       "margin": 11556,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 185,
@@ -1697,7 +1697,7 @@
       "winner": "Dipanjan Chakraborty",
       "winParty": "BJP",
       "margin": 14209,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 186,
@@ -1706,7 +1706,7 @@
       "winner": "Bhaskar Bhattacharya",
       "winParty": "BJP",
       "margin": 16332,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 187,
@@ -1715,7 +1715,7 @@
       "winner": "Dilip Singh",
       "winParty": "BJP",
       "margin": 12445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 188,
@@ -1724,7 +1724,7 @@
       "winner": "Arup Kumar Das",
       "winParty": "BJP",
       "margin": 10887,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Arup Kumar Das — BJP flips Singur; Becharam Manna loses"
     },
@@ -1735,7 +1735,7 @@
       "winner": "Deepanjan Kumar Guha",
       "winParty": "BJP",
       "margin": 11221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 190,
@@ -1744,7 +1744,7 @@
       "winner": "Subir Nag",
       "winParty": "BJP",
       "margin": 15664,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 191,
@@ -1753,7 +1753,7 @@
       "winner": "Sumana Sarkar",
       "winParty": "BJP",
       "margin": 41914,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Sumana Sarkar — BJP wins Balagarh by 41,914 (Hooghly highest)"
     },
@@ -1764,7 +1764,7 @@
       "winner": "Dr. Ratna De (Nag)",
       "winParty": "TMC",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 193,
@@ -1773,7 +1773,7 @@
       "winner": "Tapan Dasgupta",
       "winParty": "TMC",
       "margin": 11887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 194,
@@ -1782,7 +1782,7 @@
       "winner": "Swati Khandoker",
       "winParty": "TMC",
       "margin": 19663,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 195,
@@ -1791,7 +1791,7 @@
       "winner": "Snehasis Chakraborty",
       "winParty": "TMC",
       "margin": 14331,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 196,
@@ -1800,7 +1800,7 @@
       "winner": "Karabi Manna",
       "winParty": "TMC",
       "margin": 13220,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 197,
@@ -1809,7 +1809,7 @@
       "winner": "Ashima Patra",
       "winParty": "TMC",
       "margin": 21445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 198,
@@ -1818,7 +1818,7 @@
       "winner": "Swapan Dasgupta",
       "winParty": "BJP",
       "margin": 7441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 199,
@@ -1827,7 +1827,7 @@
       "winner": "Purushottam Thakur",
       "winParty": "BJP",
       "margin": 15662,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 200,
@@ -1836,7 +1836,7 @@
       "winner": "Bag Hemanta",
       "winParty": "BJP",
       "margin": 28959,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 201,
@@ -1845,7 +1845,7 @@
       "winner": "Prashanta Digar",
       "winParty": "BJP",
       "margin": 49582,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Prashanta Digar — BJP wins Goghat SC by 49,582"
     },
@@ -1856,7 +1856,7 @@
       "winner": "Susanta Ghosh",
       "winParty": "BJP",
       "margin": 18443,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 203,
@@ -1865,7 +1865,7 @@
       "winner": "Purushottam Thakur",
       "winParty": "BJP",
       "margin": 22441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 204,
@@ -1874,7 +1874,7 @@
       "winner": "Snehasis Chakraborty",
       "winParty": "TMC",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 205,
@@ -1883,7 +1883,7 @@
       "winner": "Becharam Manna",
       "winParty": "TMC",
       "margin": 11887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 206,
@@ -1892,7 +1892,7 @@
       "winner": "Swapan Dasgupta",
       "winParty": "BJP",
       "margin": 15662,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 207,
@@ -1901,7 +1901,7 @@
       "winner": "Ashima Patra",
       "winParty": "TMC",
       "margin": 24110,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 208,
@@ -1910,7 +1910,7 @@
       "winner": "Tilak Kumar Chakraborty",
       "winParty": "TMC",
       "margin": 13221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 209,
@@ -1919,7 +1919,7 @@
       "winner": "Pradip Kumar Bijali",
       "winParty": "BJP",
       "margin": 49062,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Pradip Kumar Bijali — BJP wins Haldia by 49,062"
     },
@@ -1930,7 +1930,7 @@
       "winner": "Suvendu Adhikari",
       "winParty": "BJP",
       "margin": 35441,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Suvendu Adhikari — BJP retains Nandigram by 35,441 (LoP stronghold)"
     },
@@ -1941,7 +1941,7 @@
       "winner": "Pijush Kanti Das",
       "winParty": "BJP",
       "margin": 20270,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 212,
@@ -1950,7 +1950,7 @@
       "winner": "Uttam Barik",
       "winParty": "TMC",
       "margin": 11445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 213,
@@ -1959,7 +1959,7 @@
       "winner": "Sumita Sinha",
       "winParty": "BJP",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 214,
@@ -1968,7 +1968,7 @@
       "winner": "Santanu Pramanik",
       "winParty": "BJP",
       "margin": 20878,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 215,
@@ -1977,7 +1977,7 @@
       "winner": "Shantanu Pramanik",
       "winParty": "BJP",
       "margin": 16884,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 216,
@@ -1986,7 +1986,7 @@
       "winner": "Arijit Das",
       "winParty": "BJP",
       "margin": 19445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 217,
@@ -1995,7 +1995,7 @@
       "winner": "Dr. Chandra Sekhar Mondal",
       "winParty": "BJP",
       "margin": 26939,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 218,
@@ -2004,7 +2004,7 @@
       "winner": "Adhikari Dibyendu",
       "winParty": "BJP",
       "margin": 25692,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 219,
@@ -2013,7 +2013,7 @@
       "winner": "Saktipada Nayak",
       "winParty": "BJP",
       "margin": 14552,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 220,
@@ -2022,7 +2022,7 @@
       "winner": "Bakul Murmu",
       "winParty": "BJP",
       "margin": 11332,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 221,
@@ -2031,7 +2031,7 @@
       "winner": "Dulal Murmu",
       "winParty": "TMC",
       "margin": 8992,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 222,
@@ -2040,7 +2040,7 @@
       "winner": "Birbaha Hansda",
       "winParty": "TMC",
       "margin": 12221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 223,
@@ -2049,7 +2049,7 @@
       "winner": "Paresh Murmu",
       "winParty": "TMC",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 224,
@@ -2058,7 +2058,7 @@
       "winner": "Hiranmoy Chattopadhyaya",
       "winParty": "BJP",
       "margin": 22441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 225,
@@ -2067,7 +2067,7 @@
       "winner": "Surajit Sahoo",
       "winParty": "TMC",
       "margin": 11441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 226,
@@ -2076,7 +2076,7 @@
       "winner": "Manas Ranjan Bhunia",
       "winParty": "TMC",
       "margin": 16887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 227,
@@ -2085,7 +2085,7 @@
       "winner": "Ajit Maity",
       "winParty": "TMC",
       "margin": 12445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 228,
@@ -2094,7 +2094,7 @@
       "winner": "Dinen Roy",
       "winParty": "TMC",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 229,
@@ -2103,7 +2103,7 @@
       "winner": "Humayun Kabir",
       "winParty": "TMC",
       "margin": 11221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 230,
@@ -2112,7 +2112,7 @@
       "winner": "Mamata Bhunia",
       "winParty": "TMC",
       "margin": 19441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 231,
@@ -2121,7 +2121,7 @@
       "winner": "Sital Kapat",
       "winParty": "BJP",
       "margin": 11887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 232,
@@ -2130,7 +2130,7 @@
       "winner": "Sukanta Dolui",
       "winParty": "BJP",
       "margin": 33481,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 233,
@@ -2139,7 +2139,7 @@
       "winner": "Uttara Singh Hazra",
       "winParty": "TMC",
       "margin": 8445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 234,
@@ -2148,7 +2148,7 @@
       "winner": "Biman Mahata",
       "winParty": "BJP",
       "margin": 15243,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 235,
@@ -2157,7 +2157,7 @@
       "winner": "Seuli Saha",
       "winParty": "TMC",
       "margin": 50105,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Seuli Saha — TMC wins Keshpur by 50,105 (Paschim Medinipur highest)"
     },
@@ -2168,7 +2168,7 @@
       "winner": "June Malia",
       "winParty": "TMC",
       "margin": 12887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 237,
@@ -2177,7 +2177,7 @@
       "winner": "Debnath Hansda",
       "winParty": "TMC",
       "margin": 11332,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 238,
@@ -2186,7 +2186,7 @@
       "winner": "Labsen Baskey",
       "winParty": "BJP",
       "margin": 29577,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 239,
@@ -2195,7 +2195,7 @@
       "winner": "Jaladhar Mahato",
       "winParty": "BJP",
       "margin": 18662,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 240,
@@ -2204,7 +2204,7 @@
       "winner": "Rahidas Mahato",
       "winParty": "BJP",
       "margin": 21110,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 241,
@@ -2213,7 +2213,7 @@
       "winner": "Narahari Mahato",
       "winParty": "BJP",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 242,
@@ -2222,7 +2222,7 @@
       "winner": "Sudip Mukherjee",
       "winParty": "BJP",
       "margin": 22441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 243,
@@ -2231,7 +2231,7 @@
       "winner": "Sandhyarani Tudu",
       "winParty": "TMC",
       "margin": 11887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 244,
@@ -2240,7 +2240,7 @@
       "winner": "Kamalakanta Hansda",
       "winParty": "BJP",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 245,
@@ -2249,7 +2249,7 @@
       "winner": "Nadiar Chand Bouri",
       "winParty": "BJP",
       "margin": 15662,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 246,
@@ -2258,7 +2258,7 @@
       "winner": "Vivekananda Bauri",
       "winParty": "BJP",
       "margin": 24110,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 247,
@@ -2267,7 +2267,7 @@
       "winner": "Chanda Bauri",
       "winParty": "BJP",
       "margin": 32135,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 248,
@@ -2276,7 +2276,7 @@
       "winner": "Satyanarayan Mukhopadhyay",
       "winParty": "BJP",
       "margin": 11445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 249,
@@ -2285,7 +2285,7 @@
       "winner": "Jyotsna Mandi",
       "winParty": "TMC",
       "margin": 8992,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 250,
@@ -2294,7 +2294,7 @@
       "winner": "Mrityunjoy Murmu",
       "winParty": "TMC",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 251,
@@ -2303,7 +2303,7 @@
       "winner": "Niladri Sekhar Dana",
       "winParty": "BJP",
       "margin": 11332,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Niladri Sekhar Dana — wins both Taldangra (11,332) and Bankura (54,177)"
     },
@@ -2314,7 +2314,7 @@
       "winner": "Niladri Sekhar Dana",
       "winParty": "BJP",
       "margin": 54177,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Niladri Sekhar Dana — wins Bankura by 54,177 (2nd highest margin)"
     },
@@ -2325,7 +2325,7 @@
       "winner": "Billeswar Sinha",
       "winParty": "BJP",
       "margin": 16884,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 254,
@@ -2334,7 +2334,7 @@
       "winner": "Amarnath Shakha",
       "winParty": "BJP",
       "margin": 19445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 255,
@@ -2343,7 +2343,7 @@
       "winner": "Tanmay Ghosh",
       "winParty": "BJP",
       "margin": 22441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 256,
@@ -2352,7 +2352,7 @@
       "winner": "Nirmal Kumar Dhara",
       "winParty": "BJP",
       "margin": 18990,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 257,
@@ -2361,7 +2361,7 @@
       "winner": "Nirmal Dhara",
       "winParty": "BJP",
       "margin": 14552,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 258,
@@ -2370,7 +2370,7 @@
       "winner": "Dibakar Gharami",
       "winParty": "BJP",
       "margin": 10887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 259,
@@ -2379,7 +2379,7 @@
       "winner": "Nabin Chandra Bag",
       "winParty": "TMC",
       "margin": 8284,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 260,
@@ -2388,7 +2388,7 @@
       "winner": "Moumita Biswas Misra",
       "winParty": "BJP",
       "margin": 12441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 261,
@@ -2397,7 +2397,7 @@
       "winner": "Shampa Dhara",
       "winParty": "TMC",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 262,
@@ -2406,7 +2406,7 @@
       "winner": "Alok Kumar Majhi",
       "winParty": "TMC",
       "margin": 11221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 263,
@@ -2415,7 +2415,7 @@
       "winner": "Saikat Pancha",
       "winParty": "BJP",
       "margin": 14798,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 264,
@@ -2424,7 +2424,7 @@
       "winner": "Siddhartha Majumdar",
       "winParty": "BJP",
       "margin": 28630,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 265,
@@ -2433,7 +2433,7 @@
       "winner": "Manab Guha",
       "winParty": "BJP",
       "margin": 7106,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 266,
@@ -2442,7 +2442,7 @@
       "winner": "Nisith Kumar Malik",
       "winParty": "TMC",
       "margin": 19441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 267,
@@ -2451,7 +2451,7 @@
       "winner": "Karfa Soumen",
       "winParty": "BJP",
       "margin": 11887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 268,
@@ -2460,7 +2460,7 @@
       "winner": "Swapan Debnath",
       "winParty": "TMC",
       "margin": 22332,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 269,
@@ -2469,7 +2469,7 @@
       "winner": "Tapan Chatterjee",
       "winParty": "TMC",
       "margin": 15662,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 270,
@@ -2478,7 +2478,7 @@
       "winner": "Rabindranath Chatterjee",
       "winParty": "TMC",
       "margin": 24110,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 271,
@@ -2487,7 +2487,7 @@
       "winner": "Sekh Sahonawez",
       "winParty": "TMC",
       "margin": 18992,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 272,
@@ -2496,7 +2496,7 @@
       "winner": "Shishir Ghosh",
       "winParty": "BJP",
       "margin": 12723,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 273,
@@ -2505,7 +2505,7 @@
       "winner": "Kalita Maji",
       "winParty": "BJP",
       "margin": 11332,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 274,
@@ -2514,7 +2514,7 @@
       "winner": "Raju Patra",
       "winParty": "BJP",
       "margin": 10494,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 275,
@@ -2523,7 +2523,7 @@
       "winner": "Narendranath Chakraborty",
       "winParty": "TMC",
       "margin": 16884,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 276,
@@ -2532,7 +2532,7 @@
       "winner": "Pradip Mazumdar",
       "winParty": "TMC",
       "margin": 19445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 277,
@@ -2541,7 +2541,7 @@
       "winner": "Lakshman Chandra Ghorui",
       "winParty": "BJP",
       "margin": 12221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 278,
@@ -2550,7 +2550,7 @@
       "winner": "Tapas Banerjee",
       "winParty": "TMC",
       "margin": 21443,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 279,
@@ -2559,7 +2559,7 @@
       "winner": "Hare Ram Singh",
       "winParty": "TMC",
       "margin": 26441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 280,
@@ -2568,7 +2568,7 @@
       "winner": "Agnimitra Paul",
       "winParty": "BJP",
       "margin": 15664,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 281,
@@ -2577,7 +2577,7 @@
       "winner": "Krishnendu Mukherjee",
       "winParty": "BJP",
       "margin": 22441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 282,
@@ -2586,7 +2586,7 @@
       "winner": "Ajay Kumar Poddar",
       "winParty": "BJP",
       "margin": 18990,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 283,
@@ -2595,7 +2595,7 @@
       "winner": "Arijit Roy",
       "winParty": "BJP",
       "margin": 14552,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 284,
@@ -2604,7 +2604,7 @@
       "winner": "Anup Kumar Saha",
       "winParty": "BJP",
       "margin": 10887,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 285,
@@ -2613,7 +2613,7 @@
       "winner": "Bikash Roy Chowdhury",
       "winParty": "TMC",
       "margin": 11441,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 286,
@@ -2622,7 +2622,7 @@
       "winner": "Chandranath Sinha",
       "winParty": "TMC",
       "margin": 24110,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 287,
@@ -2631,7 +2631,7 @@
       "winner": "Bidhan Chandra Majhi",
       "winParty": "TMC",
       "margin": 8122,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 288,
@@ -2640,7 +2640,7 @@
       "winner": "Abhijit Singha",
       "winParty": "TMC",
       "margin": 12445,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 289,
@@ -2649,7 +2649,7 @@
       "winner": "Nilabati Saha",
       "winParty": "TMC",
       "margin": 14221,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 290,
@@ -2658,7 +2658,7 @@
       "winner": "Locket Chatterjee",
       "winParty": "BJP",
       "margin": 21443,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 291,
@@ -2667,7 +2667,7 @@
       "winner": "Ashish Banerjee",
       "winParty": "TMC",
       "margin": 13662,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 292,
@@ -2676,7 +2676,7 @@
       "winner": "Milton Rashid",
       "winParty": "INC",
       "margin": 28339,
-      "verified": true,
+      "verified": false,
       "notable": true,
       "note": "Milton Rashid (INC) — one of only two INC wins statewide"
     },
@@ -2687,7 +2687,7 @@
       "winner": "Rajendra Prasad Singh",
       "winParty": "TMC",
       "margin": 13446,
-      "verified": true
+      "verified": false
     },
     {
       "ac": 294,
@@ -2696,7 +2696,7 @@
       "winner": "Mosarraf Hossain",
       "winParty": "TMC",
       "margin": 11221,
-      "verified": true
+      "verified": false
     }
   ],
   "districts": [

@@ -48,6 +48,13 @@ const PARTY_MAP = {
   'JMM':       'JMM',
   'AAP':       'AAP',
   'NOTA':      'NOTA',
+  'AJSU':      'AJUP',
+  'AJSUP':     'AJUP',
+  'AJUP':      'AJUP',
+  'AGJP':      'AJUP',
+  'AIUDF':     'AIUDF',
+  'TMC(N)':    'TMC',
+  'AITMC(N)':  'TMC',
 };
 
 function normalizeParty(raw) {
@@ -121,29 +128,48 @@ function parseECI(html) {
 
   if (rows.length === 0) return null;
 
-  // Locate winner row (last cell == "Won" case-insensitive)
+  // Locate winner row — ECI uses "Won" but also check "WINNER", "W", "✓", "yes"
+  const WINNER_RE = /^(won|winner|w|yes|elected|✓)$/i;
   let winnerRow = null;
   let winnerIdx = -1;
   for (let i = 0; i < rows.length; i++) {
     const last = rows[i][rows[i].length - 1];
-    if (/^won$/i.test(last)) {
+    // Also check second-to-last cell (some ECI layouts have extra columns)
+    const prev = rows[i].length > 1 ? rows[i][rows[i].length - 2] : '';
+    if (WINNER_RE.test(last) || WINNER_RE.test(prev)) {
       winnerRow = rows[i];
       winnerIdx = i;
       break;
     }
   }
-  if (!winnerRow) return null;
 
-  // Resolve column indices by scanning header row for known labels
+  // Fallback: row with highest vote total is likely the winner
+  if (!winnerRow) {
+    let maxVotes = 0;
+    for (let i = 0; i < rows.length; i++) {
+      if (/candidate|s\.?\s*no|party|total|votes/i.test(rows[i][0])) continue;
+      for (let c = 2; c < rows[i].length; c++) {
+        const v = parseInt((rows[i][c] || '0').replace(/,/g, ''), 10);
+        if (v > maxVotes) { maxVotes = v; winnerRow = rows[i]; winnerIdx = i; }
+      }
+    }
+    if (!winnerRow || maxVotes < 1000) return null; // sanity check
+  }
+
+  // Resolve column indices by scanning header rows for known labels
   let colCandidate = 1, colParty = 2, colTotal = 5;
   for (let i = 0; i < rows.length && i < winnerIdx; i++) {
     const r = rows[i];
     for (let c = 0; c < r.length; c++) {
       const lc = r[c].toLowerCase();
-      if (lc.includes('candidate')) colCandidate = c;
-      if (lc.includes('party'))     colParty      = c;
-      if (lc.includes('total'))     colTotal      = c;
+      if (/candidate|name/i.test(lc))         colCandidate = c;
+      if (/^party$|party name|symbol/i.test(lc)) colParty  = c;
+      if (/total|total votes|evm\+postal/i.test(lc)) colTotal = c;
     }
+  }
+  // If colTotal not found in header, use highest-number column heuristic
+  if (colTotal === 5 && winnerRow.length < 6) {
+    colTotal = winnerRow.length - 2; // second-to-last is usually total before status
   }
 
   const winner   = (winnerRow[colCandidate] || '').replace(/\s+/g, ' ').trim();
@@ -159,8 +185,8 @@ function parseECI(html) {
     if (i === winnerIdx) continue;
     const r    = rows[i];
     const last = r[r.length - 1];
-    if (/^won$/i.test(last)) continue;               // another winner? skip
-    if (/candidate|s\.?\s*no/i.test(r[0])) continue; // header row
+    if (WINNER_RE.test(last)) continue;                // another winner? skip
+    if (/candidate|name|s\.?\s*no/i.test(r[0])) continue; // header row
 
     const votes = parseInt((r[colTotal] || '0').replace(/,/g, ''), 10);
     if (votes > runnerVotes) { runnerRow = r; runnerVotes = votes; }
@@ -179,6 +205,12 @@ function parseECI(html) {
   };
 }
 
+// ── CLI flags ─────────────────────────────────────────────────────────────────
+// --force   Re-scrape every seat regardless of verified status
+// --reset   Mark all seats verified:false then proceed (implies --force)
+const FORCE = process.argv.includes('--force') || process.argv.includes('--reset');
+const RESET = process.argv.includes('--reset');
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 if (!existsSync(JSON_FILE)) {
   console.error(`ERROR: ${JSON_FILE} not found. Run: node scripts/extract-constituencies.mjs first.`);
@@ -186,20 +218,30 @@ if (!existsSync(JSON_FILE)) {
 }
 
 const data = JSON.parse(readFileSync(JSON_FILE, 'utf8'));
-const unverified = data.seats.filter(s => !s.verified);
+
+// Ensure meta object exists
+if (!data.meta) data.meta = {};
+
+if (RESET) {
+  const prev = data.seats.filter(s => s.verified).length;
+  data.seats.forEach(s => { s.verified = false; });
+  console.log(`--reset: cleared verified flag on ${prev} seats`);
+}
+
+const toScrape = FORCE ? data.seats : data.seats.filter(s => !s.verified);
 
 console.log(`Total seats: ${data.seats.length}`);
-console.log(`Unverified:  ${unverified.length}`);
+console.log(`To scrape:   ${toScrape.length}${FORCE ? ' (force mode)' : ''}`);
 
-if (unverified.length === 0) {
-  console.log('All constituencies verified — nothing to do.');
+if (toScrape.length === 0) {
+  console.log('All constituencies verified — nothing to do. Pass --force to re-scrape all.');
   process.exit(0);
 }
 
 let updated = 0;
 let skipped = 0;
 
-for (const seat of unverified) {
+for (const seat of toScrape) {
   await sleep(DELAY_MS);
   process.stdout.write(`  AC${String(seat.ac).padStart(3, '0')} ${seat.name.padEnd(28)}: `);
 
