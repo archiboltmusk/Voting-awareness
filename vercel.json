@@ -24,7 +24,8 @@
     { "source": "/friction-engine", "destination": "/friction-engine.html" },
     { "source": "/education", "destination": "/education-employability.html" },
     { "source": "/cjp", "destination": "/cjp.html" },
-    { "source": "/cjp-projects", "destination": "/cjp-projects.html" }
+    { "source": "/cjp-projects", "destination": "/cjp-projects.html" },
+    { "source": "/nota", "destination": "/nota-reform.html" }
   ],
   "headers": [
     {

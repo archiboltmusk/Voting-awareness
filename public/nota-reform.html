@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A blueprint for turning NOTA from a toothless statistic into a genuine veto mechanism — with graduated triggers, candidate decommissioning, and ranked-choice re-elections.">
+<meta property="og:title" content="Redesigning NOTA: A Blueprint for Real Electoral Accountability — The Bengal Reader">
+<meta property="og:description" content="What if None of the Above actually meant something? A comprehensive proposal to make NOTA a live regulatory tool.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="/og-assets.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Redesigning NOTA — The Bengal Reader">
+<meta name="twitter:description" content="A blueprint for turning NOTA from a passive protest button into an active regulatory mechanism.">
+<title>Redesigning NOTA — The Bengal Reader</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/fonts.css">
+<script defer src="/analytics.js"></script>
+<link rel="stylesheet" href="/shared.css">
+<script defer src="/shared.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --nota: #1a56db;
+  --nota-light: #dbeafe;
+  --nota-dark: #1e3a8a;
+  --warn: #d97706;
+  --warn-light: #fef3c7;
+  --danger: #dc2626;
+  --danger-light: #fee2e2;
+  --ok: #16a34a;
+  --ok-light: #dcfce7;
+}
+
+[data-theme="dark"] {
+  --nota-light: #1e3a8a;
+  --warn-light: #451a03;
+  --danger-light: #450a0a;
+  --ok-light: #052e16;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── PAGE HEADER ── */
+.page-header {
+  border-bottom: 3px solid var(--ink);
+  padding: 2.5rem 2rem 2rem;
+  background: var(--paper);
+}
+.page-header-inner { max-width: 780px; margin: 0 auto; }
+
+.overline {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--nota);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.overline::before {
+  content: '';
+  display: inline-block;
+  width: 2rem;
+  height: 2px;
+  background: var(--nota);
+}
+
+.page-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin-bottom: 1rem;
+}
+.page-header h1 em { font-style: italic; color: var(--nota); }
+
+.deck {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 680px;
+  margin-bottom: 1.4rem;
+}
+
+.byline {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  padding-top: 1rem;
+  border-top: 1px solid var(--aged);
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* ── BODY LAYOUT ── */
+.article-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 5rem;
+}
+
+/* ── LEAD ── */
+.lead {
+  font-size: 1.18rem;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--aged);
+}
+
+/* ── PHASE HEADINGS ── */
+.phase {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.phase-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--nota);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.phase h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  border-left: 4px solid var(--nota);
+  padding-left: 0.85rem;
+}
+
+/* ── TRIGGER CARDS ── */
+.trigger-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+@media (max-width: 600px) { .trigger-grid { grid-template-columns: 1fr; } }
+
+.trigger-card {
+  border: 1.5px solid var(--aged);
+  border-radius: 4px;
+  padding: 1.2rem 1.3rem;
+  position: relative;
+  overflow: hidden;
+}
+.trigger-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.trigger-card.hard::before { background: var(--danger); }
+.trigger-card.soft::before { background: var(--warn); }
+
+.trigger-card-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.trigger-card.hard .trigger-card-label { color: var(--danger); }
+.trigger-card.soft .trigger-card-label { color: var(--warn); }
+
+.trigger-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.trigger-card p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* ── RULE BLOCKS ── */
+.rule-list { list-style: none; margin: 1.5rem 0 2rem; }
+.rule-list li {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 0.5rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--aged);
+  align-items: start;
+}
+.rule-list li:last-child { border-bottom: none; }
+
+.rule-icon {
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+}
+.rule-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+.rule-body {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* ── FLOWCHART ── */
+.flow-wrap {
+  background: var(--aged);
+  border-radius: 4px;
+  padding: 1.8rem 2rem;
+  margin: 1.8rem 0;
+  overflow-x: auto;
+}
+
+.flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  min-width: 260px;
+  max-width: 480px;
+  margin: 0 auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+}
+
+.flow-box {
+  border: 1.5px solid var(--ink);
+  padding: 0.55rem 1.2rem;
+  text-align: center;
+  width: 100%;
+  background: var(--paper);
+  border-radius: 3px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  font-size: 0.68rem;
+}
+.flow-box.accent {
+  background: var(--nota);
+  color: #fff;
+  border-color: var(--nota-dark);
+}
+.flow-box.outcome {
+  background: var(--ok-light);
+  border-color: var(--ok);
+}
+
+.flow-arrow {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.25rem 0;
+}
+.flow-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--nota);
+  padding: 0.1rem 0;
+}
+
+/* ── SAFEGUARD GRID ── */
+.safeguard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+@media (max-width: 600px) { .safeguard-grid { grid-template-columns: 1fr; } }
+
+.safeguard-card {
+  border: 1.5px solid var(--aged);
+  border-radius: 4px;
+  padding: 1.2rem 1.3rem;
+  position: relative;
+  overflow: hidden;
+}
+.safeguard-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--ok);
+}
+.safeguard-card-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ok);
+  margin-bottom: 0.5rem;
+}
+.safeguard-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.safeguard-card p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* ── COMPARISON TABLE ── */
+.table-wrap {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: 4px;
+  border: 1.5px solid var(--aged);
+}
+
+table.compare {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+table.compare thead tr {
+  background: var(--ink);
+  color: var(--paper);
+}
+table.compare thead th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+table.compare thead th:last-child { border-right: none; }
+
+table.compare tbody tr { border-bottom: 1px solid var(--aged); }
+table.compare tbody tr:last-child { border-bottom: none; }
+table.compare tbody tr:nth-child(even) { background: var(--aged); }
+
+table.compare td {
+  padding: 0.7rem 1rem;
+  vertical-align: top;
+  border-right: 1px solid var(--aged);
+  line-height: 1.5;
+}
+table.compare td:last-child { border-right: none; }
+
+table.compare td:first-child {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+.tag-old { color: var(--danger); font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; }
+.tag-new { color: var(--ok); font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; font-weight: 600; }
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  border-left: 4px solid var(--nota);
+  background: var(--nota-light);
+  padding: 1.4rem 1.6rem;
+  margin: 2.5rem 0;
+  border-radius: 0 4px 4px 0;
+}
+.pull-quote p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.08rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.pull-quote cite {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--nota);
+  font-style: normal;
+}
+
+/* ── COST CALLOUT ── */
+.cost-callout {
+  border: 1.5px solid var(--warn);
+  background: var(--warn-light);
+  border-radius: 4px;
+  padding: 1.4rem 1.6rem;
+  margin: 2rem 0;
+}
+.cost-callout-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--warn);
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.cost-callout p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* ── INLINE BODY STYLES ── */
+.article-body h3.subhead {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 2rem 0 0.8rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--aged);
+}
+.article-body p { margin-bottom: 1rem; }
+.article-body p:last-child { margin-bottom: 0; }
+
+/* ── CONCLUSION ── */
+.conclusion {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 3px double var(--aged);
+}
+.conclusion-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--nota);
+  margin-bottom: 0.8rem;
+}
+.conclusion p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* ── DISCLAIMER ── */
+.disclaimer {
+  margin-top: 3rem;
+  padding: 1rem 1.2rem;
+  border: 1px dashed var(--aged);
+  border-radius: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* ── THEME TOGGLE ── */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--aged);
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">The Bengal Reader</a>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Voter Guide</a>
+      <a href="/parties" class="site-nav-link">Party Compass</a>
+      <a href="/constituencies" class="site-nav-link">2026 Results</a>
+      <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+      <a href="/accountability" class="site-nav-link">100 Days</a>
+      <a href="/corruption" class="site-nav-link">Dossier</a>
+      <a href="/bonds" class="site-nav-link">Money Trail</a>
+      <a href="/mlas" class="site-nav-link">MLA Records</a>
+      <a href="/india-development" class="site-nav-link">India's Story</a>
+      <a href="/india-china" class="site-nav-link">India vs China</a>
+      <a href="/india-governance" class="site-nav-link">Performance OS</a>
+      <a href="/india-disadvantage-index" class="site-nav-link">Disadvantage Index</a>
+      <a href="/friction-engine" class="site-nav-link">Friction Engine</a>
+      <a href="/education" class="site-nav-link">Education Gap</a>
+      <a href="/cjp" class="site-nav-link">CJP</a>
+      <a href="/nota" class="site-nav-link active">NOTA Reform</a>
+      <a href="/ask" class="site-nav-link">Ask AI</a>
+      <a href="/map" class="site-nav-link">Map</a>
+      <a href="/assets" class="site-nav-link">Wealth Growth</a>
+      <a href="/methodology" class="site-nav-link">Methodology</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="overline">Electoral Systems Analysis</div>
+    <h1>Redesigning <em>NOTA</em><br>From Protest Button to Veto</h1>
+    <p class="deck">
+      A blueprint for turning "None of the Above" from a toothless statistical footnote
+      into a live regulatory mechanism — with graduated triggers, candidate decommissioning rules,
+      and ranked-choice re-elections that make accountability structurally unavoidable.
+    </p>
+    <div class="byline">
+      <span>The Bengal Reader — Editorial</span>
+      <span>Electoral Reform Series</span>
+      <span>May 2026</span>
+    </div>
+    <div class="header-controls">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <span class="theme-toggle-icon">◑</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="article-body">
+
+  <p class="lead">
+    In India's current electoral framework, NOTA — "None of the Above" — is a
+    statistical curiosity. It is counted, published, and promptly ignored. The
+    candidate with the most human votes wins regardless of how many voters
+    expressed total rejection of the entire field. Designing the <em>best</em>
+    electoral system around NOTA means shifting it from a passive indicator to a
+    tool for systemic accountability — one that balances genuine voter empowerment
+    with logistical reality, and ensures that rejecting candidates does not plunge
+    a constituency into an endless, expensive cycle of failed elections.
+  </p>
+
+  <!-- ── PHASE 1 ── -->
+  <div class="phase">
+    <span class="phase-label">Phase 1 · Trigger Mechanics</span>
+    <h2>When Does NOTA "Act"?</h2>
+  </div>
+
+  <p>
+    Instead of an all-or-nothing switch, a graduated system scales NOTA's power
+    based on the intensity of voter dissatisfaction. Two distinct thresholds
+    govern its behaviour:
+  </p>
+
+  <div class="trigger-grid">
+    <div class="trigger-card hard">
+      <div class="trigger-card-label">Hard Trigger — Plurality Rule</div>
+      <h3>The Veto</h3>
+      <p>
+        If NOTA receives the <strong>highest number of votes</strong> in a constituency —
+        beating every candidate outright — the election is declared null and void.
+        The current "winner" is stripped of their victory, and a fresh election
+        is mandated under the rules below.
+      </p>
+    </div>
+    <div class="trigger-card soft">
+      <div class="trigger-card-label">Soft Trigger — Proportional Threshold</div>
+      <h3>The Warning Shot</h3>
+      <p>
+        Even if NOTA does not win outright but crosses <strong>20–30% of total votes
+        polled</strong>, the winning candidate assumes a <em>Conditional Mandate</em>:
+        a mandatory mid-term performance review and bypass vote for specific local
+        funding approvals.
+      </p>
+    </div>
+  </div>
+
+  <p>
+    The Conditional Mandate tier is critical because it gives teeth to substantial
+    but non-majority dissatisfaction — punishing a weak mandate without voiding an
+    entire election. A representative who squeaks past with 28% of votes while
+    NOTA captures 25% governs under formal public scrutiny.
+  </p>
+
+  <!-- ── PHASE 2 ── -->
+  <div class="phase">
+    <span class="phase-label">Phase 2 · Punitive Rules</span>
+    <h2>Preventing the "Same Faces" Loop</h2>
+  </div>
+
+  <p>
+    The fundamental flaw in basic "Right to Reject" proposals is that political
+    parties can simply re-file the same candidates, exhausting voters into
+    submission. A functional system requires strict punitive measures that force
+    genuine candidate quality upgrades.
+  </p>
+
+  <h3 class="subhead">Candidate &amp; Party Restrictions</h3>
+
+  <ul class="rule-list">
+    <li>
+      <span class="rule-icon">🚫</span>
+      <div>
+        <div class="rule-title">The Decommissioning Rule</div>
+        <div class="rule-body">
+          All candidates who contested the invalidated election — including independents —
+          are barred from contesting the immediate fresh re-election in that constituency.
+          There is no appeal. The rejection is personal, not merely positional.
+        </div>
+      </div>
+    </li>
+    <li>
+      <span class="rule-icon">₹</span>
+      <div>
+        <div class="rule-title">Financial Disincentives</div>
+        <div class="rule-body">
+          Political parties whose candidates lost to NOTA forfeit their election deposits.
+          They are further penalised by losing a percentage of their state or national
+          public campaign funding and allocated broadcasting time for the re-election cycle.
+          Losing to a blank line carries a real balance-sheet cost.
+        </div>
+      </div>
+    </li>
+    <li>
+      <span class="rule-icon">🗳</span>
+      <div>
+        <div class="rule-title">Mandatory Primary Reform</div>
+        <div class="rule-body">
+          Parties are legally required to select replacement candidates via an open
+          internal party primary — not a top-down nomination. This prevents the party
+          leadership from imposing another proxy for the same patron network,
+          the precise behaviour NOTA was meant to punish.
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <div class="pull-quote">
+    <p>
+      "The rejection is personal, not merely positional. Parties cannot treat a
+      NOTA plurality as a weather event — an external force that swept away an
+      unlucky candidate. It is a direct verdict on candidate quality, and the
+      institutional response must reflect that specificity."
+    </p>
+    <cite>Proportional Disapproval System — Design Principle II</cite>
+  </div>
+
+  <!-- ── PHASE 3 ── -->
+  <div class="phase">
+    <span class="phase-label">Phase 3 · Logistical Safeguard</span>
+    <h2>Managing Cost and Stability</h2>
+  </div>
+
+  <p>
+    Legitimate concerns about administrative fatigue and taxpayer cost cannot
+    be dismissed. The system must contain built-in economic and procedural safety
+    nets that prevent a constituency from remaining leaderless indefinitely.
+  </p>
+
+  <div class="flow-wrap">
+    <div class="flow">
+      <div class="flow-box">Regular Election</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-label">NOTA WINS</div>
+      <div class="flow-box accent">Election Voided<br>Caretaker Installed</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-label">90-DAY COOLING-OFF</div>
+      <div class="flow-box">New Candidates via Open Primary</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box outcome">Ranked-Choice Re-Election<br>(Single Round · No Further Voids)</div>
+    </div>
+  </div>
+
+  <div class="safeguard-grid">
+    <div class="safeguard-card">
+      <div class="safeguard-card-label">Safeguard I</div>
+      <h3>The One-Strike Cap</h3>
+      <p>
+        The "reject and re-elect" mechanism can only be activated <strong>once per
+        election cycle</strong>. If NOTA wins the second time, the highest
+        vote-getting human candidate is declared winner — but with a formally
+        restricted legislative mandate, recorded in the public record.
+      </p>
+    </div>
+    <div class="safeguard-card">
+      <div class="safeguard-card-label">Safeguard II</div>
+      <h3>Ranked-Choice Re-Election</h3>
+      <p>
+        The fresh election shifts from First-Past-The-Post to an instant-runoff
+        system. Voters rank new candidates by preference, eliminating further rounds
+        of voting. This dramatically reduces administrative cost while ensuring
+        the eventual winner has majority support.
+      </p>
+    </div>
+    <div class="safeguard-card">
+      <div class="safeguard-card-label">Safeguard III</div>
+      <h3>The Caretaker Interregnum</h3>
+      <p>
+        During the 90-day window between the voided election and the re-election,
+        the constituency is managed by a non-partisan civil servant caretaker —
+        not left vacant. Essential local government functions continue uninterrupted.
+      </p>
+    </div>
+    <div class="safeguard-card">
+      <div class="safeguard-card-label">Safeguard IV</div>
+      <h3>Conditional Mandate Audit</h3>
+      <p>
+        Candidates who win despite triggering the Soft Threshold (20–30% NOTA)
+        undergo a public mid-term performance audit at the 30-month mark. Results
+        are published in the official gazette and linked to constituency development
+        fund access.
+      </p>
+    </div>
+  </div>
+
+  <div class="cost-callout">
+    <div class="cost-callout-label">⚖ The Cost Mitigation Equation</div>
+    <p>
+      While holding a re-election is expensive, the long-term cost of bad governance,
+      corruption, and stalled infrastructure under an unqualified or criminal
+      representative is significantly higher. The system treats the expense of a
+      re-election not as a financial loss, but as an <strong>insurance premium paid to
+      guarantee clean governance</strong>. One re-election — even at full administrative
+      cost — is cheaper than five years of developmental paralysis.
+    </p>
+  </div>
+
+  <!-- ── COMPARISON TABLE ── -->
+  <div class="phase">
+    <span class="phase-label">Comparative Blueprint</span>
+    <h2>Current System vs. Proportional Disapproval</h2>
+  </div>
+
+  <div class="table-wrap">
+    <table class="compare" aria-label="System comparison table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Current Indian System</th>
+          <th>Proportional Disapproval System</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Electoral Value of NOTA</td>
+          <td><span class="tag-old">Zero</span> — treated as a neutral / invalid vote</td>
+          <td><span class="tag-new">High</span> — acts as a graduated veto mechanism</td>
+        </tr>
+        <tr>
+          <td>NOTA Plurality Outcome</td>
+          <td>Candidate with most human votes wins regardless</td>
+          <td>Election voided; fresh polls triggered under new rules</td>
+        </tr>
+        <tr>
+          <td>Candidate Liability</td>
+          <td><span class="tag-old">None</span> — can re-run indefinitely</td>
+          <td>Disqualified from contesting the immediate fresh re-election</td>
+        </tr>
+        <tr>
+          <td>Party Accountability</td>
+          <td><span class="tag-old">None</span></td>
+          <td>Financial penalties and loss of public campaign resources</td>
+        </tr>
+        <tr>
+          <td>Candidate Selection</td>
+          <td>Top-down party nomination, no formal constraint</td>
+          <td>Open internal primary legally mandated for replacements</td>
+        </tr>
+        <tr>
+          <td>Voting Method</td>
+          <td>First-Past-The-Post (EVM plurality)</td>
+          <td>Ranked-Choice / Alternative Vote for the re-election round</td>
+        </tr>
+        <tr>
+          <td>Governance During Gap</td>
+          <td>Seat vacant or under President's Rule</td>
+          <td>Non-partisan civil servant caretaker (90-day cap)</td>
+        </tr>
+        <tr>
+          <td>Infinite Loop Protection</td>
+          <td>Not applicable (NOTA has no effect)</td>
+          <td>One-Strike Cap — second NOTA win yields restricted mandate</td>
+        </tr>
+        <tr>
+          <td>Sub-Plurality NOTA Signal</td>
+          <td><span class="tag-old">Ignored entirely</span></td>
+          <td>Triggers Conditional Mandate with public performance audit</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── CONCLUSION ── -->
+  <div class="conclusion">
+    <div class="conclusion-label">Conclusion</div>
+    <p>
+      By restructuring NOTA this way, it stops being a passive protest button and
+      becomes an active regulatory mechanism. The change is not merely procedural —
+      it is genetic. Parties forced to select candidates through open primaries,
+      knowing that a NOTA plurality bars their nominee from re-contesting, will
+      self-correct <em>before</em> filing nominations rather than after a humiliating
+      defeat.
+    </p>
+    <p>
+      The system does not punish voters for using NOTA — it punishes parties for
+      making NOTA the only rational option. That inversion is the entire point.
+      Electoral accountability begins with changing the incentive structure that
+      governs candidate quality, and NOTA — properly designed — is a remarkably
+      elegant instrument for doing exactly that.
+    </p>
+  </div>
+
+  <div class="disclaimer">
+    This is an editorial analysis piece presenting a policy proposal for discussion.
+    It does not represent current law. The Bengal Reader is non-partisan and does not
+    advocate for any political party. Proposals are assessed on their structural merits
+    for democratic accountability.
+  </div>
+
+</main>
+
+</body>
+</html>
