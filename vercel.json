@@ -25,7 +25,8 @@
     { "source": "/education", "destination": "/education-employability.html" },
     { "source": "/cjp", "destination": "/cjp.html" },
     { "source": "/cjp-projects", "destination": "/cjp-projects.html" },
-    { "source": "/nota", "destination": "/nota-reform.html" }
+    { "source": "/nota", "destination": "/nota-reform.html" },
+    { "source": "/clean-candidates", "destination": "/clean-candidates.html" }
   ],
   "headers": [
     {

@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A three-layered blueprint for engineering electoral systems that make fielding bad candidates a losing strategy for political parties — through statutory bans, intra-party democracy, and financial de-incentivization.">
+<meta property="og:title" content="Engineering Clean Candidates: A Blueprint for Electoral Accountability — The Bengal Reader">
+<meta property="og:description" content="How to make fielding criminals, dynasts, and money-bags a structurally losing strategy for any political party.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="/og-assets.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Engineering Clean Candidates — The Bengal Reader">
+<meta name="twitter:description" content="Strict statutory bans, intra-party democracy, and financial de-incentivization: a three-layer fix for the criminalization of politics.">
+<title>Engineering Clean Candidates — The Bengal Reader</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/fonts.css">
+<script defer src="/analytics.js"></script>
+<link rel="stylesheet" href="/shared.css">
+<script defer src="/shared.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --clean: #15803d;
+  --clean-light: #dcfce7;
+  --clean-dark: #14532d;
+  --law: #7c3aed;
+  --law-light: #ede9fe;
+  --money: #b45309;
+  --money-light: #fef3c7;
+  --danger: #dc2626;
+  --danger-light: #fee2e2;
+}
+
+[data-theme="dark"] {
+  --clean-light: #14532d;
+  --law-light: #2e1065;
+  --money-light: #451a03;
+  --danger-light: #450a0a;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── PAGE HEADER ── */
+.page-header {
+  border-bottom: 3px solid var(--ink);
+  padding: 2.5rem 2rem 2rem;
+  background: var(--paper);
+}
+.page-header-inner { max-width: 780px; margin: 0 auto; }
+
+.overline {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--clean);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.overline::before {
+  content: '';
+  display: inline-block;
+  width: 2rem;
+  height: 2px;
+  background: var(--clean);
+}
+
+.page-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin-bottom: 1rem;
+}
+.page-header h1 em { font-style: italic; color: var(--clean); }
+
+.deck {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 680px;
+  margin-bottom: 1.4rem;
+}
+
+.byline {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  padding-top: 1rem;
+  border-top: 1px solid var(--aged);
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--aged);
+}
+
+/* ── BODY LAYOUT ── */
+.article-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 5rem;
+}
+
+/* ── LEAD ── */
+.lead {
+  font-size: 1.18rem;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--aged);
+}
+
+/* ── THREE-LAYER INTRO ── */
+.layer-strip {
+  display: flex;
+  gap: 0;
+  margin: 1.8rem 0 2.5rem;
+  border: 1.5px solid var(--aged);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.layer-cell {
+  flex: 1;
+  padding: 1.1rem 1rem;
+  border-right: 1.5px solid var(--aged);
+  text-align: center;
+}
+.layer-cell:last-child { border-right: none; }
+
+.layer-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+.layer-cell:nth-child(1) .layer-num { color: var(--clean); }
+.layer-cell:nth-child(2) .layer-num { color: var(--law); }
+.layer-cell:nth-child(3) .layer-num { color: var(--money); }
+
+.layer-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
+  display: block;
+}
+
+@media (max-width: 500px) {
+  .layer-strip { flex-direction: column; }
+  .layer-cell { border-right: none; border-bottom: 1.5px solid var(--aged); }
+  .layer-cell:last-child { border-bottom: none; }
+}
+
+/* ── PHASE HEADINGS ── */
+.phase {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.phase-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.phase-label.green { color: var(--clean); }
+.phase-label.purple { color: var(--law); }
+.phase-label.amber { color: var(--money); }
+
+.phase h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  padding-left: 0.85rem;
+}
+.phase h2.green { border-left: 4px solid var(--clean); }
+.phase h2.purple { border-left: 4px solid var(--law); }
+.phase h2.amber { border-left: 4px solid var(--money); }
+
+/* ── REFORM CARDS (two-col) ── */
+.reform-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+@media (max-width: 600px) { .reform-grid { grid-template-columns: 1fr; } }
+
+.reform-card {
+  border: 1.5px solid var(--aged);
+  border-radius: 4px;
+  padding: 1.2rem 1.3rem;
+  position: relative;
+  overflow: hidden;
+}
+.reform-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.reform-card.green::before { background: var(--clean); }
+.reform-card.purple::before { background: var(--law); }
+.reform-card.amber::before { background: var(--money); }
+
+.reform-card-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.reform-card.green .reform-card-label { color: var(--clean); }
+.reform-card.purple .reform-card-label { color: var(--law); }
+.reform-card.amber .reform-card-label { color: var(--money); }
+
+.reform-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.reform-card p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* ── RULE LIST ── */
+.rule-list { list-style: none; margin: 1.5rem 0 2rem; }
+.rule-list li {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 0.5rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--aged);
+  align-items: start;
+}
+.rule-list li:last-child { border-bottom: none; }
+
+.rule-icon { font-size: 1rem; line-height: 1.5; text-align: center; }
+.rule-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+.rule-body {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.rule-body strong { color: var(--ink); }
+
+/* ── BEFORE / AFTER CONTRAST ── */
+.contrast-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+@media (max-width: 540px) { .contrast-pair { grid-template-columns: 1fr; } }
+
+.contrast-box {
+  border-radius: 4px;
+  padding: 1.1rem 1.2rem;
+  border: 1.5px solid;
+}
+.contrast-box.before {
+  background: var(--danger-light);
+  border-color: var(--danger);
+}
+.contrast-box.after {
+  background: var(--clean-light);
+  border-color: var(--clean);
+}
+.contrast-box-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.contrast-box.before .contrast-box-label { color: var(--danger); }
+.contrast-box.after .contrast-box-label { color: var(--clean); }
+.contrast-box p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* ── FUNDING FLOW DIAGRAM ── */
+.flow-wrap {
+  background: var(--aged);
+  border-radius: 4px;
+  padding: 1.8rem 2rem;
+  margin: 1.8rem 0;
+  overflow-x: auto;
+}
+
+.flow-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  min-width: 260px;
+}
+.flow-node {
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  border-radius: 3px;
+  padding: 0.5rem 0.85rem;
+  text-align: center;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.flow-node.ban {
+  background: var(--danger-light);
+  border-color: var(--danger);
+  color: var(--danger);
+  text-decoration: line-through;
+}
+.flow-node.pool {
+  background: var(--money-light);
+  border-color: var(--money);
+}
+.flow-node.result {
+  background: var(--clean-light);
+  border-color: var(--clean);
+}
+.flow-arrow { color: var(--muted); font-size: 1rem; line-height: 1; }
+.flow-label {
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  color: var(--money);
+  text-align: center;
+  width: 100%;
+  margin-top: -0.3rem;
+}
+
+/* ── COMPARISON TABLE ── */
+.table-wrap {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: 4px;
+  border: 1.5px solid var(--aged);
+}
+table.compare {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+table.compare thead tr { background: var(--ink); color: var(--paper); }
+table.compare thead th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+table.compare thead th:last-child { border-right: none; }
+table.compare tbody tr { border-bottom: 1px solid var(--aged); }
+table.compare tbody tr:last-child { border-bottom: none; }
+table.compare tbody tr:nth-child(even) { background: var(--aged); }
+table.compare td {
+  padding: 0.7rem 1rem;
+  vertical-align: top;
+  border-right: 1px solid var(--aged);
+  line-height: 1.5;
+}
+table.compare td:last-child { border-right: none; }
+table.compare td:first-child {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.tag-old { color: var(--danger); font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; }
+.tag-new { color: var(--clean); font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; font-weight: 600; }
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  border-left: 4px solid var(--clean);
+  background: var(--clean-light);
+  padding: 1.4rem 1.6rem;
+  margin: 2.5rem 0;
+  border-radius: 0 4px 4px 0;
+}
+.pull-quote p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.08rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.pull-quote cite {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clean);
+  font-style: normal;
+}
+
+/* ── VOTER CALLOUT ── */
+.voter-callout {
+  border: 1.5px solid var(--clean);
+  background: var(--clean-light);
+  border-radius: 4px;
+  padding: 1.6rem 1.8rem;
+  margin: 2.5rem 0;
+}
+.voter-callout-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--clean);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.voter-callout-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 0.7rem;
+}
+.voter-callout p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+/* ── INLINE BODY ── */
+.article-body p { margin-bottom: 1rem; }
+.article-body p:last-child { margin-bottom: 0; }
+.article-body h3.subhead {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 2rem 0 0.8rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--aged);
+}
+
+/* ── COMPANION LINK ── */
+.companion {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.2rem;
+  border: 1.5px solid var(--aged);
+  border-radius: 4px;
+  margin: 2.5rem 0;
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color 0.15s;
+}
+.companion:hover { border-color: var(--clean); }
+.companion-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+.companion-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.companion-arrow { font-size: 1.2rem; color: var(--muted); margin-left: auto; flex-shrink: 0; }
+
+/* ── CONCLUSION ── */
+.conclusion {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 3px double var(--aged);
+}
+.conclusion-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--clean);
+  margin-bottom: 0.8rem;
+}
+.conclusion p { font-size: 1.05rem; line-height: 1.7; margin-bottom: 1rem; }
+
+/* ── DISCLAIMER ── */
+.disclaimer {
+  margin-top: 3rem;
+  padding: 1rem 1.2rem;
+  border: 1px dashed var(--aged);
+  border-radius: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  color: var(--muted);
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">The Bengal Reader</a>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Voter Guide</a>
+      <a href="/parties" class="site-nav-link">Party Compass</a>
+      <a href="/constituencies" class="site-nav-link">2026 Results</a>
+      <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+      <a href="/accountability" class="site-nav-link">100 Days</a>
+      <a href="/corruption" class="site-nav-link">Dossier</a>
+      <a href="/bonds" class="site-nav-link">Money Trail</a>
+      <a href="/mlas" class="site-nav-link">MLA Records</a>
+      <a href="/india-development" class="site-nav-link">India's Story</a>
+      <a href="/india-china" class="site-nav-link">India vs China</a>
+      <a href="/india-governance" class="site-nav-link">Performance OS</a>
+      <a href="/india-disadvantage-index" class="site-nav-link">Disadvantage Index</a>
+      <a href="/friction-engine" class="site-nav-link">Friction Engine</a>
+      <a href="/education" class="site-nav-link">Education Gap</a>
+      <a href="/cjp" class="site-nav-link">CJP</a>
+      <a href="/nota" class="site-nav-link">NOTA Reform</a>
+      <a href="/clean-candidates" class="site-nav-link active">Clean Candidates</a>
+      <a href="/ask" class="site-nav-link">Ask AI</a>
+      <a href="/map" class="site-nav-link">Map</a>
+      <a href="/assets" class="site-nav-link">Wealth Growth</a>
+      <a href="/methodology" class="site-nav-link">Methodology</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="overline">Electoral Reform Series</div>
+    <h1>Engineering<br><em>Clean Candidates</em></h1>
+    <p class="deck">
+      A country cannot rely on the goodwill of politicians to field high-quality,
+      clean, and educated candidates. The electoral framework must be engineered
+      so that fielding a bad candidate becomes a <em>structurally losing strategy</em>
+      for the party — through three interlocking layers of reform.
+    </p>
+    <div class="byline">
+      <span>The Bengal Reader — Editorial</span>
+      <span>Electoral Reform Series</span>
+      <span>May 2026</span>
+    </div>
+    <div class="header-controls">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <span class="theme-toggle-icon">◑</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="article-body">
+
+  <p class="lead">
+    The criminalization of Indian politics is not an accident. It is the predictable
+    output of a system whose incentive structure rewards muscle power, money power,
+    and caste arithmetic over competence, integrity, and public service. Structural
+    reforms — not moral appeals — are the only reliable corrective. A robust
+    democracy requires a three-layered approach: <strong>intra-party democratization</strong>,
+    <strong>hard statutory disqualification filters</strong>, and
+    <strong>financial de-incentivization</strong> of bad candidates. Each layer
+    addresses a different failure mode; none is sufficient alone.
+  </p>
+
+  <div class="layer-strip" role="list" aria-label="Three reform layers">
+    <div class="layer-cell" role="listitem">
+      <span class="layer-num">I</span>
+      <span class="layer-title">Intra-Party<br>Democracy</span>
+    </div>
+    <div class="layer-cell" role="listitem">
+      <span class="layer-num">II</span>
+      <span class="layer-title">Hard Legal<br>Filters</span>
+    </div>
+    <div class="layer-cell" role="listitem">
+      <span class="layer-num">III</span>
+      <span class="layer-title">Financial<br>De-Incentivization</span>
+    </div>
+  </div>
+
+  <!-- ── LAYER I ── -->
+  <div class="phase">
+    <span class="phase-label green">Layer I · Intra-Party Democracy</span>
+    <h2 class="green">Decentralizing Candidate Selection</h2>
+  </div>
+
+  <p>
+    In most major Indian parties, candidate selection is highly centralized. A
+    central high command decides who gets the ticket, most often favouring loyalty,
+    nepotism, or "winnability" — which in practice translates to raw money power
+    and local muscle. Breaking this chokehold requires structural legal intervention,
+    not voluntary reform.
+  </p>
+
+  <div class="reform-grid">
+    <div class="reform-card green">
+      <div class="reform-card-label">Reform I-A</div>
+      <h3>Legally Mandated Primaries</h3>
+      <p>
+        An amendment to the Representation of the People Act should require all
+        registered parties to hold localized primary votes — giving registered
+        party members or local constituents within a district the power to choose
+        the party's candidate. The power to award a ticket must leave the high
+        command and return to the local voter.
+      </p>
+    </div>
+    <div class="reform-card green">
+      <div class="reform-card-label">Reform I-B</div>
+      <h3>Election Commission Oversight</h3>
+      <p>
+        The Election Commission must oversee and audit internal party elections.
+        If a party cannot prove it selected its candidate through a transparent,
+        democratic, and audited internal ballot, it is barred from using its
+        official party symbol on the ballot paper in that constituency.
+        The party symbol is the franchise; its loss is the price of opacity.
+      </p>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <p>
+      "Winnability" is the polite word for the combination of money power, caste
+      arithmetic, and local muscle that has colonized Indian ticket allocation.
+      No reform survives unless the decision of who gets the ticket is taken out
+      of the hands of the people who benefit from that combination.
+    </p>
+    <cite>Clean Candidates Blueprint — Layer I Rationale</cite>
+  </div>
+
+  <!-- ── LAYER II ── -->
+  <div class="phase">
+    <span class="phase-label purple">Layer II · Hard Legal Filters</span>
+    <h2 class="purple">Plugging the Loopholes</h2>
+  </div>
+
+  <p>
+    Relying on candidate affidavits to self-disclose criminal records has comprehensively
+    failed. Voters are regularly forced to choose between candidates with competing
+    legal charge sheets. The legal filters must become absolute, not advisory.
+  </p>
+
+  <ul class="rule-list">
+    <li>
+      <span class="rule-icon">⚖️</span>
+      <div>
+        <div class="rule-title">Fast-Track Disqualification on Charge-Framing</div>
+        <div class="rule-body">
+          Currently, a candidate is disqualified only upon <em>conviction</em> under
+          Section 8 of the RPA. Because Indian court cases routinely stretch over
+          decades, individuals with severe charges hold office for entire careers.
+          The law should be amended to bar any individual from contesting where
+          <strong>charges have been framed by a court for heinous offences</strong> —
+          murder, rape, extortion, or major corruption — at least six months prior
+          to the election date. Framing, not conviction, is the threshold.
+        </div>
+      </div>
+    </li>
+    <li>
+      <span class="rule-icon">📋</span>
+      <div>
+        <div class="rule-title">The False Affidavit Penalty</div>
+        <div class="rule-body">
+          If a candidate conceals assets, educational qualifications, or criminal
+          charges in their election affidavit, this should not merely constitute
+          an election offense. It should trigger the <strong>immediate disqualification
+          of the candidate</strong> and a multi-year ban on the political party from
+          contesting that specific seat. The party bears collective responsibility
+          for the honesty of the candidate it endorsed.
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <h3 class="subhead">The Loophole Landscape</h3>
+
+  <div class="contrast-pair">
+    <div class="contrast-box before">
+      <div class="contrast-box-label">Current Reality</div>
+      <p>
+        An accused murderer or rape accused can contest and win, then draw a
+        legislator's salary, staff, and security for years — potentially decades —
+        while their case winds through courts. A conviction that arrives after
+        three terms in office is not accountability; it is farce.
+      </p>
+    </div>
+    <div class="contrast-box after">
+      <div class="contrast-box-label">Reformed Reality</div>
+      <p>
+        Once a court frames charges for heinous offences, the disqualification
+        clock starts. Conviction is no longer required. If charges are later
+        dropped or the accused is acquitted, the disqualification lapses —
+        protecting the innocent while protecting the public during proceedings.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── LAYER III ── -->
+  <div class="phase">
+    <span class="phase-label amber">Layer III · Financial De-Incentivization</span>
+    <h2 class="amber">Cutting the Money-Power Equation</h2>
+  </div>
+
+  <p>
+    Parties frequently field millionaire candidates because they self-fund enormous
+    campaigns, relieving the party of financial responsibility. To break this
+    dependency, the financial economics of campaigning must be restructured from
+    the ground up.
+  </p>
+
+  <div class="flow-wrap">
+    <div class="flow-diagram" aria-label="Campaign funding flow">
+      <div class="flow-node ban">Private &amp;<br>Corporate<br>Donations</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node pool">State-Funded<br>Election Pool</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node result">Equal Resources<br>to Clean Candidates</div>
+    </div>
+  </div>
+
+  <ul class="rule-list">
+    <li>
+      <span class="rule-icon">🏛️</span>
+      <div>
+        <div class="rule-title">State Funding of Elections</div>
+        <div class="rule-body">
+          Ban direct corporate and private donations to individual candidates or
+          parties during election cycles. Establish a <strong>state-funded election
+          pool</strong> that provides strictly capped campaign resources — printing,
+          media airtime, fuel allowances — directly to verified candidates.
+          This levels the playing field, allowing educated, clean, but middle-class
+          individuals to compete against entrenched tycoons without requiring
+          crores of rupees in personal capital.
+        </div>
+      </div>
+    </li>
+    <li>
+      <span class="rule-icon">📊</span>
+      <div>
+        <div class="rule-title">Real-Time Financial Auditing of Parties</div>
+        <div class="rule-body">
+          Implement <strong>real-time, publicly accessible tracking</strong> of all
+          political party expenditures during election periods. If a party is caught
+          deploying unaccounted cash to boost a candidate's campaign, that candidate
+          is instantly disqualified and the party faces crippling financial penalties —
+          with the penalty scaled to the detected sum, not a flat fee that a
+          well-funded party can absorb as a cost of doing business.
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <!-- ── COMPARISON TABLE ── -->
+  <div class="phase">
+    <span class="phase-label green">Structural Comparison</span>
+    <h2 class="green">The Shift in Incentives</h2>
+  </div>
+
+  <div class="table-wrap">
+    <table class="compare" aria-label="Current vs reformed candidate dynamics">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>Current Dynamic</th>
+          <th>Reformed Dynamic</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ticket Criteria</td>
+          <td><span class="tag-old">Money power,</span> caste arithmetic, local muscle — "winnability"</td>
+          <td><span class="tag-new">Local popularity and competence</span> proven through audited primaries</td>
+        </tr>
+        <tr>
+          <td>Financial Entry Barrier</td>
+          <td>Extremely high — requires crores of personal capital to mount a viable campaign</td>
+          <td><span class="tag-new">Low</span> — state-funded infrastructure ensures equal reach for all candidates</td>
+        </tr>
+        <tr>
+          <td>Criminal Record</td>
+          <td><span class="tag-old">Often an asset</span> — signals local "clout" and muscle during polling</td>
+          <td><span class="tag-new">Legal disqualification</span> — charges framed for major crimes act as an automatic bar</td>
+        </tr>
+        <tr>
+          <td>Candidate Selection Power</td>
+          <td>Central high command; loyalty and deal-making determine the ticket</td>
+          <td>Decentralized to local party membership via EC-audited primary</td>
+        </tr>
+        <tr>
+          <td>Affidavit Non-Disclosure</td>
+          <td>Minor electoral offence; rarely prosecuted to outcome</td>
+          <td>Immediate candidate disqualification + party ban from that seat</td>
+        </tr>
+        <tr>
+          <td>Corporate Money Influence</td>
+          <td>Structural — large donations buy preferred candidates and post-election access</td>
+          <td><span class="tag-new">Eliminated</span> at source; banned during election cycles with real-time audit</td>
+        </tr>
+        <tr>
+          <td>Party Symbol Accountability</td>
+          <td>None — symbol granted regardless of candidate selection process</td>
+          <td>Symbol forfeited in constituencies where primary transparency cannot be proved</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── VOTER CALLOUT ── -->
+  <div class="voter-callout">
+    <div class="voter-callout-label">⬟ The Ultimate Filter</div>
+    <div class="voter-callout-title">The Voter</div>
+    <p>
+      Structural reforms can only do half the work. As long as electorates vote
+      along lines of identity politics, freebie distributions, or fear, parties
+      will continue to exploit those vectors — because exploiting them wins.
+      Real change happens when structural filters are paired with an electorate
+      that actively treats a candidate's education, clean record, and policy
+      roadmap as non-negotiable prerequisites for their vote. Systems engineer
+      the minimum floor; voters determine how far above that floor the standard
+      actually rises. The two are not substitutes. They are multipliers.
+    </p>
+  </div>
+
+  <!-- ── COMPANION ── -->
+  <a href="/nota" class="companion" aria-label="Read companion piece on NOTA reform">
+    <div>
+      <div class="companion-meta">Companion Piece · Electoral Reform Series</div>
+      <div class="companion-title">Redesigning NOTA: From Protest Button to Veto</div>
+    </div>
+    <span class="companion-arrow" aria-hidden="true">→</span>
+  </a>
+
+  <!-- ── CONCLUSION ── -->
+  <div class="conclusion">
+    <div class="conclusion-label">Conclusion</div>
+    <p>
+      The three layers described here are not independent alternatives — they form
+      an interlocking system. Intra-party primaries without legal disqualification
+      filters still allow criminal candidates who are locally popular to survive the
+      primary. Legal filters without financial reform still favour self-funded
+      candidates who can outspend anyone with a clean record. Financial reform without
+      party democratization still leaves the high command free to select proxies.
+    </p>
+    <p>
+      Only when all three operate simultaneously does the incentive structure genuinely
+      invert — so that fielding a criminal, a dynasty puppet, or an unqualified
+      money-bag becomes a losing move rather than a rational one. The goal is not to
+      produce perfect politicians. It is to make the production of bad ones
+      structurally expensive.
+    </p>
+  </div>
+
+  <div class="disclaimer">
+    This is an editorial analysis piece presenting a policy proposal for public
+    discussion. It does not represent current law or any proposed legislation.
+    The Bengal Reader is non-partisan and does not advocate for any political
+    party. Proposals are evaluated on structural merits for democratic accountability.
+  </div>
+
+</main>
+
+</body>
+</html>

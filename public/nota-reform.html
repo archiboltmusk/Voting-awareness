@@ -466,6 +466,35 @@ table.compare td:first-child {
   margin-bottom: 1rem;
 }
 
+/* ── COMPANION LINK ── */
+.companion {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.2rem;
+  border: 1.5px solid var(--aged);
+  border-radius: 4px;
+  margin: 2.5rem 0;
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color 0.15s;
+}
+.companion:hover { border-color: var(--nota); }
+.companion-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+.companion-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.companion-arrow { font-size: 1.2rem; color: var(--muted); margin-left: auto; flex-shrink: 0; }
+
 /* ── DISCLAIMER ── */
 .disclaimer {
   margin-top: 3rem;
@@ -513,6 +542,7 @@ table.compare td:first-child {
       <a href="/education" class="site-nav-link">Education Gap</a>
       <a href="/cjp" class="site-nav-link">CJP</a>
       <a href="/nota" class="site-nav-link active">NOTA Reform</a>
+      <a href="/clean-candidates" class="site-nav-link">Clean Candidates</a>
       <a href="/ask" class="site-nav-link">Ask AI</a>
       <a href="/map" class="site-nav-link">Map</a>
       <a href="/assets" class="site-nav-link">Wealth Growth</a>
@@ -825,6 +855,14 @@ table.compare td:first-child {
       elegant instrument for doing exactly that.
     </p>
   </div>
+
+  <a href="/clean-candidates" class="companion" aria-label="Read companion piece on engineering clean candidates">
+    <div>
+      <div class="companion-meta">Companion Piece · Electoral Reform Series</div>
+      <div class="companion-title">Engineering Clean Candidates: Statutory Bans, Primaries &amp; Financial Reform</div>
+    </div>
+    <span class="companion-arrow" aria-hidden="true">→</span>
+  </a>
 
   <div class="disclaimer">
     This is an editorial analysis piece presenting a policy proposal for discussion.
