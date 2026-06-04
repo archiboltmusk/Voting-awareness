@@ -188,9 +188,22 @@ try {
   const mlasData = JSON.parse(readFileSync('public/data/mlas.json', 'utf-8'));
   const mlas = Array.isArray(mlasData) ? mlasData : (mlasData.mlas || []);
   logOk(`mlas.json: ${mlas.length} MLA records`);
-  if (mlas.length < 41)  logWarn('mlas.json: fewer than 41 records — scraper may not have run');
-  if (mlas.length < 294) logWarn(`mlas.json: ${294 - mlas.length} MLAs still missing (${mlas.length}/294)`);
-  else                   logOk('mlas.json: full 294 MLA coverage achieved');
+
+  // Integrity model: every published record MUST carry source provenance.
+  // Unsourced records are a hard error — they must never reach the live site.
+  const unsourced = mlas.filter((m) => !m.sourceUrl);
+  if (unsourced.length > 0)
+    logError(
+      `mlas.json: ${unsourced.length} record(s) lack a sourceUrl — unsourced data must not be published ` +
+        `(e.g. ${unsourced.slice(0, 3).map((m) => m.name || '?').join(', ')})`
+    );
+  else if (mlas.length > 0) logOk('mlas.json: all records carry source provenance');
+
+  if (mlas.length === 0)
+    logOk('mlas.json: empty — awaiting verified data from the ADR/MyNeta scraper (expected until first CI run)');
+  else if (mlas.length < 294)
+    logWarn(`mlas.json: ${294 - mlas.length} of 294 MLAs not yet sourced (${mlas.length}/294 published)`);
+  else logOk('mlas.json: full 294 MLA coverage achieved');
 } catch (e) {
   logError(`mlas.json: ${e.message}`);
 }
