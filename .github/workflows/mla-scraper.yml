@@ -31,7 +31,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Scrape MLA affidavits from ECI
+      - name: Scrape MLA records from ADR / MyNeta
         id: scrape
         run: node scripts/scrape-mlas.mjs
 

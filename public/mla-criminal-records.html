@@ -756,6 +756,23 @@ async function loadData() {
       </div>`;
     return;
   }
+  if (!Array.isArray(MLA_DATA) || MLA_DATA.length === 0) {
+    document.querySelector('.table-wrap').innerHTML = `
+      <div style="text-align:center;padding:4rem 2rem;font-family:'IBM Plex Mono',monospace;font-size:0.82rem;color:var(--muted);line-height:1.8;">
+        <p style="font-size:1rem;color:var(--ink);">Verified records are being collected.</p>
+        <p style="margin-top:0.75rem;max-width:46ch;margin-inline:auto;">
+          This database publishes <strong>only criminal-record and asset data confirmed against primary public sources</strong> —
+          ECI candidate affidavits and the ADR / MyNeta archive. No record is shown until it is sourced.
+        </p>
+        <p style="margin-top:0.75rem;max-width:46ch;margin-inline:auto;">
+          The automated scraper refreshes this file from
+          <a href="https://www.myneta.info/WestBengal2026/" target="_blank" rel="noopener" style="color:var(--ink);">myneta.info</a>
+          on a daily schedule. Records appear here as they are verified.
+        </p>
+        <p style="margin-top:1rem;"><a href="https://github.com/mahatoanupam002-lang/Voting-awareness/blob/main/public/data/mlas.json" target="_blank" rel="noopener" style="color:var(--ink);">View raw data on GitHub →</a></p>
+      </div>`;
+    return;
+  }
   populateDistrictFilter();
   computeStats(MLA_DATA);
   renderPartySummary(MLA_DATA);
