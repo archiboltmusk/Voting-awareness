@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="RTI Swarm: template-driven RTI filing portal and data journalism pipeline. Turn government PDFs into investigative content."
+    />
+    <meta property="og:title" content="RTI Swarm — CJP Data Journalism Pipeline" />
+    <meta
+      property="og:description"
+      content="File. Wait. Publish. A structured RTI assembly line turning government PDFs into viral investigative content."
+    />
+    <meta property="og:image" content="/og-cjp.svg" />
+    <title>The Bengal Reader — RTI Swarm</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/shared.css" />
+    <script defer src="/analytics.js"></script>
+    <script defer src="/shared.js"></script>
+    <style>
+      :root {
+        --paper: #f4f1ea;
+        --ink: #1a1714;
+        --ink2: #4a3f35;
+        --ink3: #7a6a5a;
+        --rule: #d8d0c4;
+        --saffron: #e87c2a;
+        --danger: #c0392b;
+        --good: #2d7a4f;
+        --card-bg: #ede9e0;
+        --hover: #e0dbd0;
+        --cjp: #1c8a0e;
+        --cjp-dim: rgba(28, 138, 14, 0.12);
+      }
+      [data-theme='dark'] {
+        --paper: #141210;
+        --ink: #f0ece3;
+        --ink2: #c8bfb0;
+        --ink3: #8a7d6e;
+        --rule: #2a2420;
+        --card-bg: #1e1a16;
+        --hover: #252018;
+        --cjp: #2db314;
+        --cjp-dim: rgba(45, 179, 20, 0.08);
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { background: var(--paper); color: var(--ink); font-family: 'Georgia', serif; line-height: 1.6; }
+
+      /* ── HERO ── */
+      .hero {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 2.5rem 1.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          0deg, transparent, transparent 2px,
+          rgba(255,255,255,0.015) 2px, rgba(255,255,255,0.015) 4px
+        );
+        pointer-events: none;
+      }
+      .hero-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+      .hero-kicker {
+        font-family: 'Courier New', monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--cjp);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .hero-kicker::before {
+        content: '';
+        display: inline-block;
+        width: 24px;
+        height: 1px;
+        background: var(--cjp);
+      }
+      .hero h1 {
+        font-size: clamp(1.6rem, 4vw, 2.8rem);
+        color: var(--paper);
+        line-height: 1.15;
+        margin-bottom: 0.75rem;
+      }
+      .hero h1 em { font-style: normal; color: var(--cjp); }
+      .hero-sub {
+        font-size: 1rem;
+        color: var(--ink3);
+        max-width: 640px;
+        line-height: 1.65;
+        margin-bottom: 1.75rem;
+      }
+      .hero-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+      .hero-stat {
+        font-family: 'Courier New', monospace;
+        font-size: 0.72rem;
+        color: var(--ink3);
+        letter-spacing: 0.06em;
+      }
+      .hero-stat strong {
+        color: var(--cjp);
+        display: block;
+        font-size: 1.6rem;
+        line-height: 1;
+        margin-bottom: 0.2rem;
+      }
+
+      /* ── SECTION WRAPPER ── */
+      .section {
+        max-width: 960px;
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+      }
+      .section-hd {
+        border-top: 2px solid var(--cjp);
+        padding-top: 1.2rem;
+        margin-bottom: 1.75rem;
+      }
+      .section-hd h2 { font-size: 1.35rem; margin-bottom: 0.3rem; }
+      .section-hd p  { font-size: 0.88rem; color: var(--ink2); }
+
+      /* ── TABS ── */
+      .tab-bar {
+        display: flex;
+        gap: 0;
+        border-bottom: 2px solid var(--rule);
+        margin-bottom: 1.5rem;
+        overflow-x: auto;
+      }
+      .tab-btn {
+        font-family: 'Courier New', monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: none;
+        border: none;
+        border-bottom: 2px solid transparent;
+        margin-bottom: -2px;
+        padding: 0.6rem 1.2rem;
+        cursor: pointer;
+        color: var(--ink3);
+        transition: color 0.15s, border-color 0.15s;
+        white-space: nowrap;
+      }
+      .tab-btn:hover { color: var(--ink); }
+      .tab-btn.active { color: var(--cjp); border-bottom-color: var(--cjp); }
+
+      /* ── TEMPLATE CARDS ── */
+      .template-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.25rem;
+      }
+      .template-card {
+        border: 1px solid var(--rule);
+        background: var(--card-bg);
+        padding: 1.2rem;
+        border-top: 3px solid var(--cjp);
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .template-label {
+        font-family: 'Courier New', monospace;
+        font-size: 0.62rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--cjp);
+      }
+      .template-card h3 { font-size: 0.95rem; line-height: 1.35; }
+      .template-card p { font-size: 0.82rem; color: var(--ink2); line-height: 1.55; flex: 1; }
+      .template-key {
+        font-family: 'Courier New', monospace;
+        font-size: 0.72rem;
+        background: var(--cjp-dim);
+        border: 1px solid var(--cjp);
+        padding: 0.35rem 0.6rem;
+        color: var(--ink);
+        line-height: 1.45;
+      }
+      .template-key span { color: var(--cjp); font-weight: bold; }
+      .btn-preview {
+        font-family: 'Courier New', monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border: 1px solid var(--cjp);
+        background: none;
+        color: var(--cjp);
+        padding: 0.45rem 0.9rem;
+        cursor: pointer;
+        transition: background 0.15s, color 0.15s;
+        align-self: flex-start;
+      }
+      .btn-preview:hover { background: var(--cjp); color: var(--paper); }
+
+      /* ── TEMPLATE PREVIEW PANEL ── */
+      .preview-panel {
+        display: none;
+        margin-top: 2rem;
+        border: 1px solid var(--cjp);
+        background: var(--card-bg);
+      }
+      .preview-panel.open { display: block; }
+      .preview-panel-hd {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 0.8rem 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .preview-panel-hd span {
+        font-family: 'Courier New', monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--cjp);
+      }
+      .preview-panel-hd strong { font-size: 0.92rem; color: var(--paper); }
+      .preview-panel-body { padding: 1.4rem; }
+      .rti-draft {
+        font-family: 'Courier New', monospace;
+        font-size: 0.78rem;
+        line-height: 1.8;
+        color: var(--ink);
+        white-space: pre-wrap;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        padding: 1.2rem;
+        max-height: 420px;
+        overflow-y: auto;
+      }
+      .blank { color: var(--cjp); font-weight: bold; }
+      .preview-actions { margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+      .btn-copy, .btn-close-preview {
+        font-family: 'Courier New', monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border: 1px solid var(--rule);
+        background: none;
+        color: var(--ink2);
+        padding: 0.45rem 0.9rem;
+        cursor: pointer;
+        transition: border-color 0.15s, color 0.15s;
+      }
+      .btn-copy { border-color: var(--cjp); color: var(--cjp); }
+      .btn-copy:hover { background: var(--cjp); color: var(--paper); }
+      .btn-close-preview:hover { border-color: var(--ink); color: var(--ink); }
+      .copy-confirm {
+        font-family: 'Courier New', monospace;
+        font-size: 0.68rem;
+        color: var(--good);
+        display: none;
+        align-self: center;
+      }
+      .copy-confirm.show { display: inline; }
+
+      /* ── RTI TRACKER ── */
+      .tracker-actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+      }
+      .btn-file {
+        font-family: 'Courier New', monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: var(--cjp);
+        color: var(--paper);
+        border: none;
+        padding: 0.6rem 1.2rem;
+        cursor: pointer;
+        transition: opacity 0.15s;
+      }
+      .btn-file:hover { opacity: 0.85; }
+
+      .rti-table-wrap { overflow-x: auto; }
+      .rti-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.82rem;
+      }
+      .rti-table th {
+        font-family: 'Courier New', monospace;
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink3);
+        text-align: left;
+        padding: 0.6rem 0.75rem;
+        border-bottom: 1px solid var(--rule);
+        white-space: nowrap;
+      }
+      .rti-table td {
+        padding: 0.7rem 0.75rem;
+        border-bottom: 1px solid var(--rule);
+        vertical-align: top;
+      }
+      .rti-table tr:hover td { background: var(--hover); }
+      .rti-id {
+        font-family: 'Courier New', monospace;
+        font-size: 0.7rem;
+        color: var(--ink3);
+        white-space: nowrap;
+      }
+      .chip {
+        display: inline-block;
+        font-family: 'Courier New', monospace;
+        font-size: 0.62rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.2rem 0.55rem;
+        border-radius: 2px;
+        white-space: nowrap;
+      }
+      .chip-filed    { background: rgba(41,128,185,0.15); color: #2980b9; border: 1px solid rgba(41,128,185,0.3); }
+      .chip-received { background: rgba(45,122,79,0.15); color: var(--good); border: 1px solid rgba(45,122,79,0.3); }
+      .chip-overdue  { background: rgba(192,57,43,0.15); color: var(--danger); border: 1px solid rgba(192,57,43,0.3); }
+      .chip-published{ background: rgba(142,68,173,0.15); color: #8e44ad; border: 1px solid rgba(142,68,173,0.3); }
+      .chip-appeal   { background: rgba(243,156,18,0.15); color: #d68910; border: 1px solid rgba(243,156,18,0.3); }
+
+      .disc-flag {
+        font-family: 'Courier New', monospace;
+        font-size: 0.62rem;
+        color: var(--danger);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+      .disc-flag::before { content: '⚠'; }
+      .disc-ok {
+        font-family: 'Courier New', monospace;
+        font-size: 0.62rem;
+        color: var(--good);
+      }
+
+      .btn-view {
+        font-family: 'Courier New', monospace;
+        font-size: 0.62rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border: 1px solid var(--rule);
+        background: none;
+        color: var(--ink3);
+        padding: 0.25rem 0.6rem;
+        cursor: pointer;
+        transition: border-color 0.15s, color 0.15s;
+        white-space: nowrap;
+      }
+      .btn-view:hover { border-color: var(--cjp); color: var(--cjp); }
+
+      /* ── RTI DETAIL DRAWER ── */
+      .rti-detail {
+        display: none;
+        border: 1px solid var(--cjp);
+        background: var(--card-bg);
+        margin-top: 1rem;
+      }
+      .rti-detail.open { display: block; }
+      .rti-detail-hd {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 0.75rem 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .rti-detail-hd span {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        color: var(--ink3);
+        letter-spacing: 0.1em;
+      }
+      .rti-detail-hd strong { font-size: 0.9rem; }
+      .rti-detail-body { padding: 1.2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+      @media (max-width: 600px) { .rti-detail-body { grid-template-columns: 1fr; } }
+      .rti-detail-col h4 {
+        font-family: 'Courier New', monospace;
+        font-size: 0.62rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink3);
+        margin-bottom: 0.55rem;
+        border-bottom: 1px solid var(--rule);
+        padding-bottom: 0.3rem;
+      }
+      .rti-detail-col p { font-size: 0.82rem; color: var(--ink2); line-height: 1.6; }
+      .discrepancy-box {
+        grid-column: 1 / -1;
+        background: rgba(192,57,43,0.07);
+        border: 1px solid var(--danger);
+        padding: 1rem;
+      }
+      .discrepancy-box h4 {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--danger);
+        margin-bottom: 0.5rem;
+      }
+      .discrepancy-box p { font-size: 0.85rem; color: var(--ink); line-height: 1.6; }
+      .discrepancy-box .disc-nums {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 0.75rem;
+        flex-wrap: wrap;
+      }
+      .disc-num {
+        font-family: 'Courier New', monospace;
+        font-size: 0.72rem;
+        color: var(--ink3);
+      }
+      .disc-num strong { display: block; font-size: 1.1rem; }
+      .disc-num .allocated { color: var(--good); }
+      .disc-num .spent { color: var(--saffron); }
+      .disc-num .gap { color: var(--danger); }
+      .btn-close-detail {
+        font-family: 'Courier New', monospace;
+        font-size: 0.62rem;
+        background: none;
+        border: 1px solid rgba(255,255,255,0.15);
+        color: var(--ink3);
+        padding: 0.25rem 0.6rem;
+        cursor: pointer;
+      }
+      .btn-close-detail:hover { border-color: var(--cjp); color: var(--cjp); }
+
+      /* ── TRANSPARENCY SCORE ── */
+      .dept-list { display: flex; flex-direction: column; gap: 1rem; }
+      .dept-row {
+        border: 1px solid var(--rule);
+        background: var(--card-bg);
+        padding: 1.1rem 1.2rem;
+      }
+      .dept-row-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.65rem;
+      }
+      .dept-name { font-size: 0.92rem; font-weight: bold; }
+      .dept-rank {
+        font-family: 'Courier New', monospace;
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink3);
+      }
+      .dept-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+      }
+      .dept-stat {
+        font-family: 'Courier New', monospace;
+        font-size: 0.68rem;
+        color: var(--ink3);
+      }
+      .dept-stat strong { color: var(--ink); }
+      .bar-track {
+        height: 8px;
+        background: var(--rule);
+        border-radius: 2px;
+        overflow: hidden;
+        margin-bottom: 0.4rem;
+      }
+      .bar-fill {
+        height: 100%;
+        border-radius: 2px;
+        transition: width 0.6s ease;
+      }
+      .bar-fill.green  { background: var(--good); }
+      .bar-fill.amber  { background: var(--saffron); }
+      .bar-fill.red    { background: var(--danger); }
+      .dept-score-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .dept-score-label {
+        font-family: 'Courier New', monospace;
+        font-size: 0.62rem;
+        color: var(--ink3);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .dept-score-val {
+        font-family: 'Courier New', monospace;
+        font-size: 0.92rem;
+        font-weight: bold;
+      }
+      .dept-score-val.green { color: var(--good); }
+      .dept-score-val.amber { color: var(--saffron); }
+      .dept-score-val.red   { color: var(--danger); }
+
+      /* ── OUTPUT PIPELINE ── */
+      .pipeline-flow {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr auto 1fr;
+        gap: 0;
+        align-items: center;
+        margin-bottom: 2.5rem;
+      }
+      @media (max-width: 640px) {
+        .pipeline-flow {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+        .pipeline-arrow-cell { text-align: center; padding: 0.3rem 0; transform: rotate(90deg); }
+      }
+      .pipeline-node {
+        border: 1px solid var(--cjp);
+        background: var(--cjp-dim);
+        padding: 1.2rem;
+        text-align: center;
+      }
+      .pipeline-node-num {
+        font-family: 'Courier New', monospace;
+        font-size: 0.62rem;
+        color: var(--cjp);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 0.4rem;
+      }
+      .pipeline-node h4 { font-size: 0.9rem; margin-bottom: 0.35rem; }
+      .pipeline-node p { font-size: 0.78rem; color: var(--ink2); line-height: 1.5; }
+      .pipeline-arrow-cell {
+        text-align: center;
+        font-family: 'Courier New', monospace;
+        font-size: 1.4rem;
+        color: var(--cjp);
+        padding: 0 0.5rem;
+        opacity: 0.8;
+      }
+
+      .output-showcase {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.25rem;
+      }
+
+      /* infographic card */
+      .infographic-card {
+        border: 1px solid var(--rule);
+        background: var(--card-bg);
+        overflow: hidden;
+      }
+      .infographic-hd {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 0.65rem 1rem;
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--cjp);
+      }
+      .infographic-body { padding: 1.1rem; }
+      .infographic-headline {
+        font-size: 0.88rem;
+        font-weight: bold;
+        line-height: 1.35;
+        margin-bottom: 1rem;
+        color: var(--ink);
+      }
+      .infographic-headline .danger { color: var(--danger); }
+      .chart-row { margin-bottom: 0.65rem; }
+      .chart-label {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        color: var(--ink3);
+        margin-bottom: 0.2rem;
+        display: flex;
+        justify-content: space-between;
+      }
+      .chart-bar-track {
+        height: 14px;
+        background: var(--rule);
+        position: relative;
+        border-radius: 1px;
+      }
+      .chart-bar-fill {
+        height: 100%;
+        border-radius: 1px;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .chart-bar-fill.alloc { background: var(--good); width: 100%; }
+      .chart-bar-fill.spent { background: var(--saffron); width: 46%; }
+      .infographic-gap {
+        margin-top: 0.85rem;
+        font-family: 'Courier New', monospace;
+        font-size: 0.72rem;
+        background: rgba(192,57,43,0.1);
+        border: 1px solid var(--danger);
+        padding: 0.4rem 0.65rem;
+        color: var(--danger);
+      }
+
+      /* thread preview */
+      .thread-card {
+        border: 1px solid var(--rule);
+        background: var(--card-bg);
+        overflow: hidden;
+      }
+      .thread-hd {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 0.65rem 1rem;
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--cjp);
+      }
+      .thread-body { padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+      .tweet {
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-radius: 3px;
+        padding: 0.65rem 0.8rem;
+        font-size: 0.8rem;
+        line-height: 1.55;
+        color: var(--ink);
+        position: relative;
+      }
+      .tweet-num {
+        font-family: 'Courier New', monospace;
+        font-size: 0.6rem;
+        color: var(--ink3);
+        margin-bottom: 0.3rem;
+      }
+      .tweet .highlight { color: var(--cjp); font-weight: bold; }
+      .tweet .danger { color: var(--danger); font-weight: bold; }
+
+      /* video brief */
+      .video-card {
+        border: 1px solid var(--rule);
+        background: var(--card-bg);
+        overflow: hidden;
+      }
+      .video-hd {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 0.65rem 1rem;
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--cjp);
+      }
+      .video-body { padding: 1.1rem; }
+      .video-title { font-size: 0.88rem; font-weight: bold; margin-bottom: 0.75rem; line-height: 1.35; }
+      .video-points {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+      .video-points li {
+        font-size: 0.8rem;
+        color: var(--ink2);
+        line-height: 1.5;
+        padding-left: 1rem;
+        position: relative;
+      }
+      .video-points li::before {
+        content: '▸';
+        position: absolute;
+        left: 0;
+        color: var(--cjp);
+        font-size: 0.7rem;
+      }
+      .video-duration {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        color: var(--ink3);
+        margin-top: 0.75rem;
+        border-top: 1px solid var(--rule);
+        padding-top: 0.55rem;
+      }
+
+      /* ── DATA NOTE ── */
+      .data-note {
+        max-width: 900px;
+        margin: 3rem auto 4rem;
+        padding: 1rem 1.5rem;
+        border-top: 1px solid var(--rule);
+        font-family: 'Courier New', monospace;
+        font-size: 0.7rem;
+        color: var(--ink3);
+        line-height: 1.65;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav">
+      <div class="site-nav-inner">
+        <a href="/" class="site-nav-brand">The Bengal Reader</a>
+        <div class="site-nav-links">
+          <a href="/" class="site-nav-link">Voter Guide</a>
+          <a href="/parties" class="site-nav-link">Party Compass</a>
+          <a href="/constituencies" class="site-nav-link">2026 Results</a>
+          <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+          <a href="/accountability" class="site-nav-link">100 Days</a>
+          <a href="/corruption" class="site-nav-link">Dossier</a>
+          <a href="/bonds" class="site-nav-link">Money Trail</a>
+          <a href="/mlas" class="site-nav-link">MLA Records</a>
+          <a href="/india-development" class="site-nav-link">India's Story</a>
+          <a href="/india-china" class="site-nav-link">India vs China</a>
+          <a href="/india-governance" class="site-nav-link">Performance OS</a>
+          <a href="/india-disadvantage-index" class="site-nav-link">Disadvantage Index</a>
+          <a href="/friction-engine" class="site-nav-link">Friction Engine</a>
+          <a href="/education" class="site-nav-link">Education Gap</a>
+          <a href="/cjp" class="site-nav-link">CJP</a>
+          <a href="/cjp-projects" class="site-nav-link">Swarm Projects</a>
+          <a href="/swarm-audit" class="site-nav-link">SwarmAudit</a>
+          <a href="/rti-swarm" class="site-nav-link active">RTI Swarm</a>
+          <a href="/skill-guild" class="site-nav-link">Skill Guild</a>
+          <a href="/governance-deficit" class="site-nav-link">Governance Gap</a>
+          <a href="/ask" class="site-nav-link">Ask AI</a>
+          <a href="/map" class="site-nav-link">Map</a>
+          <a href="/assets" class="site-nav-link">Wealth Growth</a>
+          <a href="/methodology" class="site-nav-link">Methodology</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+
+      <!-- ── HERO ── -->
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-kicker">CJP Civic-Tech &middot; Project 02</div>
+          <h1>RTI Swarm — <em>Data Journalism Pipeline</em></h1>
+          <p class="hero-sub">
+            File. Wait. Publish. A structured RTI assembly line turning government PDFs into viral investigative content.
+            Coordinate hundreds of simultaneous RTI filings, track responses, surface discrepancies, and convert raw
+            disclosures into shareable infographics, threads, and video briefs.
+          </p>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>48</strong>
+              Templates available
+            </div>
+            <div class="hero-stat">
+              <strong>312</strong>
+              RTIs filed (mock)
+            </div>
+            <div class="hero-stat">
+              <strong>67</strong>
+              Discrepancies found
+            </div>
+            <div class="hero-stat">
+              <strong>18</strong>
+              Published investigations
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── TEMPLATE LIBRARY ── -->
+      <section class="section" id="template-library">
+        <div class="section-hd">
+          <h2>Template Library</h2>
+          <p>Select a sector to browse RTI draft templates. Preview the full legal text and copy to clipboard.</p>
+        </div>
+
+        <div class="tab-bar" role="tablist">
+          <button class="tab-btn active" role="tab" aria-selected="true" data-tab="education">Education</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="municipal">Municipal</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="health">Health</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="infrastructure">Infrastructure</button>
+        </div>
+
+        <div id="template-cards"></div>
+
+        <!-- Preview Panel -->
+        <div class="preview-panel" id="preview-panel">
+          <div class="preview-panel-hd">
+            <div>
+              <span>RTI Template Preview</span><br />
+              <strong id="preview-title"></strong>
+            </div>
+            <button class="btn-close-preview" id="btn-close-preview">Close</button>
+          </div>
+          <div class="preview-panel-body">
+            <div class="rti-draft" id="preview-text"></div>
+            <div class="preview-actions">
+              <button class="btn-copy" id="btn-copy">Copy to Clipboard</button>
+              <span class="copy-confirm" id="copy-confirm">Copied!</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── RTI TRACKER ── -->
+      <section class="section" id="rti-tracker">
+        <div class="section-hd">
+          <h2>Live RTI Pipeline</h2>
+          <p>Track filing status, response deadlines, and discrepancies across all active RTI cases.</p>
+        </div>
+
+        <div class="tracker-actions">
+          <button class="btn-file" id="btn-file-new">+ File New RTI</button>
+        </div>
+
+        <div class="rti-table-wrap">
+          <table class="rti-table" id="rti-table">
+            <thead>
+              <tr>
+                <th>RTI ID</th>
+                <th>Subject</th>
+                <th>Filed</th>
+                <th>Due</th>
+                <th>Status</th>
+                <th>Discrepancy</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="rti-tbody"></tbody>
+          </table>
+        </div>
+
+        <div class="rti-detail" id="rti-detail">
+          <div class="rti-detail-hd">
+            <div>
+              <span id="detail-id"></span><br />
+              <strong id="detail-subject"></strong>
+            </div>
+            <button class="btn-close-detail" id="btn-close-detail">Close</button>
+          </div>
+          <div class="rti-detail-body" id="detail-body"></div>
+        </div>
+      </section>
+
+      <!-- ── TRANSPARENCY SCORE ── -->
+      <section class="section" id="transparency-score">
+        <div class="section-hd">
+          <h2>Departmental Transparency Score</h2>
+          <p>
+            Ranked by composite score (response rate, speed, and discrepancy rate). Updated as RTIs are filed and
+            responses received.
+          </p>
+        </div>
+        <div class="dept-list" id="dept-list"></div>
+      </section>
+
+      <!-- ── OUTPUT PIPELINE ── -->
+      <section class="section" id="output-pipeline">
+        <div class="section-hd">
+          <h2>From PDF to Viral — The Conversion Pipeline</h2>
+          <p>Every RTI response passes through a three-stage editorial pipeline before publication.</p>
+        </div>
+
+        <div class="pipeline-flow">
+          <div class="pipeline-node">
+            <div class="pipeline-node-num">Step 01</div>
+            <h4>Raw RTI Response</h4>
+            <p>Government PDF received. Scanned, OCR'd, and ingested into the data registry.</p>
+          </div>
+          <div class="pipeline-arrow-cell">&rarr;</div>
+          <div class="pipeline-node">
+            <div class="pipeline-node-num">Step 02</div>
+            <h4>Data Analysis</h4>
+            <p>Numbers extracted. Allocated vs. spent figures compared. Discrepancies flagged and verified.</p>
+          </div>
+          <div class="pipeline-arrow-cell">&rarr;</div>
+          <div class="pipeline-node">
+            <div class="pipeline-node-num">Step 03</div>
+            <h4>Published Content</h4>
+            <p>Infographic, thread, and video brief produced and distributed across platforms.</p>
+          </div>
+        </div>
+
+        <p style="font-size:0.85rem; color:var(--ink2); margin-bottom:1.25rem;">
+          <strong>Sample output</strong> — RTI CJP-RTI-2025-0003: Ward 14 Road Repair Budget, Kolkata Municipal Corporation
+        </p>
+
+        <div class="output-showcase">
+
+          <!-- Infographic -->
+          <div class="infographic-card">
+            <div class="infographic-hd">Output A &mdash; Infographic</div>
+            <div class="infographic-body">
+              <div class="infographic-headline">
+                KMC Ward 14: <span class="danger">&#8377;1.3 Cr unaccounted</span><br />
+                in road repair funds (FY 2024&ndash;25)
+              </div>
+              <div class="chart-row">
+                <div class="chart-label">
+                  <span>Allocated</span><span>&#8377;2.4 Cr</span>
+                </div>
+                <div class="chart-bar-track">
+                  <div class="chart-bar-fill alloc"></div>
+                </div>
+              </div>
+              <div class="chart-row">
+                <div class="chart-label">
+                  <span>Spent (verified)</span><span>&#8377;1.1 Cr</span>
+                </div>
+                <div class="chart-bar-track">
+                  <div class="chart-bar-fill spent"></div>
+                </div>
+              </div>
+              <div class="infographic-gap">
+                GAP: &#8377;1.3 Cr &mdash; No utilisation certificate filed
+              </div>
+            </div>
+          </div>
+
+          <!-- Thread preview -->
+          <div class="thread-card">
+            <div class="thread-hd">Output B &mdash; Thread Preview</div>
+            <div class="thread-body">
+              <div class="tweet">
+                <div class="tweet-num">1/3</div>
+                We filed an RTI asking KMC Ward 14 where <span class="highlight">&#8377;2.4 Cr</span> in road repair
+                money went. The response is damning. Thread &darr;
+              </div>
+              <div class="tweet">
+                <div class="tweet-num">2/3</div>
+                Only <span class="highlight">&#8377;1.1 Cr</span> can be verified through contractor invoices.
+                The remaining <span class="danger">&#8377;1.3 Cr</span> has no utilisation certificate, no
+                completion report, and no tender record.
+              </div>
+              <div class="tweet">
+                <div class="tweet-num">3/3</div>
+                We&rsquo;ve forwarded this to the West Bengal Vigilance Commission. A first appeal has been filed
+                demanding a contractor-wise payment breakup. <span class="highlight">#RTISwarm #KMC
+                #CivicJournalism</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video brief -->
+          <div class="video-card">
+            <div class="video-hd">Output C &mdash; Video Brief</div>
+            <div class="video-body">
+              <div class="video-title">
+                "Where did &#8377;1.3 crore go? KMC Ward 14's missing road budget — explained in 90 seconds"
+              </div>
+              <ul class="video-points">
+                <li>Open: potholed street in Ward 14 with caption "&#8377;2.4 Cr allocated for this road"</li>
+                <li>Cut to: RTI document on screen — highlight the allocated figure</li>
+                <li>Animated bar chart showing allocation vs verified spend</li>
+                <li>Voiceover: "No utilisation certificate. No tender record. &#8377;1.3 crore missing."</li>
+                <li>Close: RTI ID and CJP link — "File your own RTI at rtis.cjp.in"</li>
+              </ul>
+              <div class="video-duration">Target runtime: 90 seconds &nbsp;|&nbsp; Format: vertical (Reels/Shorts)</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <div class="data-note">
+      Note: All RTI cases, responses, and statistics shown on this page are mock data for demonstration purposes.
+      RTI Swarm is a civic-tech project concept. Template language is modelled on real RTI applications under the
+      Right to Information Act, 2005. Always consult a legal expert before filing.
+    </div>
+
+    <script>
+      /* ══════════════════════════════════════════════
+         TEMPLATE DATA
+      ══════════════════════════════════════════════ */
+      const TEMPLATES = {
+        education: [
+          {
+            id: 'edu-01',
+            name: 'School Teacher Attendance Records',
+            desc:
+              'Requests daily attendance register extracts for government school teachers across a district, cross-referenced against salary disbursements.',
+            key: 'Answers: Are teachers being paid for days they did not attend?',
+            draft: `To,
+The Public Information Officer,
+District Education Officer,
+[DISTRICT NAME], West Bengal.
+
+Subject: Application under Right to Information Act, 2005 — Teacher Attendance & Salary Records
+
+Sir/Madam,
+
+I, [YOUR FULL NAME], residing at [YOUR ADDRESS], hereby request the following information under Section 6 of the Right to Information Act, 2005:
+
+1. Certified copies of the daily attendance register (or electronic attendance log) for all permanent teaching staff employed at [SCHOOL NAME / all government-aided schools in Ward/Block [WARD/BLOCK NUMBER]] for the financial year [FINANCIAL YEAR] (April [YEAR] to March [YEAR]).
+
+2. The total salary disbursed to teaching staff at the above institution(s) for the same period, broken down month-wise and teacher-wise (name, designation, basic pay, and total gross).
+
+3. Details of any teacher who was marked absent for more than 10 consecutive working days during the period, along with the reason recorded in official documents.
+
+4. Copies of any departmental inquiry initiated against teachers for unauthorised absence during the financial year [FINANCIAL YEAR].
+
+5. The name and designation of the officer responsible for verifying and certifying attendance records before salary disbursement.
+
+I am attaching the prescribed fee of ₹10/- by [DEMAND DRAFT / POSTAL ORDER / COURT FEE STAMP] in favour of the Accounts Officer, District Education Office, [DISTRICT NAME].
+
+Please provide the information within 30 days as mandated under Section 7(1) of the RTI Act.
+
+Yours faithfully,
+[YOUR FULL NAME]
+[YOUR ADDRESS]
+[YOUR MOBILE NUMBER]
+[DATE]
+
+RTI Reference (internal): CJP-RTI-EDU-[YEAR]-[SEQUENCE]`,
+          },
+          {
+            id: 'edu-02',
+            name: 'Mid-Day Meal Expenditure Audit',
+            desc:
+              'Seeks itemised expenditure statements for the Mid-Day Meal scheme at a block level, comparing per-child allocations against actual spending.',
+            key: 'Answers: Is MDM money reaching students or being siphoned?',
+            draft: `To,
+The Public Information Officer,
+Block Development Officer / District Education Officer,
+[BLOCK / DISTRICT NAME], West Bengal.
+
+Subject: Application under Right to Information Act, 2005 — Mid-Day Meal Scheme Expenditure
+
+Sir/Madam,
+
+I, [YOUR FULL NAME], residing at [YOUR ADDRESS], request the following information under Section 6 of the RTI Act, 2005:
+
+1. Total funds received under the Pradhan Mantri Poshan Shakti Nirman (PM POSHAN) / Mid-Day Meal scheme for Block [BLOCK NAME] / District [DISTRICT NAME] for the financial year [FINANCIAL YEAR].
+
+2. Itemised expenditure statement showing: (a) food grain procurement cost, (b) cooking cost per meal per child, (c) transportation charges, (d) administrative overhead.
+
+3. Average daily enrolment and attendance figures used to calculate meal entitlement for the period.
+
+4. Names and addresses of the Self-Help Groups or agencies contracted to supply/cook meals, along with contract values and tendering process details.
+
+5. Any utilisation certificate filed with the state or central government for the above period.
+
+6. Details of any social audit conducted, including date, findings, and action-taken report.
+
+I am attaching the prescribed fee of ₹10/- by [DEMAND DRAFT / POSTAL ORDER] in favour of the Public Authority.
+
+Yours faithfully,
+[YOUR FULL NAME]
+[YOUR ADDRESS]
+[YOUR MOBILE NUMBER]
+[DATE]`,
+          },
+          {
+            id: 'edu-03',
+            name: 'Infrastructure Grant Utilisation — School Buildings',
+            desc:
+              'Tracks grants released under Samagra Shiksha for school building construction and repair, verifying completion against payment.',
+            key: 'Answers: Were school buildings actually built with the sanctioned money?',
+            draft: `To,
+The Public Information Officer,
+District Project Officer, Samagra Shiksha Abhiyan,
+[DISTRICT NAME], West Bengal.
+
+Subject: Application under Right to Information Act, 2005 — School Infrastructure Grant Utilisation
+
+Sir/Madam,
+
+I, [YOUR FULL NAME], residing at [YOUR ADDRESS], request the following information under Section 6 of the RTI Act, 2005:
+
+1. List of all schools in [DISTRICT / BLOCK NAME] that received grants under Samagra Shiksha for construction or renovation of classrooms, toilets, compound walls, or other infrastructure during financial year [FINANCIAL YEAR], along with the grant amount sanctioned for each.
+
+2. For each school listed above: (a) actual amount released/disbursed, (b) date of release, (c) name of the executing agency or contractor, (d) work completion certificate (if any), (e) physical inspection report.
+
+3. Cases, if any, where the full grant was released but a completion certificate has not been issued.
+
+4. The name and designation of the civil works monitoring officer responsible for site inspections in [DISTRICT / BLOCK NAME].
+
+I am attaching the prescribed fee of ₹10/- by [MODE OF PAYMENT] in favour of the Public Authority.
+
+Yours faithfully,
+[YOUR FULL NAME]
+[YOUR ADDRESS]
+[YOUR MOBILE NUMBER]
+[DATE]`,
+          },
+        ],
+
+        municipal: [
+          {
+            id: 'mun-01',
+            name: 'Road Repair Budget Allocation for Ward [X]',
+            desc:
+              'Requests ward-level road repair fund allocation, tender details, and contractor payments for a specific financial year.',
+            key: 'Answers: How much was spent on roads, and to whom was it paid?',
+            draft: `To,
+The Public Information Officer,
+[MUNICIPAL CORPORATION / MUNICIPALITY NAME],
+[CITY / TOWN NAME], West Bengal.
+
+Subject: Application under Right to Information Act, 2005 — Road Repair Budget and Expenditure, Ward No. [WARD NUMBER]
+
+Sir/Madam,
+
+I, [YOUR FULL NAME], residing at [YOUR ADDRESS], Ward No. [WARD NUMBER], hereby request the following information under Section 6 of the RTI Act, 2005:
+
+1. Total budget allocated for road repair, resurfacing, and pothole rectification in Ward No. [WARD NUMBER] for the financial year [FINANCIAL YEAR].
+
+2. Itemised list of all road repair works tendered or awarded in Ward No. [WARD NUMBER] during [FINANCIAL YEAR], including: (a) road/stretch name and length, (b) estimated cost, (c) awarded cost, (d) name of contractor, (e) work order number and date, (f) scheduled and actual completion date.
+
+3. Total payments made to each contractor as on [DATE], along with payment voucher references.
+
+4. Utilisation certificate, if any, submitted for the road repair budget for [FINANCIAL YEAR].
+
+5. Inspection or quality-testing reports for road work completed in Ward No. [WARD NUMBER] during [FINANCIAL YEAR].
+
+6. Names and designations of officers who inspected and certified the completed work.
+
+I am attaching the prescribed fee of ₹10/- by [MODE OF PAYMENT] in favour of [MUNICIPAL BODY NAME].
+
+Yours faithfully,
+[YOUR FULL NAME]
+[YOUR ADDRESS]
+[YOUR MOBILE NUMBER]
+[DATE]`,
+          },
+          {
+            id: 'mun-02',
+            name: 'Street Light Maintenance Contract Details',
+            desc:
+              'Seeks details of street-light maintenance contracts including scope, contractor identity, payment history, and complaint records.',
+            key: 'Answers: Is the street-light contractor being paid for lights that never work?',
+            draft: `To,
+The Public Information Officer,
+[MUNICIPAL CORPORATION / MUNICIPALITY NAME],
+[CITY / TOWN NAME], West Bengal.
+
+Subject: Application under Right to Information Act, 2005 — Street Light Maintenance Contracts
+
+Sir/Madam,
+
+I, [YOUR FULL NAME], residing at [YOUR ADDRESS], request the following information under Section 6 of the RTI Act, 2005:
+
+1. Details of the current street light operation and maintenance (O&M) contract(s) for Ward(s) [WARD NUMBER(S)]: contractor name, contract value, contract period, and scope of work.
+
+2. Payment schedule and total amount paid to the contractor(s) since contract commencement.
+
+3. Number of street light complaints/complaints logged through the [MUNICIPAL BODY] helpline for Ward(s) [WARD NUMBER(S)] in [FINANCIAL YEAR], and the average resolution time.
+
+4. Penalty clauses in the O&M contract for non-performance, and details of any penalties levied.
+
+5. Most recent independent physical verification report of street light functional status in Ward(s) [WARD NUMBER(S)].
+
+I am attaching the prescribed fee of ₹10/- by [MODE OF PAYMENT].
+
+Yours faithfully,
+[YOUR FULL NAME]
+[YOUR ADDRESS]
+[YOUR MOBILE NUMBER]
+[DATE]`,
+          },
+          {
+            id: 'mun-03',
+            name: 'Property Tax Collection vs. Demand Register',
+            desc:
+              'Compares property tax demand raised with actual collection to identify potential suppression or misappropriation of revenue.',
+            key: 'Answers: Is collected tax money making it into the municipal account?',
+            draft: `To,
+The Public Information Officer,
+[MUNICIPAL CORPORATION / MUNICIPALITY NAME],
+[CITY / TOWN NAME], West Bengal.
+
+Subject: Application under Right to Information Act, 2005 — Property Tax Demand and Collection, Ward No. [WARD NUMBER]
+
+Sir/Madam,
+
+I, [YOUR FULL NAME], hereby request the following information under Section 6 of the RTI Act, 2005:
+
+1. Total property tax demand raised for Ward No. [WARD NUMBER] for assessment years [YEAR–YEAR].
+
+2. Total property tax actually collected for the same ward and period, showing: (a) collection by the ward office, (b) collection through online/banking channels.
+
+3. Number of properties in Ward No. [WARD NUMBER] as per the demand register vs. properties physically surveyed.
+
+4. Arrear demand and collection figures as of [DATE].
+
+5. Details of any properties exempted from tax in Ward No. [WARD NUMBER] and the legal basis for each exemption.
+
+6. List of tax collection agents / contractors (if any) engaged, and their commission rates.
+
+I am attaching the prescribed fee of ₹10/- by [MODE OF PAYMENT].
+
+Yours faithfully,
+[YOUR FULL NAME]
+[YOUR ADDRESS]
+[YOUR MOBILE NUMBER]
+[DATE]`,
+          },
+        ],
+
+        health: [
+          {
+            id: 'hlt-01',
+            name: 'Hospital Medicine Stock Audit',
+            desc:
+              'Requests medicines procured, received, distributed, and in-stock figures from a government hospital to detect wastage or diversion.',
+            key: 'Answers: Are essential medicines reaching patients or disappearing?',
+            draft: `To,
+The Public Information Officer,
+Medical Superintendent,
+[HOSPITAL NAME], [DISTRICT], West Bengal.
+
+Subject: Application under Right to Information Act, 2005 — Medicine Procurement and Stock Records
+
+Sir/Madam,
+
+I, [YOUR FULL NAME], residing at [YOUR ADDRESS], request the following information under Section 6 of the RTI Act, 2005:
+
+1. Complete list of medicines and medical consumables procured by [HOSPITAL NAME] during financial year [FINANCIAL YEAR], including: (a) generic name, (b) quantity ordered, (c) quantity received, (d) unit rate, (e) total cost, (f) supplier name, (g) purchase order number.
+
+2. Quantity of each medicine actually dispensed to in-patients and OPD patients during the same period.
+
+3. Current physical stock (as of [DATE]) of the 20 most-procured medicines, certified by the pharmacist in charge.
+
+4. Details of any medicine that expired and was disposed of, including the disposal mechanism and officer responsible.
+
+5. Any audit or inspection report on the pharmacy/store by WBMSCL, NHM, or internal audit for [FINANCIAL YEAR].
+
+6. The name and designation of the officer responsible for medicine procurement and store oversight.
+
+I am attaching the prescribed fee of ₹10/- by [MODE OF PAYMENT].
+
+Yours faithfully,
+[YOUR FULL NAME]
+[YOUR ADDRESS]
+[YOUR MOBILE NUMBER]
+[DATE]`,
+          },
+          {
+            id: 'hlt-02',
+            name: 'NHM Contractual Staff Payroll Verification',
+            desc:
+              'Seeks NHM payroll records to identify ghost workers and verify that sanctioned contractual posts are actually filled.',
+            key: 'Answers: Are we paying salaries to workers who do not exist?',
+            draft: `To,
+The Public Information Officer,
+Chief Medical Officer of Health (CMOH),
+[DISTRICT NAME], West Bengal.
+
+Subject: Application under Right to Information Act, 2005 — NHM Contractual Staff Payroll Records
+
+Sir/Madam,
+
+I, [YOUR FULL NAME], request the following information under Section 6 of the RTI Act, 2005:
+
+1. Total number of contractual staff sanctioned under the National Health Mission (NHM) for [DISTRICT NAME] as of [DATE], broken down by category (ANM, GNM, Lab Technician, Data Entry Operator, etc.).
+
+2. Total number of contractual staff actually in position (as of [DATE]), with the number of vacant posts.
+
+3. Total NHM salary disbursed to contractual staff in [DISTRICT NAME] for the financial year [FINANCIAL YEAR], month-wise.
+
+4. Number of staff on the payroll who have not joined or have resigned but whose names remained on the payroll for any period during [FINANCIAL YEAR].
+
+5. Details of any internal audit report identifying discrepancies in the NHM contractual payroll for [FINANCIAL YEAR].
+
+I am attaching the prescribed fee of ₹10/- by [MODE OF PAYMENT].
+
+Yours faithfully,
+[YOUR FULL NAME]
+[YOUR ADDRESS]
+[YOUR MOBILE NUMBER]
+[DATE]`,
+          },
+          {
+            id: 'hlt-03',
+            name: 'Ambulance Service Utilisation Records',
+            desc:
+              'Tracks 108/102 ambulance deployment, trip logs, and fuel consumption to identify inflated billing or non-deployment.',
+            key: 'Answers: Are ambulances actually running, or just billing?',
+            draft: `To,
+The Public Information Officer,
+Chief Medical Officer of Health / District Health & Family Welfare Samiti,
+[DISTRICT NAME], West Bengal.
+
+Subject: Application under Right to Information Act, 2005 — Emergency Ambulance Service Records
+
+Sir/Madam,
+
+I, [YOUR FULL NAME], request the following information under Section 6 of the RTI Act, 2005:
+
+1. Total number of ambulances (108 MICU and 102 Basic Life Support) deployed in [DISTRICT NAME] as of [DATE].
+
+2. Trip-wise log for all ambulances for the month of [MONTH, YEAR]: date, pickup location, drop location, kilometres covered, response time (call to dispatch and dispatch to pickup).
+
+3. Total fuel consumption claimed and paid for all ambulances in [DISTRICT NAME] for [FINANCIAL YEAR], with supporting fuel vouchers.
+
+4. Down-time records: number of days per ambulance that the vehicle was non-operational due to breakdown or maintenance.
+
+5. Contract details of the agency operating the ambulance service, including contract value and performance-linked payment clauses.
+
+I am attaching the prescribed fee of ₹10/- by [MODE OF PAYMENT].
+
+Yours faithfully,
+[YOUR FULL NAME]
+[YOUR ADDRESS]
+[YOUR MOBILE NUMBER]
+[DATE]`,
+          },
+        ],
+
+        infrastructure: [
+          {
+            id: 'inf-01',
+            name: 'Contractor Payments for Infrastructure Projects',
+            desc:
+              'Requests a full payment register for public works contractors to check for over-billing, duplicate payments, or payments without completion certificates.',
+            key: 'Answers: Was the contractor paid before the work was done?',
+            draft: `To,
+The Public Information Officer,
+Executive Engineer / Project Director,
+[PWD / DEPARTMENT NAME], [DISTRICT / DIVISION NAME], West Bengal.
+
+Subject: Application under Right to Information Act, 2005 — Contractor Payment Records for Infrastructure Projects
+
+Sir/Madam,
+
+I, [YOUR FULL NAME], residing at [YOUR ADDRESS], request the following information under Section 6 of the RTI Act, 2005:
+
+1. List of all civil works / infrastructure projects sanctioned and/or executed by [DEPARTMENT] in [DISTRICT / DIVISION] during financial year [FINANCIAL YEAR], with: (a) project name and location, (b) sanctioned cost, (c) tendered cost, (d) name of contractor and registration number, (e) work order number and date.
+
+2. Payment-wise details for each project: date of each Running Account (RA) bill, amount certified, amount paid, and the officer who certified the bill.
+
+3. Final completion certificates issued for each project and the date of issuance.
+
+4. Projects, if any, for which payment was released in full but a completion or quality-testing certificate has not been issued as of [DATE].
+
+5. Third-party quality audit reports (if any) for the above projects.
+
+6. Details of any contractor blacklisted or penalised for defective work during [FINANCIAL YEAR].
+
+I am attaching the prescribed fee of ₹10/- by [MODE OF PAYMENT] in favour of the Public Authority.
+
+Yours faithfully,
+[YOUR FULL NAME]
+[YOUR ADDRESS]
+[YOUR MOBILE NUMBER]
+[DATE]`,
+          },
+          {
+            id: 'inf-02',
+            name: 'Flood Protection Embankment Maintenance',
+            desc:
+              'Seeks maintenance records for flood embankments (bunds) to compare allocated repair funds with verified work completed before monsoon.',
+            key: 'Answers: Were embankments actually repaired before the floods?',
+            draft: `To,
+The Public Information Officer,
+Executive Engineer,
+[IRRIGATION / WR DIVISION NAME], West Bengal Irrigation & Waterways Department.
+
+Subject: Application under Right to Information Act, 2005 — Flood Embankment Maintenance Records
+
+Sir/Madam,
+
+I, [YOUR FULL NAME], request the following information under Section 6 of the RTI Act, 2005:
+
+1. List of all flood protection embankments (bunds) under the jurisdiction of [DIVISION NAME] that received maintenance/repair funds during financial year [FINANCIAL YEAR], with embankment name, location, and allocated amount.
+
+2. For each embankment listed: (a) work tendered/awarded, (b) contractor details, (c) work completion date, (d) total payment made as of [DATE], (e) officer who certified the work.
+
+3. Pre-monsoon inspection report (if any) for each embankment.
+
+4. Embankments, if any, that breached or showed distress during the [YEAR] monsoon season, and whether repairs had been certified as complete prior to the breach.
+
+5. Any CAG, departmental, or third-party audit of embankment maintenance expenditure for [FINANCIAL YEAR].
+
+I am attaching the prescribed fee of ₹10/- by [MODE OF PAYMENT].
+
+Yours faithfully,
+[YOUR FULL NAME]
+[YOUR ADDRESS]
+[YOUR MOBILE NUMBER]
+[DATE]`,
+          },
+          {
+            id: 'inf-03',
+            name: 'Drinking Water Supply Pipeline Project',
+            desc:
+              'Tracks PHED pipeline projects from sanction to commissioning, checking delays, cost escalations, and actual household connections.',
+            key: 'Answers: Did the water pipeline project actually connect any homes?',
+            draft: `To,
+The Public Information Officer,
+Executive Engineer,
+Public Health Engineering Department (PHED),
+[DIVISION NAME], West Bengal.
+
+Subject: Application under Right to Information Act, 2005 — Drinking Water Pipeline Project Records
+
+Sir/Madam,
+
+I, [YOUR FULL NAME], request the following information under Section 6 of the RTI Act, 2005:
+
+1. List of all drinking water supply pipeline projects sanctioned under Jal Jeevan Mission (JJM) or state scheme for [DISTRICT / BLOCK NAME] during [FINANCIAL YEAR], with project name, sanctioned cost, and funding source.
+
+2. For each project: (a) target number of household tap connections, (b) actual connections completed as of [DATE], (c) total expenditure incurred, (d) contractor name and contract value, (e) scheduled and actual completion date.
+
+3. Third-party inspection or IQAP (Independent Quality Assurance Partner) reports for the above projects.
+
+4. Projects with cost escalations above 10% of sanctioned cost — details of the revision, approval authority, and revised sanction order.
+
+5. Number of habitations in [DISTRICT / BLOCK] declared Har Ghar Jal (100% tap connections) and the date of such declaration.
+
+6. Test reports for water quality at source and at household level for [YEAR].
+
+I am attaching the prescribed fee of ₹10/- by [MODE OF PAYMENT].
+
+Yours faithfully,
+[YOUR FULL NAME]
+[YOUR ADDRESS]
+[YOUR MOBILE NUMBER]
+[DATE]`,
+          },
+        ],
+      };
+
+      /* ══════════════════════════════════════════════
+         RTI CASE DATA
+      ══════════════════════════════════════════════ */
+      const RTI_CASES = [
+        {
+          id: 'CJP-RTI-2025-0001',
+          subject: 'Teacher Attendance vs. Salary — Murshidabad Dist.',
+          filed: '2025-01-08',
+          due: '2025-02-07',
+          status: 'published',
+          dept: 'District Education Office, Murshidabad',
+          asked: 'Daily attendance registers and salary disbursement records for 47 government schools in Murshidabad for FY 2023–24.',
+          received: 'Partial response received: attendance logs for 31 of 47 schools. 16 schools claimed records "not maintained digitally".',
+          discrepancy: true,
+          discTitle: 'Attendance-Salary Mismatch',
+          discDetails: '12 teachers across 4 schools drew salaries for months marked absent in the physical register. Total excess salary calculated: ₹8.4 lakh.',
+          allocated: '₹4.2 Cr (annual salary pool, 47 schools)',
+          spent: '₹4.2 Cr (full disbursement)',
+          gap: '₹8.4 L (estimated excess for absent teachers)',
+        },
+        {
+          id: 'CJP-RTI-2025-0002',
+          subject: 'MDM Scheme Expenditure — Birbhum Block',
+          filed: '2025-01-15',
+          due: '2025-02-14',
+          status: 'overdue',
+          dept: 'Block Development Office, Md. Bazar, Birbhum',
+          asked: 'Itemised MDM expenditure, SHG contract details, and social audit findings for FY 2023–24.',
+          received: 'No response received. 30-day deadline passed. First appeal being prepared.',
+          discrepancy: false,
+        },
+        {
+          id: 'CJP-RTI-2025-0003',
+          subject: 'Road Repair Budget — KMC Ward 14',
+          filed: '2025-01-22',
+          due: '2025-02-21',
+          status: 'published',
+          dept: 'Kolkata Municipal Corporation, Roads Dept.',
+          asked: 'Full budget, tenders, contractor names, and payment vouchers for road repair in Ward 14 for FY 2024–25.',
+          received: 'Complete response received. 3 work orders, 2 contractors, total awarded ₹2.4 Cr.',
+          discrepancy: true,
+          discTitle: 'Unaccounted Road Repair Funds',
+          discDetails: 'Of ₹2.4 Cr allocated, only ₹1.1 Cr is supported by contractor invoices and quality-test reports. No utilisation certificate filed for ₹1.3 Cr.',
+          allocated: '₹2.4 Cr',
+          spent: '₹1.1 Cr (verified)',
+          gap: '₹1.3 Cr (no documentation)',
+        },
+        {
+          id: 'CJP-RTI-2025-0004',
+          subject: 'Medicine Procurement — Bankura District Hospital',
+          filed: '2025-02-03',
+          due: '2025-03-05',
+          status: 'received',
+          dept: 'Medical Superintendent, Bankura Sammilani Medical College',
+          asked: 'Full medicine procurement list, dispensing records, and current stock for FY 2023–24.',
+          received: 'Full response received. Detailed stock register and supplier details provided.',
+          discrepancy: true,
+          discTitle: 'Procurement vs. Dispensing Gap',
+          discDetails: '3,200 units of Metformin 500mg procured but only 1,800 units accounted for in dispensing records. 1,400 units unaccounted — no expiry/disposal record found.',
+          allocated: '3,200 units (Metformin)',
+          spent: '1,800 units (dispensed)',
+          gap: '1,400 units (whereabouts unknown)',
+        },
+        {
+          id: 'CJP-RTI-2025-0005',
+          subject: 'School Building Grants — Nadia Samagra Shiksha',
+          filed: '2025-02-10',
+          due: '2025-03-12',
+          status: 'filed',
+          dept: 'District Project Officer, Samagra Shiksha, Nadia',
+          asked: 'List of schools receiving infrastructure grants in FY 2023–24, completion certificates, and inspection reports.',
+          received: 'Awaiting response. Deadline: 12 March 2025.',
+          discrepancy: false,
+        },
+        {
+          id: 'CJP-RTI-2025-0006',
+          subject: 'NHM Payroll — Purulia District',
+          filed: '2025-02-18',
+          due: '2025-03-20',
+          status: 'received',
+          dept: 'CMOH, Purulia',
+          asked: 'NHM contractual staff sanctioned vs. in-position count and salary disbursement for FY 2023–24.',
+          received: 'Response received. 312 positions sanctioned; 268 filled. Salary data provided.',
+          discrepancy: true,
+          discTitle: 'Possible Ghost Worker Payments',
+          discDetails: '44 positions shown as vacant, yet payroll shows disbursements in months where vacancy should have meant nil payment. Discrepancy: ₹12.6 lakh in the March 2024 payroll.',
+          allocated: 'Salary for 312 positions',
+          spent: '268 verified employees',
+          gap: '₹12.6 L (excess disbursements)',
+        },
+        {
+          id: 'CJP-RTI-2025-0007',
+          subject: 'Contractor Payments — State PWD, South 24 Parganas',
+          filed: '2025-03-01',
+          due: '2025-03-31',
+          status: 'appeal',
+          dept: 'PWD, South 24 Parganas Division',
+          asked: 'Payment register for all PWD projects in division for FY 2023–24 with RA bills and completion certificates.',
+          received: 'First response was a blanket refusal citing "third-party information". First appeal filed 5 Apr 2025 with Appellate Authority.',
+          discrepancy: false,
+        },
+        {
+          id: 'CJP-RTI-2025-0008',
+          subject: 'Ambulance Utilisation — Hoogly District',
+          filed: '2025-03-12',
+          due: '2025-04-11',
+          status: 'received',
+          dept: 'District Health & FW Samiti, Hooghly',
+          asked: 'Trip logs, fuel vouchers, and downtime records for 108/102 ambulances in Hooghly for Jan–Mar 2025.',
+          received: 'Trip logs for 14 of 18 ambulances provided. 4 ambulances have no trip logs — claimed "under maintenance".',
+          discrepancy: true,
+          discTitle: 'Fuel Billing Without Trip Records',
+          discDetails: '4 ambulances with "no trip logs" still claimed and received fuel voucher reimbursements totalling ₹1.8 lakh during the same period.',
+          allocated: '₹1.8 L (fuel, 4 ambulances)',
+          spent: '₹0 (no trips recorded)',
+          gap: '₹1.8 L (fuel paid, no deployment evidence)',
+        },
+        {
+          id: 'CJP-RTI-2025-0009',
+          subject: 'Flood Embankment Repair — Malda Division',
+          filed: '2025-04-02',
+          due: '2025-05-02',
+          status: 'filed',
+          dept: 'Irrigation & Waterways Dept., Malda Division',
+          asked: 'Embankment repair records, contractor payments, and pre-monsoon inspection reports for FY 2024–25.',
+          received: 'Awaiting response. Deadline: 2 May 2025.',
+          discrepancy: false,
+        },
+        {
+          id: 'CJP-RTI-2025-0010',
+          subject: 'Jal Jeevan Mission — Cooch Behar Block',
+          filed: '2025-04-15',
+          due: '2025-05-15',
+          status: 'filed',
+          dept: 'PHED Division, Cooch Behar',
+          asked: 'JJM pipeline project status: sanctioned vs. actual connections, expenditure, and Har Ghar Jal declarations.',
+          received: 'Awaiting response. Deadline: 15 May 2025.',
+          discrepancy: false,
+        },
+      ];
+
+      /* ══════════════════════════════════════════════
+         DEPARTMENT TRANSPARENCY DATA
+      ══════════════════════════════════════════════ */
+      const DEPTS = [
+        {
+          name: 'West Bengal Pollution Control Board',
+          rtis: 28,
+          responseRate: 88,
+          avgDays: 19,
+          discRate: 8,
+          score: 81,
+          band: 'green',
+          rank: 1,
+        },
+        {
+          name: 'State Election Commission',
+          rtis: 14,
+          responseRate: 85,
+          avgDays: 22,
+          discRate: 5,
+          score: 78,
+          band: 'green',
+          rank: 2,
+        },
+        {
+          name: 'District Education Office (avg)',
+          rtis: 64,
+          responseRate: 71,
+          avgDays: 28,
+          discRate: 22,
+          score: 52,
+          band: 'amber',
+          rank: 3,
+        },
+        {
+          name: 'Public Works Department (State)',
+          rtis: 47,
+          responseRate: 58,
+          avgDays: 35,
+          discRate: 31,
+          score: 41,
+          band: 'amber',
+          rank: 4,
+        },
+        {
+          name: 'District Health & FW Samiti (avg)',
+          rtis: 52,
+          responseRate: 62,
+          avgDays: 30,
+          discRate: 38,
+          score: 39,
+          band: 'red',
+          rank: 5,
+        },
+        {
+          name: 'Kolkata Municipal Corporation',
+          rtis: 73,
+          responseRate: 41,
+          avgDays: 42,
+          discRate: 54,
+          score: 28,
+          band: 'red',
+          rank: 6,
+        },
+      ];
+
+      /* ══════════════════════════════════════════════
+         HELPERS
+      ══════════════════════════════════════════════ */
+      function fmtDate(iso) {
+        const d = new Date(iso);
+        return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+      }
+
+      function statusChip(status) {
+        const map = {
+          filed:     ['chip-filed',    'Filed'],
+          received:  ['chip-received', 'Response Received'],
+          overdue:   ['chip-overdue',  'Overdue'],
+          published: ['chip-published','Published'],
+          appeal:    ['chip-appeal',   'First Appeal'],
+        };
+        const [cls, label] = map[status] || ['chip-filed', status];
+        return `<span class="chip ${cls}">${label}</span>`;
+      }
+
+      function highlightBlanks(text) {
+        return text.replace(/\[([^\]]+)\]/g, '<span class="blank">[$1]</span>');
+      }
+
+      /* ══════════════════════════════════════════════
+         TEMPLATE LIBRARY RENDER
+      ══════════════════════════════════════════════ */
+      let activeTab = 'education';
+      let previewOpen = null;
+
+      function renderTemplates() {
+        const container = document.getElementById('template-cards');
+        const list = TEMPLATES[activeTab];
+        container.innerHTML = `<div class="template-grid">${list.map(t => `
+          <div class="template-card">
+            <div class="template-label">Template &middot; ${activeTab.toUpperCase()}</div>
+            <h3>${t.name}</h3>
+            <p>${t.desc}</p>
+            <div class="template-key"><span>Key question:</span> ${t.key}</div>
+            <button class="btn-preview" data-id="${t.id}">Preview Template</button>
+          </div>`).join('')}
+        </div>`;
+
+        container.querySelectorAll('.btn-preview').forEach(btn => {
+          btn.addEventListener('click', () => openPreview(btn.dataset.id));
+        });
+      }
+
+      function openPreview(id) {
+        const all = Object.values(TEMPLATES).flat();
+        const tpl = all.find(t => t.id === id);
+        if (!tpl) return;
+
+        document.getElementById('preview-title').textContent = tpl.name;
+        document.getElementById('preview-text').innerHTML = highlightBlanks(tpl.draft);
+
+        const panel = document.getElementById('preview-panel');
+        panel.classList.add('open');
+        previewOpen = tpl;
+
+        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      document.getElementById('btn-close-preview').addEventListener('click', () => {
+        document.getElementById('preview-panel').classList.remove('open');
+        previewOpen = null;
+        document.getElementById('copy-confirm').classList.remove('show');
+      });
+
+      document.getElementById('btn-copy').addEventListener('click', () => {
+        if (!previewOpen) return;
+        navigator.clipboard.writeText(previewOpen.draft).then(() => {
+          const conf = document.getElementById('copy-confirm');
+          conf.classList.add('show');
+          setTimeout(() => conf.classList.remove('show'), 2500);
+        });
+      });
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.tab-btn').forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          activeTab = btn.dataset.tab;
+          document.getElementById('preview-panel').classList.remove('open');
+          previewOpen = null;
+          renderTemplates();
+        });
+      });
+
+      renderTemplates();
+
+      /* ══════════════════════════════════════════════
+         RTI TRACKER RENDER
+      ══════════════════════════════════════════════ */
+      let openDetailId = null;
+
+      function renderTracker() {
+        const tbody = document.getElementById('rti-tbody');
+        tbody.innerHTML = RTI_CASES.map(c => {
+          const showDisc = c.status === 'received' || c.status === 'published';
+          const discCell = !showDisc
+            ? '<span style="color:var(--ink3); font-size:0.72rem;">—</span>'
+            : c.discrepancy
+              ? `<span class="disc-flag">${c.discTitle || 'Found'}</span>`
+              : `<span class="disc-ok">&#10003; None found</span>`;
+          return `<tr>
+            <td class="rti-id">${c.id}</td>
+            <td>${c.subject}</td>
+            <td style="white-space:nowrap; font-size:0.78rem;">${fmtDate(c.filed)}</td>
+            <td style="white-space:nowrap; font-size:0.78rem;">${fmtDate(c.due)}</td>
+            <td>${statusChip(c.status)}</td>
+            <td>${discCell}</td>
+            <td><button class="btn-view" data-id="${c.id}">View</button></td>
+          </tr>`;
+        }).join('');
+
+        tbody.querySelectorAll('.btn-view').forEach(btn => {
+          btn.addEventListener('click', () => openDetail(btn.dataset.id));
+        });
+      }
+
+      function openDetail(id) {
+        const c = RTI_CASES.find(r => r.id === id);
+        if (!c) return;
+
+        if (openDetailId === id) {
+          document.getElementById('rti-detail').classList.remove('open');
+          openDetailId = null;
+          return;
+        }
+
+        document.getElementById('detail-id').textContent = c.id;
+        document.getElementById('detail-subject').textContent = c.subject;
+
+        const showDisc = (c.status === 'received' || c.status === 'published') && c.discrepancy;
+        const body = document.getElementById('detail-body');
+        body.innerHTML = `
+          <div class="rti-detail-col">
+            <h4>Filed With</h4>
+            <p>${c.dept}</p>
+          </div>
+          <div class="rti-detail-col">
+            <h4>Status</h4>
+            <p>${statusChip(c.status)} &nbsp; Filed: ${fmtDate(c.filed)} &nbsp; Due: ${fmtDate(c.due)}</p>
+          </div>
+          <div class="rti-detail-col">
+            <h4>Information Sought</h4>
+            <p>${c.asked}</p>
+          </div>
+          <div class="rti-detail-col">
+            <h4>Response / Status Note</h4>
+            <p>${c.received}</p>
+          </div>
+          ${showDisc ? `
+          <div class="discrepancy-box">
+            <h4>Discrepancy Found: ${c.discTitle}</h4>
+            <p>${c.discDetails}</p>
+            <div class="disc-nums">
+              <div class="disc-num">
+                <strong class="allocated">${c.allocated}</strong>
+                Allocated / Procured
+              </div>
+              <div class="disc-num">
+                <strong class="spent">${c.spent}</strong>
+                Verified Spent / Delivered
+              </div>
+              <div class="disc-num">
+                <strong class="gap">${c.gap}</strong>
+                Unaccounted Gap
+              </div>
+            </div>
+          </div>` : ''}`;
+
+        document.getElementById('rti-detail').classList.add('open');
+        openDetailId = id;
+
+        document.getElementById('rti-detail').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      document.getElementById('btn-close-detail').addEventListener('click', () => {
+        document.getElementById('rti-detail').classList.remove('open');
+        openDetailId = null;
+      });
+
+      document.getElementById('btn-file-new').addEventListener('click', () => {
+        document.getElementById('template-library').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      renderTracker();
+
+      /* ══════════════════════════════════════════════
+         TRANSPARENCY SCORES RENDER
+      ══════════════════════════════════════════════ */
+      function renderDepts() {
+        const container = document.getElementById('dept-list');
+        const sorted = [...DEPTS].sort((a, b) => b.score - a.score);
+        container.innerHTML = sorted.map(d => `
+          <div class="dept-row">
+            <div class="dept-row-top">
+              <div class="dept-name">${d.name}</div>
+              <div class="dept-rank">Rank #${d.rank} of ${DEPTS.length}</div>
+            </div>
+            <div class="dept-meta">
+              <span class="dept-stat">RTIs filed: <strong>${d.rtis}</strong></span>
+              <span class="dept-stat">Response rate: <strong>${d.responseRate}%</strong></span>
+              <span class="dept-stat">Avg response: <strong>${d.avgDays} days</strong></span>
+              <span class="dept-stat">Discrepancy rate: <strong>${d.discRate}%</strong></span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill ${d.band}" style="width:${d.score}%"></div>
+            </div>
+            <div class="dept-score-line">
+              <span class="dept-score-label">Transparency Score</span>
+              <span class="dept-score-val ${d.band}">${d.score} / 100</span>
+            </div>
+          </div>`).join('');
+      }
+
+      renderDepts();
+    </script>
+  </body>
+</html>

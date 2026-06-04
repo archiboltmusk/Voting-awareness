@@ -25,8 +25,10 @@
     { "source": "/education", "destination": "/education-employability.html" },
     { "source": "/cjp", "destination": "/cjp.html" },
     { "source": "/cjp-projects", "destination": "/cjp-projects.html" },
-    { "source": "/nota", "destination": "/nota-reform.html" },
-    { "source": "/clean-candidates", "destination": "/clean-candidates.html" }
+    { "source": "/swarm-audit", "destination": "/swarm-audit.html" },
+    { "source": "/rti-swarm", "destination": "/rti-swarm.html" },
+    { "source": "/skill-guild", "destination": "/skill-guild.html" },
+    { "source": "/governance-deficit", "destination": "/governance-deficit.html" }
   ],
   "headers": [
     {
