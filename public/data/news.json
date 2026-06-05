@@ -1,20 +1,8 @@
 {
-  "generated": "2026-06-05T09:47:15.216Z",
+  "generated": "2026-06-05T12:36:41.116Z",
   "cases": {
     "saradha": {
       "articles": [
-        {
-          "title": "Chit fund scam: Investors demand refund. - Mangalore Today",
-          "pubDate": "2026-04-21",
-          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQV0tyaGl5NFNFRENYOHEtaC1ldkZiTzlDdFVzTVZCUFV3b0gyTkNZTkhYRnpPT2EzbndUOU85NW5fNjRqNWpfWnRpbnJZV0JadWhTOUVRQWQtcjM1dlU0RVVxVVdQSGJ5U3NRRnhjOWdRd3RMZjR5RF9SZmF6N21KdXEzZG9qcFhYTkY0dlN3?oc=5",
-          "source": "Mangalore Today"
-        },
-        {
-          "title": "Saradha chief Sudipta Sen set for release after nearly 13 years in jail - The Statesman",
-          "pubDate": "2026-04-10",
-          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQdWgxM1hrTlJvWWxuc0VwTHY5YzBSOGxkek5kOGJOZFdsMUhWRkd4aWNGR1FOV2w4Q29mVFZiN0QtUkVmam0wSHBuQjNVMjQxNXVfWWw5X0Z6OUlwZFZWSnhwcGlkMnJEeVlTc2JkN2RBbDEydkNhY1Y1Ry1ibGFNMFVfZmN4ZFhoaFdsZTJxZWNvMjdzOGRnbXZRNS1ncXRON2Jtd3BlR1lSMlg1ZnF6eUZIR1FNMHJxWXVlbF9wR0TSAcYBQVVfeXFMTWVtaTJjWkFpWC1OOHdua1BSTlU2TUlZSTYzNXozdUdFalhDOFNnamp6VUFnQXpLaEJCMnFOVlRJeV9YSTd1MklocEotdEowelAzWk5la3lFMWxjN1BhajR5MEs2eFdpVFotM3Y5bUVPRVZ6alBHVUswYlJiZEpOQ2ppRVFNYzI5NDBnOXN4SFhqT0NHTFJvTWRyaklyLVNLVGpNd2loVk5JVUhmc1FvRGI1ZXRCb2RnR293SEpZRzZhS3FRVUNn?oc=5",
-          "source": "The Statesman"
-        },
         {
           "title": "Saradha ‘kingpin’ gets bail in last pending Barasat case after 13 years - Telegraph India",
           "pubDate": "2026-04-09",
@@ -38,6 +26,18 @@
           "pubDate": "2026-04-09",
           "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNR0MycklZU184UFpuNnBNdGpheEdGQWV0by1JbTc3bHBTTkxDa3F5ZFVMWWNENEsxekswV0h6ajFsUjR1WEttaWQtekgyT0FnY1JFV0c4YTNqOVlfNkQ3bWR3SEhYd2NwZS1CeWVyc09VZHJTUVpXaEUxNTd4eVhjRlUxcWR0WjNlTkVER1B4dmpsRmJ0VVh3V2Z3T2ZRTXdtal9lOXpxTlRtckVPQ2llRzNlVTFwUmRBMnFHWDhWYXFmWXRpZzlwMDR30gHPAUFVX3lxTFBBeGxPSWV4ZEEwSWxYTWxCWnFPejNKYUlhck45WGJmUVhUS0psbnVKNUx3RWs1bzRQWWo3T1JGbkNfcE9veVI5N1A4a0huVWlTSWtCbHd3LURubUM2VFZhX2RYVndTN3V6V2Nmbl9udTBBLWNGaElsV0tSTGhFNThXTzVKTXEzNUpJaTYwbkVFclRBYlNSUlVudGhsUjVybzNCcnZzQmVkVXhDM3V2QUJUTW44eXE2Y3Q3NFZYU0ZLdkx6Rm1mOVNuS2tqUVRMSQ?oc=5",
           "source": "Mid-day"
+        },
+        {
+          "title": "Saradha chit fund's accused set for release: Calcutta HC grants bail in all cases, slams CBI and state poli... - Bhaskar English",
+          "pubDate": "2026-04-08",
+          "url": "https://news.google.com/rss/articles/CBMimwJBVV95cUxOOWl5OVNuTzl3X2xqb3g5QzExQm43dy1PZ0VINkpST0xzNWtLdTBLSTF2OUo1aUhBbUtpRkVqYkhaSDZCUk9TOEFGOERPelhRWFhPb3F5NHU2eWIyRGpaMkJIRkpxUmxPak9ZUDVfWk5sdVdUTHQ1TXp6bjFHckdrSlp0S3FrZzBxbmVvSmhVUVB6T19BUmFXX0F1dmJoNTdIZk5WamdMQ3JheEZwRFA1UTdwR0VpT2xoV0l1YnpzNW9TUENFMHRqVXBMazZJb0JaUkdRSE53R0tmbTF2Q1FTRm1aeEw0OVVxQ05CRXd5ZFlURGg5MVBmNDZIWGFORFlQLTJ6YTZFZ25nbHhROGhHMVItQnVDVlY0U1Rr0gGgAkFVX3lxTE52a1dVenU4clk3ektHOG5ieVE5dUw4cWFobWNrQmxnRmF1eU5rcGF4WnV6Q243d1ZlSjVCTjBsdUVnTU1lMlJMb3lEeFRRdnV2WTFqV2dvTlFaSnlaVnFNbHZVVFpQSEZaY19rOW9LZVRqWnIyY016blpvZ3R5RVVXVTBiOTR0ODl4V3VyaG5lU2pPeVV5QzVISlljZmFOaUhEbFJpcDBBVnJPbVp5YTBuTG9OcWxlLUpKbk1pckJGaXJ0a2o4U1V0REhxZWU1RUNxSEZjVkdvdThEb09XQkdkTVhRMjF0REhnWnVrOHYwQWx2MkFJby0td3M0WkRlUGtlU2J6WWpUUmt5N0pmaXByNWpGdjktcXFBUmF6N3FYTQ?oc=5",
+          "source": "Bhaskar English"
+        },
+        {
+          "title": "Saradha Chit Fund Scam: SC to hear on Oct 17 CBI's plea against anticipatory bail granted to WB DGP... - LawBeat",
+          "pubDate": "2025-10-12",
+          "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNV0ktOEhuOTdUdlVnSmZtU1FQX0cxdEhJblhPTHJjWWg3N2dBcFR2S0U2V25pX0ZJM1pOeGtrZmRUei1ZQVNOUWpWYjlQMFEzU0c2dUFpcWtEUmt2Z3FQNHBDRFBQXzQ0cmFWaW9PbEtYSm5Kb21MdXZMd2hRRHZueXNEOTEwWHRUTEgwbnJsYlpRUTU2ZnlkYnZPQ3NQa2hsZ0tEa25Tbjh5OVBDRTFJbFBMeExkMVMzQkxOMEF3bkZLTDN5R1VIamgwczA0ak1hMERBblJ2NTFnWEJlQWRnN1lMenlybWFFR3o3Yl9OONIB9AFBVV95cUxQZFJWdWV5WjladzZ0d3FSVlYzSDI5WlFTWm5rOFJXS3NPQ0tfZkhGSVRUaW5FWlB2Z0FyS0VYWFZmNkhfN1NyOG1uUkFwaHJxUlFMNEZ6N1VDbGNRdDhBM21KLURuaHA2Zy1RMXlNa3NOaGdtT0FSWWZ2WWVJQXRmdkx4MmFKNXUyUlR5b05JU1BBMVJ1NjRpMVlld0ZKVXRVcGpKNjItMWZXS0Uzdjk2aVlSbUE2VEZGb2F4QjZfcGVrRnRFRHY2dW1zaHUxYmhOR3N2ZnJQYkZkZklGaWp4NzNyMjI5WWFvZ3QyWXM3YUZ4V2lB?oc=5",
+          "source": "LawBeat"
         }
       ],
       "count24h": 0,
