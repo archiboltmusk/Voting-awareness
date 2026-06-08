@@ -1,7 +1,7 @@
 {
   "swearingIn": "2026-05-09",
   "deadline100": "2026-08-17",
-  "lastUpdated": "2026-06-07",
+  "lastUpdated": "2026-06-08",
   "sourceNote": "Pledges sourced from BJP's official 'Bhoroshar Shopoth' manifesto (bjp-govt-wb.pages.dev tracker) and verified against news reports.",
   "categories": [
     {
@@ -102,7 +102,7 @@
       "title": "₹6,000/Year Kisan Samman Supplement",
       "detail": "BJP pledged to supplement the Central PM-KISAN ₹6,000/year with a matching state contribution, bringing total direct benefit transfers to enrolled farmers to ₹12,000/year — a doubling of the existing Central scheme.",
       "source": "BJP 2026 Manifesto (Agriculture chapter)",
-      "status": "watching",
+      "status": "delayed",
       "deadlineLabel": "30 days",
       "deadlineDate": "2026-06-07",
       "updateNote": "No government order issued yet.",
@@ -300,7 +300,7 @@
       "title": "Sandeshkhali — Compensation & FIR Action",
       "detail": "BJP pledged to ensure all complainants from the Sandeshkhali sexual assault and land-grabbing cases receive state support, that all pending FIRs are reinvestigated under new leadership, and that the identified accused face trial.",
       "source": "BJP 2026 campaign material · Sandeshkhali campaign statements",
-      "status": "watching",
+      "status": "delayed",
       "deadlineLabel": "30 days",
       "deadlineDate": "2026-06-07",
       "updateNote": "No official action yet.",
@@ -448,9 +448,9 @@
       "deadlineLabel": "100 days",
       "deadlineDate": "2026-08-17",
       "updateNote": "No housing order issued yet.",
-      "newsHeadline": null,
-      "newsDate": null,
-      "newsUrl": null,
+      "newsHeadline": "Bengal govt launches self-survey system for PMAY-G beneficiaries - MillenniumPost",
+      "newsDate": "2026-06-07",
+      "newsUrl": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPejh5TVkteUNRSlNDX0FPeHYyeGk3S0I5R2l3a0dwZU5zM3dGazhFdzhzc1BDOEQzQl9LSmlBUVNXQV9PZ2pTY2FnQVVyQUdCdGtQODR3UEFLdFVhYjNGV1g5MUkzVXJLYUpPMWVuYXhkNl9hMzk4X3o5RVVhM3MyS0lFUms1SC1BU09IbDVXT19lMWxadE91RU1nMUFNWERxZDdGZnZLOFZyWEFNTEJ0VE1n0gGyAUFVX3lxTE96OHlNWS15Q1FKU0NfQU94djJ4aTdLQjlHaXdrR3BlTnMzd0ZrOEV3OHNzUEM4RDNCX0tKaUFRU1dBX09nalNjYWdBVXJBR0J0a1A4NHdQQUt0VWFiM0ZXWDkxSTNVckthSk8xZW5heGQ2X2EzOThfejlFVWEzczJLSUVSazVILUFTT0hsNVdPX2UxbFp0T3VFTWcxQU1YRHFkN0Zmdks4VnJYQU1MQnRUTWc?oc=5",
       "keywords": [
         "PMAY Bengal BJP 10 lakh homes 2026",
         "West Bengal PMAY backlog BJP 100 days"
@@ -534,7 +534,7 @@
       "title": "24/7 Anti-Corruption Helpline & Grievance App",
       "detail": "BJP pledged to launch a dedicated 24/7 anti-corruption helpline number and a grievance redressal app within 30 days, allowing citizens to report bribery, extortion, and government delays — with mandatory officer response within 72 hours and public accountability dashboards.",
       "source": "BJP 2026 Manifesto (Governance chapter)",
-      "status": "watching",
+      "status": "delayed",
       "deadlineLabel": "30 days",
       "deadlineDate": "2026-06-07",
       "updateNote": "No helpline or grievance app launched yet.",
