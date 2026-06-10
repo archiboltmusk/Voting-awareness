@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-10T09:58:08.456Z",
+  "generated": "2026-06-10T13:37:20.340Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -88,12 +88,6 @@
     "narada": {
       "articles": [
         {
-          "title": "Kalyan Banerjee refutes Kakoli Ghosh Dastidar’s ‘verbal abuse’ allegation, says will ask LS Speaker to provide sanction against her in Narada case - The Shillong Times",
-          "pubDate": "2026-05-28",
-          "url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxOX3RaNjBmRlFlYUtzZTN1Nk91bXp2MkpYbnBVcjFjTHpvVXR0OC1kQnhFbHZsOXdRRHRJOHdlNm1wTlYzOUx0dkZCWTJMUmZvQmhoeW8tcnM3VVprN2x5U3hpRHZRQnpKb0hsQWtzNVhBOTJIMkhQdm5pVjFZRnRjRUJoRlFzSVBwRVh0WEo5OFFta3VXdGhfTXBudC1oR0lNVWk0d01zNWF3RnJibEh2Y00xaFpKWTJwZ20zd0QwdmZqOUo4bVdGa0hIUjJKS21fT3Fod2xWREg2dzE2cUw4bFI5UDVOQUZSSS0tV09yczc3cVZiWnN3OWhRdjBXWE8zaGpaMl95Q3ZreUpHZmlYcA?oc=5",
-          "source": "The Shillong Times"
-        },
-        {
           "title": "Suvendu Adhikari’s Affidavit Revives Focus on Narada Sting Case—Putting BJP–TMC Clash Back in Focus Ahead of 2026 Bengal Election - NewsGram",
           "pubDate": "2026-04-05",
           "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPalFfUnA1MHZqM1dnQWVFR2tWdTktQWV5aG53Q2pwNjZna2FiM3JrZEppNTJwRm8ySVpEbENjd3VyVURrQU13Q2RJZmxhOThTR2Ewd1J3QVp2V2xEUzFtS3p4RlctRVRWMDBGMF9iZ2tUU3BXVmEyTWlwcW5VZC1aT2FHVHhFOTFJSGNEU0dZUmNETFlyTHh4OV9PYkQyeVl3aGgtTkRMcl9JSDJhR3lkZFNkaGFuSUQy0gHGAUFVX3lxTE92SE44X196aWZFajdZUlJzSjlzTlZMNzVNenNmVWFUUjIyVHIxSTBHNXNobGJBbF9HSmlPY0V5MVBoTXBPN3hYV2RIU25UakdyZlhIRFpDaWxfb0tFZm9YSHM2aFRDSUEwVHNmMnhITUdpdS10TEc3UnRJbnpwRU9jTllzdG5UdGtYMzJSMEhkVzFxREg1Z19tODFBOTZoaWFYUDFzb0lzSnRSMHJnc29pWTdUcjZ1OUJuV1RsTldRS1dFU0diUQ?oc=5",
@@ -112,16 +106,22 @@
           "source": "India Today"
         },
         {
-          "title": "Narada sting case: CBI summons Mathew Samuel - Metro Vaartha",
-          "pubDate": "2024-03-27",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNQ3RINnd2S0ZubWNiV3o3ZTI1YXNKbjhGTEFvQjY4QklVdGRqelpUb2NianNpazlrRVozQmdCQVhkN1VjZjl6T3AxUElzRFNXUUozZFUwY1FzMFRZQm9mYmlsS3VlTzhqMGlNZmJPdFM5bFRNaGlSelR4ejRnX0UzazVFNk1TZEg40gGWAUFVX3lxTE9PeE82N3FwOFNycWgxOE1kbWVMT1FqNzFySERGT2o2cGcyRERISThCcXVlVzUtQlJFbE83MFVHT29UeHVDZW9tQmVLNnJ2THNOQ3lWQ05XU005b0Z3VVV6OG1LNHVGU0g1UHp2SjY1UEwzaUNXZEg3OXBSR3FDUnRRbHZCUUFCU0VHUUhMcWs1b0pGN0dkZw?oc=5",
-          "source": "Metro Vaartha"
+          "title": "Narada Sting Case | Will appear only if CBI pays for travel: Mathew - The Indian Express",
+          "pubDate": "2023-09-13",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNZG1aVG5seU1wUEt2dEVxWnVsbVRza254QkxYZm9qS0lyVlJIQVlxNUU4Y2h1THAtS2RUTFFlS0VFQnVIVTZING5UdWt4YWlrcHd6dFBuWHhRZ3N3VUlSQUVfR3VnTE50VGNZb3U4Q0V2cy1jTnNtM0lreTVoY2xXSE11NUhXVVFqempzTlpYajdWY2lIeS16UmRUa3Rja1pDVGhFdl9YaGd6UnBNbGFqUHE4dWM5dFE2a2hsM1l5UdIBxgFBVV95cUxOVDdSWHBiOUE0RWlnWjRiOEZNSE5meWhPYzFWS1I2MTg4clRHdnE0WTAzN1hvaFZYZGxpYnl0R1Z1elNlOVBERXFTUnQwa2FnZGlGc0tZMWQ4X1VVWDRNS211WlJ5RU9KbE1tbkJOa0d0V19nUUR4ZGJtc0l0cmNMcy0xUUdjMmRlOEZWTnVNR1lPUFBHaDFPcFkzTFVhWG1IdmQ5V2NDa1ZHdWdYODhEalcyRmduZ2doTUJROTZZOW5HWm0zYUE?oc=5",
+          "source": "The Indian Express"
         },
         {
-          "title": "Top TMC leaders spar over Abhishek remarks on Narada sting operation’ - The Indian Express",
-          "pubDate": "2023-09-18",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNcS1mQTlOX2RQbFVPRGRMTjFITm4zUzQwZlFMcGliNHZ6LWVPdm1MTVhzLUFVTGJMNE5sUG5JQnVqRlBBR2xsY0dZRm1POS1TeVZLZjBqbFRtckZLQW5LcXZEZnJaTnFTM1luTTA4eVpaRTVZTGk5NDFIQ0lJOENIbUNIM0tLWkVYQ2lhSUJIVGhnVjlQZ1BMWnhaODhfeUtrWmZQb3NZbDZXQ2UxMjZ2QTBPLTRlOUZVanNZNNIBwwFBVV95cUxOWWMxMXBxZXkxOUdaYUg0QzZNaUZHZ2Nrd0dVRVpNUFZ6WnpmeV9jM0VFRFNYaWlNUklvYk9Ca0JtWjR0UGpVNks1cUh3RnhEcFl4NnBTdktDc0RPV2E0aEZwcG0xVUkwZ0ctMDBWSGtZOXVRU2lJMFpaTlhYX0NKS1lBdkVVdEc3b3JXN2MtLS1hRi1sUjNIU3ZJbENMcVBWaUNpdWJISzN6bVpfcXhFVFpVdzRndTl6bEtNNHZwbm5aakU?oc=5",
-          "source": "The Indian Express"
+          "title": "Narada sting tapes case: Calcutta HC directs CBI to appear before West Bengal speaker - India Today",
+          "pubDate": "2021-10-04",
+          "url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxOakpMQzB3TEtKOEptYTFacHRCYzN1OG9FNmYtM0hZeDRiMld1aC1OclpJMk5Zc0VPUzdmWUhySUlIZ1lBaHVHb0N1Skt4VTV1Vmc1bGF4RTYwc1AwUVkxbWF6OV9sZDZwLUZjdlRsQW9KVF9CbUtobURhYmRiMzA1YkdZbVBWd0JPUGtlX1FzUzFIRk9BYmRGQU96RDhmZnI5TWVZWVhRYTFYZWFRNUZFTVZ0UmtSYjh1RGd4ZEdLdVNKaV8zQXU4MkVsdElVc0hWb1VIWDM5cVN5bGgzdzlETkR1eFNNZHRtTkNzUnMzbkpHMkdWTGNNYWUzUDI2Y0tjTlRINTFrck04YjZUblpHVlpsbWVYN0ZzTUtGeXFBNks3d9IBpwJBVV95cUxOMDcyTE0zcU1taS1jbDFDMHRlT3Fpemh1QkpBdkRwS0lBenhmWVZoWWVNUGsxN2JDZHRyTnpsUTFuMGxSdWRpR1F5YVY2VmdTVnRHRlotUVhFd2hiNnEwYmhiRllTRzVFdFRodm5xMEZ6bzlDOGsyZThFbWtDTVQtVzc3M3dMU2dBWU42aVRJczJRVGczRHRTQ2Fhck5LN3k3aWctSU5NWmtzYWlNSmxqNUItdlZXOHZXZFdVQzhzWURsR09KYVFCX2pXVHcxcURyOXhzb1hNZFNESU40b2t5NUFXdUpYcmM3NzZRSVh1aWZzY3pBYmgtalBsNUVvVXlyLXN3Y25VaUhjQjVZQkUwQldOV1B1bmpFNGVGQkZXbDhRTG9pbms0?oc=5",
+          "source": "India Today"
+        },
+        {
+          "title": "Special court summons 2 Bengal ministers, 3 others in Narada case - The Hindu",
+          "pubDate": "2021-09-01",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPN2xCNVctWDNaUjhEQWZWdWxZX1BRaldlVFdfUmJMRXh3QzZSWnVwU0lQX2VnRHlTZjhpMW80Z3BFam1QbGk0dzduZkRWM181S21xU0NDNS0wT2dOMzZDTnMxYWd2eFY4ajlRdmR4eWRaVndySTJTeTZPalozRExvQVZabkN4VmN5ZmZ0Z3ZzbnlmeU5ydDFOczJQNWw2LWZfR2dfOEQ1QVVpYkhsRFhndTg0WjRoTTcwTTVfM2pUcHE5X19hdnFETdIBzwFBVV95cUxOaVJYVDN3SGpGMm9nQnB4TG4zNEVkblc2bWhOWFJ0NjVBa2k3dzVyZkdOeVJEM3VweGlDSHk4aklrOEthWl9DN1JrRF9QOUlPcTZrdXlxWGhxWEZpRFl2N1dHdzlmWUstRVVqNktTLVRhMHpOdzFlUlZxNjRLcl9kdGFmZkd2Y1Q3WE9EY2VZM3B5TFFUclVhdFBqZ3BRYXFoUTUwbWFYeDFjOVZYZ1VDeTd1VTUwaUo4YXFnTF9qVzk0clg5VUQ5cmpNWGJTQnc?oc=5",
+          "source": "The Hindu"
         }
       ],
       "count24h": 0,
@@ -148,22 +148,22 @@
           "source": "The Economic Times"
         },
         {
-          "title": "Bengal SSC publishes 2016 SLST OMR sheets - News Arena India",
-          "pubDate": "2026-05-10",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNMWY5RXV4eWdyNGVuVGhOanRiYnBYN2tXdWV4Q18xOXN1TGxxTG9WUk84dWlzRk5TZ3pSMm13MGpUcU5HSmVlcjlKWkRuNkhsS2VveTNHVE5VUmxUaXhwSTlNV1JfdEVyZTJ2enZXeU1XYlpFQzVJSlk5TlIyWmRUSHlBc0ZkUi1q?oc=5",
-          "source": "News Arena India"
-        },
-        {
-          "title": "West Bengal - The Verdict India’s Chattering Classes Cannot Read - Swarajyamag",
-          "pubDate": "2026-05-06",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPU0hmQWg2Q0hZYkMwSUNyUWtFejFLMTE2cU8wbmJTOTJZeHpTX3JnVjNEa05JYUtkZDJScC1TQVdnUFN4MnJUTWZPZkxndmdCdEo2OXJDODFJZ0FDSlgyTDZfd3c5V1FZb3JxTHRSdXQ5S2hfU0Y0TUlIREFuMmRwWnkwNG82REpTZG5PWS1fdXp4M01Ddi1Sbm5R0gGqAUFVX3lxTE1UUHB6WW42bnVsbEJLd2pLeG5lakMzcGd6MXV3dXJETTc2bDVHNU44LXhtNXZZT3FsMVFMVTJUdk9vMEQ3bVFrb1dlV1N3dld0R0IyUkw0MXhWSzhBOVI4bV9PU1p0TXhhdHBPNWVVUGpCU29vdDdRczV2VTkxRS16RzN5OGVmN0E5bTUtZmczTXdHR1pyUDRueGtsMG84cElnYUtrRmwzZDdR?oc=5",
-          "source": "Swarajyamag"
-        },
-        {
           "title": "Bengal teacher recruitment scam: ED raids former education minister Partha Chatterjee’s Kolkata residence - The Indian Express",
           "pubDate": "2026-04-12",
           "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNdDJmNkxQYWRFMTVNSEJmY1ZQSDNKaF90MTU2bkxpVG5LZ3ZoTXNCdnZqaTVmdGNZS2I0dnNwVWtla3RaWG03YTY2ZUxKVXVfYnlKaG1jZ2lqSmdKZlhIdVBObXFsUTYzemMtNzdxZVVGMjhGTU5aXzlpZUsycy1aOVRUblVINXZLYlpCUWtKSFB3RjNLQi11UENhLXd6c1RKZHlQZ1ZWWUJMYVR5TWx0TUF6OEJhZEZ6a1hJSXJBSFBaOW9jbGM3OUZ2VFBiQlNEV3ZOVFdhdjJENjJ6RTNuYmgwWGlFZUpXdzd6b0ZwZ3F6Z2Uz0gH7AUFVX3lxTE40YkxMbVBMS0NXcy0yNk9uVzlIbFJWRl9BVjFuUk9MWG1oYy1yeHFOMnRsdWw0X2V2bGpCaTNNWUxPS2VRcUhManQ4QXBHMVNXS0U3WWl5eU1VQmFLOWlEUG5Qc2FKU1BZME5McDEyWlpyX3R0ZmJ6ajBSdkRhUUNqNktySDhCREJRYmZza05RaW1RRDNPMElpZlJrVmQzQUtsTUpXaHlfLTZBYmctSkRLTVBHTW1FeWtkQlJteTFTQ2lScnR3dTlUOW9rTUpldUNQSzFxUDRnQ3FPUmxsY2kwNkxERXByRlJLcTdLbDY0dFdqOVdrcmttUk53?oc=5",
           "source": "The Indian Express"
+        },
+        {
+          "title": "ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR",
+          "pubDate": "2026-04-11",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5",
+          "source": "News On AIR"
+        },
+        {
+          "title": "West Bengal school jobs scam: ED raids former education min Partha Chatterjee's home ahead of polls - The New Indian Express",
+          "pubDate": "2026-04-11",
+          "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPU3Uwb185b2tHTHVHRzZHVEtOVWdTQy1teDZoTFlmVkZtWnhhN3MwMUlUYlBtX1gyRG9BTGxySGhmZ0IxeFhTcXY0TS1TS202VUtnWU1uaUdzNzR3Um94QzNoQ3pjZlRXSkJLQjlvMUNzdlRyZUVoYnBtTHJrWWVVSDdteldyd0cweTRpNnlwM04wS2lLU1piRkJHNUZxVExRSVczT0RmM2FUSUY0MHF2WnJoYTY0LVRMcWlZUktESFpweEVOVXNpM0lEeHVUZmVLTG5qQ0JneDB4T0FGM3ZKVm05TzkyNGt0Mlg1U24wcm9uSTjSAYACQVVfeXFMTmNYdTI4bjloSmNxd1dvZ0NVWG1wOHh1LXYwd2dCYXdhR05fUDF4R2dRUXNmSkF0cHMwcHN6TUw0NlRWVTRvVy0zMlJZNzA4RFVENm1hTElhUElCX09OVlcxN0Fjd3FRb1pKUF9KempYdEhrUmsydEYyT2FMOG1SZXJidU5UQ0ZBSlNXWUx1RlhBU3NjWlVzNllGaE1vQVRDY0ZBRnVCcFYwajJtaE9NTUhscjlCdGZQU0ZSWUFZaUlPR0xrWVdTSGV6ck9rczh1Z3JDY1VIV01BcVZleXZWVDdWa2FCRUFWZjFtOHZ1RVFaT01TVDc4VG5tSHJQUXU0TA?oc=5",
+          "source": "The New Indian Express"
         }
       ],
       "count24h": 0,
@@ -184,12 +184,6 @@
           "source": "Hindustan Times"
         },
         {
-          "title": "TMC strongman Anubrata Mondal gets bail in attempt to murder case - Indiablooms",
-          "pubDate": "2025-08-16",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQX0Q0enFQUVp6RnIxVVNvYmdRN0pHYkkwNUVWeHdZdWYtZzFfSmZ6WV81SkxoQS1wRzVVd2ZPMDY2eFAzOUVMVkoyWW5pOC1YNEdaY3l5QTY5RmI2aXBvMVprU182Y3pWUzk0WVMtVFR2ZTNRbDB3cEU0dkVKaDByd3JrYURFdFZWUlhRTkRMQnUxUU5TRUJrTnkySXMyd2RXWkhzNFRJY0xmUm5n?oc=5",
-          "source": "Indiablooms"
-        },
-        {
           "title": "Calcutta HC grants permission to Birbhum SP to challenge summons in Anubrata Mondal case - Telegraph India",
           "pubDate": "2025-07-08",
           "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQTHdtX1dNazNhWFJEb1g4YzFwdFYxWHNhdXFMZnJSVk5nYUZyN29RVkY2b1BaWGFCa2dmeXphajRjSkxhcGNudUlMbEZZQnJldjAwbUdIZzFwbmtsU3VLTWZBNURFVWxYako0UGlqQjUxc0hNdjRFanJKS2RfcW52cF84V1psZ3lGV3czeWU0V3lRbGsxbGpZeEpEcmpHVVc3WFdzUF9nRGEtVmNJUk9wMENuNEZmOFUtZ3J6UTdrRl9yWUlNOGpYRFM5Q29wMjNEdXlKLU9UdDlFbHdhc0twSzBmSVM1UdIB6wFBVV95cUxQTVJPbks1eUlkcGZTcjRHX1FzTDN6UXhjRGlEU2Y3UzA0QldIclhnUEFtRWdYZUFEUl9EOF9WSHFhYUQzYVFVRFlxbVVQc2RsYncxRHFlWHdZSEJXQjBvVVozSC04NWhBcVBoeTdBZDVqN3FRSlRyMjlfd0xUYWNrczlWY2lmMGtoSU1MbVpFeklRT21kYXJCcjVhbXpQYlpZczg0MDF6d3hHUXlXOTZfWnBBS21RY0NoTlBZWFhoQTFLUGVUQ1BBakxIZjk1VmhuZ3NIMDFyNGlKTWlJUmZ3NUdla2h2Z3VnVmZN?oc=5",
@@ -206,6 +200,12 @@
           "pubDate": "2025-06-03",
           "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNakZmR2F0cEoyTk93N1V0a1NVUVUwcDNPYVVGY1hKd1JEVVJ0MGtHbHZkdFo5Ym5hYXplWHdUS204S01kaFJ0OEhEVXctZE1uUEl6T1FOcWxBM010QzVqelVFckt5cXUySHVnSTRiSlk2eWVPdk1ia0c4VDJuZVN3S2xEY2l5LTNfeURULVNUVDZqUEZBU2lLMC1sV05pcVZtaUt5VXBvRG5KMGM1enpvZFgzNGNfTEdoSzh1MmtUZW5RTUtuRHhBMllTODYtVW5TNFU4ZFc4SnRaVzkwanhWbmhn0gHnAUFVX3lxTFAzSTVoY2ZrMXhtQ28yWWp6YUNEN2FxdXZtR2JlV2N5MUNDWTZzZV9EZXpRSWVocm5LRkkwa09XT1VNZkc5ZGFZOW56d1JuNVItWElFUE5sRVhCeWxFRm1JZ1FQczI2ZmVMQVAwVFVsR3Q4Qk95U3FscUZqTUJaQmdoSkVkYUcwM19fd1luLUIwQjRBc0gzMjFKVm03aklIYjZPX3QyTkFLd2FoTU0tMGI0ZEdKQ256VkdZeWtodWd2QlBpRjBXeVREYTY3QmhvNTRBQ1p4VUhNU0xQUmx6QVE3YVpSamhUOA?oc=5",
           "source": "Telegraph India"
+        },
+        {
+          "title": "TMC’s Anubrata Mondal booked over abusive call to cop, family in viral clip | India News - Hindustan Times",
+          "pubDate": "2025-05-30",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPRHhYTmJuaXVxbzZLWmM1c1J2M2xaZzVadGE1RURGbGZsM01TOGd4RE1uUEdIc2JBOFVQeTZuY1N6bDZBc2lNTzl3LUtVMzB1YTg2VHp5eGRGRzRDR1E4Q3EzYUtuWTJHZUxwdXo1UGo3dDNMUDc0cGNvXzYwamZrZGlMUkR6MGpQM3ZGbEhrN3NmcXhkTGNwS3ZqZDI1WlNEZzZMMkkyYzQ4YWNxNkJTOF81ak5rQ0xHSFNaaS1FRVQtLXFkZWtfMnl6SVd0UnpjaWfSAdcBQVVfeXFMT1BuTTdnLTAtem9GLVBzZEZlY2d6NVhSSXdkd09qbVFKZWRwMTJ0ZjY0LUpyY1BPWFJDaU1iVDBVNFFrbVFRdEI2SWkwV2s3YjE1bTdIZEpUUHRzSzBqaHZXd2NGc1ZkTW14dUlIX0F3Rk44U3FHZ3gyTDhqWnJ5N2diZ21yU21GYkIwXzRTMlQ4RUxPRkl4Q18zRTZneG5OTkliY0ZnN1A2SzQtSHAzVUxMMlBpNGVpZG52SXExOGlsT2NxN3ZyU2kxTGo5RVdDNFk5SHZnNms?oc=5",
+          "source": "Hindustan Times"
         }
       ],
       "count24h": 0,
@@ -213,12 +213,6 @@
     },
     "coal-mafia": {
       "articles": [
-        {
-          "title": "From Kolkata to Goa: How Rs 2,742 cr coal scam funds allegedly fueled I-PAC’s election machine - The Indian Express",
-          "pubDate": "2026-01-10",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPQUhyV0NNNlltWTZHMDBEdklBWTVCSmYwYno5NFVrNnBuX2lDejRIOWJ4TWRQaVI5d1JoY0lhVi03OUpNejAtQjhibXlDOGFsN0dJRi1FVmxZV3BZYmpNTnVSdXJkejFuXzNMT2hUWnZKZEZkc1pJQlYyQW84SGxPSk1HVWJQaXRaQ0tKYy1QWTdWME1NUU5iajNENy3SAaMBQVVfeXFMUDUxa1NJWmtZZ0NraGhTRTg1LXJqTVZLVmlBdmxOSkV2Yi14QzNHVGpQV2hTMGhwMC0tZ1lzTmNKZi15MG94MzQxUDFVMWlPWTV3VUZCa0pEM2xFSTNiOVJOWVE5RVVrM0lRaExSejFUbFlWSkRYZmZrZnVrVE5YcDRQZEcyRlEySHFrMG1wbmhjb3JCLWRXalpDWXVQdE9wZkhnZw?oc=5",
-          "source": "The Indian Express"
-        },
         {
           "title": "Coal cash to poll campaigns? How ₹2,742 crore scam funds allegedly powered I-PAC’s election operations - Indiablooms",
           "pubDate": "2026-01-10",
@@ -248,6 +242,12 @@
           "pubDate": "2025-07-07",
           "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNbFNsYmwtY2JGZ0Q3dUR4OWdsU1dJREE3VzkyX1hoX3h5dHowam54endWeGtpNFY5OTNLTzgydzBTSjRiUGRzOXktVm82Q19vcElwVDZlTVYyM0ZhaUpjVGxFTXMyc0tYX2tUQWxDcERxZWVURW1fNDRLNm4xbDR0ZnIycDhPUG5JLTltWkFNdEFYUzVYMjNKOW81OFYxVW5zbVB1dGM4LXozRzRkVHp6dFFpby1UQlBFNkUtX3U3eW9TcVHSAcgBQVVfeXFMTldVOTduOElXSlVfaFlRRVBFblpHUkhUMVhUOFhSX09lZDZlekpEcUFZYkMyZDdtd0NVYnYtNTJYTWNFTU1wZXBsOHdkSzZ1X1RHTGFfb2FRRmxOSG1XejZJRFNIWU9WcVh5M2xSTzUwallJVm9LdmRKa3NOc0hyeWM0cmkycEhIRkU5WmE4cEVORUpVeWZudjRxLWNJS1dsdDJaamF1ZWdqOXRLdC1nR2t5UjVFMlJxVFVvMkxxSE5ZM3JjWDU3VzE?oc=5",
           "source": "The Hans India"
+        },
+        {
+          "title": "Bengal coal smuggling case: Trial process starts at special CBI court in Asansol - ET EnergyWorld",
+          "pubDate": "2025-01-22",
+          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNMW9rbDByRFcxVmkzSnFlU3dvbDk2RDNJRlV0TGYwWkdTaldzOXFLVnZ6RnAwWGZDeEl2NGd2emNZTFRYZXpybUozU2VTVzJYaXZQMDFDOVQ2ZjVFNDBXUUVwbFRKeW03dzVfcUdDZnF0NW0yRmdsSXBhdjl0Nlc3dDRCUmFRRlZoOG5PTm43dUpGVEhHVmxtbkZfTG5wYU1tYmk0MkxwcmdkVlBVbUhEaElPdXpLMTJrVE1fbk5TZllvUURsYzczRndkTUtuOVZ0dGNtU3lULXc1MnfSAeABQVVfeXFMT18zci1Jb1VLMmtNNEhURzhlRk5Od2syajlnZjVIZUJzTklZYU9iOFZHVUxWQURsX1RfMGtGbFotX1ZscWFWb2FBZG56WmJuWXUtMTlTUGZ2SW02ME9ua1U5cmx1T3lzNWRFdzNWWUVjTzFwOFg1SFNzUk1QMHZBcW1rQ0hsNV80aUxUeHhMU3FYeUc0Ml9hOS1CU2lrRXJjUHFCOGRyczh1U0hkeDNOVFNkMkx5NHF6VzVuNFJwYWFvRzhKZDNBYThaV3ZjVEVZZURyNTNmanJnVnJQQ254R2Y?oc=5",
+          "source": "ET EnergyWorld"
         }
       ],
       "count24h": 0,
@@ -280,16 +280,16 @@
           "source": "The Statesman"
         },
         {
-          "title": "Former Bengal minister Jyotipriya Mallick granted bail by PMLA court in ration distribution case - Telegraph India",
-          "pubDate": "2025-01-15",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOcFowRnl0UVFuRllsR21lai1YaDBxVXRBc3RjNEJ0Q2k4RHZBTGphaWRRWV9JTWJNR0ZNMVNHSzBjeW5DTUtkWmhjTC12UUt2UEg0TFI4R3JjSkJmeGxnVnlocmthTndFd1hqa2N4aDRCTTU5Y29SdVVpSUZtbjJ5VlEyZm9iWEtsejBjemc0Z0xrbHZyMXZoX1dmUEs1UF93cVNkdTRDa21XZWdBeW5FSXdnVTlhVXVVbVhYWnh6Tjc4MmNvNFk00gHMAUFVX3lxTFBHZmN0WmUzOHQ3QjJHdjRfWTY3R2tlRmRvNTZtY1BBX1pSTUhVRVBDQnN1cGJWdEFaU3Exa2xtXzBVa2RBd0JOUzZwRXdEdDlxelpnZ0dzeS1HMjYxRW9tOUpFSnZaSkhFcmJVS3htVXcyT0l3eW1CaEZaSURvOE01ZTZRWXZHLURsNkZvUTh4VUxRNklmMXN3ZWdXbFNTdzl0dFJCczFKcFVxTGVMQzJmQVBoTnhTVjV3V0M2RnNCU0RjOF9IajFfTXZ6ag?oc=5",
-          "source": "Telegraph India"
-        },
-        {
           "title": "Former West Bengal Minister Jyoti Priya Mallick Gets Bail In Ration Distribution Case - ETV Bharat",
           "pubDate": "2025-01-15",
           "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOZ0dMMXZFQjZ6RUNna2N2MmJ4TUhreGVRMHRtdFlhZUVNVC1hN2xMWGpoT2IxYnJVNVBINmtBN29fR2lXbGtxcUhyNzlkV2pfLXZDbXhfQ3Bha3B1R0tkX04tV3VuZUlmZUZpQUJCOE95ZmtrZmtQbUZDYW9RSTUwMlFRRlJ6SUpsZkNGX21qUWdtWUxqOXBSTk14ZjEydmcwZTdDTUtNaHBaY2swYWpmanc1elFjY2h3MGpxMzRicmRSbkN0TjNQWDFtZXdidFdOR1lGSC1KbUtkYTDSAeABQVVfeXFMUDdwQUF4QnlnMkEzM2gxYTVweFJuWmViaURDbU9xU2hmTjVKNjNDaldaVE9nXzFBeVhkcmVPUXEtanNvZDNuVWQwSjJrQXg0ZW4ydjRoeHR2NDJUWkMxaUFkUUd1d3pUUnpueDVWOW1sdG5EUGFDUjlPWjlUc0xKem4xY3dxOHF4YUhXbE9kcW5uRkE4UmRZTXhqOXgyUmlKaThsMy01VTNaUzhhdDd6em0wVzJycTVDbEo5VVE5MWFnVXZNcUx2YVJWZzJlZC0wbDRpWXJyLS1PcUxWazNQUnc?oc=5",
           "source": "ETV Bharat"
+        },
+        {
+          "title": "Former Bengal minister Jyotipriya Mallick granted bail by PMLA court in ration distribution case - Telegraph India",
+          "pubDate": "2025-01-15",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOcFowRnl0UVFuRllsR21lai1YaDBxVXRBc3RjNEJ0Q2k4RHZBTGphaWRRWV9JTWJNR0ZNMVNHSzBjeW5DTUtkWmhjTC12UUt2UEg0TFI4R3JjSkJmeGxnVnlocmthTndFd1hqa2N4aDRCTTU5Y29SdVVpSUZtbjJ5VlEyZm9iWEtsejBjemc0Z0xrbHZyMXZoX1dmUEs1UF93cVNkdTRDa21XZWdBeW5FSXdnVTlhVXVVbVhYWnh6Tjc4MmNvNFk00gHMAUFVX3lxTFBHZmN0WmUzOHQ3QjJHdjRfWTY3R2tlRmRvNTZtY1BBX1pSTUhVRVBDQnN1cGJWdEFaU3Exa2xtXzBVa2RBd0JOUzZwRXdEdDlxelpnZ0dzeS1HMjYxRW9tOUpFSnZaSkhFcmJVS3htVXcyT0l3eW1CaEZaSURvOE01ZTZRWXZHLURsNkZvUTh4VUxRNklmMXN3ZWdXbFNTdzl0dFJCczFKcFVxTGVMQzJmQVBoTnhTVjV3V0M2RnNCU0RjOF9IajFfTXZ6ag?oc=5",
+          "source": "Telegraph India"
         }
       ],
       "count24h": 0,
