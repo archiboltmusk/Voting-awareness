@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-11T10:21:57.380Z",
+  "generated": "2026-06-11T14:35:22.418Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -46,12 +46,6 @@
     "rose-valley": {
       "articles": [
         {
-          "title": "Tripura's Latest News, Views &amp; IT Portal - TRIPURAINFOWAY",
-          "pubDate": "2026-05-17",
-          "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNd0h5VlJnSnpRSVFqRVVsd21nME1rMkU1ODZVcjFiN2Nha2x5TjlZdmNnOFFqaFB0VDhkUTJ2OS1Tbm12RUVqTWd1RHp5bHdIX0FLNWhpNjhrWlNVODNKbTZfdDFoNmQ3Y1FsRzhOVTNNNTlKblNVTTdoaFFpMFpVemhSeFlmNkJnQlQxM2xFWEllbkxNRDFudU4tOXpva3N0ZHgxbGk1ZXdvek9YX21HX2pGcy1Nc0pMUG9OLUNMeFVoREdXNjRUamd4TTV6RmF0WkVVZDl2X2s3SnlNZVhWODFmTVQyMGRwOFZRcXlPMy10dzNz?oc=5",
-          "source": "TRIPURAINFOWAY"
-        },
-        {
           "title": "Probe Agency Disburses Rs 127.69 Crore To 1.73 Lakh Rose Valley Scam Victims - NDTV",
           "pubDate": "2026-04-28",
           "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNN1NZbmFMb01FdThJSi03X0pjUHFBRi1kTWt0cW1Ob3FpbzB4UlBraGd1TVVHTGUzbTUxa3ozQW9hdHUtR3E5bnNZMnpRS3BuUU9ad3pmTDl4WDFNZWVIbmlTSjZyQXNtYlByRko3VGdWZWhFekZTV1QyME9QemtZcFB6TUtnSjNDMG1wcWJUOFJwSmoxendmdkRMZF9wYk5VbGJBMW9JUGdKSTBPREpBWXVXVGpDT0oz0gHAAUFVX3lxTE1uWWVLXzZWM2tKSzJKMGhra3o0SGM4cjR5Sl90MzNQYmNjdG5ZVVJveXlhbkVWcDZoM1Y2SUFlRkRScUZmU1NPQmQwRy05eVI1VWpqbEJ2U3hWajRPYTRSbTRKNHlwLXFLRjY2Zl9YeXVPY1pKdVNBUTdzWTdYQThteU41MFg3WWl2TmdhVC1INW1mVFg5ak9WSzRVZFNwSTVZX3pwQXdhZUQxZVd0QU5OYVlwVHBoYWE1M19Eb0k3eg?oc=5",
@@ -80,6 +74,12 @@
           "pubDate": "2026-01-14",
           "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOWTdjN2E3Xy1XMldKdGZDTGhoTmFXdUo4VkllR3RKZHRKbGVsc3dldFNQMW56eV9nb2JsWlZodS1NaFVhQkVFNHExTDR3OHFtaTVBa2dYUk5ocjQxT09FTndiOVNqRGtoQVFGSWlyYVpsa0R2aTJMZkVEYTh3RUh1SjFCUm00TDNYYi10X2pGQWd3RkJGaFRQVUlvTEFrdTZyQjVDc2liNF9WbnpHMEM2ck9MQVN1R1pUa3FXdkxfdUhRME9ENHpuM2sxTjQtYXlKazJIY2NVb25IZ9IB3wFBVV95cUxNb0ZoVHpPcmFhTnZlYTBsZXZEdERERHM5R1pWYWE5STNMZ1NGWllRX05PTkJhVXQ2T0VkbzNfSmMzUWJYb0pia00xQUJDaVBmQ2xuZS0tSkhuQnVnN0lQS3dsQ2tKam9kb0pxSWVwRnJ3WkFoX281NUZzLXJjYWI5VVN6M1JOV1ZuTzF6eFlnWlZiQmhCTmRmRGZTYWdEckphYTRiQjFTaXVjaFJTTkhueDQ1Tlk3VlY1XzctN2xoRWRHZ3Q3UlAzMG1xWEVFM2RFamRUY1FXRkJkZDkwZTNv?oc=5",
           "source": "The Times of India"
+        },
+        {
+          "title": "Fresh Ponzi scam surfaces in West Bengal’s Asansol, ₹350 crore siphoned - The Hindu",
+          "pubDate": "2025-10-24",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNNnNNMmhVeEhMVVhBck5HRWlPTzVNaUcxVGdXNEhiNFBxUVF5Sld1Sk9vSGM2aTVFbDhJYkc2Qk9jcGVFbkpxTmZfQjlTMF8zcmdjTWpHRXZDSzhCcHBIYU5fRFNMdWFKVjFSNWM2OVk0aFNDNmFjTFhFX0ZZMmdUV3ROWHozZ3RnUklZZnBjcm5UV2RSQ0ZaTnM2bGhVM0ctVkIyUUhmbmoyUU9hSnhwb05hZl90M2NjeGh5ZFF4MEdXQkRIYnhrTmRiUXpQVVJmckxnYl9B0gHcAUFVX3lxTFBrdjNGajRkSlcwMk1IVmh2QmVTTGo5ZkIxVS1jNUlmT0RsaGotSy1KOHY5VTRpcXFOekI5QWJKRTBTMUJQVXk3ZnEycWJPRnVNWGUxd3ZLQTcwak1IaXZDeGJDanhlb2Y3bzJuUXRNM1JIUTY3bzBNVVhPdV82QnVNNjNhZC0yQlpqSlhBeFRKSUdESzBCaHNid2R0LU5xeUwwdXAtTFVlTk8xVzNaSGFpTzcwS3BIS1JrQmV2TGVya1I2VlZvaEhJRlczR1M1a0MtbFRGWXBndHlmSEw?oc=5",
+          "source": "The Hindu"
         }
       ],
       "count24h": 0,
@@ -130,6 +130,12 @@
     "ssc-scam": {
       "articles": [
         {
+          "title": "ED conducts raids on Partha Chatterjee in teacher recruitment scam - The News Mill",
+          "pubDate": "2026-06-08",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONGZRQXVvdHdGcG5pYWlUZTg4b0I4UmxxaHRGdFBuRTBlT2hzQTdJdGZjd0xpWDJYbk92S2hFMGQzVl9lSGMzSUFyN3JETHg2SzM5MmkzdkRFX2ptUGFxelU4VjBEMGkxSWk5aGk5UFNZUkhPVW9Eb2g2SmVYNXQ1bzVYc19HWWE3QllNUDZ0VzlkckQwNnh5UzlOejRqYUNqV2Nqcl8xUmhUN1pVQVFwemc1MmtZQmM?oc=5",
+          "source": "The News Mill"
+        },
+        {
           "title": "ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR",
           "pubDate": "2026-05-24",
           "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5",
@@ -154,20 +160,14 @@
           "source": "News Arena India"
         },
         {
-          "title": "Bengal teacher recruitment scam: ED raids former education minister Partha Chatterjee’s Kolkata residence - The Indian Express",
-          "pubDate": "2026-04-12",
-          "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNdDJmNkxQYWRFMTVNSEJmY1ZQSDNKaF90MTU2bkxpVG5LZ3ZoTXNCdnZqaTVmdGNZS2I0dnNwVWtla3RaWG03YTY2ZUxKVXVfYnlKaG1jZ2lqSmdKZlhIdVBObXFsUTYzemMtNzdxZVVGMjhGTU5aXzlpZUsycy1aOVRUblVINXZLYlpCUWtKSFB3RjNLQi11UENhLXd6c1RKZHlQZ1ZWWUJMYVR5TWx0TUF6OEJhZEZ6a1hJSXJBSFBaOW9jbGM3OUZ2VFBiQlNEV3ZOVFdhdjJENjJ6RTNuYmgwWGlFZUpXdzd6b0ZwZ3F6Z2Uz0gH7AUFVX3lxTE40YkxMbVBMS0NXcy0yNk9uVzlIbFJWRl9BVjFuUk9MWG1oYy1yeHFOMnRsdWw0X2V2bGpCaTNNWUxPS2VRcUhManQ4QXBHMVNXS0U3WWl5eU1VQmFLOWlEUG5Qc2FKU1BZME5McDEyWlpyX3R0ZmJ6ajBSdkRhUUNqNktySDhCREJRYmZza05RaW1RRDNPMElpZlJrVmQzQUtsTUpXaHlfLTZBYmctSkRLTVBHTW1FeWtkQlJteTFTQ2lScnR3dTlUOW9rTUpldUNQSzFxUDRnQ3FPUmxsY2kwNkxERXByRlJLcTdLbDY0dFdqOVdrcmttUk53?oc=5",
-          "source": "The Indian Express"
-        },
-        {
-          "title": "West Bengal school jobs scam: ED raids former education min Partha Chatterjee's home ahead of polls - The New Indian Express",
-          "pubDate": "2026-04-11",
-          "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPU3Uwb185b2tHTHVHRzZHVEtOVWdTQy1teDZoTFlmVkZtWnhhN3MwMUlUYlBtX1gyRG9BTGxySGhmZ0IxeFhTcXY0TS1TS202VUtnWU1uaUdzNzR3Um94QzNoQ3pjZlRXSkJLQjlvMUNzdlRyZUVoYnBtTHJrWWVVSDdteldyd0cweTRpNnlwM04wS2lLU1piRkJHNUZxVExRSVczT0RmM2FUSUY0MHF2WnJoYTY0LVRMcWlZUktESFpweEVOVXNpM0lEeHVUZmVLTG5qQ0JneDB4T0FGM3ZKVm05TzkyNGt0Mlg1U24wcm9uSTjSAYACQVVfeXFMTmNYdTI4bjloSmNxd1dvZ0NVWG1wOHh1LXYwd2dCYXdhR05fUDF4R2dRUXNmSkF0cHMwcHN6TUw0NlRWVTRvVy0zMlJZNzA4RFVENm1hTElhUElCX09OVlcxN0Fjd3FRb1pKUF9KempYdEhrUmsydEYyT2FMOG1SZXJidU5UQ0ZBSlNXWUx1RlhBU3NjWlVzNllGaE1vQVRDY0ZBRnVCcFYwajJtaE9NTUhscjlCdGZQU0ZSWUFZaUlPR0xrWVdTSGV6ck9rczh1Z3JDY1VIV01BcVZleXZWVDdWa2FCRUFWZjFtOHZ1RVFaT01TVDc4VG5tSHJQUXU0TA?oc=5",
-          "source": "The New Indian Express"
+          "title": "West Bengal - The Verdict India’s Chattering Classes Cannot Read - Swarajyamag",
+          "pubDate": "2026-05-06",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPU0hmQWg2Q0hZYkMwSUNyUWtFejFLMTE2cU8wbmJTOTJZeHpTX3JnVjNEa05JYUtkZDJScC1TQVdnUFN4MnJUTWZPZkxndmdCdEo2OXJDODFJZ0FDSlgyTDZfd3c5V1FZb3JxTHRSdXQ5S2hfU0Y0TUlIREFuMmRwWnkwNG82REpTZG5PWS1fdXp4M01Ddi1Sbm5R0gGqAUFVX3lxTE1UUHB6WW42bnVsbEJLd2pLeG5lakMzcGd6MXV3dXJETTc2bDVHNU44LXhtNXZZT3FsMVFMVTJUdk9vMEQ3bVFrb1dlV1N3dld0R0IyUkw0MXhWSzhBOVI4bV9PU1p0TXhhdHBPNWVVUGpCU29vdDdRczV2VTkxRS16RzN5OGVmN0E5bTUtZmczTXdHR1pyUDRueGtsMG84cElnYUtrRmwzZDdR?oc=5",
+          "source": "Swarajyamag"
         }
       ],
       "count24h": 0,
-      "count7d": 0
+      "count7d": 1
     },
     "cattle-trafficking": {
       "articles": [
@@ -244,10 +244,10 @@
           "source": "The Hans India"
         },
         {
-          "title": "Bengal coal smuggling case: Trial process starts at special CBI court in Asansol - ET EnergyWorld",
+          "title": "Bengal coal smuggling case: Trial process starts at special CBI court in Asansol - ETEnergyworld.com",
           "pubDate": "2025-01-22",
           "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNMW9rbDByRFcxVmkzSnFlU3dvbDk2RDNJRlV0TGYwWkdTaldzOXFLVnZ6RnAwWGZDeEl2NGd2emNZTFRYZXpybUozU2VTVzJYaXZQMDFDOVQ2ZjVFNDBXUUVwbFRKeW03dzVfcUdDZnF0NW0yRmdsSXBhdjl0Nlc3dDRCUmFRRlZoOG5PTm43dUpGVEhHVmxtbkZfTG5wYU1tYmk0MkxwcmdkVlBVbUhEaElPdXpLMTJrVE1fbk5TZllvUURsYzczRndkTUtuOVZ0dGNtU3lULXc1MnfSAeABQVVfeXFMT18zci1Jb1VLMmtNNEhURzhlRk5Od2syajlnZjVIZUJzTklZYU9iOFZHVUxWQURsX1RfMGtGbFotX1ZscWFWb2FBZG56WmJuWXUtMTlTUGZ2SW02ME9ua1U5cmx1T3lzNWRFdzNWWUVjTzFwOFg1SFNzUk1QMHZBcW1rQ0hsNV80aUxUeHhMU3FYeUc0Ml9hOS1CU2lrRXJjUHFCOGRyczh1U0hkeDNOVFNkMkx5NHF6VzVuNFJwYWFvRzhKZDNBYThaV3ZjVEVZZURyNTNmanJnVnJQQ254R2Y?oc=5",
-          "source": "ET EnergyWorld"
+          "source": "ETEnergyworld.com"
         }
       ],
       "count24h": 0,
@@ -280,16 +280,16 @@
           "source": "The Statesman"
         },
         {
-          "title": "Former West Bengal Minister Jyoti Priya Mallick Gets Bail In Ration Distribution Case - ETV Bharat",
-          "pubDate": "2025-01-15",
-          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOZ0dMMXZFQjZ6RUNna2N2MmJ4TUhreGVRMHRtdFlhZUVNVC1hN2xMWGpoT2IxYnJVNVBINmtBN29fR2lXbGtxcUhyNzlkV2pfLXZDbXhfQ3Bha3B1R0tkX04tV3VuZUlmZUZpQUJCOE95ZmtrZmtQbUZDYW9RSTUwMlFRRlJ6SUpsZkNGX21qUWdtWUxqOXBSTk14ZjEydmcwZTdDTUtNaHBaY2swYWpmanc1elFjY2h3MGpxMzRicmRSbkN0TjNQWDFtZXdidFdOR1lGSC1KbUtkYTDSAeABQVVfeXFMUDdwQUF4QnlnMkEzM2gxYTVweFJuWmViaURDbU9xU2hmTjVKNjNDaldaVE9nXzFBeVhkcmVPUXEtanNvZDNuVWQwSjJrQXg0ZW4ydjRoeHR2NDJUWkMxaUFkUUd1d3pUUnpueDVWOW1sdG5EUGFDUjlPWjlUc0xKem4xY3dxOHF4YUhXbE9kcW5uRkE4UmRZTXhqOXgyUmlKaThsMy01VTNaUzhhdDd6em0wVzJycTVDbEo5VVE5MWFnVXZNcUx2YVJWZzJlZC0wbDRpWXJyLS1PcUxWazNQUnc?oc=5",
-          "source": "ETV Bharat"
-        },
-        {
           "title": "Former Bengal minister Jyotipriya Mallick granted bail by PMLA court in ration distribution case - Telegraph India",
           "pubDate": "2025-01-15",
           "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOcFowRnl0UVFuRllsR21lai1YaDBxVXRBc3RjNEJ0Q2k4RHZBTGphaWRRWV9JTWJNR0ZNMVNHSzBjeW5DTUtkWmhjTC12UUt2UEg0TFI4R3JjSkJmeGxnVnlocmthTndFd1hqa2N4aDRCTTU5Y29SdVVpSUZtbjJ5VlEyZm9iWEtsejBjemc0Z0xrbHZyMXZoX1dmUEs1UF93cVNkdTRDa21XZWdBeW5FSXdnVTlhVXVVbVhYWnh6Tjc4MmNvNFk00gHMAUFVX3lxTFBHZmN0WmUzOHQ3QjJHdjRfWTY3R2tlRmRvNTZtY1BBX1pSTUhVRVBDQnN1cGJWdEFaU3Exa2xtXzBVa2RBd0JOUzZwRXdEdDlxelpnZ0dzeS1HMjYxRW9tOUpFSnZaSkhFcmJVS3htVXcyT0l3eW1CaEZaSURvOE01ZTZRWXZHLURsNkZvUTh4VUxRNklmMXN3ZWdXbFNTdzl0dFJCczFKcFVxTGVMQzJmQVBoTnhTVjV3V0M2RnNCU0RjOF9IajFfTXZ6ag?oc=5",
           "source": "Telegraph India"
+        },
+        {
+          "title": "Former West Bengal Minister Jyotipriya Mallick granted bail in ration scam case - The New Indian Express",
+          "pubDate": "2025-01-15",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPQjE3M1hyM2xCSDF6MFNfYUtfbndhSUl4UFdMemYzVjBmbTg3Z0U5VHpaMFl5a0I0WDFaRldwemZ2c09pb05icFA1SGwwdWJQM2tadzltOTJYa1hDY2E0cFp3M0ZFdXI3X1MwNWVUczBjdlA2cExtbjctRWRSMWV1S1hvUXdVb2cwTmlpa19UMFFzbjcwdVFwNmFLUWNQU3hldXoyVnY0UTFlRGk3TkFGa0xhUXczUjhOUUI2MTQ3WlRMcnRrUzlXaUtSLW02bldPaEJj0gHgAUFVX3lxTE5DeEtXZkF3QUtmVlZFRzlYUVlLejdRTHdGejl0UjE5SUFSazlfNU1Na1liX0xtVVIwQ2plVmwxLUpOaXVMT05SSlkwMTJTcjdKYzM0cjFVaDF5Mm0yeTBncDY5NU9aMXZxRl9vLWlXbUdIVnZ1UkdPdGxsVmdHRXJLRWxTNklDSzNHeHBxT2R4QmYtUnYtQVI3RmhGcGU2U2ZmY1ZBeGg1MEp1ZDk4RjM0RjBNM3ZkX2UyQUU2N3IzTFdHZ1FuX1dWaW56NHhIT1FUMVMxRFRXaXMtbnQwVDN4?oc=5",
+          "source": "The New Indian Express"
         }
       ],
       "count24h": 0,
