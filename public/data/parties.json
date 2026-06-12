@@ -6,7 +6,12 @@
     "cpim":   { "name": "CPIM",          "color": "#c0171b", "scores": [3,6,7,6,5,5,6,4], "seats2026": 1,   "seats2021": 0,   "voteShare2026": 4.45,  "status": "opposition" },
     "inc":    { "name": "INC",           "color": "#1565c0", "scores": [6,6,6,6,5,4,6,6], "seats2026": 2,   "seats2021": 5,   "voteShare2026": 2.97,  "status": "opposition" },
     "isf":    { "name": "ISF",           "color": "#6b3fa0", "scores": [3,6,4,5,4,6,4,4], "seats2026": 0,   "seats2021": 1,   "voteShare2026": 1.20,  "status": "unrepresented" },
-    "bengal": { "name": "Bengal's Need", "color": "#b8860b", "scores": [9,8,9,8,9,10,9,10], "seats2026": null, "seats2021": null, "voteShare2026": null, "status": "benchmark" }
+    "cpi":    { "name": "CPI",           "color": "#9d174d", "scores": [3,7,6,6,5,6,6,5], "seats2026": 0,   "seats2021": 0,   "voteShare2026": 0.1,   "status": "national", "lsSeats2024": 2,  "founded": 1925 },
+    "bsp":    { "name": "BSP",           "color": "#0891b2", "scores": [4,7,5,4,4,4,4,4], "seats2026": 0,   "seats2021": 0,   "voteShare2026": 0.05,  "status": "national", "lsSeats2024": 0,  "founded": 1984 },
+    "aap":    { "name": "AAP",           "color": "#65a30d", "scores": [4,8,8,8,5,5,6,5], "seats2026": 0,   "seats2021": 0,   "voteShare2026": 0.02,  "status": "national", "lsSeats2024": 3,  "founded": 2012 },
+    "npp":    { "name": "NPP",           "color": "#475569", "scores": [5,6,6,5,5,4,6,4], "seats2026": 0,   "seats2021": 0,   "voteShare2026": 0,     "status": "national", "lsSeats2024": 1,  "founded": 2013 },
+    "bengal": { "name": "Bengal's Need", "color": "#b8860b", "scores": [9,8,9,8,9,10,9,10], "seats2026": null, "seats2021": null, "voteShare2026": null, "status": "benchmark" },
+    "india":  { "name": "India's Need",  "color": "#92400e", "scores": [8,7,8,9,7,9,9,9], "seats2026": null, "seats2021": null, "voteShare2026": null, "status": "benchmark" }
   },
   "lastUpdated": "2026-05-09"
 }

@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="An honest, data-driven comparison of Bengal's political parties — their ideologies, track records, and how they match what Bengal actually needs.">
-<meta property="og:title" content="The Bengal Reader — Party Comparison">
-<meta property="og:description" content="BJP, TMC, CPIM, Congress, ISF — what they stand for, what they've done, and how they stack up against Bengal's real needs.">
+<meta name="description" content="An honest, data-driven comparison of India's political parties — all 8 national parties plus Bengal's 2026 contenders — their ideologies, track records, and how they match what India and Bengal actually need.">
+<meta property="og:title" content="The Bengal Reader — India's Party Compass">
+<meta property="og:description" content="BJP, INC, TMC, CPIM, CPI, BSP, AAP, NPP, ISF — what they stand for, what they've done, and how they stack up against India's and Bengal's real needs.">
 <meta property="og:image" content="/og-parties.svg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Bengal Reader — Party Compass">
-<meta name="twitter:description" content="BJP, TMC, CPIM, INC, ISF — ideology, track record, and how they match what Bengal actually needs.">
+<meta name="twitter:title" content="The Bengal Reader — India's Party Compass">
+<meta name="twitter:description" content="All 8 national parties plus Bengal's 2026 contenders — ideology, track record, and how they match what India actually needs.">
 <meta name="twitter:image" content="/og-parties.svg">
-<title>The Bengal Reader — Political Parties Compared</title>
+<title>The Bengal Reader — India's Political Parties Compared</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="stylesheet" href="/fonts.css">
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -33,6 +33,11 @@
   --inc: #1565c0;
   --isf: #6b3fa0;
   --bengal: #b8860b;
+  --cpi: #9d174d;
+  --bsp: #0891b2;
+  --aap: #65a30d;
+  --npp: #475569;
+  --india: #92400e;
 }
 [data-theme="dark"] {
   --paper: #141210;
@@ -53,6 +58,11 @@
   --inc: #4a90d9;
   --isf: #9b6fd4;
   --bengal: #d4a520;
+  --cpi: #f472b6;
+  --bsp: #22d3ee;
+  --aap: #a3e635;
+  --npp: #94a3b8;
+  --india: #d97706;
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -159,10 +169,10 @@ body::before {
 }
 .party-ribbon {
   display:flex; justify-content:center; gap:0; flex-wrap:wrap;
-  border:1px solid var(--rule); max-width:620px; margin:0 auto 32px;
+  border:1px solid var(--rule); max-width:900px; margin:0 auto 32px;
 }
 .party-ribbon-item {
-  padding:12px 20px; flex:1; min-width:100px;
+  padding:12px 20px; flex:1; min-width:90px;
   border-right:1px solid var(--rule);
   display:flex; flex-direction:column; align-items:center; gap:6px;
 }
@@ -218,6 +228,10 @@ body::before {
 .party-card.cpim::before { background:var(--cpim); }
 .party-card.inc::before  { background:var(--inc); }
 .party-card.isf::before  { background:var(--isf); }
+.party-card.cpi::before  { background:var(--cpi); }
+.party-card.bsp::before  { background:var(--bsp); }
+.party-card.aap::before  { background:var(--aap); }
+.party-card.npp::before  { background:var(--npp); }
 .party-card:hover { background:var(--paper-mid); }
 .party-card-abbr {
   font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:600;
@@ -228,6 +242,10 @@ body::before {
 .party-card.cpim .party-card-abbr { color:var(--cpim); }
 .party-card.inc  .party-card-abbr { color:var(--inc); }
 .party-card.isf  .party-card-abbr { color:var(--isf); }
+.party-card.cpi  .party-card-abbr { color:var(--cpi); }
+.party-card.bsp  .party-card-abbr { color:var(--bsp); }
+.party-card.aap  .party-card-abbr { color:var(--aap); }
+.party-card.npp  .party-card-abbr { color:var(--npp); }
 .party-card-name {
   font-size:13px; color:var(--ink-soft); font-style:italic;
   line-height:1.3; margin-bottom:12px;
@@ -247,6 +265,10 @@ body::before {
 .party-card.cpim .party-card-tag { border-color:var(--cpim); color:var(--cpim); }
 .party-card.inc  .party-card-tag { border-color:var(--inc);  color:var(--inc); }
 .party-card.isf  .party-card-tag { border-color:var(--isf);  color:var(--isf); }
+.party-card.cpi  .party-card-tag { border-color:var(--cpi);  color:var(--cpi); }
+.party-card.bsp  .party-card-tag { border-color:var(--bsp);  color:var(--bsp); }
+.party-card.aap  .party-card-tag { border-color:var(--aap);  color:var(--aap); }
+.party-card.npp  .party-card-tag { border-color:var(--npp);  color:var(--npp); }
 .party-card-seats {
   font-family:'JetBrains Mono',monospace; font-size:10px;
   color:var(--ink-faint); margin-top:8px;
@@ -263,6 +285,10 @@ body::before {
 .ideo-item.cpim { border-left-color:var(--cpim); }
 .ideo-item.inc  { border-left-color:var(--inc); }
 .ideo-item.isf  { border-left-color:var(--isf); }
+.ideo-item.cpi  { border-left-color:var(--cpi); }
+.ideo-item.bsp  { border-left-color:var(--bsp); }
+.ideo-item.aap  { border-left-color:var(--aap); }
+.ideo-item.npp  { border-left-color:var(--npp); }
 .ideo-trigger {
   width:100%; background:none; border:none; text-align:left;
   padding:20px 24px; cursor:pointer; display:flex;
@@ -279,6 +305,10 @@ body::before {
 .ideo-item.cpim .ideo-abbr { color:var(--cpim); }
 .ideo-item.inc  .ideo-abbr { color:var(--inc); }
 .ideo-item.isf  .ideo-abbr { color:var(--isf); }
+.ideo-item.cpi  .ideo-abbr { color:var(--cpi); }
+.ideo-item.bsp  .ideo-abbr { color:var(--bsp); }
+.ideo-item.aap  .ideo-abbr { color:var(--aap); }
+.ideo-item.npp  .ideo-abbr { color:var(--npp); }
 .ideo-headline { font-size:17px; font-weight:600; }
 .ideo-arrow {
   font-size:18px; transition:transform .3s; flex-shrink:0;
@@ -321,6 +351,10 @@ body::before {
 .ideo-item.cpim .ideo-score-fill { background:var(--cpim); }
 .ideo-item.inc  .ideo-score-fill { background:var(--inc); }
 .ideo-item.isf  .ideo-score-fill { background:var(--isf); }
+.ideo-item.cpi  .ideo-score-fill { background:var(--cpi); }
+.ideo-item.bsp  .ideo-score-fill { background:var(--bsp); }
+.ideo-item.aap  .ideo-score-fill { background:var(--aap); }
+.ideo-item.npp  .ideo-score-fill { background:var(--npp); }
 .ideo-score-num {
   font-family:'JetBrains Mono',monospace; font-size:10px;
   color:var(--ink-faint); width:24px; text-align:right;
@@ -344,7 +378,12 @@ body::before {
 .radar-toggle.active.cpim { background:var(--cpim); color:#fff; border-color:var(--cpim); }
 .radar-toggle.active.inc  { background:var(--inc);  color:#fff; border-color:var(--inc); }
 .radar-toggle.active.isf  { background:var(--isf);  color:#fff; border-color:var(--isf); }
+.radar-toggle.active.cpi  { background:var(--cpi);  color:#fff; border-color:var(--cpi); }
+.radar-toggle.active.bsp  { background:var(--bsp);  color:#fff; border-color:var(--bsp); }
+.radar-toggle.active.aap  { background:var(--aap);  color:#fff; border-color:var(--aap); }
+.radar-toggle.active.npp  { background:var(--npp);  color:#fff; border-color:var(--npp); }
 .radar-toggle.active.bengal { background:var(--bengal); color:#fff; border-color:var(--bengal); }
+.radar-toggle.active.india { background:var(--india); color:#fff; border-color:var(--india); }
 .radar-toggle:hover:not(.active) { border-color:var(--ink); color:var(--ink); }
 .radar-canvas-wrap {
   max-width:620px; margin:0 auto; position:relative;
@@ -510,6 +549,10 @@ body::before {
 .verdict-card.cpim .verdict-party { color:var(--cpim); }
 .verdict-card.inc  .verdict-party { color:var(--inc); }
 .verdict-card.isf  .verdict-party { color:var(--isf); }
+.verdict-card.cpi  .verdict-party { color:var(--cpi); }
+.verdict-card.bsp  .verdict-party { color:var(--bsp); }
+.verdict-card.aap  .verdict-party { color:var(--aap); }
+.verdict-card.npp  .verdict-party { color:var(--npp); }
 .verdict-score {
   font-family:'JetBrains Mono',monospace; font-size:36px; font-weight:600;
   margin-bottom:4px; color:var(--paper);
@@ -522,6 +565,10 @@ body::before {
 .verdict-card.cpim .verdict-fill { background:var(--cpim); }
 .verdict-card.inc  .verdict-fill { background:var(--inc); }
 .verdict-card.isf  .verdict-fill { background:var(--isf); }
+.verdict-card.cpi  .verdict-fill { background:var(--cpi); }
+.verdict-card.bsp  .verdict-fill { background:var(--bsp); }
+.verdict-card.aap  .verdict-fill { background:var(--aap); }
+.verdict-card.npp  .verdict-fill { background:var(--npp); }
 .verdict-points { list-style:none; }
 .verdict-points li {
   font-size:13px; color:rgba(244,241,234,.65); padding:4px 0;
@@ -662,9 +709,9 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
         <button class="theme-toggle" id="themeBtn">Dark</button>
       </div>
     </div>
-    <div class="masthead-title" data-en="Party Compass" data-bn="দলের কম্পাস">Party Compass</div>
+    <div class="masthead-title" data-en="India's Party Compass" data-bn="ভারতের দলীয় কম্পাস">India's Party Compass</div>
     <div class="masthead-bengali">দলের নীতি · তথ্যের আলোয়</div>
-    <div class="masthead-sub" data-en="Ideology · Track Record · What Bengal Actually Needs — 2026" data-bn="মতাদর্শ · কার্যক্রমের রেকর্ড · বাংলার আসল প্রয়োজন — ২০২৬">Ideology · Track Record · What Bengal Actually Needs — 2026</div>
+    <div class="masthead-sub" data-en="All 8 National Parties · Ideology · Track Record · What India and Bengal Actually Need — 2026" data-bn="৮টি জাতীয় দল · মতাদর্শ · কার্যক্রমের রেকর্ড · ভারত ও বাংলার আসল প্রয়োজন — ২০২৬">All 8 National Parties · Ideology · Track Record · What India and Bengal Actually Need — 2026</div>
     <div class="share-bar" style="margin-top:0.8rem;">
       <button class="share-btn whatsapp" onclick="shareWhatsApp()">WhatsApp</button>
       <button class="share-btn twitter" onclick="shareTwitter()">Twitter</button>
@@ -724,25 +771,41 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div class="hero-kicker">West Bengal 2026 · BJP Historic Victory · Now in Government</div>
-    <h1>Bengal has <em>voted.</em><br>Now hold them <em>accountable.</em></h1>
-    <p class="hero-sub">BJP won a two-thirds majority ending 15 years of TMC rule. The question shifts from "who to vote for" to "what they promised, and whether they'll deliver it."</p>
+    <div class="hero-kicker">8 National Parties · Plus West Bengal 2026's Contenders</div>
+    <h1>India has <em>many parties.</em><br>Here's what each one <em>actually stands for.</em></h1>
+    <p class="hero-sub">All 8 Election Commission-recognised national parties — BJP, INC, AITC, CPI(M), CPI, BSP, AAP, NPP — compared on ideology and policy, alongside Bengal's 2026 result where BJP ended 15 years of TMC rule.</p>
     <div class="party-ribbon" id="parties">
-      <div class="party-ribbon-item">
-        <div class="party-ribbon-dot" style="background:var(--tmc)"></div>
-        <div class="party-ribbon-name">TMC</div>
-      </div>
       <div class="party-ribbon-item">
         <div class="party-ribbon-dot" style="background:var(--bjp)"></div>
         <div class="party-ribbon-name">BJP</div>
+      </div>
+      <div class="party-ribbon-item">
+        <div class="party-ribbon-dot" style="background:var(--inc)"></div>
+        <div class="party-ribbon-name">INC</div>
+      </div>
+      <div class="party-ribbon-item">
+        <div class="party-ribbon-dot" style="background:var(--tmc)"></div>
+        <div class="party-ribbon-name">TMC</div>
       </div>
       <div class="party-ribbon-item">
         <div class="party-ribbon-dot" style="background:var(--cpim)"></div>
         <div class="party-ribbon-name">CPIM</div>
       </div>
       <div class="party-ribbon-item">
-        <div class="party-ribbon-dot" style="background:var(--inc)"></div>
-        <div class="party-ribbon-name">INC</div>
+        <div class="party-ribbon-dot" style="background:var(--cpi)"></div>
+        <div class="party-ribbon-name">CPI</div>
+      </div>
+      <div class="party-ribbon-item">
+        <div class="party-ribbon-dot" style="background:var(--bsp)"></div>
+        <div class="party-ribbon-name">BSP</div>
+      </div>
+      <div class="party-ribbon-item">
+        <div class="party-ribbon-dot" style="background:var(--aap)"></div>
+        <div class="party-ribbon-name">AAP</div>
+      </div>
+      <div class="party-ribbon-item">
+        <div class="party-ribbon-dot" style="background:var(--npp)"></div>
+        <div class="party-ribbon-name">NPP</div>
       </div>
       <div class="party-ribbon-item">
         <div class="party-ribbon-dot" style="background:var(--isf)"></div>
@@ -757,8 +820,8 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
   <div class="container">
     <div class="section-header">
       <div class="section-kicker">Overview</div>
-      <h2 class="section-title">The Five Contenders</h2>
-      <p class="section-sub">Core identity, current leadership, and ideological position of each major force in Bengal politics.</p>
+      <h2 class="section-title">Nine <em>Parties</em>, One Country</h2>
+      <p class="section-sub">Core identity, current leadership, and ideological position of all 8 Election Commission-recognised national parties, plus ISF from Bengal's 2026 contest.</p>
     </div>
     <div class="party-grid">
 
@@ -817,6 +880,50 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
         <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-faint);margin-top:4px;">2021: 1/294 · 2.05%</div>
       </div>
 
+      <div class="party-card cpi">
+        <div class="party-card-abbr">CPI</div>
+        <div class="party-card-name">Communist Party of India</div>
+        <div class="party-card-leader">D. Raja (General Secretary) · Founded 1925</div>
+        <span class="party-card-tag">Far-Left</span>
+        <span class="party-card-tag" style="margin-left:4px">Marxist-Leninist</span>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin-top:12px;">India's oldest surviving party, predating the 1964 split that created CPI(M). Strongest in Kerala as part of the Left Democratic Front, with pockets in Bihar, Tamil Nadu, and Manipur. Its trade union wing, AITUC, remains a significant labour-rights voice nationally.</p>
+        <div class="party-card-seats" style="margin-top:12px">2024 Lok Sabha: 2/543 seats (Kerala) · ~0.2% national vote share</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-faint);margin-top:4px;">No presence in Bengal's 2026 Assembly</div>
+      </div>
+
+      <div class="party-card bsp">
+        <div class="party-card-abbr">BSP</div>
+        <div class="party-card-name">Bahujan Samaj Party</div>
+        <div class="party-card-leader">Mayawati (National President) · Founded 1984</div>
+        <span class="party-card-tag">Social Justice</span>
+        <span class="party-card-tag" style="margin-left:4px">Ambedkarite</span>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin-top:12px;">Founded by Kanshi Ram on a Bahujan (Dalit-OBC-minority) social justice platform; Mayawati led Uttar Pradesh as Chief Minister four times. The 2024 Lok Sabha election was its worst result ever — zero seats for the first time in the party's history, with its core UP vote share falling sharply.</p>
+        <div class="party-card-seats" style="margin-top:12px">2024 Lok Sabha: 0/543 seats (first time ever) · UP vote share below 10%</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-faint);margin-top:4px;">No presence in Bengal's 2026 Assembly</div>
+      </div>
+
+      <div class="party-card aap">
+        <div class="party-card-abbr">AAP</div>
+        <div class="party-card-name">Aam Aadmi Party</div>
+        <div class="party-card-leader">Arvind Kejriwal (National Convenor) · Founded 2012</div>
+        <span class="party-card-tag">Governance-Focused</span>
+        <span class="party-card-tag" style="margin-left:4px">Anti-Corruption Origin</span>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin-top:12px;">Born out of the 2011 India Against Corruption movement, AAP built its national brand on Delhi's free electricity and water, government-school reform, and Mohalla Clinics. Lost the Delhi Assembly to BJP in February 2025 after 10 years in power, following the excise-policy corruption case against Kejriwal. Continues to govern Punjab.</p>
+        <div class="party-card-seats" style="margin-top:12px">2024 Lok Sabha: 3/543 seats (Punjab) · Governs Punjab; lost Delhi in 2025</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-faint);margin-top:4px;">No presence in Bengal's 2026 Assembly</div>
+      </div>
+
+      <div class="party-card npp">
+        <div class="party-card-abbr">NPP</div>
+        <div class="party-card-name">National People's Party</div>
+        <div class="party-card-leader">Conrad Sangma (President) · Founded 2013</div>
+        <span class="party-card-tag">Regional</span>
+        <span class="party-card-tag" style="margin-left:4px">Federalist</span>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin-top:12px;">A Northeast-focused party built around the Sangma family's political base after splitting from the NCP. Governs Meghalaya in coalition and is part of the NDA at the Centre, with influence extending into Manipur, Arunachal Pradesh, and Nagaland on issues of tribal rights and regional autonomy.</p>
+        <div class="party-card-seats" style="margin-top:12px">2024 Lok Sabha: 1/543 seats (Meghalaya) · Governs Meghalaya</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-faint);margin-top:4px;">No presence in Bengal's 2026 Assembly</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -827,7 +934,7 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
     <div class="section-header">
       <div class="section-kicker">What They Actually Believe</div>
       <h2 class="section-title">Ideologies, <em>Honestly</em></h2>
-      <p class="section-sub">Beyond slogans — the structural worldview of each party, what they prioritize, and what they consistently de-prioritize.</p>
+      <p class="section-sub">Beyond slogans — the structural worldview of each of India's 8 national parties (plus Bengal's ISF), what they prioritize, and what they consistently de-prioritize.</p>
     </div>
 
     <div class="ideology-list">
@@ -1072,6 +1179,198 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
         </div>
       </div>
 
+      <!-- CPI -->
+      <div class="ideo-item cpi">
+        <button class="ideo-trigger" aria-expanded="false" onclick="toggleIdeo(this)">
+          <div class="ideo-trigger-left">
+            <div class="ideo-abbr">CPI</div>
+            <div>
+              <div class="ideo-headline">Trade-Union Marxism + Anti-Imperialist Internationalism</div>
+              <div style="font-size:13px;color:var(--ink-faint);margin-top:2px;font-family:'JetBrains Mono',monospace;letter-spacing:.05em;">AITUC labour base · Kerala LDF partner since 1957</div>
+            </div>
+          </div>
+          <div class="ideo-arrow">▾</div>
+        </button>
+        <div class="ideo-body">
+          <div class="ideo-body-inner">
+            <div>
+              <div class="ideo-col-label">Core Positions</div>
+              <ul class="ideo-points">
+                <li>Workers' rights and trade union organizing through AITUC, India's oldest labour federation</li>
+                <li>Opposition to privatization of public sector enterprises — banks, railways, defence PSUs</li>
+                <li>Anti-imperialist foreign policy stance; non-alignment legacy</li>
+                <li>Land reform and agrarian worker rights, particularly in Kerala and Bihar</li>
+                <li>Secular constitutional framework; consistent opposition to communal politics</li>
+              </ul>
+              <div class="ideo-col-label" style="margin-top:20px;">Consistent Gaps</div>
+              <ul class="ideo-points">
+                <li>No independent electoral base outside the Kerala-LDF alliance structure</li>
+                <li>Aging leadership and shrinking youth cadre nationally</li>
+                <li>Limited articulation of digital-economy or private-sector job creation policy</li>
+                <li>Organisational decline since the 1964 split has never been reversed</li>
+              </ul>
+            </div>
+            <div>
+              <div class="ideo-col-label">Policy Scores (out of 10)</div>
+              <div class="ideo-score-grid">
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Industry</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:30%"></div></div><span class="ideo-score-num">3</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Welfare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:70%"></div></div><span class="ideo-score-num">7</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Education</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Law & Order</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:50%"></div></div><span class="ideo-score-num">5</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Anti-Corrupt</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Employment</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:50%"></div></div><span class="ideo-score-num">5</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Women Safety</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Healthcare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BSP -->
+      <div class="ideo-item bsp">
+        <button class="ideo-trigger" aria-expanded="false" onclick="toggleIdeo(this)">
+          <div class="ideo-trigger-left">
+            <div class="ideo-abbr">BSP</div>
+            <div>
+              <div class="ideo-headline">Bahujan Social Justice + Reservation Politics</div>
+              <div style="font-size:13px;color:var(--ink-faint);margin-top:2px;font-family:'JetBrains Mono',monospace;letter-spacing:.05em;">Kanshi Ram's Bahujan movement · Four-time UP government</div>
+            </div>
+          </div>
+          <div class="ideo-arrow">▾</div>
+        </button>
+        <div class="ideo-body">
+          <div class="ideo-body-inner">
+            <div>
+              <div class="ideo-col-label">Core Positions</div>
+              <ul class="ideo-points">
+                <li>Constitutional reservation (SC/ST/OBC) as the central instrument of social justice</li>
+                <li>Dalit political assertion and representation in legislatures and bureaucracy</li>
+                <li>Ambedkarite ideology — social equality and anti-caste mobilisation</li>
+                <li>Social engineering coalitions (Dalit-Brahmin, Dalit-Muslim) to build winning alliances</li>
+                <li>State patronage and welfare targeted at historically marginalised communities</li>
+              </ul>
+              <div class="ideo-col-label" style="margin-top:20px;">Consistent Gaps</div>
+              <ul class="ideo-points">
+                <li>2024 Lok Sabha wipeout (0 seats) reflects organisational collapse and vote transfer to BJP/SP</li>
+                <li>Limited articulated economic policy beyond reservation and welfare</li>
+                <li>Leadership succession concerns — no clear post-Mayawati structure</li>
+                <li>Weak presence outside Uttar Pradesh and a handful of northern states</li>
+              </ul>
+            </div>
+            <div>
+              <div class="ideo-col-label">Policy Scores (out of 10)</div>
+              <div class="ideo-score-grid">
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Industry</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Welfare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:70%"></div></div><span class="ideo-score-num">7</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Education</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:50%"></div></div><span class="ideo-score-num">5</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Law & Order</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Anti-Corrupt</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Employment</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Women Safety</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Healthcare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AAP -->
+      <div class="ideo-item aap">
+        <button class="ideo-trigger" aria-expanded="false" onclick="toggleIdeo(this)">
+          <div class="ideo-trigger-left">
+            <div class="ideo-abbr">AAP</div>
+            <div>
+              <div class="ideo-headline">Urban Governance Populism + Subsidy-Led Welfare</div>
+              <div style="font-size:13px;color:var(--ink-faint);margin-top:2px;font-family:'JetBrains Mono',monospace;letter-spacing:.05em;">India Against Corruption legacy · Delhi model, now contested</div>
+            </div>
+          </div>
+          <div class="ideo-arrow">▾</div>
+        </button>
+        <div class="ideo-body">
+          <div class="ideo-body-inner">
+            <div>
+              <div class="ideo-col-label">Core Positions</div>
+              <ul class="ideo-points">
+                <li>Free or subsidised utilities — electricity, water, bus travel for women</li>
+                <li>Government school and Mohalla Clinic reform as flagship governance delivery</li>
+                <li>Decentralised, technocratic administration pitch — "politics of work"</li>
+                <li>Anti-establishment positioning against both BJP and Congress as "status quo" parties</li>
+                <li>Federal pushback against central government control over Delhi's administration</li>
+              </ul>
+              <div class="ideo-col-label" style="margin-top:20px;">Consistent Gaps</div>
+              <ul class="ideo-points">
+                <li>Founding anti-corruption identity damaged by the 2024 excise-policy case and Kejriwal's arrest</li>
+                <li>Lost the Delhi government in 2025 — flagship governance model now unproven outside Punjab</li>
+                <li>Subsidy-heavy model raises fiscal sustainability questions as it scales to more states</li>
+                <li>Thin presence in industrial policy, foreign affairs, or law & order beyond Delhi/Punjab</li>
+              </ul>
+            </div>
+            <div>
+              <div class="ideo-col-label">Policy Scores (out of 10)</div>
+              <div class="ideo-score-grid">
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Industry</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Welfare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:80%"></div></div><span class="ideo-score-num">8</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Education</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:80%"></div></div><span class="ideo-score-num">8</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Law & Order</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:50%"></div></div><span class="ideo-score-num">5</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Anti-Corrupt</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:50%"></div></div><span class="ideo-score-num">5</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Employment</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:50%"></div></div><span class="ideo-score-num">5</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Women Safety</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Healthcare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:80%"></div></div><span class="ideo-score-num">8</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NPP -->
+      <div class="ideo-item npp">
+        <button class="ideo-trigger" aria-expanded="false" onclick="toggleIdeo(this)">
+          <div class="ideo-trigger-left">
+            <div class="ideo-abbr">NPP</div>
+            <div>
+              <div class="ideo-headline">Regional Autonomy + Tribal Federalism</div>
+              <div style="font-size:13px;color:var(--ink-faint);margin-top:2px;font-family:'JetBrains Mono',monospace;letter-spacing:.05em;">Sangma family legacy · Meghalaya's ruling party, NDA ally</div>
+            </div>
+          </div>
+          <div class="ideo-arrow">▾</div>
+        </button>
+        <div class="ideo-body">
+          <div class="ideo-body-inner">
+            <div>
+              <div class="ideo-col-label">Core Positions</div>
+              <ul class="ideo-points">
+                <li>Protection of tribal land rights and customary law under the Sixth Schedule</li>
+                <li>Greater fiscal and political autonomy for Northeastern states within the Union</li>
+                <li>Coalition pragmatism — partners with NDA at the Centre while governing locally</li>
+                <li>Infrastructure connectivity for the Northeast — roads, rail, and air links</li>
+                <li>Inter-state cooperation on border and resource-sharing disputes among NE states</li>
+              </ul>
+              <div class="ideo-col-label" style="margin-top:20px;">Consistent Gaps</div>
+              <ul class="ideo-points">
+                <li>Almost no organisational presence or electoral relevance outside the Northeast</li>
+                <li>Limited articulated position on national economic, education, or anti-corruption policy</li>
+                <li>Heavy reliance on central government transfers rather than independent revenue generation</li>
+                <li>Coalition-dependent governance makes policy continuity vulnerable to alliance shifts</li>
+              </ul>
+            </div>
+            <div>
+              <div class="ideo-col-label">Policy Scores (out of 10)</div>
+              <div class="ideo-score-grid">
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Industry</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:50%"></div></div><span class="ideo-score-num">5</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Welfare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Education</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Law & Order</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:50%"></div></div><span class="ideo-score-num">5</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Anti-Corrupt</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Employment</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:40%"></div></div><span class="ideo-score-num">4</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Women Safety</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:60%"></div></div><span class="ideo-score-num">6</span></div>
+                <div class="ideo-score-row"><span class="ideo-score-lbl">Healthcare</span><div class="ideo-score-bar"><div class="ideo-score-fill" style="width:50%"></div></div><span class="ideo-score-num">5</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1082,7 +1381,7 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
     <div class="section-header">
       <div class="section-kicker">Visual Comparison</div>
       <h2 class="section-title">Party <em>Radar</em> — 8 Dimensions</h2>
-      <p class="section-sub">Toggle parties to compare their policy profiles. The gold overlay shows what Bengal actually needs most urgently.</p>
+      <p class="section-sub">Toggle parties to compare their policy profiles. The amber overlay shows what India actually needs most urgently; the gold overlay shows Bengal's needs.</p>
     </div>
 
     <div class="radar-controls">
@@ -1091,7 +1390,12 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
       <button class="radar-toggle cpim" data-party="cpim" onclick="toggleRadar(this)">CPIM</button>
       <button class="radar-toggle inc" data-party="inc" onclick="toggleRadar(this)">INC</button>
       <button class="radar-toggle isf" data-party="isf" onclick="toggleRadar(this)">ISF</button>
-      <button class="radar-toggle active bengal" data-party="bengal" onclick="toggleRadar(this)">Bengal's Needs</button>
+      <button class="radar-toggle cpi" data-party="cpi" onclick="toggleRadar(this)">CPI</button>
+      <button class="radar-toggle bsp" data-party="bsp" onclick="toggleRadar(this)">BSP</button>
+      <button class="radar-toggle aap" data-party="aap" onclick="toggleRadar(this)">AAP</button>
+      <button class="radar-toggle npp" data-party="npp" onclick="toggleRadar(this)">NPP</button>
+      <button class="radar-toggle bengal" data-party="bengal" onclick="toggleRadar(this)">Bengal's Needs</button>
+      <button class="radar-toggle active india" data-party="india" onclick="toggleRadar(this)">India's Needs</button>
     </div>
 
     <div class="radar-canvas-wrap">
@@ -1106,17 +1410,17 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
       <table>
         <caption>Party Policy Scores (1–10 scale)</caption>
         <thead>
-          <tr><th scope="col">Dimension</th><th scope="col">TMC</th><th scope="col">BJP</th><th scope="col">CPIM</th><th scope="col">INC</th><th scope="col">ISF</th><th scope="col">Bengal's Need</th></tr>
+          <tr><th scope="col">Dimension</th><th scope="col">TMC</th><th scope="col">BJP</th><th scope="col">CPIM</th><th scope="col">INC</th><th scope="col">ISF</th><th scope="col">CPI</th><th scope="col">BSP</th><th scope="col">AAP</th><th scope="col">NPP</th><th scope="col">Bengal's Need</th><th scope="col">India's Need</th></tr>
         </thead>
         <tbody>
-          <tr><th scope="row">Industry</th><td>4</td><td>8</td><td>3</td><td>6</td><td>3</td><td>9</td></tr>
-          <tr><th scope="row">Welfare</th><td>8</td><td>6</td><td>6</td><td>6</td><td>6</td><td>8</td></tr>
-          <tr><th scope="row">Education</th><td>4</td><td>6</td><td>7</td><td>6</td><td>4</td><td>9</td></tr>
-          <tr><th scope="row">Healthcare</th><td>6</td><td>6</td><td>6</td><td>6</td><td>5</td><td>8</td></tr>
-          <tr><th scope="row">Law &amp; Order</th><td>3</td><td>7</td><td>5</td><td>5</td><td>4</td><td>9</td></tr>
-          <tr><th scope="row">Anti-Corruption</th><td>2</td><td>5</td><td>5</td><td>4</td><td>6</td><td>10</td></tr>
-          <tr><th scope="row">Women Safety</th><td>3</td><td>6</td><td>6</td><td>6</td><td>4</td><td>9</td></tr>
-          <tr><th scope="row">Employment</th><td>4</td><td>7</td><td>4</td><td>6</td><td>4</td><td>10</td></tr>
+          <tr><th scope="row">Industry</th><td>4</td><td>8</td><td>3</td><td>6</td><td>3</td><td>3</td><td>4</td><td>4</td><td>5</td><td>9</td><td>8</td></tr>
+          <tr><th scope="row">Welfare</th><td>8</td><td>6</td><td>6</td><td>6</td><td>6</td><td>7</td><td>7</td><td>8</td><td>6</td><td>8</td><td>7</td></tr>
+          <tr><th scope="row">Education</th><td>4</td><td>6</td><td>7</td><td>6</td><td>4</td><td>6</td><td>5</td><td>8</td><td>6</td><td>9</td><td>8</td></tr>
+          <tr><th scope="row">Healthcare</th><td>6</td><td>6</td><td>6</td><td>6</td><td>5</td><td>6</td><td>4</td><td>8</td><td>5</td><td>8</td><td>9</td></tr>
+          <tr><th scope="row">Law &amp; Order</th><td>3</td><td>7</td><td>5</td><td>5</td><td>4</td><td>5</td><td>4</td><td>5</td><td>5</td><td>9</td><td>7</td></tr>
+          <tr><th scope="row">Anti-Corruption</th><td>2</td><td>5</td><td>5</td><td>4</td><td>6</td><td>6</td><td>4</td><td>5</td><td>4</td><td>10</td><td>9</td></tr>
+          <tr><th scope="row">Women Safety</th><td>3</td><td>6</td><td>6</td><td>6</td><td>4</td><td>6</td><td>4</td><td>6</td><td>6</td><td>9</td><td>9</td></tr>
+          <tr><th scope="row">Employment</th><td>4</td><td>7</td><td>4</td><td>6</td><td>4</td><td>5</td><td>4</td><td>5</td><td>4</td><td>10</td><td>9</td></tr>
         </tbody>
       </table>
     </div>
@@ -1142,6 +1446,10 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
             <option value="cpim">CPIM — Communist Party (M)</option>
             <option value="inc">INC — Indian National Congress</option>
             <option value="isf">ISF — Indian Secular Front</option>
+            <option value="cpi">CPI — Communist Party of India</option>
+            <option value="bsp">BSP — Bahujan Samaj Party</option>
+            <option value="aap">AAP — Aam Aadmi Party</option>
+            <option value="npp">NPP — National People's Party</option>
           </select>
         </div>
         <div class="compare-vs">VS</div>
@@ -1153,6 +1461,10 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
             <option value="cpim">CPIM — Communist Party (M)</option>
             <option value="inc">INC — Indian National Congress</option>
             <option value="isf">ISF — Indian Secular Front</option>
+            <option value="cpi">CPI — Communist Party of India</option>
+            <option value="bsp">BSP — Bahujan Samaj Party</option>
+            <option value="aap">AAP — Aam Aadmi Party</option>
+            <option value="npp">NPP — National People's Party</option>
           </select>
         </div>
       </div>
@@ -1304,6 +1616,10 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
             <th style="color:var(--cpim)">CPIM</th>
             <th style="color:var(--inc)">INC</th>
             <th style="color:var(--isf)">ISF</th>
+            <th style="color:var(--cpi)">CPI</th>
+            <th style="color:var(--bsp)">BSP</th>
+            <th style="color:var(--aap)">AAP</th>
+            <th style="color:var(--npp)">NPP</th>
           </tr>
         </thead>
         <tbody>
@@ -1315,6 +1631,10 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
             <td><div class="heat-cell heat-1">3</div></td>
             <td><div class="heat-cell heat-4">6</div></td>
             <td><div class="heat-cell heat-1">3</div></td>
+            <td><div class="heat-cell heat-2">3</div></td>
+            <td><div class="heat-cell heat-2">4</div></td>
+            <td><div class="heat-cell heat-2">4</div></td>
+            <td><div class="heat-cell heat-3">5</div></td>
           </tr>
           <tr>
             <td class="gt-metric">Youth Employment Generation</td>
@@ -1323,6 +1643,10 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
             <td><div class="heat-cell heat-4">7</div></td>
             <td><div class="heat-cell heat-2">4</div></td>
             <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-2">4</div></td>
+            <td><div class="heat-cell heat-3">5</div></td>
+            <td><div class="heat-cell heat-2">4</div></td>
+            <td><div class="heat-cell heat-3">5</div></td>
             <td><div class="heat-cell heat-2">4</div></td>
           </tr>
           <tr>
@@ -1333,6 +1657,10 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
             <td><div class="heat-cell heat-4">7</div></td>
             <td><div class="heat-cell heat-4">6</div></td>
             <td><div class="heat-cell heat-2">4</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-3">5</div></td>
+            <td><div class="heat-cell heat-5">8</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
           </tr>
           <tr>
             <td class="gt-metric">Law & Order / Political Violence</td>
@@ -1342,6 +1670,10 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
             <td><div class="heat-cell heat-3">5</div></td>
             <td><div class="heat-cell heat-3">5</div></td>
             <td><div class="heat-cell heat-2">4</div></td>
+            <td><div class="heat-cell heat-3">5</div></td>
+            <td><div class="heat-cell heat-2">4</div></td>
+            <td><div class="heat-cell heat-3">5</div></td>
+            <td><div class="heat-cell heat-3">5</div></td>
           </tr>
           <tr>
             <td class="gt-metric">Anti-Corruption Governance</td>
@@ -1351,6 +1683,10 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
             <td><div class="heat-cell heat-3">5</div></td>
             <td><div class="heat-cell heat-2">4</div></td>
             <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-2">4</div></td>
+            <td><div class="heat-cell heat-3">5</div></td>
+            <td><div class="heat-cell heat-2">4</div></td>
           </tr>
           <tr>
             <td class="gt-metric">Women's Safety & Justice</td>
@@ -1360,6 +1696,10 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
             <td><div class="heat-cell heat-4">6</div></td>
             <td><div class="heat-cell heat-4">6</div></td>
             <td><div class="heat-cell heat-2">4</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-2">4</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
           </tr>
           <tr>
             <td class="gt-metric">Healthcare Infrastructure</td>
@@ -1368,6 +1708,10 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
             <td><div class="heat-cell heat-4">6</div></td>
             <td><div class="heat-cell heat-4">6</div></td>
             <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-3">5</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-2">4</div></td>
+            <td><div class="heat-cell heat-5">8</div></td>
             <td><div class="heat-cell heat-3">5</div></td>
           </tr>
           <tr>
@@ -1378,6 +1722,10 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
             <td><div class="heat-cell heat-4">6</div></td>
             <td><div class="heat-cell heat-4">6</div></td>
             <td><div class="heat-cell heat-4">6</div></td>
+            <td><div class="heat-cell heat-4">7</div></td>
+            <td><div class="heat-cell heat-4">7</div></td>
+            <td><div class="heat-cell heat-5">8</div></td>
+            <td><div class="heat-cell heat-4">6</div></td>
           </tr>
           <tr style="font-weight:600;background:var(--paper-dark);">
             <td class="gt-metric" style="font-weight:700;">Weighted Total Score</td>
@@ -1387,6 +1735,10 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
             <td><div class="heat-cell heat-3" style="font-size:15px;">42</div></td>
             <td><div class="heat-cell heat-4" style="font-size:15px;">45</div></td>
             <td><div class="heat-cell heat-2" style="font-size:15px;">36</div></td>
+            <td><div class="heat-cell heat-3" style="font-size:15px;">44</div></td>
+            <td><div class="heat-cell heat-2" style="font-size:15px;">36</div></td>
+            <td><div class="heat-cell heat-4" style="font-size:15px;">49</div></td>
+            <td><div class="heat-cell heat-3" style="font-size:15px;">41</div></td>
           </tr>
         </tbody>
       </table>
@@ -1401,7 +1753,7 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
     <div class="section-header">
       <div class="section-kicker">Assessment</div>
       <h2 class="section-title">The <em>Honest</em> Verdict</h2>
-      <p class="section-sub">What each party offers Bengal, in plain language — and where they structurally fail the state's most urgent needs.</p>
+      <p class="section-sub">What each of India's 8 national parties offers — and how it stacks up against the country's, and Bengal's, most urgent needs.</p>
     </div>
 
     <div class="verdict-grid">
@@ -1471,6 +1823,58 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
         </ul>
       </div>
 
+      <div class="verdict-card cpi">
+        <div class="verdict-party">CPI — National Party · No Bengal Seats</div>
+        <div class="verdict-score">44<span style="font-size:16px;opacity:.5">/80</span></div>
+        <div class="verdict-label">2 Lok Sabha Seats (Kerala) · 0.1% in Bengal 2026</div>
+        <div class="verdict-bar"><div class="verdict-fill" style="width:55%"></div></div>
+        <ul class="verdict-points">
+          <li>India's oldest party (founded 1925) — historically strong on labour rights, welfare, and anti-corruption rhetoric</li>
+          <li>Reduced to a junior Left Front partner; its 2 Lok Sabha seats are both in Kerala, none in Bengal</li>
+          <li>Once co-governed Bengal as part of the Left Front (1977–2011) — that legacy is now a footnote</li>
+          <li>Polled barely 0.1% in Bengal's 2026 Assembly election — effectively absent from the state's politics</li>
+        </ul>
+      </div>
+
+      <div class="verdict-card bsp">
+        <div class="verdict-party">BSP — National Party · No Bengal Presence</div>
+        <div class="verdict-score">36<span style="font-size:16px;opacity:.5">/80</span></div>
+        <div class="verdict-label">0 Lok Sabha Seats in 2024 · 0.05% in Bengal 2026</div>
+        <div class="verdict-bar"><div class="verdict-fill" style="width:45%"></div></div>
+        <ul class="verdict-points">
+          <li>Founded in 1984 on Bahujan social-justice politics; Mayawati's party won 0 Lok Sabha seats in 2024 — a first</li>
+          <li>Its core base and organisational strength remain concentrated in Uttar Pradesh, far from Bengal's politics</li>
+          <li>Social-justice welfare credentials are real, but governance record is thin outside UP and uneven even there</li>
+          <li>Polled just 0.05% in Bengal's 2026 Assembly election — a non-factor in the state</li>
+        </ul>
+      </div>
+
+      <div class="verdict-card aap">
+        <div class="verdict-party">AAP — National Party · Negligible in Bengal</div>
+        <div class="verdict-score">49<span style="font-size:16px;opacity:.5">/80</span></div>
+        <div class="verdict-label">3 Lok Sabha Seats (Punjab) · Lost Delhi in Feb 2025</div>
+        <div class="verdict-bar"><div class="verdict-fill" style="width:61%"></div></div>
+        <ul class="verdict-points">
+          <li>Built its national profile on Delhi's education, healthcare (mohalla clinics), and subsidy model — strong on welfare metrics</li>
+          <li>Lost power in Delhi in February 2025 after a decade in office, denting its governance-model pitch</li>
+          <li>Still governs Punjab and holds 3 Lok Sabha seats, but has no organisational base in Bengal</li>
+          <li>Polled just 0.02% in Bengal's 2026 Assembly election — its model is untested outside Delhi/Punjab</li>
+        </ul>
+      </div>
+
+      <div class="verdict-card npp">
+        <div class="verdict-party">NPP — National Party · NDA Ally, No Bengal Footprint</div>
+        <div class="verdict-score">41<span style="font-size:16px;opacity:.5">/80</span></div>
+        <div class="verdict-label">Governs Meghalaya · 1 Lok Sabha Seat · 0% in Bengal</div>
+        <div class="verdict-bar"><div class="verdict-fill" style="width:51%"></div></div>
+        <ul class="verdict-points">
+          <li>Conrad Sangma's party governs Meghalaya in coalition and sits with the NDA at the national level</li>
+          <li>Regional-development focus suits Northeast hill states; has no cadre, candidates, or vote share in Bengal</li>
+          <li>One Lok Sabha seat in 2024 — a small but stable Northeast regional bloc, not a pan-India contender</li>
+          <li>Did not contest Bengal's 2026 Assembly election — included here only as part of the national party landscape</li>
+        </ul>
+      </div>
+
     </div>
 
     <div class="pull-quote" style="margin-top:56px;">
@@ -1483,8 +1887,8 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
 <!-- DISCLAIMER -->
 <div class="disclaimer-bar">
   <div class="disclaimer-inner">
-    METHODOLOGY: Policy scores (1–10) are derived from manifesto commitments, governance track records, NCRB 2023, PLFS 2023-24, CMIE Q3 2024 employment data, ASER 2023, NFHS-5 (2019-21), DPIIT BRAP 2022, and state economic surveys. Data reviewed and updated May 10, 2026. 2026 West Bengal Assembly election results: BJP 207 seats/45.84%, TMC 80 seats/41.08%, CPIM 1 seat, INC 2 seats. CM Suvendu Adhikari sworn in May 9, 2026.
-    Scores reflect alignment between party policy positions and Bengal's documented development needs — they are not predictions of electoral outcomes or endorsements.
+    METHODOLOGY: Policy scores (1–10) are derived from manifesto commitments, governance track records, NCRB 2023, PLFS 2023-24, CMIE Q3 2024 employment data, ASER 2023, NFHS-5 (2019-21), DPIIT BRAP 2022, state economic surveys, and 2024 Lok Sabha results. Covers all 8 Election Commission-recognised national parties (BJP, INC, TMC, CPI(M), CPI, BSP, AAP, NPP) plus Bengal's ISF. Data reviewed and updated May 10, 2026. 2026 West Bengal Assembly election results: BJP 207 seats/45.84%, TMC 80 seats/41.08%, CPIM 1 seat, INC 2 seats. CM Suvendu Adhikari sworn in May 9, 2026.
+    Scores reflect alignment between party policy positions and India's and Bengal's documented development needs — they are not predictions of electoral outcomes or endorsements.
     This is non-partisan civic education material. All data sources are publicly available.
   </div>
 </div>
@@ -1542,20 +1946,21 @@ function toggleIdeo(btn) {
 }
 
 /* ── RADAR CHART ── */
-let activeParties = new Set(['tmc','bjp','bengal']);
+let activeParties = new Set(['tmc','bjp','india']);
 let radarChart;
 
 function buildRadarDatasets() {
   return [...activeParties].map(key => {
     const p = PARTIES[key];
     const isDark = root.getAttribute('data-theme') === 'dark';
+    const isBenchmark = p.status === 'benchmark';
     return {
       label: p.name,
       data: p.scores,
       borderColor: p.color,
-      backgroundColor: p.color + (key === 'bengal' ? '22' : '18'),
-      borderWidth: key === 'bengal' ? 2.5 : 1.5,
-      borderDash: key === 'bengal' ? [5,3] : [],
+      backgroundColor: p.color + (isBenchmark ? '22' : '18'),
+      borderWidth: isBenchmark ? 2.5 : 1.5,
+      borderDash: isBenchmark ? [5,3] : [],
       pointBackgroundColor: p.color,
       pointRadius: 4,
       pointHoverRadius: 6
