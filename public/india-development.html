@@ -64,6 +64,7 @@ main { padding: 3rem 0; }
 .tier-n { font-family: 'Playfair Display', serif; font-size: 0.7rem; color: var(--saffron); font-weight: 700; }
 .section-h { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; line-height: 1.15; margin-bottom: 0.75rem; }
 .section-intro { font-family: 'Crimson Pro', serif; font-style: italic; font-size: 1.1rem; color: var(--muted); margin-bottom: 1.5rem; border-left: 3px solid var(--saffron); padding-left: 1rem; }
+.section-intro a, .block-p a { color: var(--saffron); text-decoration: underline; }
 
 /* CONTENT BLOCKS */
 .block { margin: 1.2rem 0; padding: 1.2rem 1.5rem; border: 1px solid var(--aged); border-left: 3px solid var(--aged); }
@@ -128,37 +129,57 @@ main { padding: 3rem 0; }
 </head>
 <body>
 
+<!-- SITE NAV -->
 <nav class="site-nav" aria-label="Site navigation">
   <div class="site-nav-inner">
     <a href="/" class="site-nav-brand">The Bengal Reader</a>
     <div class="site-nav-links">
-      <a href="/" class="site-nav-link">Voter Guide</a>
-      <a href="/parties" class="site-nav-link">Party Compass</a>
-      <a href="/constituencies" class="site-nav-link">2026 Results</a>
-      <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
-      <a href="/accountability" class="site-nav-link">100 Days</a>
-      <a href="/corruption" class="site-nav-link">Dossier</a>
-      <a href="/bonds" class="site-nav-link">Money Trail</a>
-      <a href="/mlas" class="site-nav-link">MLA Records</a>
+      <a href="/" class="site-nav-link">Home</a>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">Bengal Election 2026</summary>
+        <div class="site-nav-dropdown">
+          <a href="/parties" class="site-nav-link">Party Compass</a>
+          <a href="/constituencies" class="site-nav-link">2026 Results</a>
+          <a href="/mlas" class="site-nav-link">MLA Records</a>
+          <a href="/assets" class="site-nav-link">Wealth Growth</a>
+          <a href="/accountability" class="site-nav-link">100 Days</a>
+          <a href="/corruption" class="site-nav-link">Dossier</a>
+          <a href="/bonds" class="site-nav-link">Money Trail</a>
           <a href="/nota-reform" class="site-nav-link">NOTA Reform</a>
           <a href="/clean-candidates" class="site-nav-link">Clean Slate</a>
-      <a href="/india-development" class="site-nav-link active">India's Story</a>
-      <a href="/india-china" class="site-nav-link">India vs China</a>
-      <a href="/india-governance" class="site-nav-link">Performance OS</a>
-      <a href="/india-disadvantage-index" class="site-nav-link">Disadvantage Index</a>
-      <a href="/friction-engine" class="site-nav-link">Friction Engine</a>
+          <a href="/compare" class="site-nav-link">Compare MLAs</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">India Analysis</summary>
+        <div class="site-nav-dropdown">
+          <a href="/india-development" class="site-nav-link">India's Story</a>
+          <a href="/india-china" class="site-nav-link">India vs China</a>
+          <a href="/india-disadvantage-index" class="site-nav-link">Disadvantage Index</a>
           <a href="/education" class="site-nav-link">Education Gap</a>
-          <a href="/cjp" class="site-nav-link">CJP</a>
-          <a href="/cjp-projects" class="site-nav-link">Swarm Projects</a>
-          <a href="/swarm-audit" class="site-nav-link">SwarmAudit</a>
-          <a href="/rti-swarm" class="site-nav-link">RTI Swarm</a>
-          <a href="/skill-guild" class="site-nav-link">Skill Guild</a>
+          <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
           <a href="/governance-deficit" class="site-nav-link">Governance Gap</a>
           <a href="/exit-door" class="site-nav-link">Exit Door</a>
-      <a href="/ask" class="site-nav-link">Ask AI</a>
-      <a href="/map" class="site-nav-link">Map</a>
-      <a href="/assets" class="site-nav-link">Wealth Growth</a>
-      <a href="/methodology" class="site-nav-link">Methodology</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">Civic Tech Lab</summary>
+        <div class="site-nav-dropdown">
+          <a href="/civic-lab" class="site-nav-link">Civic Lab</a>
+          <a href="/civic-demos" class="site-nav-link">Live Demos</a>
+          <a href="/friction-engine" class="site-nav-link">Friction Engine</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">About &amp; Transparency</summary>
+        <div class="site-nav-dropdown">
+          <a href="/methodology" class="site-nav-link">Methodology</a>
+          <a href="/rti" class="site-nav-link">RTI Tracker</a>
+          <a href="/corrections" class="site-nav-link">Corrections</a>
+          <a href="/search" class="site-nav-link">Search</a>
+          <a href="/ask" class="site-nav-link">Ask AI</a>
+        </div>
+      </details>
     </div>
   </div>
 </nav>
@@ -198,6 +219,16 @@ main { padding: 3rem 0; }
 
 <main>
   <div class="container">
+
+    <section aria-labelledby="series-h" style="margin-bottom: 2rem;">
+      <div class="tier-lbl"><span class="tier-n">Series</span> India Analysis</div>
+      <h2 class="section-h" id="series-h">Start Here: The India Analysis Series</h2>
+      <p class="section-intro">This page is the entry point to The Bengal Reader's wider look at India's growth story —
+        five tiers of challenge and the policy responses to each. For deeper dives on specific themes, see the
+        related pages linked at the bottom of this article, including <a href="/india-china">India vs China</a>,
+        the <a href="/india-disadvantage-index">Disadvantage Index</a>, and the
+        <a href="/education">Education &amp; Employability Gap</a>.</p>
+    </section>
 
     <div class="widget" aria-label="Interactive inequality explorer">
       <div class="widget-head">
@@ -282,7 +313,7 @@ main { padding: 3rem 0; }
       <div class="block solution">
         <div class="block-tag">Policy Response · PLI Schemes · India Semiconductor Mission</div>
         <div class="block-h">Manufacturing as a Job Engine</div>
-        <p class="block-p">Production-Linked Incentive (PLI) schemes offer substantial tax rebates to companies manufacturing electronics, solar panels, and automobiles within India. The <em>India Semiconductor Mission</em> is attracting billions in investment to build a domestic chip ecosystem — targeting high-quality formal employment in sectors that have historically exported their jobs elsewhere.</p>
+        <p class="block-p">Production-Linked Incentive (PLI) schemes offer substantial tax rebates to companies manufacturing electronics, solar panels, and automobiles within India, alongside the <em>India Semiconductor Mission</em>'s push for a domestic chip ecosystem — both aimed at high-quality formal employment in sectors that have historically exported their jobs elsewhere. For a detailed breakdown of how these schemes are reshaping India's place in global manufacturing, see <a href="/india-china">India vs China →</a>.</p>
       </div>
 
       <div class="block problem">
@@ -344,7 +375,7 @@ main { padding: 3rem 0; }
       <div class="block solution">
         <div class="block-tag">Policy Response · 180 GW Renewables · Jal Jeevan Mission · PM Gati Shakti</div>
         <div class="block-h">Green Transition &amp; Infrastructure Coordination</div>
-        <p class="block-p">India has surpassed <strong>180 GW</strong> of renewable capacity — one of the fastest energy transitions in the world. FAME scheme subsidies are accelerating EV adoption to cut urban air pollution and reduce the crude oil import bill. The <em>Jal Jeevan Mission</em> targets piped drinking water for every rural household — one of the largest water access programmes in human history. <em>PM Gati Shakti</em> uses digital mapping to coordinate transport, rail, and urban infrastructure across ministries, eliminating the inter-departmental delays that previously cost years of idle investment.</p>
+        <p class="block-p">India has surpassed <strong>180 GW</strong> of renewable capacity — one of the fastest energy transitions in the world. FAME scheme subsidies are accelerating EV adoption to cut urban air pollution and reduce the crude oil import bill. The <em>Jal Jeevan Mission</em> targets piped drinking water for every rural household — one of the largest water access programmes in human history. Infrastructure coordination is also being overhauled: see <a href="/india-china">India vs China →</a> for how <em>PM Gati Shakti</em>'s digital mapping is targeting India's 13–14%-of-GDP logistics cost burden.</p>
       </div>
     </section>
 
@@ -371,16 +402,27 @@ main { padding: 3rem 0; }
       <div class="block solution">
         <div class="block-tag">Policy Response · UPI Export · AI Compute · Faceless Assessment</div>
         <div class="block-h">Exporting Infrastructure, Building Indispensability</div>
-        <p class="block-p">India is now exporting its digital architecture — UPI, Aadhaar, ONDC — to other developing nations via G20 and bilateral partnerships, positioning itself as the model for the Global South. Domestically, the strategy shifts from IT services to AI compute, large data centres, and deep-tech R&amp;D — to create the conditions that keep Indian talent in India. Tax assessments and customs clearances are becoming "faceless," handled by algorithms to reduce the regulatory friction that deters foreign investors at the human level.</p>
+        <p class="block-p">India is increasingly exporting its digital public infrastructure — UPI, Aadhaar, ONDC — to other developing nations, positioning itself as the model for the Global South, while domestically shifting from IT services toward AI compute and deep-tech R&amp;D. Tax assessments and customs clearances are also becoming "faceless," handled by algorithms to reduce friction for foreign investors. For the full picture of India's DPI export strategy and AI sovereignty push, see <a href="/india-china">India vs China →</a>.</p>
       </div>
     </section>
 
     <div class="related" aria-label="Related investigations">
+      <div class="related-l">Explore the India Analysis Series</div>
+      <div class="related-links">
+        <a href="/india-china" class="related-link">India vs China</a>
+        <a href="/india-disadvantage-index" class="related-link">Disadvantage Index</a>
+        <a href="/education" class="related-link">Education &amp; Employability Gap</a>
+        <a href="/demonetisation" class="related-link">Demonetisation Impact</a>
+        <a href="/governance-deficit" class="related-link">Governance Gap</a>
+        <a href="/exit-door" class="related-link">Exit Door</a>
+      </div>
+    </div>
+
+    <div class="related" aria-label="Related investigations on The Bengal Reader">
       <div class="related-l">Related Investigations on The Bengal Reader</div>
       <div class="related-links">
         <a href="/bonds" class="related-link">Electoral Bonds</a>
         <a href="/accountability" class="related-link">100-Day Pledges</a>
-        <a href="/demonetisation" class="related-link">Demonetisation Impact</a>
         <a href="/corruption" class="related-link">Corruption Dossier</a>
         <a href="/assets" class="related-link">MLA Wealth Growth</a>
         <a href="/ask" class="related-link">Ask AI</a>

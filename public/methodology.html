@@ -132,37 +132,57 @@ footer a:hover { color:rgba(244,241,234,.9); }
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
+<!-- SITE NAV -->
 <nav class="site-nav" aria-label="Site navigation">
   <div class="site-nav-inner">
     <a href="/" class="site-nav-brand">The Bengal Reader</a>
     <div class="site-nav-links">
-      <a href="/" class="site-nav-link">Voter Guide</a>
-      <a href="/parties" class="site-nav-link">Party Compass</a>
-      <a href="/constituencies" class="site-nav-link">2026 Results</a>
-      <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
-      <a href="/accountability" class="site-nav-link">100 Days</a>
-      <a href="/corruption" class="site-nav-link">Dossier</a>
-      <a href="/bonds" class="site-nav-link">Money Trail</a>
-      <a href="/mlas" class="site-nav-link">MLA Records</a>
+      <a href="/" class="site-nav-link">Home</a>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">Bengal Election 2026</summary>
+        <div class="site-nav-dropdown">
+          <a href="/parties" class="site-nav-link">Party Compass</a>
+          <a href="/constituencies" class="site-nav-link">2026 Results</a>
+          <a href="/mlas" class="site-nav-link">MLA Records</a>
+          <a href="/assets" class="site-nav-link">Wealth Growth</a>
+          <a href="/accountability" class="site-nav-link">100 Days</a>
+          <a href="/corruption" class="site-nav-link">Dossier</a>
+          <a href="/bonds" class="site-nav-link">Money Trail</a>
           <a href="/nota-reform" class="site-nav-link">NOTA Reform</a>
           <a href="/clean-candidates" class="site-nav-link">Clean Slate</a>
-      <a href="/india-development" class="site-nav-link">India's Story</a>
-      <a href="/india-china" class="site-nav-link">India vs China</a>
-      <a href="/india-governance" class="site-nav-link">Performance OS</a>
-      <a href="/india-disadvantage-index" class="site-nav-link">Disadvantage Index</a>
-      <a href="/friction-engine" class="site-nav-link">Friction Engine</a>
+          <a href="/compare" class="site-nav-link">Compare MLAs</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">India Analysis</summary>
+        <div class="site-nav-dropdown">
+          <a href="/india-development" class="site-nav-link">India's Story</a>
+          <a href="/india-china" class="site-nav-link">India vs China</a>
+          <a href="/india-disadvantage-index" class="site-nav-link">Disadvantage Index</a>
           <a href="/education" class="site-nav-link">Education Gap</a>
-          <a href="/cjp" class="site-nav-link">CJP</a>
-          <a href="/cjp-projects" class="site-nav-link">Swarm Projects</a>
-          <a href="/swarm-audit" class="site-nav-link">SwarmAudit</a>
-          <a href="/rti-swarm" class="site-nav-link">RTI Swarm</a>
-          <a href="/skill-guild" class="site-nav-link">Skill Guild</a>
+          <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
           <a href="/governance-deficit" class="site-nav-link">Governance Gap</a>
           <a href="/exit-door" class="site-nav-link">Exit Door</a>
-      <a href="/ask" class="site-nav-link">Ask AI</a>
-      <a href="/map" class="site-nav-link">Map</a>
-      <a href="/assets" class="site-nav-link">Wealth Growth</a>
-      <a href="/methodology" class="site-nav-link active">Methodology</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">Civic Tech Lab</summary>
+        <div class="site-nav-dropdown">
+          <a href="/civic-lab" class="site-nav-link">Civic Lab</a>
+          <a href="/civic-demos" class="site-nav-link">Live Demos</a>
+          <a href="/friction-engine" class="site-nav-link">Friction Engine</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">About &amp; Transparency</summary>
+        <div class="site-nav-dropdown">
+          <a href="/methodology" class="site-nav-link">Methodology</a>
+          <a href="/rti" class="site-nav-link">RTI Tracker</a>
+          <a href="/corrections" class="site-nav-link">Corrections</a>
+          <a href="/search" class="site-nav-link">Search</a>
+          <a href="/ask" class="site-nav-link">Ask AI</a>
+        </div>
+      </details>
     </div>
   </div>
 </nav>
@@ -198,7 +218,7 @@ footer a:hover { color:rgba(244,241,234,.9); }
     <div class="mono" style="margin-bottom:.5rem">Sections</div>
     <ol style="margin-left:1.4rem;color:var(--ink-soft);font-size:.9rem;line-height:2;">
       <li><a href="#data-files" style="color:inherit">Data files: sources and update rules</a></li>
-      <li><a href="#pipeline" style="color:inherit">Automated pipeline (hourly)</a></li>
+      <li><a href="#pipeline" style="color:inherit">Automated pipeline (every 6 hours)</a></li>
       <li><a href="#verification" style="color:inherit">What "verified" means</a></li>
       <li><a href="#editorial" style="color:inherit">Editorial independence</a></li>
       <li><a href="#corrections" style="color:inherit">Corrections policy</a></li>
@@ -215,8 +235,8 @@ footer a:hover { color:rgba(244,241,234,.9); }
     <ul>
       <li><strong>Primary source:</strong> ECI Form 26 affidavits submitted by candidates for the 2021 West Bengal Legislative Assembly election, scraped from <span class="mono">myneta.info</span> and cross-referenced with <span class="mono">eci.gov.in</span> candidate portals.</li>
       <li><strong>Criminal case data:</strong> IPC section numbers, case counts, and "serious" flags (IPC 302, 307, 376, 420, 120B) are extracted directly from affidavit tables. No inference is made about guilt.</li>
-      <li><strong>CBI / ED overlay:</strong> Agency press releases are scraped hourly. An MLA is flagged as having an active CBI/ED case only when the agency names them in a press release.</li>
-      <li><strong>Update frequency:</strong> Affidavit data is static (2021 election). CBI/ED flags update with each hourly pipeline run.</li>
+      <li><strong>CBI / ED overlay:</strong> Agency press releases are scraped every 6 hours. An MLA is flagged as having an active CBI/ED case only when the agency names them in a press release.</li>
+      <li><strong>Update frequency:</strong> Affidavit data is static (2021 election). CBI/ED flags update with each 6-hourly pipeline run.</li>
       <li><strong>What we do not do:</strong> We do not infer guilt, do not include FIR allegations without charge-sheet, and do not use police sources alone.</li>
     </ul>
   </div>
@@ -247,7 +267,7 @@ footer a:hover { color:rgba(244,241,234,.9); }
       <li><strong>Primary source:</strong> ED press releases (<span class="mono">enforcement.gov.in</span>), CBI press releases (<span class="mono">cbi.gov.in</span>), and court order summaries from Bar and Bench, LiveLaw, and Indian Kanoon.</li>
       <li><strong>Update rule:</strong> A timeline entry is added only when (a) an official agency press release names the subject and a case number, or (b) 2+ independent news sources within 24 hours report the same specific action (arrest, charge-sheet, bail, conviction).</li>
       <li><strong>What is excluded:</strong> Social media claims, anonymous tips, single-source reports without agency confirmation.</li>
-      <li><strong>Update frequency:</strong> Pipeline runs hourly; new entries are appended, existing entries are not overwritten.</li>
+      <li><strong>Update frequency:</strong> Pipeline runs every 6 hours; new entries are appended, existing entries are not overwritten.</li>
     </ul>
   </div>
 
@@ -257,7 +277,7 @@ footer a:hover { color:rgba(244,241,234,.9); }
       <li><strong>Source:</strong> Google News RSS, queried per-case using the subject name + case keywords. Top 3 recent articles per case are stored.</li>
       <li><strong>Deduplication:</strong> Article titles are normalised and deduplicated across runs. A title seen within the last 72 hours is not re-added.</li>
       <li><strong>No editorial judgment on news:</strong> Headlines are reproduced verbatim. Headlines link to the original source; the site does not validate article content.</li>
-      <li><strong>Update frequency:</strong> Refreshed completely on each hourly pipeline run.</li>
+      <li><strong>Update frequency:</strong> Refreshed completely on each 6-hourly pipeline run.</li>
     </ul>
   </div>
 
@@ -266,7 +286,7 @@ footer a:hover { color:rgba(244,241,234,.9); }
     <ul>
       <li><strong>Source:</strong> Party manifestos (BJP, TMC, Congress, Left Front) for the 2026 election. Each pledge is manually coded with category, deadline, and verbatim manifesto text.</li>
       <li><strong>Status logic:</strong> Status is one of <span class="mono">pending / fulfilled / partial / broken / delayed</span>. Set manually on official announcements, gazette notifications, or government press releases. Pipeline auto-marks <span class="mono">delayed</span> when a deadline passes and status is still <span class="mono">pending</span>.</li>
-      <li><strong>Update frequency:</strong> Manual entries on official announcements; <span class="mono">delayed</span> auto-flag on each hourly run.</li>
+      <li><strong>Update frequency:</strong> Manual entries on official announcements; <span class="mono">delayed</span> auto-flag on each 6-hourly run.</li>
     </ul>
   </div>
 
@@ -289,8 +309,8 @@ footer a:hover { color:rgba(244,241,234,.9); }
 
   <hr class="rule">
 
-  <h2 id="pipeline">Automated pipeline (hourly)</h2>
-  <p>A GitHub Actions workflow (<span class="mono">weekly-update.yml</span>) runs on a <span class="mono">0 * * * *</span> cron schedule — once per hour. The pipeline runs <span class="mono">scripts/update.mjs</span>, a Node.js ESM script with no npm runtime dependencies.</p>
+  <h2 id="pipeline">Automated pipeline (every 6 hours)</h2>
+  <p>A GitHub Actions workflow (<span class="mono">weekly-update.yml</span>) runs on a <span class="mono">0 */6 * * *</span> cron schedule — every 6 hours (00:00, 06:00, 12:00, 18:00 UTC). The pipeline runs <span class="mono">scripts/update.mjs</span>, a Node.js ESM script with no npm runtime dependencies.</p>
   <div class="card">
     <div class="mono">Pipeline steps</div>
     <ol style="margin-left:1.4rem;color:var(--ink-soft);line-height:2;font-size:.9rem;">

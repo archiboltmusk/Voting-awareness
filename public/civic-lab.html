@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The Bengal Reader's Civic Lab: why we build open civic-tech tools instead of just posting about corruption, the principles that govern our work, and what we've shipped so far."
+    />
+    <meta property="og:title" content="The Bengal Reader — Civic Lab" />
+    <meta
+      property="og:description"
+      content="From online outrage to civic infrastructure. The case for building open data tools that document failures and document fixes — plus the principles and prototypes behind them."
+    />
+    <meta property="og:image" content="/og-voter-guide.svg" />
+    <title>The Bengal Reader — Civic Lab</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/shared.css" />
+    <script defer src="/analytics.js"></script>
+    <script defer src="/shared.js"></script>
+    <style>
+      :root {
+        --paper: #f4f1ea;
+        --ink: #1a1714;
+        --ink2: #4a3f35;
+        --ink3: #7a6a5a;
+        --rule: #d8d0c4;
+        --saffron: #e87c2a;
+        --danger: #c0392b;
+        --good: #2d7a4f;
+        --card-bg: #ede9e0;
+        --hover: #e0dbd0;
+        --lab: #2d7a4f;
+        --lab-dim: rgba(45, 122, 79, 0.1);
+      }
+      [data-theme='dark'] {
+        --paper: #141210;
+        --ink: #f0ece3;
+        --ink2: #c8bfb0;
+        --ink3: #8a7d6e;
+        --rule: #2a2420;
+        --card-bg: #1e1a16;
+        --hover: #252018;
+        --lab: #4cae7c;
+        --lab-dim: rgba(76, 174, 124, 0.1);
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { background: var(--paper); color: var(--ink); font-family: 'Georgia', serif; line-height: 1.6; }
+
+      /* ── SKIP LINK ── */
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        background: var(--ink);
+        color: var(--paper);
+        padding: 0.5rem 1rem;
+        z-index: 1000;
+        font-family: 'Courier New', monospace;
+        font-size: 0.8rem;
+      }
+      .skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+      /* ── PROGRESS BAR ── */
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 0;
+        background: var(--lab);
+        z-index: 999;
+        transition: width 0.1s ease-out;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 2.75rem 1.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          0deg, transparent, transparent 2px,
+          rgba(255,255,255,0.015) 2px, rgba(255,255,255,0.015) 4px
+        );
+        pointer-events: none;
+      }
+      .hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+      .hero-kicker {
+        font-family: 'Courier New', monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--lab);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .hero-kicker::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--lab); }
+      .hero h1 {
+        font-size: clamp(1.7rem, 4.5vw, 2.9rem);
+        color: var(--paper);
+        line-height: 1.15;
+        margin-bottom: 0.85rem;
+        max-width: 720px;
+      }
+      .hero h1 em { font-style: normal; color: var(--lab); }
+      .hero p.lead {
+        font-size: 1.02rem;
+        color: var(--ink3);
+        max-width: 660px;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+      .hero-stats { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+      .hero-stat {
+        font-family: 'Courier New', monospace;
+        font-size: 0.72rem;
+        color: var(--ink3);
+        letter-spacing: 0.06em;
+      }
+      .hero-stat strong { color: var(--lab); display: block; font-size: 1.4rem; line-height: 1; margin-bottom: 0.2rem; }
+
+      /* ── SECTION ── */
+      .section { max-width: 900px; margin: 3rem auto; padding: 0 1.5rem; }
+      .section-hd { border-top: 2px solid var(--lab); padding-top: 1.2rem; margin-bottom: 1.5rem; }
+      .section-hd .label {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--lab);
+        margin-bottom: 0.4rem;
+      }
+      .section-hd h2 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+      .section-hd p { font-size: 0.92rem; color: var(--ink2); max-width: 680px; }
+      .prose { font-size: 0.95rem; color: var(--ink2); line-height: 1.75; max-width: 720px; }
+      .prose p + p { margin-top: 0.9rem; }
+      .prose strong { color: var(--ink); }
+
+      /* ── PULL QUOTE ── */
+      .pull-quote {
+        border-left: 3px solid var(--lab);
+        background: var(--card-bg);
+        padding: 1rem 1.25rem;
+        margin: 1.25rem 0;
+        font-size: 0.95rem;
+        font-style: italic;
+        color: var(--ink2);
+        line-height: 1.6;
+      }
+      .pull-quote strong { color: var(--lab); font-style: normal; }
+
+      /* ── PRINCIPLE CARDS (Charter) ── */
+      .principle-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1rem;
+      }
+      .principle-card {
+        border: 1px solid var(--rule);
+        background: var(--card-bg);
+        padding: 1.15rem;
+        border-left: 4px solid var(--lab);
+      }
+      .principle-num {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--lab);
+        margin-bottom: 0.35rem;
+      }
+      .principle-card h3 { font-size: 0.98rem; margin-bottom: 0.55rem; }
+      .principle-card p { font-size: 0.83rem; color: var(--ink2); line-height: 1.55; }
+      .principle-footer {
+        font-family: 'Courier New', monospace;
+        font-size: 0.72rem;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        color: var(--lab);
+        padding: 0.3rem 0.55rem;
+        display: inline-block;
+        margin-top: 0.65rem;
+      }
+
+      /* ── CONDUCT TABLE ── */
+      .conduct-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.82rem;
+        margin-bottom: 0.5rem;
+      }
+      .conduct-table thead tr { background: var(--ink); color: var(--paper); }
+      .conduct-table thead th {
+        padding: 0.6rem 0.85rem;
+        text-align: left;
+        font-family: 'Courier New', monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: normal;
+      }
+      .conduct-table tbody tr { border-bottom: 1px solid var(--rule); }
+      .conduct-table tbody tr:hover { background: var(--hover); }
+      .conduct-table tbody td {
+        padding: 0.75rem 0.85rem;
+        vertical-align: top;
+        line-height: 1.5;
+        color: var(--ink2);
+      }
+      .conduct-table tbody td:first-child {
+        font-family: 'Courier New', monospace;
+        font-size: 0.75rem;
+        font-weight: bold;
+        color: var(--ink);
+        white-space: nowrap;
+        border-left: 3px solid var(--lab);
+      }
+      .conduct-table tbody td strong { color: var(--ink); }
+
+      /* ── INDEPENDENCE GRID (no sell-out) ── */
+      .independence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+      @media (max-width: 560px) { .independence-grid { grid-template-columns: 1fr; } }
+      .independence-card { border: 1px solid var(--rule); background: var(--card-bg); padding: 1.15rem; }
+      .independence-card.danger { border-left: 4px solid var(--danger); }
+      .independence-card.good { border-left: 4px solid var(--lab); }
+      .independence-tag {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.15rem 0.5rem;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+      }
+      .independence-tag.danger-tag { background: var(--danger); color: #fff; }
+      .independence-tag.good-tag { background: var(--lab); color: #fff; }
+      .independence-card h3 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+      .independence-card p { font-size: 0.82rem; color: var(--ink2); line-height: 1.55; }
+      .independence-card p + p { margin-top: 0.6rem; }
+
+      /* ── PIPELINE DIAGRAM ── */
+      .pipeline { background: var(--ink); color: var(--paper); padding: 2rem 1.5rem; margin-bottom: 2rem; position: relative; overflow: hidden; }
+      .pipeline::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          0deg, transparent, transparent 3px,
+          rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 6px
+        );
+        pointer-events: none;
+      }
+      .pipeline-inner { max-width: 600px; margin: 0 auto; position: relative; z-index: 1; }
+      .pipeline-label {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--lab);
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+      .pipeline-node {
+        border: 1px solid var(--lab);
+        padding: 0.85rem 1.1rem;
+        text-align: center;
+        background: rgba(45, 122, 79, 0.08);
+        position: relative;
+      }
+      .pipeline-node-title {
+        font-family: 'Courier New', monospace;
+        font-size: 0.7rem;
+        color: var(--lab);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+      }
+      .pipeline-node-desc { font-size: 0.8rem; color: var(--ink3); line-height: 1.4; }
+      .pipeline-arrow { text-align: center; font-family: 'Courier New', monospace; font-size: 1.1rem; color: var(--lab); padding: 0.35rem 0; opacity: 0.7; }
+
+      /* ── SHIELDS ── */
+      .shields-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+      @media (max-width: 560px) { .shields-grid { grid-template-columns: 1fr; } }
+      .shield-card { border: 1px solid var(--rule); background: var(--card-bg); padding: 1.1rem; border-top: 3px solid var(--lab); }
+      .shield-card h4 { font-size: 0.92rem; margin-bottom: 0.5rem; }
+      .shield-card p { font-size: 0.82rem; color: var(--ink2); line-height: 1.55; }
+      .shield-card p + p { margin-top: 0.6rem; }
+      .shield-icon {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--lab);
+        margin-bottom: 0.35rem;
+      }
+
+      /* ── WHAT WE'VE BUILT ── */
+      .build-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+      }
+      .build-card {
+        border: 1px solid var(--rule);
+        background: var(--card-bg);
+        padding: 1.4rem;
+        display: flex;
+        flex-direction: column;
+      }
+      .build-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+      .build-card .build-status {
+        font-family: 'Courier New', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--lab);
+        margin-bottom: 0.5rem;
+      }
+      .build-card p { font-size: 0.87rem; color: var(--ink2); line-height: 1.6; margin-bottom: 1rem; flex-grow: 1; }
+      .build-card ul { font-size: 0.85rem; color: var(--ink2); line-height: 1.6; margin: 0 0 1rem 1.1rem; }
+      .build-link {
+        display: inline-block;
+        font-family: 'Courier New', monospace;
+        font-size: 0.78rem;
+        letter-spacing: 0.06em;
+        color: var(--lab);
+        border: 1px solid var(--lab);
+        padding: 0.45rem 0.9rem;
+        text-decoration: none;
+        text-align: center;
+        transition: background 0.15s, color 0.15s;
+      }
+      .build-link:hover { background: var(--lab); color: var(--paper); }
+      .prototype-note {
+        margin: 1.5rem 0 0;
+        border: 1px solid var(--rule);
+        border-left: 3px solid var(--saffron);
+        background: var(--card-bg);
+        padding: 1rem 1.25rem;
+        font-size: 0.85rem;
+        color: var(--ink2);
+        line-height: 1.6;
+      }
+      .prototype-note strong { color: var(--ink); }
+
+      /* ── CLOSING ── */
+      .closing { background: var(--ink); color: var(--paper); padding: 2.25rem 1.5rem; margin: 2rem 0 0; }
+      .closing-inner { max-width: 740px; margin: 0 auto; position: relative; }
+      .closing blockquote {
+        font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+        color: var(--ink2);
+        line-height: 1.7;
+        font-style: italic;
+        border: none;
+        padding: 0;
+      }
+      [data-theme='dark'] .closing blockquote { color: var(--ink3); }
+      .closing blockquote strong { color: var(--lab); font-style: normal; }
+      .closing-attr { font-family: 'Courier New', monospace; font-size: 0.68rem; color: var(--ink3); margin-top: 1rem; letter-spacing: 0.08em; }
+
+      .data-note {
+        max-width: 900px;
+        margin: 3rem auto 4rem;
+        padding: 1rem 1.5rem;
+        border-top: 1px solid var(--rule);
+        font-size: 0.78rem;
+        color: var(--ink3);
+        font-family: 'Courier New', monospace;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body data-theme="light">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- SITE NAV -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">The Bengal Reader</a>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Home</a>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">Bengal Election 2026</summary>
+        <div class="site-nav-dropdown">
+          <a href="/parties" class="site-nav-link">Party Compass</a>
+          <a href="/constituencies" class="site-nav-link">2026 Results</a>
+          <a href="/mlas" class="site-nav-link">MLA Records</a>
+          <a href="/assets" class="site-nav-link">Wealth Growth</a>
+          <a href="/accountability" class="site-nav-link">100 Days</a>
+          <a href="/corruption" class="site-nav-link">Dossier</a>
+          <a href="/bonds" class="site-nav-link">Money Trail</a>
+          <a href="/nota-reform" class="site-nav-link">NOTA Reform</a>
+          <a href="/clean-candidates" class="site-nav-link">Clean Slate</a>
+          <a href="/compare" class="site-nav-link">Compare MLAs</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">India Analysis</summary>
+        <div class="site-nav-dropdown">
+          <a href="/india-development" class="site-nav-link">India's Story</a>
+          <a href="/india-china" class="site-nav-link">India vs China</a>
+          <a href="/india-disadvantage-index" class="site-nav-link">Disadvantage Index</a>
+          <a href="/education" class="site-nav-link">Education Gap</a>
+          <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+          <a href="/governance-deficit" class="site-nav-link">Governance Gap</a>
+          <a href="/exit-door" class="site-nav-link">Exit Door</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">Civic Tech Lab</summary>
+        <div class="site-nav-dropdown">
+          <a href="/civic-lab" class="site-nav-link">Civic Lab</a>
+          <a href="/civic-demos" class="site-nav-link">Live Demos</a>
+          <a href="/friction-engine" class="site-nav-link">Friction Engine</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">About &amp; Transparency</summary>
+        <div class="site-nav-dropdown">
+          <a href="/methodology" class="site-nav-link">Methodology</a>
+          <a href="/rti" class="site-nav-link">RTI Tracker</a>
+          <a href="/corrections" class="site-nav-link">Corrections</a>
+          <a href="/search" class="site-nav-link">Search</a>
+          <a href="/ask" class="site-nav-link">Ask AI</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</nav>
+    <div id="progress-bar"></div>
+
+    <main id="main-content">
+      <!-- ── HERO ── -->
+      <div class="hero">
+        <div class="hero-inner">
+          <p class="hero-kicker">Civic Lab</p>
+          <h1>From <em>online outrage</em><br />to civic infrastructure</h1>
+          <p class="lead">
+            India has no shortage of people pointing out what's broken. What it lacks is structured, public,
+            durable evidence of those failures — the kind that a municipal office, a journalist, or a court
+            can actually use. The Civic Lab is The Bengal Reader's effort to build small, open tools that turn
+            scattered complaints into datasets, and datasets into accountability.
+          </p>
+          <div class="hero-stats">
+            <div class="hero-stat"><strong>3</strong>open civic-tech prototypes</div>
+            <div class="hero-stat"><strong>0</strong>central organisation required</div>
+            <div class="hero-stat"><strong>100%</strong>built on public data &amp; open licences</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── WHY THIS EXISTS ── -->
+      <section class="section">
+        <div class="section-hd">
+          <p class="label">Why this exists</p>
+          <h2>From slacktivism to civic infrastructure</h2>
+          <p>The case for building tools instead of just posting about the problem.</p>
+        </div>
+        <div class="prose">
+          <p>
+            India has one of the largest populations of young, online, and chronically under-employed people in
+            the world. A great deal of that energy goes into commentary — threads, reels, and posts that name a
+            problem, attract attention for a news cycle, and then disappear. The criticism is often accurate.
+            It rarely outlives the algorithm that carried it.
+          </p>
+          <p>
+            That same population — educated, digitally fluent, and looking for meaningful work — is also exactly
+            the workforce needed to build something more durable: a <strong>distributed civic auditing system</strong>.
+            Not a political party, not a protest movement with a leader to arrest, but a set of open tools that
+            do quietly and permanently what a viral post does loudly and briefly — document a failure, attach
+            evidence, and make it impossible to pretend it didn't happen.
+          </p>
+          <div class="pull-quote">
+            A government can ignore a tweet. It is much harder to ignore a structured, geo-tagged,
+            time-stamped dataset showing the same failure repeated five thousand times across a district —
+            especially once that dataset has already been sent to the journalists and officials responsible
+            for it. <strong>That is the shift this lab is built around</strong>: from individual outrage to
+            collective, verifiable record-keeping.
+          </div>
+          <p>
+            There is also a practical upside that has nothing to do with politics. Every civic-tech tool needs
+            people to build and maintain it — frontend developers, data analysts, legal researchers, journalists,
+            video editors, project managers. Contributing to a real, public, open-source project produces a
+            portfolio that a meme account never will: shipped features, merged pull requests, published datasets,
+            and a track record a recruiter or a newsroom can verify directly. Civic participation and skill-building
+            are not separate goals here — they reinforce each other.
+          </p>
+          <p>
+            None of this requires a registered organisation, a headquarters, or a single leader. It requires open
+            repositories, public data, and a small number of people willing to keep the lights on. That is what
+            the Civic Lab is: not a campaign, but infrastructure.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── CHARTER / PRINCIPLES ── -->
+      <section class="section">
+        <div class="section-hd">
+          <p class="label">The charter</p>
+          <h2>What we stand for</h2>
+          <p>
+            The principles below started life as a half-joke "party constitution." Stripped of the joke, they are
+            the operating rules we actually hold ourselves to — and the standards we think any civic-accountability
+            project should meet.
+          </p>
+        </div>
+        <div class="principle-grid">
+          <div class="principle-card">
+            <p class="principle-num">Principle 01</p>
+            <h3>Resilience over confrontation</h3>
+            <p>
+              Civic projects that depend on a single account, a single server, or a single visible leader are
+              easy to suppress — by trolling, by takedown requests, or simply by the news cycle moving on. Tools
+              and datasets that are open-source, mirrored, and maintained by a distributed group survive pressure
+              that a single voice cannot.
+            </p>
+            <span class="principle-footer">Build things that outlast the news cycle that inspired them.</span>
+          </div>
+          <div class="principle-card">
+            <p class="principle-num">Principle 02</p>
+            <h3>Civic work as livelihood</h3>
+            <p>
+              Skilled, under-employed people are not a liability to a civic movement — they are its workforce.
+              Anyone who has the technical skills to build a public dataset, an RTI pipeline, or a reporting tool,
+              and the time to do it, has something genuinely useful to contribute, with or without a job title.
+            </p>
+            <span class="principle-footer">Under-employment is not a disqualifier. It is the available capacity.</span>
+          </div>
+          <div class="principle-card">
+            <p class="principle-num">Principle 03</p>
+            <h3>Public data is the foundation</h3>
+            <p>
+              Every claim this lab makes should be traceable to a public record — a tender document, an RTI
+              response, a court filing, an official press release, or a geo-tagged photograph with metadata.
+              Opinions are cheap. Verifiable evidence is the product.
+            </p>
+            <span class="principle-footer">If it can't be sourced, it doesn't go in the dataset.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── EDITORIAL CODE OF CONDUCT ── -->
+      <section class="section">
+        <div class="section-hd">
+          <p class="label">Editorial standards</p>
+          <h2>The code of conduct</h2>
+          <p>
+            These rules govern how this lab and its contributors critique people in power. They are not
+            optional, and they exist to keep the work both legally sound and morally defensible.
+          </p>
+        </div>
+        <table class="conduct-table" aria-label="Civic Lab code of conduct">
+          <thead>
+            <tr>
+              <th>Standard</th>
+              <th>The rule</th>
+              <th>Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Policy over person</td>
+              <td>
+                <strong>Critique the policy, the system, and the institutional failure.</strong>
+                Avoid targeting a politician's personal or family life.
+              </td>
+              <td>
+                Policy critique is a protected right. Personal attacks invite defamation liability and shift
+                attention away from the substance of the failure being documented.
+              </td>
+            </tr>
+            <tr>
+              <td>No hate speech</td>
+              <td>
+                <strong>Zero tolerance for communal, casteist, sexist, or otherwise discriminatory language.</strong>
+                We hold power accountable; we do not target marginalised communities.
+              </td>
+              <td>
+                Hate speech destroys credibility instantly and undermines the case being made. Accountability work
+                that punches down is not accountability work.
+              </td>
+            </tr>
+            <tr>
+              <td>Verify before publishing</td>
+              <td>
+                <strong>Every claim must be backed by a real, citable source.</strong>
+                Cross-check figures against primary documents before they go into any dataset or article.
+              </td>
+              <td>
+                A single fabricated or exaggerated claim can be used to discredit an entire body of otherwise
+                accurate work. Accuracy is the only defence against bad-faith dismissal.
+              </td>
+            </tr>
+            <tr>
+              <td>No incitement</td>
+              <td>
+                <strong>Documentation and publication only — never calls for violence, riots, or unlawful action.</strong>
+                The tools here are for recording and reporting, not organising confrontation.
+              </td>
+              <td>
+                Public order is not the target; informed scrutiny is. Calls to action that cross into incitement
+                put contributors at legal risk and undermine the project's legitimacy.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ── INDEPENDENCE ── -->
+      <section class="section">
+        <div class="section-hd">
+          <p class="label">Independence</p>
+          <h2>Funding and editorial independence</h2>
+          <p>
+            The Civic Lab takes no corporate or political funding, and holds no central treasury. What
+            individual contributors do to support themselves is their own business — with one firm line.
+          </p>
+        </div>
+        <div class="independence-grid">
+          <div class="independence-card good">
+            <span class="independence-tag good-tag">Encouraged</span>
+            <h3>Independent, transparent income</h3>
+            <p>
+              Contributors are free to build their own audiences, newsletters, freelance work, or paid projects
+              built on the skills and portfolio they develop here. Independent income is not a conflict of
+              interest — it's proof that civic-skill-building has real economic value.
+            </p>
+            <p>
+              The lab itself does not take a cut, does not require exclusivity, and does not gate contributions
+              behind paid tiers. The code, data, and methodology stay open regardless of who built them.
+            </p>
+          </div>
+          <div class="independence-card danger">
+            <span class="independence-tag danger-tag">Not acceptable</span>
+            <h3>Paid silence</h3>
+            <p>
+              Accepting money — from any party, politician, corporation, or intermediary — in exchange for
+              softening, removing, or suppressing a specific finding is a breach of the one rule that actually
+              matters here: the data goes where the evidence points, regardless of who would prefer otherwise.
+            </p>
+            <p>
+              Anyone found to have done this is removed from the project and their contributions are flagged
+              publicly in the relevant repository's history. There is no quiet way to walk that back.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── HOW IT SURVIVES ── -->
+      <section class="section">
+        <div class="section-hd">
+          <p class="label">Operating model</p>
+          <h2>How a small, open project stays standing</h2>
+          <p>
+            None of these tools depend on a registered organisation or a single point of failure. The model is
+            deliberately boring: public data, open code, and distribution to the people who can act on it.
+          </p>
+        </div>
+
+        <div class="pipeline">
+          <div class="pipeline-inner">
+            <p class="pipeline-label">The operations stack</p>
+            <div class="pipeline-node">
+              <p class="pipeline-node-title">Layer 1 — Idea &amp; coordination</p>
+              <p class="pipeline-node-desc">
+                Open community channels — no central leadership, no registered entity, just contributors
+                proposing and discussing what to build next.
+              </p>
+            </div>
+            <div class="pipeline-arrow">&darr;</div>
+            <div class="pipeline-node">
+              <p class="pipeline-node-title">Layer 2 — Build &amp; maintenance</p>
+              <p class="pipeline-node-desc">
+                Public repositories under open licences. The codebase is the product — anyone can fork it,
+                and no single person or group can lock others out.
+              </p>
+            </div>
+            <div class="pipeline-arrow">&darr;</div>
+            <div class="pipeline-node">
+              <p class="pipeline-node-title">Layer 3 — Output &amp; distribution</p>
+              <p class="pipeline-node-desc">
+                Published findings go to the public site and, where relevant, directly to the local
+                authorities, journalists, and oversight bodies the data concerns.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="shields-grid">
+          <div class="shield-card">
+            <p class="shield-icon">Note 01</p>
+            <h4>Anonymity for contributors, transparency for the work</h4>
+            <p>
+              Individual contributors can remain pseudonymous — that's normal practice on open-source projects
+              and protects people from harassment. But the code, the datasets, and the methodology are entirely
+              public, regardless of who wrote them.
+            </p>
+            <p>
+              The work is transparent even when the worker isn't. Anyone can audit the methodology; nobody has
+              to put their name on a target list to contribute.
+            </p>
+          </div>
+          <div class="shield-card">
+            <p class="shield-icon">Note 02</p>
+            <h4>Sourced strictly from public records</h4>
+            <p>
+              By sticking to public data — RTI responses, government expenditure reports, tender documents,
+              official press releases, and citizen-submitted evidence with verifiable metadata — the work stays
+              squarely in the territory of public-interest journalism and civic record-keeping.
+            </p>
+            <p>
+              This is the government's own data, organised and made legible. That is a public service, not a
+              campaign against anyone.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── WHAT WE'VE BUILT ── -->
+      <section class="section">
+        <div class="section-hd">
+          <p class="label">What we've built</p>
+          <h2>From principles to prototypes</h2>
+          <p>
+            Two things have come out of this lab so far: a set of small civic-tech demos built around the
+            principles above, and a separate, larger experimental project exploring how friction in everyday
+            bureaucratic processes can be measured and visualised.
+          </p>
+        </div>
+
+        <div class="build-grid">
+          <div class="build-card">
+            <p class="build-status">Prototype suite</p>
+            <h3>Civic Tech Demos</h3>
+            <p>
+              A consolidated preview of three early-stage civic-tech tools built around the ideas in this lab:
+            </p>
+            <ul>
+              <li><strong>A civic-failure registry</strong> — a geo-tagged record of broken infrastructure (potholes, non-functional streetlights, flooded roads) with timestamps and photo evidence.</li>
+              <li><strong>An RTI data pipeline</strong> — a template-driven workflow for filing Right to Information requests on local public spending and converting the responses into readable reporting.</li>
+              <li><strong>A skills &amp; livelihoods guild</strong> — a peer-to-peer learning structure where contributors build real features for the other two tools while building a public portfolio.</li>
+            </ul>
+            <a href="/civic-demos" class="build-link">View the demo previews →</a>
+          </div>
+          <div class="build-card">
+            <p class="build-status">Sister project</p>
+            <h3>Aether OS — Friction Engine</h3>
+            <p>
+              A separate, more developed project that measures and visualises "friction" — the cumulative time,
+              paperwork, and repeat visits citizens spend navigating everyday government processes, from getting
+              a certificate to filing a complaint. Built as an independent Next.js application.
+            </p>
+            <p>
+              It's a complementary effort to the demos above: where the civic-tech demos focus on documenting
+              failures after the fact, the Friction Engine focuses on measuring the everyday cost of the system
+              working "as designed."
+            </p>
+            <a href="/friction-engine" class="build-link">Explore the Friction Engine →</a>
+          </div>
+        </div>
+
+        <p class="prototype-note">
+          <strong>Honest status:</strong> the three civic-tech demos are early prototypes running on mock data.
+          None are connected to a live backend, a real reporting database, or an active RTI filing system yet.
+          They exist to demonstrate what the tools would do and to invite contributors who want to help build
+          the real versions. The Friction Engine is further along as a standalone application but remains an
+          independent, experimental sub-project rather than a finished public service.
+        </p>
+      </section>
+
+      <!-- ── CLOSING ── -->
+      <div class="closing">
+        <div class="closing-inner">
+          <blockquote>
+            Nobody can dismiss a meme page as "lazy internet noise" forever — but nobody can dismiss a group of
+            volunteers who shipped an <strong>open-source public dataset</strong>, either. Building real tools
+            doesn't replace the work of reporting and advocacy; it gives that work something durable to point to.
+            <strong>That's the bet this lab is making.</strong>
+          </blockquote>
+          <p class="closing-attr">— The Bengal Reader · Civic Lab</p>
+        </div>
+      </div>
+
+      <p class="data-note">
+        The Civic Lab is an editorial initiative of The Bengal Reader, not a registered political party, NGO, or
+        legal entity. The principles on this page describe how we conduct our own civic-accountability work and
+        the standards we encourage others to meet — they are not legal advice. RTI filing procedures are governed
+        by the Right to Information Act, 2005. Any data published through tools associated with this lab must
+        comply with the Information Technology Act, 2000 and applicable state laws. The prototypes linked above
+        use illustrative or mock data unless otherwise stated.
+      </p>
+    </main>
+
+    <script>
+      (function () {
+        var bar = document.getElementById('progress-bar');
+        if (!bar) return;
+        window.addEventListener(
+          'scroll',
+          function () {
+            var d = document.documentElement;
+            var scrollable = d.scrollHeight - d.clientHeight;
+            var pct = scrollable > 0 ? (d.scrollTop / scrollable) * 100 : 0;
+            bar.style.width = Math.min(Math.max(pct, 0), 100) + '%';
+          },
+          { passive: true }
+        );
+      })();
+    </script>
+  </body>
+</html>

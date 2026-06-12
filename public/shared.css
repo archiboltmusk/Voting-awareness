@@ -59,7 +59,8 @@
   display: flex;
 }
 
-.site-nav-link {
+.site-nav-link,
+.site-nav-group-toggle {
   font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
   font-size: 9px;
   letter-spacing: 0.15em;
@@ -69,15 +70,67 @@
   padding: 3px 14px;
   border-left: 1px solid rgb(255 255 255 / 7%);
   transition: color 0.2s;
+  cursor: pointer;
+  user-select: none;
 }
 
-.site-nav-link:first-child {
+.site-nav-link:first-child,
+.site-nav-group:first-child > :where(.site-nav-group-toggle) {
   border-left: none;
 }
 
+.site-nav-group-toggle {
+  list-style: none;
+}
+
 .site-nav-link:hover,
-.site-nav-link.active {
+.site-nav-link.active,
+.site-nav-group-toggle:hover,
+.site-nav-group-toggle.active-group {
   color: rgb(245 240 232 / 90%);
+}
+
+/* ── GROUPED DROPDOWN NAV ──────────────────────────────────────────────────── */
+.site-nav-group {
+  position: relative;
+}
+
+.site-nav-group-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.site-nav-group-toggle::after {
+  content: ' \25BE';
+  font-size: 8px;
+  opacity: 0.7;
+}
+
+.site-nav-group[open] > .site-nav-group-toggle::after {
+  content: ' \25B4';
+}
+
+.site-nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 190px;
+  background: #050403;
+  border: 1px solid rgb(255 255 255 / 10%);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 40%);
+  padding: 4px 0;
+  z-index: 10001;
+}
+
+.site-nav-group:not([open]) > .site-nav-dropdown {
+  display: none;
+}
+
+.site-nav-dropdown .site-nav-link {
+  border-left: none;
+  padding: 8px 16px;
+  white-space: nowrap;
 }
 
 /* ── SCROLL PROGRESS BAR ───────────────────────────────────────────────────── */
@@ -216,6 +269,38 @@ button:active,
   .site-nav-link.active {
     border-left: 2px solid var(--bjp, #e8640a);
     padding-left: calc(1.5rem - 2px);
+  }
+
+  .site-nav-group {
+    grid-column: 1 / -1;
+  }
+
+  .site-nav-group-toggle {
+    display: block;
+    border-left: none;
+    border-bottom: 1px solid rgb(255 255 255 / 5%);
+    padding: 11px 1.5rem;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+  }
+
+  .site-nav-dropdown {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: none;
+    box-shadow: none;
+    background: rgb(255 255 255 / 3%);
+    padding: 0;
+  }
+
+  .site-nav-group:not([open]) > .site-nav-dropdown {
+    display: none;
+  }
+
+  .site-nav-dropdown .site-nav-link {
+    padding: 11px 1.5rem;
+    border-bottom: 1px solid rgb(255 255 255 / 5%);
   }
 }
 

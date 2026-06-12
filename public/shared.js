@@ -119,7 +119,7 @@ window.shareDataPoint = function (label, value, url) {
   window.shareWhatsApp('⁠' + label + ': ' + value + ' — The Bengal Reader', url || location.href);
 };
 
-/* ── 7. Active nav link + hamburger menu ────────────────────────────────── */
+/* ── 7. Active nav link + grouped dropdowns + hamburger menu ─────────────── */
 (function () {
   document.addEventListener('DOMContentLoaded', function () {
     var path = location.pathname.replace(/\/$/, '') || '/';
@@ -127,7 +127,37 @@ window.shareDataPoint = function (label, value, url) {
       var href = a.getAttribute('href') || '';
       if (href === path || (path !== '/' && href !== '/' && path.startsWith(href))) {
         a.classList.add('active');
+        var group = a.closest('details.site-nav-group');
+        if (group) {
+          var toggle = group.querySelector('.site-nav-group-toggle');
+          if (toggle) toggle.classList.add('active-group');
+        }
       }
+    });
+
+    // Grouped dropdowns: only one open at a time, close on outside click / link click
+    var groups = document.querySelectorAll('details.site-nav-group');
+    groups.forEach(function (group) {
+      group.addEventListener('toggle', function () {
+        if (group.open) {
+          groups.forEach(function (other) {
+            if (other !== group) other.open = false;
+          });
+        }
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.site-nav')) {
+        groups.forEach(function (g) { g.open = false; });
+      }
+    });
+
+    document.querySelectorAll('.site-nav-dropdown .site-nav-link').forEach(function (a) {
+      a.addEventListener('click', function () {
+        var group = a.closest('details.site-nav-group');
+        if (group) group.open = false;
+      });
     });
 
     // Inject hamburger button
@@ -174,7 +204,7 @@ window.shareDataPoint = function (label, value, url) {
     { href: '/corruption', icon: '⚖', label: 'Cases' },
     { href: '/ask', icon: '✦', label: 'Ask AI' },
     { href: '/mlas', icon: '◉', label: 'MLAs' },
-    { href: '/map', icon: '⬡', label: 'Map' },
+    { href: '/constituencies', icon: '▦', label: 'Results' },
   ];
   var nav = document.createElement('nav');
   nav.className = 'mobile-btm-nav';

@@ -15,6 +15,7 @@
     <meta property="og:image" content="/og-education.svg" />
     <title>The Bengal Reader — Education &amp; Employability Gap</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/fonts.css" />
     <link rel="stylesheet" href="/shared.css" />
     <script defer src="/analytics.js"></script>
     <script defer src="/shared.js"></script>
@@ -620,375 +621,41 @@
       }
       .phase-body ul li { margin-bottom: 0.25rem; }
 
-      /* ── NISA ── */
-      .nisa-intro {
-        background: var(--card-bg);
-        border: 1px solid var(--rule);
-        border-left: 4px solid var(--good);
-        padding: 1.25rem 1.5rem;
-        margin-bottom: 2rem;
-        font-size: 0.9rem;
-        color: var(--ink2);
-        line-height: 1.6;
+      /* ── RELATED ── */
+      .related {
+        max-width: 900px;
+        margin: 3rem auto 0;
+        padding: 1.5rem 1.5rem 0;
+        border-top: 2px solid var(--ink);
       }
-      .nisa-intro strong { color: var(--ink); }
-      .nisa-intro .nisa-label {
+      .related-l {
         font-family: 'Courier New', monospace;
         font-size: 0.65rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        background: var(--good);
-        color: #fff;
-        padding: 0.15rem 0.5rem;
-        display: inline-block;
-        margin-bottom: 0.5rem;
-      }
-
-      /* Age pipeline */
-      .age-pipeline {
-        display: grid;
-        grid-template-columns: 1fr 28px 1fr 28px 1fr;
-        align-items: stretch;
-        margin-bottom: 2rem;
-        gap: 0;
-      }
-      @media (max-width: 640px) {
-        .age-pipeline { grid-template-columns: 1fr; gap: 0.5rem; }
-        .age-arrow { display: none; }
-      }
-      .age-phase {
-        border: 1px solid var(--rule);
-        background: var(--card-bg);
-        padding: 1rem;
-        position: relative;
-      }
-      .age-phase::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        height: 3px;
-      }
-      .age-phase.p1::before { background: var(--accent); }
-      .age-phase.p2::before { background: var(--saffron); }
-      .age-phase.p3::before { background: var(--good); }
-      .age-range {
-        font-family: 'Courier New', monospace;
-        font-size: 0.65rem;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
         color: var(--ink3);
-        margin-bottom: 0.3rem;
+        margin-bottom: 1rem;
       }
-      .age-phase h4 {
-        font-size: 0.95rem;
-        margin-bottom: 0.5rem;
-      }
-      .age-phase p {
-        font-size: 0.8rem;
-        color: var(--ink2);
-        line-height: 1.5;
-      }
-      .age-arrow {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--ink3);
-        font-size: 1.2rem;
-        font-family: 'Courier New', monospace;
-      }
-
-      /* Pillars */
-      .pillar-chips {
+      .related-links {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.4rem;
-        margin-top: 0.65rem;
+        gap: 0.6rem;
       }
-      .pillar-chip {
-        font-family: 'Courier New', monospace;
-        font-size: 0.68rem;
-        background: var(--paper);
-        border: 1px solid var(--rule);
-        padding: 0.2rem 0.5rem;
-        color: var(--ink2);
-      }
-
-      /* Fork table */
-      .fork-compare {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin: 1.5rem 0;
-      }
-      @media (max-width: 560px) { .fork-compare { grid-template-columns: 1fr; } }
-      .fork-track {
-        border: 1px solid var(--rule);
-        background: var(--card-bg);
-        padding: 1rem;
-      }
-      .fork-track-tag {
-        font-family: 'Courier New', monospace;
-        font-size: 0.65rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        padding: 0.15rem 0.5rem;
-        display: inline-block;
-        margin-bottom: 0.6rem;
-      }
-      .fork-track-tag.ta { background: var(--accent); color: #fff; }
-      .fork-track-tag.tb { background: var(--saffron); color: #fff; }
-      .fork-track h4 { font-size: 0.9rem; margin-bottom: 0.5rem; }
-      .fork-row {
-        display: flex;
-        flex-direction: column;
-        gap: 0.35rem;
-        margin-top: 0.5rem;
-      }
-      .fork-item {
-        font-size: 0.8rem;
-        color: var(--ink2);
-        padding: 0.3rem 0.5rem;
-        background: var(--paper);
-        border-left: 2px solid var(--rule);
-        line-height: 1.4;
-      }
-      .fork-item strong { color: var(--ink); font-size: 0.78rem; display: block; }
-
-      /* Guild detail */
-      .guild-detail {
-        background: var(--card-bg);
-        border: 1px solid var(--rule);
-        border-top: 3px solid var(--good);
-        padding: 1.25rem;
-        margin-bottom: 2rem;
-      }
-      .guild-detail h4 { font-size: 1rem; margin-bottom: 0.75rem; }
-      .guild-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-      }
-      @media (max-width: 560px) { .guild-grid { grid-template-columns: 1fr; } }
-      .guild-block p {
-        font-size: 0.83rem;
-        color: var(--ink2);
-        line-height: 1.55;
-      }
-      .guild-block strong { color: var(--ink); font-size: 0.85rem; display: block; margin-bottom: 0.3rem; }
-
-      /* Learning environment */
-      .env-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-bottom: 2rem;
-      }
-      @media (max-width: 560px) { .env-grid { grid-template-columns: 1fr; } }
-      .env-card {
-        border: 1px solid var(--rule);
-        background: var(--card-bg);
-        padding: 1.15rem;
-      }
-      .env-card-icon {
-        font-family: 'Courier New', monospace;
-        font-size: 0.65rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--ink3);
-        margin-bottom: 0.4rem;
-      }
-      .env-card h4 { font-size: 0.95rem; margin-bottom: 0.6rem; }
-      .env-card p {
-        font-size: 0.82rem;
-        color: var(--ink2);
-        line-height: 1.55;
-        margin-bottom: 0.6rem;
-      }
-      .env-spec {
+      .related-link {
         font-family: 'Courier New', monospace;
         font-size: 0.72rem;
-        color: var(--good);
-        background: var(--paper);
+        letter-spacing: 0.05em;
+        padding: 0.4rem 0.9rem;
         border: 1px solid var(--rule);
-        padding: 0.35rem 0.55rem;
-        display: block;
-        margin-top: 0.5rem;
+        color: var(--ink);
+        text-decoration: none;
+        transition: background 0.15s, color 0.15s;
       }
-
-      /* NISA launch timeline */
-      .nisa-timeline {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 0;
-        position: relative;
-        margin-bottom: 0.5rem;
-      }
-      .nisa-timeline::before {
-        content: '';
-        position: absolute;
-        top: 28px;
-        left: calc(12.5%);
-        right: calc(12.5%);
-        height: 2px;
-        background: var(--rule);
-        z-index: 0;
-      }
-      @media (max-width: 620px) {
-        .nisa-timeline { grid-template-columns: 1fr 1fr; }
-        .nisa-timeline::before { display: none; }
-      }
-      .nisa-phase-node {
-        padding: 0 0.5rem;
-        cursor: pointer;
-        position: relative;
-        z-index: 1;
-        text-align: center;
-      }
-      .nisa-phase-node .ndot {
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: var(--rule);
-        border: 2px solid var(--rule);
-        margin: 0 auto 0.5rem;
-        transition: background 0.2s, border-color 0.2s;
-      }
-      .nisa-phase-node.active .ndot,
-      .nisa-phase-node:hover .ndot {
-        background: var(--good);
-        border-color: var(--good);
-      }
-      .nisa-phase-node .nperiod {
-        font-family: 'Courier New', monospace;
-        font-size: 0.65rem;
-        color: var(--ink3);
-        letter-spacing: 0.08em;
-        margin-bottom: 0.2rem;
-      }
-      .nisa-phase-node .ntitle {
-        font-size: 0.8rem;
-        font-weight: bold;
-        line-height: 1.3;
-        color: var(--ink2);
-        transition: color 0.2s;
-      }
-      .nisa-phase-node.active .ntitle,
-      .nisa-phase-node:hover .ntitle { color: var(--ink); }
-      .nisa-phase-body {
-        display: none;
-        background: var(--card-bg);
-        border: 1px solid var(--rule);
-        border-top: 2px solid var(--good);
-        padding: 1rem;
-        margin-top: 1rem;
-        grid-column: 1 / -1;
-      }
-      .nisa-phase-body.open { display: block; }
-      .nisa-phase-body h4 { font-size: 0.9rem; margin-bottom: 0.65rem; }
-      .nisa-phase-body ul {
-        padding-left: 1.2rem;
-        font-size: 0.83rem;
-        color: var(--ink2);
-        line-height: 1.7;
-      }
-      .nisa-phase-body ul li { margin-bottom: 0.25rem; }
-
-      /* ── GEN Z ── */
-      .gz-intro {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-bottom: 2rem;
-      }
-      @media (max-width: 580px) { .gz-intro { grid-template-columns: 1fr; } }
-      .gz-stat {
-        background: var(--card-bg);
-        border: 1px solid var(--rule);
-        padding: 1.1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.3rem;
-      }
-      .gz-stat .gzn {
-        font-family: 'Courier New', monospace;
-        font-size: 2.2rem;
-        font-weight: bold;
-        line-height: 1;
-        color: var(--accent);
-      }
-      .gz-stat .gzl {
-        font-size: 0.8rem;
-        color: var(--ink2);
-        line-height: 1.4;
-      }
-      .gz-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1rem;
-        margin-bottom: 2rem;
-      }
-      .gz-card {
-        border: 1px solid var(--rule);
-        background: var(--card-bg);
-        padding: 1.1rem;
-        border-top: 3px solid var(--accent);
-      }
-      .gz-pillar {
-        font-family: 'Courier New', monospace;
-        font-size: 0.62rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--ink3);
-        margin-bottom: 0.4rem;
-      }
-      .gz-card h4 { font-size: 0.92rem; margin-bottom: 0.55rem; line-height: 1.3; }
-      .gz-card p  { font-size: 0.8rem; color: var(--ink2); line-height: 1.55; margin-bottom: 0.5rem; }
-      .gz-role {
-        font-family: 'Courier New', monospace;
-        font-size: 0.7rem;
-        background: var(--paper);
-        border: 1px solid var(--rule);
-        padding: 0.3rem 0.55rem;
-        color: var(--accent);
-        display: block;
-        margin-top: 0.4rem;
-        line-height: 1.5;
-      }
-      .gz-superpower {
+      .related-link:hover {
         background: var(--ink);
         color: var(--paper);
-        padding: 1.5rem;
-        margin-bottom: 2rem;
+        border-color: var(--ink);
       }
-      [data-theme='dark'] .gz-superpower {
-        background: var(--card-bg);
-        border: 1px solid var(--rule);
-      }
-      .gz-superpower .sp-kicker {
-        font-family: 'Courier New', monospace;
-        font-size: 0.65rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--saffron);
-        margin-bottom: 0.5rem;
-      }
-      .gz-superpower h3 {
-        font-size: 1.15rem;
-        margin-bottom: 0.75rem;
-        color: var(--paper);
-      }
-      [data-theme='dark'] .gz-superpower h3 { color: var(--ink); }
-      .gz-superpower p {
-        font-size: 0.85rem;
-        color: var(--ink3);
-        line-height: 1.65;
-        margin-bottom: 0.75rem;
-        max-width: 740px;
-      }
-      [data-theme='dark'] .gz-superpower p { color: var(--ink2); }
-      .gz-superpower p:last-child { margin-bottom: 0; }
-      .gz-superpower strong { color: var(--saffron); }
-      [data-theme='dark'] .gz-superpower strong { color: var(--saffron); }
 
       /* ── FOOTER NOTE ── */
       .data-note {
@@ -1004,40 +671,60 @@
     </style>
   </head>
   <body>
-    <nav class="site-nav">
-      <div class="site-nav-inner">
-        <a href="/" class="site-nav-brand">The Bengal Reader</a>
-        <div class="site-nav-links">
-          <a href="/" class="site-nav-link">Voter Guide</a>
+    <!-- SITE NAV -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">The Bengal Reader</a>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Home</a>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">Bengal Election 2026</summary>
+        <div class="site-nav-dropdown">
           <a href="/parties" class="site-nav-link">Party Compass</a>
           <a href="/constituencies" class="site-nav-link">2026 Results</a>
-          <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+          <a href="/mlas" class="site-nav-link">MLA Records</a>
+          <a href="/assets" class="site-nav-link">Wealth Growth</a>
           <a href="/accountability" class="site-nav-link">100 Days</a>
           <a href="/corruption" class="site-nav-link">Dossier</a>
           <a href="/bonds" class="site-nav-link">Money Trail</a>
-          <a href="/mlas" class="site-nav-link">MLA Records</a>
           <a href="/nota-reform" class="site-nav-link">NOTA Reform</a>
           <a href="/clean-candidates" class="site-nav-link">Clean Slate</a>
+          <a href="/compare" class="site-nav-link">Compare MLAs</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">India Analysis</summary>
+        <div class="site-nav-dropdown">
           <a href="/india-development" class="site-nav-link">India's Story</a>
           <a href="/india-china" class="site-nav-link">India vs China</a>
-          <a href="/india-governance" class="site-nav-link">Performance OS</a>
           <a href="/india-disadvantage-index" class="site-nav-link">Disadvantage Index</a>
-          <a href="/friction-engine" class="site-nav-link">Friction Engine</a>
-          <a href="/education" class="site-nav-link active">Education Gap</a>
-          <a href="/cjp" class="site-nav-link">CJP</a>
-          <a href="/cjp-projects" class="site-nav-link">Swarm Projects</a>
-          <a href="/swarm-audit" class="site-nav-link">SwarmAudit</a>
-          <a href="/rti-swarm" class="site-nav-link">RTI Swarm</a>
-          <a href="/skill-guild" class="site-nav-link">Skill Guild</a>
+          <a href="/education" class="site-nav-link">Education Gap</a>
+          <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
           <a href="/governance-deficit" class="site-nav-link">Governance Gap</a>
           <a href="/exit-door" class="site-nav-link">Exit Door</a>
-          <a href="/ask" class="site-nav-link">Ask AI</a>
-          <a href="/map" class="site-nav-link">Map</a>
-          <a href="/assets" class="site-nav-link">Wealth Growth</a>
-          <a href="/methodology" class="site-nav-link">Methodology</a>
         </div>
-      </div>
-    </nav>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">Civic Tech Lab</summary>
+        <div class="site-nav-dropdown">
+          <a href="/civic-lab" class="site-nav-link">Civic Lab</a>
+          <a href="/civic-demos" class="site-nav-link">Live Demos</a>
+          <a href="/friction-engine" class="site-nav-link">Friction Engine</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">About &amp; Transparency</summary>
+        <div class="site-nav-dropdown">
+          <a href="/methodology" class="site-nav-link">Methodology</a>
+          <a href="/rti" class="site-nav-link">RTI Tracker</a>
+          <a href="/corrections" class="site-nav-link">Corrections</a>
+          <a href="/search" class="site-nav-link">Search</a>
+          <a href="/ask" class="site-nav-link">Ask AI</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</nav>
 
     <main>
       <!-- ── HERO ── -->
@@ -1443,304 +1130,30 @@
         </div>
       </section>
 
-      <!-- ── NISA ── -->
+      <!-- ── LOOKING AHEAD ── -->
       <section class="section">
         <div class="section-hd">
-          <h2>The Greenfield Alternative: NISA</h2>
+          <h2>Looking Ahead: Two Proposals Worth Watching</h2>
           <p>
-            What if we didn't reform the broken engine at all — and simply built a better one next to it?
-            The National Innovation &amp; Skill Academies operate outside the UGC/AICTE framework entirely.
+            Beyond the pipeline reforms above, two longer-horizon ideas come up repeatedly in policy circles. Both
+            deserve more scrutiny than a single page can offer — here is the short version of each.
           </p>
         </div>
-
-        <div class="nisa-intro">
-          <span class="nisa-label">Greenfield System</span><br />
-          Instead of separating "schools," "colleges," and "vocational institutes" into siloed bureaucracies, NISA
-          creates a <strong>single continuous system from age 14 to 21</strong>. No board exams. No artificial
-          grade-year progression. No lecture halls. Graduation happens when a student demonstrates real capability —
-          not when a calendar says three years have passed.
+        <div class="blueprint-intro">
+          <strong>A greenfield institution (sometimes pitched as "NISA" — National Innovation &amp; Skill
+          Academies).</strong>
+          Rather than reform UGC/AICTE, build a parallel SEZ-style academy network for ages 14–21: no board exams,
+          graduation tied to a demonstrated work portfolio, and students splitting time between campus and a paid
+          apprenticeship in a co-located industrial or tech park. The appeal is speed; the cost is new regulatory
+          carve-outs and significant upfront capital.
         </div>
-
-        <!-- Age pipeline -->
-        <div class="age-pipeline">
-          <div class="age-phase p1">
-            <p class="age-range">Age 14–16 · Phase 1</p>
-            <h4>Foundational Core</h4>
-            <p>
-              No rote history or memorised formulas. Three universal pillars taught through building, not listening.
-              Evaluation by portfolio only — small apps, physical mechanisms, or community projects completed over
-              two years.
-            </p>
-            <div class="pillar-chips">
-              <span class="pillar-chip">Computational Logic &amp; Math</span>
-              <span class="pillar-chip">Systems Thinking</span>
-              <span class="pillar-chip">Multilingual Communication</span>
-            </div>
-          </div>
-          <div class="age-arrow">→</div>
-          <div class="age-phase p2">
-            <p class="age-range">Age 16–18 · Phase 2</p>
-            <h4>The Fork</h4>
-            <p>
-              Students choose between two tracks based on natural aptitude — with equal societal prestige, equal
-              government funding, and equal pathway to the Applied Guilds. Neither is a consolation prize.
-            </p>
-            <div class="pillar-chips">
-              <span class="pillar-chip">Track A: Advanced Tech Guild</span>
-              <span class="pillar-chip">Track B: Master Trade Guild</span>
-            </div>
-          </div>
-          <div class="age-arrow">→</div>
-          <div class="age-phase p3">
-            <p class="age-range">Age 18–21 · Phase 3</p>
-            <h4>Applied Guilds</h4>
-            <p>
-              Replaces university. Academies co-located inside industrial and tech parks. Students work as
-              paid junior apprentices three days a week from Day 1. Graduation = solving a real industry problem
-              and clearing a peer review panel.
-            </p>
-            <div class="pillar-chips">
-              <span class="pillar-chip">Mon–Tue: Advanced concepts</span>
-              <span class="pillar-chip">Wed–Fri: Paid apprenticeship</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- The Fork comparison -->
-        <div class="section-hd" style="margin-top:0.5rem">
-          <h3 style="font-size:1.1rem">The Fork: Two Equal Tracks</h3>
-          <p>At 16, students choose their track. Neither is ranked above the other in funding, campus quality, or social standing.</p>
-        </div>
-        <div class="fork-compare">
-          <div class="fork-track">
-            <span class="fork-track-tag ta">Track A</span>
-            <h4>Advanced Tech Guild</h4>
-            <div class="fork-row">
-              <div class="fork-item">
-                <strong>Focus</strong>
-                Software engineering, data science, AI management, electronics design
-              </div>
-              <div class="fork-item">
-                <strong>Learning Model</strong>
-                Simulated corporate environments. Students work in "sprints" to solve real tech bugs submitted by
-                industry partners.
-              </div>
-              <div class="fork-item">
-                <strong>Outcome at 21</strong>
-                Junior engineer / data analyst with 3 years of verified build history and a paid apprenticeship
-                record
-              </div>
-            </div>
-          </div>
-          <div class="fork-track">
-            <span class="fork-track-tag tb">Track B</span>
-            <h4>Master Trade Guild</h4>
-            <div class="fork-row">
-              <div class="fork-item">
-                <strong>Focus</strong>
-                High-precision manufacturing, solar grid engineering, automated agriculture, advanced logistics
-              </div>
-              <div class="fork-item">
-                <strong>Learning Model</strong>
-                Lab-heavy, physical prototyping, and heavy machinery operations. No simulations — real
-                equipment from partner factories.
-              </div>
-              <div class="fork-item">
-                <strong>Outcome at 21</strong>
-                Certified master tradesperson with national guild credential — equivalent in salary band to a
-                Track A junior engineer
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Guild detail -->
-        <div class="guild-detail">
-          <h4>Phase 3: How the Applied Guilds Actually Work</h4>
-          <div class="guild-grid">
-            <div class="guild-block">
-              <p>
-                <strong>Day 1 Integration</strong>
-                Students spend Monday and Tuesday at the academy learning advanced concepts. Wednesday through Friday
-                they work as paid junior apprentices for companies inside the industrial or tech park. The
-                academy and the employer are in the same building.
-              </p>
-            </div>
-            <div class="guild-block">
-              <p>
-                <strong>The Graduation Metric</strong>
-                A student does not graduate when three years have elapsed. They graduate the moment they successfully
-                solve a major problem assigned by an industry partner — and clear a peer review panel of three
-                Guild Masters and one industry representative. Calendar time is irrelevant.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Learning environment -->
-        <div class="section-hd">
-          <h3 style="font-size:1.1rem">Redesigning the Learning Environment</h3>
-          <p>Building from scratch means eliminating the 19th-century classroom layout entirely.</p>
-        </div>
-        <div class="env-grid">
-          <div class="env-card">
-            <p class="env-card-icon">Environment 01</p>
-            <h4>No Lecture Halls</h4>
-            <p>
-              Every room is a Collaborative Laboratory or maker-space. Students sit in circular teams working on
-              active builds — not in rows facing a blackboard. The physical layout makes passive listening
-              structurally impossible.
-            </p>
-            <p>
-              Teams of 6–8 rotate guild masters (instructors) who circulate between groups, not deliver to rows.
-              Physical space mirrors the open-plan engineering environments students will work in.
-            </p>
-            <span class="env-spec">Room ratio: 70% build lab · 20% peer-review space · 10% quiet individual focus</span>
-          </div>
-          <div class="env-card">
-            <p class="env-card-icon">Environment 02</p>
-            <h4>AI-Paced Individual Learning</h4>
-            <p>
-              There is no "class average." Every student has an offline-capable, localised AI tutor that adapts
-              the difficulty of logic, coding, and engineering concepts to their individual pace in their
-              native language.
-            </p>
-            <p>
-              Offline-first is non-negotiable: internet connectivity cannot be a prerequisite for quality
-              education in Tier-3 districts. The AI model runs locally on a ₹8,000 device, syncing progress
-              when connectivity is available.
-            </p>
-            <span class="env-spec">Target: student never waits for a class to "catch up" or "slow down"</span>
-          </div>
-        </div>
-
-        <!-- NISA v1.0 Launch Plan -->
-        <div class="section-hd">
-          <h3 style="font-size:1.1rem">NISA v1.0 — Immediate Launch Plan</h3>
-          <p>No ministry restructuring required. NISA operates as an SEZ-style autonomous entity from Day 1.</p>
-        </div>
-        <div class="nisa-timeline" id="nisa-timeline">
-          <div class="nisa-phase-node active" data-nphase="0" role="button" tabindex="0">
-            <div class="ndot"></div>
-            <p class="nperiod">Months 1–3</p>
-            <p class="ntitle">Greenfield SEZ Zones</p>
-          </div>
-          <div class="nisa-phase-node" data-nphase="1" role="button" tabindex="0">
-            <div class="ndot"></div>
-            <p class="nperiod">Months 4–6</p>
-            <p class="ntitle">Industry Tech-Stack Integration</p>
-          </div>
-          <div class="nisa-phase-node" data-nphase="2" role="button" tabindex="0">
-            <div class="ndot"></div>
-            <p class="nperiod">Months 7–9</p>
-            <p class="ntitle">Guild Master Onboarding</p>
-          </div>
-          <div class="nisa-phase-node" data-nphase="3" role="button" tabindex="0">
-            <div class="ndot"></div>
-            <p class="nperiod">Month 10</p>
-            <p class="ntitle">First Cohort Launch</p>
-          </div>
-          <div class="nisa-phase-body open" id="nisa-phase-body"></div>
-        </div>
-      </section>
-
-      <!-- ── GEN Z ── -->
-      <section class="section">
-        <div class="section-hd">
-          <h2>Gen Z: The Engine's Fuel</h2>
-          <p>
-            64 million Gen Z workers are already in India's workforce — digitally native, radically pragmatic, and
-            deeply frustrated by exactly the systems this blueprint dismantles. They won't just participate in this
-            model. They will build and run it.
-          </p>
-        </div>
-
-        <div class="gz-intro">
-          <div class="gz-stat">
-            <span class="gzn">64M</span>
-            <span class="gzl">Gen Z workers currently in India's workforce — over a quarter of the national total</span>
-          </div>
-          <div class="gz-stat">
-            <span class="gzn">57%</span>
-            <span class="gzl">of Indian Gen Z define career growth as learning new skills — not chasing titles or promotions</span>
-          </div>
-        </div>
-
-        <div class="gz-grid">
-          <div class="gz-card">
-            <p class="gz-pillar">Pillar 01 · Education</p>
-            <h4>The Builders &amp; Guild Masters</h4>
-            <p>
-              Gen Z already understands that traditional degrees are losing value relative to actual high-income
-              skills. The oldest tier are learning AI tools, coding, and digital workflows faster than any
-              university faculty. In NISA, they become the Guild Masters — building localised learning tech in
-              regional languages, leading peer-to-peer tech modules, and being the visible face of the
-              project-portfolio model that erases vocational stigma.
-            </p>
-            <span class="gz-role">Role: Guild Masters · Peer Tutors · Vernacular Content Builders</span>
-          </div>
-
-          <div class="gz-card">
-            <p class="gz-pillar">Pillar 02 · Smart Cities</p>
-            <h4>The Platform Architects</h4>
-            <p>
-              Autonomous transit, utility automation, and smart grid management run on software written and
-              maintained by engineers who grew up thinking in APIs and open-source repos. Gen Z will write the
-              algorithms keeping the city's infrastructure alive. And in the car-free 5-Minute Grid commercial
-              zones, they will turn physical space into high-velocity hubs for independent digital brands and
-              automated logistics startups — the "phygital" micro-economy they've already been building on
-              Instagram and Meesho.
-            </p>
-            <span class="gz-role">Role: Infrastructure Engineers · Digital Brand Founders · Logistics Startup Operators</span>
-          </div>
-
-          <div class="gz-card">
-            <p class="gz-pillar">Pillar 03 · Healthcare</p>
-            <h4>The Frontend Operators</h4>
-            <p>
-              The hardest bottleneck in AI-augmented healthcare isn't the AI — it's the human layer translating
-              diagnostics into empathetic, localised execution. Running an Autonomous Triage Wall or a
-              telemedicine kiosk requires digital fluency and interpersonal trust simultaneously. Gen Z nurses,
-              medical techs, and community health leads are the only cohort who can operate these interfaces
-              effortlessly while being the trusted human face that rural patients actually engage with.
-            </p>
-            <span class="gz-role">Role: Medical Tech Operators · Triage Interface Leads · Community Health Navigators</span>
-          </div>
-
-          <div class="gz-card">
-            <p class="gz-pillar">Pillar 04 · Agriculture</p>
-            <h4>The Drone &amp; Data Pilots</h4>
-            <p>
-              The deepest failure of Indian agriculture policy has been assuming young people don't want to farm.
-              They don't want to farm the way their grandparents did — bent over in a field. Transform the job
-              from manual labour to high-tech operations and they show up immediately. Gen Z will run the
-              open-field sectors not with sickles but as drone pilots, data architects, and hydroponic facility
-              managers — analysing real-time soil feeds on dashboards and optimising supply chains via dynamic
-              digital marketplaces.
-            </p>
-            <span class="gz-role">Role: Drone Pilots · Precision Agriculture Analysts · Hydroponic Facility Managers</span>
-          </div>
-        </div>
-
-        <div class="gz-superpower">
-          <p class="sp-kicker">Their Superpower</p>
-          <h3>Phygital Mobilisation — The Blueprint's Free Marketing Engine</h3>
-          <p>
-            No generation in history has been better at decentralised, cause-based mobilisation. When Gen Z cares
-            about an issue — economic stagnation, systemic rot, a model that actually works — they use short-form
-            video, memes, and digital networks to coordinate massive real-world action overnight. This isn't
-            activism for its own sake; it's logistics.
-          </p>
-          <p>
-            We don't need millions of rupees in marketing to launch NISA. If we show Gen Z a model that offers
-            <strong>genuine upskilling, psychological safety, and financial freedom from Day 1</strong>, they will
-            make it go viral. They will crowd-source the data, pressure local leadership to allocate the land, and
-            show up in droves to apply for the first cohort.
-          </p>
-          <p>
-            They aren't looking for a job. They are looking for a system that actually works.
-            <strong>We've built the blueprint — they are the army that will deploy it.</strong>
-          </p>
+        <div class="blueprint-intro">
+          <strong>Gen Z as the delivery mechanism for reform.</strong>
+          India's ~64 million Gen Z workers are the most digitally fluent, least credential-attached cohort in the
+          workforce, and most define career growth as skill acquisition rather than titles. The argument: this
+          generation — not policymakers — will end up spreading whatever upskilling and apprenticeship models
+          actually work, through the same decentralised digital networks that already run their social and economic
+          lives.
         </div>
       </section>
 
@@ -1751,6 +1164,16 @@
         2024. State metrics are composite approximations from district-level data; the Education Efficacy Index is an
         editorial construct and is not a government statistic.
       </p>
+
+      <div class="related" aria-label="Related investigations">
+        <div class="related-l">Related Investigations on The Bengal Reader</div>
+        <div class="related-links">
+          <a href="/india-development" class="related-link">India's Development Story</a>
+          <a href="/india-china" class="related-link">India vs China</a>
+          <a href="/india-disadvantage-index" class="related-link">Disadvantage Index</a>
+          <a href="/demonetisation" class="related-link">Demonetisation Impact</a>
+        </div>
+      </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
@@ -2076,70 +1499,6 @@
 
       // init
       setPhase(0);
-
-      // ── NISA LAUNCH TIMELINE ─────────────────────────────────────────────
-      const NISA_PHASES = [
-        {
-          title: 'Months 1–3: Establish Greenfield SEZ Zones',
-          items: [
-            'Acquire land or repurpose existing spaces inside 5 major economic zones: 1 tech hub (Bengaluru/Hyderabad), 1 manufacturing corridor (Pune/Surat), 1 agricultural processing zone (Punjab/Andhra), 1 logistics hub (JNPT/Delhi NCR), 1 renewable energy zone (Rajasthan/Gujarat).',
-            'Register NISA as an autonomous entity under the Skill Development Ministry — exempt from UGC/AICTE regulations.',
-            'Design physical campuses: 70% build labs, 20% peer-review spaces, 10% individual focus rooms. No lecture halls.',
-            'Source offline-capable AI tutor devices (₹8,000 unit cost). Negotiate government bulk rate for 100,000 units.',
-            'Publish the NISA Charter publicly: graduate equivalency table, salary band benchmarks, guild certification standards.',
-          ],
-        },
-        {
-          title: 'Months 4–6: Industry Tech-Stack Integration',
-          items: [
-            'Bring in 50 top tech and industrial companies to co-write practical problem statements that form the Phase 3 curriculum.',
-            'Problem statements must be real, unsolved company problems — not simulations. Companies sign an MOU committing to accept solutions as genuine R&D output.',
-            'Each Guild campus partners with a minimum of 10 companies for the paid Wed–Fri apprenticeship slots. Apprenticeship pay minimum: ₹8,000/month.',
-            'Industry partners co-fund lab equipment in exchange for first-hire preference on graduating students.',
-            'Define the graduation criteria: peer review panel composition (3 Guild Masters + 1 industry rep), problem-solving rubric, minimum timeline (no student can graduate before 18 months).',
-          ],
-        },
-        {
-          title: 'Months 7–9: Alternative Teacher Onboarding — Guild Masters',
-          items: [
-            'Do not hire traditional academics. Recruit retired engineers, active senior developers, seasoned project managers, and certified master tradespeople exclusively.',
-            'Guild Master criteria: minimum 10 years real-world experience in their domain. Academic qualification irrelevant.',
-            'Compensation: 1.4× government teacher pay scale + performance bonus tied to student placement rate within 12 months of graduation.',
-            'Train Guild Masters in the AI tutor system — their role is to facilitate and challenge builds, not to deliver lectures.',
-            'Hire 1 Guild Master per 8 students for Phase 1 and 2; 1 per 4 students for Phase 3 (higher complexity, more individual mentoring).',
-          ],
-        },
-        {
-          title: 'Month 10: Launch First Cohort of 50,000 Students',
-          items: [
-            'Onboard 50,000 students directly into the Foundational Core — bypassing the traditional board exam system entirely.',
-            'Eligibility: completed Class 8 (age ~14). No entrance exam. Random allocation across socioeconomic backgrounds within each zone.',
-            '30% of seats reserved for students from households below ₹3 lakh annual income. Full scholarship (tuition, device, stipend ₹2,000/month).',
-            'Run a parallel track for current graduates aged 18–25: fast-track Phase 3 entry via a 6-week competency assessment. Skip Phases 1 and 2 for those with demonstrated foundational skills.',
-            'Publish all data publicly from Month 1: enrollment demographics, completion rates, placement rates, starting salaries. The system must be auditable by design.',
-          ],
-        },
-      ];
-
-      let activeNPhase = 0;
-
-      function setNPhase(idx) {
-        activeNPhase = idx;
-        document.querySelectorAll('.nisa-phase-node').forEach((el, i) => {
-          el.classList.toggle('active', i === idx);
-        });
-        const body = document.getElementById('nisa-phase-body');
-        const p = NISA_PHASES[idx];
-        body.innerHTML = `<h4>${p.title}</h4><ul>${p.items.map(it => `<li>${it}</li>`).join('')}</ul>`;
-        body.classList.add('open');
-      }
-
-      document.querySelectorAll('.nisa-phase-node').forEach((el, i) => {
-        el.addEventListener('click', () => setNPhase(i));
-        el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') setNPhase(i); });
-      });
-
-      setNPhase(0);
     </script>
   </body>
 </html>

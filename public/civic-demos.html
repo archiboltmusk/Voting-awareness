@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The Bengal Reader's civic-tech prototypes: SwarmAudit (civic failure registry), RTI Swarm (RTI filing pipeline), and Resilient Skill Guild (skills training). Early-stage demos with sample data."
+    />
+    <meta property="og:title" content="The Bengal Reader — Civic Lab: Live Demos" />
+    <meta
+      property="og:description"
+      content="Three early-stage civic-tech prototypes — a civic failure registry, an RTI filing pipeline, and a skills training guild — previewed with sample data."
+    />
+    <meta property="og:image" content="/og-voter-guide.svg" />
+    <title>The Bengal Reader — Civic Lab: Live Demos</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/shared.css" />
+    <script defer src="/analytics.js"></script>
+    <script defer src="/shared.js"></script>
+    <style>
+      :root {
+        --paper: #f4f1ea;
+        --ink: #1a1714;
+        --ink2: #4a3f35;
+        --ink3: #7a6a5a;
+        --rule: #d8d0c4;
+        --saffron: #e87c2a;
+        --danger: #c0392b;
+        --good: #2d7a4f;
+        --card-bg: #ede9e0;
+        --hover: #e0dbd0;
+        --accent: #1c8a0e;
+        --accent-dim: rgba(28, 138, 14, 0.12);
+        --amber: #b35a00;
+        --amber-bg: rgba(179, 90, 0, 0.1);
+        --red-bg: rgba(192, 57, 43, 0.08);
+        --green-bg: rgba(45, 122, 79, 0.08);
+      }
+      [data-theme="dark"] {
+        --paper: #141210;
+        --ink: #f0ece3;
+        --ink2: #c8bfb0;
+        --ink3: #8a7d6e;
+        --rule: #2a2420;
+        --card-bg: #1e1a16;
+        --hover: #252018;
+        --accent: #2db314;
+        --accent-dim: rgba(45, 179, 20, 0.08);
+        --amber: #e07820;
+        --amber-bg: rgba(224, 120, 32, 0.12);
+        --red-bg: rgba(192, 57, 43, 0.15);
+        --green-bg: rgba(45, 122, 79, 0.12);
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { background: var(--paper); color: var(--ink); font-family: "Georgia", serif; line-height: 1.6; }
+
+      /* ── HERO ── */
+      .hero { background: var(--ink); color: var(--paper); padding: 2.5rem 1.5rem; position: relative; overflow: hidden; }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.015) 2px, rgba(255, 255, 255, 0.015) 4px);
+        pointer-events: none;
+      }
+      .hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+      .hero-kicker {
+        font-family: "Courier New", monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .hero-kicker::before { content: ""; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
+      .hero h1 { font-size: clamp(1.6rem, 4vw, 2.8rem); color: var(--paper); line-height: 1.15; margin-bottom: 0.75rem; }
+      .hero h1 em { font-style: normal; color: var(--accent); }
+      .hero > .hero-inner > p { font-size: 1rem; color: var(--ink3); max-width: 680px; line-height: 1.6; margin-bottom: 0.5rem; }
+      .hero-note { font-family: "Courier New", monospace; font-size: 0.78rem; color: var(--accent); max-width: 680px; line-height: 1.6; margin-top: 1rem; letter-spacing: 0.02em; }
+
+      /* ── TAB BAR ── */
+      .demo-tabs { max-width: 960px; margin: 0 auto; padding: 1.5rem 1.5rem 0; display: flex; gap: 0; border-bottom: 2px solid var(--rule); flex-wrap: wrap; }
+      .demo-tab {
+        font-family: "Courier New", monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: none;
+        border: none;
+        border-bottom: 2px solid transparent;
+        margin-bottom: -2px;
+        padding: 0.75rem 1.25rem;
+        cursor: pointer;
+        color: var(--ink3);
+        transition: color 0.15s, border-color 0.15s;
+        white-space: nowrap;
+      }
+      .demo-tab:hover { color: var(--ink); }
+      .demo-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+      /* ── DEMO SECTION ── */
+      .demo-section { display: none; }
+      .demo-section.active { display: block; }
+      .section { max-width: 960px; margin: 2.5rem auto; padding: 0 1.5rem; }
+      .section-hd { border-top: 2px solid var(--accent); padding-top: 1.2rem; margin-bottom: 1.5rem; }
+      .section-hd h2 { font-size: 1.35rem; margin-bottom: 0.3rem; }
+      .section-hd p { font-size: 0.88rem; color: var(--ink2); }
+
+      .proto-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-family: "Courier New", monospace;
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background: var(--amber-bg);
+        color: var(--amber);
+        border: 1px solid var(--amber);
+        padding: 0.25rem 0.6rem;
+        margin-bottom: 0.9rem;
+      }
+      .proto-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--amber); display: inline-block; flex-shrink: 0; }
+
+      .status-box {
+        border: 1px solid var(--rule);
+        border-left: 3px solid var(--amber);
+        background: var(--card-bg);
+        padding: 0.9rem 1.1rem;
+        margin-bottom: 1.75rem;
+        font-size: 0.85rem;
+        color: var(--ink2);
+        line-height: 1.6;
+      }
+      .status-box strong { color: var(--ink); }
+
+      .preview-label {
+        font-family: "Courier New", monospace;
+        font-size: 0.62rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--ink3);
+        margin-bottom: 0.6rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .preview-label::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+
+      /* ── SWARMAUDIT: REPORTS LIST ── */
+      .reports-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.75rem; }
+      .report-card { border: 1px solid var(--rule); background: var(--card-bg); padding: 0.9rem 1.1rem; display: flex; gap: 0.9rem; align-items: flex-start; flex-wrap: wrap; }
+      .cat-badge {
+        font-family: "Courier New", monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.2rem 0.55rem;
+        border-radius: 2px;
+        flex-shrink: 0;
+        margin-top: 0.15rem;
+        white-space: nowrap;
+      }
+      .cat-roads { background: rgba(192, 57, 43, 0.12); color: #a93226; }
+      .cat-sanitation { background: rgba(179, 90, 0, 0.12); color: #944e00; }
+      .cat-health { background: rgba(52, 116, 186, 0.12); color: #2a6099; }
+      .cat-education { background: rgba(28, 138, 14, 0.12); color: #1c7a0c; }
+      .cat-utilities { background: rgba(111, 66, 145, 0.12); color: #6b3fa0; }
+      [data-theme="dark"] .cat-roads { background: rgba(192, 57, 43, 0.2); color: #e06050; }
+      [data-theme="dark"] .cat-sanitation { background: rgba(224, 120, 32, 0.2); color: #e0903c; }
+      [data-theme="dark"] .cat-health { background: rgba(52, 116, 186, 0.2); color: #5a9fe0; }
+      [data-theme="dark"] .cat-education { background: rgba(45, 179, 20, 0.2); color: #4ed640; }
+      [data-theme="dark"] .cat-utilities { background: rgba(152, 96, 196, 0.2); color: #b880e8; }
+      .report-body { flex: 1; min-width: 0; }
+      .report-meta { font-family: "Courier New", monospace; font-size: 0.65rem; color: var(--ink3); letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+      .report-desc { font-size: 0.85rem; color: var(--ink2); line-height: 1.5; }
+      .status-chip {
+        font-family: "Courier New", monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.15rem 0.5rem;
+        border-radius: 2px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        margin-top: 0.15rem;
+      }
+      .chip-pending { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber); }
+      .chip-escalated { background: var(--red-bg); color: var(--danger); border: 1px solid var(--danger); }
+      .chip-resolved { background: var(--green-bg); color: var(--good); border: 1px solid var(--good); }
+
+      /* ── SWARMAUDIT: CFI TABLE ── */
+      .table-wrap { overflow-x: auto; margin-bottom: 0.5rem; }
+      table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+      thead th {
+        font-family: "Courier New", monospace;
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink3);
+        text-align: left;
+        padding: 0.6rem 0.75rem;
+        border-bottom: 2px solid var(--rule);
+        white-space: nowrap;
+        background: var(--card-bg);
+      }
+      tbody td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--rule); vertical-align: middle; }
+      tbody tr:hover { background: var(--hover); }
+      tbody tr.row-red { background: var(--red-bg); }
+      tbody tr.row-amber { background: var(--amber-bg); }
+      tbody tr.row-green { background: var(--green-bg); }
+      .badge-red {
+        font-family: "Courier New", monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: var(--danger);
+        color: #fff;
+        padding: 0.15rem 0.5rem;
+        border-radius: 20px;
+        white-space: nowrap;
+      }
+      .cfi-score { font-family: "Courier New", monospace; font-size: 0.85rem; font-weight: bold; }
+      .cfi-red { color: var(--danger); }
+      .cfi-amber { color: var(--amber); }
+      .cfi-green { color: var(--good); }
+      .status-dot { display: inline-flex; align-items: center; gap: 0.4rem; font-family: "Courier New", monospace; font-size: 0.65rem; letter-spacing: 0.06em; text-transform: uppercase; }
+      .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+      .dot-red { background: var(--danger); }
+      .dot-amber { background: var(--amber); }
+      .dot-green { background: var(--good); }
+
+      /* ── RTI: TEMPLATE CARDS ── */
+      .template-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.1rem; margin-bottom: 1.75rem; }
+      .template-card { border: 1px solid var(--rule); background: var(--card-bg); padding: 1.1rem; border-top: 3px solid var(--accent); display: flex; flex-direction: column; gap: 0.55rem; }
+      .template-label { font-family: "Courier New", monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
+      .template-card h3 { font-size: 0.92rem; line-height: 1.35; }
+      .template-card p { font-size: 0.8rem; color: var(--ink2); line-height: 1.55; }
+      .template-key { font-family: "Courier New", monospace; font-size: 0.7rem; background: var(--accent-dim); border: 1px solid var(--accent); padding: 0.35rem 0.6rem; color: var(--ink); line-height: 1.45; }
+      .template-key span { color: var(--accent); font-weight: bold; }
+
+      /* ── RTI: TRACKER TABLE ── */
+      .rti-table-wrap { overflow-x: auto; margin-bottom: 0.5rem; }
+      .rti-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+      .rti-table th {
+        font-family: "Courier New", monospace;
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink3);
+        text-align: left;
+        padding: 0.6rem 0.75rem;
+        border-bottom: 1px solid var(--rule);
+        white-space: nowrap;
+      }
+      .rti-table td { padding: 0.7rem 0.75rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+      .rti-table tr:hover td { background: var(--hover); }
+      .rti-id { font-family: "Courier New", monospace; font-size: 0.7rem; color: var(--ink3); white-space: nowrap; }
+      .chip {
+        display: inline-block;
+        font-family: "Courier New", monospace;
+        font-size: 0.62rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.2rem 0.55rem;
+        border-radius: 2px;
+        white-space: nowrap;
+      }
+      .chip-filed { background: rgba(41, 128, 185, 0.15); color: #2980b9; border: 1px solid rgba(41, 128, 185, 0.3); }
+      .chip-received { background: rgba(45, 122, 79, 0.15); color: var(--good); border: 1px solid rgba(45, 122, 79, 0.3); }
+      .chip-overdue { background: rgba(192, 57, 43, 0.15); color: var(--danger); border: 1px solid rgba(192, 57, 43, 0.3); }
+      .chip-published { background: rgba(142, 68, 173, 0.15); color: #8e44ad; border: 1px solid rgba(142, 68, 173, 0.3); }
+      .chip-appeal { background: rgba(243, 156, 18, 0.15); color: #d68910; border: 1px solid rgba(243, 156, 18, 0.3); }
+      .disc-flag { font-family: "Courier New", monospace; font-size: 0.62rem; color: var(--danger); display: inline-flex; align-items: center; gap: 0.3rem; }
+      .disc-flag::before { content: "\26A0"; }
+      .disc-ok { font-family: "Courier New", monospace; font-size: 0.62rem; color: var(--good); }
+
+      /* ── RTI: DEPARTMENT SCORE ── */
+      .dept-list { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.75rem; }
+      .dept-row { border: 1px solid var(--rule); background: var(--card-bg); padding: 1.1rem 1.2rem; }
+      .dept-row-top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.65rem; }
+      .dept-name { font-size: 0.92rem; font-weight: bold; }
+      .dept-rank { font-family: "Courier New", monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); }
+      .dept-meta { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem; }
+      .dept-stat { font-family: "Courier New", monospace; font-size: 0.68rem; color: var(--ink3); }
+      .dept-stat strong { color: var(--ink); }
+      .bar-track { height: 8px; background: var(--rule); border-radius: 2px; overflow: hidden; margin-bottom: 0.4rem; }
+      .bar-fill { height: 100%; border-radius: 2px; }
+      .bar-fill.green { background: var(--good); }
+      .bar-fill.amber { background: var(--saffron); }
+      .bar-fill.red { background: var(--danger); }
+      .dept-score-line { display: flex; justify-content: space-between; align-items: center; }
+      .dept-score-label { font-family: "Courier New", monospace; font-size: 0.62rem; color: var(--ink3); text-transform: uppercase; letter-spacing: 0.08em; }
+      .dept-score-val { font-family: "Courier New", monospace; font-size: 0.92rem; font-weight: bold; }
+      .dept-score-val.green { color: var(--good); }
+      .dept-score-val.amber { color: var(--saffron); }
+      .dept-score-val.red { color: var(--danger); }
+
+      /* ── SKILL GUILD: TRACK GRID ── */
+      .track-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.1rem; margin-bottom: 1.75rem; }
+      .track-card { border: 1px solid var(--rule); background: var(--card-bg); padding: 1.1rem; border-top: 3px solid var(--accent); }
+      .track-card-num { font-family: "Courier New", monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+      .track-card h3 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+      .track-card p { font-size: 0.8rem; color: var(--ink2); line-height: 1.55; }
+
+      /* ── SKILL GUILD: COHORT CARDS ── */
+      .cohorts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 1.75rem; }
+      .cohort-card { border: 1px solid var(--rule); background: var(--card-bg); overflow: hidden; }
+      .cohort-card-header { background: var(--ink); color: var(--paper); padding: 0.85rem 1.1rem; display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+      .cohort-track-badge {
+        font-family: "Courier New", monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background: var(--accent);
+        color: #fff;
+        padding: 0.18rem 0.5rem;
+        flex-shrink: 0;
+      }
+      .cohort-card-header h3 { font-size: 0.9rem; color: var(--paper); line-height: 1.3; }
+      .cohort-card-body { padding: 1rem 1.1rem; }
+      .cohort-meta { font-family: "Courier New", monospace; font-size: 0.68rem; color: var(--ink3); margin-bottom: 0.75rem; line-height: 1.7; }
+      .cohort-meta span { display: block; }
+      .cohort-meta .mentor-handle { color: var(--accent); }
+      .progress-label { font-family: "Courier New", monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); margin-bottom: 0.35rem; }
+      .progress-bar-wrap { background: var(--rule); height: 6px; margin-bottom: 0.5rem; position: relative; }
+      .progress-bar-fill { height: 100%; background: var(--accent); }
+      .progress-weeks { font-family: "Courier New", monospace; font-size: 0.62rem; color: var(--ink3); margin-bottom: 0.75rem; }
+      .cohort-sprint { font-size: 0.8rem; color: var(--ink2); border-left: 2px solid var(--accent); padding-left: 0.65rem; line-height: 1.5; }
+      .cohort-sprint strong {
+        color: var(--accent);
+        font-family: "Courier New", monospace;
+        font-size: 0.68rem;
+        display: block;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 0.15rem;
+      }
+
+      /* ── SKILL GUILD: GRADUATE CARDS ── */
+      .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.1rem; margin-bottom: 1.75rem; }
+      .grad-card { border: 1px solid var(--rule); background: var(--card-bg); padding: 1rem; border-top: 3px solid var(--accent); }
+      .grad-name { font-size: 0.95rem; font-weight: bold; margin-bottom: 0.2rem; }
+      .grad-track { font-family: "Courier New", monospace; font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.65rem; }
+      .grad-contributions { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.75rem; }
+      .contrib-chip {
+        font-family: "Courier New", monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.04em;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        color: var(--ink2);
+        padding: 0.2rem 0.45rem;
+        line-height: 1.45;
+      }
+      .grad-meta { font-family: "Courier New", monospace; font-size: 0.65rem; color: var(--ink3); margin-bottom: 0.6rem; }
+      .placement-badge { font-family: "Courier New", monospace; font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.18rem 0.5rem; display: inline-block; }
+      .placement-badge.hired { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(28, 138, 14, 0.25); }
+      .placement-badge.freelancing { background: rgba(232, 124, 42, 0.1); color: var(--saffron); border: 1px solid rgba(232, 124, 42, 0.25); }
+      .placement-badge.searching { background: var(--rule); color: var(--ink3); }
+
+      /* ── DATA NOTE ── */
+      .data-note { max-width: 960px; margin: 3rem auto 4rem; padding: 1rem 1.5rem; border-top: 1px solid var(--rule); font-size: 0.78rem; color: var(--ink3); font-family: "Courier New", monospace; line-height: 1.6; }
+      .data-note a { color: var(--accent); }
+    </style>
+  </head>
+  <body data-theme="light">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- SITE NAV -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">The Bengal Reader</a>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Home</a>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">Bengal Election 2026</summary>
+        <div class="site-nav-dropdown">
+          <a href="/parties" class="site-nav-link">Party Compass</a>
+          <a href="/constituencies" class="site-nav-link">2026 Results</a>
+          <a href="/mlas" class="site-nav-link">MLA Records</a>
+          <a href="/assets" class="site-nav-link">Wealth Growth</a>
+          <a href="/accountability" class="site-nav-link">100 Days</a>
+          <a href="/corruption" class="site-nav-link">Dossier</a>
+          <a href="/bonds" class="site-nav-link">Money Trail</a>
+          <a href="/nota-reform" class="site-nav-link">NOTA Reform</a>
+          <a href="/clean-candidates" class="site-nav-link">Clean Slate</a>
+          <a href="/compare" class="site-nav-link">Compare MLAs</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">India Analysis</summary>
+        <div class="site-nav-dropdown">
+          <a href="/india-development" class="site-nav-link">India's Story</a>
+          <a href="/india-china" class="site-nav-link">India vs China</a>
+          <a href="/india-disadvantage-index" class="site-nav-link">Disadvantage Index</a>
+          <a href="/education" class="site-nav-link">Education Gap</a>
+          <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+          <a href="/governance-deficit" class="site-nav-link">Governance Gap</a>
+          <a href="/exit-door" class="site-nav-link">Exit Door</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">Civic Tech Lab</summary>
+        <div class="site-nav-dropdown">
+          <a href="/civic-lab" class="site-nav-link">Civic Lab</a>
+          <a href="/civic-demos" class="site-nav-link">Live Demos</a>
+          <a href="/friction-engine" class="site-nav-link">Friction Engine</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">About &amp; Transparency</summary>
+        <div class="site-nav-dropdown">
+          <a href="/methodology" class="site-nav-link">Methodology</a>
+          <a href="/rti" class="site-nav-link">RTI Tracker</a>
+          <a href="/corrections" class="site-nav-link">Corrections</a>
+          <a href="/search" class="site-nav-link">Search</a>
+          <a href="/ask" class="site-nav-link">Ask AI</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</nav>
+    <div id="progress-bar"></div>
+
+    <main id="main-content">
+      <!-- ── HERO ── -->
+      <div class="hero">
+        <div class="hero-inner">
+          <p class="hero-kicker">Civic Lab &middot; Live Demos</p>
+          <h1>The Bengal Reader's <em>Civic-Tech Prototypes</em></h1>
+          <p>
+            Three early-stage tools built to make government data and civic complaints harder to ignore: a registry
+            for broken public infrastructure, a pipeline for turning RTI responses into investigative stories, and a
+            peer-learning guild that trains volunteers by having them build these very tools.
+          </p>
+          <p class="hero-note">
+            All three are prototypes. The screens below show sample data — read on for what's real and what isn't.
+            For the reasoning behind this project, see
+            <a href="/civic-lab" style="color: var(--accent)">Civic Lab</a>.
+          </p>
+        </div>
+      </div>
+
+      <!-- ── TAB BAR ── -->
+      <div class="demo-tabs" role="tablist">
+        <button class="demo-tab active" role="tab" aria-selected="true" data-demo="swarmaudit" type="button">
+          01 &middot; SwarmAudit
+        </button>
+        <button class="demo-tab" role="tab" aria-selected="false" data-demo="rti-swarm" type="button">
+          02 &middot; RTI Swarm
+        </button>
+        <button class="demo-tab" role="tab" aria-selected="false" data-demo="skill-guild" type="button">
+          03 &middot; Skill Guild
+        </button>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+           01 — SWARMAUDIT
+      ══════════════════════════════════════════════ -->
+      <section class="demo-section active" id="demo-swarmaudit">
+        <div class="section">
+          <div class="section-hd">
+            <h2>SwarmAudit — Civic Failure Registry</h2>
+            <p>
+              A geo-tagged registry where residents log broken roads, blocked drains, non-functional health centres,
+              and other civic failures, with photos and location data attached to each report.
+            </p>
+          </div>
+
+          <span class="proto-badge">Prototype &middot; mock data</span>
+
+          <div class="status-box">
+            <strong>What it is:</strong> SwarmAudit's idea is simple — a single broken streetlight complaint is easy
+            for a municipal office to ignore. A geo-tagged, timestamped, dated log of hundreds of similar complaints
+            across a ward is harder to. The concept is to compile citizen reports into a public map and a
+            ward-by-ward "Civic Failure Index," and share that log with local authorities on a regular schedule under
+            the Right to Information Act, 2005.
+            <br /><br />
+            <strong>Status:</strong> The submission form, interactive map, and database backend described on the full
+            SwarmAudit page are not yet connected to a live database. Everything shown below — the report cards and
+            the index table — is illustrative sample data, not real citizen submissions. Reports are not currently
+            being sent to any municipal office.
+          </div>
+
+          <p class="preview-label">Sample reports</p>
+          <div class="reports-list" id="sa-reports"></div>
+
+          <p class="preview-label">Sample civic failure index (by constituency)</p>
+          <div class="table-wrap">
+            <table id="sa-cfi-table">
+              <thead>
+                <tr>
+                  <th>Constituency</th>
+                  <th>City</th>
+                  <th>Reports</th>
+                  <th>Red Zone Wards</th>
+                  <th>CFI Score</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="sa-cfi-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════
+           02 — RTI SWARM
+      ══════════════════════════════════════════════ -->
+      <section class="demo-section" id="demo-rti-swarm">
+        <div class="section">
+          <div class="section-hd">
+            <h2>RTI Swarm — Data Journalism Pipeline</h2>
+            <p>
+              A structured pipeline for filing Right to Information requests at scale, tracking responses against
+              deadlines, flagging financial discrepancies, and converting raw government disclosures into
+              plain-language explainers.
+            </p>
+          </div>
+
+          <span class="proto-badge">Prototype &middot; mock data</span>
+
+          <div class="status-box">
+            <strong>What it is:</strong> RTI Swarm is conceived as three things bundled together: (1) a library of
+            ready-to-edit RTI application templates for common civic questions — school attendance vs. salary
+            records, road repair tenders, hospital medicine stock, and similar; (2) a tracker for filed RTIs showing
+            filing dates, response deadlines, and any discrepancies found between what was allocated and what was
+            actually spent; and (3) a "departmental transparency score" ranking government offices by how often they
+            respond on time.
+            <br /><br />
+            <strong>Status:</strong> No RTIs have actually been filed through this tool. The template library text is
+            modelled on real RTI applications under the RTI Act, 2005, but the tracker below, the discrepancy
+            figures, and the department rankings are all sample data for demonstration. Always consult a legal expert
+            before filing a real RTI.
+          </div>
+
+          <p class="preview-label">Sample template library (Education sector)</p>
+          <div class="template-grid">
+            <div class="template-card">
+              <div class="template-label">Template &middot; Education</div>
+              <h3>School Teacher Attendance Records</h3>
+              <p>
+                Requests daily attendance register extracts for government school teachers across a district,
+                cross-referenced against salary disbursements.
+              </p>
+              <div class="template-key"><span>Key question:</span> Are teachers being paid for days they did not attend?</div>
+            </div>
+            <div class="template-card">
+              <div class="template-label">Template &middot; Education</div>
+              <h3>Mid-Day Meal Expenditure Audit</h3>
+              <p>
+                Seeks itemised expenditure statements for the Mid-Day Meal scheme at a block level, comparing
+                per-child allocations against actual spending.
+              </p>
+              <div class="template-key"><span>Key question:</span> Is MDM money reaching students or being siphoned?</div>
+            </div>
+            <div class="template-card">
+              <div class="template-label">Template &middot; Health</div>
+              <h3>Hospital Medicine Stock Audit</h3>
+              <p>
+                Requests medicines procured, received, distributed, and in-stock figures from a government hospital
+                to detect wastage or diversion.
+              </p>
+              <div class="template-key"><span>Key question:</span> Are essential medicines reaching patients or disappearing?</div>
+            </div>
+          </div>
+
+          <p class="preview-label">Sample RTI pipeline</p>
+          <div class="rti-table-wrap">
+            <table class="rti-table" id="rti-table">
+              <thead>
+                <tr>
+                  <th>RTI ID</th>
+                  <th>Subject</th>
+                  <th>Filed</th>
+                  <th>Due</th>
+                  <th>Status</th>
+                  <th>Discrepancy</th>
+                </tr>
+              </thead>
+              <tbody id="rti-tbody"></tbody>
+            </table>
+          </div>
+
+          <p class="preview-label">Sample departmental transparency score</p>
+          <div class="dept-list" id="dept-list"></div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════
+           03 — RESILIENT SKILL GUILD
+      ══════════════════════════════════════════════ -->
+      <section class="demo-section" id="demo-skill-guild">
+        <div class="section">
+          <div class="section-hd">
+            <h2>Resilient Skill Guild</h2>
+            <p>
+              A peer-learning programme where volunteers learn Python, UI/UX design, technical writing, video
+              production, or DevOps by building real features for the other two tools on this page, in
+              mentor-guided six-week cohorts.
+            </p>
+          </div>
+
+          <span class="proto-badge">Prototype &middot; mock data</span>
+
+          <div class="status-box">
+            <strong>What it is:</strong> The Skill Guild's premise is "learn by shipping" — instead of a generic
+            course, each track's six-week curriculum ends with a real contribution to SwarmAudit or RTI Swarm: a
+            scraper script, a redesigned filter UI, a contributor guide, an explainer video, or a CI/CD pipeline.
+            Volunteers apply via a waitlist form, get matched to a cohort on Discord, and work through weekly sprints
+            with a named mentor.
+            <br /><br />
+            <strong>Status:</strong> This is a proposed programme, not a registered institution, and it does not
+            issue accredited qualifications. No cohorts are currently running. The tracks, cohort boards, mentor
+            bios, and graduate outcomes shown below are illustrative of the intended structure, not real enrolment
+            data. The waitlist form on the full page is not yet connected to a live backend.
+          </div>
+
+          <p class="preview-label">Sample skill tracks</p>
+          <div class="track-grid">
+            <div class="track-card">
+              <div class="track-card-num">Track 01</div>
+              <h3>Python &amp; Data</h3>
+              <p>
+                Six weeks of Python, Pandas, and web scraping, ending with a live data pipeline that feeds
+                SwarmAudit's ward-level civic failure feed via GitHub Actions.
+              </p>
+            </div>
+            <div class="track-card">
+              <div class="track-card-num">Track 02</div>
+              <h3>UI/UX Design</h3>
+              <p>
+                Figma, accessibility, and CSS theming, ending with a published component library and infographic
+                templates used by RTI Swarm volunteers.
+              </p>
+            </div>
+            <div class="track-card">
+              <div class="track-card-num">Track 03</div>
+              <h3>Technical Writing</h3>
+              <p>
+                Docs-as-code and plain-language explainers, ending with published guides and a real RTI response
+                translated for general readers.
+              </p>
+            </div>
+          </div>
+
+          <p class="preview-label">Sample active cohort</p>
+          <div class="cohorts-grid">
+            <div class="cohort-card">
+              <div class="cohort-card-header">
+                <span class="cohort-track-badge">Python &amp; Data</span>
+                <h3>Data Analysis Track</h3>
+              </div>
+              <div class="cohort-card-body">
+                <div class="cohort-meta">
+                  <span>Mentor: <span class="mentor-handle">Aditya Venkatesan &middot; @adi_builds</span></span>
+                  <span>28 Apr 2026 &rarr; 9 Jun 2026</span>
+                </div>
+                <p class="progress-label">Progress &mdash; Week 3 of 6</p>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar-fill" style="width: 50%"></div>
+                </div>
+                <p class="progress-weeks">3 weeks completed &middot; 3 remaining</p>
+                <div class="cohort-sprint">
+                  <strong>Current Sprint</strong>
+                  Sprint 3: Building the automated ward-level scraper for SwarmAudit's civic failure feed
+                </div>
+              </div>
+            </div>
+            <div class="cohort-card">
+              <div class="cohort-card-header">
+                <span class="cohort-track-badge">UI/UX Design</span>
+                <h3>Design Track</h3>
+              </div>
+              <div class="cohort-card-body">
+                <div class="cohort-meta">
+                  <span>Mentor: <span class="mentor-handle">Meenakshi Iyer &middot; @meena_ux</span></span>
+                  <span>28 Apr 2026 &rarr; 9 Jun 2026</span>
+                </div>
+                <p class="progress-label">Progress &mdash; Week 3 of 6</p>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar-fill" style="width: 50%"></div>
+                </div>
+                <p class="progress-weeks">3 weeks completed &middot; 3 remaining</p>
+                <div class="cohort-sprint">
+                  <strong>Current Sprint</strong>
+                  Sprint 3: Building the map filter component UI for SwarmAudit &mdash; district and category
+                  selectors
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="preview-label">Sample graduate outcomes</p>
+          <div class="portfolio-grid">
+            <div class="grad-card">
+              <p class="grad-name">Lakshmi P.</p>
+              <p class="grad-track">Technical Writing &middot; Cohort 1 &middot; Oct 2025</p>
+              <div class="grad-contributions">
+                <span class="contrib-chip">Published: RTI Swarm contributor guide (1,200 words)</span>
+                <span class="contrib-chip">Published: SwarmAudit reporter onboarding doc</span>
+              </div>
+              <p class="grad-meta">18 commits &middot; 3 merged PRs</p>
+              <span class="placement-badge searching">Job Searching</span>
+            </div>
+            <div class="grad-card">
+              <p class="grad-name">Debashish M.</p>
+              <p class="grad-track">Video &amp; Media &middot; Cohort 2 &middot; Mar 2026</p>
+              <div class="grad-contributions">
+                <span class="contrib-chip">Published: 2 RTI explainer videos (Bengali) &mdash; 18k views</span>
+                <span class="contrib-chip">Published: Civic Failure Index data animation reel</span>
+              </div>
+              <p class="grad-meta">2 published videos &middot; 1 motion template pack</p>
+              <span class="placement-badge freelancing">Freelancing</span>
+            </div>
+            <div class="grad-card">
+              <p class="grad-name">Pooja R.</p>
+              <p class="grad-track">Python &amp; Data &middot; Cohort 1 &middot; Oct 2025</p>
+              <div class="grad-contributions">
+                <span class="contrib-chip">Merged PR: MLA asset declaration diff parser</span>
+                <span class="contrib-chip">Published: Constituencies JSON feed for Bengal Reader</span>
+              </div>
+              <p class="grad-meta">53 commits &middot; 5 merged PRs</p>
+              <span class="placement-badge hired">Hired</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <p class="data-note">
+        These three previews are early-stage civic-tech prototypes built by The Bengal Reader. None are connected to a
+        live database yet (no backend is configured), so every report, RTI case, score, cohort, and graduate shown
+        above is sample data for illustration, not real submissions or outcomes. Where placeholder figures resemble
+        real government schemes (e.g. Mid-Day Meal, NHM, Samagra Shiksha), they describe the kind of question the
+        tool is designed to ask &mdash; not a finding about any specific office. See
+        <a href="/civic-lab">Civic Lab</a> for the rationale and editorial standards behind this project. This page
+        does not constitute legal advice.
+      </p>
+    </main>
+
+    <script>
+      /* ── TAB SWITCHER ── */
+      document.querySelectorAll(".demo-tab").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".demo-tab").forEach((b) => {
+            b.classList.remove("active");
+            b.setAttribute("aria-selected", "false");
+          });
+          btn.classList.add("active");
+          btn.setAttribute("aria-selected", "true");
+
+          document.querySelectorAll(".demo-section").forEach((s) => s.classList.remove("active"));
+          const target = document.getElementById("demo-" + btn.dataset.demo);
+          if (target) target.classList.add("active");
+        });
+      });
+
+      /* ── SWARMAUDIT: SAMPLE REPORTS ── */
+      const CAT_CLASS = {
+        Roads: "cat-roads",
+        Sanitation: "cat-sanitation",
+        "Public Health": "cat-health",
+        Education: "cat-education",
+        Utilities: "cat-utilities",
+      };
+      const CHIP_CLASS = { Pending: "chip-pending", Escalated: "chip-escalated", Resolved: "chip-resolved" };
+
+      const SA_REPORTS = [
+        {
+          ward: "Dharavi Ward 17, Mumbai",
+          date: "2026-04-02",
+          category: "Roads",
+          status: "Escalated",
+          desc:
+            "Pothole cluster on main road near Dharavi school — 6 potholes, largest 40 cm diameter. Three motorcycles damaged this week.",
+        },
+        {
+          ward: "Seelampur Ward 9, Delhi",
+          date: "2026-03-30",
+          category: "Sanitation",
+          status: "Escalated",
+          desc:
+            "Open sewage channel overflowing into residential lane. Children playing in contaminated water. MCD notified twice.",
+        },
+        {
+          ward: "Govandi Ward 3, Mumbai",
+          date: "2026-04-28",
+          category: "Public Health",
+          status: "Pending",
+          desc: "Primary health centre closed every Wednesday despite posted hours. No staff on duty. Patients turned away.",
+        },
+        {
+          ward: "Bhandup Ward 12, Mumbai",
+          date: "2026-05-03",
+          category: "Utilities",
+          status: "Resolved",
+          desc: "Streetlight cluster on SV Road out for 11 days. Repair completed after third complaint escalation.",
+        },
+        {
+          ward: "Sanganer Ward 6, Jaipur",
+          date: "2026-05-04",
+          category: "Education",
+          status: "Escalated",
+          desc:
+            "Government school compound wall collapsed during recent rain. Classes held next to 4-metre open rubble. No safety fence placed.",
+        },
+      ];
+
+      const saReportsList = document.getElementById("sa-reports");
+      SA_REPORTS.forEach((r) => {
+        const card = document.createElement("div");
+        card.className = "report-card";
+        card.innerHTML =
+          '<span class="cat-badge ' + (CAT_CLASS[r.category] || "") + '">' + r.category + "</span>" +
+          '<div class="report-body">' +
+          '<p class="report-meta">' + r.ward + " &middot; " + r.date + "</p>" +
+          '<p class="report-desc">' + r.desc + "</p>" +
+          "</div>" +
+          '<span class="status-chip ' + (CHIP_CLASS[r.status] || "") + '">' + r.status + "</span>";
+        saReportsList.appendChild(card);
+      });
+
+      /* ── SWARMAUDIT: SAMPLE CFI TABLE ── */
+      const SA_CFI = [
+        { constituency: "Seelampur", city: "Delhi", reports: 31, redZoneWards: 4, cfi: 88, status: "Critical" },
+        { constituency: "Mustafabad", city: "Delhi", reports: 28, redZoneWards: 3, cfi: 81, status: "Critical" },
+        { constituency: "Garden Reach", city: "Kolkata", reports: 26, redZoneWards: 3, cfi: 76, status: "Critical" },
+        { constituency: "Dharavi", city: "Mumbai", reports: 24, redZoneWards: 2, cfi: 69, status: "High" },
+        { constituency: "Vyasarpadi", city: "Chennai", reports: 17, redZoneWards: 1, cfi: 47, status: "Moderate" },
+      ];
+
+      const saCfiTbody = document.getElementById("sa-cfi-tbody");
+      SA_CFI.forEach((row, i) => {
+        const isRedZone = i < 3;
+        const rowClass = row.cfi > 70 ? "row-red" : row.cfi >= 40 ? "row-amber" : "row-green";
+        const cfiClass = row.cfi > 70 ? "cfi-red" : row.cfi >= 40 ? "cfi-amber" : "cfi-green";
+        const dotClass = row.cfi > 70 ? "dot-red" : row.cfi >= 40 ? "dot-amber" : "dot-green";
+        const tr = document.createElement("tr");
+        tr.className = rowClass;
+        tr.innerHTML =
+          "<td>" + row.constituency + (isRedZone ? ' <span class="badge-red">Red Zone</span>' : "") + "</td>" +
+          "<td>" + row.city + "</td>" +
+          "<td>" + row.reports + "</td>" +
+          "<td>" + row.redZoneWards + "</td>" +
+          '<td><span class="cfi-score ' + cfiClass + '">' + row.cfi + "</span></td>" +
+          '<td><span class="status-dot"><span class="dot ' + dotClass + '"></span>' + row.status + "</span></td>";
+        saCfiTbody.appendChild(tr);
+      });
+
+      /* ── RTI SWARM: SAMPLE TRACKER ── */
+      const RTI_CASES = [
+        {
+          id: "CJP-RTI-2025-0001",
+          subject: "Teacher Attendance vs. Salary — Murshidabad Dist.",
+          filed: "08 Jan 2025",
+          due: "07 Feb 2025",
+          status: "published",
+          discrepancy: "Attendance-Salary Mismatch",
+        },
+        {
+          id: "CJP-RTI-2025-0002",
+          subject: "MDM Scheme Expenditure — Birbhum Block",
+          filed: "15 Jan 2025",
+          due: "14 Feb 2025",
+          status: "overdue",
+          discrepancy: null,
+        },
+        {
+          id: "CJP-RTI-2025-0003",
+          subject: "Road Repair Budget — KMC Ward 14",
+          filed: "22 Jan 2025",
+          due: "21 Feb 2025",
+          status: "published",
+          discrepancy: "Unaccounted Road Repair Funds",
+        },
+        {
+          id: "CJP-RTI-2025-0004",
+          subject: "Medicine Procurement — Bankura District Hospital",
+          filed: "03 Feb 2025",
+          due: "05 Mar 2025",
+          status: "received",
+          discrepancy: "Procurement vs. Dispensing Gap",
+        },
+        {
+          id: "CJP-RTI-2025-0006",
+          subject: "NHM Payroll — Purulia District",
+          filed: "18 Feb 2025",
+          due: "20 Mar 2025",
+          status: "received",
+          discrepancy: "Possible Ghost Worker Payments",
+        },
+      ];
+
+      const RTI_STATUS_MAP = {
+        filed: ["chip-filed", "Filed"],
+        received: ["chip-received", "Response Received"],
+        overdue: ["chip-overdue", "Overdue"],
+        published: ["chip-published", "Published"],
+        appeal: ["chip-appeal", "First Appeal"],
+      };
+
+      const rtiTbody = document.getElementById("rti-tbody");
+      RTI_CASES.forEach((c) => {
+        const [cls, label] = RTI_STATUS_MAP[c.status] || ["chip-filed", c.status];
+        const discCell = c.discrepancy
+          ? '<span class="disc-flag">' + c.discrepancy + "</span>"
+          : '<span class="disc-ok">&#10003; None found</span>';
+        const tr = document.createElement("tr");
+        tr.innerHTML =
+          '<td class="rti-id">' + c.id + "</td>" +
+          "<td>" + c.subject + "</td>" +
+          '<td style="white-space:nowrap; font-size:0.78rem;">' + c.filed + "</td>" +
+          '<td style="white-space:nowrap; font-size:0.78rem;">' + c.due + "</td>" +
+          '<td><span class="chip ' + cls + '">' + label + "</span></td>" +
+          "<td>" + discCell + "</td>";
+        rtiTbody.appendChild(tr);
+      });
+
+      /* ── RTI SWARM: SAMPLE DEPARTMENT SCORE ── */
+      const DEPTS = [
+        { name: "West Bengal Pollution Control Board", rtis: 28, responseRate: 88, score: 81, band: "green", rank: 1 },
+        { name: "State Election Commission", rtis: 14, responseRate: 85, score: 78, band: "green", rank: 2 },
+        { name: "Public Works Department (State)", rtis: 47, responseRate: 58, score: 41, band: "amber", rank: 4 },
+        { name: "Kolkata Municipal Corporation", rtis: 73, responseRate: 41, score: 28, band: "red", rank: 6 },
+      ];
+
+      const deptList = document.getElementById("dept-list");
+      DEPTS.forEach((d) => {
+        const row = document.createElement("div");
+        row.className = "dept-row";
+        row.innerHTML =
+          '<div class="dept-row-top">' +
+          '<span class="dept-name">' + d.name + "</span>" +
+          '<span class="dept-rank">Rank #' + d.rank + " of 6</span>" +
+          "</div>" +
+          '<div class="dept-meta">' +
+          '<span class="dept-stat"><strong>' + d.rtis + "</strong> RTIs filed</span>" +
+          '<span class="dept-stat"><strong>' + d.responseRate + "%</strong> response rate</span>" +
+          "</div>" +
+          '<div class="bar-track"><div class="bar-fill ' + d.band + '" style="width: ' + d.score + '%"></div></div>' +
+          '<div class="dept-score-line">' +
+          '<span class="dept-score-label">Transparency Score</span>' +
+          '<span class="dept-score-val ' + d.band + '">' + d.score + " / 100</span>" +
+          "</div>";
+        deptList.appendChild(row);
+      });
+    </script>
+  </body>
+</html>

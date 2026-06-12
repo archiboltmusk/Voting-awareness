@@ -12,7 +12,7 @@
 <meta property="og:image:type" content="image/png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Bengal Reader — 2026 Constituency Results">
-<meta name="twitter:description" content="294 seats · BJP 207 · TMC 80 · Searchable constituency tracker">
+<meta name="twitter:description" content="294 seats · BJP 206 · TMC 80 · Searchable constituency tracker">
 <meta name="twitter:image" content="/og-constituencies.png">
 <title>The Bengal Reader — 2026 Constituency Results</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -409,6 +409,218 @@ footer a:hover { color:rgba(244,241,234,.9); }
   max-width:240px; box-shadow:0 4px 20px rgba(0,0,0,.4);
 }
 
+/* ── VIEW TOGGLE ── */
+.view-toggle-bar {
+  padding:16px 0 0;
+  background:var(--paper);
+}
+.view-tabs { display:flex; flex-wrap:wrap; gap:0; border-bottom:1px solid var(--paper-mid); }
+.view-tab {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.12em; text-transform:uppercase;
+  background:none; border:none; cursor:pointer;
+  padding:10px 20px; color:var(--ink-faint);
+  border-bottom:2px solid transparent; transition:all .2s;
+}
+.view-tab:hover { color:var(--ink); }
+.view-tab.active { color:var(--ink); border-bottom-color:var(--bjp); font-weight:600; }
+.view-content { display:none; }
+.view-content.active { display:block; }
+
+/* ── MAP VIEW (ported from map.html cartogram) ── */
+.map-view-page { padding:20px 0 0; }
+.map-subtext {
+  font-size:.95rem; color:var(--ink-faint);
+  margin-bottom:1.5rem; max-width:60ch;
+}
+.map-stats-strip {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+  gap:1px; background:var(--paper-mid);
+  border:1px solid var(--paper-mid); border-radius:6px;
+  overflow:hidden; margin-bottom:1.5rem;
+}
+.map-stat-cell { background:var(--paper); padding:.9rem 1rem; }
+.map-stat-label {
+  font-family:'JetBrains Mono',monospace; font-size:.65rem;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-faint); margin-bottom:.25rem;
+}
+.map-stat-value { font-size:1.5rem; font-weight:700; line-height:1.1; letter-spacing:-.03em; }
+.map-stat-sub { font-size:.72rem; color:var(--ink-faint); margin-top:.1rem; }
+
+.map-legend-bar { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.25rem; align-items:center; }
+.map-legend-label {
+  font-family:'JetBrains Mono',monospace; font-size:.65rem;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-faint); margin-right:.25rem; align-self:center;
+}
+.map-legend-item {
+  display:flex; align-items:center; gap:.35rem;
+  padding:.3rem .6rem .3rem .4rem; border-radius:4px;
+  cursor:pointer; border:1.5px solid transparent;
+  background:var(--paper-dark);
+  transition:border-color .15s, opacity .15s, transform .1s;
+  user-select:none;
+}
+.map-legend-item:hover { border-color:var(--ink); transform:translateY(-1px); }
+.map-legend-item.active { border-color:var(--ink); box-shadow:0 2px 8px var(--shadow); }
+.map-legend-item.dimmed { opacity:.4; }
+.map-legend-swatch { width:12px; height:12px; border-radius:2px; flex-shrink:0; }
+.map-legend-name { font-family:'JetBrains Mono',monospace; font-size:.72rem; font-weight:600; letter-spacing:.04em; }
+.map-legend-count { font-family:'JetBrains Mono',monospace; font-size:.65rem; color:var(--ink-faint); }
+
+.map-search-row { display:flex; gap:.6rem; margin-bottom:1rem; align-items:center; }
+.map-search-input {
+  flex:1; max-width:360px; padding:.5rem .75rem;
+  border:1.5px solid var(--paper-mid); border-radius:5px;
+  background:var(--paper); color:var(--ink);
+  font-family:'JetBrains Mono',monospace; font-size:.85rem;
+  outline:none; transition:border-color .15s;
+}
+.map-search-input:focus { border-color:var(--bjp); }
+.map-search-input::placeholder { color:var(--ink-faint); }
+.map-search-clear {
+  padding:.5rem .75rem; border:1.5px solid var(--paper-mid); border-radius:5px;
+  background:var(--paper-dark); color:var(--ink-faint);
+  font-family:'JetBrains Mono',monospace; font-size:.8rem;
+  cursor:pointer; transition:background .15s, color .15s;
+}
+.map-search-clear:hover { background:var(--paper-mid); color:var(--ink); }
+.map-search-hint { font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--ink-faint); }
+
+.map-grid-container { position:relative; margin-bottom:1.5rem; }
+.map-seat-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(20px, 1fr));
+  gap:2px; width:100%;
+}
+.map-seat-cell {
+  aspect-ratio:1; border-radius:3px; cursor:pointer;
+  transition:transform .12s, filter .12s, outline .1s;
+  outline:1.5px solid rgba(255,255,255,.15);
+  position:relative;
+}
+.map-seat-cell:hover {
+  transform:scale(1.4); z-index:10;
+  filter:brightness(1.15);
+  outline:2px solid rgba(255,255,255,.9);
+}
+.map-seat-cell.selected {
+  outline:2.5px solid #fff;
+  box-shadow:0 0 0 1.5px var(--ink), 0 3px 12px var(--shadow);
+  z-index:5;
+}
+.map-seat-cell.dimmed { filter:grayscale(.85) brightness(.6); opacity:.45; }
+.map-seat-cell.search-match { outline:2.5px solid var(--ink); z-index:6; filter:brightness(1.1); }
+.map-seat-cell.search-no-match { filter:grayscale(.9) brightness(.55); opacity:.35; }
+
+.map-loading-state {
+  display:flex; flex-direction:column; align-items:center; gap:1rem;
+  padding:4rem 0; color:var(--ink-faint);
+}
+.map-spinner {
+  width:36px; height:36px;
+  border:3px solid var(--paper-mid); border-top-color:var(--bjp);
+  border-radius:50%; animation:map-spin .8s linear infinite;
+}
+@keyframes map-spin { to { transform:rotate(360deg); } }
+
+.map-seat-tooltip {
+  position:fixed; z-index:1000;
+  background:var(--ink); color:var(--paper);
+  border-radius:6px; padding:.6rem .85rem;
+  font-size:.82rem; line-height:1.4;
+  pointer-events:none; opacity:0; transition:opacity .1s;
+  max-width:220px; box-shadow:0 4px 16px rgba(0,0,0,.25);
+}
+.map-seat-tooltip.visible { opacity:1; }
+.map-tooltip-name { font-weight:700; font-size:.88rem; margin-bottom:.15rem; }
+.map-tooltip-winner { color:rgba(255,255,255,.8); margin-bottom:.1rem; }
+.map-tooltip-party {
+  display:inline-block; font-family:'JetBrains Mono',monospace;
+  font-size:.72rem; font-weight:600; letter-spacing:.05em;
+  padding:.1rem .35rem; border-radius:3px; margin-top:.2rem;
+}
+.map-tooltip-margin {
+  margin-top:.25rem; font-family:'JetBrains Mono',monospace;
+  font-size:.75rem; color:rgba(255,255,255,.65);
+}
+
+.map-detail-panel {
+  background:var(--paper); border:1.5px solid var(--paper-mid); border-radius:8px;
+  padding:1.5rem; margin-bottom:2rem;
+  max-height:0; overflow:hidden;
+  transition:max-height .35s cubic-bezier(.4,0,.2,1), padding .25s, border-color .25s;
+}
+.map-detail-panel.open { max-height:500px; border-color:var(--paper-mid); }
+.map-detail-panel-inner { display:none; }
+.map-detail-panel.open .map-detail-panel-inner { display:block; }
+.map-detail-ac {
+  font-family:'JetBrains Mono',monospace; font-size:.7rem;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-faint); margin-bottom:.4rem;
+}
+.map-detail-name { font-size:1.6rem; font-weight:700; letter-spacing:-.02em; margin-bottom:.3rem; }
+.map-detail-party-badge {
+  display:inline-block; font-family:'JetBrains Mono',monospace;
+  font-size:.78rem; font-weight:700; letter-spacing:.06em;
+  padding:.25rem .6rem; border-radius:4px; color:#fff; margin-bottom:1rem;
+}
+.map-detail-grid {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+  gap:1rem; margin-bottom:1.25rem;
+}
+.map-detail-field label {
+  display:block; font-family:'JetBrains Mono',monospace; font-size:.65rem;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:.2rem;
+}
+.map-detail-field span { font-size:1rem; font-weight:600; }
+.map-detail-actions { display:flex; gap:.6rem; flex-wrap:wrap; }
+.map-detail-btn {
+  padding:.45rem .9rem; border-radius:5px;
+  font-family:'JetBrains Mono',monospace; font-size:.78rem; font-weight:600;
+  cursor:pointer; text-decoration:none;
+  border:1.5px solid var(--paper-mid); background:var(--paper-dark); color:var(--ink);
+  transition:background .15s, border-color .15s;
+}
+.map-detail-btn:hover { background:var(--paper-mid); }
+.map-detail-btn.close-btn { color:var(--ink-faint); }
+.map-detail-verified {
+  display:inline-block; margin-left:.5rem;
+  font-family:'JetBrains Mono',monospace; font-size:.65rem;
+  letter-spacing:.07em; padding:.15rem .4rem; border-radius:3px;
+}
+.map-detail-verified.yes { background:#d4edda; color:#155724; }
+.map-detail-verified.no { background:#fff3cd; color:#856404; }
+[data-theme="dark"] .map-detail-verified.yes { background:#1a3d24; color:#7fd8a0; }
+[data-theme="dark"] .map-detail-verified.no { background:#3d2e00; color:#f5c842; }
+
+.map-district-section { margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--paper-mid); }
+.map-section-heading {
+  font-family:'JetBrains Mono',monospace; font-size:.7rem;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:1rem;
+}
+.map-district-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:.5rem; }
+.map-district-row { display:flex; align-items:center; gap:.5rem; font-size:.85rem; padding:.3rem 0; }
+.map-district-name { flex:1; color:var(--ink); font-weight:500; }
+.map-district-bar-wrap {
+  width:80px; height:8px; background:var(--paper-mid); border-radius:4px; overflow:hidden; display:flex;
+}
+.map-district-bar-seg { height:100%; transition:width .4s; }
+.map-district-counts { font-family:'JetBrains Mono',monospace; font-size:.68rem; color:var(--ink-faint); white-space:nowrap; }
+
+@media(max-width:600px) {
+  .map-seat-grid { grid-template-columns:repeat(auto-fill, minmax(12px, 1fr)); gap:1px; }
+  .map-stat-value { font-size:1.15rem; }
+  .map-search-input { max-width:100%; }
+  .map-detail-name { font-size:1.25rem; }
+}
+@media(max-width:400px) {
+  .map-seat-grid { grid-template-columns:repeat(auto-fill, minmax(9px, 1fr)); gap:1px; }
+  .map-seat-cell { border-radius:2px; }
+}
+
 /* ── RESPONSIVE ── */
 @media(max-width:700px) {
   .container { padding:0 16px; }
@@ -503,33 +715,52 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
   <div class="site-nav-inner">
     <a href="/" class="site-nav-brand">The Bengal Reader</a>
     <div class="site-nav-links">
-      <a href="/" class="site-nav-link">Voter Guide</a>
-      <a href="/parties" class="site-nav-link">Party Compass</a>
-      <a href="/constituencies" class="site-nav-link active">2026 Results</a>
-      <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
-      <a href="/accountability" class="site-nav-link">100 Days</a>
-      <a href="/corruption" class="site-nav-link">Dossier</a>
-      <a href="/bonds" class="site-nav-link">Money Trail</a>
-      <a href="/mlas" class="site-nav-link">MLA Records</a>
+      <a href="/" class="site-nav-link">Home</a>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">Bengal Election 2026</summary>
+        <div class="site-nav-dropdown">
+          <a href="/parties" class="site-nav-link">Party Compass</a>
+          <a href="/constituencies" class="site-nav-link">2026 Results</a>
+          <a href="/mlas" class="site-nav-link">MLA Records</a>
+          <a href="/assets" class="site-nav-link">Wealth Growth</a>
+          <a href="/accountability" class="site-nav-link">100 Days</a>
+          <a href="/corruption" class="site-nav-link">Dossier</a>
+          <a href="/bonds" class="site-nav-link">Money Trail</a>
           <a href="/nota-reform" class="site-nav-link">NOTA Reform</a>
           <a href="/clean-candidates" class="site-nav-link">Clean Slate</a>
-      <a href="/india-development" class="site-nav-link">India's Story</a>
-      <a href="/india-china" class="site-nav-link">India vs China</a>
-      <a href="/india-governance" class="site-nav-link">Performance OS</a>
-      <a href="/india-disadvantage-index" class="site-nav-link">Disadvantage Index</a>
-      <a href="/friction-engine" class="site-nav-link">Friction Engine</a>
+          <a href="/compare" class="site-nav-link">Compare MLAs</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">India Analysis</summary>
+        <div class="site-nav-dropdown">
+          <a href="/india-development" class="site-nav-link">India's Story</a>
+          <a href="/india-china" class="site-nav-link">India vs China</a>
+          <a href="/india-disadvantage-index" class="site-nav-link">Disadvantage Index</a>
           <a href="/education" class="site-nav-link">Education Gap</a>
-          <a href="/cjp" class="site-nav-link">CJP</a>
-          <a href="/cjp-projects" class="site-nav-link">Swarm Projects</a>
-          <a href="/swarm-audit" class="site-nav-link">SwarmAudit</a>
-          <a href="/rti-swarm" class="site-nav-link">RTI Swarm</a>
-          <a href="/skill-guild" class="site-nav-link">Skill Guild</a>
+          <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
           <a href="/governance-deficit" class="site-nav-link">Governance Gap</a>
           <a href="/exit-door" class="site-nav-link">Exit Door</a>
-      <a href="/ask" class="site-nav-link">Ask AI</a>
-      <a href="/map" class="site-nav-link">Map</a>
-      <a href="/assets" class="site-nav-link">Wealth Growth</a>
-      <a href="/methodology" class="site-nav-link">Methodology</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">Civic Tech Lab</summary>
+        <div class="site-nav-dropdown">
+          <a href="/civic-lab" class="site-nav-link">Civic Lab</a>
+          <a href="/civic-demos" class="site-nav-link">Live Demos</a>
+          <a href="/friction-engine" class="site-nav-link">Friction Engine</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">About &amp; Transparency</summary>
+        <div class="site-nav-dropdown">
+          <a href="/methodology" class="site-nav-link">Methodology</a>
+          <a href="/rti" class="site-nav-link">RTI Tracker</a>
+          <a href="/corrections" class="site-nav-link">Corrections</a>
+          <a href="/search" class="site-nav-link">Search</a>
+          <a href="/ask" class="site-nav-link">Ask AI</a>
+        </div>
+      </details>
     </div>
   </div>
 </nav>
@@ -542,12 +773,12 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
     <div class="banner-label">⚡ West Bengal Assembly Election 2026 · Results declared 4 May 2026 · 293/294 seats</div>
     <div class="banner-stats">
       <div class="banner-stat">
-        <div id="banner-bjp-seats" class="banner-num" style="color:var(--bjp)">207</div>
-        <div id="banner-bjp-share" class="banner-sub" style="color:var(--bjp);opacity:.7">BJP · 45.84% · ⅔ majority</div>
+        <div id="banner-bjp-seats" class="banner-num" style="color:var(--bjp)">206</div>
+        <div id="banner-bjp-share" class="banner-sub" style="color:var(--bjp);opacity:.7">BJP · 45.13% · ⅔ majority</div>
       </div>
       <div class="banner-stat">
         <div id="banner-tmc-seats" class="banner-num" style="color:rgba(244,241,234,.5)">80</div>
-        <div id="banner-tmc-share" class="banner-sub" style="color:rgba(244,241,234,.35)">TMC · 41.08%</div>
+        <div id="banner-tmc-share" class="banner-sub" style="color:rgba(244,241,234,.35)">TMC · 40.97%</div>
       </div>
       <div class="banner-stat">
         <div class="banner-num" style="color:rgba(244,241,234,.35)">2</div>
@@ -592,13 +823,44 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
   </div>
 </div>
 
+<!-- VIEW TOGGLE -->
+<div class="view-toggle-bar">
+  <div class="container">
+    <div class="view-tabs" role="tablist" aria-label="Results view">
+      <button
+        class="view-tab active"
+        id="tab-list"
+        role="tab"
+        aria-selected="true"
+        aria-controls="listView"
+        onclick="setResultsView('list', this)"
+      >
+        List View
+      </button>
+      <button
+        class="view-tab"
+        id="tab-map"
+        role="tab"
+        aria-selected="false"
+        aria-controls="mapView"
+        onclick="setResultsView('map', this)"
+      >
+        Map View
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- LIST VIEW -->
+<div class="view-content active" id="listView" role="tabpanel" aria-labelledby="tab-list">
+
 <!-- SEAT GRID -->
 <div class="seat-grid-section">
   <div class="container">
     <div class="seat-grid-head">
       <span>294 Seats · Each square = one constituency · Click to filter table</span>
       <span class="seat-legend">
-        <span class="leg-item"><span class="leg-swatch" style="background:var(--bjp)"></span>BJP 207</span>
+        <span class="leg-item"><span class="leg-swatch" style="background:var(--bjp)"></span>BJP 206</span>
         <span class="leg-item"><span class="leg-swatch" style="background:var(--tmc)"></span>TMC 80</span>
         <span class="leg-item"><span class="leg-swatch" style="background:var(--inc)"></span>INC 2</span>
         <span class="leg-item"><span class="leg-swatch" style="background:var(--cpim)"></span>LF 1</span>
@@ -669,9 +931,8 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
 <div class="container" style="padding-top:24px; padding-bottom:8px;">
   <div class="data-notice">
     <p>
-      Showing <strong id="verifiedCount">31</strong> verified results with confirmed candidate names from ECI/national news sources (May 4–8, 2026).
-      Additional seats show party attribution based on district-level news reporting.
-      One constituency (Falta, South 24 Parganas) pending repoll on 21 May 2026.
+      All <strong id="verifiedCount">294</strong> of 294 seats are verified with confirmed candidate names from ECI/national news sources (May 4–8, 2026).
+      One constituency (Falta, South 24 Parganas) had a pending repoll on 21 May 2026.
       &nbsp;·&nbsp; Full official data: <a href="https://results.eci.gov.in/ResultAcGenMay2026/" target="_blank" rel="noopener">results.eci.gov.in</a>
     </p>
   </div>
@@ -719,7 +980,90 @@ input:focus,select:focus{box-shadow:0 0 0 3px rgba(107,95,78,.13);outline:none}
       DATA: Constituency results sourced from ECI official results portal (results.eci.gov.in), Republic World, India TV News, Business Today, Zee News, and BusinessToday live results (4–8 May 2026).
       Candidate names shown only where confirmed by at least one named source. Party attribution for remaining seats based on district-level reporting.
       One seat (Falta, South 24 Parganas) pending repoll on 21 May 2026 — excluded from totals.
-      Aggregate: BJP 207 seats/45.84% · TMC 80 seats/41.08% · INC 2 seats/2.97% · Left Front 1 seat/4.45% · Others 3 seats/5.05%.
+      Aggregate: BJP 206 seats/45.13% · TMC 80 seats/40.97% · INC 2 seats/2.97% · Left Front 1 seat/4.45% · Others 3 seats/5.05%
+      (seat-by-seat breakdown beyond BJP/TMC is provisional, pending full ECI verification).
+    </div>
+  </div>
+</div>
+
+</div><!-- /#listView -->
+
+<!-- MAP VIEW (ported from map.html cartogram) -->
+<div class="view-content" id="mapView" role="tabpanel" aria-labelledby="tab-map" hidden>
+  <div class="container map-view-page">
+    <p class="map-subtext">
+      294 assembly seats coloured by winning party. Click any seat for details — uses the same dataset as List View.
+    </p>
+
+    <!-- Map stats strip -->
+    <div class="map-stats-strip" id="mapStatsStrip">
+      <div class="map-stat-cell">
+        <div class="map-stat-label">Seats counted</div>
+        <div class="map-stat-value" id="mapStatTotal">—</div>
+        <div class="map-stat-sub">of 294</div>
+      </div>
+      <div class="map-stat-cell">
+        <div class="map-stat-label">Largest margin</div>
+        <div class="map-stat-value" id="mapStatMaxMargin">—</div>
+        <div class="map-stat-sub" id="mapStatMaxSeat"></div>
+      </div>
+      <div class="map-stat-cell">
+        <div class="map-stat-label">Closest contest</div>
+        <div class="map-stat-value" id="mapStatMinMargin">—</div>
+        <div class="map-stat-sub" id="mapStatMinSeat"></div>
+      </div>
+      <div class="map-stat-cell">
+        <div class="map-stat-label">BJP seats</div>
+        <div class="map-stat-value" id="mapStatBjp" style="color:var(--bjp)">—</div>
+        <div class="map-stat-sub" id="mapStatBjpPct"></div>
+      </div>
+      <div class="map-stat-cell">
+        <div class="map-stat-label">TMC seats</div>
+        <div class="map-stat-value" id="mapStatTmc" style="color:var(--tmc)">—</div>
+        <div class="map-stat-sub" id="mapStatTmcPct"></div>
+      </div>
+    </div>
+
+    <!-- Map legend -->
+    <div class="map-legend-bar" id="mapLegendBar" role="group" aria-label="Party filter legend">
+      <span class="map-legend-label">Filter:</span>
+    </div>
+
+    <!-- Map search -->
+    <div class="map-search-row">
+      <input
+        type="search"
+        class="map-search-input"
+        id="mapSearchInput"
+        placeholder="Search constituency or winner…"
+        aria-label="Search constituencies on map"
+      />
+      <button class="map-search-clear" id="mapSearchClear" aria-label="Clear map search">Clear</button>
+      <span class="map-search-hint" id="mapSearchHint" aria-live="polite"></span>
+    </div>
+
+    <!-- Map detail panel (above grid so it scrolls naturally) -->
+    <div class="map-detail-panel" id="mapDetailPanel" role="region" aria-label="Constituency details" aria-live="polite">
+      <div class="map-detail-panel-inner" id="mapDetailInner"></div>
+    </div>
+
+    <!-- Map grid -->
+    <div class="map-grid-container">
+      <div class="map-seat-grid" id="mapSeatGrid" role="grid" aria-label="Constituency grid map">
+        <div class="map-loading-state" id="mapLoadingState">
+          <div class="map-spinner" role="status" aria-label="Loading constituency data"></div>
+          <span>Loading 294 seats…</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map tooltip -->
+    <div class="map-seat-tooltip" id="mapSeatTooltip" role="tooltip" aria-hidden="true"></div>
+
+    <!-- Map district breakdown -->
+    <div class="map-district-section" id="mapDistrictSection" style="display:none">
+      <div class="map-section-heading">District breakdown</div>
+      <div class="map-district-grid" id="mapDistrictGrid"></div>
     </div>
   </div>
 </div>
@@ -748,6 +1092,34 @@ let DISTRICTS = [];
 // ── FILTER STATE ──
 let activeParty = 'all';
 let activeDistrict = 'all';
+
+// ── VIEW TOGGLE (List / Map) ──
+let mapInitialised = false;
+
+function setResultsView(view, btn) {
+  document.querySelectorAll('.view-tab').forEach(t => {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+  });
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
+
+  const listView = document.getElementById('listView');
+  const mapView  = document.getElementById('mapView');
+  const showMap  = view === 'map';
+
+  listView.classList.toggle('active', !showMap);
+  mapView.classList.toggle('active', showMap);
+  listView.hidden = showMap;
+  mapView.hidden  = !showMap;
+
+  if (showMap && !mapInitialised && RESULTS.length) {
+    initMapView(RESULTS);
+    mapInitialised = true;
+  }
+
+  if (window.trackEvent) window.trackEvent('results_view_toggle', { view });
+}
 
 function setParty(party, btn) {
   activeParty = party;
@@ -904,6 +1276,395 @@ function filterToSeat(name) {
   document.querySelector('.controls-bar').scrollIntoView({behavior:'smooth'});
 }
 
+// ── MAP VIEW (ported from map.html cartogram) ────────────────────────────────
+const MAP_PARTY_COLORS = {
+  BJP: '#e8640a',
+  AITC: '#1a7a3c',
+  TMC: '#1a7a3c',
+  INC: '#0074d9',
+  CPIM: '#cc0000',
+  CPM: '#cc0000',
+  'CPI(M)': '#cc0000',
+  ISF: '#8b2be2',
+  IND: '#888888',
+  Independent: '#888888',
+};
+
+const MAP_PARTY_DISPLAY = {
+  BJP: 'BJP',
+  AITC: 'TMC',
+  TMC: 'TMC',
+  INC: 'INC',
+  CPIM: 'CPIM',
+  CPM: 'CPIM',
+  'CPI(M)': 'CPIM',
+  ISF: 'ISF',
+  IND: 'IND',
+  Independent: 'IND',
+};
+
+let mapActiveParty = null; // legend filter
+let mapActiveAc = null; // selected cell
+let mapSearchTerm = '';
+
+function escHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+// Normalise party key for display / grouping
+function mapNormParty(p) {
+  return MAP_PARTY_DISPLAY[p] || (p ? p.split(' ')[0].toUpperCase() : 'OTHER');
+}
+
+function mapGetColor(party) {
+  if (!party) return '#888';
+  if (MAP_PARTY_COLORS[party]) return MAP_PARTY_COLORS[party];
+  const first = party.split(' ')[0];
+  if (MAP_PARTY_COLORS[first]) return MAP_PARTY_COLORS[first];
+  return '#555';
+}
+
+// ── MAP TOOLTIP ──
+function mapShowTooltip(e, seat) {
+  const tooltip = document.getElementById('mapSeatTooltip');
+  const margin = seat.margin != null ? seat.margin.toLocaleString('en-IN') : null;
+  const color = mapGetColor(seat.winParty);
+  tooltip.innerHTML = `
+    <div class="map-tooltip-name">AC ${seat.ac} &mdash; ${escHtml(seat.name)}</div>
+    <div class="map-tooltip-winner">${escHtml(seat.winner || 'Unknown')}</div>
+    <span class="map-tooltip-party" style="background:${color}">${escHtml(mapNormParty(seat.winParty))}</span>
+    ${margin ? `<div class="map-tooltip-margin">Margin: ${margin}</div>` : ''}
+  `;
+  mapPositionTooltip(e);
+  tooltip.classList.add('visible');
+  tooltip.removeAttribute('aria-hidden');
+}
+
+function mapPositionTooltip(e) {
+  const tooltip = document.getElementById('mapSeatTooltip');
+  const TW = 230, TH = 90;
+  let x = e.clientX + 14;
+  let y = e.clientY - 20;
+  if (x + TW > window.innerWidth - 8) x = e.clientX - TW - 14;
+  if (y + TH > window.innerHeight - 8) y = e.clientY - TH - 8;
+  tooltip.style.left = x + 'px';
+  tooltip.style.top = y + 'px';
+}
+
+function mapHideTooltip() {
+  const tooltip = document.getElementById('mapSeatTooltip');
+  tooltip.classList.remove('visible');
+  tooltip.setAttribute('aria-hidden', 'true');
+}
+
+// ── MAP DETAIL PANEL ──
+function mapOpenDetail(seat) {
+  mapActiveAc = seat.ac;
+  mapUpdateCellStates();
+  const detailPanel = document.getElementById('mapDetailPanel');
+  const detailInner = document.getElementById('mapDetailInner');
+  const color = mapGetColor(seat.winParty);
+  const margin = seat.margin != null ? seat.margin.toLocaleString('en-IN') : 'Awaited';
+  const verified = seat.verified;
+  detailInner.innerHTML = `
+    <div class="map-detail-ac">Assembly Constituency #${seat.ac} &mdash; ${escHtml(seat.district || 'West Bengal')}</div>
+    <div class="map-detail-name">${escHtml(seat.name)}</div>
+    <span class="map-detail-party-badge" style="background:${color}">${escHtml(mapNormParty(seat.winParty))}</span>
+    <div class="map-detail-grid">
+      <div class="map-detail-field">
+        <label>Winner</label>
+        <span>${escHtml(seat.winner || 'Unknown')}</span>
+      </div>
+      <div class="map-detail-field">
+        <label>Runner-up</label>
+        <span>${escHtml(seat.loser || '—')}</span>
+      </div>
+      <div class="map-detail-field">
+        <label>Runner-up party</label>
+        <span>${escHtml(mapNormParty(seat.loseParty) || '—')}</span>
+      </div>
+      <div class="map-detail-field">
+        <label>Winning margin</label>
+        <span style="font-family:'JetBrains Mono',monospace">${margin}</span>
+      </div>
+      <div class="map-detail-field">
+        <label>Verified</label>
+        <span>
+          <span class="map-detail-verified ${verified ? 'yes' : 'no'}">${verified ? 'VERIFIED' : 'PENDING'}</span>
+        </span>
+      </div>
+      ${seat.note ? `<div class="map-detail-field" style="grid-column:1/-1"><label>Note</label><span style="font-size:.88rem">${escHtml(seat.note)}</span></div>` : ''}
+    </div>
+    <div class="map-detail-actions">
+      <a href="/mlas" class="map-detail-btn">MLA Records &rarr;</a>
+      <button class="map-detail-btn" onclick="filterToSeat('${seat.name.replace(/'/g, "\\'")}'); setResultsView('list', document.getElementById('tab-list'))">View in List &rarr;</button>
+      <button class="map-detail-btn close-btn" onclick="mapCloseDetail()">Close &times;</button>
+    </div>
+  `;
+  detailPanel.classList.add('open');
+  requestAnimationFrame(() => {
+    detailPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+}
+
+function mapCloseDetail() {
+  mapActiveAc = null;
+  document.getElementById('mapDetailPanel').classList.remove('open');
+  mapUpdateCellStates();
+}
+
+// ── MAP CELL STATE UPDATE ──
+function mapUpdateCellStates() {
+  const cells = document.querySelectorAll('.map-seat-cell');
+  cells.forEach((cell) => {
+    const ac = parseInt(cell.dataset.ac, 10);
+    const party = cell.dataset.party;
+    const norm = mapNormParty(party);
+    const name = cell.dataset.name || '';
+    const winner = cell.dataset.winner || '';
+
+    cell.classList.remove('dimmed', 'selected', 'search-match', 'search-no-match');
+
+    if (mapActiveParty && norm !== mapActiveParty) {
+      cell.classList.add('dimmed');
+    }
+
+    if (mapSearchTerm) {
+      const q = mapSearchTerm.toLowerCase();
+      const matches = name.toLowerCase().includes(q) || winner.toLowerCase().includes(q);
+      if (matches) {
+        cell.classList.add('search-match');
+        cell.classList.remove('dimmed');
+      } else {
+        cell.classList.add('search-no-match');
+      }
+    }
+
+    if (ac === mapActiveAc) {
+      cell.classList.add('selected');
+      cell.classList.remove('dimmed', 'search-no-match');
+    }
+  });
+}
+
+// ── MAP LEGEND ──
+function buildMapLegend(seats) {
+  const counts = {};
+  seats.forEach((s) => {
+    const norm = mapNormParty(s.winParty);
+    counts[norm] = (counts[norm] || 0) + 1;
+  });
+
+  const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+
+  const bar = document.getElementById('mapLegendBar');
+  sorted.forEach(([norm, count]) => {
+    const raw = Object.keys(MAP_PARTY_DISPLAY).find((k) => MAP_PARTY_DISPLAY[k] === norm) || norm;
+    const color = mapGetColor(raw) || mapGetColor(norm);
+
+    const item = document.createElement('div');
+    item.className = 'map-legend-item';
+    item.setAttribute('role', 'button');
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('aria-label', `Filter by ${norm}, ${count} seats`);
+    item.dataset.party = norm;
+    item.innerHTML = `
+      <span class="map-legend-swatch" style="background:${color}"></span>
+      <span class="map-legend-name">${escHtml(norm)}</span>
+      <span class="map-legend-count">${count}</span>
+    `;
+    item.addEventListener('click', () => toggleMapLegend(norm, item));
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMapLegend(norm, item); }
+    });
+    bar.appendChild(item);
+  });
+}
+
+function toggleMapLegend(party, item) {
+  const items = document.querySelectorAll('.map-legend-item');
+  if (mapActiveParty === party) {
+    mapActiveParty = null;
+    items.forEach((i) => { i.classList.remove('active', 'dimmed'); });
+  } else {
+    mapActiveParty = party;
+    items.forEach((i) => {
+      if (i.dataset.party === party) {
+        i.classList.add('active');
+        i.classList.remove('dimmed');
+      } else {
+        i.classList.remove('active');
+        i.classList.add('dimmed');
+      }
+    });
+  }
+  mapUpdateCellStates();
+}
+
+// ── MAP STATS ──
+function buildMapStats(seats) {
+  const counted = seats.filter((s) => s.winner).length;
+  document.getElementById('mapStatTotal').textContent = counted;
+
+  const withMargin = seats.filter((s) => s.margin != null && s.margin > 0);
+  if (withMargin.length) {
+    const maxS = withMargin.reduce((a, b) => (b.margin > a.margin ? b : a));
+    const minS = withMargin.reduce((a, b) => (b.margin < a.margin ? b : a));
+    document.getElementById('mapStatMaxMargin').textContent = maxS.margin.toLocaleString('en-IN');
+    document.getElementById('mapStatMaxSeat').textContent = maxS.name;
+    document.getElementById('mapStatMinMargin').textContent = minS.margin.toLocaleString('en-IN');
+    document.getElementById('mapStatMinSeat').textContent = minS.name;
+  }
+
+  const bjpCount = seats.filter((s) => mapNormParty(s.winParty) === 'BJP').length;
+  const tmcCount = seats.filter((s) => mapNormParty(s.winParty) === 'TMC').length;
+  const total = seats.length;
+  document.getElementById('mapStatBjp').textContent = bjpCount;
+  document.getElementById('mapStatBjpPct').textContent = `${((bjpCount / total) * 100).toFixed(1)}%`;
+  document.getElementById('mapStatTmc').textContent = tmcCount;
+  document.getElementById('mapStatTmcPct').textContent = `${((tmcCount / total) * 100).toFixed(1)}%`;
+}
+
+// ── MAP DISTRICT BREAKDOWN ──
+function buildMapDistricts(seats) {
+  const distMap = {};
+  seats.forEach((s) => {
+    const d = s.district || 'Unknown';
+    if (!distMap[d]) distMap[d] = {};
+    const norm = mapNormParty(s.winParty);
+    distMap[d][norm] = (distMap[d][norm] || 0) + 1;
+  });
+
+  const sorted = Object.entries(distMap).sort((a, b) => a[0].localeCompare(b[0]));
+  const grid = document.getElementById('mapDistrictGrid');
+  grid.innerHTML = '';
+
+  sorted.forEach(([dist, partyCounts]) => {
+    const total = Object.values(partyCounts).reduce((a, b) => a + b, 0);
+    const partyEntries = Object.entries(partyCounts).sort((a, b) => b[1] - a[1]);
+
+    const countStr = partyEntries.map(([p, c]) => `${p} ${c}`).join(' · ');
+
+    const barSegs = partyEntries
+      .map(([p, c]) => {
+        const raw = Object.keys(MAP_PARTY_DISPLAY).find((k) => MAP_PARTY_DISPLAY[k] === p) || p;
+        const col = mapGetColor(raw) || '#888';
+        const pct = ((c / total) * 100).toFixed(1);
+        return `<span class="map-district-bar-seg" style="width:${pct}%;background:${col}"></span>`;
+      })
+      .join('');
+
+    const row = document.createElement('div');
+    row.className = 'map-district-row';
+    row.innerHTML = `
+      <span class="map-district-name">${escHtml(dist)}</span>
+      <span class="map-district-bar-wrap">${barSegs}</span>
+      <span class="map-district-counts">${escHtml(countStr)}</span>
+    `;
+    grid.appendChild(row);
+  });
+
+  document.getElementById('mapDistrictSection').style.display = '';
+}
+
+// ── MAP GRID BUILD ──
+function buildMapGrid(seats) {
+  const grid = document.getElementById('mapSeatGrid');
+  grid.innerHTML = ''; // remove loading spinner
+
+  const maxAc = 294;
+  const seatMap = {};
+  seats.forEach((s) => { seatMap[s.ac] = s; });
+
+  for (let ac = 1; ac <= maxAc; ac++) {
+    const seat = seatMap[ac];
+    const cell = document.createElement('div');
+    cell.className = 'map-seat-cell';
+    cell.setAttribute('role', 'gridcell');
+
+    if (seat) {
+      const color = mapGetColor(seat.winParty);
+      cell.style.backgroundColor = color;
+      cell.dataset.ac = seat.ac;
+      cell.dataset.party = seat.winParty || '';
+      cell.dataset.name = seat.name || '';
+      cell.dataset.winner = seat.winner || '';
+      cell.setAttribute(
+        'aria-label',
+        `AC ${seat.ac} ${seat.name} — ${seat.winner || 'Unknown'} (${mapNormParty(seat.winParty)})`
+      );
+      cell.setAttribute('tabindex', '0');
+
+      cell.addEventListener('mouseenter', (e) => { mapShowTooltip(e, seat); });
+      cell.addEventListener('mousemove', mapPositionTooltip);
+      cell.addEventListener('mouseleave', mapHideTooltip);
+
+      cell.addEventListener('click', () => {
+        if (mapActiveAc === seat.ac) mapCloseDetail();
+        else mapOpenDetail(seat);
+      });
+
+      cell.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          if (mapActiveAc === seat.ac) mapCloseDetail();
+          else mapOpenDetail(seat);
+        }
+      });
+    } else {
+      cell.style.backgroundColor = 'transparent';
+      cell.style.outline = 'none';
+      cell.setAttribute('aria-hidden', 'true');
+      cell.style.pointerEvents = 'none';
+    }
+
+    grid.appendChild(cell);
+  }
+}
+
+// ── MAP SEARCH ──
+function mapSetupSearch() {
+  const searchInput = document.getElementById('mapSearchInput');
+  const searchClear = document.getElementById('mapSearchClear');
+  const searchHint  = document.getElementById('mapSearchHint');
+
+  searchInput.addEventListener('input', () => {
+    mapSearchTerm = searchInput.value.trim();
+    if (mapSearchTerm) {
+      const q = mapSearchTerm.toLowerCase();
+      const matches = RESULTS.filter(
+        (s) => (s.name || '').toLowerCase().includes(q) || (s.winner || '').toLowerCase().includes(q)
+      ).length;
+      searchHint.textContent = `${matches} seat${matches !== 1 ? 's' : ''} matched`;
+    } else {
+      searchHint.textContent = '';
+    }
+    mapUpdateCellStates();
+  });
+
+  searchClear.addEventListener('click', () => {
+    searchInput.value = '';
+    mapSearchTerm = '';
+    searchHint.textContent = '';
+    mapUpdateCellStates();
+  });
+}
+
+// ── MAP INIT — uses the shared RESULTS dataset, called on first switch to Map View ──
+function initMapView(seats) {
+  const sorted = [...seats].sort((a, b) => a.ac - b.ac);
+  buildMapGrid(sorted);
+  buildMapLegend(sorted);
+  buildMapStats(sorted);
+  buildMapDistricts(sorted);
+  mapSetupSearch();
+}
+
 // ── DATA-DRIVEN UPDATES ──────────────────────────────────────────────────────
 // Load constituencies.json and meta.json, then initialise all renderers
 (async function init() {
@@ -926,6 +1687,13 @@ function filterToSeat(name) {
   const verified = RESULTS.filter(r => r.verified).length;
   document.getElementById('verifiedCount').textContent = verified;
   handleConstHash();
+
+  // If Map View is already the active tab (e.g. restored state), initialise it now
+  const mapTab = document.getElementById('tab-map');
+  if (mapTab && mapTab.classList.contains('active') && RESULTS.length && !mapInitialised) {
+    initMapView(RESULTS);
+    mapInitialised = true;
+  }
 
   // 3. Load meta.json to update banner stats
   try {
