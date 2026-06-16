@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="India's 2024 General Election results — complete Lok Sabha seat counts, vote shares, and coalition breakdown. BJP wins 240 seats; NDA forms government with 293-seat coalition.">
+  <meta property="og:title" content="Lok Sabha 2024 — The Bengal Reader">
+  <meta property="og:description" content="India's 2024 General Election results: BJP 240 seats / 36.56%, INC 99 seats / 21.19%. NDA forms government with 293 seats.">
+  <meta property="og:image" content="/og-voter-guide.svg">
+  <title>The Bengal Reader — Lok Sabha 2024</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/shared.css">
+  <script defer src="/analytics.js"></script>
+  <script defer src="/shared.js"></script>
+  <style>
+    :root {
+      --paper: #f4f1ea;
+      --ink: #1a1714;
+      --ink2: #4a3f35;
+      --ink3: #7a6a5a;
+      --rule: #d8d0c4;
+      --saffron: #e8640a;
+      --nda: #e8640a;
+      --india-a: #1565c0;
+      --sp-col: #e11d48;
+      --tmc-col: #1a7a3c;
+      --card-bg: #ede9e0;
+      --muted: #8a7d6e;
+    }
+    [data-theme="dark"] {
+      --paper: #141210;
+      --ink: #f0ece3;
+      --ink2: #c8bfb0;
+      --ink3: #8a7d6e;
+      --rule: #2a2420;
+      --card-bg: #1e1a16;
+      --muted: #6a5f50;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--paper); color: var(--ink); font-family: Georgia, serif; line-height: 1.6; }
+
+    /* HERO */
+    .ls-hero {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 3rem 1.5rem 2.5rem;
+    }
+    .ls-hero-inner { max-width: 900px; margin: 0 auto; }
+    .ls-kicker {
+      font-family: 'Courier New', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 1rem;
+    }
+    .ls-hero h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .ls-hero h1 em { font-style: normal; color: var(--saffron); }
+    .ls-deck {
+      font-size: 1rem;
+      color: rgba(240,236,227,0.65);
+      max-width: 680px;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* COALITION BAR */
+    .coalition-bar-wrap { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .coalition-label-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.4rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .coalition-bar {
+      display: flex;
+      height: 28px;
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+    }
+    .coalition-seg { height: 100%; transition: width 0.6s ease; }
+    .coalition-majority-line {
+      position: relative;
+      margin-top: 0.3rem;
+    }
+    .coalition-majority-line::before {
+      content: '';
+      position: absolute;
+      top: -34px;
+      left: calc(272/543 * 100%);
+      height: 34px;
+      width: 1px;
+      background: rgba(255,255,255,0.4);
+    }
+    .coalition-majority-label {
+      position: absolute;
+      top: 2px;
+      left: calc(272/543 * 100% + 4px);
+      font-family: 'Courier New', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+      white-space: nowrap;
+    }
+    .coalition-legend {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+    }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+    /* MAIN GRID */
+    .ls-main { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+    .section-hd {
+      border-top: 2px solid var(--saffron);
+      padding-top: 1rem;
+      margin: 2.5rem 0 1.25rem;
+    }
+    .section-hd h2 { font-size: 1.25rem; margin-bottom: 0.2rem; }
+    .section-hd p { font-size: 0.85rem; color: var(--ink3); }
+
+    /* STATS STRIP */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      margin-bottom: 2rem;
+    }
+    .stat-cell {
+      background: var(--card-bg);
+      padding: 1rem 1.1rem;
+    }
+    .stat-num {
+      font-size: 1.7rem;
+      font-weight: 700;
+      font-family: 'Courier New', monospace;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+    .stat-label {
+      font-family: 'Courier New', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink3);
+    }
+
+    /* PARTY TABLE */
+    .party-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-bottom: 0.5rem; }
+    .party-table th {
+      font-family: 'Courier New', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.5rem 0.6rem;
+      text-align: left;
+      font-weight: 400;
+    }
+    .party-table th.num { text-align: right; }
+    .party-table td { padding: 0.55rem 0.6rem; border-bottom: 1px solid var(--rule); vertical-align: middle; }
+    .party-table td.num { text-align: right; font-family: 'Courier New', monospace; font-size: 0.85rem; }
+    .party-table tr:hover td { background: var(--card-bg); }
+    .party-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; flex-shrink: 0; }
+    .coalition-chip {
+      display: inline-block;
+      font-family: 'Courier New', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      padding: 1px 5px;
+      border-radius: 2px;
+    }
+    .chip-nda { background: rgba(232,100,10,0.12); color: #b84f00; }
+    .chip-india { background: rgba(21,101,192,0.12); color: #1040a0; }
+    .chip-other { background: rgba(100,116,139,0.12); color: #475569; }
+    [data-theme="dark"] .chip-nda { background: rgba(232,100,10,0.2); color: #f59050; }
+    [data-theme="dark"] .chip-india { background: rgba(21,101,192,0.2); color: #6090e0; }
+    [data-theme="dark"] .chip-other { background: rgba(100,116,139,0.2); color: #94a3b8; }
+
+    .seat-bar-wrap { width: 100px; display: inline-block; vertical-align: middle; }
+    .seat-bar {
+      height: 6px;
+      border-radius: 3px;
+      background: currentColor;
+      opacity: 0.25;
+    }
+    .seat-bar-fill {
+      height: 6px;
+      border-radius: 3px;
+      transition: width 0.4s ease;
+    }
+    .change-pos { color: #2d7a4f; font-size: 0.78rem; }
+    .change-neg { color: #c0392b; font-size: 0.78rem; }
+    .change-neu { color: var(--ink3); font-size: 0.78rem; }
+
+    /* HISTORY */
+    .history-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      margin-bottom: 1.5rem;
+    }
+    .history-cell {
+      background: var(--card-bg);
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+    .history-year {
+      font-family: 'Courier New', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--ink3);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+    .history-seats {
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: 'Courier New', monospace;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+    .history-share { font-size: 0.8rem; color: var(--ink2); }
+    .history-bar {
+      height: 5px;
+      background: var(--rule);
+      margin-top: 0.6rem;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .history-fill { height: 100%; border-radius: 3px; }
+
+    /* DISPROPORTIONALITY TABLE */
+    .disprop-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+    .disprop-table th { font-family: 'Courier New', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); border-bottom: 1px solid var(--rule); padding: 0.5rem 0.6rem; text-align: left; font-weight: 400; }
+    .disprop-table th.num, .disprop-table td.num { text-align: right; }
+    .disprop-table td { padding: 0.55rem 0.6rem; border-bottom: 1px solid var(--rule); font-family: 'Courier New', monospace; }
+
+    /* STATE STORIES */
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      margin-bottom: 1rem;
+    }
+    .state-card { background: var(--card-bg); padding: 1.1rem 1.2rem; }
+    .state-name {
+      font-family: 'Courier New', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      margin-bottom: 0.2rem;
+    }
+    .state-seats-total {
+      font-size: 0.78rem;
+      color: var(--ink2);
+      margin-bottom: 0.55rem;
+    }
+    .state-result { font-size: 0.87rem; line-height: 1.5; }
+    .state-winner { font-weight: 700; }
+    .state-note { font-size: 0.78rem; color: var(--ink3); margin-top: 0.4rem; font-style: italic; }
+
+    /* CALLOUT BOXES */
+    .callout {
+      border-left: 3px solid var(--saffron);
+      background: var(--card-bg);
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+    .callout strong { display: block; margin-bottom: 0.3rem; }
+
+    /* SOURCES */
+    .source-block {
+      border: 1px solid var(--rule);
+      padding: 1rem 1.25rem;
+      margin-top: 2rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.72rem;
+      color: var(--ink3);
+      line-height: 1.8;
+    }
+    .source-block h3 {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      color: var(--ink2);
+    }
+
+    @media (max-width: 600px) {
+      .history-grid { grid-template-columns: 1fr; }
+      .stat-strip { grid-template-columns: 1fr 1fr; }
+      .seat-bar-wrap { display: none; }
+    }
+  </style>
+</head>
+<body>
+<!-- SITE NAV -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-brand">The Bengal Reader</a>
+    <div class="site-nav-links">
+      <a href="/" class="site-nav-link">Home</a>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">Bengal Election 2026</summary>
+        <div class="site-nav-dropdown">
+          <a href="/parties" class="site-nav-link">Party Compass</a>
+          <a href="/constituencies" class="site-nav-link">2026 Results</a>
+          <a href="/mlas" class="site-nav-link">MLA Records</a>
+          <a href="/assets" class="site-nav-link">Wealth Growth</a>
+          <a href="/accountability" class="site-nav-link">100 Days</a>
+          <a href="/corruption" class="site-nav-link">Dossier</a>
+          <a href="/bonds" class="site-nav-link">Money Trail</a>
+          <a href="/nota-reform" class="site-nav-link">NOTA Reform</a>
+          <a href="/clean-candidates" class="site-nav-link">Clean Slate</a>
+          <a href="/compare" class="site-nav-link">Compare MLAs</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">India Analysis</summary>
+        <div class="site-nav-dropdown">
+          <a href="/lok-sabha" class="site-nav-link active">Lok Sabha 2024</a>
+          <a href="/india-development" class="site-nav-link">India's Story</a>
+          <a href="/india-china" class="site-nav-link">India vs China</a>
+          <a href="/india-disadvantage-index" class="site-nav-link">Disadvantage Index</a>
+          <a href="/education" class="site-nav-link">Education Gap</a>
+          <a href="/demonetisation" class="site-nav-link">Demonetisation</a>
+          <a href="/governance-deficit" class="site-nav-link">Governance Gap</a>
+          <a href="/exit-door" class="site-nav-link">Exit Door</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">Civic Tech Lab</summary>
+        <div class="site-nav-dropdown">
+          <a href="/civic-lab" class="site-nav-link">Civic Lab</a>
+          <a href="/civic-demos" class="site-nav-link">Live Demos</a>
+          <a href="/friction-engine" class="site-nav-link">Friction Engine</a>
+        </div>
+      </details>
+      <details class="site-nav-group">
+        <summary class="site-nav-group-toggle">About &amp; Transparency</summary>
+        <div class="site-nav-dropdown">
+          <a href="/methodology" class="site-nav-link">Methodology</a>
+          <a href="/rti" class="site-nav-link">RTI Tracker</a>
+          <a href="/corrections" class="site-nav-link">Corrections</a>
+          <a href="/search" class="site-nav-link">Search</a>
+          <a href="/ask" class="site-nav-link">Ask AI</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <div class="ls-hero">
+    <div class="ls-hero-inner">
+      <div class="ls-kicker">18th Lok Sabha · General Elections · Counting Day 4 June 2024</div>
+      <h1>India Votes, <em>Coalition Wins</em></h1>
+      <p class="ls-deck">
+        BJP wins 240 seats — its lowest tally since 2014 and short of an outright majority.
+        NDA crosses 272 with coalition support. INDIA Alliance doubles opposition strength.
+        For the first time in a decade, no single party commands Parliament alone.
+      </p>
+    </div>
+
+    <!-- COALITION BAR rendered in dark hero section -->
+    <div style="max-width:900px;margin:0 auto;padding:0 1.5rem;">
+      <div class="coalition-label-row">
+        <span style="color:rgba(240,236,227,0.5)">NDA — 293</span>
+        <span style="color:rgba(240,236,227,0.5)">INDIA Alliance — 232</span>
+        <span style="color:rgba(240,236,227,0.5)">Others — 18</span>
+      </div>
+      <div class="coalition-bar" style="position:relative;">
+        <div class="coalition-seg" style="width:calc(293/543*100%);background:#e8640a;"></div>
+        <div class="coalition-seg" style="width:calc(232/543*100%);background:#1565c0;"></div>
+        <div class="coalition-seg" style="width:calc(18/543*100%);background:#64748b;"></div>
+        <div style="position:absolute;top:0;left:calc(272/543*100%);width:2px;height:100%;background:rgba(255,255,255,0.8);"></div>
+      </div>
+      <div style="position:relative;height:24px;margin-top:2px;">
+        <span style="position:absolute;left:calc(272/543*100% + 4px);top:2px;font-family:'Courier New',monospace;font-size:0.6rem;letter-spacing:0.1em;color:rgba(240,236,227,0.45);">← 272 majority</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ls-main">
+
+    <!-- KEY STATS -->
+    <div class="section-hd"><h2>At a Glance</h2><p>All figures: Election Commission of India, declared results portal, June 4–5 2024.</p></div>
+    <div class="stat-strip">
+      <div class="stat-cell">
+        <div class="stat-num">543</div>
+        <div class="stat-label">Total seats</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">272</div>
+        <div class="stat-label">Majority mark</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num" style="color:var(--nda);">293</div>
+        <div class="stat-label">NDA total</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num" style="color:var(--india-a);">232</div>
+        <div class="stat-label">INDIA Alliance</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">65.79%</div>
+        <div class="stat-label">Voter turnout</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">96.88 Cr</div>
+        <div class="stat-label">Eligible voters</div>
+      </div>
+    </div>
+
+    <!-- PARTY RESULTS -->
+    <div class="section-hd">
+      <h2>Party-wise Results</h2>
+      <p>Top parties by seats won. Vote shares from ECI. Historical seats from 2019 general election.</p>
+    </div>
+    <table class="party-table" id="partyTable">
+      <thead>
+        <tr>
+          <th>Party</th>
+          <th>Coalition</th>
+          <th class="num">Seats 2024</th>
+          <th></th>
+          <th class="num">Vote share</th>
+          <th class="num">2019 seats</th>
+          <th class="num">Change</th>
+        </tr>
+      </thead>
+      <tbody id="partyTbody"></tbody>
+    </table>
+    <p style="font-size:0.75rem;color:var(--ink3);margin-top:0.4rem;font-family:'Courier New',monospace;">SS = Shiv Sena. NCP factions split in 2023 SC proceedings. "Others" includes 26 smaller parties and 7 independents.</p>
+
+    <!-- BJP TRAJECTORY -->
+    <div class="section-hd">
+      <h2>BJP Seat Trajectory: 2014 → 2019 → 2024</h2>
+      <p>BJP won an outright majority (272+) in 2014 and 2019. In 2024, it fell 32 seats short.</p>
+    </div>
+    <div class="history-grid">
+      <div class="history-cell">
+        <div class="history-year">2014</div>
+        <div class="history-seats" style="color:var(--nda);">282</div>
+        <div class="history-share">31.34% vote share</div>
+        <div class="history-bar"><div class="history-fill" style="width:calc(282/303*100%);background:var(--nda);"></div></div>
+        <div style="font-size:0.75rem;color:var(--ink3);margin-top:0.5rem;">Outright majority. Modi 1st term.</div>
+      </div>
+      <div class="history-cell">
+        <div class="history-year">2019</div>
+        <div class="history-seats" style="color:var(--nda);">303</div>
+        <div class="history-share">37.36% vote share</div>
+        <div class="history-bar"><div class="history-fill" style="width:100%;background:var(--nda);"></div></div>
+        <div style="font-size:0.75rem;color:var(--ink3);margin-top:0.5rem;">Strongest mandate. Modi 2nd term.</div>
+      </div>
+      <div class="history-cell">
+        <div class="history-year">2024</div>
+        <div class="history-seats" style="color:var(--nda);">240</div>
+        <div class="history-share">36.56% vote share</div>
+        <div class="history-bar"><div class="history-fill" style="width:calc(240/303*100%);background:var(--nda);"></div></div>
+        <div style="font-size:0.75rem;color:var(--ink3);margin-top:0.5rem;">Short of majority. Coalition needed.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>The coalition constraint.</strong>
+      BJP needs JDU (12 seats, Nitish Kumar) and TDP (16 seats, Chandrababu Naidu) to maintain its majority.
+      Both parties extracted concessions — special status demands for Bihar and Andhra Pradesh, cabinet berths,
+      and infrastructure packages — making this the most coalition-dependent government since the UPA era.
+    </div>
+
+    <!-- INC RECOVERY -->
+    <div class="section-hd">
+      <h2>INC Seat Trajectory: 2014 → 2019 → 2024</h2>
+      <p>Congress doubles its seat count from 2019, breaking a decade-long collapse.</p>
+    </div>
+    <div class="history-grid">
+      <div class="history-cell">
+        <div class="history-year">2014</div>
+        <div class="history-seats" style="color:var(--india-a);">44</div>
+        <div class="history-share">19.52% vote share</div>
+        <div class="history-bar"><div class="history-fill" style="width:calc(44/99*100%);background:var(--india-a);"></div></div>
+        <div style="font-size:0.75rem;color:var(--ink3);margin-top:0.5rem;">Worst result in party history.</div>
+      </div>
+      <div class="history-cell">
+        <div class="history-year">2019</div>
+        <div class="history-seats" style="color:var(--india-a);">52</div>
+        <div class="history-share">19.49% vote share</div>
+        <div class="history-bar"><div class="history-fill" style="width:calc(52/99*100%);background:var(--india-a);"></div></div>
+        <div style="font-size:0.75rem;color:var(--ink3);margin-top:0.5rem;">Marginal recovery. Opposition weakened.</div>
+      </div>
+      <div class="history-cell">
+        <div class="history-year">2024</div>
+        <div class="history-seats" style="color:var(--india-a);">99</div>
+        <div class="history-share">21.19% vote share</div>
+        <div class="history-bar"><div class="history-fill" style="width:100%;background:var(--india-a);"></div></div>
+        <div style="font-size:0.75rem;color:var(--ink3);margin-top:0.5rem;">Strongest result since 2009. Leader of Opposition.</div>
+      </div>
+    </div>
+
+    <!-- VOTE SHARE VS SEATS -->
+    <div class="section-hd">
+      <h2>Vote Share vs Seat Share</h2>
+      <p>India's First-Past-the-Post system amplifies seat gains over proportional vote share. Source: ECI declared results.</p>
+    </div>
+    <table class="disprop-table">
+      <thead>
+        <tr>
+          <th>Party</th>
+          <th class="num">Votes (%)</th>
+          <th class="num">Seats (%)</th>
+          <th class="num">Seats won</th>
+          <th class="num">Seats if proportional</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>BJP</td>
+          <td class="num">36.56%</td>
+          <td class="num">44.2%</td>
+          <td class="num">240</td>
+          <td class="num">~199</td>
+        </tr>
+        <tr>
+          <td>INC</td>
+          <td class="num">21.19%</td>
+          <td class="num">18.2%</td>
+          <td class="num">99</td>
+          <td class="num">~115</td>
+        </tr>
+        <tr>
+          <td>SP</td>
+          <td class="num">6.93%</td>
+          <td class="num">6.8%</td>
+          <td class="num">37</td>
+          <td class="num">~38</td>
+        </tr>
+        <tr>
+          <td>AITC (TMC)</td>
+          <td class="num">4.46%</td>
+          <td class="num">5.3%</td>
+          <td class="num">29</td>
+          <td class="num">~24</td>
+        </tr>
+        <tr>
+          <td>Others (all parties)</td>
+          <td class="num">30.86%</td>
+          <td class="num">25.5%</td>
+          <td class="num">138</td>
+          <td class="num">~168</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.75rem;color:var(--ink3);margin-top:0.5rem;font-family:'Courier New',monospace;">Proportional seats = (vote share / 100) × 543. FPTP means concentrated regional support is rewarded over spread-thin national minorities.</p>
+
+    <!-- STATE STORIES -->
+    <div class="section-hd">
+      <h2>State-by-State Highlights</h2>
+      <p>Selected states that defined the 2024 outcome. Seat totals from ECI declared results.</p>
+    </div>
+    <div class="state-grid">
+      <div class="state-card">
+        <div class="state-name">Uttar Pradesh</div>
+        <div class="state-seats-total">80 seats — India's largest delegation</div>
+        <div class="state-result">
+          <span class="state-winner" style="color:var(--sp-col);">SP: 37</span> &nbsp;
+          <span style="color:var(--india-a);">INC: 6</span> &nbsp;
+          <span style="color:var(--nda);">BJP: 33</span>
+        </div>
+        <div class="state-note">BJP's worst UP result since 2009. SP+INC together won more seats than BJP for the first time since 2012. Ayodhya's Faizabad constituency fell to SP — a symbolic shock.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">Maharashtra</div>
+        <div class="state-seats-total">48 seats</div>
+        <div class="state-result">
+          <span class="state-winner" style="color:var(--india-a);">MVA (INC+SS-UBT+NCP-SP): 30</span><br>
+          <span style="color:var(--nda);">MahaYuti (BJP+SS-Shinde+NCP-Ajit): 17</span>
+        </div>
+        <div class="state-note">Six months before state elections, voters punished the ruling coalition. MVA swept Mumbai. Nagpur — Modi's constituency — held but with a reduced margin.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">Tamil Nadu</div>
+        <div class="state-seats-total">39 seats</div>
+        <div class="state-result">
+          <span class="state-winner" style="color:#1d4ed8;">DMK+INDIA bloc: 39</span><br>
+          <span style="color:var(--nda);">NDA: 0</span>
+        </div>
+        <div class="state-note">BJP failed to open its Tamil Nadu account for the third consecutive Lok Sabha election. AIADMK contested alone and was shut out.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">West Bengal</div>
+        <div class="state-seats-total">42 seats</div>
+        <div class="state-result">
+          <span class="state-winner" style="color:var(--tmc-col);">AITC (TMC): 29</span> &nbsp;
+          <span style="color:var(--nda);">BJP: 12</span> &nbsp;
+          <span style="color:var(--india-a);">INC: 1</span>
+        </div>
+        <div class="state-note">TMC recovered strongly from its 2021 Lok Sabha dip (18 seats in 2019 vs 22 in 2019, 29 now). BJP lost seats it had held since 2019, partly explaining Suvendu Adhikari's pivot to state-level consolidation.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">Bihar</div>
+        <div class="state-seats-total">40 seats</div>
+        <div class="state-result">
+          <span class="state-winner" style="color:var(--nda);">NDA (BJP+JDU+LJP-RV): 30</span><br>
+          <span style="color:var(--india-a);">INDIA: 9</span>
+        </div>
+        <div class="state-note">JDU's 12 seats in Bihar made Nitish Kumar a critical kingmaker. After switching alliances three times since 2014, Nitish chose NDA and extracted major flood-relief and special-package concessions.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">Andhra Pradesh</div>
+        <div class="state-seats-total">25 seats</div>
+        <div class="state-result">
+          <span class="state-winner" style="color:#f59e0b;">TDP+JSP+BJP (NDA): 21</span><br>
+          <span style="color:#0891b2;">YSRCP: 4</span>
+        </div>
+        <div class="state-note">YSRCP collapsed from 22 seats in 2019 to 4. TDP returned to NDA after a 6-year gap; Chandrababu Naidu's 16 TDP seats made him the second-biggest NDA ally and AP's Special Category Status demand became a coalition condition.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">Rajasthan</div>
+        <div class="state-seats-total">25 seats</div>
+        <div class="state-result">
+          <span class="state-winner" style="color:var(--nda);">BJP: 14</span> &nbsp;
+          <span style="color:var(--india-a);">INC: 8</span> &nbsp;
+          <span style="color:var(--muted);">Others: 3</span>
+        </div>
+        <div class="state-note">INC's recovery in Rajasthan — it won only 0 seats here in 2019 — was one of the clearest indicators of anti-incumbency against BJP state governments.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">Odisha</div>
+        <div class="state-seats-total">21 seats</div>
+        <div class="state-result">
+          <span class="state-winner" style="color:var(--nda);">BJP: 20</span> &nbsp;
+          <span style="color:var(--muted);">BJD: 0</span>
+        </div>
+        <div class="state-note">BJD (Naveen Patnaik's party) was swept away in both the Lok Sabha and simultaneous state assembly elections. BJP won its first ever Odisha government after 24 years of BJD rule. A non-aligned regional giant was eliminated.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-name">Kerala</div>
+        <div class="state-seats-total">20 seats</div>
+        <div class="state-result">
+          <span class="state-winner" style="color:var(--india-a);">UDF (INC+): 18</span> &nbsp;
+          <span style="color:#dc2626;">LDF (CPM+): 1</span> &nbsp;
+          <span style="color:var(--nda);">BJP: 1</span>
+        </div>
+        <div class="state-note">BJP won its first ever Kerala Lok Sabha seat (Thrissur), ending a 60-year shut-out. UDF swept the rest in an anti-incumbency wave against the Pinarayi Vijayan state government.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Three turning points in a single election.</strong>
+      First: BJP lost its solo majority — the "4-D guarantee" (development, demand-driven growth, democracy, delivery)
+      framing failed to insulate against unemployment and inflation. Second: the Samajwadi Party's UP sweep restored
+      regional socialist politics as a national force. Third: the INDIA alliance held together long enough to nearly
+      double the opposition's 2019 seat count, demonstrating that coalition arithmetic can constrain a dominant party
+      without defeating it outright.
+    </div>
+
+    <!-- TURNOUT -->
+    <div class="section-hd">
+      <h2>Voter Turnout</h2>
+      <p>Turnout has been broadly stable across the Modi era. Source: ECI.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1rem;">
+      <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.87rem;">
+        <span style="font-family:'Courier New',monospace;font-size:0.78rem;width:40px;text-align:right;color:var(--ink3);">2014</span>
+        <div style="flex:1;background:var(--rule);height:16px;border-radius:3px;overflow:hidden;">
+          <div style="width:66.44%;height:100%;background:var(--saffron);opacity:0.6;"></div>
+        </div>
+        <span style="font-family:'Courier New',monospace;font-size:0.78rem;width:48px;">66.44%</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.87rem;">
+        <span style="font-family:'Courier New',monospace;font-size:0.78rem;width:40px;text-align:right;color:var(--ink3);">2019</span>
+        <div style="flex:1;background:var(--rule);height:16px;border-radius:3px;overflow:hidden;">
+          <div style="width:67.40%;height:100%;background:var(--saffron);"></div>
+        </div>
+        <span style="font-family:'Courier New',monospace;font-size:0.78rem;width:48px;">67.40%</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.87rem;">
+        <span style="font-family:'Courier New',monospace;font-size:0.78rem;width:40px;text-align:right;color:var(--ink3);">2024</span>
+        <div style="flex:1;background:var(--rule);height:16px;border-radius:3px;overflow:hidden;">
+          <div style="width:65.79%;height:100%;background:var(--saffron);opacity:0.7;"></div>
+        </div>
+        <span style="font-family:'Courier New',monospace;font-size:0.78rem;width:48px;">65.79%</span>
+      </div>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="source-block">
+      <h3>Sources</h3>
+      Election Commission of India — General Elections 2024 declared results portal (results.eci.gov.in) ·
+      ECI Voter Turnout App · ADR (Association for Democratic Reforms) party-finance analysis ·
+      PRS Legislative Research constituency-wise data ·
+      Ministry of Statistics electoral roll figures (96.88 crore eligible voters) ·
+      Coalition seat tallies cross-checked against Rajya Sabha TV / Lok Sabha TV declarations, June 4–5 2024.
+      Historical figures (2014, 2019) from ECI archival results portal.
+    </div>
+
+    <div style="margin-top:1.5rem;border-top:1px solid var(--rule);padding-top:1rem;">
+      <div style="font-family:'Courier New',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.6rem;">Related</div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="/india-development" style="font-size:0.85rem;color:var(--saffron);">India's Story</a>
+        <a href="/india-disadvantage-index" style="font-size:0.85rem;color:var(--saffron);">Disadvantage Index</a>
+        <a href="/demonetisation" style="font-size:0.85rem;color:var(--saffron);">Demonetisation</a>
+        <a href="/constituencies" style="font-size:0.85rem;color:var(--saffron);">WB 2026 Results</a>
+        <a href="/parties" style="font-size:0.85rem;color:var(--saffron);">Party Compass</a>
+        <a href="/bonds" style="font-size:0.85rem;color:var(--saffron);">Money Trail</a>
+      </div>
+    </div>
+
+  </div><!-- /ls-main -->
+</main>
+
+<script>
+/* All data from ECI declared results, June 4-5 2024 */
+var PARTIES = [
+  { name: "BJP",           coalition: "NDA",    seats: 240, seats2019: 303, vote: 36.56, color: "#e8640a" },
+  { name: "INC",           coalition: "INDIA",  seats:  99, seats2019:  52, vote: 21.19, color: "#1565c0" },
+  { name: "SP",            coalition: "INDIA",  seats:  37, seats2019:   5, vote:  6.93, color: "#e11d48" },
+  { name: "AITC (TMC)",    coalition: "INDIA",  seats:  29, seats2019:  22, vote:  4.46, color: "#1a7a3c" },
+  { name: "DMK",           coalition: "INDIA",  seats:  22, seats2019:  23, vote:  2.24, color: "#1d4ed8" },
+  { name: "TDP",           coalition: "NDA",    seats:  16, seats2019:   0, vote:  2.65, color: "#f59e0b" },
+  { name: "JDU",           coalition: "NDA",    seats:  12, seats2019:  16, vote:  1.52, color: "#059669" },
+  { name: "SS (UBT)",      coalition: "INDIA",  seats:   9, seats2019:  18, vote:  1.53, color: "#b91c1c" },
+  { name: "NCP (SP)",      coalition: "INDIA",  seats:   8, seats2019:   4, vote:  1.25, color: "#6d28d9" },
+  { name: "SS (Shinde)",   coalition: "NDA",    seats:   7, seats2019:  18, vote:  1.57, color: "#dc2626" },
+  { name: "LJP (RV)",      coalition: "NDA",    seats:   5, seats2019:   6, vote:  0.88, color: "#ea580c" },
+  { name: "YSRCP",         coalition: "Other",  seats:   4, seats2019:  22, vote:  1.80, color: "#0891b2" },
+  { name: "CPM",           coalition: "INDIA",  seats:   4, seats2019:   3, vote:  1.20, color: "#dc2626" },
+  { name: "NCP (Ajit)",    coalition: "NDA",    seats:   1, seats2019:   4, vote:  1.15, color: "#7c3aed" },
+  { name: "Others",        coalition: "Other",  seats:  18, seats2019:  null, vote: null, color: "#64748b" }
+];
+
+var MAX_SEATS = 543;
+
+var CHIP = { NDA: 'chip-nda', INDIA: 'chip-india', Other: 'chip-other' };
+var CHIP_LABEL = { NDA: 'NDA', INDIA: 'INDIA', Other: '—' };
+
+var tbody = document.getElementById('partyTbody');
+PARTIES.forEach(function(p) {
+  var change = (p.seats2019 != null) ? (p.seats - p.seats2019) : null;
+  var changeTxt = change == null ? '—' :
+    change > 0 ? '<span class="change-pos">▲ ' + change + '</span>' :
+    change < 0 ? '<span class="change-neg">▼ ' + Math.abs(change) + '</span>' :
+    '<span class="change-neu">—</span>';
+  var pct = (p.seats / MAX_SEATS * 100).toFixed(1);
+  var row = document.createElement('tr');
+  row.innerHTML =
+    '<td><span class="party-dot" style="background:' + p.color + '"></span>' + p.name + '</td>' +
+    '<td><span class="coalition-chip ' + (CHIP[p.coalition]||'chip-other') + '">' + (CHIP_LABEL[p.coalition]||'—') + '</span></td>' +
+    '<td class="num">' + p.seats + '</td>' +
+    '<td><div class="seat-bar-wrap"><div class="seat-bar-fill" style="width:' + pct + '%;background:' + p.color + ';height:6px;border-radius:3px;"></div></div></td>' +
+    '<td class="num">' + (p.vote != null ? p.vote + '%' : '—') + '</td>' +
+    '<td class="num">' + (p.seats2019 != null ? p.seats2019 : '—') + '</td>' +
+    '<td class="num">' + changeTxt + '</td>';
+  tbody.appendChild(row);
+});
+</script>
+</body>
+</html>

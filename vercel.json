@@ -12,6 +12,7 @@
     { "source": "/nota-reform", "destination": "/nota-reform.html" },
     { "source": "/clean-candidates", "destination": "/clean-candidates.html" },
     { "source": "/compare", "destination": "/compare.html" },
+    { "source": "/lok-sabha", "destination": "/lok-sabha-2024.html" },
     { "source": "/india-development", "destination": "/india-development.html" },
     { "source": "/india-china", "destination": "/india-china.html" },
     { "source": "/india-disadvantage-index", "destination": "/india-disadvantage-index.html" },
