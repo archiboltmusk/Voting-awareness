@@ -5,7 +5,7 @@
     <link>https://voting-awareness.vercel.app</link>
     <description>Latest headlines on Bengal corruption cases, court hearings, and political accountability — updated every 6 hours.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 21 Jun 2026 19:28:24 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jun 2026 21:12:38 GMT</lastBuildDate>
     <atom:link href="https://voting-awareness.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://voting-awareness.vercel.app/favicon.svg</url>
@@ -210,7 +210,7 @@
     <item>
       <title>ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - Newsonair</title>
       <link>https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5</link>
-      <pubDate>Sat, 20 Jun 2026 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 21 Jun 2026 00:00:00 GMT</pubDate>
       <source>Newsonair</source>
       <category>ssc-scam</category>
       <content:encoded>
@@ -463,71 +463,6 @@
       <content:encoded>
         <![CDATA[
           <p>Calcutta HC serves contempt of court notices to Mamata Banerjee, Abhishek Banerjee - The Hans India</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
-      <title>CBI Captures Long-Time Fugitive Shyamal Barman In 2021 Bengal Post-Poll Murder Case - The420.in</title>
-      <link>https://news.google.com/rss/articles/CBMihAFBVV95cUxNMDNfMHV4TzJReERyaDNxTjNub1k2UkQ5Qng4YVd0OFQ4Ni1kc3BDSnJYb0JOWEVfZGliVnZuZ1M0SGdWZ1F3ZHVMS0FBRzJpeWtmaGI1Rk9WbmlDc3hOeGwtSU11OTB4b1R5Y3JUNTNlbTBuejQtQkVCRlpMeC1OQWJYZS0?oc=5</link>
-      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
-      <source>The420.in</source>
-      <category>post-poll-violence-2021</category>
-      <content:encoded>
-        <![CDATA[
-          <p>CBI Captures Long-Time Fugitive Shyamal Barman In 2021 Bengal Post-Poll Murder Case - The420.in</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
-      <title>CBI Arrests Key Accused In 2021 Bengal Post-Poll Violence Murder Case - NDTV</title>
-      <link>https://news.google.com/rss/articles/CBMirwFBVV95cUxNZVA2cUZBTFFVWDJ3SlRpbDBsYlhoSmFxQTMzbF83cjI3TGk4RHpucllNaVJrbzZHY2RUUy0zVnV4LUNKLXB3d3hMdkZjZHRpbC16Sm1CYlhObVNObUhVZ1RxOUVBSDRBcjhMZ1lzRmFuRDY2dVg5VkljeXdSYjhNd2hWT3M3dEV6Rm1RWGdqV0ZrUVJ4UHlzdlFyaWtqUk5MQ3ZFaDJ0dkZvRmpmVjlZ0gG3AUFVX3lxTFBRa0tfLXhUQm5PYlZJUk9ETlNEYy1qZDc2bk1mUnZsUEZSTUZsOEgyVVZ0dHRLS3RVY3VwLWp5dVQ4M1hxUWFWUEpSM1A5cGlOaGFaU2pkSnRraU1BNHhDQ3lGQndmQ2EzVXM4WEJUbndVU1JyMTZqNDRNREMwLVdoTTdXS1pSdFZaUzlzRDFHR1RZY21xY2daVVF6VDhZQTFSSGY2LXZwZzRuWmdPbzF2bXhhaVEwTQ?oc=5</link>
-      <pubDate>Thu, 18 Jun 2026 00:00:00 GMT</pubDate>
-      <source>NDTV</source>
-      <category>post-poll-violence-2021</category>
-      <content:encoded>
-        <![CDATA[
-          <p>CBI Arrests Key Accused In 2021 Bengal Post-Poll Violence Murder Case - NDTV</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
-      <title>Post-poll violence in Bengal leaves 4 dead, dozens injured - The Times of India</title>
-      <link>https://news.google.com/rss/articles/CBMiwwFBVV95cUxQNDREQnhRNS13Vkw4aHFlc0l5d0tJWmEySDlIUnRGR2dfQXBjSFRBUnB0RU9qdENKZF82RnpUSlNxUFY1TUV0SFZzd0d0emFfa3NoLUNHdWlOb2Y4alFRYzBNUXNuMnNKMldLY2pFNnhfRTQzNkxrcU15YXBBY0xZLWNoNENtVUFpYkJHMHBfaGRwYTFjazRhLUx4bnd1RFVwMzUtSkFWS2VmWVpBZWdBVUdtM1FOemZMc2hJVlBUOG1qUTTSAcgBQVVfeXFMUHdXbHM3Sm5GS3dLNmV6SWdNelJ5X2tVUl9vZmZTaEQ3WU5xX0ppVGZiRmVrdHYtVkhWNk95SW9SQ1Qycm8tVWNSUV9lb1hUZG1SeEdDa3MyeFBvQXZzSmgyVmJDLVpTWGdoQnNKNFVaUUx0czF1T2JGcHB2VkoteGZIZDlDaU5DQkNVbUdKY3lDVkM1TzVUSDA4MTR1UTFUS1JoZGdnWDFxMHpId3dob3lmV01LLXVDR1FWSk5aeHMzWXkzbE5rbFo?oc=5</link>
-      <pubDate>Wed, 06 May 2026 00:00:00 GMT</pubDate>
-      <source>The Times of India</source>
-      <category>post-poll-violence-2021</category>
-      <content:encoded>
-        <![CDATA[
-          <p>Post-poll violence in Bengal leaves 4 dead, dozens injured - The Times of India</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
-      <title>‘My brother is finally resting in peace’: Family of slain Bengal BJP worker finds closure amid party’s win - The Indian Express</title>
-      <link>https://news.google.com/rss/articles/CBMiuwFBVV95cUxQdEc5dVBPQVljVnJpcUhZTDFJZy1rdzQyMnptc2I4UmJrYVpNNEpCV2x2dlUxSWxDSUMxb2ZyS2laWml2TVBiRUh0cTBreXhvSm02RHNIWGpKMzk5WHRYc2tQY2RwTVlORm9hVGJOb2FyeG02aUV2ZUVUVGpISEk5NTFRXzJEMGo0R3lOaXVpNGU4MFJvbFJNU3ZOall0VVlHY3FuZm9teW12RjdEUkQ4XzZIaE4wT3ZmSzhr0gHCAUFVX3lxTE9ZcmVvb1BUQVpkQm02QzdHRGttLWtZVDB0Wnk1b0t5WG9memVwSkdvUUtTWVZlMmlLUlFDSUFXWHpKNmRKcE55TGVxRWltSW9HR3V4RXdEUGxZQzE0UUxGX2ZCUm13bExsR2JwUjNZLXFTRkk0U1JadGMydEo5TXNWVFpFaGlQNHBId1A3N1NERjQ3Q1NSSlpqLXhQOXFtSFpiUHp4YlNkWjFlZmxhQzBjY3JUUmJMeXVaUGtKeEpFV0Jn?oc=5</link>
-      <pubDate>Wed, 06 May 2026 00:00:00 GMT</pubDate>
-      <source>The Indian Express</source>
-      <category>post-poll-violence-2021</category>
-      <content:encoded>
-        <![CDATA[
-          <p>‘My brother is finally resting in peace’: Family of slain Bengal BJP worker finds closure amid party’s win - The Indian Express</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
-      <title>Top court agrees to consider plea linked to 2021 post-poll violence - The Indian Express</title>
-      <link>https://news.google.com/rss/articles/CBMivwFBVV95cUxOUlZGZl9YSURoS3ZUbWl3ckM4RnM0N3owWFVoWFloVll4aDYtaFFoS3BtUGl1b1Q1Zk5Eb2lrRGxmV0xyNms0WXlSMTZ0enZEa2RPUVVKWGFKQXN0VHJiTzJzOHV1NXBHbUFMXzVjbXlNaUg5Uld6bnNMVjN0aEtuQ3NiWjFmdzhrT2RVOW9HZXRGQ1RFZlJHQXYydkZYVGF3bnlVaDJzbnI5QXlmMWN4cHpyR3dNaEpvOVl2U2xkQdIBxgFBVV95cUxPTDBPYnRQcWZ2dUU4VEFJMFVjNkFQaFJiZ3JTR1ExS18yalh0b0ZIejdvWTEtSlI2MkQ0ZmtwR1JWQjIwdFlKM3JvamhaUWF6cmhvNXRuZTFjZUpjNmdoX1RqQzF3bFIwYzE4MVRleTlDdmxUZ3hTYkpMS3kzQ1AzOUpmVUJoS2NOeTN6VjhLTlNvbUtGZ3E1ZVlFaWFXRkVRa3BfV2lrbThqck9ya0ZuaUZaNDcyaUJrV2pNWGdZZHRLYVFQSnc?oc=5</link>
-      <pubDate>Thu, 02 Apr 2026 00:00:00 GMT</pubDate>
-      <source>The Indian Express</source>
-      <category>post-poll-violence-2021</category>
-      <content:encoded>
-        <![CDATA[
-          <p>Top court agrees to consider plea linked to 2021 post-poll violence - The Indian Express</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
