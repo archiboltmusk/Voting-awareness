@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-22T10:36:15.296Z",
+  "generated": "2026-06-22T15:49:55.528Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -44,44 +44,7 @@
       "count7d": 0
     },
     "rose-valley": {
-      "articles": [
-        {
-          "title": "Probe Agency Disburses Rs 127.69 Crore To 1.73 Lakh Rose Valley Scam Victims - NDTV",
-          "pubDate": "2026-04-28",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNN1NZbmFMb01FdThJSi03X0pjUHFBRi1kTWt0cW1Ob3FpbzB4UlBraGd1TVVHTGUzbTUxa3ozQW9hdHUtR3E5bnNZMnpRS3BuUU9ad3pmTDl4WDFNZWVIbmlTSjZyQXNtYlByRko3VGdWZWhFekZTV1QyME9QemtZcFB6TUtnSjNDMG1wcWJUOFJwSmoxendmdkRMZF9wYk5VbGJBMW9JUGdKSTBPREpBWXVXVGpDT0oz0gHAAUFVX3lxTE1uWWVLXzZWM2tKSzJKMGhra3o0SGM4cjR5Sl90MzNQYmNjdG5ZVVJveXlhbkVWcDZoM1Y2SUFlRkRScUZmU1NPQmQwRy05eVI1VWpqbEJ2U3hWajRPYTRSbTRKNHlwLXFLRjY2Zl9YeXVPY1pKdVNBUTdzWTdYQThteU41MFg3WWl2TmdhVC1INW1mVFg5ak9WSzRVZFNwSTVZX3pwQXdhZUQxZVd0QU5OYVlwVHBoYWE1M19Eb0k3eg?oc=5",
-          "source": "NDTV"
-        },
-        {
-          "title": "ED compensates 1.73 lakh Rose Valley scam investors in India - The News Mill",
-          "pubDate": "2026-04-28",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQTk5kOWFEWkVBS2JSTmsybVN2MHBiSVZUcGxjZXpPTVVfTkZURUZfckpXWjdJZmtPQ25CUHRjOG9HQXc4Y1VHWVpaaEtobktFLWZIWjZmRFVDUEVpZTZLcTdzLXpaT0JCd3FyNEstRWppN0JnSDVWTGo2TmExOWxYVWRMNTlpTnFLcnAwNmpLNk85bk9nVjE4LWxrTHNJRWZSRWpv?oc=5",
-          "source": "The News Mill"
-        },
-        {
-          "title": "Rose Valley Scam: ED Returns ₹127.69 Crore to Over 1.73 Lakh Investors - Moneylife",
-          "pubDate": "2026-04-27",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNcjUwcHV5Yl9rRVBwQ1BDYmNLWnk1QTN6bnVuU1hHQkZIdV8taExkXy1PSTlnZnJqZk1UQ1hBVnJMZ2NXak83ZVJtV21XMXBROFlZRi1SMGoyNXhteHl3ODVvUm5ZTlJ5Q0dRcW9oVEtERTBlMkdYZ2xTT1FXN2R1d0wzVzdEamNGUDdZNzNqNW9hMUNHUGVwWWtkUnBJbXU3Nkg2MzNNdUZuSVFKcTZj?oc=5",
-          "source": "Moneylife"
-        },
-        {
-          "title": "Rose Valley Scam Case Explained for CAIIB BRBL 2026 - PW",
-          "pubDate": "2026-04-07",
-          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE16QWR2b0hsZjhVMWRrNlVEUnF4OXRNUXpuX3l2UXVETGgzY0ZOZEZPb2U4WE5HWGVRcnAxb0M0QndQQk12ekhQYkgxZmN2elNkc3lTWHhOUW5tMVFqS1ZNTk9DT0VtRURfNWhxb2VQbC1xemhlanFYYQ?oc=5",
-          "source": "PW"
-        },
-        {
-          "title": "HC asks SFIO who will fund CA audits in Rose Valley case - The Times of India",
-          "pubDate": "2026-03-13",
-          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZlJpTW01eWs3Y3RPUUk0SmRudDAzWEdwT0ZpLW0tZ0k3QjM2d0NjOUZCVHMtcTVFM1RMZEY0U2c0YzBMWG51YzZKcG5wbXBnN0RQcmZhT1I4TGFfUEJ5QjVpS29Ma0ItT19BdFNkb1VqREdNYlV3ckdHQ2dwd3hTZWFQemhwTEJucllGX2lYZlJqTXQyZG9QYm9uaEZZdHBBQjMxNW5OZjkyWklHWUNRUlZuNzZOc3AwR25XZW1EaU9iTWlzdnZGcmVSMNIB0AFBVV95cUxPY0htdC1pWXNDcjU5MVpJOHh4U243Um43RXUxQWVBZXkyemxMZlRaZ1lNdzRZdUFqMjI4RV9sQ3hlaXBKZUpkZ0EySDhsRjIzRTUxZEdiZTFoMEN5ZUxQekxTSTlSbGd5eTNTNHFaal9EYjhnZ2lyZktzVXljV20xSnM0bXpXVDNPZlY4ZDM5ZWhzM2JrUW5XYU1GT2JGZl8tVFpGcTJCMmJJaFJKMmI4aEZoNmp4VjhXdC1QbTR0eUhZRGxGNUR5dTlNLXliNUdD?oc=5",
-          "source": "The Times of India"
-        },
-        {
-          "title": "Cal HC orders SFIO to investigate Rose Valley assets attached by ED - The Times of India",
-          "pubDate": "2026-01-14",
-          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOWTdjN2E3Xy1XMldKdGZDTGhoTmFXdUo4VkllR3RKZHRKbGVsc3dldFNQMW56eV9nb2JsWlZodS1NaFVhQkVFNHExTDR3OHFtaTVBa2dYUk5ocjQxT09FTndiOVNqRGtoQVFGSWlyYVpsa0R2aTJMZkVEYTh3RUh1SjFCUm00TDNYYi10X2pGQWd3RkJGaFRQVUlvTEFrdTZyQjVDc2liNF9WbnpHMEM2ck9MQVN1R1pUa3FXdkxfdUhRME9ENHpuM2sxTjQtYXlKazJIY2NVb25IZ9IB3wFBVV95cUxNb0ZoVHpPcmFhTnZlYTBsZXZEdERERHM5R1pWYWE5STNMZ1NGWllRX05PTkJhVXQ2T0VkbzNfSmMzUWJYb0pia00xQUJDaVBmQ2xuZS0tSkhuQnVnN0lQS3dsQ2tKam9kb0pxSWVwRnJ3WkFoX281NUZzLXJjYWI5VVN6M1JOV1ZuTzF6eFlnWlZiQmhCTmRmRGZTYWdEckphYTRiQjFTaXVjaFJTTkhueDQ1Tlk3VlY1XzctN2xoRWRHZ3Q3UlAzMG1xWEVFM2RFamRUY1FXRkJkZDkwZTNv?oc=5",
-          "source": "The Times of India"
-        }
-      ],
+      "articles": [],
       "count24h": 0,
       "count7d": 0
     },
@@ -130,10 +93,10 @@
     "ssc-scam": {
       "articles": [
         {
-          "title": "ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - Newsonair",
-          "pubDate": "2026-06-21",
+          "title": "ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR",
+          "pubDate": "2026-06-22",
           "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5",
-          "source": "Newsonair"
+          "source": "News On AIR"
         },
         {
           "title": "ED conducts raids on Partha Chatterjee in teacher recruitment scam - The News Mill",
@@ -262,16 +225,22 @@
           "source": "MSN"
         },
         {
+          "title": "Bengal: Senior leaders Jyotipriya Mallick, Gautam Deb quit as TMC faces fresh turmoil - lokmattimes.com",
+          "pubDate": "2026-06-19",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNMTZjRTJ2dXcwV0FjTXYxX0ZfR1hySm95YkNabzFBMXdBb3JPTkNfajlnWk8tdnYzRGVtUmlra3kwWGEzLWhaa25WRXo1U0ZLR28wNDJfclhnSDR0emFic3UxOVdTbG5SZk9HSmRvdzJLR184T2lEWEhad01jUDJjNkwzT0o5ZXNiNWtPSll2VW5pUmVjRVJKaUZoWHFRaUNlOEFZSW96NE40dFYwRFUwOVJnTlhScXRlV3p4TXhn0gHDAUFVX3lxTE54ZHFOVjJfdXlFZ0tqaEFoSjhSMXZESlB4cWE1RWlNbEt0b1FvaWR5NEhMVmFfazhkam5hTktsMUtQbGVuS1F3UTZhaXVfaTZZTmE4cXFKUnVmcVhKRGE4U3RraFJzLXJmNzhOVTBjdTZKb1NNU2dMaGdjMEJLd3ZhYmJTekozamVnaUtJYUxsSlp1U195LVM4N0lrdnJxZG1zd3ZJcFNJZW1iZ1NaTW1IMFBUZU95MzJhcThFekZyNFJvdw?oc=5",
+          "source": "lokmattimes.com"
+        },
+        {
+          "title": "TMC's Jyotipriya Mallick Discloses Assets Worth Over Rs 1.97 Crore in Election Affidavit - Rediff",
+          "pubDate": "2026-04-07",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOS3c4TGRqdHM1XzZBc25OVzI1ZHpmb2szSWs4MU1Oa0U0ODdYN2FjX2x3VkVWbVlvLTNiUGJRVVdrV1hwR1U1dkNYc2RMWDhxZWE0NHlXRkxoSGRHeHIyX3FZbEFELVRiZzl5TDhtbUd1Qkw4NHdJdFo2WFFkNHFiRXd1TFlUS0gwN0lQNkFnX1U0dUwzeVJGekU0N1rSAZ8BQVVfeXFMUERmMGs1aTJIZFE1bms3Y2J1cU0xTDJzUGcyRVlyZ1I3eDVXMXExM3cxTTMzTVpUTEQ4VjhleE5SbWxkNmJyelBNdWNNVmxxQ3hwQXlrNFpQV1lLd2RxXzNRVkpiT3NQdFdZcDFjZVhFa1JXczF1MFkyRW5FOW50RXZOODN4UlBwSVF2TlFzWnA5RWw0X0wxNEN3eTZBZzZJ?oc=5",
+          "source": "Rediff"
+        },
+        {
           "title": "ED moves Calcutta HC seeking cancellation of ex-Bengal minister Jyoti Priya Mallick’s bail - The Statesman",
           "pubDate": "2025-09-11",
           "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNOXg4cjB5c1BQa2xSNHNOYnJOeVVFSEdvZDRzZmhWZGZlSDVkVXFtMjd6aGFDY1JFSnJTaWNWcGRwZU9vNU1SakNWaHBCQzJVdjhWSWIzX3VnOXk1OHo3Q1RTNm5KSVFpY2s0QllKY1N3eXpZbmFyVmFHX0pabGN4dEc2eTF1QU4yMU1PWE56MVd5WHp1V0NqM2lLSWlvZFg3ekNzZ0wydUZ6WWlhNFRZSWpfc2NXUFBUVm95WXMtTVFXN0JoZFZxZUlBRUU4YjYzSHhuWWtpa27SAd4BQVVfeXFMUElrLVhQdkNpdzJmalA2VXhtYWFvSUxLamJwTXZqLUxjcDY3UTZHMFBWS2JWelF2VnVfNUFja20xby1vN3JlOGVmN0R6TTRsSTY1MjdERDN2bTBzOG9uYnMtZFNhRGxhRXFRMTlsNkVRdHktVDJWVXBNWWNsRGhZRlJBSmhlOHFNWU5oSi1PelRJS0YwYVZmUlNDb3p1YXZWV0JjSmNueUc1ajB1LXVQeGV0Q3FPeXhHY3lLdXN2THpXOC1vaVFKS0tJYjVvczBYYVhtcEtWNC1wOVZrRXRR?oc=5",
           "source": "The Statesman"
-        },
-        {
-          "title": "ED collects Mallick’s handwriting samples - The Times of India",
-          "pubDate": "2025-05-19",
-          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOcmZlamZtanlad3BqUk5xY0JJVURqQ3FKTldWYnFGVWt2V3BOLWFhckt1Z3ZaTVJNVy0tM3RadmExRmUtcklQeE4tVjZhbGFWZzY0RUlKdVNvUmdJa0k3ZDRGQ1FlYURvOEFpTldHTEQ0UGFFLUNWWWU5VXJKbFNwS09GUDlQd1lKeDg2dDJQNFhyXzVuR2pGUk12YkZOZFRfUXNzM013Q1B6VHZ3QWlyUlN6aDFiQdIBuwFBVV95cUxOUFk4SVh3TW5WY0hOTDllenRmaFpScUd3TUlBR01MdXh4S2kycWtCanlydkFhckF3a1lwVHRqY1hkRzR1VVVNODBrc2xtNklwN3J5N0RjdFFmQ1N3MzhwLU9BWkc2am9qWEtNdUJZTklJaTRlTGo3MlJYci16U3liNjYzUkNhRFBYSUJDTGVld3J4ZUlHR1RhV0V3TlVqd2dtZVM4bnotakZFblM1VVBoN3d2enQxaERYUTJn?oc=5",
-          "source": "The Times of India"
         },
         {
           "title": "West Bengal PDS scam: Former Minister Jyotipriya Mallick granted bail - The Hindu",
@@ -284,16 +253,10 @@
           "pubDate": "2025-01-16",
           "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNNjZjTXAxcFFtSXJSOHZqalNsWW1NcVlfSU5tNjVsa2ZOcm4zMzFrRUdGalNVektzQUJ4c2V5UlN1Q1R2VEFvYWJHUUV6bi1wUFhtV2pyNVpjR2VOTjhielRHQzNLSlp6R0p2UExjOFAyQjEwd1RvZENQNW1RT2owTDNoV2dPTDlYMFc1eHp3a1NhZ1pnRDdJcDZsS0FEVFhYeHh6OFVEZk50dlnSAbABQVVfeXFMTndCY3g3MFM4Sm9CZExsX08yRW1uSDloYVNTS2JINlpKcHo3dTFPNU1ZR216N2Z5UndCMjZPYlBkQ0dnS29wNDBEb0xCelpxSkhid1BEdEJ2SkFVR2t6dkZ0dkFsNHhuYTc4aW1naXlBd2FNNXRudER6STlLX1c0ak95UkdjV0pacy1XcG5EZnpxLXplQnV1Y2xkYlkwQ3BRV0diVVVtcUkxRmRLWHpGQ0o?oc=5",
           "source": "The Statesman"
-        },
-        {
-          "title": "Former Bengal minister Jyotipriya Mallick granted bail by PMLA court in ration distribution case - Telegraph India",
-          "pubDate": "2025-01-15",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOcFowRnl0UVFuRllsR21lai1YaDBxVXRBc3RjNEJ0Q2k4RHZBTGphaWRRWV9JTWJNR0ZNMVNHSzBjeW5DTUtkWmhjTC12UUt2UEg0TFI4R3JjSkJmeGxnVnlocmthTndFd1hqa2N4aDRCTTU5Y29SdVVpSUZtbjJ5VlEyZm9iWEtsejBjemc0Z0xrbHZyMXZoX1dmUEs1UF93cVNkdTRDa21XZWdBeW5FSXdnVTlhVXVVbVhYWnh6Tjc4MmNvNFk00gHMAUFVX3lxTFBHZmN0WmUzOHQ3QjJHdjRfWTY3R2tlRmRvNTZtY1BBX1pSTUhVRVBDQnN1cGJWdEFaU3Exa2xtXzBVa2RBd0JOUzZwRXdEdDlxelpnZ0dzeS1HMjYxRW9tOUpFSnZaSkhFcmJVS3htVXcyT0l3eW1CaEZaSURvOE01ZTZRWXZHLURsNkZvUTh4VUxRNklmMXN3ZWdXbFNTdzl0dFJCczFKcFVxTGVMQzJmQVBoTnhTVjV3V0M2RnNCU0RjOF9IajFfTXZ6ag?oc=5",
-          "source": "Telegraph India"
         }
       ],
       "count24h": 0,
-      "count7d": 1
+      "count7d": 2
     },
     "post-poll-violence-2021": {
       "articles": [
