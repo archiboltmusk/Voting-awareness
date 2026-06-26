@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-26T17:46:39.633Z",
+  "generated": "2026-06-26T19:45:32.610Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -130,16 +130,16 @@
     "ssc-scam": {
       "articles": [
         {
+          "title": "ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR",
+          "pubDate": "2026-06-26",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5",
+          "source": "News On AIR"
+        },
+        {
           "title": "TMC MLA Rathin Ghosh questioned by ED in West Bengal recruitment scam - The News Mill",
           "pubDate": "2026-06-26",
           "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNR0tKeFpDc3JyeGk3T1JicndsTTdEOGp6T2hJSEJnYVJrY0ZSb3A4ZU03Y1JnU1RrUVRYQ1laSE9mLWVidGpaOC13anFCUFJLTTJ3SnlzWTlXRi1aSHJocm9WTUZPRmpWbEYyTzlGXy1BakhQYkxPcHE1WVJrVzBVTU1mREpla0Nsblo3bnpnaWJjc2VQTGRVUUoyeFFLNmNUZ2w0MmpDM2lWNmpPRC15SEdjQUg?oc=5",
           "source": "The News Mill"
-        },
-        {
-          "title": "ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR",
-          "pubDate": "2026-06-25",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5",
-          "source": "News On AIR"
         },
         {
           "title": "Bengal Primary School Jobs Scam Case: Abhishek Banerjee Appears Before ED - ETV Bharat",
@@ -166,7 +166,7 @@
           "source": "Telegraph India"
         }
       ],
-      "count24h": 1,
+      "count24h": 2,
       "count7d": 2
     },
     "cattle-trafficking": {
