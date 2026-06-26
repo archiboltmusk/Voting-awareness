@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-26T05:07:28.946Z",
+  "generated": "2026-06-26T09:24:02.381Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -8,12 +8,6 @@
           "pubDate": "2026-06-16",
           "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxObzNrZjZrTzNNLTlpTUs2SHEwVU1TdS1sTl8wTVdhNlVVVEx6bDkxaHdwOVdCdVdrRkVPbElkR0IwQWxGcDk1SkpqTlJrQTNSdnZEZDVtVnJlVnJOWGdkLVZqM0JFZ0lMVFF5ZUxSWVRDOEZqbXRjTVFzLWdIeFdYSFpkQW84SmZoSVRPdUx0Q2UyT09Mb3hRSlZ5RVMyZWRlNUJzV0p0WnYzSFZQZHRpaW9xc2ZRRE4xNGNvZ3RueWw4QUt5LXZMa01RbFJicGlQa3RZempDTQ?oc=5",
           "source": "HDFC Sky"
-        },
-        {
-          "title": "Saradha chief Sudipta Sen set for release after nearly 13 years in jail - The Statesman",
-          "pubDate": "2026-04-10",
-          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQdWgxM1hrTlJvWWxuc0VwTHY5YzBSOGxkek5kOGJOZFdsMUhWRkd4aWNGR1FOV2w4Q29mVFZiN0QtUkVmam0wSHBuQjNVMjQxNXVfWWw5X0Z6OUlwZFZWSnhwcGlkMnJEeVlTc2JkN2RBbDEydkNhY1Y1Ry1ibGFNMFVfZmN4ZFhoaFdsZTJxZWNvMjdzOGRnbXZRNS1ncXRON2Jtd3BlR1lSMlg1ZnF6eUZIR1FNMHJxWXVlbF9wR0TSAcYBQVVfeXFMTWVtaTJjWkFpWC1OOHdua1BSTlU2TUlZSTYzNXozdUdFalhDOFNnamp6VUFnQXpLaEJCMnFOVlRJeV9YSTd1MklocEotdEowelAzWk5la3lFMWxjN1BhajR5MEs2eFdpVFotM3Y5bUVPRVZ6alBHVUswYlJiZEpOQ2ppRVFNYzI5NDBnOXN4SFhqT0NHTFJvTWRyaklyLVNLVGpNd2loVk5JVUhmc1FvRGI1ZXRCb2RnR293SEpZRzZhS3FRVUNn?oc=5",
-          "source": "The Statesman"
         },
         {
           "title": "Saradha ‘kingpin’ gets bail in last pending Barasat case after 13 years - Telegraph India",
@@ -38,6 +32,12 @@
           "pubDate": "2026-04-08",
           "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOQUV1WV82cHJ0RzZDR0JuX0Y0WnZnQ2g4bnZSTDQ5ZFBjZjliZkZuejJ4X1Y1S2FRM1NvN1ExS3A4T25aWnRpaEZjRk9LWUlLNHBCMUtHQzlLdlE4ZlNGU1NROXpwYTZnWTgzRDUyYUluUVF4XzVNck9yN2dhRjNka3VhVXc3RU9FUzk2RDdOanVmZXp6cVdLazVpNURxMEhzQ09ndVBTZElsY3NyWGtNMmkzODNhOFpvamRyYmtDWFo4UTQ4NDV6YXA3SXA5dkXSAdYBQVVfeXFMTWZwVW9Ja2F3VEk5dDE0Zy1GQ2ZZNGNOamdMYTJ3U1BXM3puT2Y5NmR1OXd6STRCVTlJT3VKT0o5LVpwYnNFcVpjOHl2WHI4dHVfUExzRU1sazhFeG8tbzh2bTY3T244SmlTNkFYMTEzdU9RTTBnWUJRVjJ4THBqdHVVSGRKNlljU0FTQVBURjJxOG9UME1RcWxlODRneEVKR2ZzNzBZWkswcHRxOG1sU0tCUkdOcDJEVDc4OWhfa3NQX05UbEdQX0hZY0dYSk1QUVJiMUpadw?oc=5",
           "source": "The Indian Express"
+        },
+        {
+          "title": "Matang Sinh’s properties in Delhi, Noida attached by ED - Governance Now",
+          "pubDate": "2026-01-31",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNTTZkbk93RnRCMEs2bWNYMG5naDh1Qk1PVldkTWdkcjUyRGpNUUx1dHRBZW1iMTAxTXVsQkIwODluaUhBMjlWbWUxVV9UN0FudXpzY0xsMDI2ZmgyR1BIZnc2aVU4bjl0SjZ6QlpaN0dmb01FN1NKTUdqUkxHMk1aenVuX1d5NW5JdDBvWXlISXQzVUdKMTZ2enNOWDg?oc=5",
+          "source": "Governance Now"
         }
       ],
       "count24h": 0,
@@ -130,16 +130,16 @@
     "ssc-scam": {
       "articles": [
         {
+          "title": "TMC MLA Rathin Ghosh questioned by ED in West Bengal recruitment scam - The News Mill",
+          "pubDate": "2026-06-26",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNR0tKeFpDc3JyeGk3T1JicndsTTdEOGp6T2hJSEJnYVJrY0ZSb3A4ZU03Y1JnU1RrUVRYQ1laSE9mLWVidGpaOC13anFCUFJLTTJ3SnlzWTlXRi1aSHJocm9WTUZPRmpWbEYyTzlGXy1BakhQYkxPcHE1WVJrVzBVTU1mREpla0Nsblo3bnpnaWJjc2VQTGRVUUoyeFFLNmNUZ2w0MmpDM2lWNmpPRC15SEdjQUg?oc=5",
+          "source": "The News Mill"
+        },
+        {
           "title": "ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR",
           "pubDate": "2026-06-25",
           "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5",
           "source": "News On AIR"
-        },
-        {
-          "title": "TMC MLA Rathin Ghosh questioned by ED in West Bengal recruitment scam - The News Mill",
-          "pubDate": "2026-06-22",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNR0tKeFpDc3JyeGk3T1JicndsTTdEOGp6T2hJSEJnYVJrY0ZSb3A4ZU03Y1JnU1RrUVRYQ1laSE9mLWVidGpaOC13anFCUFJLTTJ3SnlzWTlXRi1aSHJocm9WTUZPRmpWbEYyTzlGXy1BakhQYkxPcHE1WVJrVzBVTU1mREpla0Nsblo3bnpnaWJjc2VQTGRVUUoyeFFLNmNUZ2w0MmpDM2lWNmpPRC15SEdjQUg?oc=5",
-          "source": "The News Mill"
         },
         {
           "title": "Bengal Primary School Jobs Scam Case: Abhishek Banerjee Appears Before ED - ETV Bharat",
@@ -166,7 +166,7 @@
           "source": "Telegraph India"
         }
       ],
-      "count24h": 1,
+      "count24h": 2,
       "count7d": 2
     },
     "cattle-trafficking": {
@@ -335,7 +335,7 @@
         }
       ],
       "count24h": 0,
-      "count7d": 1
+      "count7d": 0
     }
   }
 }
