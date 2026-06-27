@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-27T21:01:52.469Z",
+  "generated": "2026-06-27T23:01:07.058Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -8,12 +8,6 @@
           "pubDate": "2026-06-16",
           "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxObzNrZjZrTzNNLTlpTUs2SHEwVU1TdS1sTl8wTVdhNlVVVEx6bDkxaHdwOVdCdVdrRkVPbElkR0IwQWxGcDk1SkpqTlJrQTNSdnZEZDVtVnJlVnJOWGdkLVZqM0JFZ0lMVFF5ZUxSWVRDOEZqbXRjTVFzLWdIeFdYSFpkQW84SmZoSVRPdUx0Q2UyT09Mb3hRSlZ5RVMyZWRlNUJzV0p0WnYzSFZQZHRpaW9xc2ZRRE4xNGNvZ3RueWw4QUt5LXZMa01RbFJicGlQa3RZempDTQ?oc=5",
           "source": "HDFC Sky"
-        },
-        {
-          "title": "Saradha chit fund case: CBI summons Trinamool leader Partha Chatterjee - Indiablooms",
-          "pubDate": "2026-05-15",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQZ3lHdkJDVldGLXdTbl9hWGlmcGFiVU9aOG1TZXdxbFFlYWFJay1PZTJOQnBlVk0wbWpPbjZUNWg4dXdJM1B5anlXTWlFdTN0YlVwUTBWMmRJTkxGLTZXN0xNQ1RFQkpCcWZyNGkxLXhfa3REYWtDSWJiQ2hoZGZZX3dYQU5XTUcwTk96cWczOFp3czB6cDE5MFJKYjFXbjZUaHVNc3MxN3JvT3lTRURz?oc=5",
-          "source": "Indiablooms"
         },
         {
           "title": "Saradha chief Sudipta Sen set for release after nearly 13 years in jail - The Statesman",
@@ -38,6 +32,12 @@
           "pubDate": "2026-04-08",
           "url": "https://news.google.com/rss/articles/CBMimwJBVV95cUxOOWl5OVNuTzl3X2xqb3g5QzExQm43dy1PZ0VINkpST0xzNWtLdTBLSTF2OUo1aUhBbUtpRkVqYkhaSDZCUk9TOEFGOERPelhRWFhPb3F5NHU2eWIyRGpaMkJIRkpxUmxPak9ZUDVfWk5sdVdUTHQ1TXp6bjFHckdrSlp0S3FrZzBxbmVvSmhVUVB6T19BUmFXX0F1dmJoNTdIZk5WamdMQ3JheEZwRFA1UTdwR0VpT2xoV0l1YnpzNW9TUENFMHRqVXBMazZJb0JaUkdRSE53R0tmbTF2Q1FTRm1aeEw0OVVxQ05CRXd5ZFlURGg5MVBmNDZIWGFORFlQLTJ6YTZFZ25nbHhROGhHMVItQnVDVlY0U1Rr0gGgAkFVX3lxTE52a1dVenU4clk3ektHOG5ieVE5dUw4cWFobWNrQmxnRmF1eU5rcGF4WnV6Q243d1ZlSjVCTjBsdUVnTU1lMlJMb3lEeFRRdnV2WTFqV2dvTlFaSnlaVnFNbHZVVFpQSEZaY19rOW9LZVRqWnIyY016blpvZ3R5RVVXVTBiOTR0ODl4V3VyaG5lU2pPeVV5QzVISlljZmFOaUhEbFJpcDBBVnJPbVp5YTBuTG9OcWxlLUpKbk1pckJGaXJ0a2o4U1V0REhxZWU1RUNxSEZjVkdvdThEb09XQkdkTVhRMjF0REhnWnVrOHYwQWx2MkFJby0td3M0WkRlUGtlU2J6WWpUUmt5N0pmaXByNWpGdjktcXFBUmF6N3FYTQ?oc=5",
           "source": "Bhaskar English"
+        },
+        {
+          "title": "After 13 years, Saradha chit fund scam accused Sudipta Sen to be out on bail - The Indian Express",
+          "pubDate": "2026-04-08",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOQUV1WV82cHJ0RzZDR0JuX0Y0WnZnQ2g4bnZSTDQ5ZFBjZjliZkZuejJ4X1Y1S2FRM1NvN1ExS3A4T25aWnRpaEZjRk9LWUlLNHBCMUtHQzlLdlE4ZlNGU1NROXpwYTZnWTgzRDUyYUluUVF4XzVNck9yN2dhRjNka3VhVXc3RU9FUzk2RDdOanVmZXp6cVdLazVpNURxMEhzQ09ndVBTZElsY3NyWGtNMmkzODNhOFpvamRyYmtDWFo4UTQ4NDV6YXA3SXA5dkXSAdYBQVVfeXFMTWZwVW9Ja2F3VEk5dDE0Zy1GQ2ZZNGNOamdMYTJ3U1BXM3puT2Y5NmR1OXd6STRCVTlJT3VKT0o5LVpwYnNFcVpjOHl2WHI4dHVfUExzRU1sazhFeG8tbzh2bTY3T244SmlTNkFYMTEzdU9RTTBnWUJRVjJ4THBqdHVVSGRKNlljU0FTQVBURjJxOG9UME1RcWxlODRneEVKR2ZzNzBZWkswcHRxOG1sU0tCUkdOcDJEVDc4OWhfa3NQX05UbEdQX0hZY0dYSk1QUVJiMUpadw?oc=5",
+          "source": "The Indian Express"
         }
       ],
       "count24h": 0,
@@ -214,24 +214,6 @@
     "coal-mafia": {
       "articles": [
         {
-          "title": "From Kolkata to Goa: How Rs 2,742 cr coal scam funds allegedly fueled I-PAC’s election machine - The Indian Express",
-          "pubDate": "2026-01-10",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPQUhyV0NNNlltWTZHMDBEdklBWTVCSmYwYno5NFVrNnBuX2lDejRIOWJ4TWRQaVI5d1JoY0lhVi03OUpNejAtQjhibXlDOGFsN0dJRi1FVmxZV3BZYmpNTnVSdXJkejFuXzNMT2hUWnZKZEZkc1pJQlYyQW84SGxPSk1HVWJQaXRaQ0tKYy1QWTdWME1NUU5iajNENy3SAaMBQVVfeXFMUDUxa1NJWmtZZ0NraGhTRTg1LXJqTVZLVmlBdmxOSkV2Yi14QzNHVGpQV2hTMGhwMC0tZ1lzTmNKZi15MG94MzQxUDFVMWlPWTV3VUZCa0pEM2xFSTNiOVJOWVE5RVVrM0lRaExSejFUbFlWSkRYZmZrZnVrVE5YcDRQZEcyRlEySHFrMG1wbmhjb3JCLWRXalpDWXVQdE9wZkhnZw?oc=5",
-          "source": "The Indian Express"
-        },
-        {
-          "title": "Coal smuggling syndicate, hawala operators, and a cop close to ‘kingpin’: How ED linked them to I-PAC - The Indian Express",
-          "pubDate": "2026-01-09",
-          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOaV9talgzRjlrRkc3RzZONV82azZQU1BuUGl5RURZTEFuQmo2NzVSMFpPTEwtckZuQzEzZzFQQUtNNlFRR3VlYWFzVUVXdWo5aWlaY0pUb0VGZElTa0hYUVFMMDVadFJuakhNaG8wVXJHOXhHWjNXdjBpNGtjQkZIVnJxZlVnUlFjZDNiV1J0TExrOU1PeWV4VEV1Y2tYRUx5d0NnV1lac1ZQSl9xN0xQck9nU3lSX1lpV3oyMFYtSFAwU2xBR045NkhVNXBYQkdaSmdqTDdMZ0dlQUZseF9j0gHmAUFVX3lxTE1zbWVreDJaMXI0N0lwZGE0Z05QNTNuRG55dGhldXIyQWVDTUVqMFQ4VUtGYXNVRmdmcHhVOGpfM0hfOWFGMUwyM3o5NDdkb2Y1d3M5UkVCd1haU2ZBc0FaYzJ3Z2JVT1ZjaElNSDZXeHUyblNyd3I5cGJldVBIdTNiai1lQnhGYWtYT08tWlMtNGctdlNRaWctV1U5MVNwamdmM09MZkdQNGptcGF4OHlnYzR0NjczZ3lfWTk1ckhadS1mZjI1WW9wdlpvWWRKUURKVE4xc3c0V1hSYm44cmxkeHh4YjRn?oc=5",
-          "source": "The Indian Express"
-        },
-        {
-          "title": "I-PAC raids ‘met with resistance’ from Mamata, ED set to knock on High Court doors, top officers say - The Indian Express",
-          "pubDate": "2026-01-08",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxORzlzcHhfcUNVUktLTVNHM04xUzRLU29Jczl0WjFZNWN6RmxqdFFZb1lNSk1WQnVQaGtTS1owUk1iWDlOM0FiMmRPNmZxbWRZOVZMR2xyYU82cTEwa2ZzR2pkTGdwZ0Z5N0FYSzJlbjRlclpOLVoxbENvaE1TUXI5THRvblAtLXBUdGgzSEFtVjZVNV9rVUg5YW1UWldlcmlKcmpEZdIBqwFBVV95cUxQVHdoczhBMldueUtvWDJFYWZ4WjFDRk5vb2s4djh4TURKenZDamc2eEdBZ2RpQUo0QzRPZHE1UUVPb0hXR2FmU1BRX0Y2a1FBUGxBNEFaTTYzLWYyS09TOWJlSV93OUpwa0dPdkQycUNRbXlObmFmQ0pkOFFGZ1ZDd2xZN0NPMk1CYzJJZjVhT2wzaFdGdjdtUTFXVzRheUF5SGRiTDJxajRwUHM?oc=5",
-          "source": "The Indian Express"
-        },
-        {
           "title": "Coal scam accused Vinay Mishra hiding in Vanuatu under new identity, says CBI - Daijiworld",
           "pubDate": "2025-07-07",
           "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1FdmkzLWtmblJHZW1GbFJ4X0t5UFdlWWx5d2hjcXV0UUwzYTBWcC1uc1hqckxfajlyR0dVTGdra0xpSmhidXhROGVLV1FPVUlzZ1FHMnlaOTg1eXFmallCeC1DMnoyNjhNLVE?oc=5",
@@ -244,10 +226,28 @@
           "source": "The Hans India"
         },
         {
-          "title": "Bengal coal smuggling case: Trial process starts at special CBI court in Asansol - ET EnergyWorld",
-          "pubDate": "2025-01-22",
-          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNMW9rbDByRFcxVmkzSnFlU3dvbDk2RDNJRlV0TGYwWkdTaldzOXFLVnZ6RnAwWGZDeEl2NGd2emNZTFRYZXpybUozU2VTVzJYaXZQMDFDOVQ2ZjVFNDBXUUVwbFRKeW03dzVfcUdDZnF0NW0yRmdsSXBhdjl0Nlc3dDRCUmFRRlZoOG5PTm43dUpGVEhHVmxtbkZfTG5wYU1tYmk0MkxwcmdkVlBVbUhEaElPdXpLMTJrVE1fbk5TZllvUURsYzczRndkTUtuOVZ0dGNtU3lULXc1MnfSAeABQVVfeXFMT18zci1Jb1VLMmtNNEhURzhlRk5Od2syajlnZjVIZUJzTklZYU9iOFZHVUxWQURsX1RfMGtGbFotX1ZscWFWb2FBZG56WmJuWXUtMTlTUGZ2SW02ME9ua1U5cmx1T3lzNWRFdzNWWUVjTzFwOFg1SFNzUk1QMHZBcW1rQ0hsNV80aUxUeHhMU3FYeUc0Ml9hOS1CU2lrRXJjUHFCOGRyczh1U0hkeDNOVFNkMkx5NHF6VzVuNFJwYWFvRzhKZDNBYThaV3ZjVEVZZURyNTNmanJnVnJQQ254R2Y?oc=5",
+          "title": "Kolkata police arrest one more person in coal smuggling scam case - The Hindu",
+          "pubDate": "2024-11-24",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPQVBYbFZRY1lsOTRTLU5QRVJVYUdXV3F6S2FRSW11bHZ5a2lCTld3SENQVGg5NHFTRjQ1a2hPSVRjay05cEZaVEVfVk5COGxrZWRkZDV5VTQ4TE90Zzh6c2J0SE4tNncyUTNsRG9ZS25wenNnRWVtWEZvN05rZXB5MWc4VWQ3VXFETkNycXhZMnBVOUxwdEVPdFF3X000MVJZZVRfWUEtN1BaQkhCcTJxc2RlWHZYYmx5ZldLUHZVZ1JrZjVhck43azlR0gHQAUFVX3lxTFBINzZSLUFtUnZlMU05ZXU3SmFpdEtTVGF6d192WDE0djhnOUZpX1gyY3lHcFVuTi1KVWlpN1RPQ3YzU2Q0WHpWb1k4NF9hYk1sTElZWkM5eHpya0xwem9TY3A3MnRHeVkzMWFKaW1Ybk92ME1SOGpYZ29adXRqSTBDYzI2MmNNZU5wbG9FYnk1Rjkwc3NwUDA0UEVzUHVLaGFGSk9CSmxaTlVSTkZkN0xfcTBzVkZMSFBiRGZ3aU1nUEhGYWpaQ3JYTlNYOGJHb0o?oc=5",
+          "source": "The Hindu"
+        },
+        {
+          "title": "Brother of prime accused in Bengal coal smuggling case gets bail - ET EnergyWorld",
+          "pubDate": "2023-05-17",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPSWxkRVQ4RWt6VTFmWkIxem1VUTkxQ2w4M21ZRW1jQVBBSHhhUU11c19jRjBFUEpNbjg3emhuMm8wRjRNcG9hcEQtREN5MXRkQkdObl9uaXhFV1oyZlBQV1hVUmEyYWhpS1dUN1RZWkdWd1p2bmxrMnh2Y1NSWFIxRWZzdGcteTBzUVpVVEE3WEtia3M0NDNkNEFBN2NxdnJKZ2VTSFpDdlBRSENxYWlPbEJ0NzNWQl9IM2k0VFh2UGZ5NzF3cE040gHMAUFVX3lxTE9tWVRmR2Y1UmRYZEh0THJrVTBLMEJpRDdGV0dneVNRZEN6WmwwOTVzRERoS2Ric2NPWi1zSVR5TmpUb3hCV1hUbWk4dVhQR1k4Vnc4SGMzY1cyUHlqdk9sUm1hMkRIZG1hcUpVeDVhMDlRY0xHQXhMZlBvQTEwZzhNcXcxQ2JIcXU5WnYtX055aUI1b0ZoWUZLbi10WG5mbm8wVUkzUENOcUJrS3FXU0N4QU9zcGVLalp6eEhtQk5NVXZ0NDFSaktDTDY0Nw?oc=5",
           "source": "ET EnergyWorld"
+        },
+        {
+          "title": "ED attaches fresh assets of TMC leader Vinay Mishra, brother in money laundering case - ThePrint",
+          "pubDate": "2022-07-21",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNV3JPank4bTFIQVVDLTZsRmU0VFZUWnJZR1EtVFpWek1FVHRnQ0NTeXVUVVpKeEEyZkJ1ZDJVeW1MdTNuaVpTbkMyY1Njb3hEb056aFpMMmtCMVFIdlNBNG41ZmxnZHhyb2plYzRRMFZUcHhOSmxSa0pzaHJfU3o5MXg5bmhhbUxiQmFqR2ZwbVJhQ3ozMVRHNFlWU28wWGdUbDJZQWVKSzF5dFJMU3l3WGp6MWdCbFBrNVYw0gHAAUFVX3lxTE9Tcm9fd0hmbTdkTkM2RC1SRlhlNlJYRDExeFJvdWZfNGFUb1AyalIzcnpGdTh6T1NycjV3WWQwQnFCR2J2ODVveEVsb09xRHhKRDBzUDhSbVBUTW9tWUV3NXhvSFBCVmNSWUtPYkMwY214TW9hSC10RFBLbVBzNXhtSnRWTnJ0MmVpdm01a1J4ZG85VGl6NDRzdHphdzJabnJKeWhiSEFUdkJxWV9lbDdkV3pxUlNlWG9ySnpDcmR3ag?oc=5",
+          "source": "ThePrint"
+        },
+        {
+          "title": "Money launderering: TMC MP Abhishek's aide declared proclaimed offender - Business Standard",
+          "pubDate": "2022-07-02",
+          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQcUpKMF9XUFpjajR1UkRCTF84a054aFZ0ZjJhYm5xU0JLMThrTVRBaG1vV3lHSVJ0WmxIeTVDVTdRWlNfb29hbXRoTnVCcVNpSnpKdy1wREZ6Y2xlN0s3S29uNldRenN1THRBbGhwX0Fmbmx5a0Z2ZU5PSzVRelR2V0VDbWs1R3ZSblVPMGkyd282eHpfUVY4SlhZUWl5cFBBMGs0YVc2Q19xam9qbDh4YzJaZU9lMGpYdDNVak5xNmVjWmJrM1ZTY3pNbVQxa0FVMVg4OEtGa3ZWVUstZC10c3lB0gHnAUFVX3lxTE15c0J6Wi1KMG52R2k3OFZOTnRjVVJ1M2YyQXJXLUhyN295anc1dmZyLVVrcWlFNDhXYm5qdzlQYmpKZXQ2WnlKOWNzazR0Q19rUUhUeE8tSy1NdmpqR281cE9rOVFIaElJbVBnT3VlNVhWTFZ3dmx3ckhvZkJhaFIzTUZTQURzWXhKZUpNOWNZaGlRRjd4dDBFN3NsRk10dlU1bllMa1ZrUzN1VzFTNFdiQmFHX0RRY1VPd3BYOGU4bW1qVDFYTE1YekJHNVR2Y2FKbkJ2UVVwaVVfQkRwSUctcWY5WGpUaw?oc=5",
+          "source": "Business Standard"
         }
       ],
       "count24h": 0,
@@ -262,16 +262,16 @@
           "source": "MSN"
         },
         {
-          "title": "Bengal: Senior leaders Jyotipriya Mallick, Gautam Deb quit as TMC faces fresh turmoil - lokmattimes.com",
-          "pubDate": "2026-06-19",
-          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNMTZjRTJ2dXcwV0FjTXYxX0ZfR1hySm95YkNabzFBMXdBb3JPTkNfajlnWk8tdnYzRGVtUmlra3kwWGEzLWhaa25WRXo1U0ZLR28wNDJfclhnSDR0emFic3UxOVdTbG5SZk9HSmRvdzJLR184T2lEWEhad01jUDJjNkwzT0o5ZXNiNWtPSll2VW5pUmVjRVJKaUZoWHFRaUNlOEFZSW96NE40dFYwRFUwOVJnTlhScXRlV3p4TXhn0gHDAUFVX3lxTE54ZHFOVjJfdXlFZ0tqaEFoSjhSMXZESlB4cWE1RWlNbEt0b1FvaWR5NEhMVmFfazhkam5hTktsMUtQbGVuS1F3UTZhaXVfaTZZTmE4cXFKUnVmcVhKRGE4U3RraFJzLXJmNzhOVTBjdTZKb1NNU2dMaGdjMEJLd3ZhYmJTekozamVnaUtJYUxsSlp1U195LVM4N0lrdnJxZG1zd3ZJcFNJZW1iZ1NaTW1IMFBUZU95MzJhcThFekZyNFJvdw?oc=5",
-          "source": "lokmattimes.com"
-        },
-        {
           "title": "ED moves Calcutta HC seeking cancellation of ex-Bengal minister Jyoti Priya Mallick’s bail - The Statesman",
           "pubDate": "2025-09-11",
           "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNOXg4cjB5c1BQa2xSNHNOYnJOeVVFSEdvZDRzZmhWZGZlSDVkVXFtMjd6aGFDY1JFSnJTaWNWcGRwZU9vNU1SakNWaHBCQzJVdjhWSWIzX3VnOXk1OHo3Q1RTNm5KSVFpY2s0QllKY1N3eXpZbmFyVmFHX0pabGN4dEc2eTF1QU4yMU1PWE56MVd5WHp1V0NqM2lLSWlvZFg3ekNzZ0wydUZ6WWlhNFRZSWpfc2NXUFBUVm95WXMtTVFXN0JoZFZxZUlBRUU4YjYzSHhuWWtpa27SAd4BQVVfeXFMUElrLVhQdkNpdzJmalA2VXhtYWFvSUxLamJwTXZqLUxjcDY3UTZHMFBWS2JWelF2VnVfNUFja20xby1vN3JlOGVmN0R6TTRsSTY1MjdERDN2bTBzOG9uYnMtZFNhRGxhRXFRMTlsNkVRdHktVDJWVXBNWWNsRGhZRlJBSmhlOHFNWU5oSi1PelRJS0YwYVZmUlNDb3p1YXZWV0JjSmNueUc1ajB1LXVQeGV0Q3FPeXhHY3lLdXN2THpXOC1vaVFKS0tJYjVvczBYYVhtcEtWNC1wOVZrRXRR?oc=5",
           "source": "The Statesman"
+        },
+        {
+          "title": "ED collects Mallick’s handwriting samples - The Times of India",
+          "pubDate": "2025-05-19",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOcmZlamZtanlad3BqUk5xY0JJVURqQ3FKTldWYnFGVWt2V3BOLWFhckt1Z3ZaTVJNVy0tM3RadmExRmUtcklQeE4tVjZhbGFWZzY0RUlKdVNvUmdJa0k3ZDRGQ1FlYURvOEFpTldHTEQ0UGFFLUNWWWU5VXJKbFNwS09GUDlQd1lKeDg2dDJQNFhyXzVuR2pGUk12YkZOZFRfUXNzM013Q1B6VHZ3QWlyUlN6aDFiQdIBuwFBVV95cUxOUFk4SVh3TW5WY0hOTDllenRmaFpScUd3TUlBR01MdXh4S2kycWtCanlydkFhckF3a1lwVHRqY1hkRzR1VVVNODBrc2xtNklwN3J5N0RjdFFmQ1N3MzhwLU9BWkc2am9qWEtNdUJZTklJaTRlTGo3MlJYci16U3liNjYzUkNhRFBYSUJDTGVld3J4ZUlHR1RhV0V3TlVqd2dtZVM4bnotakZFblM1VVBoN3d2enQxaERYUTJn?oc=5",
+          "source": "The Times of India"
         },
         {
           "title": "West Bengal PDS scam: Former Minister Jyotipriya Mallick granted bail - The Hindu",
