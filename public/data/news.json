@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-27T15:14:41.017Z",
+  "generated": "2026-06-27T17:08:47.416Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -8,6 +8,12 @@
           "pubDate": "2026-06-16",
           "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxObzNrZjZrTzNNLTlpTUs2SHEwVU1TdS1sTl8wTVdhNlVVVEx6bDkxaHdwOVdCdVdrRkVPbElkR0IwQWxGcDk1SkpqTlJrQTNSdnZEZDVtVnJlVnJOWGdkLVZqM0JFZ0lMVFF5ZUxSWVRDOEZqbXRjTVFzLWdIeFdYSFpkQW84SmZoSVRPdUx0Q2UyT09Mb3hRSlZ5RVMyZWRlNUJzV0p0WnYzSFZQZHRpaW9xc2ZRRE4xNGNvZ3RueWw4QUt5LXZMa01RbFJicGlQa3RZempDTQ?oc=5",
           "source": "HDFC Sky"
+        },
+        {
+          "title": "Saradha chit fund case: CBI summons Trinamool leader Partha Chatterjee - Indiablooms",
+          "pubDate": "2026-05-15",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQZ3lHdkJDVldGLXdTbl9hWGlmcGFiVU9aOG1TZXdxbFFlYWFJay1PZTJOQnBlVk0wbWpPbjZUNWg4dXdJM1B5anlXTWlFdTN0YlVwUTBWMmRJTkxGLTZXN0xNQ1RFQkpCcWZyNGkxLXhfa3REYWtDSWJiQ2hoZGZZX3dYQU5XTUcwTk96cWczOFp3czB6cDE5MFJKYjFXbjZUaHVNc3MxN3JvT3lTRURz?oc=5",
+          "source": "Indiablooms"
         },
         {
           "title": "Saradha chief Sudipta Sen set for release after nearly 13 years in jail - The Statesman",
@@ -32,12 +38,6 @@
           "pubDate": "2026-04-08",
           "url": "https://news.google.com/rss/articles/CBMimwJBVV95cUxOOWl5OVNuTzl3X2xqb3g5QzExQm43dy1PZ0VINkpST0xzNWtLdTBLSTF2OUo1aUhBbUtpRkVqYkhaSDZCUk9TOEFGOERPelhRWFhPb3F5NHU2eWIyRGpaMkJIRkpxUmxPak9ZUDVfWk5sdVdUTHQ1TXp6bjFHckdrSlp0S3FrZzBxbmVvSmhVUVB6T19BUmFXX0F1dmJoNTdIZk5WamdMQ3JheEZwRFA1UTdwR0VpT2xoV0l1YnpzNW9TUENFMHRqVXBMazZJb0JaUkdRSE53R0tmbTF2Q1FTRm1aeEw0OVVxQ05CRXd5ZFlURGg5MVBmNDZIWGFORFlQLTJ6YTZFZ25nbHhROGhHMVItQnVDVlY0U1Rr0gGgAkFVX3lxTE52a1dVenU4clk3ektHOG5ieVE5dUw4cWFobWNrQmxnRmF1eU5rcGF4WnV6Q243d1ZlSjVCTjBsdUVnTU1lMlJMb3lEeFRRdnV2WTFqV2dvTlFaSnlaVnFNbHZVVFpQSEZaY19rOW9LZVRqWnIyY016blpvZ3R5RVVXVTBiOTR0ODl4V3VyaG5lU2pPeVV5QzVISlljZmFOaUhEbFJpcDBBVnJPbVp5YTBuTG9OcWxlLUpKbk1pckJGaXJ0a2o4U1V0REhxZWU1RUNxSEZjVkdvdThEb09XQkdkTVhRMjF0REhnWnVrOHYwQWx2MkFJby0td3M0WkRlUGtlU2J6WWpUUmt5N0pmaXByNWpGdjktcXFBUmF6N3FYTQ?oc=5",
           "source": "Bhaskar English"
-        },
-        {
-          "title": "After 13 years, Saradha chit fund scam accused Sudipta Sen to be out on bail - The Indian Express",
-          "pubDate": "2026-04-08",
-          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOQUV1WV82cHJ0RzZDR0JuX0Y0WnZnQ2g4bnZSTDQ5ZFBjZjliZkZuejJ4X1Y1S2FRM1NvN1ExS3A4T25aWnRpaEZjRk9LWUlLNHBCMUtHQzlLdlE4ZlNGU1NROXpwYTZnWTgzRDUyYUluUVF4XzVNck9yN2dhRjNka3VhVXc3RU9FUzk2RDdOanVmZXp6cVdLazVpNURxMEhzQ09ndVBTZElsY3NyWGtNMmkzODNhOFpvamRyYmtDWFo4UTQ4NDV6YXA3SXA5dkXSAdYBQVVfeXFMTWZwVW9Ja2F3VEk5dDE0Zy1GQ2ZZNGNOamdMYTJ3U1BXM3puT2Y5NmR1OXd6STRCVTlJT3VKT0o5LVpwYnNFcVpjOHl2WHI4dHVfUExzRU1sazhFeG8tbzh2bTY3T244SmlTNkFYMTEzdU9RTTBnWUJRVjJ4THBqdHVVSGRKNlljU0FTQVBURjJxOG9UME1RcWxlODRneEVKR2ZzNzBZWkswcHRxOG1sU0tCUkdOcDJEVDc4OWhfa3NQX05UbEdQX0hZY0dYSk1QUVJiMUpadw?oc=5",
-          "source": "The Indian Express"
         }
       ],
       "count24h": 0,
@@ -166,7 +166,7 @@
           "source": "Telegraph India"
         }
       ],
-      "count24h": 2,
+      "count24h": 1,
       "count7d": 2
     },
     "cattle-trafficking": {
@@ -214,6 +214,12 @@
     "coal-mafia": {
       "articles": [
         {
+          "title": "Coal cash to poll campaigns? How ₹2,742 crore scam funds allegedly powered I-PAC’s election operations - Indiablooms",
+          "pubDate": "2026-01-10",
+          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOSGZCQ1RfZDBwQnJfU0trWlc0cEJpQmtwTWpfTWlYQmI2LWl0TUpxZnZ0M0YydEpHVFJvWnNzaGRXQnloemI4ajB0SnY0UGc2Qk0wR3pkZ0FQQVdSLVg5T1gxOEt5bEJBMEJQZGE0eVpuXzlicVoyWklBSXR6VXBMN1JOOFd3eW96Ulp0MFdKMVpoVXYtZGZERElBb1JVaGFscXBBNHBLekZiQnR5VGhuSkYtbVBNWWN5cUlKR3VfM2NRUnFwSXItMFpmaHc2Rk9WMWtqSlVMV1U?oc=5",
+          "source": "Indiablooms"
+        },
+        {
           "title": "From Kolkata to Goa: How Rs 2,742 cr coal scam funds allegedly fueled I-PAC’s election machine - The Indian Express",
           "pubDate": "2026-01-10",
           "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPQUhyV0NNNlltWTZHMDBEdklBWTVCSmYwYno5NFVrNnBuX2lDejRIOWJ4TWRQaVI5d1JoY0lhVi03OUpNejAtQjhibXlDOGFsN0dJRi1FVmxZV3BZYmpNTnVSdXJkejFuXzNMT2hUWnZKZEZkc1pJQlYyQW84SGxPSk1HVWJQaXRaQ0tKYy1QWTdWME1NUU5iajNENy3SAaMBQVVfeXFMUDUxa1NJWmtZZ0NraGhTRTg1LXJqTVZLVmlBdmxOSkV2Yi14QzNHVGpQV2hTMGhwMC0tZ1lzTmNKZi15MG94MzQxUDFVMWlPWTV3VUZCa0pEM2xFSTNiOVJOWVE5RVVrM0lRaExSejFUbFlWSkRYZmZrZnVrVE5YcDRQZEcyRlEySHFrMG1wbmhjb3JCLWRXalpDWXVQdE9wZkhnZw?oc=5",
@@ -242,12 +248,6 @@
           "pubDate": "2025-07-07",
           "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNbFNsYmwtY2JGZ0Q3dUR4OWdsU1dJREE3VzkyX1hoX3h5dHowam54endWeGtpNFY5OTNLTzgydzBTSjRiUGRzOXktVm82Q19vcElwVDZlTVYyM0ZhaUpjVGxFTXMyc0tYX2tUQWxDcERxZWVURW1fNDRLNm4xbDR0ZnIycDhPUG5JLTltWkFNdEFYUzVYMjNKOW81OFYxVW5zbVB1dGM4LXozRzRkVHp6dFFpby1UQlBFNkUtX3U3eW9TcVHSAcgBQVVfeXFMTldVOTduOElXSlVfaFlRRVBFblpHUkhUMVhUOFhSX09lZDZlekpEcUFZYkMyZDdtd0NVYnYtNTJYTWNFTU1wZXBsOHdkSzZ1X1RHTGFfb2FRRmxOSG1XejZJRFNIWU9WcVh5M2xSTzUwallJVm9LdmRKa3NOc0hyeWM0cmkycEhIRkU5WmE4cEVORUpVeWZudjRxLWNJS1dsdDJaamF1ZWdqOXRLdC1nR2t5UjVFMlJxVFVvMkxxSE5ZM3JjWDU3VzE?oc=5",
           "source": "The Hans India"
-        },
-        {
-          "title": "Bengal coal smuggling case: Trial process starts at special CBI court in Asansol - ET EnergyWorld",
-          "pubDate": "2025-01-22",
-          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNMW9rbDByRFcxVmkzSnFlU3dvbDk2RDNJRlV0TGYwWkdTaldzOXFLVnZ6RnAwWGZDeEl2NGd2emNZTFRYZXpybUozU2VTVzJYaXZQMDFDOVQ2ZjVFNDBXUUVwbFRKeW03dzVfcUdDZnF0NW0yRmdsSXBhdjl0Nlc3dDRCUmFRRlZoOG5PTm43dUpGVEhHVmxtbkZfTG5wYU1tYmk0MkxwcmdkVlBVbUhEaElPdXpLMTJrVE1fbk5TZllvUURsYzczRndkTUtuOVZ0dGNtU3lULXc1MnfSAeABQVVfeXFMT18zci1Jb1VLMmtNNEhURzhlRk5Od2syajlnZjVIZUJzTklZYU9iOFZHVUxWQURsX1RfMGtGbFotX1ZscWFWb2FBZG56WmJuWXUtMTlTUGZ2SW02ME9ua1U5cmx1T3lzNWRFdzNWWUVjTzFwOFg1SFNzUk1QMHZBcW1rQ0hsNV80aUxUeHhMU3FYeUc0Ml9hOS1CU2lrRXJjUHFCOGRyczh1U0hkeDNOVFNkMkx5NHF6VzVuNFJwYWFvRzhKZDNBYThaV3ZjVEVZZURyNTNmanJnVnJQQ254R2Y?oc=5",
-          "source": "ET EnergyWorld"
         }
       ],
       "count24h": 0,
@@ -298,10 +298,28 @@
     "post-poll-violence-2021": {
       "articles": [
         {
+          "title": "CBI Captures Long-Time Fugitive Shyamal Barman In 2021 Bengal Post-Poll Murder Case - The420.in",
+          "pubDate": "2026-06-19",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNMDNfMHV4TzJReERyaDNxTjNub1k2UkQ5Qng4YVd0OFQ4Ni1kc3BDSnJYb0JOWEVfZGliVnZuZ1M0SGdWZ1F3ZHVMS0FBRzJpeWtmaGI1Rk9WbmlDc3hOeGwtSU11OTB4b1R5Y3JUNTNlbTBuejQtQkVCRlpMeC1OQWJYZS0?oc=5",
+          "source": "The420.in"
+        },
+        {
           "title": "CBI Arrests Key Accused In 2021 Bengal Post-Poll Violence Murder Case - NDTV",
           "pubDate": "2026-06-18",
           "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZVA2cUZBTFFVWDJ3SlRpbDBsYlhoSmFxQTMzbF83cjI3TGk4RHpucllNaVJrbzZHY2RUUy0zVnV4LUNKLXB3d3hMdkZjZHRpbC16Sm1CYlhObVNObUhVZ1RxOUVBSDRBcjhMZ1lzRmFuRDY2dVg5VkljeXdSYjhNd2hWT3M3dEV6Rm1RWGdqV0ZrUVJ4UHlzdlFyaWtqUk5MQ3ZFaDJ0dkZvRmpmVjlZ0gG3AUFVX3lxTFBRa0tfLXhUQm5PYlZJUk9ETlNEYy1qZDc2bk1mUnZsUEZSTUZsOEgyVVZ0dHRLS3RVY3VwLWp5dVQ4M1hxUWFWUEpSM1A5cGlOaGFaU2pkSnRraU1BNHhDQ3lGQndmQ2EzVXM4WEJUbndVU1JyMTZqNDRNREMwLVdoTTdXS1pSdFZaUzlzRDFHR1RZY21xY2daVVF6VDhZQTFSSGY2LXZwZzRuWmdPbzF2bXhhaVEwTQ?oc=5",
           "source": "NDTV"
+        },
+        {
+          "title": "Post-poll violence in Bengal leaves 4 dead, dozens injured - The Times of India",
+          "pubDate": "2026-05-06",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQNDREQnhRNS13Vkw4aHFlc0l5d0tJWmEySDlIUnRGR2dfQXBjSFRBUnB0RU9qdENKZF82RnpUSlNxUFY1TUV0SFZzd0d0emFfa3NoLUNHdWlOb2Y4alFRYzBNUXNuMnNKMldLY2pFNnhfRTQzNkxrcU15YXBBY0xZLWNoNENtVUFpYkJHMHBfaGRwYTFjazRhLUx4bnd1RFVwMzUtSkFWS2VmWVpBZWdBVUdtM1FOemZMc2hJVlBUOG1qUTTSAcgBQVVfeXFMUHdXbHM3Sm5GS3dLNmV6SWdNelJ5X2tVUl9vZmZTaEQ3WU5xX0ppVGZiRmVrdHYtVkhWNk95SW9SQ1Qycm8tVWNSUV9lb1hUZG1SeEdDa3MyeFBvQXZzSmgyVmJDLVpTWGdoQnNKNFVaUUx0czF1T2JGcHB2VkoteGZIZDlDaU5DQkNVbUdKY3lDVkM1TzVUSDA4MTR1UTFUS1JoZGdnWDFxMHpId3dob3lmV01LLXVDR1FWSk5aeHMzWXkzbE5rbFo?oc=5",
+          "source": "The Times of India"
+        },
+        {
+          "title": "‘My brother is finally resting in peace’: Family of slain Bengal BJP worker finds closure amid party’s win - The Indian Express",
+          "pubDate": "2026-05-06",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQdEc5dVBPQVljVnJpcUhZTDFJZy1rdzQyMnptc2I4UmJrYVpNNEpCV2x2dlUxSWxDSUMxb2ZyS2laWml2TVBiRUh0cTBreXhvSm02RHNIWGpKMzk5WHRYc2tQY2RwTVlORm9hVGJOb2FyeG02aUV2ZUVUVGpISEk5NTFRXzJEMGo0R3lOaXVpNGU4MFJvbFJNU3ZOall0VVlHY3FuZm9teW12RjdEUkQ4XzZIaE4wT3ZmSzhr0gHCAUFVX3lxTE9ZcmVvb1BUQVpkQm02QzdHRGttLWtZVDB0Wnk1b0t5WG9memVwSkdvUUtTWVZlMmlLUlFDSUFXWHpKNmRKcE55TGVxRWltSW9HR3V4RXdEUGxZQzE0UUxGX2ZCUm13bExsR2JwUjNZLXFTRkk0U1JadGMydEo5TXNWVFpFaGlQNHBId1A3N1NERjQ3Q1NSSlpqLXhQOXFtSFpiUHp4YlNkWjFlZmxhQzBjY3JUUmJMeXVaUGtKeEpFV0Jn?oc=5",
+          "source": "The Indian Express"
         },
         {
           "title": "Top court agrees to consider plea linked to 2021 post-poll violence - The Indian Express",
@@ -310,28 +328,10 @@
           "source": "The Indian Express"
         },
         {
-          "title": "CBI arrests key accused in 2021 post-poll murder case - The Statesman",
-          "pubDate": "2026-02-12",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQbmM3RGE4SVY2QVJ6Y2dhWkpXZUdEeUI1MmlqSmQyYnVZOG9oNHVTbS1SYjAwQmFnRzkyNzFWZW8wZ0FMNXR6VktCVVFRcm1rNzNYdHRWMDNacjlYXzRLT3BFSHN2RHg0d2NzM1ZGSkR0VlQ5eVJYcHVVaVdycVdUNUliNFFObUNQM1RpT0FBbWxEcUpaVWJQNjdjZmVXdkI5N3kyNWk5TzjSAa4BQVVfeXFMUDRVZWNtc0cxWDJNd00wMk1hekhPZWRBQ0tMcTZIMWpFUFBiUjJpN3JpeC05dTd2cnEyS0VGV0h6V05JWU5OQlRmb25MVTBpcFZteDJiVmxtSHQzN2VNSXp3bWFJODQxTXprRnM5ZDYtLUh5ZmJ4RFhVUFIxdV93bEkxUklDamdFRkI1OXhzUVRBZmp2TTRuZ185S19LV0xzUXFGTnlXdDF6MXVwOUtB?oc=5",
-          "source": "The Statesman"
-        },
-        {
-          "title": "Calcutta HC Grants Anticipatory Bail to TMC Members in 2021 Post-Poll Violence Murder Case - LawBeat",
-          "pubDate": "2025-08-26",
-          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPV0lxdTlVb2NkMGxhdVdlZkc0bE5jaHdhYTZIZm9KN3ZCN0VaNDBTQmJxR1l3ZVg2eDhIT1lrYU9SU3dqeGpPX0JtMUgwcEhrb0dVM3NtYWlaMlNKTFNBR2FFNTVsRXI5OE5KMlpYdndZTlBSbDlla2tXMnVOa0NjNnZmQjJoUnlCZ0RuaFpGcXlXOHQtRktpVGFySmxSNmh5MHRpUzN5d1ZqeW4waDF1MDUxN2dTM3FoS3BPa3QwYTdWdm13NWFqMTB2UzRweWx6UTVN0gHYAUFVX3lxTE5aTjdJX1pGemhKdXpKcmRrNGhXdkM2SlY5WVhrcXBUcE5RdVp2ZHVUanFEc3BUdElLanRvVHlzWDNlQU5JMUJuVFBXZDNrN2xBSVJBbGM2YnJMcmJURDRNVlBFQmJaS3YxTF95QVBNMUVHMDlZOS1wX1BzNHktc0Q2WDVnWnZDSThCTURwOGpzRHRMaEJxTE53MjVQS1l3WUhJRFdqNDFkemZ1bEJGMTEwNDk4dFVxLThlM1B6QklMZldmb0s5STItU3lzTTRER1FrMlhFNGwwTQ?oc=5",
-          "source": "LawBeat"
-        },
-        {
-          "title": "CBI arrests absconding rape accused linked to 2021 West Bengal post-poll violence - India Today",
-          "pubDate": "2025-08-14",
-          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPYnVOQlBOcjJJQ05LZ2lQQ2dwVDYybzQwXzBvbkxzNmxkcURGdTFJd2xETUpqOXpUeHVWbS04eWNyN0tUU0w3bTlPc1BUdFFjTTFFelJ2ZGc5dDdGdFI1MEIyMFpFUVo3MzV2VmQwSFBNYzExdU1UV2Z1U3paUUE1ZU1DOHEtdVV4b3g3Yk1UZUlGMC1OdmxnZFVOQS1HcUU4Y0FlbHd2aE14NVp5THNLbDBuNGVlbUJMeFBzMDd5SENNaktydVptNTdHcjVyYjZza0hZc1ZsVWJYdEhwMjBhTlBn0gHnAUFVX3lxTE8tbXJfbFVMOXlsTVlqVFE3azlqUlBjMjZWMk1OQ3VhcTdBM3Vya0RYMDFTWGdITWxic3J2OFViSC1taE5Sa1lBbWNHQ09xcTdENFFsSnRYRXR6T0IzZml3UXJtV2dJaGE5Vk1BRmR0SDVYa19SN0pFTldjSWtLUV8zMDNWVXkzOC1sblpabHMzVV9YSTJOcHNOLVhEY2JacTdMV2RkcXlJbHY4WHQ0cFk2djRDV1QxWEVLUkpNRkpka0UxeHF2Ui1mWjdlWXBlb0VaX2F0RjFyam0xRTNid081LVBCZ1J2SQ?oc=5",
-          "source": "India Today"
-        },
-        {
-          "title": "CBI Arrests Bengal Man Accused Of Rape During Violence After 2021 Assembly Polls - NDTV",
-          "pubDate": "2025-08-13",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNQW9uUndpbDJoQW02R2tBUFZ1bVVoZ1d0Wm9fQ2k4MDdRdjZnUDJuSUE2NExVc3ZRSkNWY2lLcm9lZjVxaGxmeWxCRm5yU0tMTXhqNnI0UlFsV2N6Z24yb3Q4aHBEdENpX3FtOU1FVXRDLVZlbTJtZUEzOHhBSlRTaFpBMUtXV0FUVnd0SmtHZExXZlppWTZHTTl3clJiSk04bDYtLVZfakNZUGpoNmRlSU5temHSAbwBQVVfeXFMTUpxZjVRTEdWMDJNRWlUUDF6VGVPT1Q4bk5sQ0w2RVJya24tZGlpdHBTOFlWZ284eng5OE9oTndqcDdnaWlTT3hqc1VCUmdrUENsMTlqeGNkcF9GaWhMdVR6akRVRUxjaW9aZl81WU5OSjJVd1JUTE00VU9TYzQ4NU5NYm5BVE1Qdzl3RFBHT0dmaDN0anhpemRsU3h0TlF2SFVpcTVNWjdGUkJDVDg2Q0VHQmJlWDBoWVVzVEg?oc=5",
-          "source": "NDTV"
+          "title": "CBI arrests a wanted accused in post poll violence in West Bengal - BW Police World",
+          "pubDate": "2026-02-17",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOSFBuUlJ1TThCRFlBVTFBSWQxTVpBUnRUblFwbVVfbldxcXg5aVFzMmo3Y2VhSzE1aGZpOWF5MkhVcXRPQ3NUN1B1ZldmTHJNenNnQnlUUzAwaEFiWEFtUHI2RHJlYjY5N1otNmVUVWVXMksyeV9uX0J2ejFnNGNWa0xrOUg3eEpleXU3LXZxa2tqanJuVXBmWHBaRWgxZmd4S3JZX0R2UTNGdmN2ZGxV?oc=5",
+          "source": "BW Police World"
         }
       ],
       "count24h": 0,
