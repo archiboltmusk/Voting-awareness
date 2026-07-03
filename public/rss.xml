@@ -5,26 +5,13 @@
     <link>https://voting-awareness.vercel.app</link>
     <description>Latest headlines on Bengal corruption cases, court hearings, and political accountability — updated every 6 hours.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 03 Jul 2026 09:56:57 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 12:10:57 GMT</lastBuildDate>
     <atom:link href="https://voting-awareness.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://voting-awareness.vercel.app/favicon.svg</url>
       <title>The Bengal Reader</title>
       <link>https://voting-awareness.vercel.app</link>
     </image>
-    <item>
-      <title>Saradha Chit Fund Collapse: Lessons From a Savings Scam - HDFC Sky</title>
-      <link>https://news.google.com/rss/articles/CBMi1wFBVV95cUxObzNrZjZrTzNNLTlpTUs2SHEwVU1TdS1sTl8wTVdhNlVVVEx6bDkxaHdwOVdCdVdrRkVPbElkR0IwQWxGcDk1SkpqTlJrQTNSdnZEZDVtVnJlVnJOWGdkLVZqM0JFZ0lMVFF5ZUxSWVRDOEZqbXRjTVFzLWdIeFdYSFpkQW84SmZoSVRPdUx0Q2UyT09Mb3hRSlZ5RVMyZWRlNUJzV0p0WnYzSFZQZHRpaW9xc2ZRRE4xNGNvZ3RueWw4QUt5LXZMa01RbFJicGlQa3RZempDTQ?oc=5</link>
-      <pubDate>Tue, 16 Jun 2026 00:00:00 GMT</pubDate>
-      <source>HDFC Sky</source>
-      <category>saradha</category>
-      <content:encoded>
-        <![CDATA[
-          <p>Saradha Chit Fund Collapse: Lessons From a Savings Scam - HDFC Sky</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
     <item>
       <title>Saradha chit fund case: CBI summons Trinamool leader Partha Chatterjee - Indiablooms</title>
       <link>https://news.google.com/rss/articles/CBMirwFBVV95cUxQZ3lHdkJDVldGLXdTbl9hWGlmcGFiVU9aOG1TZXdxbFFlYWFJay1PZTJOQnBlVk0wbWpPbjZUNWg4dXdJM1B5anlXTWlFdTN0YlVwUTBWMmRJTkxGLTZXN0xNQ1RFQkpCcWZyNGkxLXhfa3REYWtDSWJiQ2hoZGZZX3dYQU5XTUcwTk96cWczOFp3czB6cDE5MFJKYjFXbjZUaHVNc3MxN3JvT3lTRURz?oc=5</link>
@@ -34,6 +21,32 @@
       <content:encoded>
         <![CDATA[
           <p>Saradha chit fund case: CBI summons Trinamool leader Partha Chatterjee - Indiablooms</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
+      <title>Adhikari clears CBI action in Bengal Cooperative Scam Cases - Indian Cooperative</title>
+      <link>https://news.google.com/rss/articles/CBMiqgFBVV95cUxOSUs0bkgzZlVjNDhxMHlyclVHMG85X3c1NnpWV2Eta0owazZVbGs0ajljQzdac1ZZZjNTVEwyb014TW45OG9Ib2ZuZTUzU3Jhd3pOaUJ2RGd5THhTOHlDTXd4OTR4WXhUMjQ4RlNIQ2QzTnR5T2c2dmZTWHJXRHlYUDhDTm9vSkdUMm9zRmx1bWgtSzJ0cWZVcGpwUEM1WkVjeF9MSWVaMmpSZ9IBrwFBVV95cUxOdVJKYnRrMjNZWS1odTBkQWhCZEdva3FPXzBWYXl2djh4ZlNWN29aVDN3QVFYQjNpN3R6UlNpOVMyQU5rOGRqSTBGTDV5Z21FOEpWU0NNaTl6c3pZb0tlNjhlTTNfcWF2aWZmdG5DeVhxNjVyTUdEYkZwQWdpZnZTaXlBb1JhZ2k5ZnRpemxWVkZMZmNMemhGZTQyLUstNjBfU3F0bElXbzRmU1BjN2dZ?oc=5</link>
+      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
+      <source>Indian Cooperative</source>
+      <category>saradha</category>
+      <content:encoded>
+        <![CDATA[
+          <p>Adhikari clears CBI action in Bengal Cooperative Scam Cases - Indian Cooperative</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
+      <title>Saradha chief Sudipta Sen set for release after nearly 13 years in jail - The Statesman</title>
+      <link>https://news.google.com/rss/articles/CBMiwAFBVV95cUxQdWgxM1hrTlJvWWxuc0VwTHY5YzBSOGxkek5kOGJOZFdsMUhWRkd4aWNGR1FOV2w4Q29mVFZiN0QtUkVmam0wSHBuQjNVMjQxNXVfWWw5X0Z6OUlwZFZWSnhwcGlkMnJEeVlTc2JkN2RBbDEydkNhY1Y1Ry1ibGFNMFVfZmN4ZFhoaFdsZTJxZWNvMjdzOGRnbXZRNS1ncXRON2Jtd3BlR1lSMlg1ZnF6eUZIR1FNMHJxWXVlbF9wR0TSAcYBQVVfeXFMTWVtaTJjWkFpWC1OOHdua1BSTlU2TUlZSTYzNXozdUdFalhDOFNnamp6VUFnQXpLaEJCMnFOVlRJeV9YSTd1MklocEotdEowelAzWk5la3lFMWxjN1BhajR5MEs2eFdpVFotM3Y5bUVPRVZ6alBHVUswYlJiZEpOQ2ppRVFNYzI5NDBnOXN4SFhqT0NHTFJvTWRyaklyLVNLVGpNd2loVk5JVUhmc1FvRGI1ZXRCb2RnR293SEpZRzZhS3FRVUNn?oc=5</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <source>The Statesman</source>
+      <category>saradha</category>
+      <content:encoded>
+        <![CDATA[
+          <p>Saradha chief Sudipta Sen set for release after nearly 13 years in jail - The Statesman</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -60,19 +73,6 @@
       <content:encoded>
         <![CDATA[
           <p>Sudipta Sen To Walk Out Of Jail After 13 Years Today: What Is Saradha Scam And Why Bail Now - News18</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
-      <title>Saradha chit fund&apos;s accused set for release: Calcutta HC grants bail in all cases, slams CBI and state poli... - Bhaskar English</title>
-      <link>https://news.google.com/rss/articles/CBMimwJBVV95cUxOOWl5OVNuTzl3X2xqb3g5QzExQm43dy1PZ0VINkpST0xzNWtLdTBLSTF2OUo1aUhBbUtpRkVqYkhaSDZCUk9TOEFGOERPelhRWFhPb3F5NHU2eWIyRGpaMkJIRkpxUmxPak9ZUDVfWk5sdVdUTHQ1TXp6bjFHckdrSlp0S3FrZzBxbmVvSmhVUVB6T19BUmFXX0F1dmJoNTdIZk5WamdMQ3JheEZwRFA1UTdwR0VpT2xoV0l1YnpzNW9TUENFMHRqVXBMazZJb0JaUkdRSE53R0tmbTF2Q1FTRm1aeEw0OVVxQ05CRXd5ZFlURGg5MVBmNDZIWGFORFlQLTJ6YTZFZ25nbHhROGhHMVItQnVDVlY0U1Rr0gGgAkFVX3lxTE52a1dVenU4clk3ektHOG5ieVE5dUw4cWFobWNrQmxnRmF1eU5rcGF4WnV6Q243d1ZlSjVCTjBsdUVnTU1lMlJMb3lEeFRRdnV2WTFqV2dvTlFaSnlaVnFNbHZVVFpQSEZaY19rOW9LZVRqWnIyY016blpvZ3R5RVVXVTBiOTR0ODl4V3VyaG5lU2pPeVV5QzVISlljZmFOaUhEbFJpcDBBVnJPbVp5YTBuTG9OcWxlLUpKbk1pckJGaXJ0a2o4U1V0REhxZWU1RUNxSEZjVkdvdThEb09XQkdkTVhRMjF0REhnWnVrOHYwQWx2MkFJby0td3M0WkRlUGtlU2J6WWpUUmt5N0pmaXByNWpGdjktcXFBUmF6N3FYTQ?oc=5</link>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
-      <source>Bhaskar English</source>
-      <category>saradha</category>
-      <content:encoded>
-        <![CDATA[
-          <p>Saradha chit fund&apos;s accused set for release: Calcutta HC grants bail in all cases, slams CBI and state poli... - Bhaskar English</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -208,6 +208,19 @@
       </content:encoded>
     </item>
     <item>
+      <title>ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR</title>
+      <link>https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 GMT</pubDate>
+      <source>News On AIR</source>
+      <category>ssc-scam</category>
+      <content:encoded>
+        <![CDATA[
+          <p>ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
       <title>ED conducts raids on Partha Chatterjee in teacher recruitment scam - The News Mill</title>
       <link>https://news.google.com/rss/articles/CBMitwFBVV95cUxONGZRQXVvdHdGcG5pYWlUZTg4b0I4UmxxaHRGdFBuRTBlT2hzQTdJdGZjd0xpWDJYbk92S2hFMGQzVl9lSGMzSUFyN3JETHg2SzM5MmkzdkRFX2ptUGFxelU4VjBEMGkxSWk5aGk5UFNZUkhPVW9Eb2g2SmVYNXQ1bzVYc19HWWE3QllNUDZ0VzlkckQwNnh5UzlOejRqYUNqV2Nqcl8xUmhUN1pVQVFwemc1MmtZQmM?oc=5</link>
       <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
@@ -242,19 +255,6 @@
       <content:encoded>
         <![CDATA[
           <p>ED summons Abhishek Banerjee on June 15 in primary teachers recruitment scam probe - ANI News</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
-      <title>ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR</title>
-      <link>https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5</link>
-      <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
-      <source>News On AIR</source>
-      <category>ssc-scam</category>
-      <content:encoded>
-        <![CDATA[
-          <p>ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -468,32 +468,6 @@
       </content:encoded>
     </item>
     <item>
-      <title>Bengal: Charge-framing against 19 accused complete in 2021 BJP worker murder case - The Hans India</title>
-      <link>https://news.google.com/rss/articles/CBMiywFBVV95cUxNTjNFZ3l2RkF1OFdCRWw0cnhYWnpzdFZJVVdkOFVIVllkSkVJT01wMnJGVVpGcElKZGlSN19oS2tvUjF3eGw4dzdlaVNieFNXcU5tTTRoZU1wSVI5MWtFRTF2ZFhjalg3SUpJZVlnbzFsU1phemluMlJwVjJRLTI2S0hyLXFKVEZQOWxpV2cyQTBoYXo5V2FPREZyaGNwREp0dXFVZUdPc2dOMmgtUVQ1UkREblhETHR5M29pMllYUDVGa1BXNVZRYmUySdIB0AFBVV95cUxOMUdzOGtPV3JweUVsZEJlaHh3WUpyZHhBOTBkRUNDa3paWTFqQWJuQWNGaERGQm9aTFJyMTJEdnhRUHpoQkctTXJsS1pkeC10eTFTQkhyQW1UT0NsaGMyRmtTT2JrMFo1U09OSWotQmwtZGlLalFVZGc1dF9FWTd3b2RuS3h1Z0JLLTNPdXdURVhwVnNhVHhtRllzRUpZV0IzdkJMNnlEM21qQ056M2lwT1JqZm5uZU1kVGU2YTBqMExPai1DbHpKVGxxUHY0Wkc2?oc=5</link>
-      <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
-      <source>The Hans India</source>
-      <category>post-poll-violence-2021</category>
-      <content:encoded>
-        <![CDATA[
-          <p>Bengal: Charge-framing against 19 accused complete in 2021 BJP worker murder case - The Hans India</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
-      <title>Bengal: Charge-framing against 19 accused complete in 2021 BJP worker murder case - Punjab Kesari English</title>
-      <link>https://news.google.com/rss/articles/CBMi9wFBVV95cUxPMFZmdkVBUVFTT3pQQjdBenJFNzZ1Y185bTBqdFhxWEV0S2Y5ZWVJRDdWWVd3OXpLWVFMNmVTelVBaGJaQkZwUFNJNUd1UnczZnlTa1pHaEx2a3FjaW9rcXVqS1VSSTFJN2VseG5kTFZDNVl4c1Q0QlBpRWh0czVXaV94S1pIYS1wNFp5OEFVcVlJdGluZ0U4NnFMWDhMY0ZxS2NwT1E4UFlCQ1I4ejhaQnZJTlVTQzZ3dG1xYlZqQlVPTVB5WlYtbHBIQVJuNTFCTEN5RlYxNkpFOEY2T1dCOTBjMDh4d0FOcHdmMldEVUVRb0hOVFhN0gH8AUFVX3lxTE1IMm5qQUlCVWNBd3p4a0NRLXJQNG9LUVVFV3lnRVJ0eUlraGZ4UTdabGRBUnA0WmI5S1JlZXBodnJCVXU2alJKNWhsWVduOUp0b0FjcnlRcnY4UGM5Rm54U25KM3UxZGxQc2k0a2d2RW5OS2FZdXdRbWtLa2VyblpCcTBZX0NMX1hlbUJ5c2QxYXhkdkV6NUtSeHVpWkZrUXRNOTNNWHRnYm5LV3c1anh5eklXdTdNY0dPcEM4Z3VHVW0yMEtCcnFkMGFBS3pyeVRaVGdKa0x6UmxNblRobl82Nzl6bHVKUnBhNkItRTBBUEJsa0g2M3BBbEtvRQ?oc=5</link>
-      <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
-      <source>Punjab Kesari English</source>
-      <category>post-poll-violence-2021</category>
-      <content:encoded>
-        <![CDATA[
-          <p>Bengal: Charge-framing against 19 accused complete in 2021 BJP worker murder case - Punjab Kesari English</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
       <title>CBI arrests absconding accused in Bengal post-poll murder case: Proclaimed offender held in Maharashtra aft... - Bhaskar English</title>
       <link>https://news.google.com/rss/articles/CBMi8wFBVV95cUxNUm5HcTZQZUpobGxoUEdzRWRSMjBUeHdIbDZFQ2xDMmV3NjMwR3V2Q19UYmctT2pYTXdVT0dfbmpEYjJ5a1BGeE1GTzVHMUxrc1dxNlN6elIxMXl1aDQtNWxRMGVBdDZrZ2x5WEpKdXJfcGtpZFNDemROVDdGenJVLUE5SkNkMFpOaGhtZndta20zRzl3S1dVYkdjUHEyXzZsaDRlbHJJc3JJdkFvd01xSEIxSFBGMkhibVpIV2l2TGZNYU0yZnhkM2ZrZXppTzJoMjYyeG5RM0VNRzR6Z09aa1U0T2Q5cFlaWEVkblFOYk45dFXSAfgBQVVfeXFMT1NQYnByTXh3LU03TmMzZTAxY0xEeVFkdHFubFhaWXhYR0xPQ1FCZHZTbzVNZWJ4TVM0Y2VtSzAwcnhxQ1NqTGlENlhNZzZ1NlEtTUI5Y0ZRRWI5dXFUZUZUWVo5OWFuMVFqSkowdU5USkl6OGxYb2JMcUZfOGpZNjJBTWFrMnlpVFNYMjJxV3JURzktbUhDX0pFbkFNdlZFcEVkeXJmdHBWUjVQakcyejJCVGlZWTREd3I0THlyQm03Q3QtUjZHOG54clBEVmpTbDZWRXBuaUs0NTU2WGNpd1ZNQXg2b3RISFNFQTF5alRaYUk3YVlOeFU?oc=5</link>
       <pubDate>Tue, 30 Jun 2026 00:00:00 GMT</pubDate>
@@ -507,27 +481,53 @@
       </content:encoded>
     </item>
     <item>
-      <title>CBI arrests proclaimed offender in 2021 Bengal post-poll violence - Social News XYZ</title>
-      <link>https://news.google.com/rss/articles/CBMipwFBVV95cUxPU2R3Q2VKQmdaSGg2MGl1LVBPb0dXc0RQR2piTk82OVBmcHJBOHhGd0lGd3ZySzduamlhQjZrMFdJaWpfZFRXMWp5cld5X3RaQmpQRFFHZzN1MENNbmM5Zl9NeXl0NnBCNGtzWFNyWFN0dmlzcTJJSmlJOWJEd195RGFQSFVMOWs5cF82N1NhUF90Wkg3MW9hVGhGLXRHbFJxU281cElQWdIBpwFBVV95cUxPU2R3Q2VKQmdaSGg2MGl1LVBPb0dXc0RQR2piTk82OVBmcHJBOHhGd0lGd3ZySzduamlhQjZrMFdJaWpfZFRXMWp5cld5X3RaQmpQRFFHZzN1MENNbmM5Zl9NeXl0NnBCNGtzWFNyWFN0dmlzcTJJSmlJOWJEd195RGFQSFVMOWs5cF82N1NhUF90Wkg3MW9hVGhGLXRHbFJxU281cElQWQ?oc=5</link>
-      <pubDate>Tue, 30 Jun 2026 00:00:00 GMT</pubDate>
-      <source>Social News XYZ</source>
+      <title>CBI Arrests Fugitive Wanted In 2021 Post-Poll Violence Case In Bengal - NDTV</title>
+      <link>https://news.google.com/rss/articles/CBMitgFBVV95cUxNTnM3OFRROTA0ZFh0U0V5SGhCdDBoWlVZVGpqNkNpSzBsR29aczUwdEpCVWNDNVVYLXRCcmNyYzV1OXFXelRweGJRRl9PV084dERDc2JKTHAzemZXS3dpcjU5MFVrbGwwZXNRZVFLWjRyMVRYdDhfbS1kNWNfcklBYUFtbjNsbU5QX1FBcTdSZDR1VGZfQkVPcHktR2Rza09sS3F4cFdPeFlLUVN4MzUzdWhZNWdtQdIBvgFBVV95cUxPZUNMYjdSTnBxdkRXYUhCTmVkR1BvMEZuSThuR05mOHdDeFN6YzMwN1hxaWNmMGQyOEFUcTQ0YkphdHpyMS0xSHItUlc2NGE2LXpPSVFQeVZ2Q0pwTXd2T1UtbXJxRVJDYTFvUmpqci1DVUpiLUFtdzhOUDFzaDhNblJYRzRxNFhoUnljVlVwZ1Jra2JmMFp2T2ltSk1oemxOY2pyWDhBOVFSYkdUb2ZMeElIWU16N2hNUERqMlFn?oc=5</link>
+      <pubDate>Mon, 29 Jun 2026 00:00:00 GMT</pubDate>
+      <source>NDTV</source>
       <category>post-poll-violence-2021</category>
       <content:encoded>
         <![CDATA[
-          <p>CBI arrests proclaimed offender in 2021 Bengal post-poll violence - Social News XYZ</p>
+          <p>CBI Arrests Fugitive Wanted In 2021 Post-Poll Violence Case In Bengal - NDTV</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
     </item>
     <item>
-      <title>CBI Arrests Proclaimed Offender In 2021 Bengal Post-Poll Violence - Ommcom News</title>
-      <link>https://news.google.com/rss/articles/CBMiogFBVV95cUxNQXoxOHMzcHFHYWU1TWlCeWdPS1dYWVQ4V1RRV1pjT0dWdUlzdWhReXcwSzdJNm9TbWF1QVNWTGJtZ0tmT3lTWFVpODVYTEU0b1B2bVJrOGxBSFR6bThMS1hQR2pGeGZGeVhXWEdfbVlFUGpJZUNEbUFHOUUtaS1YX1dUdlFRU3ZEU0o3TXh3QkpZZGhmbVUxOGp6NThoem1HS0E?oc=5</link>
-      <pubDate>Mon, 29 Jun 2026 00:00:00 GMT</pubDate>
-      <source>Ommcom News</source>
+      <title>CBI Captures Long-Time Fugitive Shyamal Barman In 2021 Bengal Post-Poll Murder Case - The420.in</title>
+      <link>https://news.google.com/rss/articles/CBMihAFBVV95cUxNMDNfMHV4TzJReERyaDNxTjNub1k2UkQ5Qng4YVd0OFQ4Ni1kc3BDSnJYb0JOWEVfZGliVnZuZ1M0SGdWZ1F3ZHVMS0FBRzJpeWtmaGI1Rk9WbmlDc3hOeGwtSU11OTB4b1R5Y3JUNTNlbTBuejQtQkVCRlpMeC1OQWJYZS0?oc=5</link>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
+      <source>The420.in</source>
       <category>post-poll-violence-2021</category>
       <content:encoded>
         <![CDATA[
-          <p>CBI Arrests Proclaimed Offender In 2021 Bengal Post-Poll Violence - Ommcom News</p>
+          <p>CBI Captures Long-Time Fugitive Shyamal Barman In 2021 Bengal Post-Poll Murder Case - The420.in</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
+      <title>CBI Arrests Key Accused In 2021 Bengal Post-Poll Violence Murder Case - NDTV</title>
+      <link>https://news.google.com/rss/articles/CBMirwFBVV95cUxNZVA2cUZBTFFVWDJ3SlRpbDBsYlhoSmFxQTMzbF83cjI3TGk4RHpucllNaVJrbzZHY2RUUy0zVnV4LUNKLXB3d3hMdkZjZHRpbC16Sm1CYlhObVNObUhVZ1RxOUVBSDRBcjhMZ1lzRmFuRDY2dVg5VkljeXdSYjhNd2hWT3M3dEV6Rm1RWGdqV0ZrUVJ4UHlzdlFyaWtqUk5MQ3ZFaDJ0dkZvRmpmVjlZ0gG3AUFVX3lxTFBRa0tfLXhUQm5PYlZJUk9ETlNEYy1qZDc2bk1mUnZsUEZSTUZsOEgyVVZ0dHRLS3RVY3VwLWp5dVQ4M1hxUWFWUEpSM1A5cGlOaGFaU2pkSnRraU1BNHhDQ3lGQndmQ2EzVXM4WEJUbndVU1JyMTZqNDRNREMwLVdoTTdXS1pSdFZaUzlzRDFHR1RZY21xY2daVVF6VDhZQTFSSGY2LXZwZzRuWmdPbzF2bXhhaVEwTQ?oc=5</link>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 GMT</pubDate>
+      <source>NDTV</source>
+      <category>post-poll-violence-2021</category>
+      <content:encoded>
+        <![CDATA[
+          <p>CBI Arrests Key Accused In 2021 Bengal Post-Poll Violence Murder Case - NDTV</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
+      <title>TMC councillor Swapan Samaddar arrested in 2021 post-poll violence case - The Indian Express</title>
+      <link>https://news.google.com/rss/articles/CBMirwFBVV95cUxOaThxTE1XWUMyN3ptdVNnY1drdFY3Y2ZwNjJWMWRfVEt6alhxS1ZEd2ZHeXlPNkg3NWd3NWVKWWNCMG15Y3A1MmJlZXYzSFBWQUJxNk1KekVNdnl2VWdUOFJueVljSDlFbmU2V2hHOFlOeUlMTzIyVTZ5d05hS250U3dkcElkcE5SLVdueW9XZUxCa1dQN2FSbG5TdTJJamVsSFpfU0ROMWhvSHBfX01n0gG2AUFVX3lxTE0yMzc3cXI5U3FhbWRhajZPS1JWdXZCajFsRWZvTjhITHNoYVdZSTFxSGJTOXFMdlV0UWhZRkNYZHEzV2g4UzRFOXFsQldyaHk0RmZiYkpxV2JHTlV1a2lUaER5cWNyd1VUb1dOcnAzWUloMFBmTE9JcEprYlBnM2NJUGV6UVhBUE5BYkJkMTFKYkM5Z3ljbi00VEtGZkZaSDM3T2xENXlRVE5VSDZ1enZUNVNVNjJR?oc=5</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+      <source>The Indian Express</source>
+      <category>post-poll-violence-2021</category>
+      <content:encoded>
+        <![CDATA[
+          <p>TMC councillor Swapan Samaddar arrested in 2021 post-poll violence case - The Indian Express</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
