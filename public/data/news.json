@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-05T11:32:32.743Z",
+  "generated": "2026-07-05T13:29:01.504Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -131,7 +131,7 @@
       "articles": [
         {
           "title": "ED conducts raids on Partha Chatterjee in teacher recruitment scam - The News Mill",
-          "pubDate": "2026-07-04",
+          "pubDate": "2026-07-05",
           "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONGZRQXVvdHdGcG5pYWlUZTg4b0I4UmxxaHRGdFBuRTBlT2hzQTdJdGZjd0xpWDJYbk92S2hFMGQzVl9lSGMzSUFyN3JETHg2SzM5MmkzdkRFX2ptUGFxelU4VjBEMGkxSWk5aGk5UFNZUkhPVW9Eb2g2SmVYNXQ1bzVYc19HWWE3QllNUDZ0VzlkckQwNnh5UzlOejRqYUNqV2Nqcl8xUmhUN1pVQVFwemc1MmtZQmM?oc=5",
           "source": "The News Mill"
         },
@@ -166,7 +166,7 @@
           "source": "The Reporters' Collective"
         }
       ],
-      "count24h": 0,
+      "count24h": 1,
       "count7d": 2
     },
     "cattle-trafficking": {
