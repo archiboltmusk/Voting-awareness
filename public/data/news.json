@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-05T06:47:33.843Z",
+  "generated": "2026-07-05T09:41:32.571Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -166,7 +166,7 @@
           "source": "The Reporters' Collective"
         }
       ],
-      "count24h": 1,
+      "count24h": 0,
       "count7d": 2
     },
     "cattle-trafficking": {
@@ -293,7 +293,7 @@
         }
       ],
       "count24h": 0,
-      "count7d": 1
+      "count7d": 0
     },
     "post-poll-violence-2021": {
       "articles": [
