@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-06T14:23:29.789Z",
+  "generated": "2026-07-06T17:42:06.211Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -335,7 +335,7 @@
         }
       ],
       "count24h": 0,
-      "count7d": 2
+      "count7d": 1
     }
   }
 }
