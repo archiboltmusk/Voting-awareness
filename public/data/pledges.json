@@ -1,7 +1,7 @@
 {
   "swearingIn": "2026-05-09",
   "deadline100": "2026-08-17",
-  "lastUpdated": "2026-07-07",
+  "lastUpdated": "2026-07-08",
   "sourceNote": "Pledges sourced from BJP's official 'Bhoroshar Shopoth' manifesto (bjp-govt-wb.pages.dev tracker) and verified against news reports.",
   "categories": [
     {
@@ -660,7 +660,7 @@
       "title": "SC/ST/OBC Scholarship Restoration — ₹1,200 Crore Backlog",
       "detail": "BJP pledged to clear the ₹1,200 crore scholarship backlog for SC/ST/OBC students accumulated under TMC — with direct Aadhaar-linked payments within 60 days, restoring Central post-matric scholarship disbursements that had been routed through state agencies and diverted.",
       "source": "BJP 2026 Manifesto (Social Justice chapter) · MoSJE scholarship scheme reference",
-      "status": "watching",
+      "status": "delayed",
       "deadlineLabel": "Backlog cleared in 60 days",
       "deadlineDate": "2026-07-07",
       "updateNote": "No scholarship disbursement order or Central fund release announced.",
@@ -1701,9 +1701,9 @@
       "deadlineLabel": "Full term",
       "deadlineDate": null,
       "updateNote": "No ambulance expansion plan announced yet.",
-      "newsHeadline": "K'taka health minister UTK fixes 15-min deadline for 108 Ambulance service; Rs 5,000 fine for delays - Daijiworld",
+      "newsHeadline": "K'taka health min Khader fixes 15-min deadline for 108 Ambulance service; Rs 5,000 fine for delays - Daijiworld",
       "newsDate": "2026-07-05",
-      "newsUrl": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBJejN3N2drUzVweXd6M0VTeUg2MWVmTExiVGFoZDFlRDY5VGRoRVp5ZFhEeUFEaTBZZXZYMnBqVzhKMGZrOFRCdzY4YnM4TVNpYVpGRzl0Zmg5bVpVWVFoUTN5cHpkX0s0V0E?oc=5",
+      "newsUrl": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBrTjhNLUZkWFpoa3BCLWZiRUlfNjRzN3hGTGt3MUtmN2hkQ2sxZmFtdThSbHg2TnFpRTB1cFlOMmZIajdKeHRzWVR1Tnd4OTBsbjJBQWxUS1JNaEI0WGhFZlFLRGhXTG8?oc=5",
       "keywords": [
         "ambulance network Bengal BJP 2026 108 emergency health"
       ]
