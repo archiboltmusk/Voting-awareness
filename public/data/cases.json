@@ -78,10 +78,16 @@
         "date": "2025–26",
         "event": "Trial ongoing in CBI Special Court. Multiple bail applications and HC challenges slow proceedings.",
         "source": "CBI Special Court, Alipore, cause list 2025–26"
+      },
+      {
+        "date": "2026 Jul",
+        "event": "2 news reports in last 24 h. Latest: \"Amid TMC's internal feud, Ritabrata targets Kunal over Saradha scam - Press Trust of India\"",
+        "autoAdded": "2026-07-10",
+        "source": "Google News RSS"
       }
     ],
     "summary": "The Saradha Group collapsed in April 2013, wiping out the savings of an estimated 17 lakh small investors — mostly women and rural families across Bengal, Odisha, and Assam who had deposited money in chit-fund and real-estate schemes. The Supreme Court transferred the investigation to the CBI, which filed chargesheets naming TMC politicians as recipients of funds and political cover. The case remains in trial, slowed by repeated bail applications, HC stays, and the sheer volume of accused.",
-    "lastUpdated": "2026-05",
+    "lastUpdated": "2026-07",
     "nextHearing": {
       "date": "2026-06-12",
       "court": "CBI Special Court, Kolkata",
