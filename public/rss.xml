@@ -5,7 +5,7 @@
     <link>https://voting-awareness.vercel.app</link>
     <description>Latest headlines on Bengal corruption cases, court hearings, and political accountability — updated every 6 hours.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 12 Jul 2026 02:38:30 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jul 2026 05:57:02 GMT</lastBuildDate>
     <atom:link href="https://voting-awareness.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://voting-awareness.vercel.app/favicon.svg</url>
@@ -39,19 +39,6 @@
       </content:encoded>
     </item>
     <item>
-      <title>Tripura&apos;s Latest News, Views &amp;amp; IT Portal - TRIPURAINFOWAY</title>
-      <link>https://news.google.com/rss/articles/CBMiuwFBVV95cUxPOFlHNVM5VVZOczk3V3F6alVYZVRXZ3lVejFSRHhmS2h6blJacXphUkdjMDJrVGZxV0pHMmZ0UU5VdUxkNGRJQnd2cWhicUw5VkdDc0pONnFQTnFWb3I3NDlvNTEyS3Z0bTRVbWNLbGx1TG1id1E5UFNzNkliSXVXQWZnRWNpNzJBcDNRa2ZlRk9nRHhxdUlvSjkxa3NGaXI1MHhPMG55MDhwUXZnTDltQXJ0VVpkQVRxdW9v?oc=5</link>
-      <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
-      <source>TRIPURAINFOWAY</source>
-      <category>saradha</category>
-      <content:encoded>
-        <![CDATA[
-          <p>Tripura&apos;s Latest News, Views &amp;amp; IT Portal - TRIPURAINFOWAY</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
       <title>Saradha chit fund case: CBI summons Trinamool leader Partha Chatterjee - Indiablooms</title>
       <link>https://news.google.com/rss/articles/CBMirwFBVV95cUxQZ3lHdkJDVldGLXdTbl9hWGlmcGFiVU9aOG1TZXdxbFFlYWFJay1PZTJOQnBlVk0wbWpPbjZUNWg4dXdJM1B5anlXTWlFdTN0YlVwUTBWMmRJTkxGLTZXN0xNQ1RFQkpCcWZyNGkxLXhfa3REYWtDSWJiQ2hoZGZZX3dYQU5XTUcwTk96cWczOFp3czB6cDE5MFJKYjFXbjZUaHVNc3MxN3JvT3lTRURz?oc=5</link>
       <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
@@ -60,6 +47,19 @@
       <content:encoded>
         <![CDATA[
           <p>Saradha chit fund case: CBI summons Trinamool leader Partha Chatterjee - Indiablooms</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
+      <title>Saradha chief Sudipta Sen set for release after nearly 13 years in jail - The Statesman</title>
+      <link>https://news.google.com/rss/articles/CBMiwAFBVV95cUxQdWgxM1hrTlJvWWxuc0VwTHY5YzBSOGxkek5kOGJOZFdsMUhWRkd4aWNGR1FOV2w4Q29mVFZiN0QtUkVmam0wSHBuQjNVMjQxNXVfWWw5X0Z6OUlwZFZWSnhwcGlkMnJEeVlTc2JkN2RBbDEydkNhY1Y1Ry1ibGFNMFVfZmN4ZFhoaFdsZTJxZWNvMjdzOGRnbXZRNS1ncXRON2Jtd3BlR1lSMlg1ZnF6eUZIR1FNMHJxWXVlbF9wR0TSAcYBQVVfeXFMTWVtaTJjWkFpWC1OOHdua1BSTlU2TUlZSTYzNXozdUdFalhDOFNnamp6VUFnQXpLaEJCMnFOVlRJeV9YSTd1MklocEotdEowelAzWk5la3lFMWxjN1BhajR5MEs2eFdpVFotM3Y5bUVPRVZ6alBHVUswYlJiZEpOQ2ppRVFNYzI5NDBnOXN4SFhqT0NHTFJvTWRyaklyLVNLVGpNd2loVk5JVUhmc1FvRGI1ZXRCb2RnR293SEpZRzZhS3FRVUNn?oc=5</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <source>The Statesman</source>
+      <category>saradha</category>
+      <content:encoded>
+        <![CDATA[
+          <p>Saradha chief Sudipta Sen set for release after nearly 13 years in jail - The Statesman</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -378,7 +378,7 @@
     </item>
     <item>
       <title>Coal scam accused Vinay Mishra hiding in Vanuatu under new identity, says CBI - Daijiworld</title>
-      <link>https://news.google.com/rss/articles/CBMickFVX3lxTE1iQ2dISWJXdy1MejAyQmNUNjE0RG45NEF5ZjU2S0IxYmlQUG5laEs0Z0NtLXlReHBkZXFTNGJiNzVIT0RUbktEOTdoNEwzaG8zRTdEU0NGNmQwU2l3Szc4NVJhSUZkNUZrS0Rpd0pXQkhzZw?oc=5</link>
+      <link>https://news.google.com/rss/articles/CBMiakFVX3lxTE1FdmkzLWtmblJHZW1GbFJ4X0t5UFdlWWx5d2hjcXV0UUwzYTBWcC1uc1hqckxfajlyR0dVTGdra0xpSmhidXhROGVLV1FPVUlzZ1FHMnlaOTg1eXFmallCeC1DMnoyNjhNLVE?oc=5</link>
       <pubDate>Mon, 07 Jul 2025 00:00:00 GMT</pubDate>
       <source>Daijiworld</source>
       <category>coal-mafia</category>
