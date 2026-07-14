@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-14T18:01:47.490Z",
+  "generated": "2026-07-14T20:09:50.998Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -130,16 +130,16 @@
     "ssc-scam": {
       "articles": [
         {
-          "title": "ED conducts raids on Partha Chatterjee in teacher recruitment scam - The News Mill",
-          "pubDate": "2026-07-14",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONGZRQXVvdHdGcG5pYWlUZTg4b0I4UmxxaHRGdFBuRTBlT2hzQTdJdGZjd0xpWDJYbk92S2hFMGQzVl9lSGMzSUFyN3JETHg2SzM5MmkzdkRFX2ptUGFxelU4VjBEMGkxSWk5aGk5UFNZUkhPVW9Eb2g2SmVYNXQ1bzVYc19HWWE3QllNUDZ0VzlkckQwNnh5UzlOejRqYUNqV2Nqcl8xUmhUN1pVQVFwemc1MmtZQmM?oc=5",
-          "source": "The News Mill"
-        },
-        {
           "title": "ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR",
-          "pubDate": "2026-07-13",
+          "pubDate": "2026-07-14",
           "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5",
           "source": "News On AIR"
+        },
+        {
+          "title": "ED conducts raids on Partha Chatterjee in teacher recruitment scam - The News Mill",
+          "pubDate": "2026-07-05",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONGZRQXVvdHdGcG5pYWlUZTg4b0I4UmxxaHRGdFBuRTBlT2hzQTdJdGZjd0xpWDJYbk92S2hFMGQzVl9lSGMzSUFyN3JETHg2SzM5MmkzdkRFX2ptUGFxelU4VjBEMGkxSWk5aGk5UFNZUkhPVW9Eb2g2SmVYNXQ1bzVYc19HWWE3QllNUDZ0VzlkckQwNnh5UzlOejRqYUNqV2Nqcl8xUmhUN1pVQVFwemc1MmtZQmM?oc=5",
+          "source": "The News Mill"
         },
         {
           "title": "ED files additional chargesheet in Bengal’s SSC assistant teacher recruitment scam - The Tribune",
@@ -166,15 +166,21 @@
           "source": "Devdiscourse"
         }
       ],
-      "count24h": 2,
-      "count7d": 2
+      "count24h": 1,
+      "count7d": 1
     },
     "cattle-trafficking": {
       "articles": [
         {
+          "title": "‘Brick kiln theft’: Anubrata Mondal moves HC, seeks anticipatory bail - MillenniumPost",
+          "pubDate": "2026-07-14",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQVHZDblpmVTVTV1JQME01Q3Q0c1VCV1htUjJPTi02LXJyMDNBd1VPRzZQZlZCNnRtTFh1cjRNdXdUVVV1V3Bpc0VUQkZVQkZ5X185QUZNSGNpT3BKQk8zYlptZjNxYkxCOWlRbV81Q0d3WFdmM3JXUU1SdGdKYWxRUko2NWJ4VG5oaVdwNXpWM2s0amZjdGZYM2FkWGhDcVJQNmVpRlNyNHZiRkloN1HSAbMBQVVfeXFMTVgycnA2eFN3aHlGQzU0N3g3Vmp1aGVWdmREMUZsdWV1S1FPUWxHUzE3VkpMTnRLZ0NlRTktNmhIOEhIX1VsZEd0WjVpQXNjd18wZ0ZSUmRsWmh6MDVIamd4NExNRHliZjRrakwzdHRoUjNhaGc0U2c1UG9ZcXV0ZFB4TmNLTFpaVk5PVnhiOWlTbkloTm1sZDU2enVfNVJnaUItNXNyS2ZJUFlSMGoyYkpYUUU?oc=5",
+          "source": "MillenniumPost"
+        },
+        {
           "title": "Anubrata Mondal Seeks Anticipatory Bail in Brick Theft Case - The Times of India",
           "pubDate": "2026-07-14",
-          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPcERBYkZMN0ladXZvLVhhbWFhRHhJUFJncFdPMmZvS0lMdmRrV3ZEeXJxS2g3RGM5OTliRDBWM3RUamRfbFlJNGlwTVowcmo4OUNYZTU3OTY5Rk9YZTRLN00yLXVkb0NDZFhHQy1jdGY5U3JZRUxhcjlNZEQwUTFzN2huZC12b1YxQWJKalpkeHp2akVHODNzdGp3VnlxYWZrX3lwbmNFVUt1NFN3Z3BqQkZlUWh1dFg2dzVrVVNGem85NVF2QnpsRFhQNmptb2lWVVJYMdIB1AFBVV95cUxPcERBYkZMN0ladXZvLVhhbWFhRHhJUFJncFdPMmZvS0lMdmRrV3ZEeXJxS2g3RGM5OTliRDBWM3RUamRfbFlJNGlwTVowcmo4OUNYZTU3OTY5Rk9YZTRLN00yLXVkb0NDZFhHQy1jdGY5U3JZRUxhcjlNZEQwUTFzN2huZC12b1YxQWJKalpkeHp2akVHODNzdGp3VnlxYWZrX3lwbmNFVUt1NFN3Z3BqQkZlUWh1dFg2dzVrVVNGem85NVF2QnpsRFhQNmptb2lWVVJYMQ?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxONmx1cE9Qd09TSWw3WURaeXhuYno3bThZYWw0UEh2emtwZmFFRkFYZEpzTE5hbjExM0NyZkRwWHpqbFVQWTBxX0ZMR0FDY3lpRWl0TVk3eU1fRVRGSXhNSENQVVVQdFNrNnJYRzAzNWdIZWpxelNhNlhVUE9Ob3NlWFlDbUdPUHZPM2tmZElzQmpmNXRkS1YxYWgwcnZTQ1poUS1MNl9iOFRFSHo1Q2VXSm9uVzBlTGJoblBOTHRkMDQxcjE3STRjS182bDFNNTDSAdQBQVVfeXFMT3BEQWJGTDdJWnV2by1YYW1hYUR4SVBSZ3BXTzJmb0tJTHZka1d2RHlycUtoN0RjOTk5YkQwVjN0VGpkX2xZSTRpcE1aMHJqODlDWGU1Nzk2OUZPWGU0SzdNMi11ZG9DQ2RYR0MtY3RmOVNyWUVMYXI5TWREMFExczdobmQtdm9WMUFiSmpaZHh6dmpFRzgzc3Rqd1Z5cWFma195cG5jRVVLdTRTd2dwakJGZVFodXRYNnc1a1VTRnpvOTVRdkJ6bERYUDZqbW9pVlVSWDE?oc=5",
           "source": "The Times of India"
         },
         {
@@ -200,16 +206,10 @@
           "pubDate": "2025-07-08",
           "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQTHdtX1dNazNhWFJEb1g4YzFwdFYxWHNhdXFMZnJSVk5nYUZyN29RVkY2b1BaWGFCa2dmeXphajRjSkxhcGNudUlMbEZZQnJldjAwbUdIZzFwbmtsU3VLTWZBNURFVWxYako0UGlqQjUxc0hNdjRFanJKS2RfcW52cF84V1psZ3lGV3czeWU0V3lRbGsxbGpZeEpEcmpHVVc3WFdzUF9nRGEtVmNJUk9wMENuNEZmOFUtZ3J6UTdrRl9yWUlNOGpYRFM5Q29wMjNEdXlKLU9UdDlFbHdhc0twSzBmSVM1UdIB6wFBVV95cUxQTVJPbks1eUlkcGZTcjRHX1FzTDN6UXhjRGlEU2Y3UzA0QldIclhnUEFtRWdYZUFEUl9EOF9WSHFhYUQzYVFVRFlxbVVQc2RsYncxRHFlWHdZSEJXQjBvVVozSC04NWhBcVBoeTdBZDVqN3FRSlRyMjlfd0xUYWNrczlWY2lmMGtoSU1MbVpFeklRT21kYXJCcjVhbXpQYlpZczg0MDF6d3hHUXlXOTZfWnBBS21RY0NoTlBZWFhoQTFLUGVUQ1BBakxIZjk1VmhuZ3NIMDFyNGlKTWlJUmZ3NUdla2h2Z3VnVmZN?oc=5",
           "source": "Telegraph India"
-        },
-        {
-          "title": "Women's panel summons senior cop for delayed probe into Trinamool leader's 'abuse' - India Today",
-          "pubDate": "2025-06-25",
-          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPTmxuMVMxQVZoN3JwbExEMGtmMno3cElHZm5ZNW42cFlSbDRRQ01hTXp6SlBkRTBNMHNuN2xKYjJIeFhhNXQxUlI0TmNmdHBFZ2gzM21OUTV6cXBGY2gzS00zSDVDaUs5b2I5VTIzaGR0WGd3dXhRNl9oZlIzNEQ4T1I2LWNMMGNMaXpwZVBieFNpaHRKUFN4cGxLLXJuYm1tcnJPeWZxU3BxZjdQUEwzd2hXRHBmd3FRSkdFYTFVUHZYRXVvbVRUVHRpTFJIMVhKMUc4amdKWUx0X2fSAeABQVVfeXFMUGRyOWE3dHpzRURHR0QyRUkxOTVnMmVERTNvQW9oUHNrNlpjdVN0eGp2WjRlX3BFTm44cnhFdVZSODBUaXU2Vms0OXhsR0MzaFBXSjJYR28xZ3prQ0poQ19IeFRNakNibnFiOFBzN1ZjRkZ1TnRkUXQ5Znk5UWU2M2V3UXVIYlhPMHhuOHdkclJOWl9GNmkxbll6MjVXTlNsMFR1ekVDRGc1MG9tR25takJqUHZNUWxMVHRzazZycGxNcjRJN1FzZlItQzZUd28yanl5YVljRWJLYk9ZV1BDSC0?oc=5",
-          "source": "India Today"
         }
       ],
-      "count24h": 1,
-      "count7d": 2
+      "count24h": 2,
+      "count7d": 3
     },
     "coal-mafia": {
       "articles": [
