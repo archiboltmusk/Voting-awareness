@@ -5,7 +5,7 @@
     <link>https://voting-awareness.vercel.app</link>
     <description>Latest headlines on Bengal corruption cases, court hearings, and political accountability — updated every 6 hours.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 16 Jul 2026 17:13:49 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2026 19:07:24 GMT</lastBuildDate>
     <atom:link href="https://voting-awareness.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://voting-awareness.vercel.app/favicon.svg</url>
@@ -208,6 +208,19 @@
       </content:encoded>
     </item>
     <item>
+      <title>ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR</title>
+      <link>https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5</link>
+      <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+      <source>News On AIR</source>
+      <category>ssc-scam</category>
+      <content:encoded>
+        <![CDATA[
+          <p>ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
       <title>ED conducts raids on Partha Chatterjee in teacher recruitment scam - The News Mill</title>
       <link>https://news.google.com/rss/articles/CBMitwFBVV95cUxONGZRQXVvdHdGcG5pYWlUZTg4b0I4UmxxaHRGdFBuRTBlT2hzQTdJdGZjd0xpWDJYbk92S2hFMGQzVl9lSGMzSUFyN3JETHg2SzM5MmkzdkRFX2ptUGFxelU4VjBEMGkxSWk5aGk5UFNZUkhPVW9Eb2g2SmVYNXQ1bzVYc19HWWE3QllNUDZ0VzlkckQwNnh5UzlOejRqYUNqV2Nqcl8xUmhUN1pVQVFwemc1MmtZQmM?oc=5</link>
       <pubDate>Tue, 14 Jul 2026 00:00:00 GMT</pubDate>
@@ -260,19 +273,6 @@
       </content:encoded>
     </item>
     <item>
-      <title>TMC&apos;s Abhishek Banerjee Faces ED Scrutiny in West Bengal Recruitment Scandal - Devdiscourse</title>
-      <link>https://news.google.com/rss/articles/CBMiygFBVV95cUxOYlhkRlN0cUVWSXFYUDhYcVhuSVVveHZjeDZLellLRjhOQjROY1U5elBxTW9jLXlsRjFGZElhM2plQ1hOdzF0VWhLMzFDS2VvcURPMklELUlFbUJKMFhhUGRvVnUwTDZPWlkzM2JreEJ4X3F4bGdnU2VzOVRLUl91R1QtdWxhNUFSUl9JMS1rWFpEcDNZT0k0dVdVMGljaERjSzEwbjBwLVY0OVYxRGUyZGNGT0hDNGtadmpoZ1EyVkgySjVZMEJERjRB0gHPAUFVX3lxTE53TTZhTHNQYlJRWFNsRVhLMjFaQUZhYm1qOGpyQURBdUh0ZmtwQmxMejZlc3JQYWw5M1AybWd2VHNoT2dSRU00cmE3ZVhoTFhVMnpyQnpOdXBYdFN3cXhvX0tHNmt0VWZjU0d4T2VjZWZDQTlKbUhMbFdRcklrRDdRQUVabGRNWGh2cmZ2bTN6SzNqbDVJM1pmQzRQMDl0QWNsbm5UTFJFNTUwQlNTTE5aV1VnZEZVRVl0Y0J1ZmZKUmhlUk9PTUU1SzVadWZIdw?oc=5</link>
-      <pubDate>Mon, 15 Jun 2026 00:00:00 GMT</pubDate>
-      <source>Devdiscourse</source>
-      <category>ssc-scam</category>
-      <content:encoded>
-        <![CDATA[
-          <p>TMC&apos;s Abhishek Banerjee Faces ED Scrutiny in West Bengal Recruitment Scandal - Devdiscourse</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
       <title>TMC&apos;s Abhishek Banerjee appears before Bidhannagar court to give voice sample in intimidatory speech case - Telegraph India</title>
       <link>https://news.google.com/rss/articles/CBMi-wFBVV95cUxPZ0REOGRDZzN0TE9HQWtpWnZKenNsdG9zUG5oZlFEak5EZVFIMXVaRko5U3ZJZmM4ejNPbC1KcEZ2T1ZfM0NET1ZpeTZ0QS1zQ1JIM3dCV25zRXVYOGExTzFMTlNVa3B5b2RBSlVIaUdja0VTcVM1dTlYTFpSbW9Zc0FUVUgxSXdyUE1VbENCTHpqYW5RRmc0QVV0V0hzaUxCRmpDMWFfWEhmRTlJT0pkbTV1NGRDTElmME9MMW1CSllZMk9ZQWZiNlVMQThVZU5lZE5md3dDNnNBWFZjOHZIU0NFZUZ2NjBmdDJwczdJNV9iNDVRdnl3R0JQUdIBgAJBVV95cUxObk5XMlNZV2gxTEtRZHczekdmSTVpVVJza1VpM3FzbEdKS2FqOGdVaG14SVdOZmc5bzh5UWRCa3pnTEZGYUlMV2tQV1dRalZmaGVyXzZHOVE0NDJ3aThlZnlLN1VTMzNIVWpTSURKc0t0VHBmdXltOUtuR1QxUGtXQWc1cVZZbm1nNS1WZUtBWV9aUUoxcmxIeXBNMHVhQkpma25hRVBNSzBfQTNmbGprem1BeWpPUkJoQnhHZHhILS1ZaGtaUDJPRjV6QVcyZzJFLU1kdWc1dERnaTIyNzFfTUQwQ01HdWM3Y2J1UlVRUjVabnBVcllGVkIwLVlza296?oc=5</link>
       <pubDate>Wed, 15 Jul 2026 00:00:00 GMT</pubDate>
@@ -312,19 +312,6 @@
       </content:encoded>
     </item>
     <item>
-      <title>Dinhata&apos;s TMC leader Bishu Dhar sent to police custody for seven days - Telegraph India</title>
-      <link>https://news.google.com/rss/articles/CBMixwFBVV95cUxQc0tKUnhRREJhUjZpNlU5aVZiYWR0WVpFc0RabEJTa3JURnJZSW5oMGVNeURkMkJyWW94Z1NKYkZvbnViYnVNWGxEelk1OVlzd3VkSTQxWk1tNjhUdTFINExZRjY0ODVnM05FT1FaUkRRRGNyckZiZ2hrZko4ZVRxNExmX2haX0h3MTFEMFhYQW1wUVhReGR6RFI5dFE0SHJ6V3J4VTBtelRhT2NWR1Y4M1FRRU5XN3ZBWVQ1cmt2VTI5VXRLTlln0gHMAUFVX3lxTFBDbjBjTUlXZnlLSVRpR3lpamlCLVBjdjdRNzF0VjdjWVlVVHZlcmxBS2JycURtSVdmaHJ6OTIzbGpjbjNkRTc5ODFOa1lRZzUxWU9hR3hyREVZWDFKNkZ2TmlFdVk1cm5Ib1JHenBXLXBINzJYS0dwMDhueGtEWC1kUWhPODN2ZS1MRXIxLWFZWEdWZWNiZTBZRHZEVlpWajVuVzhoWDNZY0ZaUFVtTFRqanRGQ0hZZjUzZHJnc1BKZ3JiTk1ySXRUMUpReA?oc=5</link>
-      <pubDate>Sat, 27 Jun 2026 00:00:00 GMT</pubDate>
-      <source>Telegraph India</source>
-      <category>cattle-trafficking</category>
-      <content:encoded>
-        <![CDATA[
-          <p>Dinhata&apos;s TMC leader Bishu Dhar sent to police custody for seven days - Telegraph India</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
       <title>Trinamool Leader Anubrata Mondal Gets Bail In Police Officer Abuse Case - ndtv.com</title>
       <link>https://news.google.com/rss/articles/CBMisAFBVV95cUxNLWU4TzBRMGFzMTk0dkoxckJJdkZFYk12bXhXNXpyNnZFTm02TjRuaFFmc0h5Q1hsQV9hM010cTN5bkZzbFZlUnk4S21KMnUxcjF1T0lLV19Idi1lMnotcXhkT1N5V2VRWTgtN2E0VmFkanpIV2t5R1Z6UGlPX21VaVJkenRKZWl3SXVNQURZQ0NUYnEwZFp5ZlFldUliUTlCOEh4aDFSYi1IRFg2OHRDaNIBuAFBVV95cUxQUVhfLXl4cUM2WHozYVpWUFVHLW9UVmhJVk94M2hYeWttQzkzTng5bi1vYUZKSnFUYnRzYmVDTDNUSEJKU295dGFBZWkxdVRaRHRhMkxybGZFWXFWZDJ2d0dNMFE3dWFpY3U1WXQ0N1d2ZDF6ZFBJbjVPU21QVXZLNmlPbU9HbmI2bE9XNTRESkNLbENlTTBZZXJGbUpOdmd3d0JoZ3BjQ2VKYkExTVptN1NsQU5VcXBj?oc=5</link>
       <pubDate>Mon, 18 Aug 2025 00:00:00 GMT</pubDate>
@@ -333,6 +320,19 @@
       <content:encoded>
         <![CDATA[
           <p>Trinamool Leader Anubrata Mondal Gets Bail In Police Officer Abuse Case - ndtv.com</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
+      <title>TMC’s Anubrata Mondal gets anticipatory bail in case for abusing cop’s family | Kolkata - Hindustan Times</title>
+      <link>https://news.google.com/rss/articles/CBMi4gFBVV95cUxPVEVBM2VhZXI2eWxzN2M3YUdCcHIteTZONUxwU2hUUjdVeWUzYkplTXdzOVpYc3oyYnZvNXc4M2ZKeGFKUnU3MG83SHdXRUVURERMeG9HZ0EyajU5RGpNUWpLblZiWmFDMGJ3NE9FR2NDTlRHc1VnenVabHdmTGNoQ2dFT0MyOHNqd2RwckhxcVhrbDBGYlpjaEtuWmpQOUMyTHNSclBNcGJlZVhOSDBIcGdsbW04czVCMWtpeFRZc0FxNWhCMlJ6VTRHM1NxSG1tUXJxNGpfTlNzVWRLZkRqMDl30gHnAUFVX3lxTFBySWdjZjlGQkFrQU9ubDZYLWhuZlpxdDF2WWhCYkItcF9EUDB4d3luc09oQWVpYnRoazRlcHQwMmhkbFd3a0dKNFB1cGYyVGg1cXViNi1FM1JiOFRLZ0Q0QmxIR0FzdGM3NUxsM2J6dzFyVVRYX29QTnNFV25VWjNkZ2FIVFh4clJsNVB4b0MtM184aFhZbWlWRjFMVk5jaGhfVmxva2tvMnl5bDhaOWdLNjJvU0o2NXgwazRHMkxxdjdxNGNNOS12N21iaWRiWXBrNnBfaS02ZGctT3IybWx3WlRDUDZuWQ?oc=5</link>
+      <pubDate>Mon, 18 Aug 2025 00:00:00 GMT</pubDate>
+      <source>Hindustan Times</source>
+      <category>cattle-trafficking</category>
+      <content:encoded>
+        <![CDATA[
+          <p>TMC’s Anubrata Mondal gets anticipatory bail in case for abusing cop’s family | Kolkata - Hindustan Times</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
