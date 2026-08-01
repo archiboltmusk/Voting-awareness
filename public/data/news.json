@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-01T17:58:51.439Z",
+  "generated": "2026-08-01T19:20:43.856Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -316,12 +316,6 @@
           "source": "Asianet Newsable"
         },
         {
-          "title": "India News - LatestLY",
-          "pubDate": "2026-07-29",
-          "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPaUxuemhjLVUyVHlKMkhXSkZWZkFuaG94UkFWMHFUWXdrNS1sRjlqLWQwM1B4dFhzYi1oSWRKLWVXZWMxMm1VbXNvUXRmNW9vQzA2STFsako5d045dXFtYmc5QlM3cDFmcFBFRTlMR1otUTZkb2syTlFwdzNEYlJESGhzalVoVGNZSXItb25KVnhyRENSaEFMaXJKZkpabGZwdldEN1lSZVBYdFpyWnpMTVZlaEZLd2RCVEctR1QwT1pyeERncWdEOGtWZVpJcjhFS1ZDR2hxck9mSWlvSWJjaVNpZ015X01fNmdXMdIB8gFBVV95cUxOTVY3M1JDdVpBcDltU1RNOHJFVlZTYWw3MGtDUUs4WlowQmRFVGI1Q2hxVEktSmRSak1JZ2RkQkNwX2N0LUNHR09lbklxQU5UVEVrQW0xR0JuaS1RZVcyNmpRZFVzN2M1VlVxNlZ6ZXZPdklaZ2I2LW5rOHNaVWM4WHVuZUhsNXhqMFE2eTJ4SG5jOEhtTFlLaFNfbGRUdUdhR2JtWDZqREZmcUtXMFdZdENfWTlEU213VDVkbjRiWkFxeDIyT2xna0FQZGJ3RXhSbFFhZi1ISmxOZm5UMkNfUjVfMkg2ek5nRF9pNWctc2hMQQ?oc=5",
-          "source": "LatestLY"
-        },
-        {
           "title": "Bengal: POCSO court awards life term to two gang-rape accused - Punjab Kesari English",
           "pubDate": "2026-07-29",
           "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPNHg4Rzk2eWFNZzVXdFFjYlhXejY2RmRiN1B2MENxWVBKb3Q1UFhmbGdMaVZod2gzVlJ3TDFxLWRxZWFBVU5rREJXQU95T2ltNk50OTFzeEdfQkF2Wjh6SkE1ejFSV0FGU0lqQ2FDYW05b2FQQ0RSRlFZVGlCTlNiS1VLNXpqZFlid1BPRnhvN1JjM3pRMGpoYVE0TnF4LW5VUVNENlRtdGFrNEhBaGppZ0dUTkt5ck91QXdWc2dfbTllLXRObFMybTVDa1VNVllCSXZsQllIVnI3bTRFSkk0Q1REUmXSAeoBQVVfeXFMTUpOdk5sVTdYYUJTRjJzdTdNdVBoME1uQlZ5ODBhX2FOSFZMaUp2N05ETWU1cVZnY0hTcFV5eGl3SXNzV2ROeXVseDVlbG9QV2VMaUpSYWsydHplZVpuZk5tam42Q0s0M2F3TDRKTEYzMkFrcmhBNUJFcG0zUVFNM1h5alBHdFloNzBvREN2Y3NOenVBbEswTlZjODFoX1RZTlhOZlFGT2d0QkdDR0JCSjhOZ0hjRGJzdUtGdXRmcDdtMFhzX2lNSE1kS0FzTXhFS2ZnT3E1WkdrbEV6OHFYc094WWNYaXNrUDBn?oc=5",
@@ -332,10 +326,16 @@
           "pubDate": "2026-06-30",
           "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNUm5HcTZQZUpobGxoUEdzRWRSMjBUeHdIbDZFQ2xDMmV3NjMwR3V2Q19UYmctT2pYTXdVT0dfbmpEYjJ5a1BGeE1GTzVHMUxrc1dxNlN6elIxMXl1aDQtNWxRMGVBdDZrZ2x5WEpKdXJfcGtpZFNDemROVDdGenJVLUE5SkNkMFpOaGhtZndta20zRzl3S1dVYkdjUHEyXzZsaDRlbHJJc3JJdkFvd01xSEIxSFBGMkhibVpIV2l2TGZNYU0yZnhkM2ZrZXppTzJoMjYyeG5RM0VNRzR6Z09aa1U0T2Q5cFlaWEVkblFOYk45dFXSAfgBQVVfeXFMT1NQYnByTXh3LU03TmMzZTAxY0xEeVFkdHFubFhaWXhYR0xPQ1FCZHZTbzVNZWJ4TVM0Y2VtSzAwcnhxQ1NqTGlENlhNZzZ1NlEtTUI5Y0ZRRWI5dXFUZUZUWVo5OWFuMVFqSkowdU5USkl6OGxYb2JMcUZfOGpZNjJBTWFrMnlpVFNYMjJxV3JURzktbUhDX0pFbkFNdlZFcEVkeXJmdHBWUjVQakcyejJCVGlZWTREd3I0THlyQm03Q3QtUjZHOG54clBEVmpTbDZWRXBuaUs0NTU2WGNpd1ZNQXg2b3RISFNFQTF5alRaYUk3YVlOeFU?oc=5",
           "source": "Bhaskar English"
+        },
+        {
+          "title": "CBI Arrests Fugitive Wanted In 2021 Post-Poll Violence Case In Bengal - NDTV",
+          "pubDate": "2026-06-29",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTnM3OFRROTA0ZFh0U0V5SGhCdDBoWlVZVGpqNkNpSzBsR29aczUwdEpCVWNDNVVYLXRCcmNyYzV1OXFXelRweGJRRl9PV084dERDc2JKTHAzemZXS3dpcjU5MFVrbGwwZXNRZVFLWjRyMVRYdDhfbS1kNWNfcklBYUFtbjNsbU5QX1FBcTdSZDR1VGZfQkVPcHktR2Rza09sS3F4cFdPeFlLUVN4MzUzdWhZNWdtQdIBvgFBVV95cUxPZUNMYjdSTnBxdkRXYUhCTmVkR1BvMEZuSThuR05mOHdDeFN6YzMwN1hxaWNmMGQyOEFUcTQ0YkphdHpyMS0xSHItUlc2NGE2LXpPSVFQeVZ2Q0pwTXd2T1UtbXJxRVJDYTFvUmpqci1DVUpiLUFtdzhOUDFzaDhNblJYRzRxNFhoUnljVlVwZ1Jra2JmMFp2T2ltSk1oemxOY2pyWDhBOVFSYkdUb2ZMeElIWU16N2hNUERqMlFn?oc=5",
+          "source": "NDTV"
         }
       ],
       "count24h": 1,
-      "count7d": 5
+      "count7d": 4
     }
   }
 }
