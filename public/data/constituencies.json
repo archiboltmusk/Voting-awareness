@@ -4,21 +4,25 @@
       "ac": 1,
       "name": "Mekliganj",
       "district": "Cooch Behar",
-      "winner": "Dadhiram Ray",
-      "winParty": "BJP",
-      "margin": 14321,
-      "verified": false
+      "winner": "Total",
+      "winParty": "IND",
+      "margin": 99750,
+      "verified": true,
+      "loser": "DADHIRAM RAY",
+      "loseParty": "Bharatiy"
     },
     {
       "ac": 2,
       "name": "Mathabhanga",
       "district": "Cooch Behar",
-      "winner": "Nisith Pramanik",
-      "winParty": "BJP",
-      "margin": 26884,
-      "verified": false,
+      "winner": "Total",
+      "winParty": "IND",
+      "margin": 98505,
+      "verified": true,
       "notable": true,
-      "note": "Nisith Pramanik — BJP Union Minister (MoS Home Affairs)"
+      "note": "Nisith Pramanik — BJP Union Minister (MoS Home Affairs)",
+      "loser": "NISHITH PRAMANIK",
+      "loseParty": "Bharatiy"
     },
     {
       "ac": 3,
@@ -3484,7 +3488,7 @@
     }
   ],
   "meta": {
-    "generatedAt": "2026-08-08T04:44:32.241Z",
+    "generatedAt": "2026-08-08T10:19:11.782Z",
     "source": "ECI scraper + manual verification"
   }
 }
