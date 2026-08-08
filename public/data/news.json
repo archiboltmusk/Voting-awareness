@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-08T20:27:07.697Z",
+  "generated": "2026-08-08T21:28:10.611Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -46,16 +46,16 @@
     "rose-valley": {
       "articles": [
         {
-          "title": "Probe Agency Disburses Rs 127.69 Crore To 1.73 Lakh Rose Valley Scam Victims - ndtv.com",
+          "title": "Probe Agency Disburses Rs 127.69 Crore To 1.73 Lakh Rose Valley Scam Victims - NDTV",
           "pubDate": "2026-04-28",
           "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNN1NZbmFMb01FdThJSi03X0pjUHFBRi1kTWt0cW1Ob3FpbzB4UlBraGd1TVVHTGUzbTUxa3ozQW9hdHUtR3E5bnNZMnpRS3BuUU9ad3pmTDl4WDFNZWVIbmlTSjZyQXNtYlByRko3VGdWZWhFekZTV1QyME9QemtZcFB6TUtnSjNDMG1wcWJUOFJwSmoxendmdkRMZF9wYk5VbGJBMW9JUGdKSTBPREpBWXVXVGpDT0oz0gHAAUFVX3lxTE1uWWVLXzZWM2tKSzJKMGhra3o0SGM4cjR5Sl90MzNQYmNjdG5ZVVJveXlhbkVWcDZoM1Y2SUFlRkRScUZmU1NPQmQwRy05eVI1VWpqbEJ2U3hWajRPYTRSbTRKNHlwLXFLRjY2Zl9YeXVPY1pKdVNBUTdzWTdYQThteU41MFg3WWl2TmdhVC1INW1mVFg5ak9WSzRVZFNwSTVZX3pwQXdhZUQxZVd0QU5OYVlwVHBoYWE1M19Eb0k3eg?oc=5",
-          "source": "ndtv.com"
+          "source": "NDTV"
         },
         {
-          "title": "Rose Valley Scam: ED Returns ₹127.69 Crore to Over 1.73 Lakh Investors - Moneylife",
+          "title": "Rose Valley Scam: ED Returns ₹127.69 Crore to Over 1.73 Lakh Investors - moneylife.in",
           "pubDate": "2026-04-27",
           "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNcjUwcHV5Yl9rRVBwQ1BDYmNLWnk1QTN6bnVuU1hHQkZIdV8taExkXy1PSTlnZnJqZk1UQ1hBVnJMZ2NXak83ZVJtV21XMXBROFlZRi1SMGoyNXhteHl3ODVvUm5ZTlJ5Q0dRcW9oVEtERTBlMkdYZ2xTT1FXN2R1d0wzVzdEamNGUDdZNzNqNW9hMUNHUGVwWWtkUnBJbXU3Nkg2MzNNdUZuSVFKcTZj?oc=5",
-          "source": "Moneylife"
+          "source": "moneylife.in"
         },
         {
           "title": "₹127.69 crore has been restored to victims of Rose Valley Group scam: ED - The Hindu",
@@ -130,10 +130,16 @@
     "ssc-scam": {
       "articles": [
         {
-          "title": "ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - newsonair.gov.in",
+          "title": "ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR",
           "pubDate": "2026-08-08",
           "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5",
-          "source": "newsonair.gov.in"
+          "source": "News On AIR"
+        },
+        {
+          "title": "ED conducts raids on Partha Chatterjee in teacher recruitment scam - The News Mill",
+          "pubDate": "2026-08-05",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONGZRQXVvdHdGcG5pYWlUZTg4b0I4UmxxaHRGdFBuRTBlT2hzQTdJdGZjd0xpWDJYbk92S2hFMGQzVl9lSGMzSUFyN3JETHg2SzM5MmkzdkRFX2ptUGFxelU4VjBEMGkxSWk5aGk5UFNZUkhPVW9Eb2g2SmVYNXQ1bzVYc19HWWE3QllNUDZ0VzlkckQwNnh5UzlOejRqYUNqV2Nqcl8xUmhUN1pVQVFwemc1MmtZQmM?oc=5",
+          "source": "The News Mill"
         },
         {
           "title": "ED files additional chargesheet in Bengal’s SSC assistant teacher recruitment scam - The Tribune",
@@ -142,40 +148,34 @@
           "source": "The Tribune"
         },
         {
-          "title": "Explained: Bengal Teacher Recruitment Scam Investigated By Probe Agency ED - ndtv.com",
+          "title": "Explained: Bengal Teacher Recruitment Scam Investigated By Probe Agency ED - NDTV",
           "pubDate": "2026-06-15",
           "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQRlQycElyMTRfZnozMHVWZGJycDV4UFhBVEt4czRuU2lkRGJBVDhrOWFWX3czQ1FWX0tXTTZEYzd1X2xvYlNFaVpGZkhKaXQyTlZIYzlIazRXb09vU1FRajRNSWpfYzl3YjcyTEJrSTNRbkVqa2hSRnRjaklMVm9NMXlMUW5tY19EejNFQ3l6UjZIaHktSWIzWERCN0hXVkJFRElGNTNjYXI0R0RaNS1CYkdMb0dJcG9nOURMc2VFYjXSAcgBQVVfeXFMUHNyQ0NhRm16SUhFb1o1RmF1UlYtOV9GS21iaWt5ZktjSDl3YmNsU29HYXRhRzFrcnNtdGIzYnpUVDhWVEJmWkRsaGNiUlhHazVjSlRXaTM0X1lLU0IzMVZzTFVoRElSVFNtVHpRelpDOXdQUXBfZzFRUkt4VjE4N1B2OEZHd0NObEZTcDJaMXBIalZCX2NpWC1odjczVmJtOEtLVnpmT2dqMmJDRnJUUHdjcTdyS3JxOTBWM2h4STBsWV9ybmQ4N1c?oc=5",
-          "source": "ndtv.com"
+          "source": "NDTV"
         },
         {
-          "title": "Bengal Primary School Jobs Scam Case: Abhishek Banerjee Appears Before ED - ETV Bharat",
+          "title": "Bengal Primary School Jobs Scam Case: Abhishek Banerjee Appears Before ED - etvbharat.com",
           "pubDate": "2026-06-15",
           "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOQWRtaG96SXhPdUs1TWdNZVdUdUlJT2t4c3RlS09EWkV3alUwUW5KaEI1M2ItRVRvRm4xTm9ELWVhWDlqODU1Yko0ZWdnYWtlSlZBV09WNE9BN1J5Yk5ZY1FhZFdWWFVxOWdsZXV4T1VXR0NqYmptcUJUTG15bndZc3JVU3VmckFBaV8xdEI1VUJRYzlVWXA1TFA5aGpYWlNySmktNko2RnVyeHMxWmNhWkc1emlWWDRRbVJCODNhTnJnY0nSAcgBQVVfeXFMTVNQbzFzNmNYR2tOWVlTd1F4NzBpaFJpOWZNTlpCX0h4RDRpSjNwTE02Mm04Rnh0di1tQUpTaThYZUR6SkZxd0c0OFlqU3k5SDhvTWk4UlNoejA2Yk5sNS1TcG9yYTdUMUV6eGlNWUlYQWFMS0dKaWQySW8xeVBqVUxWX1Zsel9YeElCR0J5RHc2V3Qyclg2bllzYzJLbXdQdjRuSklsTWh5UzM2X1pwcnJxcVpGSzhnM3V6OHpCQ24tZDNYSmxNRkw?oc=5",
-          "source": "ETV Bharat"
+          "source": "etvbharat.com"
         },
         {
           "title": "ED summons Abhishek Banerjee on June 15 in primary teachers recruitment scam probe - ANI News",
           "pubDate": "2026-06-03",
           "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNa2FqYlVDbXdZT25CYmxpN1lBTE9rTmdHY3h4Rl8yWDNNaV80V05kMFdvRFhBMTl1YkxpaDJ6T1lQckFkQTdGbU5CVk5tR2NuT0ZzRzJKMzNOaXRVU2NubzQtaHFydXlkZ3hzSkFYTzVKTDA1Zl9GS21YejJidUJyMkdUQlk5RWFnXzJaVDlGRjJ2NWIzOEpndF9MM1FyZE9Xc2hobUVrSFFtazdZd095WUpxY1o3NW80cVdhbG41dUhiQl81X0oxcU84aUl5WEpPSVlIaDVJTGVadw?oc=5",
           "source": "ANI News"
-        },
-        {
-          "title": "How a ‘Cash-For-Jobs Scam’ Emptied Out Public Schools In West Bengal - The Reporters' Collective",
-          "pubDate": "2026-05-17",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOUmFLbnV6ZFJSVWFjWFBPX1VQYU1iNXJRbWFmVDhuTzlfUjlNLWNJV0RldkJDMzNJb2pNQS00WUIyMFNTUmxtM3dnajdDTk8yZzlkUmZFbzlEVGJPeDYyWVZWVG9iUkNYczB0b0R2TEtnS19FSXJUdnVhZVlnMTF5S1FQVnQ3QUM3WlNHamI5dVU?oc=5",
-          "source": "The Reporters' Collective"
         }
       ],
       "count24h": 1,
-      "count7d": 1
+      "count7d": 2
     },
     "cattle-trafficking": {
       "articles": [
         {
-          "title": "Absconding Birbhum Stone Quarry Owner Seeks Calcutta HC Protection From Coercive Police Action - ETV Bharat",
+          "title": "Absconding Birbhum Stone Quarry Owner Seeks Calcutta HC Protection From Coercive Police Action - etvbharat.com",
           "pubDate": "2026-08-05",
           "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQOGw1WThvMHkyZ0NMY1lpWWp2VFA5T3FpbFA1d3ZfYmFhdkZMWTBjQUlOWXdnS05QdXFlMHQyeWNhQ095aGNfdEhKd1d4azBUSzJnWGVrcWFMRUtNV1BIem1nckVjWUtMRDhfblVVaWZWVWxuV2Y5NERQaTJKTzdPRTJ5YW1lc2xVbElhOHU5LUpMNTlEc1VHbC1TcWZTRWhCS2Fzb1FPTzdEMkpDSnV3TjZVV05RUVFNS1UwS2ZpWHlYeU01Q1ZvYkR1T094dFFpaEJKcnJVQTJkY3Fn0gHiAUFVX3lxTE5FcGthWS1JZVlpdFIwU0dwVkF6MEh1X1J2NURFQmdVMWxYdU5rNjRhME5LaEVsMEV3UzZTSUVXc3dvdTBrYnVhS2ZldDMxTVFWb1NUVGliZjN4SDUtam9XM1FIVU1Kc1A0TGFGbGpYampPcF9Kb3FlNzJBRU1GQVVEUFhsRlRyTU5SMWo2eG5yVW5qWjFqR0F3d0lkb2ExS0tPT2FEbmwxOUJ1NjNmUDZUekFLS3lFd3FjYklSUTJVcDJVRUpRTjBXa09uSFZuT2drZkNCSHFDQ2NMb1Rxb1ZSNEE?oc=5",
-          "source": "ETV Bharat"
+          "source": "etvbharat.com"
         },
         {
           "title": "Absconding Quarry Owner Tulu Mondal Moves Calcutta HC Seeking Protection From Arrest - GujaratSamachar English",
@@ -202,10 +202,10 @@
           "source": "The Statesman"
         },
         {
-          "title": "‘Brick kiln theft’: Anubrata Mondal moves HC, seeks anticipatory bail - millenniumpost.in",
+          "title": "‘Brick kiln theft’: Anubrata Mondal moves HC, seeks anticipatory bail - MillenniumPost",
           "pubDate": "2026-07-14",
           "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQVHZDblpmVTVTV1JQME01Q3Q0c1VCV1htUjJPTi02LXJyMDNBd1VPRzZQZlZCNnRtTFh1cjRNdXdUVVV1V3Bpc0VUQkZVQkZ5X185QUZNSGNpT3BKQk8zYlptZjNxYkxCOWlRbV81Q0d3WFdmM3JXUU1SdGdKYWxRUko2NWJ4VG5oaVdwNXpWM2s0amZjdGZYM2FkWGhDcVJQNmVpRlNyNHZiRkloN1HSAbMBQVVfeXFMTVgycnA2eFN3aHlGQzU0N3g3Vmp1aGVWdmREMUZsdWV1S1FPUWxHUzE3VkpMTnRLZ0NlRTktNmhIOEhIX1VsZEd0WjVpQXNjd18wZ0ZSUmRsWmh6MDVIamd4NExNRHliZjRrakwzdHRoUjNhaGc0U2c1UG9ZcXV0ZFB4TmNLTFpaVk5PVnhiOWlTbkloTm1sZDU2enVfNVJnaUItNXNyS2ZJUFlSMGoyYkpYUUU?oc=5",
-          "source": "millenniumpost.in"
+          "source": "MillenniumPost"
         }
       ],
       "count24h": 0,
