@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-18T04:32:55.889Z",
+  "generated": "2026-08-18T05:27:06.650Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -16,10 +16,10 @@
           "source": "ThePrint"
         },
         {
-          "title": "Amid TMC's internal feud, Ritabrata targets Kunal over Saradha scam - Press Trust of India",
+          "title": "Amid TMC's internal feud, Ritabrata targets Kunal over Saradha scam - ptinews.com",
           "pubDate": "2026-07-09",
           "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQWFNyN3Rtd0dLc2Q1ZUpHZkdoV3hkOU1KZXgwZmRHOXZZVklfX1lkNFBfNndVdWxIT1huZk5KLWRWSWtpNDExSHBlMEs0emx5YUdPU1pyeGdEdzExWmJvSTQ2WVBMUmhrTFFtNjVtWVlYcXhNcnpGaGItWHRYYmNOb05hZWNQMUdjZFI3SGZBYVpiakR4bm8tQ1p1Q0tFMDBVS0d0YTNpMWg3U29jbndQVW9GNA?oc=5",
-          "source": "Press Trust of India"
+          "source": "ptinews.com"
         },
         {
           "title": "Saradha ‘kingpin’ gets bail in last pending Barasat case after 13 years - Telegraph India",
@@ -88,12 +88,6 @@
     "narada": {
       "articles": [
         {
-          "title": "Kalyan Banerjee refutes Kakoli Ghosh Dastidar's 'verbal abuse' allegation, says will ask LS Speaker to provide sanction against her in Narada case - thehawk.in",
-          "pubDate": "2026-05-28",
-          "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxOcGQtR3k3TWF5MUFHbGROeWQ5UkQ0cmNZU0xvdFBVTUs3Z1JVblM3WE5LOTRhbDF6UUdyNDVqb1hSaTg5S3dRVkdVMG9VTUdsbjB2WUNqb1lTcTF2cjJ1bmlEM1RKaU1wODg4QXRyRDJHUl9QcXZfaHQtSzNic2kxN3QxNEhsMTg1X1ZMN2NiRnJ5Yzh0bVg2bGNBZ1NLMVJQbU9qek5STW9xZXVDT21oSGZidlFuSFJNNWhxTHZ2eUxjR0Zhd0hFeDhSdm1iVTJ2R1h6bnhqMTUteW5vTjlUSTFJT2xqVzc5NllwLVktQkI2aU1ZeExQak1Ea2I5X1p5bWYwRDRCbw?oc=5",
-          "source": "thehawk.in"
-        },
-        {
           "title": "Sanjay Raut slams Suvendu Adhikari’s rise to Bengal CM, raises questions over 254-acre Mira Bhayander land case - The Indian Express",
           "pubDate": "2026-05-10",
           "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxQMVE3eFJhaXptVjZONmx3R1JTNkJmVkNZVDZ1RnU4N1d3R0JDVmJQNVhpNWdROXBIRUpwSzR3bjhyVzFRVUtGTTBQaU8zRGlFbTFJUWpKMDh2RFZQYXBZbmRPNUNkTm94cVgzdnQta3hXTUpweS1lTnRObk9tS0ZTQUNRcHVQbVZWWmlRcVJiODRLOUFXQWZSYnJQUW5YbUdaVXJqVGdKc3ZZMzJOZXAzTUZvT2s0a0h3aUpjYUg5SkN5UjR3TkpSc1E1MlMwZmJ2QzhuRG5LZk5qdFJ3MFBsbVpXRFNySHFGeW1LTF9CQ090M2E0V3FtaDV0ONIBggJBVV95cUxPaVlRZnF4S2FHRzhfRFJfcnRYLU9XNkhEbWxsQ1lDa19lNHFXN1dJVnVVcVl3aFZySWxETS1nak8zbURYZl9QbzYwUGJZazJqMnl6MmRsalBSd0VDR19KMHI0ZFNIR19xTDNzVDByWlg0dEZuU3R2RXo3R2d0ZE5fRkdfQXVqS2ZYdFRJcmZ0Y25QWXk3RVhod2YyQ081Z29IX0RtU2tsak1FYjRlNU9QeHFxS3VxMTV2dEhCOHBGeE4xT2NfLXdRV0tqV3NmTnNvZl9NR2J1UHRxdjJvOFB1N01RTkN1V1pQRXhTamZoV0RLOXNxRkE1dnFiM2dFNHdMRVE?oc=5",
@@ -106,22 +100,28 @@
           "source": "NewsGram"
         },
         {
-          "title": "CBI summons journalist Mathew Samuel in Narada Sting case again - India Today",
+          "title": "CBI summons journalist Mathew Samuel in Narada Sting case again - indiatoday.in",
           "pubDate": "2024-08-07",
           "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQN0hiYU54dXdLMVNNUXpiUzNYSHdKY2ZNc0VtY2NvT2phMUk3WFBTRDNTRmpoVUM3SFJYQmRjT0Z0WHdMb09PcGZwSkNHOWFfenA4RjhZOE5pM2sxblZLRlpoZ0R0RFFSSEVJVVFLNEFaVmV2cnBYb3lTYlFfbnk4MEVWSzNGYXpJLUxoNnphNWtWbUQyeEVhSmlzUnZwc0RGNXJCSWZaWFNJMGxKbHlZLTAyT25oMzVWUXhGOEUtTdIBxAFBVV95cUxNdlpzSDhOTXBUZW82enNLS0J3SklTLUVoeXVHX1cwX0VhbVBVVkFHYVozcDFZd202SVo1RElfVEN2X2hBYWcwYkE4c1RWY19DODZRMjB5UDh2ZUJYbWZyTkFzdk1SV2VuQlFwdU56VXBCQXFZNENvaVJFT00ybENtbnRIemVSQy1qUXY2LUJKSWFYdEdhdUFGYmViTE9MNDhCVkh3cjkyQ1BZTTRsWmJXQXZtN2hqdy1Gd0NIajl1WEhfUkdU?oc=5",
-          "source": "India Today"
+          "source": "indiatoday.in"
         },
         {
-          "title": "'Act of political drama': Journalist summoned by CBI in Narada sting case - India Today",
+          "title": "'Act of political drama': Journalist summoned by CBI in Narada sting case - indiatoday.in",
           "pubDate": "2024-03-27",
           "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQdXhydUlkc0J0dE8zSUNtU2Z1SkZGRERIN1VySEU3V2d4VXdMT0hfTGlfa2xpenJoNGFsZHJlUlhQU3loMHE2QVZhbklMRVVjX1pVWjhuczk5cTRReHYwUFpFZW1DQUdOeGtlVXl6ekRaTjhJXzZfU1lJNnNnOGIzVVNYcWQyN05aa05yYXkxUGRzbm9hSHpfc0Z4ZnlXa2cwOXhCX2FXcWJmNWxUVjd3SF9wQkc3MUVqcjZacWw3dTIzQVJoOGln0gHMAUFVX3lxTE9uNGdUVkRiUDRMcVVKY2R0a2lJckI0RmJJaWFnUkhZdW5WYUlkaEJ5VzJ3c3dQSzNIS1hGdzlQWXVTSGMzLU9TWjRUS3M1aXN2TnF6RFhDejdncGoycmktTTBfU3Z5eU1uMDlZVnNYS2xIT2VyUlgtMmcxX2JpQUtEWHV6U0Ywa0w3ZDFsYV9YdURGUk14WjdXM2cwRHM5N2t0M1dpcWVOcTJCdkpOWXJWUlRuenI5STNIa2o5Z3hxcGNvM3k5NjY2ZW80ZQ?oc=5",
-          "source": "India Today"
+          "source": "indiatoday.in"
         },
         {
           "title": "Narada sting case: CBI summons Mathew Samuel - ThePrint",
           "pubDate": "2024-03-27",
           "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNelhZVjg0MkhtZmpoa3dpTDlnOTJMM2Jxc1F6V3JRbTJaa3JsSkRpSW5ubURrUEhMdi1ETENyb1JJVm1Tb1JQck9nRjg1MzNBRHJPODd5V2FaUHBKb3FCYkY2VVVuRUk4TnVhY19ma3NWcVpMUHE2VnltS00talBqcnV4MXbSAYoBQVVfeXFMTjdtS2RJM2I2Y1hzelBYTVRmbFhBaXFhbTJ5VXBNUUlMNXJNWXRGaE9YcllZNGljVnd3VDBSbzNnd0pyMTlyWVlNS01wYUJ3VG9MVDl0M2NLSmhweGVxX2tNN040bi1pUVBDTVQ1dDFEMTlhbFlXZEhtMUJFVU1XYml0SGFSa0Z0YXJ3?oc=5",
           "source": "ThePrint"
+        },
+        {
+          "title": "Narada Sting Case | Will appear only if CBI pays for travel: Mathew - The Indian Express",
+          "pubDate": "2023-09-13",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNZG1aVG5seU1wUEt2dEVxWnVsbVRza254QkxYZm9qS0lyVlJIQVlxNUU4Y2h1THAtS2RUTFFlS0VFQnVIVTZING5UdWt4YWlrcHd6dFBuWHhRZ3N3VUlSQUVfR3VnTE50VGNZb3U4Q0V2cy1jTnNtM0lreTVoY2xXSE11NUhXVVFqempzTlpYajdWY2lIeS16UmRUa3Rja1pDVGhFdl9YaGd6UnBNbGFqUHE4dWM5dFE2a2hsM1l5UdIBxgFBVV95cUxOVDdSWHBiOUE0RWlnWjRiOEZNSE5meWhPYzFWS1I2MTg4clRHdnE0WTAzN1hvaFZYZGxpYnl0R1Z1elNlOVBERXFTUnQwa2FnZGlGc0tZMWQ4X1VVWDRNS211WlJ5RU9KbE1tbkJOa0d0V19nUUR4ZGJtc0l0cmNMcy0xUUdjMmRlOEZWTnVNR1lPUFBHaDFPcFkzTFVhWG1IdmQ5V2NDa1ZHdWdYODhEalcyRmduZ2doTUJROTZZOW5HWm0zYUE?oc=5",
+          "source": "The Indian Express"
         }
       ],
       "count24h": 0,
@@ -130,10 +130,10 @@
     "ssc-scam": {
       "articles": [
         {
-          "title": "ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - newsonair.gov.in",
+          "title": "ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR",
           "pubDate": "2026-08-16",
           "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5",
-          "source": "newsonair.gov.in"
+          "source": "News On AIR"
         },
         {
           "title": "ED files additional chargesheet in Bengal’s SSC assistant teacher recruitment scam - The Tribune",
@@ -286,10 +286,10 @@
           "source": "ETV Bharat"
         },
         {
-          "title": "Former West Bengal Minister Jyotipriya Mallick granted bail in ration scam case - newindianexpress.com",
+          "title": "Former West Bengal Minister Jyotipriya Mallick granted bail in ration scam case - The New Indian Express",
           "pubDate": "2025-01-15",
           "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPQjE3M1hyM2xCSDF6MFNfYUtfbndhSUl4UFdMemYzVjBmbTg3Z0U5VHpaMFl5a0I0WDFaRldwemZ2c09pb05icFA1SGwwdWJQM2tadzltOTJYa1hDY2E0cFp3M0ZFdXI3X1MwNWVUczBjdlA2cExtbjctRWRSMWV1S1hvUXdVb2cwTmlpa19UMFFzbjcwdVFwNmFLUWNQU3hldXoyVnY0UTFlRGk3TkFGa0xhUXczUjhOUUI2MTQ3WlRMcnRrUzlXaUtSLW02bldPaEJj0gHgAUFVX3lxTE5DeEtXZkF3QUtmVlZFRzlYUVlLejdRTHdGejl0UjE5SUFSazlfNU1Na1liX0xtVVIwQ2plVmwxLUpOaXVMT05SSlkwMTJTcjdKYzM0cjFVaDF5Mm0yeTBncDY5NU9aMXZxRl9vLWlXbUdIVnZ1UkdPdGxsVmdHRXJLRWxTNklDSzNHeHBxT2R4QmYtUnYtQVI3RmhGcGU2U2ZmY1ZBeGg1MEp1ZDk4RjM0RjBNM3ZkX2UyQUU2N3IzTFdHZ1FuX1dWaW56NHhIT1FUMVMxRFRXaXMtbnQwVDN4?oc=5",
-          "source": "newindianexpress.com"
+          "source": "The New Indian Express"
         }
       ],
       "count24h": 0,
@@ -298,10 +298,10 @@
     "post-poll-violence-2021": {
       "articles": [
         {
-          "title": "CBI arrests offender in 2021 post-poll violence murder case in West Bengal - newsonair.gov.in",
+          "title": "CBI arrests offender in 2021 post-poll violence murder case in West Bengal - News On AIR",
           "pubDate": "2026-08-15",
           "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOaTk0UmxTOFpXNDFxdEFqT2lRdzJ4MUY5bGM4ZWtTQTlzZ3ZzQi02T1B4X1FfNTcxR014b3M2NnJMcGhPTFNYNERzMk5vQy11WUNmM0hIUUEyT1VGYk1GcEY3YXhZWmdNQVhrcWx3VDNLSF9Qc2d5a2E2MGxTOGRPcFAwWWtoTWZJZlR4R3lHSy1jMFh0bXZVZUlINXVWeXJiZnc?oc=5",
-          "source": "newsonair.gov.in"
+          "source": "News On AIR"
         },
         {
           "title": "2021 post-poll murder: CBI arrests one more in BJP worker Abhijit Sarkar's murder case - Telegraph India",
