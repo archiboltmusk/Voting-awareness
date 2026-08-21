@@ -5,7 +5,7 @@
     <link>https://voting-awareness.vercel.app</link>
     <description>Latest headlines on Bengal corruption cases, court hearings, and political accountability — updated every 6 hours.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 21 Aug 2026 03:00:40 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 04:35:43 GMT</lastBuildDate>
     <atom:link href="https://voting-awareness.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://voting-awareness.vercel.app/favicon.svg</url>
@@ -312,19 +312,6 @@
       </content:encoded>
     </item>
     <item>
-      <title>Absconding Birbhum Stone Quarry Owner Seeks Calcutta HC Protection From Coercive Police Action - ETV Bharat</title>
-      <link>https://news.google.com/rss/articles/CBMi3AFBVV95cUxQOGw1WThvMHkyZ0NMY1lpWWp2VFA5T3FpbFA1d3ZfYmFhdkZMWTBjQUlOWXdnS05QdXFlMHQyeWNhQ095aGNfdEhKd1d4azBUSzJnWGVrcWFMRUtNV1BIem1nckVjWUtMRDhfblVVaWZWVWxuV2Y5NERQaTJKTzdPRTJ5YW1lc2xVbElhOHU5LUpMNTlEc1VHbC1TcWZTRWhCS2Fzb1FPTzdEMkpDSnV3TjZVV05RUVFNS1UwS2ZpWHlYeU01Q1ZvYkR1T094dFFpaEJKcnJVQTJkY3Fn0gHiAUFVX3lxTE5FcGthWS1JZVlpdFIwU0dwVkF6MEh1X1J2NURFQmdVMWxYdU5rNjRhME5LaEVsMEV3UzZTSUVXc3dvdTBrYnVhS2ZldDMxTVFWb1NUVGliZjN4SDUtam9XM1FIVU1Kc1A0TGFGbGpYampPcF9Kb3FlNzJBRU1GQVVEUFhsRlRyTU5SMWo2eG5yVW5qWjFqR0F3d0lkb2ExS0tPT2FEbmwxOUJ1NjNmUDZUekFLS3lFd3FjYklSUTJVcDJVRUpRTjBXa09uSFZuT2drZkNCSHFDQ2NMb1Rxb1ZSNEE?oc=5</link>
-      <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
-      <source>ETV Bharat</source>
-      <category>cattle-trafficking</category>
-      <content:encoded>
-        <![CDATA[
-          <p>Absconding Birbhum Stone Quarry Owner Seeks Calcutta HC Protection From Coercive Police Action - ETV Bharat</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
       <title>Calcutta HC grants anticipatory bail to rebel TMC leader Anubrata Mondal in extortion case - Telegraph India</title>
       <link>https://news.google.com/rss/articles/CBMi6AFBVV95cUxPc2E4SzhJZERfOEVyLTNnZkQ1TWUtbTBKcjdWUTI1S0tsUFFhdmd3RVF0aUpzb0dkdjc5bllHMDFWWGZ4MlFnYWN2QkJsUnFndnZGOUFlWlE1Nm1CdllFS3RlWm5HNTVRc0I5MlhEZ292QnRLN2swOTI1akpHdE9lOXFSUElUOEtvSkItRTM5NTAzdnBTTnRCLXg4akRVSHBqUVYtMDBzSTFoUzJrMEFibEhrNVlMQXppN3lxXzg0UUZ5REQzbXA5QlJPcTBwV0Q1di1QQkxrWkhmazFOZzNYYklYY1U2dWxL0gHuAUFVX3lxTFB2QS1KM1NtWUJhTjBWVEU2WkU1bVZ2VTR1QmVRbWtwa0Z4dUp4RU9PZVNpWFNIWDJ4YjVmN0RoaFhHQkdUOUdCWWttV0xMay02ZERXMWFzalg1RXlqakxuQXFkdVJmWWNUZDdNV3l3S21SVFJ2LXBLZVJYR09iak9hTDN0QWV6ZEpPaDN3dk1QRFgzQzhJWnZvQTM3VEctamVvTTBqYzJiRmlrSHllQk9vS3dLOXV2RlVhVUNLVFBGQlZnYVZ5dmlrSFlETTZ5RDlVMDlzVEdxdmFCRUFMWElvVE43NXFvNWxuVThZNGc?oc=5</link>
       <pubDate>Mon, 27 Jul 2026 00:00:00 GMT</pubDate>
@@ -333,6 +320,19 @@
       <content:encoded>
         <![CDATA[
           <p>Calcutta HC grants anticipatory bail to rebel TMC leader Anubrata Mondal in extortion case - Telegraph India</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
+      <title>Calcutta High Court Grants Anubrata Mondal Anticipatory Bail - The Times of India</title>
+      <link>https://news.google.com/rss/articles/CBMi0AFBVV95cUxPNy04c1duVkVxSWpNMm5xTFJJQVFiWWx2TVBPeVlyank4ZVpOZTZFU0FhdmdIOG5kY2hwUjM0VTJuTU42RG9KcWRDb09ZekJxcGZxU2gxS2F4WTJUNWt1Q3pidG05cmVNUUNXMWlDTVEzMHV4d0tjdlNNWEdMa0NQQUV6VHpoa2VGWEl2NmhGTzRJVXluOWcxWFl4bDZHOFFzYU1tSVlsRzVKM2RLcU9haUJQSFc1bE5kYlFZRzhxX2Rtdlk3RHpsbTF2eXZ2cUU00gHWAUFVX3lxTE5fdzYwQ2tvS0c1UEJiMUl4OTN1cTdYVmxVQVd1SWVmRW1aWTYzcUI1LUthamtPV1A3dVRQRzk0SVlYMTB4Zi1zUkFCS0EwNW1icXZYSTNWTUVXOW9Obld2cFdhWWJ6MTkyV0Zwb09rTW9WZzlJUG5tR2RVd3hlOXZIb253YnlNQUM5aVRYelVQT05GSVgxUWxfWHJtcTJqM3dBUzRUSG4yeEJZdDVidnB0OHR5c1hJNkpLWmZMRXI0Z3JQNnpCYWpNbG5uODJEVElrSmphVUE?oc=5</link>
+      <pubDate>Mon, 27 Jul 2026 00:00:00 GMT</pubDate>
+      <source>The Times of India</source>
+      <category>cattle-trafficking</category>
+      <content:encoded>
+        <![CDATA[
+          <p>Calcutta High Court Grants Anubrata Mondal Anticipatory Bail - The Times of India</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
