@@ -1,14 +1,8 @@
 {
-  "generated": "2026-08-24T10:35:10.772Z",
+  "generated": "2026-08-24T11:26:06.097Z",
   "cases": {
     "saradha": {
       "articles": [
-        {
-          "title": "Saradha chit fund scam: Supreme Court grants bail to Sudipta Sen after nearly a decade in custody - India Legal",
-          "pubDate": "2026-08-21",
-          "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxObmxZdUZUaTNhblMzNC1hc3dJMkVobmhadFM2alVnT1QydjZwaDdUSjVsZmtodkJnRjZSV2NLcG45VjhLa2xxVVNOSGluZFFwWlZSb2cyVmNPbHFqVlR3WkpwM2ROR0xUQjhZejQ3UWxhSklpbkNJNXpxaEJ2dmpIOFZLZ1hFZFJCNHp4NjkyQXlob0p4QWstRmNzQnMtQXBTVmZqSGZNOWd6M25fUmpiYWNHODZJSGQ1M2FjU2JSeFVHV3plXzdScGQ5T2ZPNVdJV1cwWElHM0x2Sy15QXdxSHB5WlgtWkJCajk4R3AzMTh4Zw?oc=5",
-          "source": "India Legal"
-        },
         {
           "title": "Saradha Chit Fund Scam | Supreme Court grants bail to Sudipta Sen after nearly a decade in custody - SCC Online",
           "pubDate": "2026-08-20",
@@ -22,26 +16,32 @@
           "source": "SCC Online"
         },
         {
-          "title": "Saradha Chit Scam : Supreme Court Grants Bail To Sudipta Sen In CBI Case After Nearly 10 Years Custody - Live Law",
-          "pubDate": "2026-08-18",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOSm1WdEZEMzVxR2tvbGtMOGRJNFQ0SEJnandKU2lDa2xSeTViZFFxOTd1RGJzb1R1Rk90b3pCR2xGVUR0NEFaSTdOYXlsRWxEZURiTW95NmVfbmVFZ1I3NjJUclVkYTZuUlhLVmNOaUF6MGZJVFhUaEstM0ZIX2tsT2FDQko3VGVmSDBRSE5XMWRVR3lITkcwdzRFVGVqbWFBY2MxOUFodmF5N0FXa19tcEtiYXNneGotV3FOS0ViemxvNEpwaXNR0gHMAUFVX3lxTFBBSTJXTEpoMzY4Y1pRSmJwSHVoTzBydERmcndqRU1WM1U5TjBqREUtZEk3MWdqOWFRcGt2UWROS1hkZGxqTm1DQS11Sm1uVi1oclJoYk16MVozUFlSdkUwaVdaeExtcmE0LVhnRFVHSG1lSWRGVHVpR2FSVFFUcDdTRHNsdkVLdWdRY0t6c29sYnZGckJNM0s5MGh6dFBOdHhvZmZ3Y0ZoTDc2RVBwNXl1VG9RNVZnTnFrVzdYdTNSMFFVTW8xWjVOUTB4SA?oc=5",
-          "source": "Live Law"
+          "title": "Saradha ‘kingpin’ gets bail in last pending Barasat case after 13 years - Telegraph India",
+          "pubDate": "2026-04-09",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQQ0ZEQmxtdzVHREdxbVAwak82cWlZa3k1MUZMLVdodktvSkFaUEtsdEtIQmJtbGhORC0zZUpqejQyY2xJSWItSC1lRHAtYW9ZVzZWVmI0cE00THA0Y1ozbkxBVjJKa2RXeG1vSEh3d0FWenpsRWRydE02NFFFNjkwZGhaU2NYOS16c2ZndVliOHBVZEdTaHZkYTUweTVuUURKQUtjUDNidU9mVFlxRlNCTWdLMnQ2T2J6N0c2ckpKRUZzdG9DTGlqTWVBcGJIbThxUGdfMkNQdGFXd9IB3wFBVV95cUxOX3ZfLTVqLTdIWGlXelRZQ2paSDl5andaeVhsWTZIbGtyUHc4UWdtRzBYUGFQcWR5WktDZlJuOUp0aHJTbE41Ri10cnJlWEhESXZITkhmQ1R4VVZoMDJCMEF1UFVVYzdvMTVCMDFJVk8xZEZzaU15OVY4ZDl4R1MzYmVfUlU5MUExbFczUGwtQXlYMUlBbV9CMUpaeEhmczJ4S0hhZXFVTENYUlpEdDJJSUNTTG4tSkR3QTlyUWdld08wczY4MHFFckxSb2NmeFVlLUh2LWVqdnIyeFpmQk5V?oc=5",
+          "source": "Telegraph India"
         },
         {
-          "title": "Amid TMC’s internal feud, Ritabrata targets Kunal over Saradha scam - ThePrint",
-          "pubDate": "2026-07-09",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPTHlMUndGMmNxMWtXb2s0anpCaDgzOEpvSjlZWmpSelRxLXpmaWNYVWFlWkk0eVVQVHBEaWF3dzRxcmxHX1RKR1JjUlV6VlFKZWpjb2FXWk5wVFhPc2RwenExMzE0QjFLT0VsQmtvVEJ6U2tvb0cwb2ZlN3ZYZ0RHNEJLdDF6S2NyUzFFYWNza181Q0JmNUVpbk5oUTF4UC1WX3fSAacBQVVfeXFMT0JqZ1hsMHNZbGVQano5WGFEbFBIU2VSMWV4RXBhNjNLU3F4MGE2eFlxdWY0TExBZl9zRl9oQnFWZXgxOFFwOEpSNUpmSmxvV2lPZXBIUWxGQ0xjWUVmUXVpV2hVNXF5ZndndDdUTXpjLXdBc3RkSVlYZE1SdXFxWlpvRW5wRTNDZFVKbHY5STRVY0NGWDZDX0NadElsVlktYmNLMlppekk?oc=5",
-          "source": "ThePrint"
+          "title": "After 13 years, Saradha chit fund scam accused Sudipta Sen to be out on bail - The Indian Express",
+          "pubDate": "2026-04-08",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOQUV1WV82cHJ0RzZDR0JuX0Y0WnZnQ2g4bnZSTDQ5ZFBjZjliZkZuejJ4X1Y1S2FRM1NvN1ExS3A4T25aWnRpaEZjRk9LWUlLNHBCMUtHQzlLdlE4ZlNGU1NROXpwYTZnWTgzRDUyYUluUVF4XzVNck9yN2dhRjNka3VhVXc3RU9FUzk2RDdOanVmZXp6cVdLazVpNURxMEhzQ09ndVBTZElsY3NyWGtNMmkzODNhOFpvamRyYmtDWFo4UTQ4NDV6YXA3SXA5dkXSAdYBQVVfeXFMTWZwVW9Ja2F3VEk5dDE0Zy1GQ2ZZNGNOamdMYTJ3U1BXM3puT2Y5NmR1OXd6STRCVTlJT3VKT0o5LVpwYnNFcVpjOHl2WHI4dHVfUExzRU1sazhFeG8tbzh2bTY3T244SmlTNkFYMTEzdU9RTTBnWUJRVjJ4THBqdHVVSGRKNlljU0FTQVBURjJxOG9UME1RcWxlODRneEVKR2ZzNzBZWkswcHRxOG1sU0tCUkdOcDJEVDc4OWhfa3NQX05UbEdQX0hZY0dYSk1QUVJiMUpadw?oc=5",
+          "source": "The Indian Express"
         },
         {
-          "title": "Amid TMC's internal feud, Ritabrata targets Kunal over Saradha scam - Press Trust of India",
-          "pubDate": "2026-07-09",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQWFNyN3Rtd0dLc2Q1ZUpHZkdoV3hkOU1KZXgwZmRHOXZZVklfX1lkNFBfNndVdWxIT1huZk5KLWRWSWtpNDExSHBlMEs0emx5YUdPU1pyeGdEdzExWmJvSTQ2WVBMUmhrTFFtNjVtWVlYcXhNcnpGaGItWHRYYmNOb05hZWNQMUdjZFI3SGZBYVpiakR4bm8tQ1p1Q0tFMDBVS0d0YTNpMWg3U29jbndQVW9GNA?oc=5",
-          "source": "Press Trust of India"
+          "title": "Saradha Chit Fund Scam: SC to hear on Oct 17 CBI's plea against anticipatory bail granted to WB DGP... - LawBeat",
+          "pubDate": "2025-10-12",
+          "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNV0ktOEhuOTdUdlVnSmZtU1FQX0cxdEhJblhPTHJjWWg3N2dBcFR2S0U2V25pX0ZJM1pOeGtrZmRUei1ZQVNOUWpWYjlQMFEzU0c2dUFpcWtEUmt2Z3FQNHBDRFBQXzQ0cmFWaW9PbEtYSm5Kb21MdXZMd2hRRHZueXNEOTEwWHRUTEgwbnJsYlpRUTU2ZnlkYnZPQ3NQa2hsZ0tEa25Tbjh5OVBDRTFJbFBMeExkMVMzQkxOMEF3bkZLTDN5R1VIamgwczA0ak1hMERBblJ2NTFnWEJlQWRnN1lMenlybWFFR3o3Yl9OONIB9AFBVV95cUxQZFJWdWV5WjladzZ0d3FSVlYzSDI5WlFTWm5rOFJXS3NPQ0tfZkhGSVRUaW5FWlB2Z0FyS0VYWFZmNkhfN1NyOG1uUkFwaHJxUlFMNEZ6N1VDbGNRdDhBM21KLURuaHA2Zy1RMXlNa3NOaGdtT0FSWWZ2WWVJQXRmdkx4MmFKNXUyUlR5b05JU1BBMVJ1NjRpMVlld0ZKVXRVcGpKNjItMWZXS0Uzdjk2aVlSbUE2VEZGb2F4QjZfcGVrRnRFRHY2dW1zaHUxYmhOR3N2ZnJQYkZkZklGaWp4NzNyMjI5WWFvZ3QyWXM3YUZ4V2lB?oc=5",
+          "source": "LawBeat"
+        },
+        {
+          "title": "Saradha Chit Fund scam: Submit report on pending cases against Sudipto Sen in 4 weeks, HC orders govt - The Indian Express",
+          "pubDate": "2025-02-28",
+          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPWVdsWjAxVHluVXR4cGs0V0ZhX2Z2d1EwaGlGRWEzd0lqd0V2em5WMXF2SWNsWDF3VXN4aThjazRHaHB2TFJWRDBlRnpOaGQ2b0hiZy1WbDVwYjkzNzZmeEdJdTdSREdZcmttMmRXeDloX2RVcmdxOWNNM3pWeVV4ME9TX2Y2OHRPUTd5S3RrXzNVMUpaQ1VKRkpEcDdaQThGb2NRcURvXzk4VmNmT2Z5aExnSXNzY2RVWlZFT1ducVpEeVltUDlCeHh0VURVeGxQaWlMaV9fcWFxWkJUSFc0QVdtRlhTWThPRTF6aHNB0gH0AUFVX3lxTE04MHRWYjJSM1VPS3N1b19DQUVLZUFFRkxIdEF5cnpsM1VQWVMwQVFCMHdQT1V3QU1HSmItYy1GdGhkemRLcFZqTEFMcUVtcXo0TktnenV2c04zblpiNmgzdmVGOURBWUNjd0pWOFlJV1piblRJbHRKa3I1cnZGQjEwYmFrd0FqT0NRNHUtbHJhLXVaS1R5cWZBQ1dYRFVwWTBpZmV1MVBVaTRtV0premFrVW1rNEVHZTZyMWpsTUxVLTFjQmNSWnRGSGVmUXBUcmNQek5rMXdLTklLaGNvMnA4SFBULVM1aGh5UHlscXBoUzA5S2k?oc=5",
+          "source": "The Indian Express"
         }
       ],
       "count24h": 0,
-      "count7d": 4
+      "count7d": 2
     },
     "rose-valley": {
       "articles": [
@@ -131,7 +131,7 @@
       "articles": [
         {
           "title": "ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR",
-          "pubDate": "2026-08-23",
+          "pubDate": "2026-08-24",
           "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5",
           "source": "News On AIR"
         },
@@ -286,10 +286,10 @@
           "source": "ETV Bharat"
         },
         {
-          "title": "PMLA court grants bail to former WB minister Jyotipriya Mallick in ration distribution case - MillenniumPost",
+          "title": "Jyoti Priya gets conditional bail in ration case, walks out of jail - The Times of India",
           "pubDate": "2025-01-15",
-          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPUzZjNmY5Y0NoUUFLNXlmMXMweTg0bi04QnppdllRUl9UM0NWYjJtRWFLT0pBYVVyb0dWNUZMMjNaQ0gxTzdwOGsyZ29tSUtQVERjNnZWZWVSMmVBXzhMTVp6bHlUR3RYWTB1a05OTU1ycXNkMFozQ2g0UWFRYWhJQ0NTS2JHb3FDaVR4N0hpdExHa2tKbUtRbC1WTzFlYkc0cU42aV9tbHNadDVCOU9XTGhZekxaNV9lOFBod3pGeUhBZXJtZFVrS3Z1eDVOQ2hj0gHWAUFVX3lxTE9DYW1RaXVKamFCdDRzcWpYdEVvS2RONlRzVDlsWDBGMV8xZlpkbmJBLVl1S2NyYTg3Z2tSWnVuaEo4a2N1NERwazYyTm5XanZVYnVjcDRNTzVaTWtfQXhyTWc2bGR2LVFVVUZ1c1VzSzZkbmFJY05kNmw0ZTU3V2c5amdlZjBueUZKYW5OUVEycTFUQXJaWGR4NnFPWnlRYUVkdnU0X2NMOWpaZUFMWmkteE5iaGtSSng2aXlIRVAzZ2NQZ0JRR2dJSlh6S2Zkd1ZGMm9XMEE?oc=5",
-          "source": "MillenniumPost"
+          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPaHUtVmhpRmVMOVo1VE1mZWUzdzNPRHR3eGF4VE96ZW5Td09EU2NSUmlFVXR2azNlcTJvTXlMTVFqODJjUUhpYmJYSl8zRFNJc2EyS0NxM2Zwd1VPM0stRzBMZUQ1dEpZMTFpZGNfVVdyQVlERnZ4a0ZGdVgzT051cWp6SEZiMG9vZHlpckVvbktKMVdweC1lSnNtUGNEbGNDaXpsWmxYdjFIWXJJRlBUVTN0RFFYRHF0SklFTkhWdkpyeGpNUlRDdXlWejFUNWZDdWFaR3FTZnTSAd4BQVVfeXFMUGlyUWoyVHVHRFpBaFZJa1phZU8tMHRHazZWUjc5YTdPRlViMVZMbFI3WTAwRFIzSC1vb0puYTAtcHNHQnJFQXFLb2NYTWhJU3pQNm9pSWFpc1lzNFN6Y29KMDJ5a1Q0c3ZFMHJjc3R2Zml1ZTVvdExqZ0VGTmdkNUcxd3REQ1dNVzRlZkFWbHJzOFE0Y1NhVmVENTRpYUpmOU9sU0p6d3pHSWc2bmo2dHBRLXduZTRZdS1fbDJ1MlUweld0ZFJXX0ZYZXZKYnFpdGlmN0tmU1hMZ3owemlR?oc=5",
+          "source": "The Times of India"
         }
       ],
       "count24h": 0,
