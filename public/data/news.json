@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-26T06:44:52.319Z",
+  "generated": "2026-08-26T07:43:34.954Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -166,7 +166,7 @@
           "source": "EdexLive"
         }
       ],
-      "count24h": 2,
+      "count24h": 1,
       "count7d": 6
     },
     "cattle-trafficking": {
