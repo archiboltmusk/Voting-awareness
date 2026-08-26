@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-26T14:42:15.370Z",
+  "generated": "2026-08-26T16:16:05.072Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -34,10 +34,10 @@
           "source": "ThePrint"
         },
         {
-          "title": "Amid TMC's internal feud, Ritabrata targets Kunal over Saradha scam - Press Trust of India",
+          "title": "Amid TMC's internal feud, Ritabrata targets Kunal over Saradha scam - Press Trust Of India",
           "pubDate": "2026-07-09",
           "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQWFNyN3Rtd0dLc2Q1ZUpHZkdoV3hkOU1KZXgwZmRHOXZZVklfX1lkNFBfNndVdWxIT1huZk5KLWRWSWtpNDExSHBlMEs0emx5YUdPU1pyeGdEdzExWmJvSTQ2WVBMUmhrTFFtNjVtWVlYcXhNcnpGaGItWHRYYmNOb05hZWNQMUdjZFI3SGZBYVpiakR4bm8tQ1p1Q0tFMDBVS0d0YTNpMWg3U29jbndQVW9GNA?oc=5",
-          "source": "Press Trust of India"
+          "source": "Press Trust Of India"
         }
       ],
       "count24h": 0,
@@ -45,6 +45,12 @@
     },
     "rose-valley": {
       "articles": [
+        {
+          "title": "Govt hands over Rs 515 crore to Asset Disposal Committee for refund to victims of Rose Valley Ponzi scam - News On AIR",
+          "pubDate": "2026-05-27",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOQzA0RlZaOWRzdmJvMVRXZTRiZTBxTE85cHRsdjc3V3hibkJKTC0wNVBrdS1DcmJXNGdEQ3FqOXVKWi1paTRhTVdWZFpKd0Fmd3ZyUERlTTh0WTlrYllmNTRLc3VXRElGOFFRclNUTWs4NEljaHhqNng5Y3R4SnNVd3VuSUpxbVp6SE9YWk1YZUhxcFRyZC1SZXRxNEFxUHNubVB5dFdISFdIU0RITWFjU0pkTlVpSGFD?oc=5",
+          "source": "News On AIR"
+        },
         {
           "title": "Probe Agency Disburses Rs 127.69 Crore To 1.73 Lakh Rose Valley Scam Victims - NDTV",
           "pubDate": "2026-04-28",
@@ -74,12 +80,6 @@
           "pubDate": "2026-03-13",
           "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZlJpTW01eWs3Y3RPUUk0SmRudDAzWEdwT0ZpLW0tZ0k3QjM2d0NjOUZCVHMtcTVFM1RMZEY0U2c0YzBMWG51YzZKcG5wbXBnN0RQcmZhT1I4TGFfUEJ5QjVpS29Ma0ItT19BdFNkb1VqREdNYlV3ckdHQ2dwd3hTZWFQemhwTEJucllGX2lYZlJqTXQyZG9QYm9uaEZZdHBBQjMxNW5OZjkyWklHWUNRUlZuNzZOc3AwR25XZW1EaU9iTWlzdnZGcmVSMNIB0AFBVV95cUxPY0htdC1pWXNDcjU5MVpJOHh4U243Um43RXUxQWVBZXkyemxMZlRaZ1lNdzRZdUFqMjI4RV9sQ3hlaXBKZUpkZ0EySDhsRjIzRTUxZEdiZTFoMEN5ZUxQekxTSTlSbGd5eTNTNHFaal9EYjhnZ2lyZktzVXljV20xSnM0bXpXVDNPZlY4ZDM5ZWhzM2JrUW5XYU1GT2JGZl8tVFpGcTJCMmJJaFJKMmI4aEZoNmp4VjhXdC1QbTR0eUhZRGxGNUR5dTlNLXliNUdD?oc=5",
           "source": "The Times of India"
-        },
-        {
-          "title": "Goa government tightens vigil on Rose Valley properties linked to decade-old nationwide ponzi scam - digitalgoa",
-          "pubDate": "2026-01-17",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQY1prU2t0eG5BQnZiX2VEaGFsZjlhcGNwcXNtLVhNUkFnbGF2V01ZSzltU2hkcmRiYU1oRTcxZ2daalgtQ3VaZnp1Nl9iQWUtY0NlZk5kWUJBRkxIWDliVWhhRWR2MG9sclo5cGdKRFB4QTVwVEF5ZTlndW9hckdaeE1NX1Y5bjQtZlk1cGY2MXZ1VkRHNnU0NlNIZXQzUGJOU1VWd196d0ZtREd5NFpKcXlMcUFTdU9TX2liV1pFMA?oc=5",
-          "source": "digitalgoa"
         }
       ],
       "count24h": 0,
@@ -312,7 +312,7 @@
         {
           "title": "CBI Arrests Gopal Das in 2021 Post-Poll Violence Murder Case - Daily Pioneer",
           "pubDate": "2026-08-12",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOUDBXd0pPZmpCRkY5Tm50a1cwUmd3MlBCbjZBTVk5SVM0QTdtVnBLYzgxRW01N3JpdzVuRTNwMjNEWlVIYnY0UThkaktBWDAtRWpGSlkyQWJRdkhEY3NXOGRpaFhqaHpFdnlnNTZHZFc2YnVNcnRyRkRKNHVkbXdyUW05UGpCM09qUTJKdGdsbGwzcGst?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQUXk4WGJsZ2tMcDltZTFPd3pPT2kxNXRESjU2cW05bXJ5V0NCVE04a2VtMDU5bENIRlkxTFh3THN1MnlLdHgzWW5td3FBWGZQUWFPc05EVUtPaTAwQ3BmcFdXelY4aWVKdXgwQ2oyU1dmVy1jVUlva3dZeDlsXzV6ZW9qdE8tbVlKYmVMWXdEaER1ZmtjRkxkWDIwZmxVb0ttdHRiSnFtRXNYekNEbWR3?oc=5",
           "source": "Daily Pioneer"
         },
         {
