@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-27T02:55:51.522Z",
+  "generated": "2026-08-27T13:51:20.225Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -41,7 +41,7 @@
         }
       ],
       "count24h": 0,
-      "count7d": 3
+      "count7d": 1
     },
     "rose-valley": {
       "articles": [
@@ -130,12 +130,6 @@
     "ssc-scam": {
       "articles": [
         {
-          "title": "ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR",
-          "pubDate": "2026-08-26",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5",
-          "source": "News On AIR"
-        },
-        {
           "title": "Rs 10-20 lakh per post: ED reveals ‘rate card’ in Bengal school ‘scam’ fresh chargesheet - The Indian Express",
           "pubDate": "2026-08-25",
           "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNd0Zxb1dabzM5WXZPeHhFQ0dMRjdEdDJaX0xQbWtKaUlYWERuOFQyZGhiZV9ZT3A5d01yN0F5X3BpTnlicFdUMEk4TFg1Tm0tdTNmeUZtcjI1WTRMMldRRl9YS05KSFd4LV85RGxUcFlBUGhTaUNOVm1EclJ4WEMyUW9ITWR2eS1UQzBnNkg1Zk5neUZVUVpia194WU5WUjVrN09aNzFKTjZVMWtrRkZXRm9DWnUyMUNqVFNtU1NVONIBxgFBVV95cUxNY1k0elZqZm16UTdUTFllNFpPRU9qdTMtd050bVhhdmFldVdOVGFsWC1KZ1c3OFZKaHV3eWpDWWlWUlZYMm5FUkdQckx3NEhCSDNPaHBDTHFKSUZ5NlkzQjVnbW1mRno3U3JxdlpLX3VnUHRGSEtRUzB6ZlZBa3gzTERQUFdqS3Q1MmozVk5Edlc0MzNnVk1hbkJsWng2X3pFTVdLUi04bjk5T3AxajZMNjIwU0dUSUY0cFlpZUdzX0k4d3Bza2c?oc=5",
@@ -164,10 +158,16 @@
           "pubDate": "2026-08-24",
           "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPbDA1aHZRX1ZHSVRBLTg3ZTVvdU1Pa1JRSnd5SVU2LURMbjF2Nk5iNENYckZQVGJxTmdCN0RTWGZwTnRkQlJ5dkxrWFVuWWNac3RiTGRWT21QNV9CdEhVUXhaTmlyeUlpanRvT01iRFAxY0ZfZ2lZTDhwaTlLOFM2UndWcXgwUjhiZUJUbTY3ZW5IdWdRWFVJOWhOUVF1bExvTjZwNmNTZFhZMVptYmdWaVQ5ZEpuQURoTFA2R3RncEJqelZVOHNZVUp30gHPAUFVX3lxTE5VQnNmcVB4SVdmLTlsY1J4aFkxOVpGVDlZT1pwTDBURHBDdmUySFRGSEszUmJ6dEtTcHFpX0pOZGx4VDV6WU5lcUFVOEVPcmxid0phVEtKOE1INllUMUg4SXgzbEtKTlZjenpWNm42N013Wl9hV08xWlljc2FOMkJzR2hRNnRGWDlNQkNXNTdrbXZ1ZDRyU2pIX2hTSTl5YXUxbFlzX1lPcklQZ2FmbzBPMGpfdEkxZ2RZOUJONTNaX0oyaUo5akVSLTU1NDM5Zw?oc=5",
           "source": "ThePrint"
+        },
+        {
+          "title": "SSC scam: ED alleges illegal appointments, manipulated scores, and Rs 630 crore proceeds - EdexLive",
+          "pubDate": "2026-08-24",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNUmdKRVZUMnhySnRaWXdoSmFmdDB3VWJOcGtHSURFMmU1akYzQk4zQnBfRkFTLW5ENEE3a1BWMVRSbGxVQ3dqSFd6VDlPTGlMZVFHaHJFY0Z0OGZUbk5UVDA3Q0RndzBVRVY4V3ZxYTZxeGgwSnJzNnFXT0hvcTJjMFFSRjh5RjQ5QUEtQjdNVXpWVE05NnRkOTVTMWNuQ01nVk9nVkU1WDJ3aU54cGxOXy1xdkVQd9IBwwFBVV95cUxQaWl3Si1CSF9HWXdaem0tbnhtczJiVXQwbFpINmpNeVlYNTVZc1ByZXFMMlUzRHJVNGk0eUZCX09fOVRZRUpuUmx6dEVkX3dRMVhUOEdmYXU2REVSU3lkMTRubjlFVXVJRnVZNUlaNG1kYy1EekhtM0RNR0N4SDhjaDRXbFh6aWE5Qkt5b3pxYnFIc05PRThpeGRVVi1NVU5BUjltaXBZS3dOZXdrY1hNNGdCWFJWckpLUGpRS1pLZmw3Yms?oc=5",
+          "source": "EdexLive"
         }
       ],
-      "count24h": 1,
-      "count7d": 7
+      "count24h": 0,
+      "count7d": 6
     },
     "cattle-trafficking": {
       "articles": [
@@ -178,10 +178,10 @@
           "source": "The Statesman"
         },
         {
-          "title": "Tulu Mondal case: Court extends police custody of Suri land office head clerk - The Statesman",
-          "pubDate": "2026-08-23",
-          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNakpJenVxMkFBdFdFTy02MXlENnZFOFkyMUpsVHpHZ2czV01IZk5QWkFMWjQ4VDVETnZ6SGkxeWhSaDRmUnNVWmd0RnFncVlteGlfUW5BTzUxZjNSVUtRd0c4Y0ZLeEpKSEZCRWFmVXpJeVkyYjh3RTJhNG9fSkhVdGxmY1p4Smk1bExOWjhoRTJSd0J6WEd0TkFWbU1qQkNMN24xNW9NQW9kSWFMTDM1YWJuWlU0ZENsellEd2VaV3M5MDJFRzd2cTlZVWFxM3NjRkHSAdcBQVVfeXFMUHBhMVVFbjgyd04zLUhzNXVqOXgtMUdDVC04azhEVlZQazliczNzSENiU2Npd3VxSHZNdi1fdDRjYWhpZ2NjcFFkRnpHNVF0NkVFYXF6X1pFUGVVZXU0YnNRejVGb2h6anZrOWVjVHQyN0VFQkowTHVoanlnQTFsVHE2OWxTZEI4ZTBxOF9CcjVvMFZDdzlNZ0Nyc3N0LWZfTlBrS21Ibl9wTHozQUktdkRYQ1d2NDRkNUJLbndYSWhKNVRGTFZnVmNHeFhoQjlRTUd2X3NHUzQ?oc=5",
-          "source": "The Statesman"
+          "title": "Pakistani currency, 150 land deeds found at TMC's Anubrata Mondal's ex-aide’s house - The Times of India",
+          "pubDate": "2026-08-16",
+          "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPbzJmRllKUHZVbEd6VUVIc19VWmJWaGFUbjFIOGVQYmh1eWxHcFA1RG56ZzdldVRhRjhDUlJXZEp5cXFpaDlRd1VoS0lpZFV4NWYzSF9RVXlQd2NSSjJ0NHNxYmFlNGxPS2VqUEZOclFMRUNOdzdaUmxtZ3o4X0xRMjNQMjdfQjBqeDJwckZZNUNpVXZiRjcwSl9zcUpXX0Y4eFczQ2pESWh4RldOTnRLaGJPbkxCNzlBdGc4UHRTZ3k2eEVGX1JSZURyaGxJMXhjTWZLOEdiRlhsTVZUb1HSAeMBQVVfeXFMUG5PXzNtTF9xZWV5V1VZTk44LTlYdjREX1AzTm1UQ3RHTjl6VkxFSnM0ek1YZE1ERmEyNnc4VXRlbENSdF9tek5QcTBEeU9kd0w1elFjY21HQnhrekFDWWVHQ0dKOERPcjhNQWhXN25JOVRYSUZpaEp4MjlFN0RZeFJVTDR5RGZ3bUxOVmZrVF9fOS1UV3JZZzMyYVBIT2dPSDRQSjhlQTBNZTRnMXlQQnl3SlFkMXJzNXNVRXZQeUdFbmtnd1JaSzB3SUNyQ3RQMHNNRHlJUHNHcW5oejBlclM3Nk0?oc=5",
+          "source": "The Times of India"
         },
         {
           "title": "Birbhum strongman Anubrata Mondal’s bodyguard sent to seven-day custody in Tulu Mondal case - The Statesman",
@@ -209,7 +209,7 @@
         }
       ],
       "count24h": 0,
-      "count7d": 2
+      "count7d": 1
     },
     "coal-mafia": {
       "articles": [
@@ -256,6 +256,12 @@
     "ration-scam": {
       "articles": [
         {
+          "title": "TMC's Jyotipriya Mallick Discloses Assets Worth Over Rs 1.97 Crore in Election Affidavit - Rediff",
+          "pubDate": "2026-04-07",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOS3c4TGRqdHM1XzZBc25OVzI1ZHpmb2szSWs4MU1Oa0U0ODdYN2FjX2x3VkVWbVlvLTNiUGJRVVdrV1hwR1U1dkNYc2RMWDhxZWE0NHlXRkxoSGRHeHIyX3FZbEFELVRiZzl5TDhtbUd1Qkw4NHdJdFo2WFFkNHFiRXd1TFlUS0gwN0lQNkFnX1U0dUwzeVJGekU0N1rSAZ8BQVVfeXFMUERmMGs1aTJIZFE1bms3Y2J1cU0xTDJzUGcyRVlyZ1I3eDVXMXExM3cxTTMzTVpUTEQ4VjhleE5SbWxkNmJyelBNdWNNVmxxQ3hwQXlrNFpQV1lLd2RxXzNRVkpiT3NQdFdZcDFjZVhFa1JXczF1MFkyRW5FOW50RXZOODN4UlBwSVF2TlFzWnA5RWw0X0wxNEN3eTZBZzZJ?oc=5",
+          "source": "Rediff"
+        },
+        {
           "title": "ED moves Calcutta HC seeking cancellation of ex-Bengal minister Jyoti Priya Mallick’s bail - The Statesman",
           "pubDate": "2025-09-11",
           "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNOXg4cjB5c1BQa2xSNHNOYnJOeVVFSEdvZDRzZmhWZGZlSDVkVXFtMjd6aGFDY1JFSnJTaWNWcGRwZU9vNU1SakNWaHBCQzJVdjhWSWIzX3VnOXk1OHo3Q1RTNm5KSVFpY2s0QllKY1N3eXpZbmFyVmFHX0pabGN4dEc2eTF1QU4yMU1PWE56MVd5WHp1V0NqM2lLSWlvZFg3ekNzZ0wydUZ6WWlhNFRZSWpfc2NXUFBUVm95WXMtTVFXN0JoZFZxZUlBRUU4YjYzSHhuWWtpa27SAd4BQVVfeXFMUElrLVhQdkNpdzJmalA2VXhtYWFvSUxLamJwTXZqLUxjcDY3UTZHMFBWS2JWelF2VnVfNUFja20xby1vN3JlOGVmN0R6TTRsSTY1MjdERDN2bTBzOG9uYnMtZFNhRGxhRXFRMTlsNkVRdHktVDJWVXBNWWNsRGhZRlJBSmhlOHFNWU5oSi1PelRJS0YwYVZmUlNDb3p1YXZWV0JjSmNueUc1ajB1LXVQeGV0Q3FPeXhHY3lLdXN2THpXOC1vaVFKS0tJYjVvczBYYVhtcEtWNC1wOVZrRXRR?oc=5",
@@ -284,12 +290,6 @@
           "pubDate": "2025-01-15",
           "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOZ0dMMXZFQjZ6RUNna2N2MmJ4TUhreGVRMHRtdFlhZUVNVC1hN2xMWGpoT2IxYnJVNVBINmtBN29fR2lXbGtxcUhyNzlkV2pfLXZDbXhfQ3Bha3B1R0tkX04tV3VuZUlmZUZpQUJCOE95ZmtrZmtQbUZDYW9RSTUwMlFRRlJ6SUpsZkNGX21qUWdtWUxqOXBSTk14ZjEydmcwZTdDTUtNaHBaY2swYWpmanc1elFjY2h3MGpxMzRicmRSbkN0TjNQWDFtZXdidFdOR1lGSC1KbUtkYTDSAeABQVVfeXFMUDdwQUF4QnlnMkEzM2gxYTVweFJuWmViaURDbU9xU2hmTjVKNjNDaldaVE9nXzFBeVhkcmVPUXEtanNvZDNuVWQwSjJrQXg0ZW4ydjRoeHR2NDJUWkMxaUFkUUd1d3pUUnpueDVWOW1sdG5EUGFDUjlPWjlUc0xKem4xY3dxOHF4YUhXbE9kcW5uRkE4UmRZTXhqOXgyUmlKaThsMy01VTNaUzhhdDd6em0wVzJycTVDbEo5VVE5MWFnVXZNcUx2YVJWZzJlZC0wbDRpWXJyLS1PcUxWazNQUnc?oc=5",
           "source": "ETV Bharat"
-        },
-        {
-          "title": "Jyoti Priya gets conditional bail in ration case, walks out of jail - The Times of India",
-          "pubDate": "2025-01-15",
-          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPaHUtVmhpRmVMOVo1VE1mZWUzdzNPRHR3eGF4VE96ZW5Td09EU2NSUmlFVXR2azNlcTJvTXlMTVFqODJjUUhpYmJYSl8zRFNJc2EyS0NxM2Zwd1VPM0stRzBMZUQ1dEpZMTFpZGNfVVdyQVlERnZ4a0ZGdVgzT051cWp6SEZiMG9vZHlpckVvbktKMVdweC1lSnNtUGNEbGNDaXpsWmxYdjFIWXJJRlBUVTN0RFFYRHF0SklFTkhWdkpyeGpNUlRDdXlWejFUNWZDdWFaR3FTZnTSAd4BQVVfeXFMUGlyUWoyVHVHRFpBaFZJa1phZU8tMHRHazZWUjc5YTdPRlViMVZMbFI3WTAwRFIzSC1vb0puYTAtcHNHQnJFQXFLb2NYTWhJU3pQNm9pSWFpc1lzNFN6Y29KMDJ5a1Q0c3ZFMHJjc3R2Zml1ZTVvdExqZ0VGTmdkNUcxd3REQ1dNVzRlZkFWbHJzOFE0Y1NhVmVENTRpYUpmOU9sU0p6d3pHSWc2bmo2dHBRLXduZTRZdS1fbDJ1MlUweld0ZFJXX0ZYZXZKYnFpdGlmN0tmU1hMZ3owemlR?oc=5",
-          "source": "The Times of India"
         }
       ],
       "count24h": 0,
@@ -298,21 +298,21 @@
     "post-poll-violence-2021": {
       "articles": [
         {
-          "title": "CBI arrests Gopal Das in West Bengal post-poll violence case - The News Mill",
-          "pubDate": "2026-08-12",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOczN2dzdXS1A2eDBUYW5uRXUtdTRaRW0teHdiNnlNME04Tk9pN3lOWjhKZHNnZjZITTBPUW1WLW1lLUZjMk1ZZGxWNmVZa3UteHBQdFUxMjRhcEM0NkpHLUlCTk14M2xCb1pDTHREZGtrazVXeENqblZLcFYtT1JGMVhTelRmb1R2SzE0QjNVUkl1VlhrZ3EzZ0NhNzJRc3JqM2tQdUVCMXZiaHdp?oc=5",
-          "source": "The News Mill"
-        },
-        {
           "title": "2021 post-poll murder: CBI arrests one more in BJP worker Abhijit Sarkar's murder case - Telegraph India",
           "pubDate": "2026-08-12",
           "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQRmlCQ19oSElBQUJBNVV1Vk1CalAxdzNfd25IbU83a3c5TjZaWTEzTi1DYlFZWFZzdXFSZDdnbHJHVXk1VlN5ZnBSTVNyOUR1QUxzYnY0amhYcWx2NzRVY0picDFfRzE2azZsckRNOFEzN2NnZU1lSDlxQjRQQVNGUS1KeUhZS25zVFIyU3U5UWd2ZVphbnhMMk8zQm9PLU44X0l1dTY1VUFvLUJxRzV3ZEw2bS1qY2I3ZHJvallTZG1NalZjLTBpTWRrUWRXTUNDQjJtWm8tZDczVUJoMHo3NjJqUmhlLUnSAewBQVVfeXFMTVhCT29kZ0Q0NzRiT1NIY0ZfNUlHcFB3Z3piSzBSRDl4bU9ROENjZXRKQUVxaklhRjJsYksxS1pHWWw0RDJvQlZNc1l1NnNGRW1Jd3dlbktCcGYtRW9xVkdyNGRpeHlIUFpQdTM1My1YZjBOQy1WdGN3emM3R2NFU01HS2RibzFsWFllLUNCN1RkZHlVX0pXc2VVMWt5QXlxWlE3cjI0bnpqc2JiRnVCeGpJNVZFRk90UHVUaXNWUE5yaktzMTZhWUxfWVAxMm1HSmtoanhJejFKakxaNXBweXE5Y2ZGRndhcmNtR0k?oc=5",
           "source": "Telegraph India"
         },
         {
+          "title": "CBI arrests Gopal Das in West Bengal post-poll violence case - The News Mill",
+          "pubDate": "2026-08-12",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOczN2dzdXS1A2eDBUYW5uRXUtdTRaRW0teHdiNnlNME04Tk9pN3lOWjhKZHNnZjZITTBPUW1WLW1lLUZjMk1ZZGxWNmVZa3UteHBQdFUxMjRhcEM0NkpHLUlCTk14M2xCb1pDTHREZGtrazVXeENqblZLcFYtT1JGMVhTelRmb1R2SzE0QjNVUkl1VlhrZ3EzZ0NhNzJRc3JqM2tQdUVCMXZiaHdp?oc=5",
+          "source": "The News Mill"
+        },
+        {
           "title": "CBI Arrests Gopal Das in 2021 Post-Poll Violence Murder Case - Daily Pioneer",
           "pubDate": "2026-08-12",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQUXk4WGJsZ2tMcDltZTFPd3pPT2kxNXRESjU2cW05bXJ5V0NCVE04a2VtMDU5bENIRlkxTFh3THN1MnlLdHgzWW5td3FBWGZQUWFPc05EVUtPaTAwQ3BmcFdXelY4aWVKdXgwQ2oyU1dmVy1jVUlva3dZeDlsXzV6ZW9qdE8tbVlKYmVMWXdEaER1ZmtjRkxkWDIwZmxVb0ttdHRiSnFtRXNYekNEbWR3?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOUDBXd0pPZmpCRkY5Tm50a1cwUmd3MlBCbjZBTVk5SVM0QTdtVnBLYzgxRW01N3JpdzVuRTNwMjNEWlVIYnY0UThkaktBWDAtRWpGSlkyQWJRdkhEY3NXOGRpaFhqaHpFdnlnNTZHZFc2YnVNcnRyRkRKNHVkbXdyUW05UGpCM09qUTJKdGdsbGwzcGst?oc=5",
           "source": "Daily Pioneer"
         },
         {
