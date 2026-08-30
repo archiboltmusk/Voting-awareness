@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-30T07:53:27.451Z",
+  "generated": "2026-08-30T13:33:44.166Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -28,10 +28,10 @@
           "source": "ThePrint"
         },
         {
-          "title": "Amid TMC's internal feud, Ritabrata targets Kunal over Saradha scam - Press Trust of India",
+          "title": "Amid TMC's internal feud, Ritabrata targets Kunal over Saradha scam - Press Trust Of India",
           "pubDate": "2026-07-09",
           "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQWFNyN3Rtd0dLc2Q1ZUpHZkdoV3hkOU1KZXgwZmRHOXZZVklfX1lkNFBfNndVdWxIT1huZk5KLWRWSWtpNDExSHBlMEs0emx5YUdPU1pyeGdEdzExWmJvSTQ2WVBMUmhrTFFtNjVtWVlYcXhNcnpGaGItWHRYYmNOb05hZWNQMUdjZFI3SGZBYVpiakR4bm8tQ1p1Q0tFMDBVS0d0YTNpMWg3U29jbndQVW9GNA?oc=5",
-          "source": "Press Trust of India"
+          "source": "Press Trust Of India"
         },
         {
           "title": "Saradha chief Sudipta Sen set for release after nearly 13 years in jail - The Statesman",
@@ -130,6 +130,12 @@
     "ssc-scam": {
       "articles": [
         {
+          "title": "ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR",
+          "pubDate": "2026-08-30",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5",
+          "source": "News On AIR"
+        },
+        {
           "title": "Rs 10-20 lakh per post: ED reveals ‘rate card’ in Bengal school ‘scam’ fresh chargesheet - The Indian Express",
           "pubDate": "2026-08-25",
           "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNd0Zxb1dabzM5WXZPeHhFQ0dMRjdEdDJaX0xQbWtKaUlYWERuOFQyZGhiZV9ZT3A5d01yN0F5X3BpTnlicFdUMEk4TFg1Tm0tdTNmeUZtcjI1WTRMMldRRl9YS05KSFd4LV85RGxUcFlBUGhTaUNOVm1EclJ4WEMyUW9ITWR2eS1UQzBnNkg1Zk5neUZVUVpia194WU5WUjVrN09aNzFKTjZVMWtrRkZXRm9DWnUyMUNqVFNtU1NVONIBxgFBVV95cUxNY1k0elZqZm16UTdUTFllNFpPRU9qdTMtd050bVhhdmFldVdOVGFsWC1KZ1c3OFZKaHV3eWpDWWlWUlZYMm5FUkdQckx3NEhCSDNPaHBDTHFKSUZ5NlkzQjVnbW1mRno3U3JxdlpLX3VnUHRGSEtRUzB6ZlZBa3gzTERQUFdqS3Q1MmozVk5Edlc0MzNnVk1hbkJsWng2X3pFTVdLUi04bjk5T3AxajZMNjIwU0dUSUY0cFlpZUdzX0k4d3Bza2c?oc=5",
@@ -158,16 +164,10 @@
           "pubDate": "2026-08-24",
           "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOaVpoYUVTVk52eExfUWxDWlNJMnBmX1JmUG8xTXV6VGwtNkl3dmNZM1BBUW9UN3RDeWlhWUZwOTRyRDZjclhMbUVEeThqSnNsQ0Fsd1FhZHRBSjZZVFZXNmtsb05QdzUwd3NmcGtvN29SaFdpcVdydVFWYU9MVHhMN1Y1dEs5eXMwX1dhZzk4aTVXNWZTQ1hfYlJraUc5NzB6?oc=5",
           "source": "thehawk.in"
-        },
-        {
-          "title": "ED Raids Partha Chatterjee’s Residence Amid SSC Recruitment Probe - The CSR Journal",
-          "pubDate": "2026-08-18",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOQjhOR2h0dlBMVGpQaHplc1FWbTFQS29sUFB6TEtIcTJRZGZKdjdDYnYyM3RvU1locTNZWi1EdXFQZ1JET3FJQTd4dllWbVZxZGJfVjZmTjhIaUZVbHhjdnIybEE5M3pCejRkWW41UlVCR3M2Qnp3eEh0QmFud0ZYRnY4LWVSU1JYTlE?oc=5",
-          "source": "The CSR Journal"
         }
       ],
-      "count24h": 0,
-      "count7d": 5
+      "count24h": 1,
+      "count7d": 6
     },
     "cattle-trafficking": {
       "articles": [
@@ -202,10 +202,10 @@
           "source": "The Statesman"
         },
         {
-          "title": "‘Brick kiln theft’: Anubrata Mondal moves HC, seeks anticipatory bail - MillenniumPost",
-          "pubDate": "2026-07-14",
-          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQVHZDblpmVTVTV1JQME01Q3Q0c1VCV1htUjJPTi02LXJyMDNBd1VPRzZQZlZCNnRtTFh1cjRNdXdUVVV1V3Bpc0VUQkZVQkZ5X185QUZNSGNpT3BKQk8zYlptZjNxYkxCOWlRbV81Q0d3WFdmM3JXUU1SdGdKYWxRUko2NWJ4VG5oaVdwNXpWM2s0amZjdGZYM2FkWGhDcVJQNmVpRlNyNHZiRkloN1HSAbMBQVVfeXFMTVgycnA2eFN3aHlGQzU0N3g3Vmp1aGVWdmREMUZsdWV1S1FPUWxHUzE3VkpMTnRLZ0NlRTktNmhIOEhIX1VsZEd0WjVpQXNjd18wZ0ZSUmRsWmh6MDVIamd4NExNRHliZjRrakwzdHRoUjNhaGc0U2c1UG9ZcXV0ZFB4TmNLTFpaVk5PVnhiOWlTbkloTm1sZDU2enVfNVJnaUItNXNyS2ZJUFlSMGoyYkpYUUU?oc=5",
-          "source": "MillenniumPost"
+          "title": "Calcutta High Court Grants Anubrata Mondal Anticipatory Bail - The Times of India",
+          "pubDate": "2026-07-27",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPNy04c1duVkVxSWpNMm5xTFJJQVFiWWx2TVBPeVlyank4ZVpOZTZFU0FhdmdIOG5kY2hwUjM0VTJuTU42RG9KcWRDb09ZekJxcGZxU2gxS2F4WTJUNWt1Q3pidG05cmVNUUNXMWlDTVEzMHV4d0tjdlNNWEdMa0NQQUV6VHpoa2VGWEl2NmhGTzRJVXluOWcxWFl4bDZHOFFzYU1tSVlsRzVKM2RLcU9haUJQSFc1bE5kYlFZRzhxX2Rtdlk3RHpsbTF2eXZ2cUU00gHWAUFVX3lxTE5fdzYwQ2tvS0c1UEJiMUl4OTN1cTdYVmxVQVd1SWVmRW1aWTYzcUI1LUthamtPV1A3dVRQRzk0SVlYMTB4Zi1zUkFCS0EwNW1icXZYSTNWTUVXOW9Obld2cFdhWWJ6MTkyV0Zwb09rTW9WZzlJUG5tR2RVd3hlOXZIb253YnlNQUM5aVRYelVQT05GSVgxUWxfWHJtcTJqM3dBUzRUSG4yeEJZdDVidnB0OHR5c1hJNkpLWmZMRXI0Z3JQNnpCYWpNbG5uODJEVElrSmphVUE?oc=5",
+          "source": "The Times of India"
         }
       ],
       "count24h": 0,
