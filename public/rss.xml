@@ -5,7 +5,7 @@
     <link>https://voting-awareness.vercel.app</link>
     <description>Latest headlines on Bengal corruption cases, court hearings, and political accountability — updated every 6 hours.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Sep 2026 18:06:23 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2026 21:24:29 GMT</lastBuildDate>
     <atom:link href="https://voting-awareness.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://voting-awareness.vercel.app/favicon.svg</url>
@@ -40,6 +40,19 @@
     </item>
     <item>
       <title>Saradha Chit Fund Scam | Supreme Court grants bail to Sudipta Sen after nearly a decade in custody - SCC Online</title>
+      <link>https://news.google.com/rss/articles/CBMixAFBVV95cUxPVTBqQUF1b2JrcHhXSG5RYktxSllyRUlicXRlMkRYS0MzWWM5WFR5TGg3RFdkNVhVeUx0Nmp1NzQyOTZBR0VyM05iWWdUWmpyaTNMN3RqeWtFd0xVZ0lJY2dKWV9hMktMTllDSHloelFwVVRiNzlBR3VRanBIaVlVX2JzM0IzVk9YeGI1NXRVRVNsbWZaZFU2ZFR6c2MwYTFORjNKYkU0dmR6OEV6NnF2Q205SG9MMUNFbE9hRy1CVHpsbTJu?oc=5</link>
+      <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
+      <source>SCC Online</source>
+      <category>saradha</category>
+      <content:encoded>
+        <![CDATA[
+          <p>Saradha Chit Fund Scam | Supreme Court grants bail to Sudipta Sen after nearly a decade in custody - SCC Online</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
+      <title>Saradha Chit Fund Scam | Supreme Court grants bail to Sudipta Sen after nearly a decade in custody - SCC Online</title>
       <link>https://news.google.com/rss/articles/CBMipgFBVV95cUxPV2I1bkRUcklwa0R2enhra0Q4WE9FVWRQT2QxNGVJUzdyRTl2QmJPTzlGNG8yYkk0UGVDX0tBTndfVjhvZ2lhOFQ4XzRNemZyWG1vdWxnMm9kMXUySGtBUGJvVGNERUNrMWl0Z2t3RDYtbmNGdlVOaHFrRGluLWxyZnB1djRCMm54aXZ6VmZhVlJldUV0UFBNQjNybDF1RkgwWC1laW13?oc=5</link>
       <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
       <source>SCC Online</source>
@@ -60,19 +73,6 @@
       <content:encoded>
         <![CDATA[
           <p>Saradha Chit Scam : Supreme Court Grants Bail To Sudipta Sen In CBI Case After Nearly 10 Years Custody - Live Law</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
-      <title>Amid TMC’s internal feud, Ritabrata targets Kunal over Saradha scam - ThePrint</title>
-      <link>https://news.google.com/rss/articles/CBMiogFBVV95cUxPTHlMUndGMmNxMWtXb2s0anpCaDgzOEpvSjlZWmpSelRxLXpmaWNYVWFlWkk0eVVQVHBEaWF3dzRxcmxHX1RKR1JjUlV6VlFKZWpjb2FXWk5wVFhPc2RwenExMzE0QjFLT0VsQmtvVEJ6U2tvb0cwb2ZlN3ZYZ0RHNEJLdDF6S2NyUzFFYWNza181Q0JmNUVpbk5oUTF4UC1WX3fSAacBQVVfeXFMT0JqZ1hsMHNZbGVQano5WGFEbFBIU2VSMWV4RXBhNjNLU3F4MGE2eFlxdWY0TExBZl9zRl9oQnFWZXgxOFFwOEpSNUpmSmxvV2lPZXBIUWxGQ0xjWUVmUXVpV2hVNXF5ZndndDdUTXpjLXdBc3RkSVlYZE1SdXFxWlpvRW5wRTNDZFVKbHY5STRVY0NGWDZDX0NadElsVlktYmNLMlppekk?oc=5</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
-      <source>ThePrint</source>
-      <category>saradha</category>
-      <content:encoded>
-        <![CDATA[
-          <p>Amid TMC’s internal feud, Ritabrata targets Kunal over Saradha scam - ThePrint</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -117,14 +117,14 @@
       </content:encoded>
     </item>
     <item>
-      <title>Rose Valley Scam Case Explained for CAIIB BRBL 2026 - PW</title>
+      <title>Rose Valley Scam Case Explained for CAIIB BRBL 2026 - pw.live</title>
       <link>https://news.google.com/rss/articles/CBMieEFVX3lxTE16QWR2b0hsZjhVMWRrNlVEUnF4OXRNUXpuX3l2UXVETGgzY0ZOZEZPb2U4WE5HWGVRcnAxb0M0QndQQk12ekhQYkgxZmN2elNkc3lTWHhOUW5tMVFqS1ZNTk9DT0VtRURfNWhxb2VQbC1xemhlanFYYQ?oc=5</link>
       <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
-      <source>PW</source>
+      <source>pw.live</source>
       <category>rose-valley</category>
       <content:encoded>
         <![CDATA[
-          <p>Rose Valley Scam Case Explained for CAIIB BRBL 2026 - PW</p>
+          <p>Rose Valley Scam Case Explained for CAIIB BRBL 2026 - pw.live</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -208,6 +208,19 @@
       </content:encoded>
     </item>
     <item>
+      <title>ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR</title>
+      <link>https://news.google.com/rss/articles/CBMitAFBVV95cUxPSWNGamx6aFF4a1ZFLVBFU2lkazc0WHNidldjeWpJLWVXTmlWTjd0amV3Mzh5ZVRwckRGemFkSW9oelJISFV6WFhHdzNncWZhMFpXemRZZFEwd0NLaEN5cENzZEVnU1pBS2lseldMX1VWdVp5cHQ5aGNIa0Q4cnlyV0ZRSlhzbENoZjhkZWVSckN5c2NyRUpNanhhMnhodjlOeU5rNWlxNGRCd3dxQlFEY0ZMaUs?oc=5</link>
+      <pubDate>Tue, 08 Sep 2026 00:00:00 GMT</pubDate>
+      <source>News On AIR</source>
+      <category>ssc-scam</category>
+      <content:encoded>
+        <![CDATA[
+          <p>ED conducts searches in West Bengal in connection with alleged teachers’ recruitment scam - News On AIR</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
       <title>West Bengal: 1,000 teachers who lost jobs launch sit-in demanding recruitment - EdexLive</title>
       <link>https://news.google.com/rss/articles/CBMiowFBVV95cUxNejJoYURuamtTRE5ibFlGYVVYYWlrUGtsMmFUOS0wSzZPcllLdVhEaGZfTkRUOXBxU2t5U1V0eEVsVGJrcktqVElLY3d2MDRvazJ3enQtRHJ5YjFSUVBOVEZGbTFmbGk1ajVhWVlKOFk0QUZlWnI2c290WjE3ZTBpLXc0N1J4VFJzUE1CNXEwVHpEOURHZ0dMcWd3TDQzUWtRbEdz0gGwAUFVX3lxTE8yajAteTg2Ujc1dnNiZTl5elFEMUt1enNGbnZUTHZicG5GLV8xMlZlbUcxZkNoVk9od2VwLUVMNHBsSElwVTdnZ0RrdTNwelQxVXdZZ2I3cUhfT3dXSHFsWDFyd3Z6b3dKYVI1ZFZNUHVPS1lFZ2R6WHpvRGVUVUFzXzkwNnFidUw3WF9rbFZ1NEwxUk1wM1FtWTFjVU9OblZxV1N4QWcxSWVBZ2dmTnNB?oc=5</link>
       <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
@@ -255,19 +268,6 @@
       <content:encoded>
         <![CDATA[
           <p>&quot;Less Said The Better&quot;: Supreme Court Faults Agencies Over Slow Probe Into Abhishek Banerjee-Linked Firm - LawChakra</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
-      <title>ED files fresh chargesheet in Bengal SSC staff hiring &apos;scam&apos;; names Partha Chatterjee, Kuntal Ghosh - Daily Pioneer</title>
-      <link>https://news.google.com/rss/articles/CBMiggFBVV95cUxPNVp5Z3pIcDE0dkZOR0ZlWlR3ZU5ad0dGZ09PNUlrNFNVUVY2VE1HZ3JTeHo3S3FoNHZUYkpzNVZkZWIyQ0NRZFBBS0dDNUVJaEJDbVVaT0NaVk5mU1Vmd3duaWdySnlORGpJd1pHMklUM2lybmJPX0ZFOTBwZVNQNUR3?oc=5</link>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
-      <source>Daily Pioneer</source>
-      <category>ssc-scam</category>
-      <content:encoded>
-        <![CDATA[
-          <p>ED files fresh chargesheet in Bengal SSC staff hiring &apos;scam&apos;; names Partha Chatterjee, Kuntal Ghosh - Daily Pioneer</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -507,14 +507,14 @@
       </content:encoded>
     </item>
     <item>
-      <title>CBI Arrests Gopal Das in 2021 Post-Poll Violence Murder Case - Daily Pioneer</title>
+      <title>CBI Arrests Gopal Das in 2021 Post-Poll Violence Murder Case - dailypioneer.com</title>
       <link>https://news.google.com/rss/articles/CBMilAFBVV95cUxOUDBXd0pPZmpCRkY5Tm50a1cwUmd3MlBCbjZBTVk5SVM0QTdtVnBLYzgxRW01N3JpdzVuRTNwMjNEWlVIYnY0UThkaktBWDAtRWpGSlkyQWJRdkhEY3NXOGRpaFhqaHpFdnlnNTZHZFc2YnVNcnRyRkRKNHVkbXdyUW05UGpCM09qUTJKdGdsbGwzcGst?oc=5</link>
       <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
-      <source>Daily Pioneer</source>
+      <source>dailypioneer.com</source>
       <category>post-poll-violence-2021</category>
       <content:encoded>
         <![CDATA[
-          <p>CBI Arrests Gopal Das in 2021 Post-Poll Violence Murder Case - Daily Pioneer</p>
+          <p>CBI Arrests Gopal Das in 2021 Post-Poll Violence Murder Case - dailypioneer.com</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
