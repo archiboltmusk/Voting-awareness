@@ -5,7 +5,7 @@
     <link>https://voting-awareness.vercel.app</link>
     <description>Latest headlines on Bengal corruption cases, court hearings, and political accountability — updated every 6 hours.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 07 Oct 2026 02:05:59 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 09:50:22 GMT</lastBuildDate>
     <atom:link href="https://voting-awareness.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://voting-awareness.vercel.app/favicon.svg</url>
@@ -143,6 +143,19 @@
       </content:encoded>
     </item>
     <item>
+      <title>‘arrest-me’:-mamata-banerjee-tells-cbi-after-4-held-in-narada-sting-operation-case - The Independent Singapore</title>
+      <link>https://news.google.com/rss/articles/CBMiqgFBVV95cUxOaHltRVN6SUZ4OVhjSHlOcDB6Qk9RdkN4VDJibkphS0x0VmgxNUhWb2c0NWxDcHU1eUZpZFc2cW5xRHBhNlg3d051alE2ZEUxbEJaSVh6ZXpjQ0JUMGF2M3U3MG5GUGR0SjFlUmhGbGNJRUtWZnZISHRlZFpFMU9JVWpEN01qZlNiMDlSbjdLaWZka19VZEJocGttLU5YVllJb1ZvX1EySVZXdw?oc=5</link>
+      <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
+      <source>The Independent Singapore</source>
+      <category>narada</category>
+      <content:encoded>
+        <![CDATA[
+          <p>‘arrest-me’:-mamata-banerjee-tells-cbi-after-4-held-in-narada-sting-operation-case - The Independent Singapore</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
       <title>Kalyan Banerjee refutes Kakoli Ghosh Dastidar’s ‘verbal abuse’ allegation, says will ask LS Speaker to provide sanction against her in Narada case - The Shillong Times</title>
       <link>https://news.google.com/rss/articles/CBMikAJBVV95cUxOX3RaNjBmRlFlYUtzZTN1Nk91bXp2MkpYbnBVcjFjTHpvVXR0OC1kQnhFbHZsOXdRRHRJOHdlNm1wTlYzOUx0dkZCWTJMUmZvQmhoeW8tcnM3VVprN2x5U3hpRHZRQnpKb0hsQWtzNVhBOTJIMkhQdm5pVjFZRnRjRUJoRlFzSVBwRVh0WEo5OFFta3VXdGhfTXBudC1oR0lNVWk0d01zNWF3RnJibEh2Y00xaFpKWTJwZ20zd0QwdmZqOUo4bVdGa0hIUjJKS21fT3Fod2xWREg2dzE2cUw4bFI5UDVOQUZSSS0tV09yczc3cVZiWnN3OWhRdjBXWE8zaGpaMl95Q3ZreUpHZmlYcA?oc=5</link>
       <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
@@ -190,19 +203,6 @@
       <content:encoded>
         <![CDATA[
           <p>CBI summons journalist Mathew Samuel in Narada Sting case again - India Today</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
-      <title>Narada sting case: CBI summons Mathew Samuel - ThePrint</title>
-      <link>https://news.google.com/rss/articles/CBMihAFBVV95cUxNelhZVjg0MkhtZmpoa3dpTDlnOTJMM2Jxc1F6V3JRbTJaa3JsSkRpSW5ubURrUEhMdi1ETENyb1JJVm1Tb1JQck9nRjg1MzNBRHJPODd5V2FaUHBKb3FCYkY2VVVuRUk4TnVhY19ma3NWcVpMUHE2VnltS00talBqcnV4MXbSAYoBQVVfeXFMTjdtS2RJM2I2Y1hzelBYTVRmbFhBaXFhbTJ5VXBNUUlMNXJNWXRGaE9YcllZNGljVnd3VDBSbzNnd0pyMTlyWVlNS01wYUJ3VG9MVDl0M2NLSmhweGVxX2tNN040bi1pUVBDTVQ1dDFEMTlhbFlXZEhtMUJFVU1XYml0SGFSa0Z0YXJ3?oc=5</link>
-      <pubDate>Wed, 27 Mar 2024 00:00:00 GMT</pubDate>
-      <source>ThePrint</source>
-      <category>narada</category>
-      <content:encoded>
-        <![CDATA[
-          <p>Narada sting case: CBI summons Mathew Samuel - ThePrint</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -338,19 +338,6 @@
       </content:encoded>
     </item>
     <item>
-      <title>Tribal Landowners Deprived of Rs 35 Crores by Bengal TMC Govt: CAG Audit Shows Devaluation Helped Coal Scam-Linked Firm - TheWire.in</title>
-      <link>https://news.google.com/rss/articles/CBMiqAFBVV95cUxPT0JrWkQ5b2xRZmN0MmhieWtKVFdQNkROVC10WVRqTmE1amh2YnJVeHFEMG1wdW9kajdxRml5UDFlU2dscDZLdkFrRW5JLVVnRXU0ZldQUGlrbkFZejRWZ19iS1lnTmRqM2RLSkNCZkhjbTBlUHJZMUNsV28yNVgxQnNVaEs4UnpuQmM0WUptSEJSY2hfamlMT1hieWNpVEZsWWRBa0FyakTSAa4BQVVfeXFMTmFxZTV2RVRpSEhFUjRNNlZpb1BlWnBzbXhpTEFQVHR4LWVLY3dnOUVFQTVpUU5yRjNGeWRIWThuN0RhOGQ3cFQtcVJTQV9IR2NDbzdaUFhjZjB1U1FyVld0VG9BdmNnYzhETkYzdXQ4YW8wdWZ3RU9ZMklqYUtjY2hTTzR0VmlnTVE2ckxsX0M1cm16QjlSZmlkMi1BTmdDNzhqNjhra1VoalhyTlpn?oc=5</link>
-      <pubDate>Thu, 30 Jul 2026 00:00:00 GMT</pubDate>
-      <source>TheWire.in</source>
-      <category>coal-mafia</category>
-      <content:encoded>
-        <![CDATA[
-          <p>Tribal Landowners Deprived of Rs 35 Crores by Bengal TMC Govt: CAG Audit Shows Devaluation Helped Coal Scam-Linked Firm - TheWire.in</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
       <title>Coal smuggling syndicate, hawala operators, and a cop close to ‘kingpin’: How ED linked them to I-PAC - The Indian Express</title>
       <link>https://news.google.com/rss/articles/CBMi3wFBVV95cUxOaV9talgzRjlrRkc3RzZONV82azZQU1BuUGl5RURZTEFuQmo2NzVSMFpPTEwtckZuQzEzZzFQQUtNNlFRR3VlYWFzVUVXdWo5aWlaY0pUb0VGZElTa0hYUVFMMDVadFJuakhNaG8wVXJHOXhHWjNXdjBpNGtjQkZIVnJxZlVnUlFjZDNiV1J0TExrOU1PeWV4VEV1Y2tYRUx5d0NnV1lac1ZQSl9xN0xQck9nU3lSX1lpV3oyMFYtSFAwU2xBR045NkhVNXBYQkdaSmdqTDdMZ0dlQUZseF9j0gHmAUFVX3lxTE1zbWVreDJaMXI0N0lwZGE0Z05QNTNuRG55dGhldXIyQWVDTUVqMFQ4VUtGYXNVRmdmcHhVOGpfM0hfOWFGMUwyM3o5NDdkb2Y1d3M5UkVCd1haU2ZBc0FaYzJ3Z2JVT1ZjaElNSDZXeHUyblNyd3I5cGJldVBIdTNiai1lQnhGYWtYT08tWlMtNGctdlNRaWctV1U5MVNwamdmM09MZkdQNGptcGF4OHlnYzR0NjczZ3lfWTk1ckhadS1mZjI1WW9wdlpvWWRKUURKVE4xc3c0V1hSYm44cmxkeHh4YjRn?oc=5</link>
       <pubDate>Fri, 09 Jan 2026 00:00:00 GMT</pubDate>
@@ -403,14 +390,14 @@
       </content:encoded>
     </item>
     <item>
-      <title>TMC Trade Union Leader Arrested for Alleged Extortion of Auto and Toto Drivers in North 24 Parganas - Hindusthan Samachar English</title>
-      <link>https://news.google.com/rss/articles/CBMikgFBVV95cUxPZlMwZXEwOFA4anF1Y0t6YlJ4MFVrNEpMWV9vZk1SZEZJSl9fdmRrQ05SOUxSUU5UTUJWR0xtZ25hcU5GYzlwekRsdnFabEtNeGNhdzAxdjYtOEJmckc2bDZqZURlS0wzWHhETTF0VnJaSHJ0bzg4d01FR3RJZWYydWJiaGhvOHFxRVRYYVhxaWZTZw?oc=5</link>
-      <pubDate>Tue, 19 May 2026 00:00:00 GMT</pubDate>
-      <source>Hindusthan Samachar English</source>
-      <category>ration-scam</category>
+      <title>Kolkata police arrest one more person in coal smuggling scam case - The Hindu</title>
+      <link>https://news.google.com/rss/articles/CBMiygFBVV95cUxPQVBYbFZRY1lsOTRTLU5QRVJVYUdXV3F6S2FRSW11bHZ5a2lCTld3SENQVGg5NHFTRjQ1a2hPSVRjay05cEZaVEVfVk5COGxrZWRkZDV5VTQ4TE90Zzh6c2J0SE4tNncyUTNsRG9ZS25wenNnRWVtWEZvN05rZXB5MWc4VWQ3VXFETkNycXhZMnBVOUxwdEVPdFF3X000MVJZZVRfWUEtN1BaQkhCcTJxc2RlWHZYYmx5ZldLUHZVZ1JrZjVhck43azlR0gHQAUFVX3lxTFBINzZSLUFtUnZlMU05ZXU3SmFpdEtTVGF6d192WDE0djhnOUZpX1gyY3lHcFVuTi1KVWlpN1RPQ3YzU2Q0WHpWb1k4NF9hYk1sTElZWkM5eHpya0xwem9TY3A3MnRHeVkzMWFKaW1Ybk92ME1SOGpYZ29adXRqSTBDYzI2MmNNZU5wbG9FYnk1Rjkwc3NwUDA0UEVzUHVLaGFGSk9CSmxaTlVSTkZkN0xfcTBzVkZMSFBiRGZ3aU1nUEhGYWpaQ3JYTlNYOGJHb0o?oc=5</link>
+      <pubDate>Sun, 24 Nov 2024 00:00:00 GMT</pubDate>
+      <source>The Hindu</source>
+      <category>coal-mafia</category>
       <content:encoded>
         <![CDATA[
-          <p>TMC Trade Union Leader Arrested for Alleged Extortion of Auto and Toto Drivers in North 24 Parganas - Hindusthan Samachar English</p>
+          <p>Kolkata police arrest one more person in coal smuggling scam case - The Hindu</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -463,6 +450,19 @@
       <content:encoded>
         <![CDATA[
           <p>Bengal PDS case: Bail for ex-minister Jyotipriya Mallick - The Statesman</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
+      <title>Former Bengal minister Jyotipriya Mallick granted bail by PMLA court in ration distribution case - Telegraph India</title>
+      <link>https://news.google.com/rss/articles/CBMixwFBVV95cUxOcFowRnl0UVFuRllsR21lai1YaDBxVXRBc3RjNEJ0Q2k4RHZBTGphaWRRWV9JTWJNR0ZNMVNHSzBjeW5DTUtkWmhjTC12UUt2UEg0TFI4R3JjSkJmeGxnVnlocmthTndFd1hqa2N4aDRCTTU5Y29SdVVpSUZtbjJ5VlEyZm9iWEtsejBjemc0Z0xrbHZyMXZoX1dmUEs1UF93cVNkdTRDa21XZWdBeW5FSXdnVTlhVXVVbVhYWnh6Tjc4MmNvNFk00gHMAUFVX3lxTFBHZmN0WmUzOHQ3QjJHdjRfWTY3R2tlRmRvNTZtY1BBX1pSTUhVRVBDQnN1cGJWdEFaU3Exa2xtXzBVa2RBd0JOUzZwRXdEdDlxelpnZ0dzeS1HMjYxRW9tOUpFSnZaSkhFcmJVS3htVXcyT0l3eW1CaEZaSURvOE01ZTZRWXZHLURsNkZvUTh4VUxRNklmMXN3ZWdXbFNTdzl0dFJCczFKcFVxTGVMQzJmQVBoTnhTVjV3V0M2RnNCU0RjOF9IajFfTXZ6ag?oc=5</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 GMT</pubDate>
+      <source>Telegraph India</source>
+      <category>ration-scam</category>
+      <content:encoded>
+        <![CDATA[
+          <p>Former Bengal minister Jyotipriya Mallick granted bail by PMLA court in ration distribution case - Telegraph India</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
