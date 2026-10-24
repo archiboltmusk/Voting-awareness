@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24T05:23:17.855Z",
+  "generated": "2026-10-24T10:19:04.787Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -46,12 +46,6 @@
     "rose-valley": {
       "articles": [
         {
-          "title": "Rose Valley case: High court sets refund deadline for victims of the financial scam - Telegraph India",
-          "pubDate": "2026-09-30",
-          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQYkNoRHZJRTVyaEp2U0tidWxVSFV2b1I5NTA1RnlWZGM1azlvVmlIRjVhR0JhTTZDYkpIOUJwdVlpTDBLNUduYnlYY2dpMWpaRmdVRlNtYUNMcGNZZjZpTFhwQmY4SThidE1DSlNoT29QSkxXWFNPME5WaVdyNWRzbXFNcXZyTGl4Z0N4OUtpWk5LUE5hMlgtY08xbDdacldJNkpNS2VKQVFRYS1iRnlwUG9XNlBSS21fUnkxbFVRSmhKVG1sN052ajJpT29yUWZuTk5GamhlVXZKQ21LZmkxc3phTTHSAeoBQVVfeXFMTnlpVVZGQzMyRHZRZnFnSUxZZ191bVhuOVdoRFFMcktuYmZ4ZDNOTjlIODJWa3RPcU51N0UxM09TN2ZuUjcwUHgxa1F1c3JUaDNRMUlPQ1V5b3E3UGlJX3k0WDJHeHpwbjFyZTRQRjBUTzNiTENzMHZyQ2dtTDhIak1OajduWXVpTlM4dnk4WVVLZG85aXc5RG9ueF9JQjJfbTRPQzR6eVRGTnoycTQxRGJIcVdtclFzUVE4S2RFU1ZnYkFmQ1BCWnlJTTNrVXBIRS1HbExUYW50aDZyd0RmWHRtZ0lsZWNLMjV3?oc=5",
-          "source": "Telegraph India"
-        },
-        {
           "title": "Cal HC Grants ADC 5 Months To Dispose Of Ponzi Firm's Attached Properties, Slams It For Slow Work - ETV Bharat",
           "pubDate": "2026-09-29",
           "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxORWZ4WU91MHNLZmpPYjFNSnlsWDdTc2JMMlZ5T25OS3VUaTlRS3JkRm1TZGcwSFNfRl9GYTluNlRtSlFVejBZOUFGS0d2WGtjRGJ3XzhQZ0RvU2dkSGIyZ294bXlzTHZnUjZFTk9GYVFyZUppS0tHYUJSckZRano4cDdjclpfWWxlSklNVTY4QzBqMGZZRnVKLV8xajZtV2JiRmFBc1ljOENIaXBzV3VMQzNhYlM2NU1FeG03NUlmYnZWWWVta0ZZeGhhcHNfNk5GOU00RW5YZkJlYUppbkk4aHBuUmVfdXZkQ0RrV1pR0gHzAUFVX3lxTE53YVZSU0dPQlpZQXNsWkEzaG00U2ZXMEhxdFoxaFYtb2ZFRnlVeGFPcTRNWjI2SkhHQzlJQjFUZGR5bk1kZWZlcTVnV09PWGl4aldoS2xlMVJXbTdKbkxIdk80dFp5SDc5aE9PM3ZwUlhiVGJpTVk0MTk1MHhfZFVkdENpdnpNTmNsdW96RFRiYm1SbXVoOEVPUDY3Q09aVXExMzVOV1p6MXRqZk9rampsSVFEMlFRSXE1b1d0VmxDa2gyTS0xMFpzdF9oeTN2VjR3bHRFVlE3bVNwYVpud09CZWU1dGpwdko2dWlZMzV0dm9IOA?oc=5",
@@ -80,6 +74,12 @@
           "pubDate": "2026-04-07",
           "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE16QWR2b0hsZjhVMWRrNlVEUnF4OXRNUXpuX3l2UXVETGgzY0ZOZEZPb2U4WE5HWGVRcnAxb0M0QndQQk12ekhQYkgxZmN2elNkc3lTWHhOUW5tMVFqS1ZNTk9DT0VtRURfNWhxb2VQbC1xemhlanFYYQ?oc=5",
           "source": "PW"
+        },
+        {
+          "title": "HC asks SFIO who will fund CA audits in Rose Valley case - The Times of India",
+          "pubDate": "2026-03-13",
+          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZlJpTW01eWs3Y3RPUUk0SmRudDAzWEdwT0ZpLW0tZ0k3QjM2d0NjOUZCVHMtcTVFM1RMZEY0U2c0YzBMWG51YzZKcG5wbXBnN0RQcmZhT1I4TGFfUEJ5QjVpS29Ma0ItT19BdFNkb1VqREdNYlV3ckdHQ2dwd3hTZWFQemhwTEJucllGX2lYZlJqTXQyZG9QYm9uaEZZdHBBQjMxNW5OZjkyWklHWUNRUlZuNzZOc3AwR25XZW1EaU9iTWlzdnZGcmVSMNIB0AFBVV95cUxPY0htdC1pWXNDcjU5MVpJOHh4U243Um43RXUxQWVBZXkyemxMZlRaZ1lNdzRZdUFqMjI4RV9sQ3hlaXBKZUpkZ0EySDhsRjIzRTUxZEdiZTFoMEN5ZUxQekxTSTlSbGd5eTNTNHFaal9EYjhnZ2lyZktzVXljV20xSnM0bXpXVDNPZlY4ZDM5ZWhzM2JrUW5XYU1GT2JGZl8tVFpGcTJCMmJJaFJKMmI4aEZoNmp4VjhXdC1QbTR0eUhZRGxGNUR5dTlNLXliNUdD?oc=5",
+          "source": "The Times of India"
         }
       ],
       "count24h": 0,
@@ -226,12 +226,6 @@
           "source": "The Indian Express"
         },
         {
-          "title": "I-PAC raids ‘met with resistance’ from Mamata, ED set to knock on High Court doors, top officers say - The Indian Express",
-          "pubDate": "2026-01-08",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxORzlzcHhfcUNVUktLTVNHM04xUzRLU29Jczl0WjFZNWN6RmxqdFFZb1lNSk1WQnVQaGtTS1owUk1iWDlOM0FiMmRPNmZxbWRZOVZMR2xyYU82cTEwa2ZzR2pkTGdwZ0Z5N0FYSzJlbjRlclpOLVoxbENvaE1TUXI5THRvblAtLXBUdGgzSEFtVjZVNV9rVUg5YW1UWldlcmlKcmpEZdIBqwFBVV95cUxQVHdoczhBMldueUtvWDJFYWZ4WjFDRk5vb2s4djh4TURKenZDamc2eEdBZ2RpQUo0QzRPZHE1UUVPb0hXR2FmU1BRX0Y2a1FBUGxBNEFaTTYzLWYyS09TOWJlSV93OUpwa0dPdkQycUNRbXlObmFmQ0pkOFFGZ1ZDd2xZN0NPMk1CYzJJZjVhT2wzaFdGdjdtUTFXVzRheUF5SGRiTDJxajRwUHM?oc=5",
-          "source": "The Indian Express"
-        },
-        {
           "title": "Coal scam accused Vinay Mishra hiding in Vanuatu under new identity, says CBI - Daijiworld",
           "pubDate": "2025-07-07",
           "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1FdmkzLWtmblJHZW1GbFJ4X0t5UFdlWWx5d2hjcXV0UUwzYTBWcC1uc1hqckxfajlyR0dVTGdra0xpSmhidXhROGVLV1FPVUlzZ1FHMnlaOTg1eXFmallCeC1DMnoyNjhNLVE?oc=5",
@@ -248,6 +242,12 @@
           "pubDate": "2025-01-22",
           "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNMW9rbDByRFcxVmkzSnFlU3dvbDk2RDNJRlV0TGYwWkdTaldzOXFLVnZ6RnAwWGZDeEl2NGd2emNZTFRYZXpybUozU2VTVzJYaXZQMDFDOVQ2ZjVFNDBXUUVwbFRKeW03dzVfcUdDZnF0NW0yRmdsSXBhdjl0Nlc3dDRCUmFRRlZoOG5PTm43dUpGVEhHVmxtbkZfTG5wYU1tYmk0MkxwcmdkVlBVbUhEaElPdXpLMTJrVE1fbk5TZllvUURsYzczRndkTUtuOVZ0dGNtU3lULXc1MnfSAeABQVVfeXFMT18zci1Jb1VLMmtNNEhURzhlRk5Od2syajlnZjVIZUJzTklZYU9iOFZHVUxWQURsX1RfMGtGbFotX1ZscWFWb2FBZG56WmJuWXUtMTlTUGZ2SW02ME9ua1U5cmx1T3lzNWRFdzNWWUVjTzFwOFg1SFNzUk1QMHZBcW1rQ0hsNV80aUxUeHhMU3FYeUc0Ml9hOS1CU2lrRXJjUHFCOGRyczh1U0hkeDNOVFNkMkx5NHF6VzVuNFJwYWFvRzhKZDNBYThaV3ZjVEVZZURyNTNmanJnVnJQQ254R2Y?oc=5",
           "source": "ET EnergyWorld"
+        },
+        {
+          "title": "Cal HC: Coal scam accused Vikas Mishra granted bail in POCSO case - ThePrint",
+          "pubDate": "2025-01-13",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQREhvX0xzT1dtLXdkV0FVSUZwWXZMX3FkclZMZ24zeW93YkR2X0tjQjJ3SEVLLUpaMFNaSG1QVGgtVGtfS2VkbUN3bVp6ZEh1MlVhYUhqVG45cnQ3WFdac01jQUZ4dnRRUFp2VUdua2EwTGFVY1NZb3VEeHdWNlMtdmZSaFNkRE9UTlFoS3dNQV82dUxIOFBCWXZUUGlzS2800gGmAUFVX3lxTE8za2hqZGwyc0RGQWEwTFRieGs0R1Y0Z3EtaWtsTVB2aXdubUQtV1lWbFpvWXh4VVk3QkdsUDVBdkdldUpGcEV6S1lIclhOQm9LNzk1ZzYzemViRzVsVU1qWTN0UUxZSTlaMHlyLTlTOXgyUWFWNENhbmhiWXNlUHVPQ280U0ZZWlNJYUdkUGZKWUVieDB6dWJGeWYzc2drbFBRX0NQWlE?oc=5",
+          "source": "ThePrint"
         }
       ],
       "count24h": 0,
@@ -286,10 +286,10 @@
           "source": "Telegraph India"
         },
         {
-          "title": "Jyoti Priya gets conditional bail in ration case, walks out of jail - The Times of India",
+          "title": "Former West Bengal Minister Jyotipriya Mallick granted bail in ration scam case - The New Indian Express",
           "pubDate": "2025-01-15",
-          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPaHUtVmhpRmVMOVo1VE1mZWUzdzNPRHR3eGF4VE96ZW5Td09EU2NSUmlFVXR2azNlcTJvTXlMTVFqODJjUUhpYmJYSl8zRFNJc2EyS0NxM2Zwd1VPM0stRzBMZUQ1dEpZMTFpZGNfVVdyQVlERnZ4a0ZGdVgzT051cWp6SEZiMG9vZHlpckVvbktKMVdweC1lSnNtUGNEbGNDaXpsWmxYdjFIWXJJRlBUVTN0RFFYRHF0SklFTkhWdkpyeGpNUlRDdXlWejFUNWZDdWFaR3FTZnTSAd4BQVVfeXFMUGlyUWoyVHVHRFpBaFZJa1phZU8tMHRHazZWUjc5YTdPRlViMVZMbFI3WTAwRFIzSC1vb0puYTAtcHNHQnJFQXFLb2NYTWhJU3pQNm9pSWFpc1lzNFN6Y29KMDJ5a1Q0c3ZFMHJjc3R2Zml1ZTVvdExqZ0VGTmdkNUcxd3REQ1dNVzRlZkFWbHJzOFE0Y1NhVmVENTRpYUpmOU9sU0p6d3pHSWc2bmo2dHBRLXduZTRZdS1fbDJ1MlUweld0ZFJXX0ZYZXZKYnFpdGlmN0tmU1hMZ3owemlR?oc=5",
-          "source": "The Times of India"
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPQjE3M1hyM2xCSDF6MFNfYUtfbndhSUl4UFdMemYzVjBmbTg3Z0U5VHpaMFl5a0I0WDFaRldwemZ2c09pb05icFA1SGwwdWJQM2tadzltOTJYa1hDY2E0cFp3M0ZFdXI3X1MwNWVUczBjdlA2cExtbjctRWRSMWV1S1hvUXdVb2cwTmlpa19UMFFzbjcwdVFwNmFLUWNQU3hldXoyVnY0UTFlRGk3TkFGa0xhUXczUjhOUUI2MTQ3WlRMcnRrUzlXaUtSLW02bldPaEJj0gHgAUFVX3lxTE5DeEtXZkF3QUtmVlZFRzlYUVlLejdRTHdGejl0UjE5SUFSazlfNU1Na1liX0xtVVIwQ2plVmwxLUpOaXVMT05SSlkwMTJTcjdKYzM0cjFVaDF5Mm0yeTBncDY5NU9aMXZxRl9vLWlXbUdIVnZ1UkdPdGxsVmdHRXJLRWxTNklDSzNHeHBxT2R4QmYtUnYtQVI3RmhGcGU2U2ZmY1ZBeGg1MEp1ZDk4RjM0RjBNM3ZkX2UyQUU2N3IzTFdHZ1FuX1dWaW56NHhIT1FUMVMxRFRXaXMtbnQwVDN4?oc=5",
+          "source": "The New Indian Express"
         }
       ],
       "count24h": 0,
