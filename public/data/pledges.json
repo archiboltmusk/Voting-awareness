@@ -1,7 +1,7 @@
 {
   "swearingIn": "2026-05-09",
   "deadline100": "2026-08-17",
-  "lastUpdated": "2026-11-01",
+  "lastUpdated": "2026-11-02",
   "sourceNote": "Pledges sourced from BJP's official 'Bhoroshar Shopoth' manifesto (bjp-govt-wb.pages.dev tracker) and verified against news reports.",
   "categories": [
     {
@@ -1306,7 +1306,7 @@
       "title": "Mandatory Gender-Sensitisation Training for All Police Officers",
       "detail": "BJP pledged to make gender-sensitisation and women's rights training mandatory in annual refresher courses for all police officers — with an external audit of departmental response to women's complaints every 6 months.",
       "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) — Section II",
-      "status": "watching",
+      "status": "delayed",
       "deadlineLabel": "6 months",
       "deadlineDate": "2026-11-01",
       "updateNote": "No gender training mandate issued yet.",
@@ -1680,7 +1680,7 @@
       "title": "Specialty Care (Cardio, Oncology, Ortho) in Sub-Divisional Hospitals",
       "detail": "BJP promised to deploy visiting specialist doctors — cardiologists, oncologists, and orthopaedic surgeons — on a weekly rotating basis to all sub-divisional hospitals, reducing the burden of referrals to Kolkata.",
       "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) — Section IV",
-      "status": "watching",
+      "status": "delayed",
       "deadlineLabel": "6 months",
       "deadlineDate": "2026-11-01",
       "updateNote": "Specialist rotation to sub-divisional hospitals not announced yet.",
