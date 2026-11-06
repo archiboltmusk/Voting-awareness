@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-06T00:44:59.001Z",
+  "generated": "2026-11-06T07:39:39.248Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -130,12 +130,6 @@
     "ssc-scam": {
       "articles": [
         {
-          "title": "Bengal SSC Recruitment Scam: ED Alleges OMR Manipulation and Paid Appointments - The 420.in",
-          "pubDate": "2026-08-25",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQLTRLT1p6NFdienl3MVE5WXlEQmVfSzltUHFZZ0NBcUJhTlY4ZXlqc2ZnLWRSLWdRRmFVZVhYT2JhaE5ZNmRCRGpmTk80Mmp2aDRDZ0FUQ3QxYnRIMXZyZ0cxZnBsbkNwaUdWVmdYTmhfWEdCMThTZnRFZlhpQWVJejQwc3pId3NIMW9yeXBpVlhOWHZwTTdB?oc=5",
-          "source": "The 420.in"
-        },
-        {
           "title": "Supreme Court Stays Kolkata High Court’s Order on SSC Teacher Recruitment in West Bengal - News On AIR",
           "pubDate": "2026-05-27",
           "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQbUdpb2RJZWZLenpocVJTWWlwMWpNZW42WlhXVU5NNV9mSmlUT1NsV1hiZzUybVN5aEpqMzVBVmt3dmVMVXZaOGtUWWt4ZktQQlR1WnNZbVhmTkRfZ01PeDdvYUVieWVFRHVZalJYTUJxYjNjSEtFYW1IZmFwNkN3Nzg1S0N2TURnM0pZdzhQeG9WRzJsUU05X0V5Y2p0Q25zSkdzNS1YZzYwNnE0aGRXS1VLaw?oc=5",
@@ -164,6 +158,12 @@
           "pubDate": "2025-12-04",
           "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNUFdqTFp2TFQwSFZKTHhReWE1STB3dTFxZTJxV0R4TXAzSDBlWWI5RTNXRFlDTXladnlJNWZJWjBjMWdzZGplTE5kbWNqOWxIQVJFNEw2aFk5dF9tWlVCOVVLY3hiUE9menVydElzTXh0cl9ZNi1QT2p4OTFTb1NaWkozQjZGQ1lua21uTmJocHBBNzc2YVJEcHY0Rzg4OFdRSF9uSWoxWFVYNDNORGxqTW9PaUpkb1dlekpndEU4RUxrbGRILWg2RDhkQdIB0gFBVV95cUxNNXVRMVJpMmVmc0hZZHJjdi1GMGR5T3RvaEFRWXFxVGRrWTBSakk5VXhkQXFfNWt1OFNsakl0emE1dDd0bVZySFVWU0tqemN4YXpvVXA1UjFWTUctaW11NXVtUUhIcnlzQ0pxSUpsQnFOWVhTZ1E4SGNoQVlsVkNobC00YUVKVk5GU1Vybm9IN0Q4eTNJcG5JR0ZCQkltb2wtTjN3SHAtMUpPSENPc1BlczFmR0FYSkJUbGVXSEF6UXF2by01SnFXRHZDT0dlWE5zV3c?oc=5",
           "source": "Frontline Magazine"
+        },
+        {
+          "title": "Supreme Court refuses to interfere with judgment on West Bengal SSC Jobs scam - LawBeat",
+          "pubDate": "2025-11-30",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPNURydTRoSzZ3M1o3ODNVcU9Idk1lSjlUbWIzeENtaGx1YlFFY2hRQnIweUNZY1RKVGFrVDBKc2xydWhHZHI5U2NTUXpGLVQ4S0M2c2YtWFMwb042UDdqWXJUZjVtWUw2Zjc2ZE1QS2xBdzU0MkdxbHlkeHY2c29RSHlKMy1manJWWk9lalV2UlJuZHF2c2JWQlhta0dpRy1GWUhXTFpQUmVucF9HalZGVUxoZ29sQVXSAbwBQVVfeXFMUDQyTDlBUUZ6ZEtGcG8yYkNTQ1Z0cGhoX3FSbXBZc2lBN2tpWG1LR3BMTTJZREhjdXVmMml5SXpsZW1Vay1PalJxODlnVmNIRDZNLVZpYzdLM2ItSW9QQ2dvU3FMZm1ha3EtMTUyU3NrSHhLVm03c2lySW1lN2NYbWhuaFZoMTN6UmVGb09VMWFvdVlEc3VxSWRyMWwxZW5Fb3BNTjRkR2tiMjdUNHQ1eElBXzN3OElwMnpoSXU?oc=5",
+          "source": "LawBeat"
         }
       ],
       "count24h": 0,
@@ -298,12 +298,6 @@
     "post-poll-violence-2021": {
       "articles": [
         {
-          "title": "CBI withdraws 20 petitions from SC on Bengal post-poll violence - Rediff",
-          "pubDate": "2026-10-28",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNNU5JYjZGN3poN01PNm9SVkoyNFBoaVQ1UHFjNGEtZGI0ZEQtRVlKcEQ4U1VGM3g5b0NnOEp3VmRYZzlLaHo5UU9xVzFKUHJadHFxR21RVmp4MDRZRVYzSjFyYmV5T2lldklZRDRuSzJsX0VXanl2T1RkNjhUbDZTb0NCYTJFbnREZHhjbzJibkxzdFNqZ05yWEtNSWhUWWFxaUNrYXFFU1lod1p2SWFBbNIBswFBVV95cUxQUmZYakx0X1hDQl84OHpyT1Fycm9DS2ozdnBtQ1ZSTUZ4eW56bTM2Z1dDQlloVjBKOW5jUFl1QU1mQjN6LXZFaWpQNXVYeE5mWjhnNlc4MVpkT2xLcDlhLUlrY1A5bTVWN2ZXREpSYmx6cjBRV1lTa2lnNHI1Q1pnck4zakFoaHlJbHlFWEZiUkZUVkp0UVl1RllXT2FnaTZERWZFLVZ1QndJTTVYaGZOcVJ1aw?oc=5",
-          "source": "Rediff"
-        },
-        {
           "title": "CBI withdraws Supreme Court plea seeking transfer of 2021 West Bengal post-poll violence trials outside State - India Legal",
           "pubDate": "2026-10-28",
           "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNSGpjaXQzbHFmeFB2eV9LLWx1S1dTR1NTYkRGMVBwR21xYUJSdDJVeVREZmNfNDVaVEtlTHNJLTZsWG1kTmxFZ05ReWlLdjRFeFZKcXJSZGVnR0VzNEVscno5V2gtYm9HbmdaeFU5WG1MSFp6aWZVODBQNkRTbmw1b21KZ0pUdGdfMmY0QTh1RDcxZE5DSU5veGdCUTU5OS1yQjFZa0JXTjZEU1NjTU53eGFFbFh0b2hseG9qMDc1YTRZWk9xLWJIMXY0WHV0Q0hwS0I0T2JSVFdGWkk1RndCcEpiZEgtT01wNklzeUNvN25TdW90NGdFZlVNMktUQWhYWVRB?oc=5",
@@ -326,6 +320,12 @@
           "pubDate": "2026-10-28",
           "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQcFJFcWxGMHQyOG1nVG5LYVlSeXNuVG5lYmV5ZTdVaC1aUmdxTExTSmVFVWU4WDJhX0ZyTzQyeEh6QnlzdGJpdUVZcUo0TURHeFA2OHNNVHlaLW1Pc21HSlROMDBzc3dtWW9ycWZldE5DQjV5X3hkZzRjWS1id0RrV3JzcnNKZ05tN3c1ZmVmaDBJdTZ5cWhFaGVHRnU3UFlfLVdXSFVoM1BOalJOOVRyd1lqM2xSc1lZdTZsdGFHS0ZiOV9GamtRUWxqMUEwejZM0gHeAUFVX3lxTFBBU0pQV3JJZHpZdHduRGp3U2MzS1Y3SFlYdEY1QzFWbHZ4RkFrbm5sWE5iWHI3UXE1QXZPMGpHQTg1Rk95V09vNUxEN1JrNTZnenFIOFVYai1aVG5oUTZ5WjNNX2Zyb2NLUHhkWXFsQ002VnpDR0g2bzNzVXBCa1ctR3pLQXpkc1VOTUZrS05SaE5Nai1VNXRja0VXRUxxOWNPSUtqcnp0cjR3bmVacXVWeTNCYXBYM3hCUGdESnIxYXZMLXdsTDF6bVdiSldTcnV4SFNDdVJlWFlCdmcwdw?oc=5",
           "source": "The New Indian Express"
+        },
+        {
+          "title": "CBI withdraws 20 petitions from SC on Bengal post-poll violence - Rediff",
+          "pubDate": "2026-10-28",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNNU5JYjZGN3poN01PNm9SVkoyNFBoaVQ1UHFjNGEtZGI0ZEQtRVlKcEQ4U1VGM3g5b0NnOEp3VmRYZzlLaHo5UU9xVzFKUHJadHFxR21RVmp4MDRZRVYzSjFyYmV5T2lldklZRDRuSzJsX0VXanl2T1RkNjhUbDZTb0NCYTJFbnREZHhjbzJibkxzdFNqZ05yWEtNSWhUWWFxaUNrYXFFU1lod1p2SWFBbNIBswFBVV95cUxQUmZYakx0X1hDQl84OHpyT1Fycm9DS2ozdnBtQ1ZSTUZ4eW56bTM2Z1dDQlloVjBKOW5jUFl1QU1mQjN6LXZFaWpQNXVYeE5mWjhnNlc4MVpkT2xLcDlhLUlrY1A5bTVWN2ZXREpSYmx6cjBRV1lTa2lnNHI1Q1pnck4zakFoaHlJbHlFWEZiUkZUVkp0UVl1RllXT2FnaTZERWZFLVZ1QndJTTVYaGZOcVJ1aw?oc=5",
+          "source": "Rediff"
         },
         {
           "title": "2021 Bengal Post-Poll Violence: CBI Arrests Proclaimed Offender In Sova Rani Mondal Murder Case - ETV Bharat",
