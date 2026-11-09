@@ -1,7 +1,7 @@
 {
   "swearingIn": "2026-05-09",
   "deadline100": "2026-08-17",
-  "lastUpdated": "2026-11-08",
+  "lastUpdated": "2026-11-09",
   "sourceNote": "Pledges sourced from BJP's official 'Bhoroshar Shopoth' manifesto (bjp-govt-wb.pages.dev tracker) and verified against news reports.",
   "categories": [
     {
@@ -750,7 +750,7 @@
       "title": "Uniform Civil Code — 6-Month Implementation",
       "detail": "BJP pledged to enact the Uniform Civil Code (UCC) in West Bengal within 6 months of taking the oath of office — making Bengal the second state (after Uttarakhand) to implement UCC, covering marriage, divorce, inheritance, and adoption laws uniformly regardless of religion.",
       "source": "BJP 2026 Manifesto (Bhoroshar Shopoth) · Amit Shah Kolkata manifesto launch, April 2026",
-      "status": "watching",
+      "status": "delayed",
       "deadlineLabel": "6 months",
       "deadlineDate": "2026-11-08",
       "updateNote": "No UCC legislation or announcement in West Bengal as of mid-May 2026.",
