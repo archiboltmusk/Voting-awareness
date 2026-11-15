@@ -5,7 +5,7 @@
     <link>https://voting-awareness.vercel.app</link>
     <description>Latest headlines on Bengal corruption cases, court hearings, and political accountability — updated every 6 hours.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 15 Nov 2026 17:33:27 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 15 Nov 2026 22:29:23 GMT</lastBuildDate>
     <atom:link href="https://voting-awareness.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://voting-awareness.vercel.app/favicon.svg</url>
@@ -416,19 +416,6 @@
       </content:encoded>
     </item>
     <item>
-      <title>West Bengal ration scam: Former minister Jyotipriya Mallick gets bail, walks out of jail after 13 months - The Week</title>
-      <link>https://news.google.com/rss/articles/CBMi5wFBVV95cUxOLUd6bVd3OEF4Q0MyZ2lhN0VhZXI0ZGV1N3AxOVh5R0p4bjNMNkJ0S1NGMUNnVHRKaTMxNDByelpyN3ZDcEJJeG5IeHhVMFZqUURlY3ExQW9BeEJFR0FYcGl2X0JZcGJ0MTg2TkpPLWdnMUJmN2lBZkMzeTRWcjAwdzktN2ROOGJZVm9kWVNYTWJza0w1dldYSFBqX01MRVRiN2d3Z2dhbndrenhFTE5Mdjlac1p4X0ZYRUoyQk5ZVmRsOVdyaDdPdFhBU0J3TlVQdFZjMFRXTDVYSnlDWXRadUQzbFlJMmPSAewBQVVfeXFMTXVrSVZROG9RUUVqWW5JU0RCOU9ZQ3hyZ19UMVZQNXp5NDhueFlWSGl2bnFZUk1jNWhYN2Nhalh0M2hhdWZaaHprNHRlWVVGTmlZWmh0aUZVc2lWaFZWUXN5RDh5bzRYeHR6ajR4VUp1ZlNHZkZRQjRNS1U2RURmZkx2MXA2TTlUTFhGZzIxcVRfT3U4N0V5YWl6b041X3AzYmc0cDQ5bGN2SEhKRlhpbDVid0h3bWNXVy1SN3dZWnI5bnptVjJCVUxJbjJVeklObEl5MXZrSl9hLVZzWG9WeXVvMDRKUm13Qy1wT1M?oc=5</link>
-      <pubDate>Wed, 15 Jan 2025 00:00:00 GMT</pubDate>
-      <source>The Week</source>
-      <category>ration-scam</category>
-      <content:encoded>
-        <![CDATA[
-          <p>West Bengal ration scam: Former minister Jyotipriya Mallick gets bail, walks out of jail after 13 months - The Week</p>
-          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
-        ]]>
-      </content:encoded>
-    </item>
-    <item>
       <title>Jyoti Priya gets conditional bail in ration case, walks out of jail - The Times of India</title>
       <link>https://news.google.com/rss/articles/CBMi2AFBVV95cUxPaHUtVmhpRmVMOVo1VE1mZWUzdzNPRHR3eGF4VE96ZW5Td09EU2NSUmlFVXR2azNlcTJvTXlMTVFqODJjUUhpYmJYSl8zRFNJc2EyS0NxM2Zwd1VPM0stRzBMZUQ1dEpZMTFpZGNfVVdyQVlERnZ4a0ZGdVgzT051cWp6SEZiMG9vZHlpckVvbktKMVdweC1lSnNtUGNEbGNDaXpsWmxYdjFIWXJJRlBUVTN0RFFYRHF0SklFTkhWdkpyeGpNUlRDdXlWejFUNWZDdWFaR3FTZnTSAd4BQVVfeXFMUGlyUWoyVHVHRFpBaFZJa1phZU8tMHRHazZWUjc5YTdPRlViMVZMbFI3WTAwRFIzSC1vb0puYTAtcHNHQnJFQXFLb2NYTWhJU3pQNm9pSWFpc1lzNFN6Y29KMDJ5a1Q0c3ZFMHJjc3R2Zml1ZTVvdExqZ0VGTmdkNUcxd3REQ1dNVzRlZkFWbHJzOFE0Y1NhVmVENTRpYUpmOU9sU0p6d3pHSWc2bmo2dHBRLXduZTRZdS1fbDJ1MlUweld0ZFJXX0ZYZXZKYnFpdGlmN0tmU1hMZ3owemlR?oc=5</link>
       <pubDate>Wed, 15 Jan 2025 00:00:00 GMT</pubDate>
@@ -437,6 +424,19 @@
       <content:encoded>
         <![CDATA[
           <p>Jyoti Priya gets conditional bail in ration case, walks out of jail - The Times of India</p>
+          <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
+        ]]>
+      </content:encoded>
+    </item>
+    <item>
+      <title>Ex-minister Jyotipriya Mallick gets bail in ration scam after 14 months in jail - The Indian Express</title>
+      <link>https://news.google.com/rss/articles/CBMiqAFBVV95cUxNSGRwMGI5dGdPcTNoSU5JbWVIZVM5SVNTbTcyTHZVRldHcVFOOU43UzJiTVdPVHZtZDdHMmR4RlR2VjMzRjlESnl3TVRDUVJaOFNTVkV4dnFlRTBVX19fSGlVZko5eHBMSDdydEJQU3BYX3lTbXZqclRMVGtGV0VsdkY2ZjdvRTJST2M0Q1pkUXZPbHNIQlp6cmpOVGJhMXJyWVRLeE92X27SAa8BQVVfeXFMTlJiTHFEb1hsRlBELU5wbk9aQktJR2pNVzlUcWNBVEUwby1LU3Y2TUZiSVZxMVo3V1NHS0xFN0xqVUNzMFNqNG9ZbElVSjdYS01pLVBtY0RtcFRDT04wTmMxa2xkY2VnSGYtVDE1a2QxQzZLcHlncjVFWjlkTW1rRV9LRWltS05RUUl2RnZpd1dZSDJKWXdQX1hmall5T3J5azdxVzdQcEVsbVoweHVtRQ?oc=5</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 GMT</pubDate>
+      <source>The Indian Express</source>
+      <category>ration-scam</category>
+      <content:encoded>
+        <![CDATA[
+          <p>Ex-minister Jyotipriya Mallick gets bail in ration scam after 14 months in jail - The Indian Express</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
@@ -455,14 +455,14 @@
       </content:encoded>
     </item>
     <item>
-      <title>Ex-minister Jyotipriya Mallick gets bail in ration scam after 14 months in jail - The Indian Express</title>
-      <link>https://news.google.com/rss/articles/CBMiqAFBVV95cUxNSGRwMGI5dGdPcTNoSU5JbWVIZVM5SVNTbTcyTHZVRldHcVFOOU43UzJiTVdPVHZtZDdHMmR4RlR2VjMzRjlESnl3TVRDUVJaOFNTVkV4dnFlRTBVX19fSGlVZko5eHBMSDdydEJQU3BYX3lTbXZqclRMVGtGV0VsdkY2ZjdvRTJST2M0Q1pkUXZPbHNIQlp6cmpOVGJhMXJyWVRLeE92X27SAa8BQVVfeXFMTlJiTHFEb1hsRlBELU5wbk9aQktJR2pNVzlUcWNBVEUwby1LU3Y2TUZiSVZxMVo3V1NHS0xFN0xqVUNzMFNqNG9ZbElVSjdYS01pLVBtY0RtcFRDT04wTmMxa2xkY2VnSGYtVDE1a2QxQzZLcHlncjVFWjlkTW1rRV9LRWltS05RUUl2RnZpd1dZSDJKWXdQX1hmall5T3J5azdxVzdQcEVsbVoweHVtRQ?oc=5</link>
-      <pubDate>Wed, 15 Jan 2025 00:00:00 GMT</pubDate>
-      <source>The Indian Express</source>
+      <title>Why is ration ‘theft’ a ‘scam’, court asks ED - The Times of India</title>
+      <link>https://news.google.com/rss/articles/CBMitgFBVV95cUxQTHB0YktHdTNhOUNkYVpaLWZ4Uldkc1dubnlRdzZEcXgxV1JDa2ZtLWJsSUI1djkyUGwtRTZwa0JiWXRxSjRPcmRpLU5YNVZBSTdmTTZ3OEFLOFBvWGRLWnhkdDRSZW45LVRiRnlZcWR1R1hPTkxlcjZEQjdaQ09yVmdGWXNMYW55dzNpVWwzcy0zVkp1NnI1c2FkUEY3cTQxZTRDLXZSdG80cnlSRzlQS2Vua0ZQZ9IBuwFBVV95cUxOREpyLWEwZ1pOanZCZFVfSlNFU0p0UVliM19QSmhBS3NkdDlQR3JMbUUyc19NQ0FaZEdGNTZIcFkzVFM2b2RFSTQxTG1PZ3Mybm9XTGdaNGRiTFJteEtBNmxoem5QRUFBU2J0c2syVWhfd0FxRnhpOUxSSDN2ajl3WGkzRDE2azl4LV9xM1gzYjE2YWd3SWxmNXFfMHFZZnFkWDFuakdSVHVyRW5qelFJdTBFNzJxUE51dUZB?oc=5</link>
+      <pubDate>Fri, 03 Jan 2025 00:00:00 GMT</pubDate>
+      <source>The Times of India</source>
       <category>ration-scam</category>
       <content:encoded>
         <![CDATA[
-          <p>Ex-minister Jyotipriya Mallick gets bail in ration scam after 14 months in jail - The Indian Express</p>
+          <p>Why is ration ‘theft’ a ‘scam’, court asks ED - The Times of India</p>
           <p>Read more at <a href="https://voting-awareness.vercel.app/corruption">Bengal Corruption Dossier</a>.</p>
         ]]>
       </content:encoded>
