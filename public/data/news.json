@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-15T10:24:49.856Z",
+  "generated": "2026-11-15T17:33:27.906Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -124,7 +124,7 @@
           "source": "The Indian Express"
         }
       ],
-      "count24h": 2,
+      "count24h": 0,
       "count7d": 2
     },
     "ssc-scam": {
@@ -172,6 +172,12 @@
     "cattle-trafficking": {
       "articles": [
         {
+          "title": "Birbhum strongman Anubrata Mondal’s bodyguard sent to seven-day custody in Tulu Mondal case - The Statesman",
+          "pubDate": "2026-08-16",
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOUTc3d1FzRXlNbGZDNGRZSl9kN2g0ZHJuQTR1TWp3MEo2RS1HYmFjOXd4QVJIT1l5VzR0MzQ0SWRsTXVmMFgwZWFKN0dXNEQtaEVvLXhoTWxLaFlyeWZEOUdfR2FVYVUwOEhwV0tBUnJ1TTNsc3Qxam1zRGFOcl9KM0U3ZkVHcTgzVS1qWEtzNnVQRGdQYjdIc09GRUhxNGdYa0oyWGNCRVRHcDBwWXRDbkRxMk9pbWdwd3Z6alBQaERMSlpROWl1am4wYm9XMjR5dC0zOVpxZzhGS2liYkRGdmNCbDnSAeoBQVVfeXFMUERqVGVlM0xjWGt5NUJLSGlMQkdkN3AyNTY0QmF3UHg1dHFJdFI0T21DRFRvWFFsNHdvQkdNekZkMDlXaV82Z2FhdmtJdVI5QnItdkRlLXhTb2dGTE5jZUN0LUhFNUFBVjRwU1VHUWdsVXhmdVp5R2w2b0Y1MzZfenExODZwcHVWM2cyMXNDbXhfQUlYTm1JUG1uN2JMRmNEamt4Tm42VXhMV29Tb1NYUWpaMDBmVWFndEN1dDJ3T2FSY3BCOHRkOVEzeW5QdTRXMTFsLS1qZWQ4VXJHc1ZHODZiLVd0cGd1eTJ3?oc=5",
+          "source": "The Statesman"
+        },
+        {
           "title": "Calcutta HC grants anticipatory bail to rebel TMC leader Anubrata Mondal in extortion case - Telegraph India",
           "pubDate": "2026-07-27",
           "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPc2E4SzhJZERfOEVyLTNnZkQ1TWUtbTBKcjdWUTI1S0tsUFFhdmd3RVF0aUpzb0dkdjc5bllHMDFWWGZ4MlFnYWN2QkJsUnFndnZGOUFlWlE1Nm1CdllFS3RlWm5HNTVRc0I5MlhEZ292QnRLN2swOTI1akpHdE9lOXFSUElUOEtvSkItRTM5NTAzdnBTTnRCLXg4akRVSHBqUVYtMDBzSTFoUzJrMEFibEhrNVlMQXppN3lxXzg0UUZ5REQzbXA5QlJPcTBwV0Q1di1QQkxrWkhmazFOZzNYYklYY1U2dWxL0gHuAUFVX3lxTFB2QS1KM1NtWUJhTjBWVEU2WkU1bVZ2VTR1QmVRbWtwa0Z4dUp4RU9PZVNpWFNIWDJ4YjVmN0RoaFhHQkdUOUdCWWttV0xMay02ZERXMWFzalg1RXlqakxuQXFkdVJmWWNUZDdNV3l3S21SVFJ2LXBLZVJYR09iak9hTDN0QWV6ZEpPaDN3dk1QRFgzQzhJWnZvQTM3VEctamVvTTBqYzJiRmlrSHllQk9vS3dLOXV2RlVhVUNLVFBGQlZnYVZ5dmlrSFlETTZ5RDlVMDlzVEdxdmFCRUFMWElvVE43NXFvNWxuVThZNGc?oc=5",
@@ -200,12 +206,6 @@
           "pubDate": "2025-07-23",
           "url": "https://news.google.com/rss/articles/CBMirwVBVV95cUxPbXVyQXhmMUdPOFo2Q19TU1NFbDZFZEFacExWSHFmbGp4SzFPbFByLWtxLTZmMnNwNWU0amJiRjFRbThoeEdVZ2sxZ0s2RWdIRkJ5bXVpUEJrR19xei1MS0VVTUdfRl9MeGFLdjFKV1NHa1k0eGppQzJwQnZRa2wwVGpCVUp3MDFmbE1lWW91SGZxbXBETlBuSnBIY3FjSjAtUm5mcDc0VGt5Q1NHOFYycmtFYjFPU3o4bHE3TnpSdkxDaXNzazdtRGFzR1dFUUJRUW9EQU1rcVdCdHF1Mm1VQ3VKNHZJM2diZVF0QlQ0UXNxTTdIOWlieUxFNkZabjloTEwzZVkwRjBieURYVVlyQXdqelNCZFNTdlF2MzBoRVNsR2syaDExVGNtSzh5RGdrSWloWUpKT3hSa3NPVmlHN0lLMFd1MlZsTXJvYWlLUEZWZGZqdm82d3JtT1dpbmI3LVExQWNTYlhxRmROLTFSZExvWkdmcWgzM200ZG1scExUZ3hRajdfbnJUbnRnSDdKa2dhajZLM1VzTEM3b1E5V2hUeW9VdHlQUm1HelFtNEJFZy15eVdWcFhyZTZKNXB3R1BXNVd3bk9vMC1VWk9jalM2V3RqYU5zWWVsVHM3TVZqaVlCdHNlZVlaZmFqdW9YYXVlSWJjWkVVdWVhVXFzNU5SRmhmUllURC1NUTBDWFR2OHZGMHg5QVlreWthMzdqTEtORExVZkxLZXdwcWtUa0tFN1BIaGVpOFc1OHRveldBWmpqVjNXcWZxaHdxOWpOYlU0UUFrRV80UEsydUxEaEFwaDFPdEtqNmMzc240UnVjekdTb1Z4dkszRzR1RjFVemtsS01HWWVONVI0dnJXYVlia3E1LWJVVndkX1lmQTJ4ZW1tUlJKWGZQdlVTbk0?oc=5",
           "source": "Facebook"
-        },
-        {
-          "title": "Calcutta HC grants permission to Birbhum SP to challenge summons in Anubrata Mondal case - Telegraph India",
-          "pubDate": "2025-07-08",
-          "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQTHdtX1dNazNhWFJEb1g4YzFwdFYxWHNhdXFMZnJSVk5nYUZyN29RVkY2b1BaWGFCa2dmeXphajRjSkxhcGNudUlMbEZZQnJldjAwbUdIZzFwbmtsU3VLTWZBNURFVWxYako0UGlqQjUxc0hNdjRFanJKS2RfcW52cF84V1psZ3lGV3czeWU0V3lRbGsxbGpZeEpEcmpHVVc3WFdzUF9nRGEtVmNJUk9wMENuNEZmOFUtZ3J6UTdrRl9yWUlNOGpYRFM5Q29wMjNEdXlKLU9UdDlFbHdhc0twSzBmSVM1UdIB6wFBVV95cUxQTVJPbks1eUlkcGZTcjRHX1FzTDN6UXhjRGlEU2Y3UzA0QldIclhnUEFtRWdYZUFEUl9EOF9WSHFhYUQzYVFVRFlxbVVQc2RsYncxRHFlWHdZSEJXQjBvVVozSC04NWhBcVBoeTdBZDVqN3FRSlRyMjlfd0xUYWNrczlWY2lmMGtoSU1MbVpFeklRT21kYXJCcjVhbXpQYlpZczg0MDF6d3hHUXlXOTZfWnBBS21RY0NoTlBZWFhoQTFLUGVUQ1BBakxIZjk1VmhuZ3NIMDFyNGlKTWlJUmZ3NUdla2h2Z3VnVmZN?oc=5",
-          "source": "Telegraph India"
         }
       ],
       "count24h": 0,
@@ -304,16 +304,16 @@
           "source": "India Legal"
         },
         {
-          "title": "CBI withdraws pleas seeking transfer of 2021 post-poll violence cases in West Bengal - The New Indian Express",
-          "pubDate": "2026-10-28",
-          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQcFJFcWxGMHQyOG1nVG5LYVlSeXNuVG5lYmV5ZTdVaC1aUmdxTExTSmVFVWU4WDJhX0ZyTzQyeEh6QnlzdGJpdUVZcUo0TURHeFA2OHNNVHlaLW1Pc21HSlROMDBzc3dtWW9ycWZldE5DQjV5X3hkZzRjWS1id0RrV3JzcnNKZ05tN3c1ZmVmaDBJdTZ5cWhFaGVHRnU3UFlfLVdXSFVoM1BOalJOOVRyd1lqM2xSc1lZdTZsdGFHS0ZiOV9GamtRUWxqMUEwejZM0gHeAUFVX3lxTFBBU0pQV3JJZHpZdHduRGp3U2MzS1Y3SFlYdEY1QzFWbHZ4RkFrbm5sWE5iWHI3UXE1QXZPMGpHQTg1Rk95V09vNUxEN1JrNTZnenFIOFVYai1aVG5oUTZ5WjNNX2Zyb2NLUHhkWXFsQ002VnpDR0g2bzNzVXBCa1ctR3pLQXpkc1VOTUZrS05SaE5Nai1VNXRja0VXRUxxOWNPSUtqcnp0cjR3bmVacXVWeTNCYXBYM3hCUGdESnIxYXZMLXdsTDF6bVdiSldTcnV4SFNDdVJlWFlCdmcwdw?oc=5",
-          "source": "The New Indian Express"
-        },
-        {
           "title": "CBI Withdraws Plea In Supreme Court To Transfer 2021 West Bengal Post-Poll Violence Cases - Live Law",
           "pubDate": "2026-10-28",
           "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQTkpMZWVZVjFNSm9vS1ZQY2tLWHJDVzhvS2xIVnhSWE52RUZzYmxiOG05YmV4dkI4VlhVanU2bUhmb1RWRFprYndseU10UGhtNllhT0VXaktTa3l1c055R2t5VmkwbExCa3BDNGZ2ZGJFRzlHYkZUakNzN2dUdXlSS3c0U2hSVVVEdFVvVndEMjNncXJ3cUU5QTZ6OUd1MFJhWWNSN3VObjl2bm1VZ2pUVnl0aTQ0Nk5sU1c1ZGw1OHhuOWZwQXZsTmE0TdIB0AFBVV95cUxOOWxERDBFWTJOTjByQ3ZpR3QzMWpfVVFYMUdsZ1dGRVF1UERidUZXak5feXJESl9IYTg5bkUydndUREZmOHN1alJkMzRSZV9fOEJObGJJNnFKb1IyUWVzZXgwLUFCLTkwZGZuX0t3eHY0dUpjZV9zN0NKZHJuQXJ0Z1NnNGJxN2ZjWTRCQVBnTmZtM20xaVpUSEFsNXlPOXRmWjFYRFpFby1pc3JrcUVsWG5qVm5ZbFpFeTlKYWtNeE5WY3pZeUI5aVQtUXdDXzM3?oc=5",
           "source": "Live Law"
+        },
+        {
+          "title": "CBI withdraws pleas seeking transfer of 2021 post-poll violence cases in West Bengal - The New Indian Express",
+          "pubDate": "2026-10-28",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQcFJFcWxGMHQyOG1nVG5LYVlSeXNuVG5lYmV5ZTdVaC1aUmdxTExTSmVFVWU4WDJhX0ZyTzQyeEh6QnlzdGJpdUVZcUo0TURHeFA2OHNNVHlaLW1Pc21HSlROMDBzc3dtWW9ycWZldE5DQjV5X3hkZzRjWS1id0RrV3JzcnNKZ05tN3c1ZmVmaDBJdTZ5cWhFaGVHRnU3UFlfLVdXSFVoM1BOalJOOVRyd1lqM2xSc1lZdTZsdGFHS0ZiOV9GamtRUWxqMUEwejZM0gHeAUFVX3lxTFBBU0pQV3JJZHpZdHduRGp3U2MzS1Y3SFlYdEY1QzFWbHZ4RkFrbm5sWE5iWHI3UXE1QXZPMGpHQTg1Rk95V09vNUxEN1JrNTZnenFIOFVYai1aVG5oUTZ5WjNNX2Zyb2NLUHhkWXFsQ002VnpDR0g2bzNzVXBCa1ctR3pLQXpkc1VOTUZrS05SaE5Nai1VNXRja0VXRUxxOWNPSUtqcnp0cjR3bmVacXVWeTNCYXBYM3hCUGdESnIxYXZMLXdsTDF6bVdiSldTcnV4SFNDdVJlWFlCdmcwdw?oc=5",
+          "source": "The New Indian Express"
         },
         {
           "title": "CBI withdraws 20 petitions from SC on Bengal post-poll violence - Rediff",
