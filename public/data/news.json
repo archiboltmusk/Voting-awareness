@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T07:59:20.084Z",
+  "generated": "2026-11-21T16:03:38.684Z",
   "cases": {
     "saradha": {
       "articles": [
@@ -125,7 +125,7 @@
         }
       ],
       "count24h": 0,
-      "count7d": 1
+      "count7d": 0
     },
     "ssc-scam": {
       "articles": [
@@ -190,12 +190,6 @@
           "source": "NDTV"
         },
         {
-          "title": "Zee 24 Ghanta. . Anubrata Mondal Case: অনুব্রতর IC-কে কদর্য হুমকির ঘটনায় NCW-তে হাজিরা বীরভূম পুলিসের | Zee 24 Ghanta Anubrata Mondal | All India Trinamool Congress | National Commission for Women | Sabyasachi Chakraborty | Vikram Das | Dr. Archan - Facebook",
-          "pubDate": "2025-07-23",
-          "url": "https://news.google.com/rss/articles/CBMirwVBVV95cUxPbXVyQXhmMUdPOFo2Q19TU1NFbDZFZEFacExWSHFmbGp4SzFPbFByLWtxLTZmMnNwNWU0amJiRjFRbThoeEdVZ2sxZ0s2RWdIRkJ5bXVpUEJrR19xei1MS0VVTUdfRl9MeGFLdjFKV1NHa1k0eGppQzJwQnZRa2wwVGpCVUp3MDFmbE1lWW91SGZxbXBETlBuSnBIY3FjSjAtUm5mcDc0VGt5Q1NHOFYycmtFYjFPU3o4bHE3TnpSdkxDaXNzazdtRGFzR1dFUUJRUW9EQU1rcVdCdHF1Mm1VQ3VKNHZJM2diZVF0QlQ0UXNxTTdIOWlieUxFNkZabjloTEwzZVkwRjBieURYVVlyQXdqelNCZFNTdlF2MzBoRVNsR2syaDExVGNtSzh5RGdrSWloWUpKT3hSa3NPVmlHN0lLMFd1MlZsTXJvYWlLUEZWZGZqdm82d3JtT1dpbmI3LVExQWNTYlhxRmROLTFSZExvWkdmcWgzM200ZG1scExUZ3hRajdfbnJUbnRnSDdKa2dhajZLM1VzTEM3b1E5V2hUeW9VdHlQUm1HelFtNEJFZy15eVdWcFhyZTZKNXB3R1BXNVd3bk9vMC1VWk9jalM2V3RqYU5zWWVsVHM3TVZqaVlCdHNlZVlaZmFqdW9YYXVlSWJjWkVVdWVhVXFzNU5SRmhmUllURC1NUTBDWFR2OHZGMHg5QVlreWthMzdqTEtORExVZkxLZXdwcWtUa0tFN1BIaGVpOFc1OHRveldBWmpqVjNXcWZxaHdxOWpOYlU0UUFrRV80UEsydUxEaEFwaDFPdEtqNmMzc240UnVjekdTb1Z4dkszRzR1RjFVemtsS01HWWVONVI0dnJXYVlia3E1LWJVVndkX1lmQTJ4ZW1tUlJKWGZQdlVTbk0?oc=5",
-          "source": "Facebook"
-        },
-        {
           "title": "Calcutta HC grants permission to Birbhum SP to challenge summons in Anubrata Mondal case - Telegraph India",
           "pubDate": "2025-07-08",
           "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQTHdtX1dNazNhWFJEb1g4YzFwdFYxWHNhdXFMZnJSVk5nYUZyN29RVkY2b1BaWGFCa2dmeXphajRjSkxhcGNudUlMbEZZQnJldjAwbUdIZzFwbmtsU3VLTWZBNURFVWxYako0UGlqQjUxc0hNdjRFanJKS2RfcW52cF84V1psZ3lGV3czeWU0V3lRbGsxbGpZeEpEcmpHVVc3WFdzUF9nRGEtVmNJUk9wMENuNEZmOFUtZ3J6UTdrRl9yWUlNOGpYRFM5Q29wMjNEdXlKLU9UdDlFbHdhc0twSzBmSVM1UdIB6wFBVV95cUxQTVJPbks1eUlkcGZTcjRHX1FzTDN6UXhjRGlEU2Y3UzA0QldIclhnUEFtRWdYZUFEUl9EOF9WSHFhYUQzYVFVRFlxbVVQc2RsYncxRHFlWHdZSEJXQjBvVVozSC04NWhBcVBoeTdBZDVqN3FRSlRyMjlfd0xUYWNrczlWY2lmMGtoSU1MbVpFeklRT21kYXJCcjVhbXpQYlpZczg0MDF6d3hHUXlXOTZfWnBBS21RY0NoTlBZWFhoQTFLUGVUQ1BBakxIZjk1VmhuZ3NIMDFyNGlKTWlJUmZ3NUdla2h2Z3VnVmZN?oc=5",
@@ -206,6 +200,12 @@
           "pubDate": "2025-02-09",
           "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOV1VSWkZhLUQwaUZUcjVDZkgtVDlzbzEzTXp1dHhhSEZYcnA5eTR6M1hyUVpJQ3N1RjQ0Uk0zVjZ0RUFiZmloT1hlMXlYRldvZENGZ0I2OVBnb0FKUVVfbUhQUjl1Ym5DOHVibkRmTG5uR3ItWDdOQ0FRTWZBeWdUV05TdXhnS29nNEh4WnpwNmMzVGs3V2JFRjBFNW5ZaUlJU3ppLVhjR1dRSFcwNXpYMW5sUnJuT2FJUkRzU0Zn0gHEAUFVX3lxTE85OWUtM3gzWjZLT3RVMk1jaFdHU1ZOdWUxa3ZwOVRPZGNfM3k5V3AzY3dnU3JmT1AtNUFVOGZBYlQwYVhfRkFNR2hlbmY2WTRHZTFtcG9TZTlSS2hRQWJRSVJSaVRlV0FuN1hwRnBiVElYTWtubUt5b2dUbC05YUxtal9vNy1oSnlEWDBZVzVpMFJXX3NLRU5uemxGdEFUREZVWWc5dkhxbFJ3cGd2UHVkaUNXanR4cUYxNXhpbjRsY01kMmM?oc=5",
           "source": "The Indian Express"
+        },
+        {
+          "title": "TMC leader Anubrata Mondal arrives at Chinar Park residence after release on bail - ANI News",
+          "pubDate": "2024-09-30",
+          "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPRHNfTEs3ZVdxMWp4QmhpTzR5SVZ3NDdQdFBUaFhOT201VE9XeGJ3ckE2d1dpcXN6NGRFVktwdVJRT2FJR0VST2phZWpXX3JrR2Nia0ctREhsVTNwdkMxeC1YdkMzSDFaV0ZvaGJKM0RmSTVCLTZJeTVtd0cxS0FwOG5Rbk5SdHRCb3hCZ25fQjR0WEhPTUhKN2tuUDlnRWNMUm5uNDAtZnNMNkdsdTBhcE1KX2VqNTZmZnJiM2xmN01xZHhfSk5QcVZmTGp5dEVCeVhMWVkyQjVwaXJCOWc?oc=5",
+          "source": "ANI News"
         }
       ],
       "count24h": 0,
@@ -268,12 +268,6 @@
           "source": "ETV Bharat"
         },
         {
-          "title": "Ex-West Bengal minister Jyoti Priya Mallick quits all TMC posts, cites health issues - The Economic Times",
-          "pubDate": "2026-06-19",
-          "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNYzZNWkpEN1dINUEzcjFrcWJDOUVBNkhsZ25iOEEzR0JTQTc4WFhfQ0JQM0Rha0J4bGNpc01uOXBmSzZjeFNjX0ZUZ1lyUHJaYzlQd0FOY2hZUDVnY3NSTWNOOF80eGlTSHd4cXc2azFkUktyY1lkMXp3b0JfQXhVMl9fR19TcUFhc2REdFk1d1oyUU5mNnI5MUFsZkIwNmlMVXIyMmNpWEFjVVRvdEpzamF1VFVzeU81Z2hhQVRkRnF6YV9ZWVNWWF9oa1VpOWw1STU5OUZQRnJJSXA5aktnMUdUWGwwT0NGdjBPa0M1TWUwRF9C0gH6AUFVX3lxTE5nVi1Xc0laVGI2aUsyZTdsbHJ5VnVoMGJ2UXlzT0hZQ2RZVWtjVFJVWjFud2s0UlcydXN6cl9mdFZCMFdXOUx1cmtsNk1UazZIdnFydnB5U2E1VlFiOERLaW9UdUJTVHRxWDFWOThWSk1pOUljdVREOEJ1QUJ4TVBxOUtLbEhobU9wUTQ5MHhYQ3p1bUlwZnh0NkItTlI3aEEzZ3QzajJiQTIwcHRacktfUEtFWTlORjhMOEdBamJyUm1YOGdqcUZqOW5yNklWT3d4LWttRUJ5YWc2VVhZVlRqM3g0YmV1RUw1eUpjeWU2UzJfX3ZZN19EWHc?oc=5",
-          "source": "The Economic Times"
-        },
-        {
           "title": "West Bengal PDS scam: Former Minister Jyotipriya Mallick granted bail - The Hindu",
           "pubDate": "2025-01-16",
           "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQT2o4OFExYTY2RUZCRXdJeU1tZXBFMlk0eUJyeDBEWDV4d0pNUkpIcFAycWhsOWJON2dkb2o4SkhuS1lvVmdzSktMYUR3QzBzQUhUc2lRVXpkZWo4YUV3TXZiN3AzTlVtZ2RJb2RmVjgwcFZ5ZmtmVUVCSzNuNFpRU2FleUJIMFRiNi1UQms3bHhGdTlaTm9sNGROYXFNWkJMSUZsV2M5N1hKY3k5cEdxNHJ2bjhvMmlLd0VSVHBISm1rMGlOV0NOVVFBUWc2TG1aWUFiNE1n0gHcAUFVX3lxTE1zamZCX25DMHV2X2o5SGprV3hVOWJxWFZjd3Q3RFBicVdnX05NeDNQaHJvLTlEMUtUemZqTmFLVEkza21vVXpLSUdpdV8xUS1Wa2tJY2NJVlBsYzRhOVQ3cW9lLW01cGJfS1ZYdHE1MmRNRlFHZnZ6eE0zUl9WRTI2N1ZFcUlsVFRTcXFaLU9qUXBrVEIzM2FLWktrS0k5NWZycDVEQ2JyNlN1UXJLZEgwUDlBNFlBc0Mwc3lxOWhkeHJEd0FIYTFqREJPVHJPNHhqcjRoS25GRUhzUjg?oc=5",
@@ -290,6 +284,12 @@
           "pubDate": "2025-01-15",
           "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOcFowRnl0UVFuRllsR21lai1YaDBxVXRBc3RjNEJ0Q2k4RHZBTGphaWRRWV9JTWJNR0ZNMVNHSzBjeW5DTUtkWmhjTC12UUt2UEg0TFI4R3JjSkJmeGxnVnlocmthTndFd1hqa2N4aDRCTTU5Y29SdVVpSUZtbjJ5VlEyZm9iWEtsejBjemc0Z0xrbHZyMXZoX1dmUEs1UF93cVNkdTRDa21XZWdBeW5FSXdnVTlhVXVVbVhYWnh6Tjc4MmNvNFk00gHMAUFVX3lxTFBHZmN0WmUzOHQ3QjJHdjRfWTY3R2tlRmRvNTZtY1BBX1pSTUhVRVBDQnN1cGJWdEFaU3Exa2xtXzBVa2RBd0JOUzZwRXdEdDlxelpnZ0dzeS1HMjYxRW9tOUpFSnZaSkhFcmJVS3htVXcyT0l3eW1CaEZaSURvOE01ZTZRWXZHLURsNkZvUTh4VUxRNklmMXN3ZWdXbFNTdzl0dFJCczFKcFVxTGVMQzJmQVBoTnhTVjV3V0M2RnNCU0RjOF9IajFfTXZ6ag?oc=5",
           "source": "Telegraph India"
+        },
+        {
+          "title": "West Bengal ration scam: Former minister Jyotipriya Mallick gets bail, walks out of jail after 13 months - The Week",
+          "pubDate": "2025-01-15",
+          "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOLUd6bVd3OEF4Q0MyZ2lhN0VhZXI0ZGV1N3AxOVh5R0p4bjNMNkJ0S1NGMUNnVHRKaTMxNDByelpyN3ZDcEJJeG5IeHhVMFZqUURlY3ExQW9BeEJFR0FYcGl2X0JZcGJ0MTg2TkpPLWdnMUJmN2lBZkMzeTRWcjAwdzktN2ROOGJZVm9kWVNYTWJza0w1dldYSFBqX01MRVRiN2d3Z2dhbndrenhFTE5Mdjlac1p4X0ZYRUoyQk5ZVmRsOVdyaDdPdFhBU0J3TlVQdFZjMFRXTDVYSnlDWXRadUQzbFlJMmPSAewBQVVfeXFMTXVrSVZROG9RUUVqWW5JU0RCOU9ZQ3hyZ19UMVZQNXp5NDhueFlWSGl2bnFZUk1jNWhYN2Nhalh0M2hhdWZaaHprNHRlWVVGTmlZWmh0aUZVc2lWaFZWUXN5RDh5bzRYeHR6ajR4VUp1ZlNHZkZRQjRNS1U2RURmZkx2MXA2TTlUTFhGZzIxcVRfT3U4N0V5YWl6b041X3AzYmc0cDQ5bGN2SEhKRlhpbDVid0h3bWNXVy1SN3dZWnI5bnptVjJCVUxJbjJVeklObEl5MXZrSl9hLVZzWG9WeXVvMDRKUm13Qy1wT1M?oc=5",
+          "source": "The Week"
         }
       ],
       "count24h": 0,
@@ -328,10 +328,10 @@
           "source": "Rediff"
         },
         {
-          "title": "2021 Bengal Post-Poll Violence: CBI Arrests Proclaimed Offender In Sova Rani Mondal Murder Case - ETV Bharat",
-          "pubDate": "2026-09-30",
-          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQZkU4MEhCZVduWWp3Z3dUZzU0eWJXSUpldGRxeXFWVjhTWmxkaFRtV1oxclVuMGFKR0h3ZFV3Mzl0XzhSRlREcVBQWTFhUWdQN1ZDeVVrSVlOTzYxUGlfNDI2dGFuVnI2MXZHaGtiSTBTRnZaZWM2TWxzTkotQjhqeW1FMHJ0X2F4Zk00Q3dRdXBUU3JXZDhCMU9ab0QtY01wRUcyWjhVU3BPYnY2WjlHZm1mTU91TXdtdjJ6QW1oQVk2d1cyZkpHQnUzU1dJZTJhcXdlV3N0VDBIdXNM0gHiAUFVX3lxTE9UbUNVdGs1d1llRW1qaTZOUGt5aUg0Z3hrTGVKd0tBWFNQTjVUbkdldXFXMTdoVDJlek5YSTdYR2xDQmtWRGtLQTktWGNIeHljd2p0cUViMjZkNzJXbVgzZ2ZHMXo4UDZ4TTMyUEJCQzdicS1Pc0tjWDU4Um5BUVFPMThEVlUwVElQYVZISTR6UHB4OWIyUDNSYVBKMXRGTGhsbmFKeWhzQ3dCX1V1YWp5dHdZVUlyc0Mwcjl5TGIzQzFFNTE4MFdHdDVDdUtqN1ZESVhNd05wWUVoYUlncUgyUVE?oc=5",
-          "source": "ETV Bharat"
+          "title": "CBI arrests proclaimed offender in 2021 Bengal post-poll murder case - The New Indian Express",
+          "pubDate": "2026-09-29",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNR1pkTGZEd1RETnZSQXN6ZmdXbzdQRGlGc2JzQ1U5OHUyUm00U2tjY1dPRkNaYkRjNUp0RGRYRV9iWDlEcDFSbGhwX000TmJoUng1TUZFcTBBNWdMXzR5LWlyQjB0WWhZeTc2b1hnbnZwakY5Y0hvN3pWeG8wUV9UZGRUbl8wSllwT0NlQ2RBMGIxZjlSd09zUEY1UWZSZnhWX3hDWUU0R2RzZUZXM0FUZlFMdEVuY3J5NGpBNzlfWFdIcXpqblJfLVpzcjluSVXSAdwBQVVfeXFMUEozcnN2TlFrRlloVFhXSThvMkhsS2UtZGlRQ204bG1YaV8xaFY4ZWlFQ3dadHM2NjIxQ1pxdHNTN1dMYzA4Q1dzbFUwa1E2RGZENkpSQllRb3ZyLUFpM3Via1VNRUpqR0NwVE15SXI0bWctc3BfMGpzYlJxQWJRZktuMmZXeEJua0ZyVnBRaVdLMWE5WlI4bU93SGlrVEprWWJBWWlaZVdPaldQNTJnaUJKV0pwY0cwTzU3RVBYQzVRSmRoSnV5SmdBTjc1UzlDVDZQLTNoZVphUXNvcQ?oc=5",
+          "source": "The New Indian Express"
         }
       ],
       "count24h": 0,
